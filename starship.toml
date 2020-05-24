@@ -1,0 +1,57 @@
+[character]
+symbol = "ﬦ"
+error_symbol = ""
+
+[battery]
+
+[cmd_duration]
+min_time = 500
+show_milliseconds = true
+prefix = "⌚"
+
+[directory]
+prefix = ""
+truncation_length = 3
+
+[username]
+show_always = true
+# style_user = "bg:blue fg:bright-green"
+
+[hostname]
+ssh_only = false
+# style = "bg:blue fg:bright-green"
+
+[docker_context]
+symbol = "🐳 "
+
+[dotnet]
+symbol = "NET "
+
+[git_branch]
+symbol = "🌴 "
+
+[git_status]
+# stashed_count.enabled = true
+# modified_count.enabled = true
+# modified_count.style = "red"
+# untracked_count.enabled = true
+# untracked_count.style = "red"
+# staged_count.enabled = true
+# staged_count.style = "green"
+# renamed_count.enabled = true
+deleted.value = "❌"
+deleted.style = "bold red"
+renamed.value = "💫"
+renamed.style = "bold red"
+modified.value = "✏"
+modified.style = "bold yellow"
+untracked.value = "🆕"
+untracked.style = "bold red"
+staged.value = "✅"
+staged.style = "bold green"
+stashed.value = "💰"
+stashed.style = "bold gold"
+# deleted_count.style = "red"
+# deleted_count.enabled = true
+show_sync_count = true
+style = "bold white"
