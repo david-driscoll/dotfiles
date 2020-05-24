@@ -1,6 +1,6 @@
 # We do this for Powershell as Admin Sessions because CMDER_ROOT is not beng set.
 if (! $ENV:CMDER_ROOT ) {
-    $ENV:CMDER_ROOT = resolve-path( $PSScriptRoot + "/.." )
+    $ENV:CMDER_ROOT = resolve-path( $PSScriptRoot )
 }
 
 # Remove trailing '\'
