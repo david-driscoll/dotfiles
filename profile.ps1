@@ -16,7 +16,7 @@ if (-not $env:PSModulePath.Contains($CmderModulePath) ) {
 # Enhance Path
 $env:Path = "$Env:CMDER_ROOT$([System.IO.Path]::DirectorySeparatorChar)bin$([System.IO.Path]::PathSeparator)$env:Path"
 
-foreach ($x in Get-ChildItem $ENV:CMDER_ROOT/config/profile.pwsh -Filter *.ps1) {
+foreach ($x in Get-ChildItem $ENV:CMDER_ROOT/profile.pwsh -Filter *.ps1) {
     # write-host write-host Sourcing $x
     . $x.FullName
     # Write-Host "Loading" $x.Name "took" $r.TotalMilliseconds"ms"
