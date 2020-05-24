@@ -14,8 +14,9 @@ chmod 644 ~/.inputrc
 cp -f ./.bash_aliases ~/.bash_aliases
 chmod 644 ~/.bash_aliases
 
-cp -f ./thefuck/ ~/.config/thefuck/
-cp -f ./powershell/ ~/.config/powershell/
+mkdir ~/.config/
+cp -rf ~/dotfiles/thefuck/ ~/.config/thefuck/
+cp -rf ~/dotfiles/powershell/ ~/.config/powershell/
 find ~/.config/thefuck/ -type f -print0 | xargs -0 chmod 644
 '. "~/dotfiles/profile.ps1"' >~/.config/powershell/Microsoft.PowerShell_profile.ps1
 
