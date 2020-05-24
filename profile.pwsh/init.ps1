@@ -2,7 +2,7 @@ Import-Module posh-sshell
 Import-Module Pansies
 Import-Module ZLocation
 Import-Module WslInterop
-Import-WslCommand "az"
+Import-WslCommand "az", "curl"
 
 # Chocolatey profile
 $ChocolateyProfile = "$env:ChocolateyInstall/helpers/chocolateyProfile.psm1"
