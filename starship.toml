@@ -18,6 +18,7 @@ truncation_length = 3
 
 [hostname]
 ssh_only = false
+trim_at = "_"
 # style = "bg:blue fg:bright-green"
 
 [docker_context]
