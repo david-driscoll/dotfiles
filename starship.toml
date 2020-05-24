@@ -14,7 +14,6 @@ prefix = ""
 truncation_length = 3
 
 [username]
-show_always = true
 # style_user = "bg:blue fg:bright-green"
 
 [hostname]
