@@ -31,14 +31,6 @@ symbol = "NET "
 symbol = "🌴 "
 
 [git_status]
-# stashed_count.enabled = true
-# modified_count.enabled = true
-# modified_count.style = "red"
-# untracked_count.enabled = true
-# untracked_count.style = "red"
-# staged_count.enabled = true
-# staged_count.style = "green"
-# renamed_count.enabled = true
 deleted.value = "❌"
 deleted.style = "bold red"
 renamed.value = "💫"
@@ -51,7 +43,5 @@ staged.value = "✅"
 staged.style = "bold green"
 stashed.value = "💰"
 stashed.style = "bold gold"
-# deleted_count.style = "red"
-# deleted_count.enabled = true
 show_sync_count = true
 style = "bold white"
