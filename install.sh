@@ -1,7 +1,7 @@
 # dotfiles installer
 sudo apt-get update
 
-curl -fsSL https://starship.rs/install.sh | bash -s --yes
+curl -fsSL https://starship.rs/install.sh | bash -s -- --yes
 sudo apt-get install -y python3 python3-pip
 sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 10
