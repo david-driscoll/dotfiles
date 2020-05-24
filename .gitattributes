@@ -1,8 +1,7 @@
-* text=lf
+* text=auto eol=lf
 *.sln text eol=crlf
 
 # Source code
-*.bash_aliases text eol=lf
 *.bash text eol=lf
 *.sh text eol=lf
 *.bat text eol=crlf
