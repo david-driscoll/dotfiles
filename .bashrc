@@ -95,7 +95,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 eval $(thefuck --alias)
-export STARSHIP_CONFIG "~/dotfiles/starship.toml"
+export STARSHIP_CONFIG=~/dotfiles/starship.toml
 eval "$(starship init bash)"
 # eval $(gpg-agent --daemon)
 export GPG_TTY=$(tty)
