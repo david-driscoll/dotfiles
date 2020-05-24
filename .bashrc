@@ -95,6 +95,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 eval $(thefuck --alias)
+export STARSHIP_CONFIG "~/dotfiles/starship.toml"
 eval "$(starship init bash)"
 # eval $(gpg-agent --daemon)
 export GPG_TTY=$(tty)
@@ -125,6 +126,5 @@ fi
 
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-eval "$(starship init bash)"
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
