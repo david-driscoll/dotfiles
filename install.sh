@@ -18,7 +18,7 @@ mkdir ~/.config/
 cp -rf ~/dotfiles/thefuck/ ~/.config/thefuck/
 cp -rf ~/dotfiles/powershell/ ~/.config/powershell/
 find ~/.config/thefuck/ -type f -print0 | xargs -0 chmod 644
-'. "~/dotfiles/profile.ps1"' >~/.config/powershell/Microsoft.PowerShell_profile.ps1
+echo '. "~/dotfiles/profile.ps1"' >~/.config/powershell/Microsoft.PowerShell_profile.ps1
 
 git config --global core.eol lf
 git config --global core.autocrlf true
