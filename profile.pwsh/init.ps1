@@ -12,7 +12,7 @@ if (Test-Path($ChocolateyProfile)) {
     Update-SessionEnvironment
 }
 
-$ENV:STARSHIP_CONFIG = Join-Path $env:CMDER_ROOT 'starship.toml'
+$ENV:STARSHIP_CONFIG = Join-Path $PSScriptRoot '../starship.toml'
 $ENV:USER = $ENV:USERNAME
 
 iex (&starship init powershell)
