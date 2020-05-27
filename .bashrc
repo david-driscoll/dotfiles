@@ -95,6 +95,15 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 eval $(thefuck --alias)
+
+function set_win_title() {
+    ssDirectory=$(starship module directory | sed -E "s/"$'\E'"\[([0-9]{1,3}((;[0-9]{1,3})*)?)?[m|K]//g")
+    ssBranch=$(starship module git_branch | sed -E "s/"$'\E'"\[([0-9]{1,3}((;[0-9]{1,3})*)?)?[m|K]//g")
+
+    echo -ne "\033]0; $ssDirectory$ssBranch \007"
+}
+starship_precmd_user_func="set_win_title"
+
 export STARSHIP_CONFIG=~/dotfiles/starship.toml
 eval "$(starship init bash)"
 # eval $(gpg-agent --daemon)

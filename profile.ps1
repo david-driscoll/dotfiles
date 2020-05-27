@@ -1,3 +1,10 @@
+Import-Module posh-sshell
+Import-Module Pansies
+Import-Module ZLocation
+Import-Module WslInterop
+Import-Module posh-git
+Import-WslCommand "az", "curl"
+
 # Add Cmder modules directory to the autoload path.
 $CmderModulePath = Join-path $PSScriptRoot "psmodules/"
 
@@ -13,6 +20,32 @@ foreach ($x in Get-ChildItem $PSScriptRoot/profile.pwsh -Filter *.ps1) {
     . $x.FullName
     # Write-Host "Loading" $x.Name "took" $r.TotalMilliseconds"ms"
 }
+
+# Chocolatey profile
+$ChocolateyProfile = "$env:ChocolateyInstall/helpers/chocolateyProfile.psm1"
+if (Test-Path($ChocolateyProfile)) {
+    Import-Module "$ChocolateyProfile"
+    Update-SessionEnvironment
+}
+
+$ENV:STARSHIP_CONFIG = Join-Path $PSScriptRoot '../starship.toml'
+$ENV:USER = $ENV:USERNAME
+
+iex (&starship init powershell)
+$ExecutionContext.InvokeCommand.LocationChangedAction = {
+
+    $env:PWD = $PWD
+    $current_directory = (Convert-Path $PWD)
+
+    $title = starship module directory "--path=$current_directory"
+    $title += starship module git_branch "--path=$current_directory"
+
+    $host.UI.RawUI.WindowTitle = $title -replace '(\[\d(?:;\d+)?m)', ''
+}
+
+$env:PYTHONIOENCODING = "utf-8"
+iex "$(thefuck --alias)"
+
 
 Start-SshAgent -Quiet
 
