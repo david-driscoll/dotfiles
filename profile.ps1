@@ -1,10 +1,3 @@
-Import-Module posh-sshell
-Import-Module Pansies
-Import-Module ZLocation
-Import-Module WslInterop
-Import-Module posh-git
-Import-WslCommand "az", "curl"
-
 # Add Cmder modules directory to the autoload path.
 $CmderModulePath = Join-path $PSScriptRoot "psmodules/"
 
@@ -21,14 +14,7 @@ foreach ($x in Get-ChildItem $PSScriptRoot/profile.pwsh -Filter *.ps1) {
     # Write-Host "Loading" $x.Name "took" $r.TotalMilliseconds"ms"
 }
 
-# Chocolatey profile
-$ChocolateyProfile = "$env:ChocolateyInstall/helpers/chocolateyProfile.psm1"
-if (Test-Path($ChocolateyProfile)) {
-    Import-Module "$ChocolateyProfile"
-    Update-SessionEnvironment
-}
-
-$ENV:STARSHIP_CONFIG = Join-Path $PSScriptRoot '../starship.toml'
+$ENV:STARSHIP_CONFIG = Join-Path $PSScriptRoot 'starship.toml'
 $ENV:USER = $ENV:USERNAME
 
 iex (&starship init powershell)
