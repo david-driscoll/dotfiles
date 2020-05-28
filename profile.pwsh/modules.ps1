@@ -1,4 +1,16 @@
+Import-Module posh-sshell
+Import-Module Pansies
+Import-Module ZLocation
+Import-Module WslInterop
+Import-Module posh-git
+Import-WslCommand "az", "curl"
 
+# Chocolatey profile
+$ChocolateyProfile = "$env:ChocolateyInstall/helpers/chocolateyProfile.psm1"
+if (Test-Path($ChocolateyProfile)) {
+    Import-Module "$ChocolateyProfile"
+    Update-SessionEnvironment
+}
 # Import-VisualStudioEnvironment
 
 function Get-ComputerName {
