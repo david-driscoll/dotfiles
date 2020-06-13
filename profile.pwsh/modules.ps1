@@ -1,6 +1,5 @@
 Import-Module posh-sshell
 Import-Module Pansies
-Import-Module ZLocation
 Import-Module WslInterop
 Import-Module posh-git
 Import-WslCommand "az", "curl"

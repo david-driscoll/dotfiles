@@ -32,6 +32,7 @@ $ExecutionContext.InvokeCommand.LocationChangedAction = {
 $env:PYTHONIOENCODING = "utf-8"
 iex "$(thefuck --alias)"
 
+Import-Module ZLocation
 
 Start-SshAgent -Quiet
 
