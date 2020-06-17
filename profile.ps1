@@ -5,6 +5,16 @@ if (-not $env:PSModulePath.Contains($CmderModulePath) ) {
     $env:PSModulePath = $env:PSModulePath.Insert(0, "$CmderModulePath$([System.IO.Path]::PathSeparator)")
 }
 
+if ([Environment]::OSVersion.VersionString -like "Microsoft Windows*") {
+if (-not ($ENV:APPDATA)) {
+    $ENV:APPDATA = [Environment]::GetFolderPath('ApplicationData');
+}
+
+if (-not ($ENV:LOCALAPPDATA)) {
+    $ENV:LOCALAPPDATA = [Environment]::GetFolderPath('LocalApplicationData');
+}
+}
+
 # Enhance Path
 $env:Path = "$PSScriptRoot$([System.IO.Path]::DirectorySeparatorChar)bin$([System.IO.Path]::PathSeparator)$env:Path"
 
