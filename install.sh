@@ -1,8 +1,11 @@
 # dotfiles installer
+wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb
+sudo add-apt-repository "deb http://security.ubuntu.com/ubuntu xenial-security main"
+sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
 
 curl -fsSL https://starship.rs/install.sh | bash -s -- --yes
-sudo apt-get install -y python3 python3-pip
+sudo apt-get install -y python3 python3-pip powershell
 sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 10
 sudo pip install thefuck
@@ -16,9 +19,9 @@ chmod 644 ~/.bash_aliases
 
 mkdir ~/.config/
 mkdir ~/.config/thefuck/
-cp -rf ~/dotfiles/thefuck/ ~/.config/thefuck/
+cp -rf ~/dotfiles/thefuck/ ~/.config/
 mkdir ~/.config/powershell/
-cp -rf ~/dotfiles/powershell/ ~/.config/powershell/
+cp -rf ~/dotfiles/powershell/ ~/.config/
 find ~/.config/thefuck/ -type f -print0 | xargs -0 chmod 644
 echo '. "~/dotfiles/profile.ps1"' >~/.config/powershell/Microsoft.PowerShell_profile.ps1
 
