@@ -42,7 +42,9 @@ Register-ArgumentCompleter -Native -CommandName nuke -ScriptBlock {
     }
 }
 
-Invoke-Expression -Command $(gh completion -s powershell | Out-String)
+if (Get-Command gh) {
+    Invoke-Expression -Command $(gh completion -s powershell | Out-String)
+}
 
 function nki {
     param (
