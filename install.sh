@@ -33,6 +33,10 @@ echo '. "~/dotfiles/profile.ps1"' >~/.config/powershell/Microsoft.PowerShell_pro
 if [ $WT_SESSION ]; then
     WINDOWS_USER=$(/mnt/c/Windows/System32/cmd.exe /c 'echo %USERNAME%' | sed -e 's/\r//g') > /dev/null 2>&1
     cp -rf /mnt/c/Users/$WINDOWS_USER/.ssh/ ~/.ssh/
+    pushd ~/dotfiles/
+    git remote remove origin
+    git remote add origin git@github.com:david-driscoll/dotfiles.git
+    popd
 fi
 
 git config --global core.eol lf
