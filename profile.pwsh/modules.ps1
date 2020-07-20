@@ -49,7 +49,8 @@ function nki {
         [string]$path = '',
         [string]$exclude = '',
         [string]$include = '',
-        [int]$age = 0
+        [int]$age = 0,
+        [switch]$pre
     )
 
     $args = @('inspect');
@@ -58,6 +59,9 @@ function nki {
     }
     $args += '-v'; $args += 'm';
     $args += '-a'; $args += $age;
+    if ($pre) {
+        $args += '--useprerelease Always'
+    }
     if ($exclude) { $args += '-e'; $args += $exclude; }
     if ($include) { $args += '-i'; $args += $include; }
 
@@ -70,7 +74,8 @@ function nku {
         [string]$exclude = '',
         [string]$include = '',
         [int]$max = 100,
-        [int]$age = 0
+        [int]$age = 0,
+        [switch]$pre
     )
 
     $args = @('update');
@@ -80,6 +85,9 @@ function nku {
     $args += '-v'; $args += 'm';
     $args += '-a'; $args += $age;
     $args += '-m'; $args += $max;
+    if ($pre) {
+        $args += '--useprerelease Always'
+    }
     if ($exclude) { $args += '-e'; $args += $exclude; }
     if ($include) { $args += '-i'; $args += $include; }
 
