@@ -42,7 +42,7 @@ Register-ArgumentCompleter -Native -CommandName nuke -ScriptBlock {
     }
 }
 
-if (Get-Command gh) {
+if (Get-Command gh -Error SilentlyContinue) {
     Invoke-Expression -Command $(gh completion -s powershell | Out-String)
 }
 
