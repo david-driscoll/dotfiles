@@ -1,7 +1,7 @@
 # dotfiles installer
-wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb
-sudo add-apt-repository "deb http://security.ubuntu.com/ubuntu xenial-security main"
+wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
+rm packages-microsoft-prod.deb
 sudo apt-get update
 
 curl -fsSL https://starship.rs/install.sh | sudo bash -s -- --yes
@@ -9,6 +9,13 @@ sudo apt-get install -y python3 python3-pip powershell
 sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 10
 sudo pip install thefuck
+
+# gh
+GHVERSION=`curl  "https://api.github.com/repos/cli/cli/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/' | cut -c2-` 
+
+curl -sSL https://github.com/cli/cli/releases/download/v${GHVERSION}/gh_${GHVERSION}_linux_amd64.deb -o gh.deb
+sudo apt install ./gh.deb
+rm gh.deb
 
 touch ~/.bashrc > /dev/null 2>&1
 cp -f ~/dotfiles/.bashrc ~/.bashrc
@@ -32,8 +39,13 @@ echo '. "~/dotfiles/profile.ps1"' >~/.config/powershell/Microsoft.PowerShell_pro
 
 if [ $WT_SESSION ]; then
     WINDOWS_USER=$(/mnt/c/Windows/System32/cmd.exe /c 'echo %USERNAME%' | sed -e 's/\r//g') > /dev/null 2>&1
+
     cp -rf /mnt/c/Users/$WINDOWS_USER/.ssh/ ~/.ssh/
     find ~/.ssh/ -type f -print0  | xargs -0 chmod 600
+    
+    mkdir ~/.config/gh/ > /dev/null 2>&1
+    cp -rf /mnt/c/Users/$WINDOWS_USER/.config/gh/ ~/.config/gh/
+    find ~/.config/gh/ -type f -print0  | xargs -0 chmod 600
     pushd ~/dotfiles/
     git remote remove origin
     git remote add origin git@github.com:david-driscoll/dotfiles.git

@@ -9,7 +9,7 @@ case $- in
 esac
 
 PATH=$PATH:~/.dotnet
-PATH=$(pwsh -nop -c "(\$ENV:PATH.Split(':') | where { (-not \$_.Contains('/mnt/')) -or \$_.Contains('VS Code') } | where { -not \$_.Contains('powershell') }) -join ':'")
+PATH=$(pwsh -nop -c "(\$ENV:PATH.Split(':') | where { -not \$_.Contains('powershell') }) -join ':'")
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -26,7 +26,7 @@ HISTFILESIZE=20000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# If set, the pattern "**" used in a pathname expansion context will
+# If set, the pattern "**" used in a pathname expansion cgontext will
 # match all files and zero or more directories and subdirectories.
 #shopt -s globstar
 
@@ -95,6 +95,11 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 eval $(thefuck --alias)
+
+
+if [ -x "$(command -v gh)" ]; then
+    eval $(gh completion --shell bash)
+fi
 
 function set_win_title() {
     ssDirectory=$(starship module directory | sed -E "s/"$'\E'"\[([0-9]{1,3}((;[0-9]{1,3})*)?)?[m|K]//g")
