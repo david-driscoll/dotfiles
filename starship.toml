@@ -55,7 +55,7 @@ $character
 full_symbol = "🔋"
 charging_symbol = "⚡️"
 discharging_symbol = "💀"
-format = '$symbol'
+format = "$symbol "
 
 [[battery.display]]
 threshold = 100
