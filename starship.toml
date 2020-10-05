@@ -218,6 +218,7 @@ format = "[$symbol$version]($style) "
 
 [username]
 format = "[$user](bold 191)"
+show_always = true
 # style_user = "bg:blue fg:bright-green"
 
 
