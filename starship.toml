@@ -1,47 +1,226 @@
-[character]
-symbol = "ﬦ"
-error_symbol = ""
+format = """
+$username\
+[](bold 208)\
+$hostname\
+$shlvl\
+$battery\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$hg_branch\
+$cmake\
+$dart\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$helm\
+$java\
+$julia\
+$nim\
+$nodejs\
+$ocaml\
+$perl\
+$php\
+$purescript\
+$python\
+$ruby\
+$rust\
+$swift\
+$terraform\
+$zig\
+$nix_shell\
+$conda\
+$memory_usage\
+$package\
+$docker_context\
+$kubernetes\
+$aws\
+$gcloud\
+$env_var\
+$crystal\
+$cmd_duration\
+$custom\
+$line_break\
+$jobs\
+$time\
+$status\
+$character
+"""
 
 [battery]
+full_symbol = "🔋"
+charging_symbol = "⚡️"
+discharging_symbol = "💀"
+format = '$symbol'
+
+[[battery.display]]
+threshold = 100
+style = ' '
+
+[character]
+success_symbol = "[ﬦ](bold green)"
+error_symbol = "[](bold red)"
 
 [cmd_duration]
 min_time = 500
 show_milliseconds = true
-prefix = "⌚"
+format = "[⌚ $duration]($style)"
 
 [directory]
-prefix = ""
+format = "[$read_only]($read_only_style)[$path]($style) "
 truncation_length = 3
+truncate_to_repo = true
 
-[username]
-# style_user = "bg:blue fg:bright-green"
-
-[hostname]
-ssh_only = false
-trim_at = "_"
-# style = "bg:blue fg:bright-green"
+[directory.substitutions]
+"C:/Development" = ""
+"D:/Development" = ""
 
 [docker_context]
-symbol = "🐳 "
+format = "[$symbol $context](blue bold) "
 
 [dotnet]
 symbol = "NET "
 
+[elixir]
+disabled = true
+format = "[$symbol$version \\(OTP $otp_version\\)]($style) "
+
+[elm]
+format = "[$symbol$version](cyan bold) "
+disabled = true
+
+[erlang]
+disabled = true
+format = "[$symbol$version](bold red) "
+
+[gcloud]
+format = "[$symbol$account(\\($region\\))]($style) "
+
 [git_branch]
 symbol = "🌴 "
+format = "[$symbol$branch]($style) "
+
+[git_commit]
+format = "[\\($hash\\)]($style) "
+
+# [git_state]
+# format = "[\\($state( $progress_current of $progress_total)\\)]($style) "
 
 [git_status]
-deleted.value = "❌"
-deleted.style = "bold red"
-renamed.value = "💫"
-renamed.style = "bold red"
-modified.value = "✏"
-modified.style = "bold yellow"
-untracked.value = "🆕"
-untracked.style = "bold red"
-staged.value = "✅"
-staged.style = "bold green"
-stashed.value = "💰"
-stashed.style = "bold gold"
-show_sync_count = true
-style = "bold white"
+format = "([\\[$all_status$ahead_behind\\]](bold white) )"
+deleted = "[❌](bold red)"
+renamed = "[💫](bold red)"
+modified = "[✏](bold yellow)"
+untracked = "[🆕](bold red)"
+staged = "[✅](bold green)"
+stashed = "[💰](bold gold)"
+ahead = "[⇡${count}](bold cyan)"
+diverged = "[⇕⇡${ahead_count}⇣${behind_count}](bold white)"
+behind = "[⇣${count}](bold cyan)"
+# show_sync_count = true
+
+[golang]
+disabled = true
+format = "[$symbol$version]($style) "
+
+[helm]
+disabled = true
+format = "[$symbol$version]($style) "
+
+[hostname]
+ssh_only = false
+trim_at = "_"
+format = "[$hostname](bold 141) "
+# style = "bg:blue fg:bright-green"
+
+[java]
+disabled = true
+format = "[$symbol$version]($style) "
+
+[jobs]
+
+[julia]
+disabled = true
+format = "[$symbol$version]($style) "
+
+[kubernetes]
+disabled = false
+format = "[$symbol$context( \\($namespace\\))]($style) "
+
+[line_break]
+disabled = false
+
+[memory_usage]
+disabled = true
+format = "$symbol [${ram}( | ${swap})]($style) "
+threshold = 60
+
+[hg_branch]
+disabled = true
+
+[nim]
+disabled = true
+format = "[$symbol$version]($style) "
+
+[nix_shell]
+disabled = true
+
+[nodejs]
+format = "[$symbol$version]($style) "
+
+[package]
+format = "[$symbol$version]($style) "
+
+[ocaml]
+disabled = true
+format = "[$symbol$version]($style) "
+
+[perl]
+format = "[$symbol$version]($style) "
+
+[php]
+format = "[$symbol$version]($style) "
+
+[purescript]
+disabled = true
+format = "[$symbol$version]($style) "
+
+[python]
+format = "[$symbol$version]($style) "
+
+[ruby]
+format = "[$symbol$version]($style) "
+
+[rust]
+format = "[$symbol$version]($style) "
+
+[singularity]
+disabled = true
+format = "[$symbol$version]($style) "
+
+[swift]
+disabled = true
+format = "[$symbol$version]($style) "
+
+[status]
+disabled = false
+format = "[$symbol$version]($style) "
+symbol = "💣"
+style = "bg:blue"
+
+[terraform]
+disabled = true
+format = "[$symbol$version]($style) "
+
+[username]
+format = "[$user](bold 191)"
+# style_user = "bg:blue fg:bright-green"
+
+
+[zig]
+disabled = true
+format = "[$symbol$version]($style) "
