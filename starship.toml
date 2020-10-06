@@ -1,6 +1,6 @@
 format = """
 $username\
-[](bold 208)\
+[](bold 252)\
 $hostname\
 $shlvl\
 $battery\
@@ -62,8 +62,8 @@ threshold = 100
 style = ' '
 
 [character]
-success_symbol = "[ﬦ](bold green)"
-error_symbol = "[](bold red)"
+success_symbol = "[ﬦ](bold 70)"
+error_symbol = "[](bold 88)"
 
 [cmd_duration]
 min_time = 500
@@ -71,7 +71,8 @@ show_milliseconds = true
 format = "[⌚ $duration]($style)"
 
 [directory]
-format = "[$read_only]($read_only_style)[$path]($style) "
+format = "[$read_only]($read_only_style)[$path](bold 141) "
+style = "bold 141"
 truncation_length = 3
 truncate_to_repo = true
 
@@ -103,6 +104,7 @@ format = "[$symbol$account(\\($region\\))]($style) "
 [git_branch]
 symbol = "🌴 "
 format = "[$symbol$branch]($style) "
+style = "bold 37"
 
 [git_commit]
 format = "[\\($hash\\)]($style) "
@@ -112,12 +114,12 @@ format = "[\\($hash\\)]($style) "
 
 [git_status]
 format = "([\\[$all_status$ahead_behind\\]](bold white) )"
-deleted = "[❌](bold red)"
-renamed = "[💫](bold red)"
-modified = "[✏](bold yellow)"
-untracked = "[🆕](bold red)"
-staged = "[✅](bold green)"
-stashed = "[💰](bold gold)"
+deleted = "[❌${count}](bold 160)"
+renamed = "[💫${count}](bold red)"
+modified = "[✏${count}](bold 184)"
+untracked = "[🆕${count}](bold red)"
+staged = "[✅${count}](bold green)"
+stashed = "[💰${count}](bold 214)"
 ahead = "[⇡${count}](bold cyan)"
 diverged = "[⇕⇡${ahead_count}⇣${behind_count}](bold white)"
 behind = "[⇣${count}](bold cyan)"
@@ -134,7 +136,7 @@ format = "[$symbol$version]($style) "
 [hostname]
 ssh_only = false
 trim_at = "_"
-format = "[$hostname](bold 141) "
+format = "[$hostname](bold 75) "
 # style = "bg:blue fg:bright-green"
 
 [java]
@@ -207,17 +209,15 @@ disabled = true
 format = "[$symbol$version]($style) "
 
 [status]
-disabled = false
+disabled = true
 format = "[$symbol$version]($style) "
-symbol = "💣"
-style = "bg:blue"
 
 [terraform]
 disabled = true
 format = "[$symbol$version]($style) "
 
 [username]
-format = "[$user](bold 191)"
+format = "[$user](bold 185)"
 show_always = true
 # style_user = "bg:blue fg:bright-green"
 
