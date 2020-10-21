@@ -28,16 +28,32 @@ $ENV:STARSHIP_CONFIG = Join-Path $PSScriptRoot 'starship.toml'
 $ENV:USER = $ENV:USERNAME
 
 iex (&starship init powershell)
-$ExecutionContext.InvokeCommand.LocationChangedAction = {
+# $ExecutionContext.InvokeCommand.LocationChangedAction = {
 
-    $env:PWD = $PWD
-    $current_directory = (Convert-Path $PWD)
+#     $env:PWD = $PWD
+#     $current_directory = (Convert-Path $PWD)
 
-    $title = starship module directory "--path=$current_directory"
-    $title += starship module git_branch "--path=$current_directory"
+#     $title = starship module directory "--path=$current_directory"
+#     $title += starship module git_branch "--path=$current_directory"
 
-    $host.UI.RawUI.WindowTitle = $title -replace '(\[\d(?:[;|\d]+)?m)', ''
+#     $host.UI.RawUI.WindowTitle = $title -replace '(\[\d(?:[;|\d]+)?m)', ''
+# }
+
+$starshipPrompt = (Get-Command Prompt).ScriptBlock.ToString();
+$starshipPrompt = $starshipPrompt + @'
+
+    $title = $out[1].ToString()
+    $space = $title.IndexOf(' ');
+    $gitStop = $title.IndexOf('');
+    $title = $title.Substring($space + 1, ($gitStop - $space)-1)
+     $host.UI.RawUI.WindowTitle = $title -replace '(\[\d(?:[;|\d]+)?m)', ''
+'@;
+$starshipPrompt = [Scriptblock]::Create($starshipPrompt);
+
+function global:prompt {
+    Invoke-Command -ScriptBlock $starshipPrompt;
 }
+
 
 $env:PYTHONIOENCODING = "utf-8"
 iex "$(thefuck --alias)"

@@ -8,7 +8,7 @@ $directory\
 $git_branch\
 $git_commit\
 $git_state\
-$git_status\
+$git_status\
 $hg_branch\
 $cmake\
 $dart\
@@ -113,7 +113,7 @@ format = "[\\($hash\\)]($style) "
 # format = "[\\($state( $progress_current of $progress_total)\\)]($style) "
 
 [git_status]
-format = "([\\[$all_status$ahead_behind\\]](bold white) )"
+format = "([\\[$all_status$ahead_behind\\]](bold white))"
 deleted = "[❌${count}](bold 160)"
 renamed = "[💫${count}](bold red)"
 modified = "[✏${count}](bold 184)"
