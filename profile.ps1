@@ -6,13 +6,13 @@ if (-not $env:PSModulePath.Contains($CmderModulePath) ) {
 }
 
 if ([Environment]::OSVersion.VersionString -like "Microsoft Windows*") {
-if (-not ($ENV:APPDATA)) {
-    $ENV:APPDATA = [Environment]::GetFolderPath('ApplicationData');
-}
+    if (-not ($ENV:APPDATA)) {
+        $ENV:APPDATA = [Environment]::GetFolderPath('ApplicationData');
+    }
 
-if (-not ($ENV:LOCALAPPDATA)) {
-    $ENV:LOCALAPPDATA = [Environment]::GetFolderPath('LocalApplicationData');
-}
+    if (-not ($ENV:LOCALAPPDATA)) {
+        $ENV:LOCALAPPDATA = [Environment]::GetFolderPath('LocalApplicationData');
+    }
 }
 
 # Enhance Path
@@ -36,7 +36,7 @@ $ExecutionContext.InvokeCommand.LocationChangedAction = {
     $title = starship module directory "--path=$current_directory"
     $title += starship module git_branch "--path=$current_directory"
 
-    $host.UI.RawUI.WindowTitle = $title -replace '(\[\d(?:;\d+)?m)', ''
+    $host.UI.RawUI.WindowTitle = $title -replace '(\[\d(?:[;|\d]+)?m)', ''
 }
 
 $env:PYTHONIOENCODING = "utf-8"
