@@ -27,23 +27,13 @@ $ENV:USER = $ENV:USERNAME;
 
 iex (&starship init powershell)
 iex (&volta completions powershell)
-# $ExecutionContext.InvokeCommand.LocationChangedAction = {
-
-#     $env:PWD = $PWD
-#     $current_directory = (Convert-Path $PWD)
-
-#     $title = starship module directory "--path=$current_directory"
-#     $title += starship module git_branch "--path=$current_directory"
-
-#     $host.UI.RawUI.WindowTitle = $title -replace '(\[\d(?:[;|\d]+)?m)', ''
-# }
 
 $starshipPrompt = (Get-Command Prompt).ScriptBlock.ToString();
 $starshipPrompt = $starshipPrompt + @'
 
     $title = $out[1].ToString()
-    $space = $title.IndexOf(' ');
-    $gitStop = $title.IndexOf('');
+    $space = $title.IndexOf('');
+    $gitStop = $title.LastIndexOf('');
     $title = $title.Substring($space + 1, ($gitStop - $space)-1)
      $host.UI.RawUI.WindowTitle = $title -replace '(\[\d(?:[;|\d]+)?m)', ''
 '@;

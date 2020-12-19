@@ -3,7 +3,7 @@ $username\
 [](bold 252)\
 $hostname\
 $shlvl\
-$battery\
+$battery\
 $directory\
 $git_branch\
 $git_commit\
@@ -52,14 +52,71 @@ $character
 """
 
 [battery]
-full_symbol = "🔋"
-charging_symbol = "⚡️"
-discharging_symbol = "💀"
-format = "$symbol "
+# full_symbol = "🔋"
+full_symbol = ""
+charging_symbol = ""
+discharging_symbol = ""
+empty_symbol = ""
+format = "[$symbol]($style)"
 
 [[battery.display]]
 threshold = 100
-style = ' '
+style = 'bold 46'
+format = ""
+
+[[battery.display]]
+threshold = 90
+style = 'bold 62'
+format = ""
+
+[[battery.display]]
+threshold = 80
+style = 'bold 118'
+format = ""
+
+[[battery.display]]
+threshold = 70
+style = 'bold 154'
+format = ""
+
+[[battery.display]]
+threshold = 60
+style = 'bold 180'
+format = ""
+
+[[battery.display]]
+threshold = 50
+style = 'bold 226'
+format = ""
+
+[[battery.display]]
+threshold = 40
+style = 'bold 228'
+format = ""
+
+[[battery.display]]
+threshold = 30
+style = 'bold 228'
+format = ""
+
+[[battery.display]]
+threshold = 20
+style = 'bold 124'
+format = ""
+
+[[battery.display]]
+threshold = 10
+style = 'bold 140'
+format = ""
+
+[[battery.display]]
+threshold = 0
+style = 'bold 196'
+format = ""
+
+# [[battery.display]]
+#
+# 
 
 [character]
 success_symbol = "[ﬦ](bold 70)"
