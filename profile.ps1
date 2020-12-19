@@ -15,19 +15,18 @@ if ([Environment]::OSVersion.VersionString -like "Microsoft Windows*") {
     }
 }
 
-# Enhance Path
-$env:Path = "$PSScriptRoot$([System.IO.Path]::DirectorySeparatorChar)bin$([System.IO.Path]::PathSeparator)$env:Path"
-
 foreach ($x in Get-ChildItem $PSScriptRoot/profile.pwsh -Filter *.ps1) {
     # write-host write-host Sourcing $x
     . $x.FullName
     # Write-Host "Loading" $x.Name "took" $r.TotalMilliseconds"ms"
 }
 
-$ENV:STARSHIP_CONFIG = Join-Path $PSScriptRoot 'starship.toml'
-$ENV:USER = $ENV:USERNAME
+$ENV:PATH = [System.Environment]::GetEnvironmentVariable("PATH", [System.EnvironmentVariableTarget]::User);
+$ENV:STARSHIP_CONFIG = Join-Path $PSScriptRoot 'starship.toml';
+$ENV:USER = $ENV:USERNAME;
 
 iex (&starship init powershell)
+iex (&volta completions powershell)
 # $ExecutionContext.InvokeCommand.LocationChangedAction = {
 
 #     $env:PWD = $PWD
