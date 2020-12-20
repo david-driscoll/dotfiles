@@ -26,7 +26,7 @@ $ENV:STARSHIP_CONFIG = Join-Path $PSScriptRoot 'starship.toml';
 $ENV:USER = $ENV:USERNAME;
 
 iex (&starship init powershell)
-iex (&volta completions powershell)
+iex ((volta completions powershell) -join "`n")
 
 $starshipPrompt = (Get-Command Prompt).ScriptBlock.ToString();
 $starshipPrompt = $starshipPrompt + @'
