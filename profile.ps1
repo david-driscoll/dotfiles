@@ -25,9 +25,9 @@ $ENV:PATH = [System.Environment]::GetEnvironmentVariable("PATH", [System.Environ
 $ENV:STARSHIP_CONFIG = Join-Path $PSScriptRoot 'starship.toml';
 $ENV:USER = $ENV:USERNAME;
 
-starship init powershell | Join-String {$_ -replace " ''\)$"," ' ')"} -Separator "`n" | Invoke-Expression
+starship init powershell     | Join-String {$_ -replace " ''\)$"," ' ')"} -Separator "`n" | Invoke-Expression
 volta completions powershell | Join-String {$_ -replace " ''\)$"," ' ')"} -Separator "`n" | Invoke-Expression
-gh completion -s powershell | Join-String {$_ -replace " ''\)$"," ' ')"} -Separator "`n" | Invoke-Expression
+gh completion -s powershell  | Join-String {$_ -replace " ''\)$"," ' ')"} -Separator "`n" | Invoke-Expression
 
 $starshipPrompt = (Get-Command Prompt).ScriptBlock.ToString();
 $starshipPrompt = $starshipPrompt + @'
