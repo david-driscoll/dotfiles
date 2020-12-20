@@ -30,12 +30,11 @@ iex ((volta completions powershell) -join "`n")
 
 $starshipPrompt = (Get-Command Prompt).ScriptBlock.ToString();
 $starshipPrompt = $starshipPrompt + @'
-
     $title = $out[1].ToString()
     $space = $title.IndexOf('');
     $gitStop = $title.LastIndexOf('');
     $title = $title.Substring($space + 1, ($gitStop - $space)-1)
-     $host.UI.RawUI.WindowTitle = $title -replace '(\[\d(?:[;|\d]+)?m)', ''
+    $host.UI.RawUI.WindowTitle = $title -replace '(\[\d(?:[;|\d]+)?m)', ''
 '@;
 $starshipPrompt = [Scriptblock]::Create($starshipPrompt);
 
