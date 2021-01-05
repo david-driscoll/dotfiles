@@ -1,6 +1,6 @@
 format = """
 $username\
-[](bold 252)\
+[@](bold 252)\
 $hostname\
 $shlvl\
 $battery\
@@ -141,7 +141,7 @@ truncate_to_repo = true
 format = "[$symbol $context](blue bold) "
 
 [dotnet]
-symbol = "NET "
+symbol = " "
 
 [elixir]
 disabled = true
