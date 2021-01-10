@@ -21,28 +21,29 @@ foreach ($x in Get-ChildItem $PSScriptRoot/profile.pwsh -Filter *.ps1) {
     # Write-Host "Loading" $x.Name "took" $r.TotalMilliseconds"ms"
 }
 
-$ENV:PATH = [System.Environment]::GetEnvironmentVariable("PATH", [System.EnvironmentVariableTarget]::User);
 $ENV:STARSHIP_CONFIG = Join-Path $PSScriptRoot 'starship.toml';
-$ENV:USER = $ENV:USERNAME;
+if ($IsWindows) {
+    $ENV:PATH = [System.Environment]::GetEnvironmentVariable("PATH", [System.EnvironmentVariableTarget]::User);
+    $ENV:USER = $ENV:USERNAME;
+}
 
-starship init powershell     | Join-String {$_ -replace " ''\)$"," ' ')"} -Separator "`n" | Invoke-Expression
-volta completions powershell | Join-String {$_ -replace " ''\)$"," ' ')"} -Separator "`n" | Invoke-Expression
-gh completion -s powershell  | Join-String {$_ -replace " ''\)$"," ' ')"} -Separator "`n" | Invoke-Expression
+starship init powershell     | Join-String { $_ -replace " ''\)$", " ' ')" } -Separator "`n" | Invoke-Expression
+volta completions powershell | Join-String { $_ -replace " ''\)$", " ' ')" } -Separator "`n" | Invoke-Expression
+gh completion -s powershell  | Join-String { $_ -replace " ''\)$", " ' ')" } -Separator "`n" | Invoke-Expression
 
 $starshipPrompt = (Get-Command Prompt).ScriptBlock.ToString();
 $starshipPrompt = $starshipPrompt + @'
     $title = $out[1].ToString()
     $space = $title.IndexOf('');
     $gitStop = $title.LastIndexOf('');
-    $title = $title.Substring($space + 1, ($gitStop - $space)-1)
-    $host.UI.RawUI.WindowTitle = $title -replace '(\[\d(?:[;|\d]+)?m)', ''
+    $ENV:TITLE = $title = $title.Substring($space + 1, ($gitStop - $space)-1)
+    $host.UI.RawUI.WindowTitle = $title -replace '\x1b\[[0-9;]*m', ''
 '@;
 $starshipPrompt = [Scriptblock]::Create($starshipPrompt);
 
 function global:prompt {
     Invoke-Command -ScriptBlock $starshipPrompt;
 }
-
 
 $env:PYTHONIOENCODING = "utf-8"
 iex "$(thefuck --alias)"
