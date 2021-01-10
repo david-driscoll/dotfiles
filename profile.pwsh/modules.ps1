@@ -24,9 +24,9 @@ function Get-ComputerName {
     return $env:COMPUTERNAME
 }
 
-Set-Alias -Name code -Value code-insiders.cmd
-Set-Alias -Name icode -Value code-insiders.cmd
-Set-Alias -Name vscode -Value code.cmd
+Set-Alias -Name code -Value code-insiders
+Set-Alias -Name icode -Value code-insiders
+Set-Alias -Name vscode -Value code
 
 Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
     param($commandName, $wordToComplete, $cursorPosition)
