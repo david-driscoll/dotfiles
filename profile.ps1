@@ -36,7 +36,7 @@ $starshipPrompt = $starshipPrompt + @'
     $title = $out[1].ToString()
     $space = $title.IndexOf('');
     $gitStop = $title.LastIndexOf('');
-    $ENV:TITLE = $title = $title.Substring($space + 1, ($gitStop - $space)-1)
+    $title = $title.Substring($space + 1, ($gitStop - $space)-1)
     $host.UI.RawUI.WindowTitle = $title -replace '\x1b\[[0-9;]*m', ''
 '@;
 $starshipPrompt = [Scriptblock]::Create($starshipPrompt);
