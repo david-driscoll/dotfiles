@@ -137,9 +137,7 @@ truncate_to_repo = true
 "C:/Development" = ""
 "D:/Development" = ""
 "~/Development" = ""
-"~/development" = ""
 "/Development" = ""
-"/development" = ""
 
 [docker_context]
 format = "[$symbol $context](blue bold) "
