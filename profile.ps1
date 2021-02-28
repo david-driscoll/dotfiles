@@ -5,27 +5,23 @@ if (-not $env:PSModulePath.Contains($CmderModulePath) ) {
     $env:PSModulePath = $env:PSModulePath.Insert(0, "$CmderModulePath$([System.IO.Path]::PathSeparator)")
 }
 
-if ([Environment]::OSVersion.VersionString -like "Microsoft Windows*") {
-    if (-not ($ENV:APPDATA)) {
-        $ENV:APPDATA = [Environment]::GetFolderPath('ApplicationData');
-    }
-
-    if (-not ($ENV:LOCALAPPDATA)) {
-        $ENV:LOCALAPPDATA = [Environment]::GetFolderPath('LocalApplicationData');
-    }
-}
-
 foreach ($x in Get-ChildItem $PSScriptRoot/profile.pwsh -Filter *.ps1) {
     # write-host write-host Sourcing $x
     . $x.FullName
     # Write-Host "Loading" $x.Name "took" $r.TotalMilliseconds"ms"
 }
 
-$ENV:STARSHIP_CONFIG = Join-Path $PSScriptRoot 'starship.toml';
-if ($IsWindows) {
-    $ENV:PATH = [System.Environment]::GetEnvironmentVariable("PATH", [System.EnvironmentVariableTarget]::User);
-    $ENV:USER = $ENV:USERNAME;
+if ($IsMacOS) {
+    . "$PSScriptRoot/profile.darwin.ps1"
 }
+if ($IsWindows) {
+    . "$PSScriptRoot/profile.windows.ps1"
+}
+if ($IsLinux) {
+    . "$PSScriptRoot/profile.linux.ps1"
+}
+
+$ENV:STARSHIP_CONFIG = Join-Path $PSScriptRoot 'starship.toml';
 
 starship init powershell     | Join-String { $_ -replace " ''\)$", " ' ')" } -Separator "`n" | Invoke-Expression
 volta completions powershell | Join-String { $_ -replace " ''\)$", " ' ')" } -Separator "`n" | Invoke-Expression
