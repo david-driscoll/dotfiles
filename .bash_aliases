@@ -1,3 +1,4 @@
 alias cls=clear
-alias icode=code-insiders
-alias code=code-insiders
+alias icode=$(which code-insiders)
+alias rcode=$(which code)
+alias code=$(which code-insiders)
