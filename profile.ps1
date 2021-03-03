@@ -1,5 +1,6 @@
 # Add Cmder modules directory to the autoload path.
 $CmderModulePath = Join-path $PSScriptRoot "psmodules/"
+Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 
 if (-not $env:PSModulePath.Contains($CmderModulePath) ) {
     $env:PSModulePath = $env:PSModulePath.Insert(0, "$CmderModulePath$([System.IO.Path]::PathSeparator)")
