@@ -1,16 +1,18 @@
-Import-WslCommand "curl"
 Import-Module posh-sshell
 Import-Module Pansies
-Import-Module WslInterop
 Import-Module posh-git
-
-# Chocolatey profile
-$ChocolateyProfile = "$env:ChocolateyInstall/helpers/chocolateyProfile.psm1"
-if (Test-Path($ChocolateyProfile)) {
-    Import-Module "$ChocolateyProfile"
-    Update-SessionEnvironment
+if ($IsWindows) {
+    # Import-Module WslInterop
+    # Import-WslCommand "curl"
+    # Import-WslCommand "az"
+    # Import-WslCommand "kubectl"
+    $ChocolateyProfile = "$env:ChocolateyInstall/helpers/chocolateyProfile.psm1"
+    if (Test-Path($ChocolateyProfile)) {
+        Import-Module "$ChocolateyProfile"
+        Update-SessionEnvironment
+    }
+    # Import-VisualStudioEnvironment
 }
-# Import-VisualStudioEnvironment
 
 function Get-ComputerName {
     if (Test-PsCore -and $PSVersionTable.Platform -ne 'Windows') {
@@ -24,10 +26,10 @@ function Get-ComputerName {
     return $env:COMPUTERNAME
 }
 
+Set-Alias -Name vscode -Value (Get-Command code).Path;
+Set-Alias -Name rcode -Value (Get-Command code).Path;
 Set-Alias -Name code -Value (Get-Command code-insiders).Path;
 Set-Alias -Name icode -Value (Get-Command code-insiders).Path;
-Set-Alias -Name rcode -Value (Get-Command code-insiders).Path
-Set-Alias -Name vscode -Value cod(Get-Command code).Path;
 
 Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
     param($commandName, $wordToComplete, $cursorPosition)
