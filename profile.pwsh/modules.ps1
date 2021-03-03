@@ -1,18 +1,6 @@
 Import-Module posh-sshell
 Import-Module Pansies
 Import-Module posh-git
-if ($IsWindows) {
-    # Import-Module WslInterop
-    # Import-WslCommand "curl"
-    # Import-WslCommand "az"
-    # Import-WslCommand "kubectl"
-    $ChocolateyProfile = "$env:ChocolateyInstall/helpers/chocolateyProfile.psm1"
-    if (Test-Path($ChocolateyProfile)) {
-        Import-Module "$ChocolateyProfile"
-        Update-SessionEnvironment
-    }
-    # Import-VisualStudioEnvironment
-}
 
 function Get-ComputerName {
     if (Test-PsCore -and $PSVersionTable.Platform -ne 'Windows') {

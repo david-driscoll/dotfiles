@@ -7,3 +7,8 @@ if (-not ($ENV:APPDATA)) {
 if (-not ($ENV:LOCALAPPDATA)) {
     $ENV:LOCALAPPDATA = [Environment]::GetFolderPath('LocalApplicationData');
 }
+$ChocolateyProfile = "$env:ChocolateyInstall/helpers/chocolateyProfile.psm1"
+if (Test-Path($ChocolateyProfile)) {
+    Import-Module "$ChocolateyProfile"
+    Update-SessionEnvironment
+}
