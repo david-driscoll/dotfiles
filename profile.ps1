@@ -46,7 +46,7 @@ iex "$(thefuck --alias)"
 
 Import-Module ZLocation
 
-Start-SshAgent -Quiet
+Start-Job -ScriptBlock { Start-SshAgent -Quiet }
 
 # Doesn't look great in conenum
 [PoshCode.Pansies.RgbColor]::ColorMode = [PoshCode.Pansies.ColorMode]::XTerm256;
