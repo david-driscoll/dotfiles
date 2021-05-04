@@ -8,8 +8,13 @@ case $- in
 *) return ;;
 esac
 
-PATH=$PATH:~/.dotnet
-PATH=$(pwsh -nop -c "(\$ENV:PATH.Split(':') | where { -not \$_.Contains('powershell') }) -join ':'")
+PATH=$HOME/.dotnet:$PATH
+PATH=$HOME/.dotnet/tools:$PATH
+PATH=$HOME/.jetbrains:$PATH
+if (which pwsh > /dev/null) then
+    PATH=$(pwsh -nop -c "(\$ENV:PATH.Split(':') | where { -not \$_.Contains('powershell') }) -join ':'")
+fi
+
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options

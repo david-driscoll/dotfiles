@@ -1,6 +1,6 @@
 
 export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$HOME/.jetbrains:$PATH"
+export PATH="$VOLTA_HOME/bin:$HOME/.jetbrains:$HOME/.dotnet/:$HOME/.dotnet/tools:$PATH"
 export STARSHIP_CONFIG=~/.cmder/config/starship.toml
 
 alias cls=clear
