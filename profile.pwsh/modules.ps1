@@ -1,6 +1,7 @@
 Import-Module posh-sshell
 Import-Module Pansies
 Import-Module posh-git
+Import-Module Terminal-Icons
 
 function Get-ComputerName {
     if (Test-PsCore -and $PSVersionTable.Platform -ne 'Windows') {
