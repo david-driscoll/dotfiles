@@ -151,11 +151,15 @@ truncate_to_repo = true
 
 [directory.substitutions]
 "C:/Development" = ""
+"C:/repos" = ""
+"C:/dev" = ""
 "D:/Development" = ""
 "~/Development" = ""
 "~/dev" = ""
 "~/repos" = ""
 "/Development" = ""
+"/repos" = ""
+"/dev" = ""
 
 [docker_context]
 format = "[$symbol $context](blue bold) "
