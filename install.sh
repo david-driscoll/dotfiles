@@ -11,11 +11,16 @@ sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 10
 sudo pip install thefuck
 
 # gh
-GHVERSION=`curl  "https://api.github.com/repos/cli/cli/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/' | cut -c2-` 
+GHVERSION=`curl  "https://api.github.com/repos/cli/cli/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/' | cut -c2-`
 
 curl -sSL https://github.com/cli/cli/releases/download/v${GHVERSION}/gh_${GHVERSION}_linux_amd64.deb -o gh.deb
 sudo apt install ./gh.deb
 rm gh.deb
+
+# volta
+curl https://get.volta.sh | bash
+
+# bash and others
 
 touch ~/.bashrc > /dev/null 2>&1
 cp -f ~/dotfiles/.bashrc ~/.bashrc
@@ -40,16 +45,16 @@ echo '. "~/dotfiles/profile.ps1"' >~/.config/powershell/Microsoft.PowerShell_pro
 if [ $WT_SESSION ]; then
     WINDOWS_USER=$(/mnt/c/Windows/System32/cmd.exe /c 'echo %USERNAME%' | sed -e 's/\r//g') > /dev/null 2>&1
 
-    cp -rf /mnt/c/Users/$WINDOWS_USER/.ssh/ ~/.ssh/
-    find ~/.ssh/ -type f -print0  | xargs -0 chmod 600
-    
-    mkdir ~/.config/gh/ > /dev/null 2>&1
-    cp -rf /mnt/c/Users/$WINDOWS_USER/.config/gh/ ~/.config/gh/
-    find ~/.config/gh/ -type f -print0  | xargs -0 chmod 600
-    pushd ~/dotfiles/
-    git remote remove origin
-    git remote add origin git@github.com:david-driscoll/dotfiles.git
-    popd
+    rm ~/.ssh
+    rm ~/.local/state/gh
+    rm ~/.config/gh
+    rm ~/dotfiles
+    mkdir -p ~/.local/state/
+    mkdir -p ~/.config/
+    ln -s /mnt/c/Users/$WINDOWS_USER/.ssh/ ~/.ssh
+    ln -s /mnt/c/Users/$WINDOWS_USER/.cmder/config/ ~/dotfiles
+    ln -s "/mnt/c/Users/$WINDOWS_USER/AppData/Roaming/GitHub CLI/" ~/.config/gh
+    ln -s "/mnt/c/Users/$WINDOWS_USER/AppData/Local/GitHub CLI/" ~/.local/state/gh
 fi
 
 git config --global core.eol lf

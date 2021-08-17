@@ -51,12 +51,12 @@ $openstack\
 $env_var\
 $crystal\
 $cmd_duration\
+$shell\
 $custom\
 $line_break\
 $jobs\
 $time\
 $status\
-$shell\
 $character\
 """
 
@@ -141,7 +141,7 @@ error_symbol = "[](bold 88)"
 [cmd_duration]
 min_time = 500
 show_milliseconds = true
-format = "[⌚ $duration]($style)"
+format = "[⌚ $duration]($style) "
 
 [directory]
 format = "[$read_only]($read_only_style)[$path](bold 141) "
@@ -298,8 +298,13 @@ format = "[$user](bold 185)"
 show_always = true
 # style_user = "bg:blue fg:bright-green"
 
-
 [zig]
 disabled = true
 format = "[$symbol$version]($style) "
 
+[shell]
+disabled = false
+fish_indicator = "[](bold 30)"
+zsh_indicator = "[鈴](bold 93)"
+bash_indicator = "[](bold 178)"
+powershell_indicator = "[](bold 27)"
