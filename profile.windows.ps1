@@ -1,4 +1,6 @@
 $ENV:PATH = [System.Environment]::GetEnvironmentVariable("PATH", [System.EnvironmentVariableTarget]::User);
+$ENV:UserName = [System.Environment]::UserName
+$ENV:UserDomain = [System.Environment]::DomainName
 $ENV:USER = $ENV:USERNAME;
 if (-not ($ENV:APPDATA)) {
     $ENV:APPDATA = [Environment]::GetFolderPath('ApplicationData');

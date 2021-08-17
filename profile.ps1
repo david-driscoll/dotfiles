@@ -23,13 +23,16 @@ if ($IsLinux) {
 
 $ENV:STARSHIP_CONFIG = Join-Path $PSScriptRoot 'starship.toml';
 
-starship init powershell     | Join-String { $_ -replace " ''\)$", " ' ')" } -Separator "`n" | Invoke-Expression
-volta completions powershell | Join-String { $_ -replace " ''\)$", " ' ')" } -Separator "`n" | Invoke-Expression
-gh completion -s powershell  | Join-String { $_ -replace " ''\)$", " ' ')" } -Separator "`n" | Invoke-Expression
+Invoke-Expression (&starship init powershell)
+(volta completions powershell) -join "`n" | Invoke-Expression
+(gh completion -s powershell) -join "`n" | Invoke-Expression
 
-$starshipPrompt = (Get-Command Prompt).ScriptBlock.ToString();
+
+if ( $host.Version.Major -gt 5) {
+$starshipPrompt = (Get-Command Prompt).ScriptBlock.ToString().Replace("Invoke-Native -Executable", "`$out = Invoke-Native -Executable");
 $starshipPrompt = $starshipPrompt + @'
-    $title = $out[1].ToString()
+	$out
+    $title = $out
     $space = $title.IndexOf('');
     $gitStop = $title.LastIndexOf('');
     $title = $title.Substring($space + 1, ($gitStop - $space)-1)
@@ -39,6 +42,7 @@ $starshipPrompt = [Scriptblock]::Create($starshipPrompt);
 
 function global:prompt {
     Invoke-Command -ScriptBlock $starshipPrompt;
+}
 }
 
 $env:PYTHONIOENCODING = "utf-8"
