@@ -8,6 +8,7 @@ $directory\
 $git_branch\
 $git_commit\
 $git_state\
+$git_metrics\
 $git_status\
 $hg_branch\
 $cmake\
@@ -20,6 +21,7 @@ $golang\
 $helm\
 $java\
 $julia\
+$kotlin\
 $nim\
 $nodejs\
 $ocaml\
@@ -27,19 +29,25 @@ $perl\
 $php\
 $purescript\
 $python\
+$red\
 $ruby\
 $rust\
+$scala\
 $swift\
 $terraform\
+$vlang\
+$vagrant\
 $zig\
 $nix_shell\
 $conda\
+$lua\
 $memory_usage\
 $package\
 $docker_context\
 $kubernetes\
 $aws\
 $gcloud\
+$openstack\
 $env_var\
 $crystal\
 $cmd_duration\
@@ -48,7 +56,8 @@ $line_break\
 $jobs\
 $time\
 $status\
-$character
+$shell\
+$character\
 """
 
 [battery]
@@ -62,61 +71,68 @@ format = "[$symbol]($style)"
 [[battery.display]]
 threshold = 100
 style = 'bold 46'
-format = ""
+discharging_symbol = ""
+charging_symbol = ""
 
 [[battery.display]]
 threshold = 90
 style = 'bold 62'
-format = ""
+discharging_symbol = ""
+charging_symbol = ""
 
 [[battery.display]]
 threshold = 80
 style = 'bold 118'
-format = ""
+discharging_symbol = ""
+charging_symbol = ""
 
 [[battery.display]]
 threshold = 70
 style = 'bold 154'
-format = ""
+discharging_symbol = ""
+charging_symbol = ""
 
 [[battery.display]]
 threshold = 60
 style = 'bold 180'
-format = ""
+discharging_symbol = ""
+charging_symbol = ""
 
 [[battery.display]]
 threshold = 50
 style = 'bold 226'
-format = ""
+discharging_symbol = ""
+charging_symbol = ""
 
 [[battery.display]]
 threshold = 40
 style = 'bold 228'
-format = ""
+discharging_symbol = ""
+charging_symbol = ""
 
 [[battery.display]]
 threshold = 30
 style = 'bold 228'
-format = ""
+discharging_symbol = ""
+charging_symbol = ""
 
 [[battery.display]]
 threshold = 20
 style = 'bold 124'
-format = ""
+discharging_symbol = ""
+charging_symbol = ""
 
 [[battery.display]]
 threshold = 10
 style = 'bold 140'
-format = ""
+discharging_symbol = ""
+charging_symbol = ""
 
 [[battery.display]]
 threshold = 0
 style = 'bold 196'
-format = ""
-
-# [[battery.display]]
-#
-# 
+discharging_symbol = ""
+charging_symbol = ""
 
 [character]
 success_symbol = "[ﬦ](bold 70)"
@@ -137,6 +153,8 @@ truncate_to_repo = true
 "C:/Development" = ""
 "D:/Development" = ""
 "~/Development" = ""
+"~/dev" = ""
+"~/repos" = ""
 "/Development" = ""
 
 [docker_context]
@@ -284,3 +302,4 @@ show_always = true
 [zig]
 disabled = true
 format = "[$symbol$version]($style) "
+
