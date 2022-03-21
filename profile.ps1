@@ -23,27 +23,19 @@ if ($IsLinux) {
 
 $ENV:STARSHIP_CONFIG = Join-Path $PSScriptRoot 'starship.toml';
 
-Invoke-Expression (&starship init powershell)
+#Invoke-Expression (&starship init powershell)
+$promptModule = & 'C:\ProgramData\chocolatey\lib\starship\tools\starship.exe' init powershell --print-full-init | Out-String;
+$promptModule = $promptModule.Replace("# Return the prompt", @'
+# Return the prompt
+$title = $promptText
+$space = $title.IndexOf('');
+$gitStop = $title.LastIndexOf('');
+$title = $title.Substring($space + 1, ($gitStop - $space)-1)
+$host.UI.RawUI.WindowTitle = ($title -replace '\x1b\[[0-9;]*m', '') -replace '', '📂'
+'@);
+Invoke-Expression $promptModule
 (volta completions powershell) -join "`n" | Invoke-Expression
 (gh completion -s powershell) -join "`n" | Invoke-Expression
-
-
-if ( $host.Version.Major -gt 5) {
-$starshipPrompt = (Get-Command Prompt).ScriptBlock.ToString().Replace("Invoke-Native -Executable", "`$out = Invoke-Native -Executable");
-$starshipPrompt = $starshipPrompt + @'
-	$out
-    $title = $out
-    $space = $title.IndexOf('');
-    $gitStop = $title.LastIndexOf('');
-    $title = $title.Substring($space + 1, ($gitStop - $space)-1)
-    $host.UI.RawUI.WindowTitle = $title -replace '\x1b\[[0-9;]*m', ''
-'@;
-$starshipPrompt = [Scriptblock]::Create($starshipPrompt);
-
-function global:prompt {
-    Invoke-Command -ScriptBlock $starshipPrompt;
-}
-}
 
 $env:PYTHONIOENCODING = "utf-8"
 iex "$(thefuck --alias)"
