@@ -1,3 +1,4 @@
+command_timeout = 750
 format = """
 $username\
 [@](bold 252)\
@@ -135,7 +136,7 @@ discharging_symbol = ""
 charging_symbol = ""
 
 [character]
-success_symbol = "[ﬦ](bold 70)"
+success_symbol = "[>](bold 70)"
 error_symbol = "[](bold 88)"
 
 [cmd_duration]
@@ -166,6 +167,7 @@ format = "[$symbol $context](blue bold) "
 
 [dotnet]
 symbol = " "
+format = "[$symbol($version )(🎯 $tfm )]($style)"
 
 [elixir]
 disabled = true
@@ -180,6 +182,7 @@ disabled = true
 format = "[$symbol$version](bold red) "
 
 [gcloud]
+disabled = true
 format = "[$symbol$account(\\($region\\))]($style) "
 
 [git_branch]
@@ -211,7 +214,7 @@ disabled = true
 format = "[$symbol$version]($style) "
 
 [helm]
-disabled = true
+# disabled = false
 format = "[$symbol$version]($style) "
 
 [hostname]
@@ -239,8 +242,8 @@ disabled = false
 
 [memory_usage]
 disabled = true
-format = "$symbol [${ram}( | ${swap})]($style) "
-threshold = 60
+format = "$symbol [${ram}( | ${swap})](white) "
+threshold = 20
 
 [hg_branch]
 disabled = true
