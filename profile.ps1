@@ -27,10 +27,9 @@ Invoke-Expression (&starship init powershell)
 (volta completions powershell) -join "`n" | Invoke-Expression
 (gh completion -s powershell) -join "`n" | Invoke-Expression
 
-
 if ( $host.Version.Major -gt 5) {
-$starshipPrompt = (Get-Command Prompt).ScriptBlock.ToString().Replace("Invoke-Native -Executable", "`$out = Invoke-Native -Executable");
-$starshipPrompt = $starshipPrompt + @'
+    $starshipPrompt = (Get-Command Prompt).ScriptBlock.ToString().Replace("Invoke-Native -Executable", "`$out = Invoke-Native -Executable");
+    $starshipPrompt = $starshipPrompt + @'
 	$out
     $title = $out
     $space = $title.IndexOf('');
@@ -38,11 +37,11 @@ $starshipPrompt = $starshipPrompt + @'
     $title = $title.Substring($space + 1, ($gitStop - $space)-1)
     $host.UI.RawUI.WindowTitle = $title -replace '\x1b\[[0-9;]*m', ''
 '@;
-$starshipPrompt = [Scriptblock]::Create($starshipPrompt);
+    $starshipPrompt = [Scriptblock]::Create($starshipPrompt);
 
-function global:prompt {
-    Invoke-Command -ScriptBlock $starshipPrompt;
-}
+    function global:prompt {
+        Invoke-Command -ScriptBlock $starshipPrompt;
+    }
 }
 
 $env:PYTHONIOENCODING = "utf-8"

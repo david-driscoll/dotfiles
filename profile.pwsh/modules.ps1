@@ -84,6 +84,25 @@ function nku {
     & nukeeper $args
 }
 
+function dotnet-update-supports {
+    param(
+
+    )
+    if (Test-Path Directory.Packages.support.props) {
+        Rename-Item Directory.Packages.props Directory.Packages.props.tmp
+        Rename-Item Directory.Packages.support.props Directory.Packages.props
+        try {
+            nukeeper update --change minor -m 100
+        }
+        finally {
+            Rename-Item Directory.Packages.props Directory.Packages.support.props
+            Rename-Item Directory.Packages.props.tmp Directory.Packages.props
+        }
+    }
+}
+
+Set-Alias -Name dus -Value dotnet-update-supports
+
 function dotnet-tool-update {
     param (
         [string]$path = '.\.config\dotnet-tools.json'

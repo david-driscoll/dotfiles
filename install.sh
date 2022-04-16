@@ -10,6 +10,9 @@ sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 10
 sudo pip install thefuck
 
+# jq
+sudo apt install jq
+
 # gh
 GHVERSION=`curl  "https://api.github.com/repos/cli/cli/releases/latest" | grep '"tag_name"' | sed -E 's/.*"([^"]+)".*/\1/' | cut -c2-`
 
@@ -19,6 +22,7 @@ rm gh.deb
 
 # volta
 curl https://get.volta.sh | bash
+volta install node
 
 # bash and others
 
@@ -35,32 +39,49 @@ cp -f ~/dotfiles/.bash_aliases ~/.bash_aliases
 chmod 644 ~/.bash_aliases
 
 mkdir ~/.config/ > /dev/null 2>&1
+
 mkdir ~/.config/thefuck/ > /dev/null 2>&1
 cp -rf ~/dotfiles/thefuck/ ~/.config/
+find ~/.config/thefuck/ -type f -print0 | xargs -0 chmod 644
+
 mkdir ~/.config/powershell/ > /dev/null 2>&1
 cp -rf ~/dotfiles/powershell/ ~/.config/
-find ~/.config/thefuck/ -type f -print0 | xargs -0 chmod 644
-echo '. "~/dotfiles/profile.ps1"' >~/.config/powershell/Microsoft.PowerShell_profile.ps1
 
 if [ $WT_SESSION ]; then
+    # ssh forwarding
+    sudo apt install socat
+    sudo apt install gpg
+
     WINDOWS_USER=$(/mnt/c/Windows/System32/cmd.exe /c 'echo %USERNAME%' | sed -e 's/\r//g') > /dev/null 2>&1
 
-    rm ~/.ssh
-    rm ~/.local/state/gh
-    rm ~/.config/gh
-    rm ~/dotfiles
-    mkdir -p ~/.local/state/
-    mkdir -p ~/.config/
+    rm ~/.ssh > /dev/null 2>&1
+    rm ~/.local/state/gh > /dev/null 2>&1
+    rm ~/.config/gh > /dev/null 2>&1
+    rm ~/dotfiles > /dev/null 2>&1
+    rm ~/.bashrc > /dev/null 2>&1
+    rm ~/.inputrc > /dev/null 2>&1
+    rm ~/.bash_aliases > /dev/null 2>&1
+    rm ~/.wslrc > /dev/null 2>&1
+    rm ~/.config/powershell > /dev/null 2>&1
+    mkdir -p ~/.local/state/ > /dev/null 2>&1
+    mkdir -p ~/.config/ > /dev/null 2>&1
     ln -s /mnt/c/Users/$WINDOWS_USER/.ssh/ ~/.ssh
     ln -s /mnt/c/Users/$WINDOWS_USER/.cmder/config/ ~/dotfiles
     ln -s "/mnt/c/Users/$WINDOWS_USER/AppData/Roaming/GitHub CLI/" ~/.config/gh
     ln -s "/mnt/c/Users/$WINDOWS_USER/AppData/Local/GitHub CLI/" ~/.local/state/gh
+    ln -s "/mnt/c/Users/$WINDOWS_USER/.cmder/config/powershell/" ~/.config/powershell
+    ln -s "/mnt/c/Users/$WINDOWS_USER/.cmder/config/.bashrc" ~/.bashrc
+    ln -s "/mnt/c/Users/$WINDOWS_USER/.cmder/config/.inputrc" ~/.inputrc
+    ln -s "/mnt/c/Users/$WINDOWS_USER/.cmder/config/.bash_aliases" ~/.bash_aliases
+    ln -s "/mnt/c/Users/$WINDOWS_USER/.cmder/config/.wslrc" ~/.wslrc
 fi
 
 git config --global core.eol lf
 git config --global core.autocrlf false
 git config --global github.user david-driscoll
+git config --global user.signingkey ADE5986A712195C4
 git config --global user.name "David Driscoll"
 git config --global user.email "david.driscoll@gmail.com"
 git config --global core.editor "vi"
+git config --global commit.gpgsign true
 git config --global alias.amend "commit --amend --reuse-message=HEAD"

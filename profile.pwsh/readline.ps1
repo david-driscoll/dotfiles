@@ -10,3 +10,8 @@ Set-PSReadLineOption -ShowToolTips
 if ( $host.Version.Major -gt 5) {
 	Set-PSReadLineOption -PredictionSource history
 }
+if ($IsMacOS -or $IsLinux) {
+	Set-PSReadLineKeyHandler -Key Escape -Function BackwardKillLine
+}
+if ($IsWindows) {
+}
