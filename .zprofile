@@ -15,5 +15,8 @@ if type brew &>/dev/null; then
   autoload -Uz compinit
   compinit
 fi
+if type terraform &>/dev/null; then
+  terraform -install-autocomplete
+fi
 
 bindkey -M emacs '\e\e' kill-whole-line
