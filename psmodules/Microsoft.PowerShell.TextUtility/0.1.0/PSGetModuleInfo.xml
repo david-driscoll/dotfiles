@@ -38,7 +38,7 @@
         </TN>
         <DCT>
           <En>
-            <S N="Key">Workflow</S>
+            <S N="Key">DscResource</S>
             <Obj N="Value" RefId="3">
               <TNRef RefId="1" />
               <LST />
@@ -60,6 +60,10 @@
             </Obj>
           </En>
           <En>
+            <S N="Key">Workflow</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+          <En>
             <S N="Key">Function</S>
             <Ref N="Value" RefId="3" />
           </En>
@@ -73,10 +77,6 @@
                 <S>ConvertTo-Base64</S>
               </LST>
             </Obj>
-          </En>
-          <En>
-            <S N="Key">DscResource</S>
-            <Ref N="Value" RefId="3" />
           </En>
         </DCT>
       </Obj>
@@ -101,15 +101,15 @@
           <S N="releaseNotes">Initial release</S>
           <S N="isLatestVersion">False</S>
           <S N="isAbsoluteLatestVersion">True</S>
-          <S N="versionDownloadCount">313</S>
-          <S N="downloadCount">313</S>
+          <S N="versionDownloadCount">458</S>
+          <S N="downloadCount">458</S>
           <S N="packageSize">317301</S>
           <S N="published">11/25/2020 3:00:50 PM -05:00</S>
           <S N="created">11/25/2020 3:00:50 PM -05:00</S>
-          <S N="lastUpdated">7/15/2022 1:05:42 PM -04:00</S>
+          <S N="lastUpdated">1/5/2023 3:49:30 PM -05:00</S>
           <S N="tags">PSModule PSEdition_Desktop PSEdition_Core PSCmdlet_Compare-Text PSCommand_Compare-Text PSCmdlet_ConvertFrom-Base64 PSCommand_ConvertFrom-Base64 PSCmdlet_ConvertTo-Base64 PSCommand_ConvertTo-Base64 PSIncludes_Cmdlet</S>
           <S N="developmentDependency">False</S>
-          <S N="updated">2022-07-15T13:05:42Z</S>
+          <S N="updated">2023-01-05T15:49:30Z</S>
           <S N="NormalizedVersion">0.1.0-Preview1</S>
           <S N="Authors">Microsoft Corporation</S>
           <S N="IsPrerelease">true</S>
