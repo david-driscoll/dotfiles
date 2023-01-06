@@ -42,7 +42,7 @@
         </TN>
         <DCT>
           <En>
-            <S N="Key">Cmdlet</S>
+            <S N="Key">RoleCapability</S>
             <Obj N="Value" RefId="4">
               <TNRef RefId="1" />
               <LST />
@@ -67,7 +67,7 @@
             <Ref N="Value" RefId="4" />
           </En>
           <En>
-            <S N="Key">Workflow</S>
+            <S N="Key">Cmdlet</S>
             <Ref N="Value" RefId="4" />
           </En>
           <En>
@@ -85,7 +85,7 @@
             </Obj>
           </En>
           <En>
-            <S N="Key">RoleCapability</S>
+            <S N="Key">Workflow</S>
             <Ref N="Value" RefId="4" />
           </En>
         </DCT>
@@ -111,15 +111,15 @@
           <S N="releaseNotes">https://github.com/vors/ZLocation/blob/master/CHANGELOG.md</S>
           <S N="isLatestVersion">True</S>
           <S N="isAbsoluteLatestVersion">True</S>
-          <S N="versionDownloadCount">707</S>
-          <S N="downloadCount">7063</S>
+          <S N="versionDownloadCount">8790</S>
+          <S N="downloadCount">15254</S>
           <S N="packageSize">154626</S>
           <S N="published">1/3/2021 5:48:28 PM -05:00</S>
           <S N="created">1/3/2021 5:48:28 PM -05:00</S>
-          <S N="lastUpdated">3/3/2021 1:36:24 AM -05:00</S>
+          <S N="lastUpdated">1/6/2023 8:25:06 PM -05:00</S>
           <S N="tags">PSModule PSFunction_Get-ZLocation PSCommand_Get-ZLocation PSFunction_Invoke-ZLocation PSCommand_Invoke-ZLocation PSFunction_Pop-ZLocation PSCommand_Pop-ZLocation PSFunction_Remove-ZLocation PSCommand_Remove-ZLocation PSFunction_Set-ZLocation PSCommand_Set-ZLocation PSFunction_Update-ZLocation PSCommand_Update-ZLocation PSIncludes_Function</S>
           <S N="developmentDependency">False</S>
-          <S N="updated">2021-03-03T01:36:24Z</S>
+          <S N="updated">2023-01-06T20:25:06Z</S>
           <S N="NormalizedVersion">1.4.3</S>
           <S N="Authors">Sergei Vorobev</S>
           <S N="IsPrerelease">false</S>

@@ -48,7 +48,7 @@
         </TN>
         <DCT>
           <En>
-            <S N="Key">Cmdlet</S>
+            <S N="Key">RoleCapability</S>
             <Obj N="Value" RefId="4">
               <TNRef RefId="1" />
               <LST />
@@ -78,7 +78,7 @@
             <Ref N="Value" RefId="4" />
           </En>
           <En>
-            <S N="Key">Workflow</S>
+            <S N="Key">Cmdlet</S>
             <Ref N="Value" RefId="4" />
           </En>
           <En>
@@ -101,7 +101,7 @@
             </Obj>
           </En>
           <En>
-            <S N="Key">RoleCapability</S>
+            <S N="Key">Workflow</S>
             <Ref N="Value" RefId="4" />
           </En>
         </DCT>
@@ -127,15 +127,15 @@
           <S N="releaseNotes">https://github.com/dahlbyk/posh-sshell/blob/v0.3.1/CHANGELOG.md</S>
           <S N="isLatestVersion">True</S>
           <S N="isAbsoluteLatestVersion">True</S>
-          <S N="versionDownloadCount">3446</S>
-          <S N="downloadCount">3544</S>
+          <S N="versionDownloadCount">8571</S>
+          <S N="downloadCount">8698</S>
           <S N="packageSize">20104</S>
           <S N="published">8/2/2018 3:37:36 PM -04:00</S>
           <S N="created">8/2/2018 3:37:36 PM -04:00</S>
-          <S N="lastUpdated">3/2/2021 5:46:22 PM -05:00</S>
+          <S N="lastUpdated">1/6/2023 8:20:06 PM -05:00</S>
           <S N="tags">ssh openssh open-ssh putty pageant PSEdition_Core PSModule PSFunction_Get-SshAgent PSCommand_Get-SshAgent PSFunction_Start-SshAgent PSCommand_Start-SshAgent PSFunction_Stop-SshAgent PSCommand_Stop-SshAgent PSFunction_Add-SshKey PSCommand_Add-SshKey PSFunction_Get-SshPath PSCommand_Get-SshPath PSFunction_Add-PoshSshellToProfile PSCommand_Add-PoshSshellToProfile PSFunction_Get-SshConfig PSCommand_Get-SshConfig PSFunction_Connect-Ssh PSCommand_Connect-Ssh PSFunction_Add-SshConnection PSCommand_Add-SshConnection PSFunction_Remove-SshConnection PSCommand_Remove-SshConnection PSFunction_Add-SshAlias PSCommand_Add-SshAlias PSIncludes_Function</S>
           <S N="developmentDependency">False</S>
-          <S N="updated">2021-03-02T17:46:22Z</S>
+          <S N="updated">2023-01-06T20:20:06Z</S>
           <S N="NormalizedVersion">0.3.1</S>
           <S N="Authors">Jeremy Skinner Keith Dahlby Mark Embling and contributors</S>
           <S N="IsPrerelease">false</S>
