@@ -1,0 +1,111 @@
+<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04">
+  <Obj RefId="0">
+    <TN RefId="0">
+      <T>Microsoft.PowerShell.Commands.PSRepositoryItemInfo</T>
+      <T>System.Management.Automation.PSCustomObject</T>
+      <T>System.Object</T>
+    </TN>
+    <MS>
+      <S N="Name">TerraformCompletion</S>
+      <S N="Version">0.1.0</S>
+      <S N="Type">Module</S>
+      <S N="Description">Provides Terraform command completion for PowerShell.</S>
+      <S N="Author">Kai Korla</S>
+      <S N="CompanyName">balticer</S>
+      <S N="Copyright">(c) 2022 - Kai Korla &lt;kai.korla@netflare.de&gt;</S>
+      <DT N="PublishedDate">2022-09-13T18:25:20-04:00</DT>
+      <Nil N="InstalledDate" />
+      <Nil N="UpdatedDate" />
+      <URI N="LicenseUri">https://github.com/balticer/TerraformCompletion/blob/develop/LICENSE</URI>
+      <URI N="ProjectUri">https://github.com/balticer/TerraformCompletion</URI>
+      <Nil N="IconUri" />
+      <Obj N="Tags" RefId="1">
+        <TN RefId="1">
+          <T>System.Object[]</T>
+          <T>System.Array</T>
+          <T>System.Object</T>
+        </TN>
+        <LST>
+          <S>terraform</S>
+          <S>completion</S>
+          <S>PSModule</S>
+        </LST>
+      </Obj>
+      <Obj N="Includes" RefId="2">
+        <TN RefId="2">
+          <T>System.Collections.Hashtable</T>
+          <T>System.Object</T>
+        </TN>
+        <DCT>
+          <En>
+            <S N="Key">RoleCapability</S>
+            <Obj N="Value" RefId="3">
+              <TNRef RefId="1" />
+              <LST />
+            </Obj>
+          </En>
+          <En>
+            <S N="Key">Function</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+          <En>
+            <S N="Key">DscResource</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+          <En>
+            <S N="Key">Cmdlet</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+          <En>
+            <S N="Key">Command</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+          <En>
+            <S N="Key">Workflow</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+        </DCT>
+      </Obj>
+      <Nil N="PowerShellGetFormatVersion" />
+      <Nil N="ReleaseNotes" />
+      <Obj N="Dependencies" RefId="4">
+        <TNRef RefId="1" />
+        <LST />
+      </Obj>
+      <S N="RepositorySourceLocation">https://www.powershellgallery.com/api/v2</S>
+      <S N="Repository">PSGallery</S>
+      <S N="PackageManagementProvider">NuGet</S>
+      <Obj N="AdditionalMetadata" RefId="5">
+        <TN RefId="3">
+          <T>System.Management.Automation.PSCustomObject</T>
+          <T>System.Object</T>
+        </TN>
+        <MS>
+          <S N="copyright">(c) 2022 - Kai Korla &lt;kai.korla@netflare.de&gt;</S>
+          <S N="description">Provides Terraform command completion for PowerShell.</S>
+          <S N="requireLicenseAcceptance">False</S>
+          <S N="isLatestVersion">True</S>
+          <S N="isAbsoluteLatestVersion">True</S>
+          <S N="versionDownloadCount">24</S>
+          <S N="downloadCount">24</S>
+          <S N="packageSize">5797</S>
+          <S N="published">9/13/2022 6:25:20 PM -04:00</S>
+          <S N="created">9/13/2022 6:25:20 PM -04:00</S>
+          <S N="lastUpdated">12/31/2022 11:27:43 AM -05:00</S>
+          <S N="tags">terraform completion PSModule</S>
+          <S N="developmentDependency">False</S>
+          <S N="updated">2022-12-31T11:27:43Z</S>
+          <S N="NormalizedVersion">0.1.0</S>
+          <S N="Authors">Kai Korla</S>
+          <S N="IsPrerelease">false</S>
+          <S N="ItemType">Module</S>
+          <S N="FileList">TerraformCompletion.nuspec|TerraformCompletion.psd1|TerraformCompletion.psm1|LICENSE|README.md</S>
+          <S N="GUID">d951bc13-7ccb-4682-b91f-a08e0480983e</S>
+          <S N="PowerShellVersion">5.1</S>
+          <S N="CompanyName">NETFLARE</S>
+        </MS>
+      </Obj>
+      <S N="InstalledLocation">C:\Users\David\.cmder\config\psmodules\TerraformCompletion\0.1.0</S>
+    </MS>
+  </Obj>
+</Objs>

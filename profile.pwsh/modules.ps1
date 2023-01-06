@@ -3,6 +3,7 @@ Import-Module Pansies
 Import-Module posh-git
 Import-Module Terminal-Icons
 Import-Module Microsoft.PowerShell.TextUtility
+Import-Module npm-completion
 
 function Get-ComputerName {
     if (Test-PsCore -and $PSVersionTable.Platform -ne 'Windows') {
