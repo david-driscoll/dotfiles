@@ -105,6 +105,9 @@ eval $(thefuck --alias)
 if [ -x "$(command -v gh)" ]; then
     eval $(gh completion --shell bash)
 fi
+if [ -x "$(command -v terraform)" ]; then
+  terraform -install-autocomplete
+fi
 
 function set_win_title() {
     ssDirectory=$(starship module directory | sed -E "s/"$'\E'"\[([0-9]{1,3}((;[0-9]{1,3})*)?)?[m|K]//g")
