@@ -36,6 +36,7 @@ $host.UI.RawUI.WindowTitle = ($title -replace '\x1b\[[0-9;]*m', '') -replace 'îœ
 Invoke-Expression $promptModule
 (volta completions powershell) -join "`n" | Invoke-Expression
 (gh completion -s powershell) -join "`n" | Invoke-Expression
+(op completion powershell) -join "`n" | Invoke-Expression
 
 $env:PYTHONIOENCODING = "utf-8"
 iex "$(thefuck --alias)"
