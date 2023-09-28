@@ -24,7 +24,7 @@ if ($IsLinux) {
 $ENV:STARSHIP_CONFIG = Join-Path $PSScriptRoot 'starship.toml';
 
 #Invoke-Expression (&starship init powershell)
-$promptModule = & 'C:\ProgramData\chocolatey\lib\starship\tools\starship.exe' init powershell --print-full-init | Out-String;
+$promptModule = & 'C:\Program Files\starship\bin\starship.exe' init powershell --print-full-init | Out-String;
 $promptModule = $promptModule.Replace("# Return the prompt", @'
 # Return the prompt
 $title = $promptText
