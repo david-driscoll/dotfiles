@@ -150,3 +150,5 @@ fi
 if [[ $(grep microsoft /proc/version) ]]; then
     . ~/.wslrc
 fi
+
+source $HOME/.agent-bridge.sh

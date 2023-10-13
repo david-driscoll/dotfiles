@@ -83,5 +83,8 @@ git config --global user.signingkey ADE5986A712195C4
 git config --global user.name "David Driscoll"
 git config --global user.email "david.driscoll@gmail.com"
 git config --global core.editor "vi"
+# TODO: 1Password
+# TODO: Setup npiperelay
 git config --global commit.gpgsign true
 git config --global alias.amend "commit --amend --reuse-message=HEAD"
+git config --global url."git@github.com:".insteadOf "https://github.com/"
