@@ -105,6 +105,9 @@ eval $(thefuck --alias)
 if [ -x "$(command -v gh)" ]; then
     eval $(gh completion --shell bash)
 fi
+if [ -x "$(command -v op)" ]; then
+    eval $(op completion bash)
+fi
 if [ -x "$(command -v terraform)" ]; then
   terraform -install-autocomplete
 fi
@@ -150,5 +153,3 @@ fi
 if [[ $(grep microsoft /proc/version) ]]; then
     . ~/.wslrc
 fi
-
-source $HOME/.agent-bridge.sh

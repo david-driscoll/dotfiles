@@ -1,4 +1,3 @@
-Import-Module posh-sshell
 Import-Module Pansies
 Import-Module posh-git
 Import-Module Terminal-Icons
