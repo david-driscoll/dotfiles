@@ -153,3 +153,6 @@ fi
 if [[ $(grep microsoft /proc/version) ]]; then
     . ~/.wslrc
 fi
+
+# add Pulumi to the PATH
+export PATH=$PATH:$HOME/.pulumi/bin

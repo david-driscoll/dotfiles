@@ -42,5 +42,3 @@ $env:PYTHONIOENCODING = "utf-8"
 iex "$(thefuck --alias)"
 
 Import-Module ZLocation
-
-Start-Job -ScriptBlock { Start-SshAgent -Quiet } | Out-Null
