@@ -6,10 +6,6 @@ foreach ($d in $distros) {
 
     $script = @"
 #!/bin/bash
-rm ~/.ssh
-rm ~/.local/state/gh
-rm ~/.config/gh
-rm ~/dotfiles
 mkdir -p ~/.local/state/
 mkdir -p ~/.config/
 ln -s /mnt/c/Users/$ENV:USERNAME/dotfiles/ ~/dotfiles

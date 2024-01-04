@@ -73,6 +73,7 @@ foreach ($program in $programs) {
 $wingetPrograms = @(
     "AgileBits.1Password.CLI",
     "AgileBits.1Password",
+    "tailscale",
     "Microsoft.DotNet.SDK.8",
     "Microsoft.DotNet.SDK.7",
     "Microsoft.DotNet.SDK.6",
