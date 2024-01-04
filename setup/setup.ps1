@@ -133,7 +133,8 @@ $wingetPrograms = @(
     "Hashicorp.Terraform",
     "Pulumi.Pulumi",
     "Microsoft.NuGet",
-    "Volta.Volta"
+    "Volta.Volta",
+    "ProjectJupyter.JupyterLab"
 );
 foreach ($program in $wingetPrograms) {
     iex "winget install $program";
@@ -146,12 +147,6 @@ wsl --set-default-version 2
 wsl install Ubuntu
 # wsl install kali-linux
 
-# dotnet core
-Invoke-WebRequest https://dot.net/v1/dotnet-install.ps1 -OutFile "$ENV:USERPROFILE/dotnet-install.ps1"
-. $ENV:USERPROFILE/dotnet-install.ps1 -Channel LTS
-. $ENV:USERPROFILE/dotnet-install.ps1 -Channel Current
-Remove-Item "$ENV:USERPROFILE/dotnet-install.ps1"
-
 $wc = (New-Object System.Net.WebClient);
 Invoke-WebRequest https://raw.githubusercontent.com/microsoft/artifacts-credprovider/master/helpers/installcredprovider.ps1 -OutFile "$ENV:USERPROFILE/installcredprovider.ps1"
 . $ENV:USERPROFILE/installcredprovider.ps1 -AddNetfx -Force
@@ -163,7 +158,6 @@ volta.exe setup
 volta.exe install node
 
 pip install thefuck
-conda install -c conda-forge notebook jupyterlab
 dotnet tool install -g dotnet-try
 dotnet try jupyter install
 
@@ -172,16 +166,14 @@ az extension add --name interactive
 
 keybase login
 
-mkdir "$ENV:USERPROFILE/Documents/WindowsPowerShell/" -ErrorAction SilentlyContinue
-mkdir "$ENV:USERPROFILE/Documents/PowerShell/" -ErrorAction SilentlyContinue
-
 rm -Recurse -Force $ENV:USERPROFILE/.ssh/
 New-Item -ItemType SymbolicLink -Value $ENV:USERPROFILE/dotfiles/ssh/ -Path $ENV:USERPROFILE/.ssh/
 
+mkdir "$ENV:USERPROFILE/Documents/WindowsPowerShell/" -ErrorAction SilentlyContinue
 rm $ENV:USERPROFILE/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1 -ErrorAction SilentlyContinue
 New-Item -ItemType SymbolicLink -Value $ENV:USERPROFILE/dotfiles/powershell/Microsoft.PowerShell_profile.ps1 -Path $ENV:USERPROFILE/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
 
-mkdir $ENV:USERPROFILE/Documents/PowerShell/ -ErrorAction SilentlyContinue
+mkdir "$ENV:USERPROFILE/Documents/PowerShell/" -ErrorAction SilentlyContinue
 rm $ENV:USERPROFILE/Documents/PowerShell/Microsoft.PowerShell_profile.ps1 -ErrorAction SilentlyContinue
 New-Item -ItemType SymbolicLink -Value $ENV:USERPROFILE/dotfiles/powershell/Microsoft.PowerShell_profile.ps1 -Path $ENV:USERPROFILE/Documents/PowerShell/Microsoft.PowerShell_profile.ps1
 
@@ -190,28 +182,29 @@ rm $ENV:USERPROFILE/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
 New-Item -ItemType SymbolicLink -Value $ENV:USERPROFILE/dotfiles/powershell/Microsoft.PowerShell_profile.ps1 -Path $ENV:USERPROFILE/Documents/WindowsPowerShell/Microsoft.PowerShell_profile.ps1
 
 mkdir $ENV:USERPROFILE/.gnupg/ -ErrorAction SilentlyContinue
-rm $ENV:USERPROFILE/.gnupg/gpg-agent.conf
+rm $ENV:USERPROFILE/.gnupg/gpg-agent.conf -ErrorAction SilentlyContinue
 New-Item -ItemType SymbolicLink -Value $ENV:USERPROFILE/dotfiles/gpg-agent.conf -Path $ENV:USERPROFILE/.gnupg/gpg-agent.conf
 
 mkdir $ENV:APPDATA/gnupg/ -ErrorAction SilentlyContinue
-rm $ENV:APPDATA/gnupg/gpg-agent.conf
+rm $ENV:APPDATA/gnupg/gpg-agent.conf -ErrorAction SilentlyContinue
 New-Item -ItemType SymbolicLink -Value $ENV:USERPROFILE/dotfiles/gpg-agent.conf -Path $ENV:APPDATA/gnupg/gpg-agent.conf
 
-mkdir $ENV:LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/ -ErrorAction SilentlyContinue
-rm $ENV:LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json -ErrorAction SilentlyContinue
-New-Item -ItemType SymbolicLink -Value $ENV:USERPROFILE/dotfiles/terminal/ -Path $ENV:LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/
-cp $ENV:LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/terminal/*.* $ENV:LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/
-rm -Recurse -Force $ENV:LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/terminal/ -ErrorAction SilentlyContinue
-
-mkdir $ENV:LOCALAPPDATA/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState/ -ErrorAction SilentlyContinue
-rm $ENV:LOCALAPPDATA/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState/settings.json -ErrorAction SilentlyContinue
-New-Item -ItemType SymbolicLink -Value $ENV:USERPROFILE/dotfiles/terminal/ -Path $ENV:LOCALAPPDATA/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState/
-
-cp $ENV:LOCALAPPDATA/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState/terminal/*.* $ENV:LOCALAPPDATA/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState/
-rm -Recurse -Force $ENV:LOCALAPPDATA/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState/terminal/ -ErrorAction SilentlyContinue
-
 mkdir $ENV:USERPROFILE/.config/ -ErrorAction SilentlyContinue
-New-Item -ItemType SymbolicLink -Value $ENV:USERPROFILE/dotfiles/.config/thefuck/ -Path "$ENV:USERPROFILE/.config/thefuck/"
+rm -Recurse -Force "$ENV:USERPROFILE/.config/thefuck" -ErrorAction SilentlyContinue
+New-Item -ItemType SymbolicLink -Value $ENV:USERPROFILE/dotfiles/thefuck/ -Path "$ENV:USERPROFILE/.config/thefuck/"
+
+# mkdir $ENV:LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/ -ErrorAction SilentlyContinue
+# rm $ENV:LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json -ErrorAction SilentlyContinue
+# New-Item -ItemType SymbolicLink -Value $ENV:USERPROFILE/dotfiles/terminal/ -Path $ENV:LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/
+# cp $ENV:LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/terminal/*.* $ENV:LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/
+# rm -Recurse -Force $ENV:LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/terminal/ -ErrorAction SilentlyContinue
+
+# mkdir $ENV:LOCALAPPDATA/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState/ -ErrorAction SilentlyContinue
+# rm $ENV:LOCALAPPDATA/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState/settings.json -ErrorAction SilentlyContinue
+# New-Item -ItemType SymbolicLink -Value $ENV:USERPROFILE/dotfiles/terminal/ -Path $ENV:LOCALAPPDATA/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState/
+
+# cp $ENV:LOCALAPPDATA/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState/terminal/*.* $ENV:LOCALAPPDATA/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState/
+# rm -Recurse -Force $ENV:LOCALAPPDATA/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState/terminal/ -ErrorAction SilentlyContinue
 
 $PROFILE | Get-Member | where { $_.Name.StartsWith("Current") } | foreach { $($PROFILE.($_.Name)) } | where { test-path $_ } | foreach { Unblock-File $_ }
 gci $ENV:USERPROFILE\.ssh\ | foreach { Unblock-File $_ }
