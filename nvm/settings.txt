@@ -1,0 +1,4 @@
+root:  C:\ProgramData\nvm
+path:  C:\ProgramData\nodejs
+arch:  64
+proxy:  none

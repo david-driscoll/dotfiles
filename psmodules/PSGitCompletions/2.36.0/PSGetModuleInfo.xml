@@ -102,7 +102,7 @@
           <S N="GUID">456512b8-bb86-47d7-835b-486b21bf5381</S>
         </MS>
       </Obj>
-      <S N="InstalledLocation">C:\Users\David\.cmder\config\psmodules\PSGitCompletions\2.36.0</S>
+      <S N="InstalledLocation">C:\Users\David\dotfiles\psmodules\PSGitCompletions\2.36.0</S>
     </MS>
   </Obj>
 </Objs>

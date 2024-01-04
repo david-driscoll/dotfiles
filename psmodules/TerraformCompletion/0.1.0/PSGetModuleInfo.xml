@@ -105,7 +105,7 @@
           <S N="CompanyName">NETFLARE</S>
         </MS>
       </Obj>
-      <S N="InstalledLocation">C:\Users\David\.cmder\config\psmodules\TerraformCompletion\0.1.0</S>
+      <S N="InstalledLocation">C:\Users\David\dotfiles\psmodules\TerraformCompletion\0.1.0</S>
     </MS>
   </Obj>
 </Objs>

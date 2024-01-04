@@ -116,7 +116,7 @@
           <S N="PowerShellVersion">5.1</S>
         </MS>
       </Obj>
-      <S N="InstalledLocation">C:\Users\David\.cmder\config\psmodules\PSKubectlCompletion\1.0.4</S>
+      <S N="InstalledLocation">C:\Users\David\dotfiles\psmodules\PSKubectlCompletion\1.0.4</S>
     </MS>
   </Obj>
 </Objs>

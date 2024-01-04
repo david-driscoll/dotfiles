@@ -116,7 +116,7 @@
           <S N="CompanyName">Microsoft</S>
         </MS>
       </Obj>
-      <S N="InstalledLocation">C:\Users\David\.cmder\config\psmodules\WslInterop\0.4.1</S>
+      <S N="InstalledLocation">C:\Users\David\dotfiles\psmodules\WslInterop\0.4.1</S>
     </MS>
   </Obj>
 </Objs>
