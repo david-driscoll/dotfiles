@@ -1,4 +1,5 @@
-<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04">
+<Objs Version="1.1.0.1"
+  xmlns="http://schemas.microsoft.com/powershell/2004/04">
   <Obj RefId="0">
     <TN RefId="0">
       <T>Microsoft.PowerShell.Commands.PSRepositoryItemInfo</T>
@@ -120,7 +121,7 @@
           <S N="CompanyName">Microsoft Corporation</S>
         </MS>
       </Obj>
-      <S N="InstalledLocation">C:\Users\David\.cmder\config\psmodules\Microsoft.PowerShell.TextUtility\0.1.0</S>
+      <S N="InstalledLocation">C:\Users\David\dotfiles\psmodules\Microsoft.PowerShell.TextUtility\0.1.0</S>
     </MS>
   </Obj>
 </Objs>

@@ -145,7 +145,7 @@
           <S N="PowerShellVersion">5.0</S>
         </MS>
       </Obj>
-      <S N="InstalledLocation">C:\Users\David\.cmder\config\psmodules\posh-sshell\0.3.1</S>
+      <S N="InstalledLocation">C:\Users\David\dotfiles\psmodules\posh-sshell\0.3.1</S>
     </MS>
   </Obj>
 </Objs>

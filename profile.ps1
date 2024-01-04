@@ -1,8 +1,8 @@
-# Add Cmder modules directory to the autoload path.
-$CmderModulePath = Join-path $PSScriptRoot "psmodules/"
+# Add Dotfiles modules directory to the autoload path.
+$DotfilesModulePath = Join-path $PSScriptRoot "psmodules/"
 
-if (-not $env:PSModulePath.Contains($CmderModulePath) ) {
-    $env:PSModulePath = $env:PSModulePath.Insert(0, "$CmderModulePath$([System.IO.Path]::PathSeparator)")
+if (-not $env:PSModulePath.Contains($DotfilesModulePath) ) {
+    $env:PSModulePath = $env:PSModulePath.Insert(0, "$DotfilesModulePath$([System.IO.Path]::PathSeparator)")
 }
 
 foreach ($x in Get-ChildItem $PSScriptRoot/profile.pwsh -Filter *.ps1) {

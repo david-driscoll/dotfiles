@@ -74,15 +74,14 @@ if [ $WT_SESSION ]; then
     rm ~/.config/powershell > /dev/null 2>&1
     mkdir -p ~/.local/state/ > /dev/null 2>&1
     mkdir -p ~/.config/ > /dev/null 2>&1
-    ln -s /mnt/c/Users/$WINDOWS_USER/.ssh/ ~/.ssh
-    ln -s /mnt/c/Users/$WINDOWS_USER/.cmder/config/ ~/dotfiles
+    ln -s /mnt/c/Users/$WINDOWS_USER/.ssh/ ~/dotfiles/ssh/
     ln -s "/mnt/c/Users/$WINDOWS_USER/AppData/Roaming/GitHub CLI/" ~/.config/gh
     ln -s "/mnt/c/Users/$WINDOWS_USER/AppData/Local/GitHub CLI/" ~/.local/state/gh
-    ln -s "/mnt/c/Users/$WINDOWS_USER/.cmder/config/powershell/" ~/.config/powershell
-    ln -s "/mnt/c/Users/$WINDOWS_USER/.cmder/config/.bashrc" ~/.bashrc
-    ln -s "/mnt/c/Users/$WINDOWS_USER/.cmder/config/.inputrc" ~/.inputrc
-    ln -s "/mnt/c/Users/$WINDOWS_USER/.cmder/config/.bash_aliases" ~/.bash_aliases
-    ln -s "/mnt/c/Users/$WINDOWS_USER/.cmder/config/.wslrc" ~/.wslrc
+    ln -s "/mnt/c/Users/$WINDOWS_USER/dotfiles/powershell/" ~/.config/powershell
+    ln -s "/mnt/c/Users/$WINDOWS_USER/dotfiles/.bashrc" ~/.bashrc
+    ln -s "/mnt/c/Users/$WINDOWS_USER/dotfiles/.inputrc" ~/.inputrc
+    ln -s "/mnt/c/Users/$WINDOWS_USER/dotfiles/.bash_aliases" ~/.bash_aliases
+    ln -s "/mnt/c/Users/$WINDOWS_USER/dotfiles/.wslrc" ~/.wslrc
 fi
 
 git config --global core.eol lf

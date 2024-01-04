@@ -170,7 +170,7 @@
           <S N="PowerShellVersion">5.0</S>
         </MS>
       </Obj>
-      <S N="InstalledLocation">C:\Users\David\.cmder\config\psmodules\posh-git\1.1.0</S>
+      <S N="InstalledLocation">C:\Users\David\dotfiles\psmodules\posh-git\1.1.0</S>
     </MS>
   </Obj>
 </Objs>
