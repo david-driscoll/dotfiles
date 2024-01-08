@@ -165,7 +165,7 @@ dotnet try jupyter install
 az extension add --name azure-devops
 az extension add --name interactive
 
-keybase login
+# keybase login
 
 rm -Recurse -Force $ENV:USERPROFILE/.ssh/
 New-Item -ItemType SymbolicLink -Value $ENV:USERPROFILE/dotfiles/ssh/ -Path $ENV:USERPROFILE/.ssh/
@@ -184,11 +184,11 @@ New-Item -ItemType SymbolicLink -Value $ENV:USERPROFILE/dotfiles/powershell/Micr
 
 mkdir $ENV:USERPROFILE/.gnupg/ -ErrorAction SilentlyContinue
 rm $ENV:USERPROFILE/.gnupg/gpg-agent.conf -ErrorAction SilentlyContinue
-New-Item -ItemType SymbolicLink -Value $ENV:USERPROFILE/dotfiles/gpg-agent.conf -Path $ENV:USERPROFILE/.gnupg/gpg-agent.conf
+Copy-Item $ENV:USERPROFILE/dotfiles/gpg-agent.conf $ENV:USERPROFILE/.gnupg/gpg-agent.conf
 
 mkdir $ENV:APPDATA/gnupg/ -ErrorAction SilentlyContinue
 rm $ENV:APPDATA/gnupg/gpg-agent.conf -ErrorAction SilentlyContinue
-New-Item -ItemType SymbolicLink -Value $ENV:USERPROFILE/dotfiles/gpg-agent.conf -Path $ENV:APPDATA/gnupg/gpg-agent.conf
+Copy-Item $ENV:USERPROFILE/dotfiles/gpg-agent.conf $ENV:APPDATA/gnupg/gpg-agent.conf
 
 mkdir $ENV:USERPROFILE/.config/ -ErrorAction SilentlyContinue
 rm -Recurse -Force "$ENV:USERPROFILE/.config/thefuck" -ErrorAction SilentlyContinue
