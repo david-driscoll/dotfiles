@@ -1,6 +1,6 @@
 sudo apt-get update
 
-curl -fsSL https://starship.rs/install.sh | bash -s -- --yes
+curl -sS https://starship.rs/install.sh | sh
 sudo apt-get install -y git
 sudo apt-get install -y postgresql-client
 sudo apt-get install -y jq
@@ -47,12 +47,12 @@ rm ./keybase_amd64.deb
 # volta
 curl https://get.volta.sh | bash
 
-keybase login
+# keybase login
 
-ln -s ~/.ssh ~/dotfiles/ssh/
+ln -s ~/dotfiles/ssh/ ~/.ssh
 find ~/.ssh/ -type f -print0 | xargs -0 chmod 600
 
-ln -s ~/dotfiles/gnupg/gpg-agent.conf ~/.gnupg/gpg-agent.conf
+ln -s ~/dotfiles/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 find ~/.gnupg/ -type f -print0 | xargs -0 chmod 644
 
 ln -s ~/dotfiles/.bashrc ~/.bashrc

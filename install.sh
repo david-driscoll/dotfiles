@@ -4,7 +4,7 @@ sudo dpkg -i packages-microsoft-prod.deb
 rm packages-microsoft-prod.deb
 sudo apt-get update
 
-curl -fsSL https://starship.rs/install.sh | sudo bash -s -- --yes
+curl -sS https://starship.rs/install.sh | sh
 sudo apt-get install -y python3 python3-pip powershell
 sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 10
@@ -35,53 +35,33 @@ volta install node
 
 # bash and others
 
-touch ~/.bashrc > /dev/null 2>&1
-cp -f ~/dotfiles/.bashrc ~/.bashrc
+rm ~/.bashrc > /dev/null 2>&1
+ln -s ~/dotfiles/.bashrc ~/.bashrc
 chmod 644 ~/.bashrc
 
-touch ~/.inputrc > /dev/null 2>&1
-cp -f ~/dotfiles/.inputrc ~/.inputrc
+rm ~/.inputrc > /dev/null 2>&1
+ln -s ~/dotfiles/.inputrc ~/.inputrc
 chmod 644 ~/.inputrc
 
-touch ~/.bash_aliases > /dev/null 2>&1
-cp -f ~/dotfiles/.bash_aliases ~/.bash_aliases
+rm ~/.bash_aliases > /dev/null 2>&1
+ln -s ~/dotfiles/.bash_aliases ~/.bash_aliases
 chmod 644 ~/.bash_aliases
 
 mkdir ~/.config/ > /dev/null 2>&1
 
-mkdir ~/.config/thefuck/ > /dev/null 2>&1
-cp -rf ~/dotfiles/thefuck/ ~/.config/
+rm ~/.config/thefuck/ > /dev/null 2>&1
+ln -s ~/dotfiles/thefuck/ ~/.config/thefuck/
 find ~/.config/thefuck/ -type f -print0 | xargs -0 chmod 644
 
-mkdir ~/.config/powershell/ > /dev/null 2>&1
-cp -rf ~/dotfiles/powershell/ ~/.config/
+rm ~/.config/powershell/ > /dev/null 2>&1
+ln -s ~/dotfiles/powershell/ ~/.config/powershell/
 
 if [ $WT_SESSION ]; then
     # ssh forwarding
     sudo apt install socat
     sudo apt install gpg
-
-    WINDOWS_USER=$(/mnt/c/Windows/System32/cmd.exe /c 'echo %USERNAME%' | sed -e 's/\r//g') > /dev/null 2>&1
-
-    rm ~/.ssh > /dev/null 2>&1
-    rm ~/.local/state/gh > /dev/null 2>&1
-    rm ~/.config/gh > /dev/null 2>&1
-    rm ~/dotfiles > /dev/null 2>&1
-    rm ~/.bashrc > /dev/null 2>&1
-    rm ~/.inputrc > /dev/null 2>&1
-    rm ~/.bash_aliases > /dev/null 2>&1
-    rm ~/.wslrc > /dev/null 2>&1
-    rm ~/.config/powershell > /dev/null 2>&1
-    mkdir -p ~/.local/state/ > /dev/null 2>&1
-    mkdir -p ~/.config/ > /dev/null 2>&1
-    ln -s /mnt/c/Users/$WINDOWS_USER/.ssh/ ~/dotfiles/ssh/
-    ln -s "/mnt/c/Users/$WINDOWS_USER/AppData/Roaming/GitHub CLI/" ~/.config/gh
-    ln -s "/mnt/c/Users/$WINDOWS_USER/AppData/Local/GitHub CLI/" ~/.local/state/gh
-    ln -s "/mnt/c/Users/$WINDOWS_USER/dotfiles/powershell/" ~/.config/powershell
-    ln -s "/mnt/c/Users/$WINDOWS_USER/dotfiles/.bashrc" ~/.bashrc
-    ln -s "/mnt/c/Users/$WINDOWS_USER/dotfiles/.inputrc" ~/.inputrc
-    ln -s "/mnt/c/Users/$WINDOWS_USER/dotfiles/.bash_aliases" ~/.bash_aliases
-    ln -s "/mnt/c/Users/$WINDOWS_USER/dotfiles/.wslrc" ~/.wslrc
+    ln -s ~/dotfiles/.wslrc ~/.wslrc
+    chmod 644 ~/.wslrc
 fi
 
 git config --global core.eol lf

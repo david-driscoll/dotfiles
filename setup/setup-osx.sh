@@ -72,10 +72,9 @@ az extension add --name interactive
 # path for volta
 # path for python / pip
 
+# keybase login
 
-keybase login
-
-ln -s ~/.ssh ~/dotfiles/ssh/
+ln -s ~/dotfiles/ssh/ ~/.ssh
 find .ssh/ -type f -print0 | xargs -0 chmod 600
 
 ln -s ~/dotfiles/gpg-agent.conf ~/.gnupg/gpg-agent.conf
