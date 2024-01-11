@@ -51,15 +51,15 @@
             <Ref N="Value" RefId="3" />
           </En>
           <En>
+            <S N="Key">Command</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+          <En>
             <S N="Key">DscResource</S>
             <Ref N="Value" RefId="3" />
           </En>
           <En>
             <S N="Key">Cmdlet</S>
-            <Ref N="Value" RefId="3" />
-          </En>
-          <En>
-            <S N="Key">Command</S>
             <Ref N="Value" RefId="3" />
           </En>
           <En>
@@ -88,15 +88,15 @@
           <S N="requireLicenseAcceptance">False</S>
           <S N="isLatestVersion">True</S>
           <S N="isAbsoluteLatestVersion">True</S>
-          <S N="versionDownloadCount">2806</S>
-          <S N="downloadCount">3399</S>
+          <S N="versionDownloadCount">5232</S>
+          <S N="downloadCount">5825</S>
           <S N="packageSize">5214</S>
           <S N="published">4/21/2020 1:46:39 PM -04:00</S>
           <S N="created">4/21/2020 1:46:39 PM -04:00</S>
-          <S N="lastUpdated">1/6/2023 8:20:06 PM -05:00</S>
+          <S N="lastUpdated">1/11/2024 2:30:25 AM -05:00</S>
           <S N="tags">npm tab tab-completion completion PSModule</S>
           <S N="developmentDependency">False</S>
-          <S N="updated">2023-01-06T20:20:06Z</S>
+          <S N="updated">2024-01-11T02:30:25Z</S>
           <S N="NormalizedVersion">0.1.0</S>
           <S N="Authors">Saran Tanpituckpong</S>
           <S N="IsPrerelease">false</S>
