@@ -62,14 +62,6 @@
             </Obj>
           </En>
           <En>
-            <S N="Key">DscResource</S>
-            <Ref N="Value" RefId="3" />
-          </En>
-          <En>
-            <S N="Key">Cmdlet</S>
-            <Ref N="Value" RefId="3" />
-          </En>
-          <En>
             <S N="Key">Command</S>
             <Obj N="Value" RefId="5">
               <TNRef RefId="1" />
@@ -87,6 +79,14 @@
                 <S>Set-TabExpansionOption</S>
               </LST>
             </Obj>
+          </En>
+          <En>
+            <S N="Key">DscResource</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+          <En>
+            <S N="Key">Cmdlet</S>
+            <Ref N="Value" RefId="3" />
           </En>
           <En>
             <S N="Key">Workflow</S>
@@ -114,15 +114,15 @@
           <S N="requireLicenseAcceptance">False</S>
           <S N="isLatestVersion">True</S>
           <S N="isAbsoluteLatestVersion">True</S>
-          <S N="versionDownloadCount">11880</S>
-          <S N="downloadCount">12318</S>
+          <S N="versionDownloadCount">13581</S>
+          <S N="downloadCount">14020</S>
           <S N="packageSize">80833</S>
           <S N="published">6/21/2016 7:37:40 PM -04:00</S>
           <S N="created">6/21/2016 7:37:40 PM -04:00</S>
-          <S N="lastUpdated">1/6/2023 8:20:06 PM -05:00</S>
+          <S N="lastUpdated">1/11/2024 12:45:25 AM -05:00</S>
           <S N="tags">PSModule PSFunction_New-CompletionResult PSCommand_New-CompletionResult PSFunction_Get-CommandWithParameter PSCommand_Get-CommandWithParameter PSFunction_Set-CompletionPrivateData PSCommand_Set-CompletionPrivateData PSFunction_Get-CompletionPrivateData PSCommand_Get-CompletionPrivateData PSFunction_Get-CompletionWithExtension PSCommand_Get-CompletionWithExtension PSFunction_New-CommandTree PSCommand_New-CommandTree PSFunction_Get-CommandTreeCompletion PSCommand_Get-CommandTreeCompletion PSFunction_Register-ArgumentCompleter PSCommand_Register-ArgumentCompleter PSFunction_Test-ArgumentCompleter PSCommand_Test-ArgumentCompleter PSFunction_Get-ArgumentCompleter PSCommand_Get-ArgumentCompleter PSFunction_Set-TabExpansionOption PSCommand_Set-TabExpansionOption PSIncludes_Function</S>
           <S N="developmentDependency">False</S>
-          <S N="updated">2023-01-06T20:20:06Z</S>
+          <S N="updated">2024-01-11T00:45:25Z</S>
           <S N="NormalizedVersion">1.2.0</S>
           <S N="Authors">Jason Shirk</S>
           <S N="IsPrerelease">false</S>

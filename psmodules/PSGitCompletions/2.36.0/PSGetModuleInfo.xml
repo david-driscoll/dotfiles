@@ -48,15 +48,15 @@
             <Ref N="Value" RefId="3" />
           </En>
           <En>
+            <S N="Key">Command</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+          <En>
             <S N="Key">DscResource</S>
             <Ref N="Value" RefId="3" />
           </En>
           <En>
             <S N="Key">Cmdlet</S>
-            <Ref N="Value" RefId="3" />
-          </En>
-          <En>
-            <S N="Key">Command</S>
             <Ref N="Value" RefId="3" />
           </En>
           <En>
@@ -85,15 +85,15 @@
           <S N="requireLicenseAcceptance">False</S>
           <S N="isLatestVersion">True</S>
           <S N="isAbsoluteLatestVersion">True</S>
-          <S N="versionDownloadCount">325</S>
-          <S N="downloadCount">837</S>
+          <S N="versionDownloadCount">2178</S>
+          <S N="downloadCount">2690</S>
           <S N="packageSize">285332</S>
           <S N="published">5/12/2022 2:39:36 PM -04:00</S>
           <S N="created">5/12/2022 2:39:36 PM -04:00</S>
-          <S N="lastUpdated">1/6/2023 8:20:06 PM -05:00</S>
+          <S N="lastUpdated">1/10/2024 5:15:24 PM -05:00</S>
           <S N="tags">git PSModule</S>
           <S N="developmentDependency">False</S>
-          <S N="updated">2023-01-06T20:20:06Z</S>
+          <S N="updated">2024-01-10T17:15:24Z</S>
           <S N="NormalizedVersion">2.36.0</S>
           <S N="Authors">PowerCode</S>
           <S N="IsPrerelease">false</S>

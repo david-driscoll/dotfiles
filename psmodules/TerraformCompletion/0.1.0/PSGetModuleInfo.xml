@@ -49,15 +49,15 @@
             <Ref N="Value" RefId="3" />
           </En>
           <En>
+            <S N="Key">Command</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+          <En>
             <S N="Key">DscResource</S>
             <Ref N="Value" RefId="3" />
           </En>
           <En>
             <S N="Key">Cmdlet</S>
-            <Ref N="Value" RefId="3" />
-          </En>
-          <En>
-            <S N="Key">Command</S>
             <Ref N="Value" RefId="3" />
           </En>
           <En>
@@ -86,15 +86,15 @@
           <S N="requireLicenseAcceptance">False</S>
           <S N="isLatestVersion">True</S>
           <S N="isAbsoluteLatestVersion">True</S>
-          <S N="versionDownloadCount">24</S>
-          <S N="downloadCount">24</S>
+          <S N="versionDownloadCount">76</S>
+          <S N="downloadCount">76</S>
           <S N="packageSize">5797</S>
           <S N="published">9/13/2022 6:25:20 PM -04:00</S>
           <S N="created">9/13/2022 6:25:20 PM -04:00</S>
-          <S N="lastUpdated">12/31/2022 11:27:43 AM -05:00</S>
+          <S N="lastUpdated">1/10/2024 7:40:24 PM -05:00</S>
           <S N="tags">terraform completion PSModule</S>
           <S N="developmentDependency">False</S>
-          <S N="updated">2022-12-31T11:27:43Z</S>
+          <S N="updated">2024-01-10T19:40:24Z</S>
           <S N="NormalizedVersion">0.1.0</S>
           <S N="Authors">Kai Korla</S>
           <S N="IsPrerelease">false</S>

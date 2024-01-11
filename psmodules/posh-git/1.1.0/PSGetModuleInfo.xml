@@ -87,14 +87,6 @@
             </Obj>
           </En>
           <En>
-            <S N="Key">DscResource</S>
-            <Ref N="Value" RefId="4" />
-          </En>
-          <En>
-            <S N="Key">Cmdlet</S>
-            <Ref N="Value" RefId="4" />
-          </En>
-          <En>
             <S N="Key">Command</S>
             <Obj N="Value" RefId="6">
               <TNRef RefId="1" />
@@ -126,6 +118,14 @@
             </Obj>
           </En>
           <En>
+            <S N="Key">DscResource</S>
+            <Ref N="Value" RefId="4" />
+          </En>
+          <En>
+            <S N="Key">Cmdlet</S>
+            <Ref N="Value" RefId="4" />
+          </En>
+          <En>
             <S N="Key">Workflow</S>
             <Ref N="Value" RefId="4" />
           </En>
@@ -152,15 +152,15 @@
           <S N="releaseNotes">https://github.com/dahlbyk/posh-git/blob/v1.1.0/CHANGELOG.md</S>
           <S N="isLatestVersion">True</S>
           <S N="isAbsoluteLatestVersion">True</S>
-          <S N="versionDownloadCount">290946</S>
-          <S N="downloadCount">1383102</S>
+          <S N="versionDownloadCount">652644</S>
+          <S N="downloadCount">1747573</S>
           <S N="packageSize">45348</S>
           <S N="published">3/31/2022 3:51:47 PM -04:00</S>
           <S N="created">3/31/2022 3:51:47 PM -04:00</S>
-          <S N="lastUpdated">1/6/2023 8:20:06 PM -05:00</S>
+          <S N="lastUpdated">1/11/2024 2:35:25 AM -05:00</S>
           <S N="tags">git prompt tab tab-completion tab-expansion tabexpansion PSEdition_Core PSModule PSFunction_Add-PoshGitToProfile PSCommand_Add-PoshGitToProfile PSFunction_Expand-GitCommand PSCommand_Expand-GitCommand PSFunction_Format-GitBranchName PSCommand_Format-GitBranchName PSFunction_Get-GitBranchStatusColor PSCommand_Get-GitBranchStatusColor PSFunction_Get-GitStatus PSCommand_Get-GitStatus PSFunction_Get-GitDirectory PSCommand_Get-GitDirectory PSFunction_Get-PromptConnectionInfo PSCommand_Get-PromptConnectionInfo PSFunction_Get-PromptPath PSCommand_Get-PromptPath PSFunction_New-GitPromptSettings PSCommand_New-GitPromptSettings PSFunction_Remove-GitBranch PSCommand_Remove-GitBranch PSFunction_Remove-PoshGitFromProfile PSCommand_Remove-PoshGitFromProfile PSFunction_Update-AllBranches PSCommand_Update-AllBranches PSFunction_Write-GitStatus PSCommand_Write-GitStatus PSFunction_Write-GitBranchName PSCommand_Write-GitBranchName PSFunction_Write-GitBranchStatus PSCommand_Write-GitBranchStatus PSFunction_Write-GitIndexStatus PSCommand_Write-GitIndexStatus PSFunction_Write-GitStashCount PSCommand_Write-GitStashCount PSFunction_Write-GitWorkingDirStatus PSCommand_Write-GitWorkingDirStatus PSFunction_Write-GitWorkingDirStatusSummary PSCommand_Write-GitWorkingDirStatusSummary PSFunction_Write-Prompt PSCommand_Write-Prompt PSFunction_Write-VcsStatus PSCommand_Write-VcsStatus PSFunction_TabExpansion PSCommand_TabExpansion PSFunction_tgit PSCommand_tgit PSIncludes_Function</S>
           <S N="developmentDependency">False</S>
-          <S N="updated">2023-01-06T20:20:06Z</S>
+          <S N="updated">2024-01-11T02:35:25Z</S>
           <S N="NormalizedVersion">1.1.0</S>
           <S N="Authors">Keith Dahlby Keith Hill and contributors</S>
           <S N="IsPrerelease">false</S>
