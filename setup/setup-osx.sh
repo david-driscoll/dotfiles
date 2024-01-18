@@ -49,6 +49,7 @@ brew install hashicorp/tap/terraform
 brew install pulumi/tap/pulumi
 brew install --cask 1password/tap/1password-cli
 brew install kubernetes-cli
+brew install helm
 
 wget -qO- https://aka.ms/install-artifacts-credprovider.sh | bash
 curl https://get.volta.sh | bash
