@@ -135,7 +135,9 @@ $wingetPrograms = @(
     "Pulumi.Pulumi",
     "Microsoft.NuGet",
     "Volta.Volta",
-    "ProjectJupyter.JupyterLab"
+    "ProjectJupyter.JupyterLab",
+    "ajeetdsouza.zoxide",
+    "Kubernetes.kubectl"
 );
 foreach ($program in $wingetPrograms) {
     iex "winget install $program";
@@ -164,6 +166,10 @@ dotnet try jupyter install
 
 az extension add --name azure-devops
 az extension add --name interactive
+
+gh extension install dlvhdr/gh-dash
+gh extension install seachicken/gh-poi
+gh extension install meiji163/gh-notify
 
 # keybase login
 

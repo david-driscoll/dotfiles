@@ -48,12 +48,14 @@ brew install --cask visual-studio-code-insiders
 brew install hashicorp/tap/terraform
 brew install pulumi/tap/pulumi
 brew install --cask 1password/tap/1password-cli
+brew install kubernetes-cli
 
 wget -qO- https://aka.ms/install-artifacts-credprovider.sh | bash
 curl https://get.volta.sh | bash
 volta install node
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
@@ -68,6 +70,10 @@ dotnet try jupyter install
 
 az extension add --name azure-devops
 az extension add --name interactive
+
+gh extension install dlvhdr/gh-dash
+gh extension install seachicken/gh-poi
+gh extension install meiji163/gh-notify
 
 # path for volta
 # path for python / pip

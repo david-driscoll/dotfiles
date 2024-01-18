@@ -5,7 +5,7 @@ rm packages-microsoft-prod.deb
 sudo apt-get update
 
 curl -sS https://starship.rs/install.sh | sh
-sudo apt-get install -y python3 python3-pip powershell
+sudo apt-get install -y python3 python3-pip powershell kubectl
 sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 10
 sudo pip install thefuck
@@ -29,9 +29,19 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
     && sudo apt update \
     && sudo apt install gh -y
 
+# zoxide
+curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+
 # volta
 curl https://get.volta.sh | bash
 volta install node
+
+az extension add --name azure-devops
+az extension add --name interactive
+
+gh extension install dlvhdr/gh-dash
+gh extension install seachicken/gh-poi
+gh extension install meiji163/gh-notify
 
 # bash and others
 

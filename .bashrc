@@ -122,6 +122,7 @@ starship_precmd_user_func="set_win_title"
 
 export STARSHIP_CONFIG=~/dotfiles/starship.toml
 eval "$(starship init bash)"
+eval "$(zoxide init bash)"
 # eval $(gpg-agent --daemon)
 export GPG_TTY=$(tty)
 
