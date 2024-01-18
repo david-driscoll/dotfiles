@@ -137,7 +137,8 @@ $wingetPrograms = @(
     "Volta.Volta",
     "ProjectJupyter.JupyterLab",
     "ajeetdsouza.zoxide",
-    "Kubernetes.kubectl"
+    "Kubernetes.kubectl",
+    "Helm.Helm"
 );
 foreach ($program in $wingetPrograms) {
     iex "winget install $program";
