@@ -38,8 +38,7 @@ Invoke-Expression $promptModule
 (volta completions powershell) -join "`n" | Invoke-Expression
 (gh completion -s powershell) -join "`n" | Invoke-Expression
 (op completion powershell) -join "`n" | Invoke-Expression
+Invoke-Expression (& { (zoxide init powershell | Out-String) })
 
 $env:PYTHONIOENCODING = "utf-8"
 iex "$(thefuck --alias)"
-
-Import-Module ZLocation
