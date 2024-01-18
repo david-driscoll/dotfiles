@@ -121,4 +121,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
-eval "$(op completion zsh)"; compdef _op op
+eval "$(op completion zsh)";
+eval "$(kubectl completion zsh)";
+eval "$(helm completion zsh)"; compdef _op op

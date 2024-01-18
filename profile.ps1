@@ -38,6 +38,8 @@ Invoke-Expression $promptModule
 (volta completions powershell) -join "`n" | Invoke-Expression
 (gh completion -s powershell) -join "`n" | Invoke-Expression
 (op completion powershell) -join "`n" | Invoke-Expression
+(kubectl completion powershell) -join "`n" | Invoke-Expression
+(helm completion powershell) -join "`n" | Invoke-Expression
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
 
 $env:PYTHONIOENCODING = "utf-8"
