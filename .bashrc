@@ -105,6 +105,12 @@ eval $(thefuck --alias)
 if [ -x "$(command -v gh)" ]; then
     eval $(gh completion --shell bash)
 fi
+if [ -x "$(command -v kubectl)" ]; then
+    eval $(kubectl completion bash)
+fi
+if [ -x "$(command -v helm)" ]; then
+    eval $(helm completion bash)
+fi
 if [ -x "$(command -v op)" ]; then
     eval $(op completion bash)
 fi
