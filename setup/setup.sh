@@ -52,18 +52,26 @@ curl https://get.volta.sh | bash
 ln -s ~/dotfiles/ssh/ ~/.ssh
 find ~/.ssh/ -type f -print0 | xargs -0 chmod 600
 
+mkdir ~/.gnupg/
 ln -s ~/dotfiles/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 find ~/.gnupg/ -type f -print0 | xargs -0 chmod 644
 
+rm ~/.bashrc
 ln -s ~/dotfiles/.bashrc ~/.bashrc
 chmod 644 ~/.bashrc
+
+rm ~/.inputrc
 ln -s ~/dotfiles/.inputrc ~/.inputrc
 chmod 644 ~/.inputrc
+
+rm ~/.bash_aliases
 ln -s ~/dotfiles/.bash_aliases ~/.bash_aliases
 chmod 644 ~/.bash_aliases
-ln -s ~/dotfiles/.config/powershell/Microsoft.PowerShell_profile.ps1 ~/.config/powershell/Microsoft.PowerShell_profile.ps1
 
-ln -s ~/dotfiles/.config/thefuck/ ~/.config/thefuck/
+mkdir -p ~/.config/powershell/
+ln -s ~/dotfiles/powershell/Microsoft.PowerShell_profile.ps1 ~/.config/powershell/Microsoft.PowerShell_profile.ps1
+
+ln -s ~/dotfiles/thefuck ~/.config/thefuck
 find ~/.config/thefuck/ -type f -print0 | xargs -0 chmod 644
 
 git config --global core.eol lf
