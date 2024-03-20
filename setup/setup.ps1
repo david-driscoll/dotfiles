@@ -99,8 +99,7 @@ $wingetPrograms = @(
     "Starship.Starship",
     "Google.Chrome",
     "Google.Chrome.Beta",
-    "Firefox",
-    "Firefox.Beta",
+    "Mozilla.Firefox",
     "Microsoft.Edge",
     "Microsoft.Edge.Beta",
     "GitHub.GitHubDesktop",
@@ -108,7 +107,6 @@ $wingetPrograms = @(
     "GitHub.GitLFS",
     "SlackTechnologies.Slack",
     "Microsoft.Teams",
-    "Microsoft.Teams.Preview",
     "Microsoft.PowerToys",
     "stedolan.jq",
     "GnuPG.Gpg4win",
@@ -162,8 +160,8 @@ volta.exe setup
 volta.exe install node
 
 pip install thefuck
-dotnet tool install -g dotnet-try
-dotnet try jupyter install
+# dotnet tool update -g Microsoft.dotnet-try
+# dotnet try jupyter install
 
 az extension add --name azure-devops
 az extension add --name interactive
@@ -214,9 +212,9 @@ New-Item -ItemType SymbolicLink -Value $ENV:USERPROFILE/dotfiles/thefuck/ -Path 
 # cp $ENV:LOCALAPPDATA/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState/terminal/*.* $ENV:LOCALAPPDATA/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState/
 # rm -Recurse -Force $ENV:LOCALAPPDATA/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState/terminal/ -ErrorAction SilentlyContinue
 
-$PROFILE | Get-Member | where { $_.Name.StartsWith("Current") } | foreach { $($PROFILE.($_.Name)) } | where { test-path $_ } | foreach { Unblock-File $_ }
-gci $ENV:USERPROFILE\.ssh\ | foreach { Unblock-File $_ }
-gci $ENV:USERPROFILE\.gnupg\ | foreach { Unblock-File $_ }
+$PROFILE | Get-Member | where { $_.Name.StartsWith("Current") } | foreach { $($PROFILE.($_.Name)) } | where { test-path $_ } | foreach { Unblock-File $_.FullName }
+gci $ENV:USERPROFILE\.ssh\ | foreach { Unblock-File $_.FullName }
+gci $ENV:USERPROFILE\.gnupg\ | foreach { Unblock-File $_.FullName }
 
 git config --global core.eol lf
 git config --global core.autocrlf true
