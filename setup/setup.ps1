@@ -227,3 +227,4 @@ git config --global commit.gpgsign true
 git config --global core.sshCommand "C:/Windows/System32/OpenSSH/ssh.exe"
 git config --global alias.amend "commit --amend --reuse-message=HEAD"
 git config --global url."git@github.com:".insteadOf "https://github.com/"
+git config --global gpg."ssh".program "C:/Program Files/1Password/app/8/op-ssh-sign.exe"
