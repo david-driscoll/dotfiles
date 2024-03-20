@@ -87,3 +87,5 @@ git config --global gpg.program "gpg"
 git config --global core.editor "vi"
 git config --global alias.amend "commit --amend --reuse-message=HEAD"
 git config --global url."git@github.com:".insteadOf "https://github.com/"
+# todo configure for current wsl user
+# git config --global gpg."ssh".program "C:/Program Files/1Password/app/8/op-ssh-sign.exe"
