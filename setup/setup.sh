@@ -88,4 +88,11 @@ git config --global core.editor "vi"
 git config --global alias.amend "commit --amend --reuse-message=HEAD"
 git config --global url."git@github.com:".insteadOf "https://github.com/"
 # todo configure for current wsl user
-# git config --global gpg."ssh".program "C:/Program Files/1Password/app/8/op-ssh-sign.exe"
+git config --global gpg."ssh".program "/mnt/c/Program Files/1Password/app/8/op-ssh-sign-wsl"
+
+# try to handle error: fetch-pack: unexpected disconnect while reading sideband packet
+git config --global core.packedGitLimit 512m
+git config --global core.packedGitWindowSize 512m
+git config --global pack.deltaCacheSize 2047m
+git config --global pack.packSizeLimit 2047m
+git config --global pack.windowMemory 2047m

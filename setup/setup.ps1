@@ -166,9 +166,15 @@ pip install thefuck
 az extension add --name azure-devops
 az extension add --name interactive
 
+gh extension install davidraviv/gh-clean-branches
+gh extension install github/gh-codeql
+gh extension install mislav/gh-contrib
+gh extension install github/gh-copilot
 gh extension install dlvhdr/gh-dash
-gh extension install seachicken/gh-poi
 gh extension install meiji163/gh-notify
+gh extension install seachicken/gh-poi
+gh extension install vilmibm/gh-screensaver
+gh extension install AdamVig/gh-watch
 
 # keybase login
 
@@ -228,3 +234,10 @@ git config --global core.sshCommand "C:/Windows/System32/OpenSSH/ssh.exe"
 git config --global alias.amend "commit --amend --reuse-message=HEAD"
 git config --global url."git@github.com:".insteadOf "https://github.com/"
 git config --global gpg."ssh".program "C:/Program Files/1Password/app/8/op-ssh-sign.exe"
+
+# try to handle error: fetch-pack: unexpected disconnect while reading sideband packet
+git config --global core.packedGitLimit 512m
+git config --global core.packedGitWindowSize 512m
+git config --global pack.deltaCacheSize 2047m
+git config --global pack.packSizeLimit 2047m
+git config --global pack.windowMemory 2047m

@@ -24,8 +24,15 @@ Set-Alias -Name icode -Value (Get-Command code-insiders).Path;
 
 Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
     param($commandName, $wordToComplete, $cursorPosition)
-    dotnet complete --position $cursorPosition "$wordToComplete" | ForEach-Object {
-        [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
+    if ("$wordToComplete".StartsWith('dotnet nuke')) {
+        dotnet nuke :complete "$wordToComplete".Substring(7) | ForEach-Object {
+            [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
+        }
+    }
+    else {
+        dotnet complete --position $cursorPosition "$wordToComplete" | ForEach-Object {
+            [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
+        }
     }
 }
 
@@ -46,75 +53,6 @@ Register-ArgumentCompleter -Native -CommandName terraform -ScriptBlock {
     Remove-Item Env:\COMP_LINE
     Remove-Item Env:\COMP_POINT
 }
-
-function nki {
-    param (
-        [string]$path = '',
-        [string]$exclude = '',
-        [string]$include = '',
-        [int]$age = 0,
-        [switch]$pre
-    )
-
-    $args = @('inspect');
-    if ($path) {
-        $args += $path;
-    }
-    $args += '-v'; $args += 'm';
-    $args += '-a'; $args += $age;
-    if ($pre) {
-        $args += '--useprerelease Always'
-    }
-    if ($exclude) { $args += '-e'; $args += $exclude; }
-    if ($include) { $args += '-i'; $args += $include; }
-
-    & nukeeper $args
-}
-
-function nku {
-    param (
-        [string]$path = '',
-        [string]$exclude = '',
-        [string]$include = '',
-        [int]$max = 100,
-        [int]$age = 0,
-        [switch]$pre
-    )
-
-    $args = @('update');
-    if ($path) {
-        $args += $path;
-    }
-    $args += '-v'; $args += 'm';
-    $args += '-a'; $args += $age;
-    $args += '-m'; $args += $max;
-    if ($pre) {
-        $args += '--useprerelease Always'
-    }
-    if ($exclude) { $args += '-e'; $args += $exclude; }
-    if ($include) { $args += '-i'; $args += $include; }
-
-    & nukeeper $args
-}
-
-function dotnet-update-supports {
-    param(
-
-    )
-    if (Test-Path Directory.Packages.support.props) {
-        Rename-Item Directory.Packages.props Directory.Packages.props.tmp
-        Rename-Item Directory.Packages.support.props Directory.Packages.props
-        try {
-            nukeeper update --change minor -m 100
-        }
-        finally {
-            Rename-Item Directory.Packages.props Directory.Packages.support.props
-            Rename-Item Directory.Packages.props.tmp Directory.Packages.props
-        }
-    }
-}
-
-Set-Alias -Name dus -Value dotnet-update-supports
 
 function dotnet-tool-update {
     param (
