@@ -44,9 +44,15 @@ volta install node
 az extension add --name azure-devops
 az extension add --name interactive
 
+gh extension install davidraviv/gh-clean-branches
+gh extension install github/gh-codeql
+gh extension install mislav/gh-contrib
+gh extension install github/gh-copilot
 gh extension install dlvhdr/gh-dash
-gh extension install seachicken/gh-poi
 gh extension install meiji163/gh-notify
+gh extension install seachicken/gh-poi
+gh extension install vilmibm/gh-screensaver
+gh extension install AdamVig/gh-watch
 
 # bash and others
 

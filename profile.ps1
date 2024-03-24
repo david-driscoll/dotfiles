@@ -7,7 +7,6 @@ if (-not $env:PSModulePath.Contains($DotfilesModulePath) ) {
 
 write-host $PSScriptRoot
 foreach ($x in Get-ChildItem $PSScriptRoot/profile.pwsh -Filter *.ps1) {
-    write-host write-host Sourcing $x
     . $x.FullName
     # Write-Host "Loading" $x.Name "took" $r.TotalMilliseconds"ms"
 }
