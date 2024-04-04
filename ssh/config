@@ -1,5 +1,9 @@
 PreferredAuthentications publickey
 
+Host truenas.driscoll.tech
+  HostName truenas.driscoll.tech
+  User david
+
 Host 100.91.124.63
   HostName 100.91.124.63
   User azureuser
