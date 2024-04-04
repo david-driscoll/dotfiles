@@ -17,10 +17,18 @@ function Get-ComputerName {
     return $env:COMPUTERNAME
 }
 
-Set-Alias -Name vscode -Value (Get-Command code).Path;
-Set-Alias -Name rcode -Value (Get-Command code).Path;
-Set-Alias -Name code -Value (Get-Command code-insiders).Path;
-Set-Alias -Name icode -Value (Get-Command code-insiders).Path;
+$codeCommand = Get-Command code;
+$codeInsidersCommand = Get-Command code-insiders;
+function startCode {
+    & $codeCommand ($args | ForEach-Object { if ($_.StartsWith('~')) { return (Resolve-Path $_).Path } return $_; })
+}
+function startCodeInsiders {
+    & $codeInsidersCommand ($args | ForEach-Object { if ($_.StartsWith('~')) { return (Resolve-Path $_).Path } return $_; })
+}
+Set-Alias -Name vscode -Value startCode;
+Set-Alias -Name rcode -Value startCode;
+Set-Alias -Name code -Value startCodeInsiders;
+Set-Alias -Name icode -Value startCodeInsiders;
 
 Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
     param($commandName, $wordToComplete, $cursorPosition)
