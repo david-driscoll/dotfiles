@@ -17,6 +17,7 @@ if (Test-Path($ChocolateyProfile)) {
 
 Import-Module WSLTabCompletion
 Import-Module WslInterop
+Import-Module Microsoft.WinGet.Client
 
 Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
     param($wordToComplete, $commandAst, $cursorPosition)
