@@ -3,7 +3,6 @@ Import-Module posh-git
 Import-Module Terminal-Icons
 Import-Module Microsoft.PowerShell.TextUtility
 Import-Module npm-completion
-Import-Module Microsoft.WinGet.Client
 
 function Get-ComputerName {
     if (Test-PsCore -and $PSVersionTable.Platform -ne 'Windows') {
