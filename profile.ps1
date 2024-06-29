@@ -1,14 +1,13 @@
-# Add Cmder modules directory to the autoload path.
-$CmderModulePath = Join-path $PSScriptRoot "psmodules/"
+# Add Dotfiles modules directory to the autoload path.
+$DotfilesModulePath = Join-path $PSScriptRoot "psmodules/"
 
-if (-not $env:PSModulePath.Contains($CmderModulePath) ) {
-    $env:PSModulePath = $env:PSModulePath.Insert(0, "$CmderModulePath$([System.IO.Path]::PathSeparator)")
+if (-not $env:PSModulePath.Contains($DotfilesModulePath) ) {
+    $env:PSModulePath = $env:PSModulePath.Insert(0, "$DotfilesModulePath$([System.IO.Path]::PathSeparator)")
 }
 
+write-host $PSScriptRoot
 foreach ($x in Get-ChildItem $PSScriptRoot/profile.pwsh -Filter *.ps1) {
-    # write-host write-host Sourcing $x
     . $x.FullName
-    # Write-Host "Loading" $x.Name "took" $r.TotalMilliseconds"ms"
 }
 
 if ($IsMacOS) {
@@ -23,27 +22,23 @@ if ($IsLinux) {
 
 $ENV:STARSHIP_CONFIG = Join-Path $PSScriptRoot 'starship.toml';
 
-starship init powershell     | Join-String { $_ -replace " ''\)$", " ' ')" } -Separator "`n" | Invoke-Expression
-volta completions powershell | Join-String { $_ -replace " ''\)$", " ' ')" } -Separator "`n" | Invoke-Expression
-gh completion -s powershell  | Join-String { $_ -replace " ''\)$", " ' ')" } -Separator "`n" | Invoke-Expression
-
-$starshipPrompt = (Get-Command Prompt).ScriptBlock.ToString();
-$starshipPrompt = $starshipPrompt + @'
-    $title = $out[1].ToString()
-    $space = $title.IndexOf('');
-    $gitStop = $title.LastIndexOf('');
-    $title = $title.Substring($space + 1, ($gitStop - $space)-1)
-    $host.UI.RawUI.WindowTitle = $title -replace '\x1b\[[0-9;]*m', ''
-'@;
-$starshipPrompt = [Scriptblock]::Create($starshipPrompt);
-
-function global:prompt {
-    Invoke-Command -ScriptBlock $starshipPrompt;
-}
+#Invoke-Expression (&starship init powershell)
+$promptModule = & 'C:\Program Files\starship\bin\starship.exe' init powershell --print-full-init | Out-String;
+$promptModule = $promptModule.Replace("# Return the prompt", @'
+# Return the prompt
+$title = $promptText
+$space = $title.IndexOf('');
+$gitStop = $title.LastIndexOf('');
+$title = $title.Substring($space + 1, ($gitStop - $space)-1)
+$host.UI.RawUI.WindowTitle = ($title -replace '\x1b\[[0-9;]*m', '') -replace '', '📂'
+'@);
+Invoke-Expression $promptModule
+(volta completions powershell) -join "`n" | Invoke-Expression
+(gh completion -s powershell) -join "`n" | Invoke-Expression
+(op completion powershell) -join "`n" | Invoke-Expression
+(kubectl completion powershell) -join "`n" | Invoke-Expression
+(helm completion powershell) -join "`n" | Invoke-Expression
+Invoke-Expression (& { (zoxide init powershell | Out-String) })
 
 $env:PYTHONIOENCODING = "utf-8"
 iex "$(thefuck --alias)"
-
-Import-Module ZLocation
-
-Start-Job -ScriptBlock { Start-SshAgent -Quiet } | Out-Null

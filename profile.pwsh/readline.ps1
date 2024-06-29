@@ -7,4 +7,11 @@ Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 
 # Show auto-complete predictions from history
 Set-PSReadLineOption -ShowToolTips
-Set-PSReadLineOption -PredictionSource history
+if ( $host.Version.Major -gt 5) {
+	Set-PSReadLineOption -PredictionSource history
+}
+if ($IsMacOS -or $IsLinux) {
+	Set-PSReadLineKeyHandler -Key Escape -Function BackwardKillLine
+}
+if ($IsWindows) {
+}

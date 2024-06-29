@@ -1,4 +1,6 @@
 $ENV:PATH = [System.Environment]::GetEnvironmentVariable("PATH", [System.EnvironmentVariableTarget]::User);
+$ENV:UserName = [System.Environment]::UserName
+$ENV:UserDomain = [System.Environment]::DomainName
 $ENV:USER = $ENV:USERNAME;
 if (-not ($ENV:APPDATA)) {
     $ENV:APPDATA = [Environment]::GetFolderPath('ApplicationData');
@@ -12,6 +14,10 @@ if (Test-Path($ChocolateyProfile)) {
     Import-Module "$ChocolateyProfile"
     Update-SessionEnvironment
 }
+
+Import-Module WSLTabCompletion
+Import-Module WslInterop
+Import-Module Microsoft.WinGet.Client
 
 Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
     param($wordToComplete, $commandAst, $cursorPosition)

@@ -105,6 +105,18 @@ eval $(thefuck --alias)
 if [ -x "$(command -v gh)" ]; then
     eval $(gh completion --shell bash)
 fi
+if [ -x "$(command -v kubectl)" ]; then
+    eval $(kubectl completion bash)
+fi
+if [ -x "$(command -v helm)" ]; then
+    eval $(helm completion bash)
+fi
+if [ -x "$(command -v op)" ]; then
+    eval $(op completion bash)
+fi
+if [ -x "$(command -v terraform)" ]; then
+  terraform -install-autocomplete
+fi
 
 function set_win_title() {
     ssDirectory=$(starship module directory | sed -E "s/"$'\E'"\[([0-9]{1,3}((;[0-9]{1,3})*)?)?[m|K]//g")
@@ -116,6 +128,7 @@ starship_precmd_user_func="set_win_title"
 
 export STARSHIP_CONFIG=~/dotfiles/starship.toml
 eval "$(starship init bash)"
+eval "$(zoxide init bash)"
 # eval $(gpg-agent --daemon)
 export GPG_TTY=$(tty)
 
@@ -144,3 +157,9 @@ if ! shopt -oq posix; then
 fi
 
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+if [[ $(grep microsoft /proc/version) ]]; then
+    . ~/.wslrc
+fi
+
+# add Pulumi to the PATH
+export PATH=$PATH:$HOME/.pulumi/bin
