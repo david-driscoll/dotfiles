@@ -1,7 +1,8 @@
-Import-Module posh-sshell
 Import-Module Pansies
 Import-Module posh-git
 Import-Module Terminal-Icons
+Import-Module Microsoft.PowerShell.TextUtility
+Import-Module npm-completion
 
 function Get-ComputerName {
     if (Test-PsCore -and $PSVersionTable.Platform -ne 'Windows') {
@@ -15,15 +16,30 @@ function Get-ComputerName {
     return $env:COMPUTERNAME
 }
 
-Set-Alias -Name vscode -Value (Get-Command code).Path;
-Set-Alias -Name rcode -Value (Get-Command code).Path;
-Set-Alias -Name code -Value (Get-Command code-insiders).Path;
-Set-Alias -Name icode -Value (Get-Command code-insiders).Path;
+$codeCommand = Get-Command code;
+$codeInsidersCommand = Get-Command code-insiders;
+function startCode {
+    & $codeCommand ($args | ForEach-Object { if ($_.StartsWith('~')) { return (Resolve-Path $_).Path } return $_; })
+}
+function startCodeInsiders {
+    & $codeInsidersCommand ($args | ForEach-Object { if ($_.StartsWith('~')) { return (Resolve-Path $_).Path } return $_; })
+}
+Set-Alias -Name vscode -Value startCode;
+Set-Alias -Name rcode -Value startCode;
+Set-Alias -Name code -Value startCodeInsiders;
+Set-Alias -Name icode -Value startCodeInsiders;
 
 Register-ArgumentCompleter -Native -CommandName dotnet -ScriptBlock {
     param($commandName, $wordToComplete, $cursorPosition)
-    dotnet complete --position $cursorPosition "$wordToComplete" | ForEach-Object {
-        [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
+    if ("$wordToComplete".StartsWith('dotnet nuke')) {
+        dotnet nuke :complete "$wordToComplete".Substring(7) | ForEach-Object {
+            [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
+        }
+    }
+    else {
+        dotnet complete --position $cursorPosition "$wordToComplete" | ForEach-Object {
+            [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
+        }
     }
 }
 
@@ -34,54 +50,15 @@ Register-ArgumentCompleter -Native -CommandName nuke -ScriptBlock {
     }
 }
 
-function nki {
-    param (
-        [string]$path = '',
-        [string]$exclude = '',
-        [string]$include = '',
-        [int]$age = 0,
-        [switch]$pre
-    )
-
-    $args = @('inspect');
-    if ($path) {
-        $args += $path;
+Register-ArgumentCompleter -Native -CommandName terraform -ScriptBlock {
+    param($commandName, $wordToComplete, $cursorPosition)
+    $env:COMP_LINE = $wordToComplete
+    $env:COMP_POINT = $cursorPosition
+    terraform.exe | ForEach-Object {
+        [System.Management.Automation.CompletionResult]::new($_, $_, 'ParameterValue', $_)
     }
-    $args += '-v'; $args += 'm';
-    $args += '-a'; $args += $age;
-    if ($pre) {
-        $args += '--useprerelease Always'
-    }
-    if ($exclude) { $args += '-e'; $args += $exclude; }
-    if ($include) { $args += '-i'; $args += $include; }
-
-    & nukeeper $args
-}
-
-function nku {
-    param (
-        [string]$path = '',
-        [string]$exclude = '',
-        [string]$include = '',
-        [int]$max = 100,
-        [int]$age = 0,
-        [switch]$pre
-    )
-
-    $args = @('update');
-    if ($path) {
-        $args += $path;
-    }
-    $args += '-v'; $args += 'm';
-    $args += '-a'; $args += $age;
-    $args += '-m'; $args += $max;
-    if ($pre) {
-        $args += '--useprerelease Always'
-    }
-    if ($exclude) { $args += '-e'; $args += $exclude; }
-    if ($include) { $args += '-i'; $args += $include; }
-
-    & nukeeper $args
+    Remove-Item Env:\COMP_LINE
+    Remove-Item Env:\COMP_POINT
 }
 
 function dotnet-tool-update {

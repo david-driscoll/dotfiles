@@ -1,3 +1,4 @@
+command_timeout = 750
 format = """
 $username\
 [@](bold 252)\
@@ -8,6 +9,7 @@ $directory\
 $git_branch\
 $git_commit\
 $git_state\
+$git_metrics\
 $git_status\
 $hg_branch\
 $cmake\
@@ -20,6 +22,7 @@ $golang\
 $helm\
 $java\
 $julia\
+$kotlin\
 $nim\
 $nodejs\
 $ocaml\
@@ -27,28 +30,35 @@ $perl\
 $php\
 $purescript\
 $python\
+$red\
 $ruby\
 $rust\
+$scala\
 $swift\
 $terraform\
+$vlang\
+$vagrant\
 $zig\
 $nix_shell\
 $conda\
+$lua\
 $memory_usage\
 $package\
 $docker_context\
 $kubernetes\
 $aws\
 $gcloud\
+$openstack\
 $env_var\
 $crystal\
 $cmd_duration\
+$shell\
 $custom\
 $line_break\
 $jobs\
 $time\
 $status\
-$character
+$character\
 """
 
 [battery]
@@ -62,70 +72,77 @@ format = "[$symbol]($style)"
 [[battery.display]]
 threshold = 100
 style = 'bold 46'
-format = ""
+discharging_symbol = ""
+charging_symbol = ""
 
 [[battery.display]]
 threshold = 90
 style = 'bold 62'
-format = ""
+discharging_symbol = ""
+charging_symbol = ""
 
 [[battery.display]]
 threshold = 80
 style = 'bold 118'
-format = ""
+discharging_symbol = ""
+charging_symbol = ""
 
 [[battery.display]]
 threshold = 70
 style = 'bold 154'
-format = ""
+discharging_symbol = ""
+charging_symbol = ""
 
 [[battery.display]]
 threshold = 60
 style = 'bold 180'
-format = ""
+discharging_symbol = ""
+charging_symbol = ""
 
 [[battery.display]]
 threshold = 50
 style = 'bold 226'
-format = ""
+discharging_symbol = ""
+charging_symbol = ""
 
 [[battery.display]]
 threshold = 40
 style = 'bold 228'
-format = ""
+discharging_symbol = ""
+charging_symbol = ""
 
 [[battery.display]]
 threshold = 30
 style = 'bold 228'
-format = ""
+discharging_symbol = ""
+charging_symbol = ""
 
 [[battery.display]]
 threshold = 20
 style = 'bold 124'
-format = ""
+discharging_symbol = ""
+charging_symbol = ""
 
 [[battery.display]]
 threshold = 10
 style = 'bold 140'
-format = ""
+discharging_symbol = ""
+charging_symbol = ""
 
 [[battery.display]]
 threshold = 0
 style = 'bold 196'
-format = ""
-
-# [[battery.display]]
-#
-# 
+discharging_symbol = ""
+charging_symbol = ""
 
 [character]
-success_symbol = "[ﬦ](bold 70)"
+success_symbol = "[>](bold 70)"
 error_symbol = "[](bold 88)"
 
 [cmd_duration]
 min_time = 500
 show_milliseconds = true
-format = "[⌚ $duration]($style)"
+format = "[⌚ $duration]($style) "
 
 [directory]
 format = "[$read_only]($read_only_style)[$path](bold 141) "
@@ -135,15 +152,22 @@ truncate_to_repo = true
 
 [directory.substitutions]
 "C:/Development" = ""
+"C:/repos" = ""
+"C:/dev" = ""
 "D:/Development" = ""
 "~/Development" = ""
+"~/dev" = ""
+"~/repos" = ""
 "/Development" = ""
+"/repos" = ""
+"/dev" = ""
 
 [docker_context]
 format = "[$symbol $context](blue bold) "
 
 [dotnet]
 symbol = " "
+format = "[$symbol($version )(🎯 $tfm )]($style)"
 
 [elixir]
 disabled = true
@@ -158,6 +182,7 @@ disabled = true
 format = "[$symbol$version](bold red) "
 
 [gcloud]
+disabled = true
 format = "[$symbol$account(\\($region\\))]($style) "
 
 [git_branch]
@@ -189,7 +214,7 @@ disabled = true
 format = "[$symbol$version]($style) "
 
 [helm]
-disabled = true
+# disabled = false
 format = "[$symbol$version]($style) "
 
 [hostname]
@@ -217,8 +242,8 @@ disabled = false
 
 [memory_usage]
 disabled = true
-format = "$symbol [${ram}( | ${swap})]($style) "
-threshold = 60
+format = "$symbol [${ram}( | ${swap})](white) "
+threshold = 20
 
 [hg_branch]
 disabled = true
@@ -280,7 +305,13 @@ format = "[$user](bold 185)"
 show_always = true
 # style_user = "bg:blue fg:bright-green"
 
-
 [zig]
 disabled = true
 format = "[$symbol$version]($style) "
+
+[shell]
+disabled = false
+fish_indicator = "[](bold 30)"
+zsh_indicator = "[鈴](bold 93)"
+bash_indicator = "[](bold 178)"
+powershell_indicator = "[](bold 27)"

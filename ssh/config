@@ -1,0 +1,54 @@
+PreferredAuthentications publickey
+
+Host truenas.driscoll.tech
+  HostName truenas.driscoll.tech
+  User david
+
+Host 100.91.124.63
+  HostName 100.91.124.63
+  User azureuser
+
+Host github.com
+  HostName github.com
+  PreferredAuthentications publickey
+
+Host gist.github.com
+  HostName gist.github.com
+  PreferredAuthentications publickey
+
+Host spike.driscoll.tech
+  HostName plex.driscoll.tech
+  PreferredAuthentications publickey
+  User root
+
+Host spike
+  HostName plex.driscoll.tech
+  PreferredAuthentications publickey
+  User root
+
+Host home.driscoll.tech
+  HostName had.driscoll.tech
+  PreferredAuthentications publickey
+  User hassio
+
+Host home
+  HostName had.driscoll.tech
+  PreferredAuthentications publickey
+  User hassio
+
+Host unraid
+  HostName plex.driscoll.tech
+  PreferredAuthentications publickey
+  User root
+
+Host unifi
+  HostName 10.10.0.1
+  PreferredAuthentications publickey
+  HostKeyAlgorithms -ssh-ed25519
+  User root
+
+Host discord
+  HostName 10.10.0.1
+  PreferredAuthentications publickey
+  HostKeyAlgorithms -ssh-ed25519
+  User root

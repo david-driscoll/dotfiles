@@ -120,3 +120,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   eval $(/opt/homebrew/bin/brew shellenv)
 fi
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+eval "$(op completion zsh)";
+eval "$(kubectl completion zsh)";
+eval "$(helm completion zsh)"; compdef _op op
