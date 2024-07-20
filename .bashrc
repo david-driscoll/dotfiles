@@ -114,6 +114,9 @@ fi
 if [ -x "$(command -v op)" ]; then
     eval $(op completion bash)
 fi
+if [ -x "$(command -v pulumi)" ]; then
+    eval $(pulumi completion bash)
+fi
 if [ -x "$(command -v terraform)" ]; then
   terraform -install-autocomplete
 fi
