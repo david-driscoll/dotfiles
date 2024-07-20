@@ -1,4 +1,3 @@
-# how do I check if the current operating system is not macos, and running an arm cpu?
 if [[ "$(uname)" != "Darwin" ]] && [[ "$(uname -m)" == *"arm"* || "$(uname -m)" == *"aarch64"* ]]; then
     export HOMEBREW_BREW_GIT_REMOTE=https://github.com/huyz/brew-for-linux-arm
     export HOMEBREW_DEVELOPER=1
@@ -7,48 +6,13 @@ else
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
-# dotfiles installer
-wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-sudo dpkg -i packages-microsoft-prod.deb
-rm packages-microsoft-prod.deb
-sudo apt-get update
+brew bundle --file ./setup/Brewfile
 
-curl -sS https://starship.rs/install.sh | sh
-sudo apt-get install -y python3 python3-pip powershell kubectl
-sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
-sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 10
-sudo pip install thefuck
-
-# jq
-sudo apt install jq
-
-# 1password cli
-sudo -s curl -sS https://downloads.1password.com/linux/keys/1password.asc | gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/$(dpkg --print-architecture) stable main" | tee /etc/apt/sources.list.d/1password.list
-mkdir -p /etc/debsig/policies/AC2D62742012EA22/
-curl -sS https://downloads.1password.com/linux/debian/debsig/1password.pol | tee /etc/debsig/policies/AC2D62742012EA22/1password.pol
-mkdir -p /usr/share/debsig/keyrings/AC2D62742012EA22
-curl -sS https://downloads.1password.com/linux/keys/1password.asc | gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
-sudo apt update && sudo apt install 1password-cli
-
-# gh
-curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
-    && sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
-    && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
-    && sudo apt update \
-    && sudo apt install gh -y
-
-# zoxide
-curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
-
-curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
-sudo apt-get install apt-transport-https --yes
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
-sudo apt-get install helm
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+wget -qO- https://aka.ms/install-artifacts-credprovider.sh | bash
 
 # volta
-curl https://get.volta.sh | bash
-volta install node
+# volta install node
 
 az extension add --name azure-devops
 az extension add --name interactive
@@ -68,6 +32,14 @@ gh extension install AdamVig/gh-watch
 rm ~/.bashrc > /dev/null 2>&1
 ln -s ~/dotfiles/.bashrc ~/.bashrc
 chmod 644 ~/.bashrc
+
+rm ~/.zshrc > /dev/null 2>&1
+ln -s ~/dotfiles/.zshrc ~/.zshrc
+chmod 644 ~/.zshrc
+
+rm ~/.zprofile > /dev/null 2>&1
+ln -s ~/dotfiles/.zprofile ~/.zprofile
+chmod 644 ~/.zprofile
 
 rm ~/.inputrc > /dev/null 2>&1
 ln -s ~/dotfiles/.inputrc ~/.inputrc
@@ -92,6 +64,8 @@ if [ $WT_SESSION ]; then
     sudo apt install gpg
     ln -s ~/dotfiles/.wslrc ~/.wslrc
     chmod 644 ~/.wslrc
+    # todo configure for current wsl user
+    git config --global gpg."ssh".program "/mnt/c/Program Files/1Password/app/8/op-ssh-sign-wsl"
 fi
 
 git config --global core.eol lf
@@ -107,7 +81,3 @@ git config --global core.editor "vi"
 git config --global commit.gpgsign true
 git config --global alias.amend "commit --amend --reuse-message=HEAD"
 git config --global url."git@github.com:".insteadOf "https://github.com/"
-
-git config --global core.sshCommand ssh.exe
-# todo configure for current wsl user
-# git config --global gpg."ssh".program "C:/Program Files/1Password/app/8/op-ssh-sign.exe"

@@ -1,48 +1,14 @@
-sudo apt-get update
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew bunlde --file=./Brewfile
 
-curl -sS https://starship.rs/install.sh | sh
-sudo apt-get install -y git
-sudo apt-get install -y postgresql-client
-sudo apt-get install -y jq
-sudo apt-get install -y python3 python3-pip
-sudo apt-get install -y fonts-firacode
-# todo nerd font, jetbrain fonts, cascadia code
-sudo apt-get install -y pinentry-tty pinentry-gtk2
-sudo apt-get install -y openssh-client openssh-server
+sudo apt-get update
 sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 10
-sudo pip install thefuck
 
-# pwsh
-wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
-sudo dpkg -i ./packages-microsoft-prod.deb
-sudo apt-get update
-sudo add-apt-repository universe
-sudo apt-get install -y powershell
-rm ./packages-microsoft-prod.deb
-#
-
-# dotnet core
-curl -sL https://dot.net/v1/dotnet-install.sh >~/dotnet-install.sh
-chmod 755 ~/dotnet-install.sh
-./dotnet-install.sh --channel LTS
-./dotnet-install.sh --channel Current
-rm ~/dotnet-install.sh
-
-# docker
-sudo apt install -y docker.io
 
 # azure cli
-curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 az extension add --name azure-devops
 az extension add --name interactive
-
-# keybase
-curl --remote-name https://prerelease.keybase.io/keybase_amd64.deb
-sudo apt install -y ./keybase_amd64.deb
-run_keybase
-rm ./keybase_amd64.deb
-#
 
 # volta
 curl https://get.volta.sh | bash
@@ -59,6 +25,14 @@ find ~/.gnupg/ -type f -print0 | xargs -0 chmod 644
 rm ~/.bashrc
 ln -s ~/dotfiles/.bashrc ~/.bashrc
 chmod 644 ~/.bashrc
+
+rm ~/.zprofile
+ln -s ~/dotfiles/.zprofile ~/.zprofile
+chmod 644 ~/.zprofile
+
+rm ~/.zshrc
+ln -s ~/dotfiles/.zshrc ~/.zshrc
+chmod 644 ~/.zshrc
 
 rm ~/.inputrc
 ln -s ~/dotfiles/.inputrc ~/.inputrc
@@ -87,8 +61,6 @@ git config --global gpg.program "gpg"
 git config --global core.editor "vi"
 git config --global alias.amend "commit --amend --reuse-message=HEAD"
 git config --global url."git@github.com:".insteadOf "https://github.com/"
-# todo configure for current wsl user
-git config --global gpg."ssh".program "/mnt/c/Program Files/1Password/app/8/op-ssh-sign-wsl"
 
 # try to handle error: fetch-pack: unexpected disconnect while reading sideband packet
 git config --global core.packedGitLimit 512m

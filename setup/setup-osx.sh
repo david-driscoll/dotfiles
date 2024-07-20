@@ -1,21 +1,10 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew 
+brew bunlde --file=./Brewfile
 
-wget -qO- https://aka.ms/install-artifacts-credprovider.sh | bash
-curl https://get.volta.sh | bash
 volta install node
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
-curl https://bootstrap.pypa.io/get-pip.py -o ~/get-pip.py
-python3 ~/get-pip.py
-rm ~/get-pip.py
-
-pip install thefuck
-conda install -c conda-forge notebook jupyterlab
 dotnet tool install -g dotnet-try
 dotnet try jupyter install
 
