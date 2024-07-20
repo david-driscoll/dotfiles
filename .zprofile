@@ -2,6 +2,7 @@
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$HOME/.jetbrains:$HOME/.dotnet/:$HOME/.dotnet/tools:$PATH"
 export STARSHIP_CONFIG=~/dotfiles/starship.toml
+unset SSH_AUTH_SOCK
 
 alias cls=clear
 alias icode=$(which code-insiders)

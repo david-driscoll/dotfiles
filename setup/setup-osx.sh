@@ -1,55 +1,5 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-brew tap homebrew/cask-fonts
-brew tap isen-ng/dotnet-sdk-versions
-brew tap hashicorp/tap
-
-brew install --cask powershell
-brew install azure-cli
-brew install starship
-brew install karabiner-elements
-brew install python
-brew install --cask miniconda
-brew install --cask iterm2
-brew install --cask stats
-brew install ruby
-brew install --cask google-chrome
-brew install --cask google-chrome-beta
-brew install --cask firefox
-brew install --cask firefox-beta
-brew install --cask microsoft-edge
-brew install --cask microsoft-edge-beta
-brew install --cask keybase
-brew install --cask eul
-brew install gh
-brew install --cask git
-brew install --cask gitkraken
-brew install --cask royal-tsx
-brew install --cask slack
-brew install --cask microsoft-teams
-brew install --cask dotnet-sdk
-brew install --cask dotnet-sdk3-1-400
-brew install --cask gpg-suite
-brew install jq
-brew install --cask font-fira-code
-brew install --cask font-fira-code-nerd-font
-brew install --cask font-fira-mono-nerd-font
-brew install --cask font-jetbrains-mono-nerd-font
-brew install --cask font-jetbrains-mono
-brew install --cask font-caskaydia-cove-nerd-font
-brew install --cask font-cascadia-mono-pl
-brew install --cask font-cascadia-code-pl
-brew install --cask font-cascadia-mono
-brew install --cask font-cascadia-code
-
-brew install --cask visual-studio
-brew install --cask visual-studio-code
-brew install --cask visual-studio-code-insiders
-brew install hashicorp/tap/terraform
-brew install pulumi/tap/pulumi
-brew install --cask 1password/tap/1password-cli
-brew install kubernetes-cli
-brew install helm
+brew 
 
 wget -qO- https://aka.ms/install-artifacts-credprovider.sh | bash
 curl https://get.volta.sh | bash
