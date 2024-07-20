@@ -1,5 +1,4 @@
 tap "homebrew/cask"
-tap "homebrew/cask-fonts"
 tap "hashicorp/tap"
 tap "powershell/tap"
 tap "pulumi/tap"
@@ -7,7 +6,6 @@ tap "fluxcd/tap"
 tap "go-task/tap"
 tap "siderolabs/tap"
 tap "weaveworks/tap"
-tap "fzf"
 
 
 
@@ -31,6 +29,7 @@ brew "docker"
 brew "python"
 cask "dotnet-sdk"
 cask "git"
+brew "fzf"
 
 brew "azure-cli"
 brew "thefuck"
