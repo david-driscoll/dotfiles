@@ -42,7 +42,7 @@ DISABLE_UPDATE_PROMPT="true"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -69,21 +69,58 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  1password
+  aws
+  aliases
+  alias-finder
+  azure-cli
+    brew
     colored-man-pages
     colorize
     common-aliases
+    command-not-found
+    copyfile
+    cp
+    direnv
     docker
+    eza
     kubectl
+    helm
     encode64
     extract
-    gpg-agent
-    ssh-agent
-    osx
+    emoji
+    emoji-clock
+    # gpg-agent
+    # ssh-agent
+    macos
+    git
+    gh
+    git-auto-fetch
+    git-escape-magic
     z
-    zsh_reload
-    zsh-autosuggestions
-    zsh-syntax-highlighting
+    starship
+    thefuck
+    theme
+    terraform
+    lol
+
+    # zsh_reload
+    zoxide
 )
+
+if type brew &>/dev/null; then
+
+  autoload -Uz compinit
+  compinit
+fi
+
+$HOMEBREW_PREFIX="$(brew --prefix)/share"
+
+source $HOMEBREW_PREFIX/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOMEBREW_PREFIX/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOMEBREW_PREFIX/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+FPATH="$HOMEBREW_PREFIX/zsh/site-functions:${FPATH}"
+FPATH="$HOMEBREW_PREFIX/zsh-completions:${FPATH}"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -116,11 +153,21 @@ source $ZSH/oh-my-zsh.sh
 zstyle ':completion:*:*:docker:*' option-stacking yes
 zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
+zstyle ':omz:plugins:alias-finder' autoload yes # disabled by default
+zstyle ':omz:plugins:alias-finder' longer yes # disabled by default
+zstyle ':omz:plugins:alias-finder' exact yes # disabled by default
+zstyle ':omz:plugins:alias-finder' cheaper yes # disabled by default
+
+zstyle ':omz:plugins:eza' 'dirs-first' yes
+zstyle ':omz:plugins:eza' 'git-status' yes
+# zstyle ':omz:plugins:eza' 'header' yes
+# zstyle ':omz:plugins:eza' 'show-group' yes|no
+zstyle ':omz:plugins:eza' 'icons' yes
+# zstyle ':omz:plugins:eza' 'size-prefix' (binary|none|si)
+zstyle ':omz:plugins:eza' 'time-style' $TIME_STYLE
+zstyle ':omz:plugins:eza' 'hyperlink' yes
+
 if [[ "$OSTYPE" == "darwin"* ]]; then
   eval $(/opt/homebrew/bin/brew shellenv)
 fi
-eval "$(starship init zsh)"
-eval "$(zoxide init zsh)"
 eval "$(op completion zsh)";
-eval "$(kubectl completion zsh)";
-eval "$(helm completion zsh)"; compdef _op op
