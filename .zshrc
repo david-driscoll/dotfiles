@@ -103,17 +103,12 @@ plugins=(
     theme
     terraform
     lol
-
+  fzf
     # zsh_reload
     zoxide
 )
 
-if type brew &>/dev/null; then
-
-  autoload -Uz compinit
-  compinit
-fi
-
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 $HOMEBREW_PREFIX="$(brew --prefix)/share"
 
 source $HOMEBREW_PREFIX/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
