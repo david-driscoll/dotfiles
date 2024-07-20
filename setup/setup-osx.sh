@@ -1,5 +1,6 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew bunlde --file=./Brewfile
+brew bunlde --file=./Brewfile.darwin
 
 volta install node
 

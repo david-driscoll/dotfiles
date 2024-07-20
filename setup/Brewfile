@@ -54,5 +54,3 @@ brew "siderolabs/tap/talosctl"
 brew "weaveworks/tap/gitops"
 
 cask "1password/tap/1password-cli"
-
-brewfile ./Brewfile.$HOMEBREW_SYSTEM
