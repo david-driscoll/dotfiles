@@ -47,6 +47,7 @@ brew "stern"
 brew "talhelper"
 brew "siderolabs/tap/talosctl"
 brew "weaveworks/tap/gitops"
+brew "jupyterlab"
 
 
 # macos
@@ -54,8 +55,7 @@ brew "mas"
 cask "1password/tap/1password-cli"
 cask "git"
 
-brew "karabiner-elements"
-brew "jupyterlab"
+cask "karabiner-elements"
 cask "miniconda"
 cask "iterm2"
 cask "stats"
