@@ -15,6 +15,11 @@ if (which pwsh > /dev/null) then
     PATH=$(pwsh -nop -c "(\$ENV:PATH.Split(':') | where { -not \$_.Contains('powershell') }) -join ':'")
 fi
 
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  eval $(/opt/homebrew/bin/brew shellenv)
+else
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
