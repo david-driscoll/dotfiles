@@ -6,10 +6,11 @@ if command -v brew >/dev/null 2>&1; then
         export HOMEBREW_BREW_GIT_REMOTE=https://github.com/huyz/brew-for-linux-arm
         export HOMEBREW_DEVELOPER=1
         NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | sed '532s/abort/warn/')"
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     else
         NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        eval $(/opt/homebrew/bin/brew shellenv)
     fi
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
 brew bundle --file ./setup/Brewfile
