@@ -108,7 +108,11 @@ plugins=(
     zoxide
 )
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  eval $(/opt/homebrew/bin/brew shellenv)
+else
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
 source $HOMEBREW_PREFIX/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOMEBREW_PREFIX/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -158,10 +162,7 @@ zstyle ':omz:plugins:eza' 'git-status' yes
 # zstyle ':omz:plugins:eza' 'show-group' yes|no
 zstyle ':omz:plugins:eza' 'icons' yes
 # zstyle ':omz:plugins:eza' 'size-prefix' (binary|none|si)
-zstyle ':omz:plugins:eza' 'time-style' $TIME_STYLE
+# zstyle ':omz:plugins:eza' 'time-style' $TIME_STYLE
 zstyle ':omz:plugins:eza' 'hyperlink' yes
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  eval $(/opt/homebrew/bin/brew shellenv)
-fi
 eval "$(op completion zsh)";
