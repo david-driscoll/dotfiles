@@ -59,9 +59,9 @@ $programs = @(
     # "opera",
     "onenote",
     "7zip",
-    "javaruntime",
-    "gitversion.portable",
-    "royalts-v5",
+    # "javaruntime",
+    # "gitversion.portable",
+    # "royalts-v5",
     # "office365proplus",
     "gitversion.commandline"
 );
@@ -136,7 +136,11 @@ $wingetPrograms = @(
     "ProjectJupyter.JupyterLab",
     "ajeetdsouza.zoxide",
     "Kubernetes.kubectl",
-    "Helm.Helm"
+    "Helm.Helm",
+    "Mozilla.SOPS",
+    "FluxCD.Flux",
+    "FiloSottile.age",
+    "talosctl"
 );
 foreach ($program in $wingetPrograms) {
     iex "winget install $program";
@@ -158,6 +162,9 @@ RefreshEnv
 
 volta.exe setup
 volta.exe install node
+
+dotnet tool install -g dotnet-try
+dotnet try jupyter install
 
 pip install thefuck
 # dotnet tool update -g Microsoft.dotnet-try
