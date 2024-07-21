@@ -1,3 +1,4 @@
+#!/bin/bash
 if ! command -v brew >/dev/null 2>&1; then
     if [[ "$(uname)" != "Darwin" ]] && [[ "$(uname -m)" == *"arm"* || "$(uname -m)" == *"aarch64"* ]]; then
         export HOMEBREW_BREW_GIT_REMOTE=https://github.com/huyz/brew-for-linux-arm

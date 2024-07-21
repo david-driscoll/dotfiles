@@ -1,3 +1,4 @@
+#!/bin/bash
 # check if brew is installed
 
 
