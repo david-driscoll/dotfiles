@@ -156,10 +156,10 @@ source $ZSH/oh-my-zsh.sh
 zstyle ':completion:*:*:docker:*' option-stacking yes
 zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
-zstyle ':omz:plugins:alias-finder' autoload yes # disabled by default
-zstyle ':omz:plugins:alias-finder' longer yes # disabled by default
-zstyle ':omz:plugins:alias-finder' exact yes # disabled by default
-zstyle ':omz:plugins:alias-finder' cheaper yes # disabled by default
+# zstyle ':omz:plugins:alias-finder' autoload yes # disabled by default
+# zstyle ':omz:plugins:alias-finder' longer yes # disabled by default
+# zstyle ':omz:plugins:alias-finder' exact yes # disabled by default
+# zstyle ':omz:plugins:alias-finder' cheaper yes # disabled by default
 
 zstyle ':omz:plugins:eza' 'dirs-first' yes
 zstyle ':omz:plugins:eza' 'git-status' yes
