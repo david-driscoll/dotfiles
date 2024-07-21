@@ -31,6 +31,7 @@ curl https://get.volta.sh | bash
 
 # keybase login
 
+rm -rf ~/.ssh > /dev/null 2>&1
 ln -s ~/dotfiles/ssh/ ~/.ssh
 find ~/.ssh/ -type f -print0 | xargs -0 chmod 600
 
