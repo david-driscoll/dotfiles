@@ -72,8 +72,8 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(
   1password
   aws
-  aliases
-  alias-finder
+  # aliases
+  # alias-finder
   azure
     brew
     colored-man-pages
