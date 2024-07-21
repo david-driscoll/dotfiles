@@ -1,6 +1,11 @@
 
-brew "karabiner-elements"
+# macos
 brew "jupyterlab"
+brew "mas"
+cask "1password/tap/1password-cli"
+cask "git"
+
+cask "karabiner-elements"
 cask "miniconda"
 cask "iterm2"
 cask "stats"

@@ -19,12 +19,12 @@ fi
 
 brew bundle --file ./setup/Brewfile
 
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-wget https://dot.net/v1/dotnet-install.sh \
-    && chmod +x dotnet-install.sh \
-    && ./dotnet-install.sh --channel LTS \
-    && rm dotnet-install.sh
-wget -qO- https://aka.ms/install-artifacts-credprovider.sh | bash
+# sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# wget https://dot.net/v1/dotnet-install.sh \
+#     && chmod +x dotnet-install.sh \
+#     && ./dotnet-install.sh --channel LTS \
+#     && rm dotnet-install.sh
+# wget -qO- https://aka.ms/install-artifacts-credprovider.sh | bash
 
 # volta
 # volta install node
@@ -65,8 +65,8 @@ ln -s ~/dotfiles/.bash_aliases ~/.bash_aliases
 chmod 644 ~/.bash_aliases
 
 rm ~/.ssh > /dev/null 2>&1
-ln -s ~/dotfiles/ssh/ ~/.ssh/
-# chmod 644 ~/.bash_aliases
+ln -s ~/dotfiles/ssh/ ~/.ssh
+find .ssh/ -type f -print0 | xargs -0 chmod 600
 
 mkdir ~/.config/ > /dev/null 2>&1
 
