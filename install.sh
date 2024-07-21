@@ -84,7 +84,7 @@ if [ $WT_SESSION ]; then
     chmod 644 ~/.wslrc
     # todo configure for current wsl user
     git config --global gpg."ssh".program "/mnt/c/Program Files/1Password/app/8/op-ssh-sign-wsl"
-elif [[ "$(uname)" != "Darwin" ]] then
+elif [[ "$(uname)" != "Darwin" ]]; then
     # sudo -s \
     curl -sS https://downloads.1password.com/linux/keys/1password.asc | \
     gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
