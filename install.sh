@@ -1,7 +1,7 @@
 # check if brew is installed
 
 
-if command -v brew >/dev/null 2>&1; then
+if ! command -v brew >/dev/null 2>&1; then
     if [[ "$(uname)" != "Darwin" ]] && [[ "$(uname -m)" == *"arm"* || "$(uname -m)" == *"aarch64"* ]]; then
         export HOMEBREW_BREW_GIT_REMOTE=https://github.com/huyz/brew-for-linux-arm
         export HOMEBREW_DEVELOPER=1
@@ -60,6 +60,10 @@ rm ~/.bash_aliases > /dev/null 2>&1
 ln -s ~/dotfiles/.bash_aliases ~/.bash_aliases
 chmod 644 ~/.bash_aliases
 
+rm ~/.ssh > /dev/null 2>&1
+ln -s ~/dotfiles/ssh/ ~/.ssh/
+# chmod 644 ~/.bash_aliases
+
 mkdir ~/.config/ > /dev/null 2>&1
 
 rm ~/.config/thefuck/ > /dev/null 2>&1
@@ -71,8 +75,6 @@ ln -s ~/dotfiles/powershell/ ~/.config/powershell/
 
 if [ $WT_SESSION ]; then
     # ssh forwarding
-    sudo apt install socat
-    sudo apt install gpg
     ln -s ~/dotfiles/.wslrc ~/.wslrc
     chmod 644 ~/.wslrc
     # todo configure for current wsl user
