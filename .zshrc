@@ -72,8 +72,8 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(
   1password
   aws
-  # aliases
-  # alias-finder
+  aliases
+  alias-finder
   azure
     brew
     colored-man-pages
@@ -122,7 +122,7 @@ fi
 
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $HOMEBREW_PREFIX/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+# source $HOMEBREW_PREFIX/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 FPATH="$HOMEBREW_PREFIX/share/zsh/site-functions:${FPATH}"
 FPATH="$HOMEBREW_PREFIX/share/zsh-completions:${FPATH}"
 
