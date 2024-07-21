@@ -66,9 +66,9 @@ rm ~/.bash_aliases > /dev/null 2>&1
 ln -s ~/dotfiles/.bash_aliases ~/.bash_aliases
 chmod 644 ~/.bash_aliases
 
-rm ~/.ssh > /dev/null 2>&1
+rm -rf ~/.ssh > /dev/null 2>&1
 ln -s ~/dotfiles/ssh/ ~/.ssh
-find .ssh/ -type f -print0 | xargs -0 chmod 600
+find ~/.ssh/ -type f -print0 | xargs -0 chmod 600
 
 mkdir ~/.config/ > /dev/null 2>&1
 

@@ -43,8 +43,9 @@ gh extension install AdamVig/gh-watch
 
 # keybase login
 
+rm -rf ~/.ssh > /dev/null 2>&1
 ln -s ~/dotfiles/ssh/ ~/.ssh
-find .ssh/ -type f -print0 | xargs -0 chmod 600
+find ~/.ssh/ -type f -print0 | xargs -0 chmod 600
 
 ln -s ~/dotfiles/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 find .gnupg/ -type f -print0 | xargs -0 chmod 644
