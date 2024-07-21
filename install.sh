@@ -17,6 +17,7 @@ else
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
+
 brew bundle --file ./setup/Brewfile
 
 # sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -83,7 +84,22 @@ if [ $WT_SESSION ]; then
     chmod 644 ~/.wslrc
     # todo configure for current wsl user
     git config --global gpg."ssh".program "/mnt/c/Program Files/1Password/app/8/op-ssh-sign-wsl"
+elif [[ "$(uname)" != "Darwin" ]] then
+    # sudo -s \
+    curl -sS https://downloads.1password.com/linux/keys/1password.asc | \
+    gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/$(dpkg --print-architecture) stable main" |
+    tee /etc/apt/sources.list.d/1password.list
+    mkdir -p /etc/debsig/policies/AC2D62742012EA22/
+    curl -sS https://downloads.1password.com/linux/debian/debsig/1password.pol | \
+    tee /etc/debsig/policies/AC2D62742012EA22/1password.pol
+    mkdir -p /usr/share/debsig/keyrings/AC2D62742012EA22
+    curl -sS https://downloads.1password.com/linux/keys/1password.asc | \
+    gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
+    apt update && apt install 1password-cli
 fi
+
+
 
 git config --global core.eol lf
 git config --global core.autocrlf false

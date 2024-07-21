@@ -108,6 +108,10 @@ plugins=(
     zoxide
 )
 
+if [ $WT_SESSION ]; then
+  alias op="op.exe"
+fi
+
 if [[ "$OSTYPE" == "darwin"* ]]; then
   eval $(/opt/homebrew/bin/brew shellenv)
 else
