@@ -26,6 +26,7 @@ brew "volta"
 brew "docker"
 brew "python"
 brew "fzf"
+brew "eza"
 
 brew "azure-cli"
 brew "thefuck"
