@@ -1,0 +1,376 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/allSpec"
+  },
+  "definitions": {
+    "ifSpec": {
+      "type": "object",
+      "properties": {
+        "cond": {
+          "type": "string"
+        },
+        "met": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/allSpec"
+          }
+        },
+        "unmet": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/allSpec"
+          }
+        }
+      },
+      "required": ["cond", "met"]
+    },
+    "allSpec": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["defaults"],
+          "properties": {
+            "defaults": {
+              "type": "object",
+              "properties": {
+                "link": {
+                  "$ref": "#/definitions/linkSpec",
+                  "description": "Default options for linking files"
+                },
+                "create": {
+                  "$ref": "#/definitions/createSpec",
+                  "description": "Default options for creating files and directores"
+                },
+                "shell": {
+                  "$ref": "#/definitions/shellSpec",
+                  "description": "Default shell commands to be run in the base directory"
+                },
+                "clean": {
+                  "$ref": "#/definitions/cleanSpec",
+                  "description": "Default clean commands to be run in the base directory"
+                },
+                "brew": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "cask": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "brewfile": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "tap": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": ["link"],
+          "properties": {
+            "link": {
+              "type": "object",
+              "additionalProperties": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/linkSpec"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": ["if"],
+          "properties": {
+            "if": {
+              "$ref": "#/definitions/ifSpec"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": ["create"],
+          "properties": {
+            "create": {
+              "oneOf": [
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "$ref": "#/definitions/createSpec"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": ["shell"],
+          "properties": {
+            "shell": {
+              "$ref": "#/definitions/shellSpec"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": ["clean"],
+          "properties": {
+            "clean": {
+              "$ref": "#/definitions/cleanSpec"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": ["brew"],
+          "properties": {
+            "brew": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": ["cask"],
+          "properties": {
+            "cask": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": ["brewfile"],
+          "properties": {
+            "brewfile": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": ["tap"],
+          "properties": {
+            "tap": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "linkSpec": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "The source for the symlink, the same as in the shortcut syntax (default: null, automatic (see below))"
+        },
+        "create": {
+          "type": "boolean",
+          "description": "When true, create parent directories to the link as needed. (default: false)",
+          "default": false
+        },
+        "relink": {
+          "type": "boolean",
+          "description": "Removes the old target if it's a symlink (default: false)",
+          "default": false
+        },
+        "force": {
+          "type": "boolean",
+          "description": "Force removes the old target, file or folder, and forces a new link (default: false)",
+          "default": false
+        },
+        "relative": {
+          "type": "boolean",
+          "description": "Use a relative path to the source when creating the symlink (default: false, absolute links)",
+          "default": false
+        },
+        "canonicalize": {
+          "type": "boolean",
+          "description": "Resolve any symbolic links encountered in the source to symlink to the canonical path (default: true, real paths)",
+          "default": true
+        },
+        "if": {
+          "type": "string",
+          "description": "Execute this in your `$SHELL` and only link if it is successful."
+        },
+        "ignore-missing": {
+          "type": "boolean",
+          "description": "Do not fail if the source is missing and create the link anyway (default: false)",
+          "default": false
+        },
+        "glob": {
+          "type": "boolean",
+          "description": "Treat `path` as a glob pattern, expanding patterns referenced below, linking all *files* matched. (default: false)",
+          "default": false
+        },
+        "exclude": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Array of glob patterns to remove from glob matches. Uses same syntax as `path`. Ignored if `glob` is `false`.",
+          "default": []
+        },
+        "prefix": {
+          "type": "string",
+          "description": "Prepend prefix to basename of each file when linked, when `glob` is `true`. (default: '')",
+          "default": ""
+        }
+      }
+    },
+    "createSpec": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "type": "string",
+          "description": "The file mode to use for creating the leaf directory (default: 0777)",
+          "pattern": "0[0-7]{3}"
+        }
+      },
+      "description": "Create commands specify empty directories to be created."
+    },
+    "shellSpec": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "array",
+            "items": [
+              {
+                "type": "string",
+                "description": "The shell command to be run"
+              },
+              {
+                "type": "string",
+                "description": "A human-readable description of the command"
+              }
+            ],
+            "minItems": 1,
+            "maxItems": 2
+          },
+          {
+            "type": "object",
+            "properties": {
+              "command": {
+                "type": "string",
+                "description": "The command to be run"
+              },
+              "description": {
+                "type": "string",
+                "description": "A human-readable message describing the command",
+                "default": null
+              },
+              "quiet": {
+                "type": "boolean",
+                "description": "Show only the description but not the command in log output",
+                "default": false
+              },
+              "stdin": {
+                "type": "boolean",
+                "description": "Allow a command to read from standard input",
+                "default": false
+              },
+              "stdout": {
+                "type": "boolean",
+                "description": "Show a command's output from stdout",
+                "default": false
+              },
+              "stderr": {
+                "type": "boolean",
+                "description": "Show a command's error output from stderr",
+                "default": false
+              }
+            },
+            "required": ["command"]
+          }
+        ]
+      },
+      "description": "Shell commands to be run in the base directory."
+    },
+    "cleanSpec": {
+      "oneOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "object",
+          "patternProperties": {
+            "^.*$": {
+              "type": "object",
+              "properties": {
+                "force": {
+                  "type": "boolean",
+                  "default": false
+                },
+                "recursive": {
+                  "type": "boolean",
+                  "default": false
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "brewOptions": {
+      "type": "object",
+      "properties": {
+        "stdin": {
+          "type": "boolean"
+        },
+        "stderr": {
+          "type": "boolean"
+        },
+        "stdout": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,72 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- if:
+    cond: "! command -v brew >/dev/null 2>&1;"
+    met:
+      - shell:
+        - |-
+          if [[ "$(uname)" != "Darwin" ]] && [[ "$(uname -m)" == *"arm"* || "$(uname -m)" == *"aarch64"* ]]; then
+              export HOMEBREW_BREW_GIT_REMOTE=https://github.com/huyz/brew-for-linux-arm
+              export HOMEBREW_DEVELOPER=1
+              NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | sed '532s/abort/warn/')"
+              eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+          else
+              NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+              eval $(/opt/homebrew/bin/brew shellenv)
+          fi
+
+- create:
+  - ~/.config
+
+# 644?
+- link:
+    ~/.bashrc: .bashrc
+    ~/.bash_aliases: .bash_aliases
+    ~/.inputrc: .inputrc
+    ~/.zshrc: .zshrc
+    ~/.zprofile: .zprofile
+    ~/..wslrc: .wslrc
+    ~/.config/thefuck: .config/thefuck
+    ~/.config/powershell: .config/powershell
+
+- brewfile:
+    - setup/Brewfile
+- shell:
+  - |-
+      git config --global core.eol lf
+      git config --global core.autocrlf false
+      git config --global github.user david-driscoll
+      git config --global gpg.format ssh
+      git config --global user.signingkey "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFEZpmeANLSx9Worwn0REmiWKLEkDvGaaz5ZlCVuRc67"
+      git config --global user.name "David Driscoll"
+      git config --global user.email "david.driscoll@gmail.com"
+      git config --global core.editor "vi"
+      git config --global commit.gpgsign true
+      git config --global alias.amend "commit --amend --reuse-message=HEAD"
+      git config --global url."git@github.com:".insteadOf "https://github.com/"
+
+- if:
+    cond: "$WT_SESSION"
+    met:
+      - shell:
+          - git config --global gpg."ssh".program "/mnt/c/Program Files/1Password/app/8/op-ssh-sign-wsl"
+# TODO: 1Password
+# TODO: Setup npiperelay
+
+- shell:
+    - |-
+        az extension add --name azure-devops
+        az extension add --name interactive
+
+        gh extension install davidraviv/gh-clean-branches
+        gh extension install github/gh-codeql
+        gh extension install mislav/gh-contrib
+        gh extension install github/gh-copilot
+        gh extension install dlvhdr/gh-dash
+        gh extension install meiji163/gh-notify
+        gh extension install seachicken/gh-poi
+        gh extension install vilmibm/gh-screensaver
+        gh extension install AdamVig/gh-watch

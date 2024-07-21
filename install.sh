@@ -1,94 +1,25 @@
-# check if brew is installed
+#!/usr/bin/env bash
 
+set -e
 
-if command -v brew >/dev/null 2>&1; then
-    if [[ "$(uname)" != "Darwin" ]] && [[ "$(uname -m)" == *"arm"* || "$(uname -m)" == *"aarch64"* ]]; then
-        export HOMEBREW_BREW_GIT_REMOTE=https://github.com/huyz/brew-for-linux-arm
-        export HOMEBREW_DEVELOPER=1
-        NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | sed '532s/abort/warn/')"
-        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-    else
-        NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-        eval $(/opt/homebrew/bin/brew shellenv)
-    fi
-fi
+CONFIG="install.conf.yaml"
+DOTBOT_DIR="dotbot"
 
-brew bundle --file ./setup/Brewfile
+DOTBOT_BIN="bin/dotbot"
+BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-wget https://dot.net/v1/dotnet-install.sh \
-    && chmod +x dotnet-install.sh \
-    && ./dotnet-install.sh --channel LTS \
-    && rm dotnet-install.sh
-wget -qO- https://aka.ms/install-artifacts-credprovider.sh | bash
 
-# volta
-# volta install node
+cd "${BASEDIR}"
+git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
+git submodule update --init --recursive "${DOTBOT_DIR}"
+"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" \
+    -c "${CONFIG}" "${@}" \
+    --plugin-dir dotbot-brew \
+    --plugin-dir dotbot-if
 
-az extension add --name azure-devops
-az extension add --name interactive
-
-gh extension install davidraviv/gh-clean-branches
-gh extension install github/gh-codeql
-gh extension install mislav/gh-contrib
-gh extension install github/gh-copilot
-gh extension install dlvhdr/gh-dash
-gh extension install meiji163/gh-notify
-gh extension install seachicken/gh-poi
-gh extension install vilmibm/gh-screensaver
-gh extension install AdamVig/gh-watch
-
-# bash and others
-
-rm ~/.bashrc > /dev/null 2>&1
-ln -s ~/dotfiles/.bashrc ~/.bashrc
-chmod 644 ~/.bashrc
-
-rm ~/.zshrc > /dev/null 2>&1
-ln -s ~/dotfiles/.zshrc ~/.zshrc
-chmod 644 ~/.zshrc
-
-rm ~/.zprofile > /dev/null 2>&1
-ln -s ~/dotfiles/.zprofile ~/.zprofile
-chmod 644 ~/.zprofile
-
-rm ~/.inputrc > /dev/null 2>&1
-ln -s ~/dotfiles/.inputrc ~/.inputrc
-chmod 644 ~/.inputrc
-
-rm ~/.bash_aliases > /dev/null 2>&1
-ln -s ~/dotfiles/.bash_aliases ~/.bash_aliases
-chmod 644 ~/.bash_aliases
-
-mkdir ~/.config/ > /dev/null 2>&1
-
-rm ~/.config/thefuck/ > /dev/null 2>&1
-ln -s ~/dotfiles/thefuck/ ~/.config/thefuck/
-find ~/.config/thefuck/ -type f -print0 | xargs -0 chmod 644
-
-rm ~/.config/powershell/ > /dev/null 2>&1
-ln -s ~/dotfiles/powershell/ ~/.config/powershell/
-
-if [ $WT_SESSION ]; then
-    # ssh forwarding
-    sudo apt install socat
-    sudo apt install gpg
-    ln -s ~/dotfiles/.wslrc ~/.wslrc
-    chmod 644 ~/.wslrc
-    # todo configure for current wsl user
-    git config --global gpg."ssh".program "/mnt/c/Program Files/1Password/app/8/op-ssh-sign-wsl"
-fi
-
-git config --global core.eol lf
-git config --global core.autocrlf false
-git config --global github.user david-driscoll
-git config --global gpg.format ssh
-git config --global user.signingkey "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFEZpmeANLSx9Worwn0REmiWKLEkDvGaaz5ZlCVuRc67"
-git config --global user.name "David Driscoll"
-git config --global user.email "david.driscoll@gmail.com"
-git config --global core.editor "vi"
-# TODO: 1Password
-# TODO: Setup npiperelay
-git config --global commit.gpgsign true
-git config --global alias.amend "commit --amend --reuse-message=HEAD"
-git config --global url."git@github.com:".insteadOf "https://github.com/"
+# wget https://dot.net/v1/dotnet-install.sh \
+#     && chmod +x dotnet-install.sh \
+#     && ./dotnet-install.sh --channel LTS \
+#     && rm dotnet-install.sh
+# wget -qO- https://aka.ms/install-artifacts-credprovider.sh | bash
