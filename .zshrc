@@ -74,7 +74,7 @@ plugins=(
   aws
   aliases
   alias-finder
-  azure-cli
+  azure
     brew
     colored-man-pages
     colorize
@@ -84,6 +84,7 @@ plugins=(
     cp
     direnv
     docker
+    podman
     eza
     kubectl
     helm
@@ -101,7 +102,7 @@ plugins=(
     z
     starship
     thefuck
-    theme
+    themes
     terraform
     lol
   fzf
