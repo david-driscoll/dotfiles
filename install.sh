@@ -13,10 +13,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"
-"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" \
-    -c "${CONFIG}" "${@}" \
-    --plugin-dir dotbot-brew \
-    --plugin-dir dotbot-if
+"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}" --plugin-dir dotbot-brew --plugin-dir dotbot-if
 
 # wget https://dot.net/v1/dotnet-install.sh \
 #     && chmod +x dotnet-install.sh \
