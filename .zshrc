@@ -119,11 +119,11 @@ else
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
-source $HOMEBREW_PREFIX/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $HOMEBREW_PREFIX/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $HOMEBREW_PREFIX/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-FPATH="$HOMEBREW_PREFIX/zsh/site-functions:${FPATH}"
-FPATH="$HOMEBREW_PREFIX/zsh-completions:${FPATH}"
+source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOMEBREW_PREFIX/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+FPATH="$HOMEBREW_PREFIX/share/zsh/site-functions:${FPATH}"
+FPATH="$HOMEBREW_PREFIX/share/zsh-completions:${FPATH}"
 
 source $ZSH/oh-my-zsh.sh
 
