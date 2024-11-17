@@ -4,13 +4,13 @@ $username\
 [@](bold 252)\
 $hostname\
 $shlvl\
-$battery\
+$battery \
 $directory\
 $git_branch\
 $git_commit\
 $git_state\
 $git_metrics\
-$git_status\
+$git_status \
 $hg_branch\
 $cmake\
 $dart\

@@ -26,9 +26,16 @@ $ENV:STARSHIP_CONFIG = Join-Path $PSScriptRoot 'starship.toml';
 $promptModule = & 'C:\Program Files\starship\bin\starship.exe' init powershell --print-full-init | Out-String;
 $promptModule = $promptModule.Replace("# Return the prompt", @'
 # Return the prompt
+$loc = $executionContext.SessionState.Path.CurrentLocation;
+$ext = "$([char]27)]9;12$([char]7)"
+if ($loc.Provider.Name -eq "FileSystem") {
+    $ext += "$([char]27)]9;9;`"$($loc.ProviderPath)`"$([char]27)\"
+}
+$ext
+
 $title = $promptText
-$space = $title.IndexOf('');
-$gitStop = $title.LastIndexOf('');
+$space = $title.IndexOf(' ');
+$gitStop = $title.LastIndexOf(' ');
 $title = $title.Substring($space + 1, ($gitStop - $space)-1)
 $host.UI.RawUI.WindowTitle = ($title -replace '\x1b\[[0-9;]*m', '') -replace '', '📂'
 '@);

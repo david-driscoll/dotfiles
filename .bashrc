@@ -127,6 +127,7 @@ function set_win_title() {
 
     echo -ne "\033]0; $ssDirectory$ssBranch \007"
 }
+# shellcheck disable=SC2034
 starship_precmd_user_func="set_win_title"
 
 export STARSHIP_CONFIG=~/dotfiles/starship.toml

@@ -1,4 +1,4 @@
-PreferredAuthentications publickey
+# PreferredAuthentications publickey
 
 Host truenas.driscoll.tech
   HostName truenas.driscoll.tech
@@ -29,26 +29,25 @@ Host spike
 Host home.driscoll.tech
   HostName had.driscoll.tech
   PreferredAuthentications publickey
+  HostKeyAlgorithms -ssh-ed25519
   User hassio
 
 Host home
-  HostName had.driscoll.tech
+  HostName 10.10.10.9
   PreferredAuthentications publickey
+  HostKeyAlgorithms -ssh-ed25519
   User hassio
-
-Host unraid
-  HostName plex.driscoll.tech
-  PreferredAuthentications publickey
-  User root
 
 Host unifi
   HostName 10.10.0.1
-  PreferredAuthentications publickey
+  PreferredAuthentications keyboard-interactive
   HostKeyAlgorithms -ssh-ed25519
+  PasswordAuthentication yes
   User root
 
 Host discord
   HostName 10.10.0.1
-  PreferredAuthentications publickey
+  PreferredAuthentications keyboard-interactive
   HostKeyAlgorithms -ssh-ed25519
+  PasswordAuthentication yes
   User root
