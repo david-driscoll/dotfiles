@@ -47,23 +47,14 @@ powershell -ExecutionPolicy Bypass -NoProfile -Command "Add-AppxPackage -Path $(
 #.\wsl_update_x64.msi
 
 $programs = @(
-    # "microsoft-windows-terminal",
-    "firacode",
-    "firacodenf",
-    "cascadiacode",
-    "cascadia-code-nerd-font",
-    # todo jetbrains font
-    # "vivaldi",
-    # "github",
-    # "brave-browser",
-    # "opera",
-    "onenote",
-    "7zip",
-    # "javaruntime",
-    # "gitversion.portable",
-    # "royalts-v5",
-    # "office365proplus",
-    "gitversion.commandline"
+    "nerd-fonts-jetbrainsmono",
+    "nerd-fonts-firacode",
+    "nerd-fonts-cascadiacode",
+    "nerd-fonts-meslo",
+    "nerd-fonts-hack",
+    "nerd-fonts-opendyslexic",
+    "nerd-fonts-fantasquesansmono",
+    "nerd-fonts-bigblueterminal"
 );
 foreach ($program in $programs) {
     iex "choco upgrade $program";
