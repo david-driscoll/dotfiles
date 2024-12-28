@@ -31,9 +31,9 @@ $ext = "$([char]27)]9;12$([char]7)"
 if ($loc.Provider.Name -eq "FileSystem") {
     $ext += "$([char]27)]9;9;`"$($loc.ProviderPath)`"$([char]27)\"
 }
-$ext
 
 $title = $promptText
+$promptText = $ext + $promptText
 $space = $title.IndexOf(' ');
 $gitStop = $title.LastIndexOf(' ');
 $title = $title.Substring($space + 1, ($gitStop - $space)-1)

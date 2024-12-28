@@ -77,7 +77,8 @@ git config --global commit.gpgsign true
 git config --global gpg.program "gpg"
 git config --global core.editor "vi"
 git config --global alias.amend "commit --amend --reuse-message=HEAD"
-git config --global url."git@github.com:".insteadOf "https://github.com/"
+# not sure if this is needed, caused issues in code spaces
+# git config --global url."git@github.com:".insteadOf "https://github.com/"
 
 # try to handle error: fetch-pack: unexpected disconnect while reading sideband packet
 git config --global core.packedGitLimit 512m
