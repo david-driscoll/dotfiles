@@ -71,4 +71,5 @@ git config --global commit.gpgsign true
 # TODO: 1Password
 git config --global core.editor "vi"
 git config --global alias.amend "commit --amend --reuse-message=HEAD"
-git config --global url."git@github.com:".insteadOf "https://github.com/"
+# not sure if this is needed, caused issues in code spaces
+# git config --global url."git@github.com:".insteadOf "https://github.com/"
