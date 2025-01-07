@@ -34,16 +34,6 @@ brew bundle --file ./setup/Brewfile
 az extension add --name azure-devops
 az extension add --name interactive
 
-gh extension install davidraviv/gh-clean-branches
-gh extension install github/gh-codeql
-gh extension install mislav/gh-contrib
-gh extension install github/gh-copilot
-gh extension install dlvhdr/gh-dash
-gh extension install meiji163/gh-notify
-gh extension install seachicken/gh-poi
-gh extension install vilmibm/gh-screensaver
-gh extension install AdamVig/gh-watch
-
 # bash and others
 
 rm ~/.bashrc > /dev/null 2>&1
@@ -118,3 +108,14 @@ git config --global commit.gpgsign true
 git config --global alias.amend "commit --amend --reuse-message=HEAD"
 # not sure if this is needed, caused issues in code spaces
 # git config --global url."git@github.com:".insteadOf "https://github.com/"
+
+gh auth login
+gh extension install davidraviv/gh-clean-branches
+gh extension install github/gh-codeql
+gh extension install mislav/gh-contrib
+gh extension install github/gh-copilot
+gh extension install dlvhdr/gh-dash
+gh extension install meiji163/gh-notify
+gh extension install seachicken/gh-poi
+gh extension install vilmibm/gh-screensaver
+gh extension install AdamVig/gh-watch
