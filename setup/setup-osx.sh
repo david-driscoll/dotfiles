@@ -15,8 +15,8 @@ else
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
-brew bunlde --file=./Brewfile
-brew bunlde --file=./Brewfile.darwin
+brew bundle --file=./Brewfile
+brew bundle --file=./Brewfile.darwin
 
 volta install node
 
