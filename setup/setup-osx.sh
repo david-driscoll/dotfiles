@@ -40,6 +40,10 @@ cp ~/dotfiles/ssh/config ~/.ssh/config
 cp ~/dotfiles/ssh/known_hosts ~/.ssh/known_hosts
 find ~/.ssh/ -type f -print0 | xargs -0 chmod 600
 
+mkdir -p ~/dotfiles/karabiner/
+rm -f ~/.config/karabiner/karabiner.json
+ln -s ~/dotfiles/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
+
 ln -s ~/dotfiles/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 find .gnupg/ -type f -print0 | xargs -0 chmod 644
 
