@@ -61,6 +61,7 @@ git config --global user.signingkey "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFEZpme
 git config --global user.name "David Driscoll"
 git config --global user.email "david.driscoll@gmail.com"
 git config --global commit.gpgsign true
+git config --global gpg.ssh.program "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 # TODO: 1Password
 git config --global core.editor "vi"
 git config --global alias.amend "commit --amend --reuse-message=HEAD"
