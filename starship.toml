@@ -1,5 +1,6 @@
 command_timeout = 750
 format = """
+$os\
 $username\
 [@](bold 252)\
 $hostname\
@@ -312,6 +313,33 @@ format = "[$symbol$version]($style) "
 [shell]
 disabled = false
 fish_indicator = "[](bold 30)"
-zsh_indicator = "[鈴](bold 93)"
+zsh_indicator = "[](bold 93)"
 bash_indicator = "[](bold 178)"
-powershell_indicator = "[](bold 27)"
+powershell_indicator = "[](bold 27)"
+
+[os]
+disabled = false
+# style = "bg:color_orange fg:color_fg0"
+
+[os.symbols]
+Windows = "󰍲 "
+Ubuntu = "󰕈 "
+SUSE = " "
+Raspbian = "󰐿 "
+Mint = "󰣭 "
+Macos = "󰀵 "
+Manjaro = " "
+Linux = "󰌽 "
+Gentoo = "󰣨 "
+Fedora = "󰣛 "
+Alpine = " "
+Amazon = " "
+Android = " "
+Arch = "󰣇 "
+Artix = "󰣇 "
+EndeavourOS = " "
+CentOS = " "
+Debian = "󰣚 "
+Redhat = "󱄛 "
+RedHatEnterprise = "󱄛 "
+Pop = " "
