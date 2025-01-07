@@ -71,11 +71,13 @@ find ~/.config/thefuck/ -type f -print0 | xargs -0 chmod 644
 git config --global core.eol lf
 git config --global core.autocrlf true
 git config --global github.user david-driscoll
-git config --global gpg.format ssh
-git config --global user.signingkey "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFEZpmeANLSx9Worwn0REmiWKLEkDvGaaz5ZlCVuRc67"
 git config --global user.name "David Driscoll"
 git config --global user.email "david.driscoll@gmail.com"
-git config --global commit.gpgsign true
+# git config --global user.signingkey "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFEZpmeANLSx9Worwn0REmiWKLEkDvGaaz5ZlCVuRc67"
+# git config --global gpg.format ssh
+# git config --global commit.gpgsign true
+# git config --global gpg.ssh.program "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
 # TODO: 1Password
 git config --global gpg.program "gpg"
 git config --global core.editor "vi"
@@ -89,3 +91,6 @@ git config --global core.packedGitWindowSize 512m
 git config --global pack.deltaCacheSize 2047m
 git config --global pack.packSizeLimit 2047m
 git config --global pack.windowMemory 2047m
+
+
+
