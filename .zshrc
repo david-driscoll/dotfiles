@@ -172,3 +172,6 @@ zstyle ':omz:plugins:eza' 'icons' yes
 zstyle ':omz:plugins:eza' 'hyperlink' yes
 
 eval "$(op completion zsh)";
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
