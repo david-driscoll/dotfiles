@@ -36,7 +36,8 @@ cask "font-cascadia-mono"
 cask "font-cascadia-code"
 
 cask "jetbrains-toolbox"
-cask "visual-studio"
 cask "visual-studio-code"
-cask "visual-studio-code-insiders"
+cask "visual-studio-code@insiders"
 cask "keybase"
+
+
