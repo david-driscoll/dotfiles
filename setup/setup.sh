@@ -32,7 +32,10 @@ curl https://get.volta.sh | bash
 # keybase login
 
 rm -rf ~/.ssh > /dev/null 2>&1
-ln -s ~/dotfiles/ssh/ ~/.ssh
+ln -s ~/dotfiles/ssh/authorized_keys ~/.ssh/authorized_keys
+cp ~/dotfiles/ssh/config ~/.ssh/config
+cp ~/dotfiles/ssh/known_hosts ~/.ssh/known_hosts
+
 find ~/.ssh/ -type f -print0 | xargs -0 chmod 600
 
 mkdir ~/.gnupg/

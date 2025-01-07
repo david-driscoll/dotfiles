@@ -28,23 +28,16 @@ dotnet try jupyter install
 az extension add --name azure-devops
 az extension add --name interactive
 
-gh extension install davidraviv/gh-clean-branches
-gh extension install github/gh-codeql
-gh extension install mislav/gh-contrib
-gh extension install github/gh-copilot
-gh extension install dlvhdr/gh-dash
-gh extension install meiji163/gh-notify
-gh extension install seachicken/gh-poi
-gh extension install vilmibm/gh-screensaver
-gh extension install AdamVig/gh-watch
-
 # path for volta
 # path for python / pip
 
 # keybase login
 
 rm -rf ~/.ssh > /dev/null 2>&1
-ln -s ~/dotfiles/ssh/ ~/.ssh
+mkdir -p ~/.ssh
+ln -s ~/dotfiles/ssh/authorized_keys ~/.ssh/authorized_keys
+cp ~/dotfiles/ssh/config ~/.ssh/config
+cp ~/dotfiles/ssh/known_hosts ~/.ssh/known_hosts
 find ~/.ssh/ -type f -print0 | xargs -0 chmod 600
 
 ln -s ~/dotfiles/gpg-agent.conf ~/.gnupg/gpg-agent.conf
@@ -73,3 +66,13 @@ git config --global core.editor "vi"
 git config --global alias.amend "commit --amend --reuse-message=HEAD"
 # not sure if this is needed, caused issues in code spaces
 # git config --global url."git@github.com:".insteadOf "https://github.com/"
+
+gh extension install davidraviv/gh-clean-branches
+gh extension install github/gh-codeql
+gh extension install mislav/gh-contrib
+gh extension install github/gh-copilot
+gh extension install dlvhdr/gh-dash
+gh extension install meiji163/gh-notify
+gh extension install seachicken/gh-poi
+gh extension install vilmibm/gh-screensaver
+gh extension install AdamVig/gh-watch
