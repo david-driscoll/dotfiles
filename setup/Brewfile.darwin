@@ -4,6 +4,13 @@ brew "jupyterlab"
 brew "mas"
 cask "1password/tap/1password-cli"
 brew "git"
+brew "speedtest-cli"
+tap "isen-ng/dotnet-sdk-versions"
+cask "dotnet-sdk9"
+cask "dotnet-sdk8"
+cask "dotnet-sdk6"
+brew "mkcert"
+brew "gitkraken-cli"
 
 cask "karabiner-elements"
 cask "unnaturalscrollwheels"
@@ -39,5 +46,8 @@ cask "jetbrains-toolbox"
 cask "visual-studio-code"
 cask "visual-studio-code@insiders"
 cask "keybase"
+cask "docker"
+cask "betterdisplay"
+
 
 
