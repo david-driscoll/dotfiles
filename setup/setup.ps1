@@ -111,6 +111,7 @@ $wingetPrograms = @(
     "Docker.DockerDesktop",
     "RedHat.Podman",
     "NSSM.NSSM",
+    "jdx.mise",
     "Microsoft.WindowsTerminal.Preview",
     "Microsoft.WindowsTerminal",
     "Telerik.Fiddler.Everywhere",

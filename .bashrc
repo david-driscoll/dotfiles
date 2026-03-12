@@ -11,10 +11,9 @@ esac
 PATH=$HOME/.dotnet:$PATH
 PATH=$HOME/.dotnet/tools:$PATH
 PATH=$HOME/.jetbrains:$PATH
-if (which pwsh > /dev/null) then
+if (which pwsh >/dev/null); then
     PATH=$(pwsh -nop -c "(\$ENV:PATH.Split(':') | where { -not \$_.Contains('powershell') }) -join ':'")
 fi
-
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -99,26 +98,31 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-eval $(thefuck --alias)
-
+eval "$(thefuck --alias)"
 
 if [ -x "$(command -v gh)" ]; then
-    eval $(gh completion --shell bash)
+    eval "$(gh completion --shell bash)"
 fi
 if [ -x "$(command -v kubectl)" ]; then
-    eval $(kubectl completion bash)
+    eval "$(kubectl completion bash)"
 fi
 if [ -x "$(command -v helm)" ]; then
-    eval $(helm completion bash)
+    eval "$(helm completion bash)"
 fi
 if [ -x "$(command -v op)" ]; then
-    eval $(op completion bash)
+    eval "$(op completion bash)"
+fi
+if [ -x "$(command -v mise)" ]; then
+    eval "$(mise activate bash)"
 fi
 if [ -x "$(command -v pulumi)" ]; then
-    eval $(pulumi completion bash)
+    eval "$(pulumi completion bash)"
 fi
 if [ -x "$(command -v terraform)" ]; then
-  terraform -install-autocomplete
+    terraform -install-autocomplete
+fi
+if [ -x "$(command -v kubectl)" ]; then
+    export PATH="$HOME/.krew/bin:$PATH"
 fi
 
 function set_win_title() {
@@ -167,3 +171,5 @@ fi
 
 # add Pulumi to the PATH
 export PATH=$PATH:$HOME/.pulumi/bin
+
+. "$HOME/.local/bin/env"

@@ -43,7 +43,7 @@ DISABLE_UPDATE_PROMPT="true"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -75,39 +75,39 @@ plugins=(
   aliases
   alias-finder
   azure
-    brew
-    colored-man-pages
-    colorize
-    common-aliases
-    command-not-found
-    copyfile
-    cp
-    direnv
-    docker
-    podman
-    eza
-    kubectl
-    helm
-    encode64
-    extract
-    emoji
-    emoji-clock
-    # gpg-agent
-    # ssh-agent
-    macos
-    git
-    gh
-    git-auto-fetch
-    git-escape-magic
-    z
-    starship
-    thefuck
-    themes
-    terraform
-    lol
+  brew
+  colored-man-pages
+  colorize
+  common-aliases
+  command-not-found
+  copyfile
+  cp
+  direnv
+  docker
+  podman
+  eza
+  kubectl
+  helm
+  encode64
+  extract
+  emoji
+  emoji-clock
+  # gpg-agent
+  # ssh-agent
+  macos
+  git
+  gh
+  git-auto-fetch
+  git-escape-magic
+  z
+  starship
+  thefuck
+  themes
+  terraform
+  lol
   fzf
-    # zsh_reload
-    zoxide
+  # zsh_reload
+  zoxide
 )
 
 if [ $WT_SESSION ]; then
@@ -171,7 +171,38 @@ zstyle ':omz:plugins:eza' 'icons' yes
 # zstyle ':omz:plugins:eza' 'time-style' $TIME_STYLE
 zstyle ':omz:plugins:eza' 'hyperlink' yes
 
-eval "$(op completion zsh)";
+if [ -x "$(command -v gh)" ]; then
+  eval "$(gh completion --shell zsh)"
+fi
+if [ -x "$(command -v kubectl)" ]; then
+  eval "$(kubectl completion zsh)"
+fi
+if [ -x "$(command -v helm)" ]; then
+  eval "$(helm completion zsh)"
+fi
+if [ -x "$(command -v op)" ]; then
+  eval "$(op completion zsh)"
+fi
+if [ -x "$(command -v mise)" ]; then
+  eval "$(mise activate zsh)"
+fi
+if [ -x "$(command -v pulumi)" ]; then
+  eval "$(pulumi completion zsh)"
+fi
+if [ -x "$(command -v terraform)" ]; then
+  terraform -install-autocomplete
+fi
+if [ -x "$(command -v kubectl)" ]; then
+  export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+fi
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
+. "$HOME/.local/bin/env"
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/david/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
