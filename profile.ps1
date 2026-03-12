@@ -52,8 +52,14 @@ Invoke-Expression $promptModule
 (volta completions powershell) -join "`n" | Invoke-Expression
 (gh completion -s powershell) -join "`n" | Invoke-Expression
 (op completion powershell) -join "`n" | Invoke-Expression
+(mise activate pwsh) -join "`n" | Invoke-Expression
 (kubectl completion powershell) -join "`n" | Invoke-Expression
 (helm completion powershell) -join "`n" | Invoke-Expression
+
+if (Get-Command kubectl -ErrorAction SilentlyContinue) {
+    $env:PATH = "$(Resolve-Path ~/.krew)/bin:$env:PATH"
+}
+# krew?
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
 
 $env:PYTHONIOENCODING = "utf-8"
