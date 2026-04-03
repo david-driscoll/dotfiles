@@ -126,6 +126,9 @@ source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 FPATH="$HOMEBREW_PREFIX/share/zsh/site-functions:${FPATH}"
 FPATH="$HOMEBREW_PREFIX/share/zsh-completions:${FPATH}"
 
+# Remove any existing mise paths before activating
+export PATH=$(echo $PATH | tr ':' '\n' | grep -v "mise" | paste -sd: -)
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -189,15 +192,12 @@ fi
 if [ -x "$(command -v pulumi)" ]; then
   eval "$(pulumi completion zsh)"
 fi
-if [ -x "$(command -v terraform)" ]; then
-  terraform -install-autocomplete
-fi
 if [ -x "$(command -v kubectl)" ]; then
   export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 fi
 
+
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /opt/homebrew/bin/terraform terraform
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 . "$HOME/.local/bin/env"
@@ -206,3 +206,12 @@ fpath=(/Users/david/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+
+# OpenClaw Completion
+source "/Users/david/.openclaw/completions/openclaw.zsh"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/david/.lmstudio/bin"
+# End of LM Studio CLI section
+
+complete -o nospace -C /opt/homebrew/bin/terraform terraform

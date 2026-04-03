@@ -15,6 +15,9 @@ if (which pwsh >/dev/null); then
     PATH=$(pwsh -nop -c "(\$ENV:PATH.Split(':') | where { -not \$_.Contains('powershell') }) -join ':'")
 fi
 
+# Remove any existing mise paths before activating
+PATH=$(echo $PATH | tr ':' '\n' | grep -v "mise" | paste -sd: -)
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -173,3 +176,11 @@ fi
 export PATH=$PATH:$HOME/.pulumi/bin
 
 . "$HOME/.local/bin/env"
+
+# OpenClaw Completion
+source "/Users/david/.openclaw/completions/openclaw.bash"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/david/.lmstudio/bin"
+# End of LM Studio CLI section
+
