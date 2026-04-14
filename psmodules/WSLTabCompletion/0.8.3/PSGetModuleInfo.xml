@@ -36,14 +36,18 @@
         </TN>
         <DCT>
           <En>
-            <S N="Key">RoleCapability</S>
+            <S N="Key">DscResource</S>
             <Obj N="Value" RefId="3">
               <TNRef RefId="1" />
               <LST />
             </Obj>
           </En>
           <En>
-            <S N="Key">Function</S>
+            <S N="Key">Cmdlet</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+          <En>
+            <S N="Key">Command</S>
             <Obj N="Value" RefId="4">
               <TNRef RefId="1" />
               <LST>
@@ -52,7 +56,7 @@
             </Obj>
           </En>
           <En>
-            <S N="Key">Command</S>
+            <S N="Key">Function</S>
             <Obj N="Value" RefId="5">
               <TNRef RefId="1" />
               <LST>
@@ -61,15 +65,11 @@
             </Obj>
           </En>
           <En>
-            <S N="Key">DscResource</S>
-            <Ref N="Value" RefId="3" />
-          </En>
-          <En>
-            <S N="Key">Cmdlet</S>
-            <Ref N="Value" RefId="3" />
-          </En>
-          <En>
             <S N="Key">Workflow</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+          <En>
+            <S N="Key">RoleCapability</S>
             <Ref N="Value" RefId="3" />
           </En>
         </DCT>
@@ -94,15 +94,15 @@
           <S N="requireLicenseAcceptance">False</S>
           <S N="isLatestVersion">True</S>
           <S N="isAbsoluteLatestVersion">True</S>
-          <S N="versionDownloadCount">177</S>
-          <S N="downloadCount">678</S>
+          <S N="versionDownloadCount">10077</S>
+          <S N="downloadCount">10616</S>
           <S N="packageSize">10691</S>
           <S N="published">5/5/2023 10:21:23 PM -04:00</S>
           <S N="created">5/5/2023 10:21:23 PM -04:00</S>
-          <S N="lastUpdated">1/10/2024 2:20:24 PM -05:00</S>
+          <S N="lastUpdated">4/11/2026 10:20:01 PM -04:00</S>
           <S N="tags">PSModule PSFunction_Register-WSLArgumentCompleter PSCommand_Register-WSLArgumentCompleter PSIncludes_Function</S>
           <S N="developmentDependency">False</S>
-          <S N="updated">2024-01-10T14:20:24Z</S>
+          <S N="updated">2026-04-11T22:20:01Z</S>
           <S N="NormalizedVersion">0.8.3</S>
           <S N="Authors">NotTheDr01ds / David Douglas Technologies</S>
           <S N="IsPrerelease">false</S>
@@ -111,7 +111,7 @@
           <S N="GUID">eec7da28-d09e-4e89-bd6e-6a691f59f738</S>
         </MS>
       </Obj>
-      <S N="InstalledLocation">C:\Users\David\dotfiles\psmodules\WSLTabCompletion\0.8.3</S>
+      <S N="InstalledLocation">C:\Users\ddriscoll\dotfiles\.staged.psmodules\WSLTabCompletion\0.8.3</S>
     </MS>
   </Obj>
 </Objs>

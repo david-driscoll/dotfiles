@@ -36,14 +36,18 @@
         </TN>
         <DCT>
           <En>
-            <S N="Key">RoleCapability</S>
+            <S N="Key">DscResource</S>
             <Obj N="Value" RefId="3">
               <TNRef RefId="1" />
               <LST />
             </Obj>
           </En>
           <En>
-            <S N="Key">Function</S>
+            <S N="Key">Cmdlet</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+          <En>
+            <S N="Key">Command</S>
             <Obj N="Value" RefId="4">
               <TNRef RefId="1" />
               <LST>
@@ -62,7 +66,7 @@
             </Obj>
           </En>
           <En>
-            <S N="Key">Command</S>
+            <S N="Key">Function</S>
             <Obj N="Value" RefId="5">
               <TNRef RefId="1" />
               <LST>
@@ -81,15 +85,11 @@
             </Obj>
           </En>
           <En>
-            <S N="Key">DscResource</S>
-            <Ref N="Value" RefId="3" />
-          </En>
-          <En>
-            <S N="Key">Cmdlet</S>
-            <Ref N="Value" RefId="3" />
-          </En>
-          <En>
             <S N="Key">Workflow</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+          <En>
+            <S N="Key">RoleCapability</S>
             <Ref N="Value" RefId="3" />
           </En>
         </DCT>
@@ -114,15 +114,15 @@
           <S N="requireLicenseAcceptance">False</S>
           <S N="isLatestVersion">True</S>
           <S N="isAbsoluteLatestVersion">True</S>
-          <S N="versionDownloadCount">13581</S>
-          <S N="downloadCount">14020</S>
+          <S N="versionDownloadCount">45395</S>
+          <S N="downloadCount">45843</S>
           <S N="packageSize">80833</S>
           <S N="published">6/21/2016 7:37:40 PM -04:00</S>
           <S N="created">6/21/2016 7:37:40 PM -04:00</S>
-          <S N="lastUpdated">1/11/2024 12:45:25 AM -05:00</S>
+          <S N="lastUpdated">4/14/2026 3:40:00 AM -04:00</S>
           <S N="tags">PSModule PSFunction_New-CompletionResult PSCommand_New-CompletionResult PSFunction_Get-CommandWithParameter PSCommand_Get-CommandWithParameter PSFunction_Set-CompletionPrivateData PSCommand_Set-CompletionPrivateData PSFunction_Get-CompletionPrivateData PSCommand_Get-CompletionPrivateData PSFunction_Get-CompletionWithExtension PSCommand_Get-CompletionWithExtension PSFunction_New-CommandTree PSCommand_New-CommandTree PSFunction_Get-CommandTreeCompletion PSCommand_Get-CommandTreeCompletion PSFunction_Register-ArgumentCompleter PSCommand_Register-ArgumentCompleter PSFunction_Test-ArgumentCompleter PSCommand_Test-ArgumentCompleter PSFunction_Get-ArgumentCompleter PSCommand_Get-ArgumentCompleter PSFunction_Set-TabExpansionOption PSCommand_Set-TabExpansionOption PSIncludes_Function</S>
           <S N="developmentDependency">False</S>
-          <S N="updated">2024-01-11T00:45:25Z</S>
+          <S N="updated">2026-04-14T03:40:00Z</S>
           <S N="NormalizedVersion">1.2.0</S>
           <S N="Authors">Jason Shirk</S>
           <S N="IsPrerelease">false</S>
@@ -134,7 +134,7 @@
           <S N="CLRVersion">4.0</S>
         </MS>
       </Obj>
-      <S N="InstalledLocation">C:\Users\David\dotfiles\psmodules\TabExpansionPlusPlus\1.2</S>
+      <S N="InstalledLocation">C:\Users\ddriscoll\dotfiles\.staged.psmodules\TabExpansionPlusPlus\1.2</S>
     </MS>
   </Obj>
 </Objs>
