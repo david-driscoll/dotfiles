@@ -44,18 +44,14 @@
         </TN>
         <DCT>
           <En>
-            <S N="Key">RoleCapability</S>
+            <S N="Key">DscResource</S>
             <Obj N="Value" RefId="4">
               <TNRef RefId="1" />
               <LST />
             </Obj>
           </En>
           <En>
-            <S N="Key">Function</S>
-            <Ref N="Value" RefId="4" />
-          </En>
-          <En>
-            <S N="Key">Command</S>
+            <S N="Key">Cmdlet</S>
             <Obj N="Value" RefId="5">
               <TNRef RefId="1" />
               <LST>
@@ -67,11 +63,7 @@
             </Obj>
           </En>
           <En>
-            <S N="Key">DscResource</S>
-            <Ref N="Value" RefId="4" />
-          </En>
-          <En>
-            <S N="Key">Cmdlet</S>
+            <S N="Key">Command</S>
             <Obj N="Value" RefId="6">
               <TNRef RefId="1" />
               <LST>
@@ -83,7 +75,15 @@
             </Obj>
           </En>
           <En>
+            <S N="Key">Function</S>
+            <Ref N="Value" RefId="4" />
+          </En>
+          <En>
             <S N="Key">Workflow</S>
+            <Ref N="Value" RefId="4" />
+          </En>
+          <En>
+            <S N="Key">RoleCapability</S>
             <Ref N="Value" RefId="4" />
           </En>
         </DCT>
@@ -109,16 +109,16 @@
           <S N="releaseNotes">Second pre-release</S>
           <S N="isLatestVersion">True</S>
           <S N="isAbsoluteLatestVersion">True</S>
-          <S N="versionDownloadCount">843</S>
-          <S N="downloadCount">1465</S>
+          <S N="versionDownloadCount">49255</S>
+          <S N="downloadCount">49895</S>
           <S N="packageSize">368451</S>
           <S N="published">6/28/2023 11:22:08 PM -04:00</S>
           <S N="created">6/28/2023 11:22:08 PM -04:00</S>
           <S N="lastEdited">7/14/2023 5:36:22 PM -04:00</S>
-          <S N="lastUpdated">1/11/2024 2:00:25 AM -05:00</S>
+          <S N="lastUpdated">4/14/2026 12:40:00 AM -04:00</S>
           <S N="tags">PSModule PSEdition_Desktop PSEdition_Core PSCmdlet_Compare-Text PSCommand_Compare-Text PSCmdlet_ConvertFrom-Base64 PSCommand_ConvertFrom-Base64 PSCmdlet_ConvertTo-Base64 PSCommand_ConvertTo-Base64 PSCmdlet_ConvertFrom-TextTable PSCommand_ConvertFrom-TextTable PSIncludes_Cmdlet</S>
           <S N="developmentDependency">False</S>
-          <S N="updated">2024-01-11T02:00:25Z</S>
+          <S N="updated">2026-04-14T00:40:00Z</S>
           <S N="NormalizedVersion">0.5.0</S>
           <S N="Authors">Microsoft Corporation</S>
           <S N="IsPrerelease">false</S>
@@ -129,7 +129,7 @@
           <S N="CompanyName">Microsoft Corporation</S>
         </MS>
       </Obj>
-      <S N="InstalledLocation">C:\Users\David\dotfiles\psmodules\Microsoft.PowerShell.TextUtility\0.5.0</S>
+      <S N="InstalledLocation">C:\Users\ddriscoll\dotfiles\.staged.psmodules\Microsoft.PowerShell.TextUtility\0.5.0</S>
     </MS>
   </Obj>
 </Objs>

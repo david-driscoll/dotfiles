@@ -47,20 +47,24 @@ $title = $title.Substring($space + 1, ($gitStop - $space)-1)
 $host.UI.RawUI.WindowTitle = ($title -replace '\x1b\[[0-9;]*m', '') -replace '', '📂'
 '@;
 
+function CheckAndRun($command) {
+    if (-not (Get-Command $command.Split(' ')[0] -ErrorAction SilentlyContinue)) {
+        return
+    }
+    (iex $command) | Out-String | Invoke-Expression
+}
+
 $promptModule = $promptModule.Replace("# Return the prompt", $customPrompt);
 Invoke-Expression $promptModule
-(volta completions powershell) -join "`n" | Invoke-Expression
-(gh completion -s powershell) -join "`n" | Invoke-Expression
-(op completion powershell) -join "`n" | Invoke-Expression
-(mise activate pwsh) -join "`n" | Invoke-Expression
-(kubectl completion powershell) -join "`n" | Invoke-Expression
-(helm completion powershell) -join "`n" | Invoke-Expression
 
-if (Get-Command kubectl -ErrorAction SilentlyContinue) {
-    $env:PATH = "$(Resolve-Path ~/.krew)/bin:$env:PATH"
-}
-# krew?
-Invoke-Expression (& { (zoxide init powershell | Out-String) })
+$oldPreference = $ErrorActionPreference
+$ErrorActionPreference = "SilentlyContinue"
 
-$env:PYTHONIOENCODING = "utf-8"
-iex "$(thefuck --alias)"
+CheckAndRun "volta completions powershell"
+CheckAndRun "gh completion -s powershell"
+CheckAndRun "op completion powershell"
+CheckAndRun "mise activate pwsh"
+CheckAndRun "kubectl completion powershell"
+CheckAndRun "helm completion powershell"
+
+$ErrorActionPreference = $oldPreference

@@ -37,14 +37,18 @@
         </TN>
         <DCT>
           <En>
-            <S N="Key">RoleCapability</S>
+            <S N="Key">DscResource</S>
             <Obj N="Value" RefId="3">
               <TNRef RefId="1" />
               <LST />
             </Obj>
           </En>
           <En>
-            <S N="Key">Function</S>
+            <S N="Key">Cmdlet</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+          <En>
+            <S N="Key">Command</S>
             <Obj N="Value" RefId="4">
               <TNRef RefId="1" />
               <LST>
@@ -54,7 +58,7 @@
             </Obj>
           </En>
           <En>
-            <S N="Key">Command</S>
+            <S N="Key">Function</S>
             <Obj N="Value" RefId="5">
               <TNRef RefId="1" />
               <LST>
@@ -64,15 +68,11 @@
             </Obj>
           </En>
           <En>
-            <S N="Key">DscResource</S>
-            <Ref N="Value" RefId="3" />
-          </En>
-          <En>
-            <S N="Key">Cmdlet</S>
-            <Ref N="Value" RefId="3" />
-          </En>
-          <En>
             <S N="Key">Workflow</S>
+            <Ref N="Value" RefId="3" />
+          </En>
+          <En>
+            <S N="Key">RoleCapability</S>
             <Ref N="Value" RefId="3" />
           </En>
         </DCT>
@@ -97,15 +97,15 @@
           <S N="requireLicenseAcceptance">False</S>
           <S N="isLatestVersion">True</S>
           <S N="isAbsoluteLatestVersion">True</S>
-          <S N="versionDownloadCount">1883</S>
-          <S N="downloadCount">7114</S>
+          <S N="versionDownloadCount">84718</S>
+          <S N="downloadCount">90014</S>
           <S N="packageSize">10371</S>
           <S N="published">11/16/2022 4:17:43 AM -05:00</S>
           <S N="created">11/16/2022 4:17:43 AM -05:00</S>
-          <S N="lastUpdated">1/11/2024 2:35:25 AM -05:00</S>
+          <S N="lastUpdated">4/14/2026 1:00:00 AM -04:00</S>
           <S N="tags">PSModule PSEdition_Core PSFunction_Import-WslCommand PSCommand_Import-WslCommand PSFunction_Format-WslArgument PSCommand_Format-WslArgument PSIncludes_Function</S>
           <S N="developmentDependency">False</S>
-          <S N="updated">2024-01-11T02:35:25Z</S>
+          <S N="updated">2026-04-14T01:00:00Z</S>
           <S N="NormalizedVersion">0.4.1</S>
           <S N="Authors">Mike Battista</S>
           <S N="IsPrerelease">false</S>
@@ -116,7 +116,7 @@
           <S N="CompanyName">Microsoft</S>
         </MS>
       </Obj>
-      <S N="InstalledLocation">C:\Users\David\dotfiles\psmodules\WslInterop\0.4.1</S>
+      <S N="InstalledLocation">C:\Users\ddriscoll\dotfiles\.staged.psmodules\WslInterop\0.4.1</S>
     </MS>
   </Obj>
 </Objs>
