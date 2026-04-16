@@ -45,6 +45,7 @@ cask "devtoys"
 cask "tailscale-app"
 cask "hiddenbar"
 cask "alcove"
+cask "dockdoor"
 
 cask "jetbrains-toolbox"
 cask "visual-studio-code"
