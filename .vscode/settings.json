@@ -3,4 +3,5 @@
         "*.yaml": "home-assistant"
     },
     "editor.fontFamily": "JetbrainsMono Nerd Font Propo",
+    "snyk.advanced.autoSelectOrganization": true,
 }
