@@ -47,6 +47,9 @@ ln -s ~/dotfiles/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
 ln -s ~/dotfiles/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 find .gnupg/ -type f -print0 | xargs -0 chmod 644
 
+mkdir -p ~/.config/mise/
+ln -s ~/dotfiles/mise.config.toml ~/.config/mise/config.toml
+chmod 644 ~/.config/mise/config.toml
 ln -s ~/dotfiles/.config/.bashrc ~/.bashrc
 chmod 644 ~/.bashrc
 ln -s ~/dotfiles/.config/.inputrc ~/.inputrc

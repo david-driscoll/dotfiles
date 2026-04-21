@@ -138,6 +138,8 @@ function set_win_title() {
 starship_precmd_user_func="set_win_title"
 
 export STARSHIP_CONFIG=~/dotfiles/starship.toml
+export COPILOT_CUSTOM_INSTRUCTIONS_DIRS=~/dotfiles/ai
+export CLAUDE_CODE_ADDITIONAL_DIRECTORIES_CLAUDE_MD=~/dotfiles/ai
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
 # eval $(gpg-agent --daemon)
