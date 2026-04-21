@@ -36,6 +36,11 @@ az extension add --name interactive
 
 # bash and others
 
+mkdir -p ~/.config/mise/
+rm ~/.config/mise/config.toml > /dev/null 2>&1
+ln -s ~/dotfiles/mise.config.toml ~/.config/mise/config.toml
+chmod 644 ~/.config/mise/config.toml
+
 rm ~/.bashrc > /dev/null 2>&1
 ln -s ~/dotfiles/.bashrc ~/.bashrc
 chmod 644 ~/.bashrc
@@ -69,6 +74,33 @@ find ~/.config/thefuck/ -type f -print0 | xargs -0 chmod 644
 rm ~/.config/powershell/ > /dev/null 2>&1
 ln -s ~/dotfiles/powershell/ ~/.config/powershell
 find ~/.config/powershell/ -type f -print0 | xargs -0 chmod 644
+
+# Claude Code user-level config
+mkdir ~/.claude/ > /dev/null 2>&1
+rm ~/.claude/CLAUDE.md > /dev/null 2>&1
+ln -s ~/dotfiles/ai/claude/CLAUDE.md ~/.claude/CLAUDE.md
+chmod 644 ~/.claude/CLAUDE.md
+rm ~/.claude/settings.json > /dev/null 2>&1
+ln -s ~/dotfiles/ai/claude/settings.json ~/.claude/settings.json
+chmod 644 ~/.claude/settings.json
+rm -rf ~/.claude/agents > /dev/null 2>&1
+ln -s ~/dotfiles/ai/agents/ ~/.claude/agents
+rm -rf ~/.claude/skills > /dev/null 2>&1
+ln -s ~/dotfiles/ai/skills/ ~/.claude/skills
+
+# GitHub Copilot user-level config
+mkdir ~/.copilot/ > /dev/null 2>&1
+rm ~/.copilot/copilot-instructions.md > /dev/null 2>&1
+ln -s ~/dotfiles/ai/copilot/copilot-instructions.md ~/.copilot/copilot-instructions.md
+chmod 644 ~/.copilot/copilot-instructions.md
+rm -rf ~/.copilot/agents > /dev/null 2>&1
+ln -s ~/dotfiles/ai/agents/ ~/.copilot/agents
+rm -rf ~/.copilot/skills > /dev/null 2>&1
+ln -s ~/dotfiles/ai/skills/ ~/.copilot/skills
+rm -rf ~/.copilot/hooks > /dev/null 2>&1
+ln -s ~/dotfiles/ai/copilot/hooks/ ~/.copilot/hooks
+rm -rf ~/.copilot/prompts > /dev/null 2>&1
+ln -s ~/dotfiles/ai/copilot/prompts/ ~/.copilot/prompts
 
 if [ $WT_SESSION ]; then
     # ssh forwarding

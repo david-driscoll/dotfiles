@@ -204,6 +204,35 @@ mkdir $ENV:USERPROFILE/.config/ -ErrorAction SilentlyContinue
 rm -Recurse -Force "$ENV:USERPROFILE/.config/thefuck" -ErrorAction SilentlyContinue
 New-Item -ItemType SymbolicLink -Value $ENV:USERPROFILE/dotfiles/thefuck/ -Path "$ENV:USERPROFILE/.config/thefuck/"
 
+# Claude Code user-level config
+mkdir "$ENV:USERPROFILE/.claude/" -ErrorAction SilentlyContinue
+rm "$ENV:USERPROFILE/.claude/CLAUDE.md" -ErrorAction SilentlyContinue
+New-Item -ItemType SymbolicLink -Value "$ENV:USERPROFILE/dotfiles/ai/claude/CLAUDE.md" -Path "$ENV:USERPROFILE/.claude/CLAUDE.md"
+rm "$ENV:USERPROFILE/.claude/settings.json" -ErrorAction SilentlyContinue
+New-Item -ItemType SymbolicLink -Value "$ENV:USERPROFILE/dotfiles/ai/claude/settings.json" -Path "$ENV:USERPROFILE/.claude/settings.json"
+rm -Recurse -Force "$ENV:USERPROFILE/.claude/agents" -ErrorAction SilentlyContinue
+New-Item -ItemType SymbolicLink -Value "$ENV:USERPROFILE/dotfiles/ai/agents" -Path "$ENV:USERPROFILE/.claude/agents"
+rm -Recurse -Force "$ENV:USERPROFILE/.claude/skills" -ErrorAction SilentlyContinue
+New-Item -ItemType SymbolicLink -Value "$ENV:USERPROFILE/dotfiles/ai/skills" -Path "$ENV:USERPROFILE/.claude/skills"
+
+# GitHub Copilot user-level config
+mkdir "$ENV:USERPROFILE/.copilot/" -ErrorAction SilentlyContinue
+rm "$ENV:USERPROFILE/.copilot/copilot-instructions.md" -ErrorAction SilentlyContinue
+New-Item -ItemType SymbolicLink -Value "$ENV:USERPROFILE/dotfiles/ai/copilot/copilot-instructions.md" -Path "$ENV:USERPROFILE/.copilot/copilot-instructions.md"
+rm -Recurse -Force "$ENV:USERPROFILE/.copilot/agents" -ErrorAction SilentlyContinue
+New-Item -ItemType SymbolicLink -Value "$ENV:USERPROFILE/dotfiles/ai/agents" -Path "$ENV:USERPROFILE/.copilot/agents"
+rm -Recurse -Force "$ENV:USERPROFILE/.copilot/skills" -ErrorAction SilentlyContinue
+New-Item -ItemType SymbolicLink -Value "$ENV:USERPROFILE/dotfiles/ai/skills" -Path "$ENV:USERPROFILE/.copilot/skills"
+rm -Recurse -Force "$ENV:USERPROFILE/.copilot/hooks" -ErrorAction SilentlyContinue
+New-Item -ItemType SymbolicLink -Value "$ENV:USERPROFILE/dotfiles/ai/copilot/hooks" -Path "$ENV:USERPROFILE/.copilot/hooks"
+rm -Recurse -Force "$ENV:USERPROFILE/.copilot/prompts" -ErrorAction SilentlyContinue
+New-Item -ItemType SymbolicLink -Value "$ENV:USERPROFILE/dotfiles/ai/copilot/prompts" -Path "$ENV:USERPROFILE/.copilot/prompts"
+
+mkdir "$ENV:USERPROFILE/.config/mise/" -ErrorAction SilentlyContinue
+rm "$ENV:USERPROFILE/.config/mise/config.toml" -ErrorAction SilentlyContinue
+New-Item -ItemType SymbolicLink -Value "$ENV:USERPROFILE/dotfiles/mise/config.toml" -Path "$ENV:USERPROFILE/.config/mise/config.toml"
+New-Item -ItemType File -Path "$ENV:USERPROFILE/.config/mise/config.local.toml"
+
 # mkdir $ENV:LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/ -ErrorAction SilentlyContinue
 # rm $ENV:LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json -ErrorAction SilentlyContinue
 # New-Item -ItemType SymbolicLink -Value $ENV:USERPROFILE/dotfiles/terminal/ -Path $ENV:LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/
@@ -217,7 +246,14 @@ New-Item -ItemType SymbolicLink -Value $ENV:USERPROFILE/dotfiles/thefuck/ -Path 
 # cp $ENV:LOCALAPPDATA/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState/terminal/*.* $ENV:LOCALAPPDATA/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState/
 # rm -Recurse -Force $ENV:LOCALAPPDATA/Packages/Microsoft.WindowsTerminalPreview_8wekyb3d8bbwe/LocalState/terminal/ -ErrorAction SilentlyContinue
 
-$PROFILE | Get-Member | where { $_.Name.StartsWith("Current") } | foreach { $($PROFILE.($_.Name)) } | where { test-path $_ } | foreach { Unblock-File $_.FullName }
+foreach ($path in $PROFILE | Get-Member | where { $_.Name.StartsWith("Current") } | foreach { $PROFILE.($_.Name) }) {
+    Remove-Item "$path" -ErrorAction SilentlyContinue
+    New-Item -ItemType SymbolicLink -Value $ENV:USERPROFILE/dotfiles/powershell/Microsoft.PowerShell_profile.ps1 -Path $path
+    if (Test-Path $path) {
+        Unblock-File $path
+    }
+}
+
 gci $ENV:USERPROFILE\.ssh\ | foreach { Unblock-File $_.FullName }
 gci $ENV:USERPROFILE\.gnupg\ | foreach { Unblock-File $_.FullName }
 

@@ -4,6 +4,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export STARSHIP_CONFIG=~/dotfiles/starship.toml
+export COPILOT_CUSTOM_INSTRUCTIONS_DIRS=~/dotfiles/ai
+export CLAUDE_CODE_ADDITIONAL_DIRECTORIES_CLAUDE_MD=~/dotfiles/ai
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,

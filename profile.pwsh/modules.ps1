@@ -16,12 +16,12 @@ function Get-ComputerName {
     return $env:COMPUTERNAME
 }
 
-$codeCommand = Get-Command code;
-$codeInsidersCommand = Get-Command code-insiders;
 function startCode {
+$codeCommand = Get-Command code;
     & $codeCommand ($args | ForEach-Object { if ($_.StartsWith('~')) { return (Resolve-Path $_).Path } return $_; })
 }
 function startCodeInsiders {
+    $codeInsidersCommand = Get-Command code-insiders;
     & $codeInsidersCommand ($args | ForEach-Object { if ($_.StartsWith('~')) { return (Resolve-Path $_).Path } return $_; })
 }
 Set-Alias -Name vscode -Value startCode;

@@ -19,7 +19,13 @@ foreach ($x in Get-ChildItem $PSScriptRoot/profile.pwsh -Filter *.ps1) {
     . $x.FullName
 }
 
+foreach ($x in $PROFILE | Get-Member | where { $_.Name.StartsWith("Current") } | foreach { $PROFILE.($_.Name) } | foreach { Split-Path -Parent $_ } | select -Unique | foreach { Get-ChildItem "$_/Profile/" -Filter *.ps1 }) {
+    . $x.FullName
+}
+
 $ENV:STARSHIP_CONFIG = Join-Path $PSScriptRoot 'starship.toml';
+$ENV:COPILOT_CUSTOM_INSTRUCTIONS_DIRS = Join-Path $PSScriptRoot 'ai';
+$ENV:CLAUDE_CODE_ADDITIONAL_DIRECTORIES_CLAUDE_MD = Join-Path $PSScriptRoot 'ai';
 $starship = get-command starship;
 
 #Invoke-Expression (&starship init powershell)

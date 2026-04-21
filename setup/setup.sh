@@ -38,6 +38,11 @@ cp ~/dotfiles/ssh/known_hosts ~/.ssh/known_hosts
 
 find ~/.ssh/ -type f -print0 | xargs -0 chmod 600
 
+mkdir -p ~/.config/mise/
+rm ~/.config/mise/config.toml > /dev/null 2>&1
+ln -s ~/dotfiles/mise.config.toml ~/.config/mise/config.toml
+chmod 644 ~/.config/mise/config.toml
+
 mkdir ~/.gnupg/
 ln -s ~/dotfiles/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 find ~/.gnupg/ -type f -print0 | xargs -0 chmod 644
