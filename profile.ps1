@@ -25,7 +25,6 @@ foreach ($x in $PROFILE | Get-Member | where { $_.Name.StartsWith("Current") } |
 
 $ENV:STARSHIP_CONFIG = Join-Path $PSScriptRoot 'starship.toml';
 $ENV:COPILOT_CUSTOM_INSTRUCTIONS_DIRS = Join-Path $PSScriptRoot 'ai';
-$ENV:CLAUDE_CODE_ADDITIONAL_DIRECTORIES_CLAUDE_MD = Join-Path $PSScriptRoot 'ai';
 $starship = get-command starship;
 
 #Invoke-Expression (&starship init powershell)
