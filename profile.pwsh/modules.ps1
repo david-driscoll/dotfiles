@@ -17,7 +17,7 @@ function Get-ComputerName {
 }
 
 function startCode {
-$codeCommand = Get-Command code;
+    $codeCommand = Get-Command code;
     & $codeCommand ($args | ForEach-Object { if ($_.StartsWith('~')) { return (Resolve-Path $_).Path } return $_; })
 }
 function startCodeInsiders {

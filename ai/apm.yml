@@ -1,0 +1,60 @@
+name: agents
+version: 1.0.0
+description: APM project for ai
+author: David Driscoll
+dependencies:
+  apm:
+  - github/awesome-copilot/skills/acquire-codebase-knowledge
+  - dotnet/skills/plugin/dotnet
+  - dotnet/skills/plugin/dotnet-data
+  - dotnet/skills/plugin/dotnet-diag
+  - dotnet/skills/plugin/dotnet-msbuild
+  - dotnet/skills/plugin/dotnet-nuget
+  - dotnet/skills/plugin/dotnet-upgrade
+  - dotnet/skills/plugin/dotnet-ai
+  - dotnet/skills/plugin/dotnet-template-engine
+  - dotnet/skills/plugin/dotnet-template-test
+  - dotnet/skills/plugin/dotnet-template-aspnet
+  mcp:
+  - io.github.upstash/context7
+  - com.microsoft/azure
+  - com.atlassian/atlassian-mcp-server
+  - name: github
+    registry: false
+    transport: http
+    url: https://api.githubcopilot.com/mcp/
+  - name: microsoft-docs
+    registry: false
+    transport: http
+    url: https://learn.microsoft.com/api/mcp/
+  - name: mermaid
+    registry: false
+    transport: http
+    url: https://mcp.mermaidchart.com/mcp/
+  - name: agentic-workflows
+    registry: false
+    transport: stdio
+    command: gh
+    args:
+    - aw
+    - mcp-server
+  - name: agentic-workflows
+    registry: false
+    transport: stdio
+    command: npx
+    args:
+    - -y
+    - duckduckgo-mcp-server
+  - name: pendo
+    registry: false
+    transport: http
+    url: https://app.pendo.io/mcp/v0/shttp
+  - name: atlassian
+    registry: false
+    transport: http
+    url: https://mcp.atlassian.com/v1/mcp
+  - name: figma
+    registry: false
+    transport: http
+    url: https://mcp.figma.com/mcp
+scripts: {}

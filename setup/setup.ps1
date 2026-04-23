@@ -207,26 +207,24 @@ New-Item -ItemType SymbolicLink -Value $ENV:USERPROFILE/dotfiles/thefuck/ -Path 
 # Claude Code user-level config
 mkdir "$ENV:USERPROFILE/.claude/" -ErrorAction SilentlyContinue
 rm "$ENV:USERPROFILE/.claude/CLAUDE.md" -ErrorAction SilentlyContinue
-New-Item -ItemType SymbolicLink -Value "$ENV:USERPROFILE/dotfiles/ai/claude/CLAUDE.md" -Path "$ENV:USERPROFILE/.claude/CLAUDE.md"
+New-Item -ItemType SymbolicLink -Value "$ENV:USERPROFILE/dotfiles/ai/.claude/CLAUDE.md" -Path "$ENV:USERPROFILE/.claude/CLAUDE.md"
 rm "$ENV:USERPROFILE/.claude/settings.json" -ErrorAction SilentlyContinue
-New-Item -ItemType SymbolicLink -Value "$ENV:USERPROFILE/dotfiles/ai/claude/settings.json" -Path "$ENV:USERPROFILE/.claude/settings.json"
+New-Item -ItemType SymbolicLink -Value "$ENV:USERPROFILE/dotfiles/ai/.claude/settings.json" -Path "$ENV:USERPROFILE/.claude/settings.json"
 rm -Recurse -Force "$ENV:USERPROFILE/.claude/agents" -ErrorAction SilentlyContinue
-New-Item -ItemType SymbolicLink -Value "$ENV:USERPROFILE/dotfiles/ai/agents" -Path "$ENV:USERPROFILE/.claude/agents"
+New-Item -ItemType SymbolicLink -Value "$ENV:USERPROFILE/dotfiles/ai/.claude/agents" -Path "$ENV:USERPROFILE/.claude/agents"
 rm -Recurse -Force "$ENV:USERPROFILE/.claude/skills" -ErrorAction SilentlyContinue
-New-Item -ItemType SymbolicLink -Value "$ENV:USERPROFILE/dotfiles/ai/skills" -Path "$ENV:USERPROFILE/.claude/skills"
+New-Item -ItemType SymbolicLink -Value "$ENV:USERPROFILE/dotfiles/ai/.claude/skills" -Path "$ENV:USERPROFILE/.claude/skills"
+rm -Recurse -Force "$ENV:USERPROFILE/.claude/hooks" -ErrorAction SilentlyContinue
+New-Item -ItemType SymbolicLink -Value "$ENV:USERPROFILE/dotfiles/ai/.claude/hooks" -Path "$ENV:USERPROFILE/.claude/hooks"
 
 # GitHub Copilot user-level config
 mkdir "$ENV:USERPROFILE/.copilot/" -ErrorAction SilentlyContinue
 rm "$ENV:USERPROFILE/.copilot/copilot-instructions.md" -ErrorAction SilentlyContinue
-New-Item -ItemType SymbolicLink -Value "$ENV:USERPROFILE/dotfiles/ai/copilot/copilot-instructions.md" -Path "$ENV:USERPROFILE/.copilot/copilot-instructions.md"
+New-Item -ItemType SymbolicLink -Value "$ENV:USERPROFILE/dotfiles/ai/.copilot/copilot-instructions.md" -Path "$ENV:USERPROFILE/.copilot/copilot-instructions.md"
 rm -Recurse -Force "$ENV:USERPROFILE/.copilot/agents" -ErrorAction SilentlyContinue
-New-Item -ItemType SymbolicLink -Value "$ENV:USERPROFILE/dotfiles/ai/agents" -Path "$ENV:USERPROFILE/.copilot/agents"
+New-Item -ItemType SymbolicLink -Value "$ENV:USERPROFILE/dotfiles/ai/.copilot/agents" -Path "$ENV:USERPROFILE/.copilot/agents"
 rm -Recurse -Force "$ENV:USERPROFILE/.copilot/skills" -ErrorAction SilentlyContinue
-New-Item -ItemType SymbolicLink -Value "$ENV:USERPROFILE/dotfiles/ai/skills" -Path "$ENV:USERPROFILE/.copilot/skills"
-rm -Recurse -Force "$ENV:USERPROFILE/.copilot/hooks" -ErrorAction SilentlyContinue
-New-Item -ItemType SymbolicLink -Value "$ENV:USERPROFILE/dotfiles/ai/copilot/hooks" -Path "$ENV:USERPROFILE/.copilot/hooks"
-rm -Recurse -Force "$ENV:USERPROFILE/.copilot/prompts" -ErrorAction SilentlyContinue
-New-Item -ItemType SymbolicLink -Value "$ENV:USERPROFILE/dotfiles/ai/copilot/prompts" -Path "$ENV:USERPROFILE/.copilot/prompts"
+New-Item -ItemType SymbolicLink -Value "$ENV:USERPROFILE/dotfiles/ai/.copilot/skills" -Path "$ENV:USERPROFILE/.copilot/skills"
 
 mkdir "$ENV:USERPROFILE/.config/mise/" -ErrorAction SilentlyContinue
 rm "$ENV:USERPROFILE/.config/mise/config.toml" -ErrorAction SilentlyContinue
