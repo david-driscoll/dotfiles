@@ -58,6 +58,35 @@ ln -s ~/dotfiles/.config/.bash_aliases ~/.bash_aliases
 chmod 644 ~/.bash_aliases
 ln -s ~/dotfiles/.config/powershell/macos.ps1 ~/.config/powershell/Microsoft.PowerShell_profile.ps1
 
+
+mkdir -p ~/.claude/
+rm ~/.claude/CLAUDE.md
+ln -s ~/dotfiles/ai/.claude/CLAUDE.md ~/.claude/CLAUDE.md
+rm ~/.claude/settings.json
+ln -s ~/dotfiles/ai/.claude/settings.json ~/.claude/settings.json
+rm -rf ~/.claude/agents
+ln -s ~/dotfiles/ai/.claude/agents ~/.claude/agents
+rm -rf ~/.claude/rules
+ln -s ~/dotfiles/ai/.claude/rules ~/.claude/rules
+rm -rf ~/.claude/skills
+ln -s ~/dotfiles/ai/.claude/skills ~/.claude/skills
+rm -rf ~/.claude/hooks
+ln -s ~/dotfiles/ai/.claude/hooks ~/.claude/hooks
+
+# GitHub Copilot user-level config
+mkdir -p ~/.copilot/
+rm ~/.copilot/copilot-instructions.md
+ln -s ~/dotfiles/ai/.copilot/copilot-instructions.md ~/.copilot/copilot-instructions.md
+rm -rf ~/.copilot/agents
+ln -s ~/dotfiles/ai/.copilot/agents ~/.copilot/agents
+rm -rf ~/.copilot/instructions
+ln -s ~/dotfiles/ai/.copilot/instructions ~/.copilot/instructions
+rm -rf ~/.copilot/skills
+ln -s ~/dotfiles/ai/.copilot/skills ~/.copilot/skills
+rm -rf ~/.copilot/hooks
+ln -s ~/dotfiles/ai/.copilot/hooks ~/.copilot/hooks
+
+
 ln -s ~/dotfiles/.config/thefuck/ ~/.config/thefuck/
 find ~/.config/thefuck/ -type f -print0 | xargs -0 chmod 644
 

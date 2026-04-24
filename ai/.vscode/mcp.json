@@ -43,32 +43,10 @@
     },
     "agentic-workflows": {
       "type": "stdio",
-      "command": "gh",
+      "command": "npx",
       "args": [
-        "aw",
-        "mcp-server"
-      ]
-    },
-    "pendo": {
-      "type": "http",
-      "url": "https://app.pendo.io/mcp/v0/shttp",
-      "headers": {}
-    },
-    "atlassian": {
-      "type": "http",
-      "url": "https://mcp.atlassian.com/v1/mcp",
-      "headers": {}
-    },
-    "figma": {
-      "type": "http",
-      "url": "https://mcp.figma.com/mcp",
-      "headers": {}
-    },
-    "t": {
-      "type": "stdio",
-      "command": "node",
-      "args": [
-        "C:\\Users\\ddriscoll\\dotfiles\\ai\\apm_modules\\Yeachan-Heo\\oh-my-claudecode/bridge/mcp-server.cjs"
+        "-y",
+        "duckduckgo-mcp-server"
       ]
     }
   },

@@ -1,0 +1,70 @@
+{
+  "servers": {
+    "pulumi": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@pulumi/mcp-server",
+        "--stdio"
+      ]
+    },
+    "com.atlassian/atlassian-mcp-server": {
+      "type": "http",
+      "url": "https://mcp.atlassian.com/v1/mcp",
+      "headers": {}
+    },
+    "com.microsoft/azure": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@azure/mcp",
+        "server",
+        "start"
+      ]
+    },
+    "io.github.upstash/context7": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp"
+      ],
+      "env": {
+        "CONTEXT7_API_KEY": "${input:context7-api-key}"
+      }
+    },
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "headers": {}
+    },
+    "microsoft-docs": {
+      "type": "http",
+      "url": "https://learn.microsoft.com/api/mcp/",
+      "headers": {}
+    },
+    "mermaid": {
+      "type": "http",
+      "url": "https://mcp.mermaidchart.com/mcp/",
+      "headers": {}
+    },
+    "agentic-workflows": {
+      "type": "stdio",
+      "command": "gh",
+      "args": [
+        "aw",
+        "mcp-server"
+      ]
+    }
+  },
+  "inputs": [
+    {
+      "type": "promptString",
+      "id": "context7-api-key",
+      "description": "API key for authentication",
+      "password": true
+    }
+  ]
+}

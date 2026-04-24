@@ -1,0 +1,29 @@
+name: agents
+version: 1.0.0
+description: APM project for agents
+author: David Driscoll
+dependencies:
+  apm:
+  - ComposioHQ/awesome-claude-skills/video-downloader
+  - ComposioHQ/awesome-claude-skills/content-research-writer
+  - ryanbbrown/revealjs-skill
+  - sanjay3290/ai-skills/skills/deep-research
+  - emaynard/claude-family-history-research-skill
+  - michalparkola/tapestry-skills/article-extractor
+  - michalparkola/tapestry-skills/learn-this
+  - michalparkola/tapestry-skills/scrum-sage
+  - michalparkola/tapestry-skills/session-log
+  - michalparkola/tapestry-skills/ship-learn-next
+  - michalparkola/tapestry-skills/unblock-action
+  - michalparkola/tapestry-skills/youtube-transcript
+  - ../ai
+  mcp:
+  - name: pulumi
+    registry: false
+    transport: stdio
+    command: npx
+    args:
+    - -y
+    - "@pulumi/mcp-server"
+    - "--stdio"
+scripts: {}
