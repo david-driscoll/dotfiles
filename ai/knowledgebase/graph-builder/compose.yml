@@ -1,0 +1,57 @@
+name: graph-builder
+
+services:
+  backend:
+    build:
+      context: ./llm-graph-builder/backend
+      dockerfile: Dockerfile
+    volumes:
+      - ./llm-graph-builder/backend:/code
+      - huggingface-cache:/root/.cache/huggingface
+    ports:
+      - "8082:8000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    working_dir: /code
+    command: >
+      gunicorn score:app --workers 2 --worker-class
+      uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000 --timeout 1800
+    env_file:
+      - .env
+    environment:
+      NEO4J_URI: bolt://neo4j-db:7687
+      NEO4J_USERNAME: neo4j
+      NEO4J_DATABASE: neo4j
+      OPENAI_API_KEY: lm-studio
+      LLM_MODEL_CONFIG_lmstudio_gemma4: "google/gemma-4-e2b,http://host.docker.internal:1234/v1,lm-studio"
+      EMBEDDING_MODEL: all-MiniLM-L6-v2
+      EMBEDDING_PROVIDER: sentence-transformer
+      IS_EMBEDDING: "false"
+      GCS_FILE_CACHE: "False"
+      MAX_TOKEN_CHUNK_SIZE: "5000"
+      UPDATE_GRAPH_CHUNKS_PROCESSED: "20"
+    networks:
+      - knowledgebase
+
+  frontend:
+    build:
+      context: ./llm-graph-builder/frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_BACKEND_API_URL: http://localhost:8082
+        VITE_LLM_MODELS: lmstudio_gemma4
+        VITE_SKIP_AUTH: "true"
+        VITE_TOKENS_PER_CHUNK: "400"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - backend
+    networks:
+      - knowledgebase
+
+networks:
+  knowledgebase:
+    external: true
+
+volumes:
+  huggingface-cache:
