@@ -170,16 +170,16 @@ dependencies:
     args:
     - -y
     - duckduckgo-mcp-server
-  - name: neo4j-cypher
-    registry: false
-    transport: http
-    url: http://localhost:8000/mcp/
-  - name: neo4j-data-modeling
-    registry: false
-    transport: http
-    url: http://localhost:8001/mcp/
-  - name: neo4j-memory
-    registry: false
-    transport: http
-    url: http://localhost:8002/mcp/
+  # - name: neo4j-cypher
+  #   registry: false
+  #   transport: http
+  #   url: http://localhost:8000/mcp/
+  # - name: neo4j-data-modeling
+  #   registry: false
+  #   transport: http
+  #   url: http://localhost:8001/mcp/
+  # - name: neo4j-memory
+  #   registry: false
+  #   transport: http
+  #   url: http://localhost:8002/mcp/
 scripts: {}

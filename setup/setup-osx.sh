@@ -61,30 +61,32 @@ ln -s ~/dotfiles/.config/powershell/macos.ps1 ~/.config/powershell/Microsoft.Pow
 
 mkdir -p ~/.claude/
 rm ~/.claude/CLAUDE.md
-ln -s ~/dotfiles/ai/.claude/CLAUDE.md ~/.claude/CLAUDE.md
+ln -s ~/dotfiles/agents/.claude/CLAUDE.md ~/.claude/CLAUDE.md
 rm ~/.claude/settings.json
-ln -s ~/dotfiles/ai/.claude/settings.json ~/.claude/settings.json
+ln -s ~/dotfiles/agents/.claude/settings.json ~/.claude/settings.json
 rm -rf ~/.claude/agents
-ln -s ~/dotfiles/ai/.claude/agents ~/.claude/agents
+ln -s ~/dotfiles/agents/.claude/agents ~/.claude/agents
 rm -rf ~/.claude/rules
-ln -s ~/dotfiles/ai/.claude/rules ~/.claude/rules
+ln -s ~/dotfiles/agents/.claude/rules ~/.claude/rules
 rm -rf ~/.claude/skills
-ln -s ~/dotfiles/ai/.claude/skills ~/.claude/skills
+ln -s ~/dotfiles/agents/.claude/skills ~/.claude/skills
 rm -rf ~/.claude/hooks
-ln -s ~/dotfiles/ai/.claude/hooks ~/.claude/hooks
+ln -s ~/dotfiles/agents/.claude/hooks ~/.claude/hooks
 
 # GitHub Copilot user-level config
 mkdir -p ~/.copilot/
 rm ~/.copilot/copilot-instructions.md
-ln -s ~/dotfiles/ai/.copilot/copilot-instructions.md ~/.copilot/copilot-instructions.md
+ln -s ~/dotfiles/agents/.github/copilot-instructions.md ~/.copilot/copilot-instructions.md
 rm -rf ~/.copilot/agents
-ln -s ~/dotfiles/ai/.copilot/agents ~/.copilot/agents
+ln -s ~/dotfiles/agents/.github/agents ~/.copilot/agents
 rm -rf ~/.copilot/instructions
-ln -s ~/dotfiles/ai/.copilot/instructions ~/.copilot/instructions
+ln -s ~/dotfiles/agents/.github/instructions ~/.copilot/instructions
 rm -rf ~/.copilot/skills
-ln -s ~/dotfiles/ai/.copilot/skills ~/.copilot/skills
+ln -s ~/dotfiles/agents/.github/skills ~/.copilot/skills
 rm -rf ~/.copilot/hooks
-ln -s ~/dotfiles/ai/.copilot/hooks ~/.copilot/hooks
+ln -s ~/dotfiles/agents/.github/hooks ~/.copilot/hooks
+rm -rf ~/.copilot/hooks
+ln -s ~/dotfiles/agents/.github/prompts ~/.copilot/prompts
 
 
 ln -s ~/dotfiles/.config/thefuck/ ~/.config/thefuck/
