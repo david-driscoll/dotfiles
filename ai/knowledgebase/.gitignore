@@ -1,0 +1,8 @@
+# Actual secrets — never commit
+.env
+
+# Runtime logs
+logs/
+
+# Cloned upstream repo
+graph-builder/llm-graph-builder/
