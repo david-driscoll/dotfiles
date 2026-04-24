@@ -41,13 +41,46 @@
       "url": "https://mcp.mermaidchart.com/mcp/",
       "headers": {}
     },
-    "agentic-workflows": {
+    "duckduckgo": {
       "type": "stdio",
       "command": "npx",
       "args": [
         "-y",
         "duckduckgo-mcp-server"
       ]
+    },
+    "nuget": {
+      "type": "stdio",
+      "command": "dnx",
+      "args": [
+        "NuGet.Mcp.Server",
+        "--source",
+        "https://api.nuget.org/v3/index.json",
+        "--yes"
+      ]
+    },
+    "agentic-workflows": {
+      "type": "stdio",
+      "command": "gh",
+      "args": [
+        "aw",
+        "mcp-server"
+      ]
+    },
+    "neo4j-cypher": {
+      "type": "http",
+      "url": "http://localhost:8000/mcp/",
+      "headers": {}
+    },
+    "neo4j-data-modeling": {
+      "type": "http",
+      "url": "http://localhost:8001/mcp/",
+      "headers": {}
+    },
+    "neo4j-memory": {
+      "type": "http",
+      "url": "http://localhost:8002/mcp/",
+      "headers": {}
     }
   },
   "inputs": [
