@@ -46,6 +46,7 @@ cask "tailscale-app"
 cask "hiddenbar"
 cask "alcove"
 cask "dockdoor"
+cask "typewhisper/tap/typewhisper"
 
 cask "jetbrains-toolbox"
 cask "visual-studio-code"
@@ -53,6 +54,5 @@ cask "visual-studio-code@insiders"
 cask "keybase"
 cask "docker"
 cask "betterdisplay"
-
 
 
