@@ -4,6 +4,7 @@ description: APM project for agents
 author: David Driscoll
 dependencies:
   apm:
+  - ../ai
   - ComposioHQ/awesome-claude-skills/video-downloader
   - ComposioHQ/awesome-claude-skills/content-research-writer
   - ryanbbrown/revealjs-skill
@@ -16,7 +17,11 @@ dependencies:
   - michalparkola/tapestry-skills/ship-learn-next
   - michalparkola/tapestry-skills/unblock-action
   - michalparkola/tapestry-skills/youtube-transcript
-  - ../ai
+  - alirezarezvani/claude-skills/engineering-team
+  - alirezarezvani/claude-skills/engineering
+  - jeffallan/claude-skills/skills/kubernetes-specialist
+  - cskiro/claudex/plugins/otel-monitoring-setup
+  - aj-geddes/useful-ai-prompts
   mcp:
   - name: pulumi
     registry: false
@@ -24,6 +29,6 @@ dependencies:
     command: npx
     args:
     - -y
-    - "@pulumi/mcp-server"
-    - "--stdio"
+    - '@pulumi/mcp-server'
+    - --stdio
 scripts: {}

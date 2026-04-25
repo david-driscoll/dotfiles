@@ -1,5 +1,5 @@
 lockfile_version: '1'
-generated_at: '2026-04-24T23:00:03.259753+00:00'
+generated_at: '2026-04-25T23:43:05.927528+00:00'
 apm_version: 0.9.0
 dependencies:
 - repo_url: ComposioHQ/awesome-claude-skills
@@ -38,6 +38,560 @@ dependencies:
     .github/instructions/neo4j-knowledgebase.instructions.md: sha256:92b81ba2de19f484d289c906b4f0be03d56b7e37af1be60bad8615082fa27ffe
   source: local
   local_path: ../ai
+- repo_url: aj-geddes/useful-ai-prompts
+  host: github.com
+  resolved_commit: 3f5182cfd739fc113f4af5244a1cf342ad7f7911
+  package_type: apm_package
+  deployed_files:
+  - .claude/skills/ab-test-analysis
+  - .claude/skills/access-control-rbac
+  - .claude/skills/accessibility-compliance
+  - .claude/skills/accessibility-testing
+  - .claude/skills/agile-sprint-planning
+  - .claude/skills/alert-management
+  - .claude/skills/android-kotlin-development
+  - .claude/skills/angular-module-design
+  - .claude/skills/anomaly-detection
+  - .claude/skills/ansible-automation
+  - .claude/skills/api-authentication
+  - .claude/skills/api-changelog-versioning
+  - .claude/skills/api-contract-testing
+  - .claude/skills/api-error-handling
+  - .claude/skills/api-filtering-sorting
+  - .claude/skills/api-gateway-configuration
+  - .claude/skills/api-pagination
+  - .claude/skills/api-rate-limiting
+  - .claude/skills/api-reference-documentation
+  - .claude/skills/api-response-optimization
+  - .claude/skills/api-security-hardening
+  - .claude/skills/api-versioning-strategy
+  - .claude/skills/app-store-deployment
+  - .claude/skills/application-logging
+  - .claude/skills/architecture-diagrams
+  - .claude/skills/artifact-management
+  - .claude/skills/autoscaling-configuration
+  - .claude/skills/aws-cloudfront-cdn
+  - .claude/skills/aws-ec2-setup
+  - .claude/skills/aws-lambda-functions
+  - .claude/skills/aws-rds-database
+  - .claude/skills/aws-s3-management
+  - .claude/skills/azure-app-service
+  - .claude/skills/azure-functions
+  - .claude/skills/background-job-processing
+  - .claude/skills/backup-disaster-recovery
+  - .claude/skills/batch-processing-jobs
+  - .claude/skills/blue-green-deployment
+  - .claude/skills/browser-debugging
+  - .claude/skills/bundle-size-optimization
+  - .claude/skills/business-case-development
+  - .claude/skills/caching-strategy
+  - .claude/skills/canary-deployment
+  - .claude/skills/capacity-planning
+  - .claude/skills/causal-inference
+  - .claude/skills/changelog-maintenance
+  - .claude/skills/cicd-pipeline-setup
+  - .claude/skills/circuit-breaker-pattern
+  - .claude/skills/classification-modeling
+  - .claude/skills/cloud-cost-management
+  - .claude/skills/cloud-migration-planning
+  - .claude/skills/cloud-security-configuration
+  - .claude/skills/cloud-storage-optimization
+  - .claude/skills/clustering-analysis
+  - .claude/skills/code-documentation
+  - .claude/skills/code-generation-template
+  - .claude/skills/code-metrics-analysis
+  - .claude/skills/code-review-analysis
+  - .claude/skills/cohort-analysis
+  - .claude/skills/color-accessibility
+  - .claude/skills/competitor-analysis
+  - .claude/skills/computer-vision
+  - .claude/skills/concurrency-patterns
+  - .claude/skills/configuration-management
+  - .claude/skills/container-debugging
+  - .claude/skills/container-registry-management
+  - .claude/skills/continuous-testing
+  - .claude/skills/correlation-analysis
+  - .claude/skills/correlation-tracing
+  - .claude/skills/cpu-profiling
+  - .claude/skills/cross-platform-compatibility
+  - .claude/skills/csrf-protection
+  - .claude/skills/css-architecture
+  - .claude/skills/data-cleaning-pipeline
+  - .claude/skills/data-encryption
+  - .claude/skills/data-migration-scripts
+  - .claude/skills/data-replication-setup
+  - .claude/skills/data-visualization
+  - .claude/skills/database-backup-restore
+  - .claude/skills/database-indexing-strategy
+  - .claude/skills/database-migration-management
+  - .claude/skills/database-monitoring
+  - .claude/skills/database-performance-debugging
+  - .claude/skills/database-query-optimization
+  - .claude/skills/database-schema-design
+  - .claude/skills/database-schema-documentation
+  - .claude/skills/database-sharding
+  - .claude/skills/dependency-management
+  - .claude/skills/dependency-tracking
+  - .claude/skills/deployment-automation
+  - .claude/skills/deployment-documentation
+  - .claude/skills/design-handoff
+  - .claude/skills/design-patterns-implementation
+  - .claude/skills/design-system-creation
+  - .claude/skills/developer-onboarding
+  - .claude/skills/dimensionality-reduction
+  - .claude/skills/disaster-recovery-testing
+  - .claude/skills/distributed-tracing
+  - .claude/skills/django-application
+  - .claude/skills/dns-management
+  - .claude/skills/docker-containerization
+  - .claude/skills/documentation-site-setup
+  - .claude/skills/e2e-testing-automation
+  - .claude/skills/email-service-integration
+  - .claude/skills/error-tracking
+  - .claude/skills/event-sourcing
+  - .claude/skills/exploratory-data-analysis
+  - .claude/skills/fastapi-development
+  - .claude/skills/feature-engineering
+  - .claude/skills/feature-flag-system
+  - .claude/skills/file-upload-handling
+  - .claude/skills/flask-api-development
+  - .claude/skills/flutter-development
+  - .claude/skills/form-validation
+  - .claude/skills/frontend-accessibility
+  - .claude/skills/frontend-routing
+  - .claude/skills/frontend-state-management
+  - .claude/skills/frontend-testing
+  - .claude/skills/funnel-analysis
+  - .claude/skills/gap-analysis
+  - .claude/skills/gcp-cloud-functions
+  - .claude/skills/gcp-cloud-run
+  - .claude/skills/git-hooks-setup
+  - .claude/skills/git-workflow-strategy
+  - .claude/skills/github-actions-workflow
+  - .claude/skills/gitlab-cicd-pipeline
+  - .claude/skills/graceful-shutdown
+  - .claude/skills/grafana-dashboard
+  - .claude/skills/graphql-implementation
+  - .claude/skills/grpc-service-development
+  - .claude/skills/health-check-endpoints
+  - .claude/skills/idempotency-handling
+  - .claude/skills/image-optimization
+  - .claude/skills/incident-response-plan
+  - .claude/skills/information-architecture
+  - .claude/skills/infrastructure-cost-optimization
+  - .claude/skills/infrastructure-monitoring
+  - .claude/skills/integration-testing
+  - .claude/skills/interaction-design
+  - .claude/skills/intermittent-issue-debugging
+  - .claude/skills/internationalization-i18n
+  - .claude/skills/ios-swift-development
+  - .claude/skills/jenkins-pipeline
+  - .claude/skills/kpi-dashboard-design
+  - .claude/skills/kubernetes-deployment
+  - .claude/skills/load-balancer-setup
+  - .claude/skills/log-aggregation
+  - .claude/skills/log-analysis
+  - .claude/skills/logging-best-practices
+  - .claude/skills/markdown-documentation
+  - .claude/skills/memory-leak-detection
+  - .claude/skills/memory-optimization
+  - .claude/skills/microservices-architecture
+  - .claude/skills/ml-model-explanation
+  - .claude/skills/ml-model-training
+  - .claude/skills/ml-pipeline-automation
+  - .claude/skills/mobile-app-debugging
+  - .claude/skills/mobile-app-testing
+  - .claude/skills/mobile-first-design
+  - .claude/skills/mobile-offline-support
+  - .claude/skills/mocking-stubbing
+  - .claude/skills/model-deployment
+  - .claude/skills/model-hyperparameter-tuning
+  - .claude/skills/model-monitoring
+  - .claude/skills/monorepo-management
+  - .claude/skills/multi-cloud-strategy
+  - .claude/skills/mutation-testing
+  - .claude/skills/natural-language-processing
+  - .claude/skills/network-analysis
+  - .claude/skills/network-debugging
+  - .claude/skills/network-security-groups
+  - .claude/skills/neural-network-design
+  - .claude/skills/nginx-configuration
+  - .claude/skills/nodejs-express-server
+  - .claude/skills/nosql-database-design
+  - .claude/skills/oauth-implementation
+  - .claude/skills/payment-gateway-integration
+  - .claude/skills/penetration-testing
+  - .claude/skills/performance-regression-debugging
+  - .claude/skills/performance-testing
+  - .claude/skills/polyglot-integration
+  - .claude/skills/process-mapping
+  - .claude/skills/profiling-optimization
+  - .claude/skills/progressive-web-app
+  - .claude/skills/project-estimation
+  - .claude/skills/prometheus-monitoring
+  - .claude/skills/property-based-testing
+  - .claude/skills/pull-request-automation
+  - .claude/skills/push-notification-setup
+  - .claude/skills/query-caching-strategies
+  - .claude/skills/rate-limiting-implementation
+  - .claude/skills/react-component-architecture
+  - .claude/skills/react-native-app
+  - .claude/skills/reactive-programming
+  - .claude/skills/real-time-features
+  - .claude/skills/recommendation-engine
+  - .claude/skills/recommendation-system
+  - .claude/skills/refactor-legacy-code
+  - .claude/skills/regression-modeling
+  - .claude/skills/release-planning
+  - .claude/skills/requirements-gathering
+  - .claude/skills/responsive-web-design
+  - .claude/skills/rest-api-design
+  - .claude/skills/retrospective-facilitation
+  - .claude/skills/risk-assessment
+  - .claude/skills/root-cause-analysis
+  - .claude/skills/ruby-rails-application
+  - .claude/skills/runbook-creation
+  - .claude/skills/secrets-management
+  - .claude/skills/secrets-rotation
+  - .claude/skills/security-audit-logging
+  - .claude/skills/security-compliance-audit
+  - .claude/skills/security-documentation
+  - .claude/skills/security-headers-configuration
+  - .claude/skills/security-testing
+  - .claude/skills/semantic-versioning
+  - .claude/skills/sentiment-analysis
+  - .claude/skills/server-side-rendering
+  - .claude/skills/serverless-architecture
+  - .claude/skills/service-mesh-implementation
+  - .claude/skills/session-management
+  - .claude/skills/spring-boot-application
+  - .claude/skills/sql-injection-prevention
+  - .claude/skills/sql-query-optimization
+  - .claude/skills/ssl-certificate-management
+  - .claude/skills/stakeholder-communication
+  - .claude/skills/static-code-analysis
+  - .claude/skills/statistical-hypothesis-testing
+  - .claude/skills/stored-procedures
+  - .claude/skills/stress-testing
+  - .claude/skills/survival-analysis
+  - .claude/skills/synthetic-monitoring
+  - .claude/skills/technical-debt-assessment
+  - .claude/skills/technical-roadmap-planning
+  - .claude/skills/technical-specification
+  - .claude/skills/terraform-infrastructure
+  - .claude/skills/test-automation-framework
+  - .claude/skills/test-data-generation
+  - .claude/skills/third-party-integration
+  - .claude/skills/time-series-analysis
+  - .claude/skills/transaction-management
+  - .claude/skills/troubleshooting-guide
+  - .claude/skills/unit-testing-framework
+  - .claude/skills/uptime-monitoring
+  - .claude/skills/user-guide-creation
+  - .claude/skills/user-persona-creation
+  - .claude/skills/user-research-analysis
+  - .claude/skills/user-story-writing
+  - .claude/skills/visual-regression-testing
+  - .claude/skills/vue-application-structure
+  - .claude/skills/vulnerability-scanning
+  - .claude/skills/web-performance-audit
+  - .claude/skills/web-performance-optimization
+  - .claude/skills/webhook-development
+  - .claude/skills/webhook-integration
+  - .claude/skills/websocket-implementation
+  - .claude/skills/wireframe-prototyping
+  - .claude/skills/xss-prevention
+  - .claude/skills/zero-trust-architecture
+  - .github/skills/ab-test-analysis
+  - .github/skills/access-control-rbac
+  - .github/skills/accessibility-compliance
+  - .github/skills/accessibility-testing
+  - .github/skills/agile-sprint-planning
+  - .github/skills/alert-management
+  - .github/skills/android-kotlin-development
+  - .github/skills/angular-module-design
+  - .github/skills/anomaly-detection
+  - .github/skills/ansible-automation
+  - .github/skills/api-authentication
+  - .github/skills/api-changelog-versioning
+  - .github/skills/api-contract-testing
+  - .github/skills/api-error-handling
+  - .github/skills/api-filtering-sorting
+  - .github/skills/api-gateway-configuration
+  - .github/skills/api-pagination
+  - .github/skills/api-rate-limiting
+  - .github/skills/api-reference-documentation
+  - .github/skills/api-response-optimization
+  - .github/skills/api-security-hardening
+  - .github/skills/api-versioning-strategy
+  - .github/skills/app-store-deployment
+  - .github/skills/application-logging
+  - .github/skills/architecture-diagrams
+  - .github/skills/artifact-management
+  - .github/skills/autoscaling-configuration
+  - .github/skills/aws-cloudfront-cdn
+  - .github/skills/aws-ec2-setup
+  - .github/skills/aws-lambda-functions
+  - .github/skills/aws-rds-database
+  - .github/skills/aws-s3-management
+  - .github/skills/azure-app-service
+  - .github/skills/azure-functions
+  - .github/skills/background-job-processing
+  - .github/skills/backup-disaster-recovery
+  - .github/skills/batch-processing-jobs
+  - .github/skills/blue-green-deployment
+  - .github/skills/browser-debugging
+  - .github/skills/bundle-size-optimization
+  - .github/skills/business-case-development
+  - .github/skills/caching-strategy
+  - .github/skills/canary-deployment
+  - .github/skills/capacity-planning
+  - .github/skills/causal-inference
+  - .github/skills/changelog-maintenance
+  - .github/skills/cicd-pipeline-setup
+  - .github/skills/circuit-breaker-pattern
+  - .github/skills/classification-modeling
+  - .github/skills/cloud-cost-management
+  - .github/skills/cloud-migration-planning
+  - .github/skills/cloud-security-configuration
+  - .github/skills/cloud-storage-optimization
+  - .github/skills/clustering-analysis
+  - .github/skills/code-documentation
+  - .github/skills/code-generation-template
+  - .github/skills/code-metrics-analysis
+  - .github/skills/code-review-analysis
+  - .github/skills/cohort-analysis
+  - .github/skills/color-accessibility
+  - .github/skills/competitor-analysis
+  - .github/skills/computer-vision
+  - .github/skills/concurrency-patterns
+  - .github/skills/configuration-management
+  - .github/skills/container-debugging
+  - .github/skills/container-registry-management
+  - .github/skills/continuous-testing
+  - .github/skills/correlation-analysis
+  - .github/skills/correlation-tracing
+  - .github/skills/cpu-profiling
+  - .github/skills/cross-platform-compatibility
+  - .github/skills/csrf-protection
+  - .github/skills/css-architecture
+  - .github/skills/data-cleaning-pipeline
+  - .github/skills/data-encryption
+  - .github/skills/data-migration-scripts
+  - .github/skills/data-replication-setup
+  - .github/skills/data-visualization
+  - .github/skills/database-backup-restore
+  - .github/skills/database-indexing-strategy
+  - .github/skills/database-migration-management
+  - .github/skills/database-monitoring
+  - .github/skills/database-performance-debugging
+  - .github/skills/database-query-optimization
+  - .github/skills/database-schema-design
+  - .github/skills/database-schema-documentation
+  - .github/skills/database-sharding
+  - .github/skills/dependency-management
+  - .github/skills/dependency-tracking
+  - .github/skills/deployment-automation
+  - .github/skills/deployment-documentation
+  - .github/skills/design-handoff
+  - .github/skills/design-patterns-implementation
+  - .github/skills/design-system-creation
+  - .github/skills/developer-onboarding
+  - .github/skills/dimensionality-reduction
+  - .github/skills/disaster-recovery-testing
+  - .github/skills/distributed-tracing
+  - .github/skills/django-application
+  - .github/skills/dns-management
+  - .github/skills/docker-containerization
+  - .github/skills/documentation-site-setup
+  - .github/skills/e2e-testing-automation
+  - .github/skills/email-service-integration
+  - .github/skills/error-tracking
+  - .github/skills/event-sourcing
+  - .github/skills/exploratory-data-analysis
+  - .github/skills/fastapi-development
+  - .github/skills/feature-engineering
+  - .github/skills/feature-flag-system
+  - .github/skills/file-upload-handling
+  - .github/skills/flask-api-development
+  - .github/skills/flutter-development
+  - .github/skills/form-validation
+  - .github/skills/frontend-accessibility
+  - .github/skills/frontend-routing
+  - .github/skills/frontend-state-management
+  - .github/skills/frontend-testing
+  - .github/skills/funnel-analysis
+  - .github/skills/gap-analysis
+  - .github/skills/gcp-cloud-functions
+  - .github/skills/gcp-cloud-run
+  - .github/skills/git-hooks-setup
+  - .github/skills/git-workflow-strategy
+  - .github/skills/github-actions-workflow
+  - .github/skills/gitlab-cicd-pipeline
+  - .github/skills/graceful-shutdown
+  - .github/skills/grafana-dashboard
+  - .github/skills/graphql-implementation
+  - .github/skills/grpc-service-development
+  - .github/skills/health-check-endpoints
+  - .github/skills/idempotency-handling
+  - .github/skills/image-optimization
+  - .github/skills/incident-response-plan
+  - .github/skills/information-architecture
+  - .github/skills/infrastructure-cost-optimization
+  - .github/skills/infrastructure-monitoring
+  - .github/skills/integration-testing
+  - .github/skills/interaction-design
+  - .github/skills/intermittent-issue-debugging
+  - .github/skills/internationalization-i18n
+  - .github/skills/ios-swift-development
+  - .github/skills/jenkins-pipeline
+  - .github/skills/kpi-dashboard-design
+  - .github/skills/kubernetes-deployment
+  - .github/skills/load-balancer-setup
+  - .github/skills/log-aggregation
+  - .github/skills/log-analysis
+  - .github/skills/logging-best-practices
+  - .github/skills/markdown-documentation
+  - .github/skills/memory-leak-detection
+  - .github/skills/memory-optimization
+  - .github/skills/microservices-architecture
+  - .github/skills/ml-model-explanation
+  - .github/skills/ml-model-training
+  - .github/skills/ml-pipeline-automation
+  - .github/skills/mobile-app-debugging
+  - .github/skills/mobile-app-testing
+  - .github/skills/mobile-first-design
+  - .github/skills/mobile-offline-support
+  - .github/skills/mocking-stubbing
+  - .github/skills/model-deployment
+  - .github/skills/model-hyperparameter-tuning
+  - .github/skills/model-monitoring
+  - .github/skills/monorepo-management
+  - .github/skills/multi-cloud-strategy
+  - .github/skills/mutation-testing
+  - .github/skills/natural-language-processing
+  - .github/skills/network-analysis
+  - .github/skills/network-debugging
+  - .github/skills/network-security-groups
+  - .github/skills/neural-network-design
+  - .github/skills/nginx-configuration
+  - .github/skills/nodejs-express-server
+  - .github/skills/nosql-database-design
+  - .github/skills/oauth-implementation
+  - .github/skills/payment-gateway-integration
+  - .github/skills/penetration-testing
+  - .github/skills/performance-regression-debugging
+  - .github/skills/performance-testing
+  - .github/skills/polyglot-integration
+  - .github/skills/process-mapping
+  - .github/skills/profiling-optimization
+  - .github/skills/progressive-web-app
+  - .github/skills/project-estimation
+  - .github/skills/prometheus-monitoring
+  - .github/skills/property-based-testing
+  - .github/skills/pull-request-automation
+  - .github/skills/push-notification-setup
+  - .github/skills/query-caching-strategies
+  - .github/skills/rate-limiting-implementation
+  - .github/skills/react-component-architecture
+  - .github/skills/react-native-app
+  - .github/skills/reactive-programming
+  - .github/skills/real-time-features
+  - .github/skills/recommendation-engine
+  - .github/skills/recommendation-system
+  - .github/skills/refactor-legacy-code
+  - .github/skills/regression-modeling
+  - .github/skills/release-planning
+  - .github/skills/requirements-gathering
+  - .github/skills/responsive-web-design
+  - .github/skills/rest-api-design
+  - .github/skills/retrospective-facilitation
+  - .github/skills/risk-assessment
+  - .github/skills/root-cause-analysis
+  - .github/skills/ruby-rails-application
+  - .github/skills/runbook-creation
+  - .github/skills/secrets-management
+  - .github/skills/secrets-rotation
+  - .github/skills/security-audit-logging
+  - .github/skills/security-compliance-audit
+  - .github/skills/security-documentation
+  - .github/skills/security-headers-configuration
+  - .github/skills/security-testing
+  - .github/skills/semantic-versioning
+  - .github/skills/sentiment-analysis
+  - .github/skills/server-side-rendering
+  - .github/skills/serverless-architecture
+  - .github/skills/service-mesh-implementation
+  - .github/skills/session-management
+  - .github/skills/spring-boot-application
+  - .github/skills/sql-injection-prevention
+  - .github/skills/sql-query-optimization
+  - .github/skills/ssl-certificate-management
+  - .github/skills/stakeholder-communication
+  - .github/skills/static-code-analysis
+  - .github/skills/statistical-hypothesis-testing
+  - .github/skills/stored-procedures
+  - .github/skills/stress-testing
+  - .github/skills/survival-analysis
+  - .github/skills/synthetic-monitoring
+  - .github/skills/technical-debt-assessment
+  - .github/skills/technical-roadmap-planning
+  - .github/skills/technical-specification
+  - .github/skills/terraform-infrastructure
+  - .github/skills/test-automation-framework
+  - .github/skills/test-data-generation
+  - .github/skills/third-party-integration
+  - .github/skills/time-series-analysis
+  - .github/skills/transaction-management
+  - .github/skills/troubleshooting-guide
+  - .github/skills/unit-testing-framework
+  - .github/skills/uptime-monitoring
+  - .github/skills/user-guide-creation
+  - .github/skills/user-persona-creation
+  - .github/skills/user-research-analysis
+  - .github/skills/user-story-writing
+  - .github/skills/visual-regression-testing
+  - .github/skills/vue-application-structure
+  - .github/skills/vulnerability-scanning
+  - .github/skills/web-performance-audit
+  - .github/skills/web-performance-optimization
+  - .github/skills/webhook-development
+  - .github/skills/webhook-integration
+  - .github/skills/websocket-implementation
+  - .github/skills/wireframe-prototyping
+  - .github/skills/xss-prevention
+  - .github/skills/zero-trust-architecture
+  content_hash: sha256:d5733e8e693171ce1cc923307653845be00fa88cccaba45d4d42faa4373e1710
+- repo_url: alirezarezvani/claude-skills
+  host: github.com
+  resolved_commit: f567c61def3fb86046d7242b4bf27fceb63ad8b4
+  virtual_path: engineering
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .claude/skills/engineering
+  - .github/skills/engineering
+  content_hash: sha256:f58556011ea21b4633ce8c370833646fcfe1bc6af01e6c517b88f2d2f519893f
+- repo_url: alirezarezvani/claude-skills
+  host: github.com
+  resolved_commit: f567c61def3fb86046d7242b4bf27fceb63ad8b4
+  virtual_path: engineering-team
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .claude/skills/engineering-team
+  - .github/skills/engineering-team
+  content_hash: sha256:b17fe0dcd27004285a9ef4f4e6481c1ee8d944674a765b83dc039f6b130cdf7a
+- repo_url: cskiro/claudex
+  host: github.com
+  resolved_commit: 83e2be1c34eafdd9ee8f3107728b60f80e1db98f
+  virtual_path: plugins/otel-monitoring-setup
+  is_virtual: true
+  package_type: apm_package
+  deployed_files:
+  - .claude/skills/otel-monitoring-setup
+  - .github/skills/otel-monitoring-setup
+  content_hash: sha256:69be4468119d1ed52529886f94b2c095ae5347245b9313482846206a41550f2a
 - repo_url: emaynard/claude-family-history-research-skill
   host: github.com
   resolved_commit: 7334d3d400740fda3de1c54c90e186307f8f1176
@@ -46,6 +600,16 @@ dependencies:
   - .claude/skills/claude-family-history-research-skill
   - .github/skills/claude-family-history-research-skill
   content_hash: sha256:fcfeab03dffc486ed2bb6d98948b8e427101b1ffe5f70e18c5284867f5498b78
+- repo_url: jeffallan/claude-skills
+  host: github.com
+  resolved_commit: 3d95bb16b030af43bd838dc99fdc77dd40b29014
+  virtual_path: skills/kubernetes-specialist
+  is_virtual: true
+  package_type: claude_skill
+  deployed_files:
+  - .claude/skills/kubernetes-specialist
+  - .github/skills/kubernetes-specialist
+  content_hash: sha256:35741520ffd20f1130ed4953d2bd4f18fcd0e5bb45ca28f15589baac2accaceb
 - repo_url: michalparkola/tapestry-skills
   host: github.com
   resolved_commit: 80e1dc56df74d1cb849ad649c7ead9756e7929bb
@@ -119,7 +683,7 @@ dependencies:
 - repo_url: ryanbbrown/revealjs-skill
   host: github.com
   resolved_commit: 188e0dc90056a4d59f457fefb70c63eefac2b0a2
-  package_type: marketplace_plugin
+  package_type: apm_package
   deployed_files:
   - .claude/skills/revealjs
   - .github/skills/revealjs
@@ -151,7 +715,7 @@ dependencies:
   resolved_commit: 3d95bb16b030af43bd838dc99fdc77dd40b29014
   depth: 2
   resolved_by: _local/ai
-  package_type: marketplace_plugin
+  package_type: apm_package
   deployed_files:
   - .claude/skills/angular-architect
   - .claude/skills/api-designer
@@ -291,7 +855,7 @@ dependencies:
   resolved_commit: 5128e1865d670f5d6c9cef000e6dfc4e951fb5b9
   depth: 2
   resolved_by: _local/ai
-  package_type: marketplace_plugin
+  package_type: apm_package
   deployed_files:
   - .claude/skills/algorithmic-art
   - .claude/skills/brand-guidelines
@@ -335,7 +899,7 @@ dependencies:
   is_virtual: true
   depth: 2
   resolved_by: _local/ai
-  package_type: marketplace_plugin
+  package_type: apm_package
   deployed_files:
   - .claude/agents/modernize-dotnet.md
   - .github/agents/modernize-dotnet.agent.md
@@ -350,7 +914,7 @@ dependencies:
   is_virtual: true
   depth: 2
   resolved_by: _local/ai
-  package_type: marketplace_plugin
+  package_type: apm_package
   content_hash: sha256:ab39726eec9ee1dfece30570897472bbb4f7ce71652c1f81a2ba411c0b67c4d6
 - repo_url: dotnet/skills
   host: github.com
@@ -359,7 +923,7 @@ dependencies:
   is_virtual: true
   depth: 2
   resolved_by: _local/ai
-  package_type: marketplace_plugin
+  package_type: apm_package
   content_hash: sha256:6c9a1ce85502db842120796d6912604e9728248f895e452edb558e977aa2c087
 - repo_url: dotnet/skills
   host: github.com
@@ -368,7 +932,7 @@ dependencies:
   is_virtual: true
   depth: 2
   resolved_by: _local/ai
-  package_type: marketplace_plugin
+  package_type: apm_package
   content_hash: sha256:05e456043af4fd7503687126bd3ed0f3ec48d0a0022da15301e6b44924f22ae4
 - repo_url: dotnet/skills
   host: github.com
@@ -377,7 +941,7 @@ dependencies:
   is_virtual: true
   depth: 2
   resolved_by: _local/ai
-  package_type: marketplace_plugin
+  package_type: apm_package
   content_hash: sha256:ce98fbc46cd1ae400d234cef0b7ca1086ba7c3c260f8fd908a8a6efcc9da41c4
 - repo_url: dotnet/skills
   host: github.com
@@ -386,7 +950,7 @@ dependencies:
   is_virtual: true
   depth: 2
   resolved_by: _local/ai
-  package_type: marketplace_plugin
+  package_type: apm_package
   deployed_files:
   - .claude/agents/optimizing-dotnet-performance.md
   - .github/agents/optimizing-dotnet-performance.agent.md
@@ -401,7 +965,7 @@ dependencies:
   is_virtual: true
   depth: 2
   resolved_by: _local/ai
-  package_type: marketplace_plugin
+  package_type: apm_package
   deployed_files:
   - .claude/agents/build-perf.md
   - .claude/agents/msbuild-code-review.md
@@ -424,7 +988,7 @@ dependencies:
   is_virtual: true
   depth: 2
   resolved_by: _local/ai
-  package_type: marketplace_plugin
+  package_type: apm_package
   content_hash: sha256:9609b9607f0a3b4c4024a20c535e3ffb90e679d8e1facd69705f9525fdcb33d1
 - repo_url: dotnet/skills
   host: github.com
@@ -433,7 +997,7 @@ dependencies:
   is_virtual: true
   depth: 2
   resolved_by: _local/ai
-  package_type: marketplace_plugin
+  package_type: apm_package
   deployed_files:
   - .claude/agents/template-engine.md
   - .github/agents/template-engine.agent.md
@@ -448,7 +1012,7 @@ dependencies:
   is_virtual: true
   depth: 2
   resolved_by: _local/ai
-  package_type: marketplace_plugin
+  package_type: apm_package
   deployed_files:
   - .claude/agents/code-testing-builder.md
   - .claude/agents/code-testing-fixer.md
@@ -503,7 +1067,7 @@ dependencies:
   is_virtual: true
   depth: 2
   resolved_by: _local/ai
-  package_type: marketplace_plugin
+  package_type: apm_package
   content_hash: sha256:d1deb9e694d2d41c575627ba1d5ce02e46720ba2219e7fefdd85e9337de80bdb
 - repo_url: github/awesome-copilot
   host: github.com
@@ -1656,7 +2220,7 @@ dependencies:
   is_virtual: true
   depth: 2
   resolved_by: _local/ai
-  package_type: marketplace_plugin
+  package_type: apm_package
   deployed_files:
   - .claude/agents/meta-agentic-project-scaffold.md
   - .claude/skills/suggest-awesome-github-copilot-agents
@@ -1677,7 +2241,7 @@ dependencies:
   is_virtual: true
   depth: 2
   resolved_by: _local/ai
-  package_type: marketplace_plugin
+  package_type: apm_package
   deployed_files:
   - .claude/agents/context-architect.md
   - .claude/skills/context-map
@@ -1698,7 +2262,7 @@ dependencies:
   is_virtual: true
   depth: 2
   resolved_by: _local/ai
-  package_type: marketplace_plugin
+  package_type: apm_package
   deployed_files:
   - .claude/agents/expert-dotnet-software-engineer.md
   - .claude/skills/aspnet-minimal-api-openapi
@@ -1729,7 +2293,7 @@ dependencies:
   is_virtual: true
   depth: 2
   resolved_by: _local/ai
-  package_type: marketplace_plugin
+  package_type: apm_package
   deployed_files:
   - .claude/agents/implementation-plan.md
   - .claude/agents/plan.md
@@ -1784,7 +2348,7 @@ dependencies:
   is_virtual: true
   depth: 2
   resolved_by: _local/ai
-  package_type: marketplace_plugin
+  package_type: apm_package
   deployed_files:
   - .claude/agents/se-gitops-ci-specialist.md
   - .claude/agents/se-product-manager-advisor.md
@@ -1823,7 +2387,7 @@ dependencies:
   is_virtual: true
   depth: 2
   resolved_by: _local/ai
-  package_type: marketplace_plugin
+  package_type: apm_package
   deployed_files:
   - .claude/agents/research-technical-spike.md
   - .claude/skills/create-technical-spike
@@ -1850,7 +2414,7 @@ dependencies:
   resolved_commit: 6efe32c9e2dd002d0c394e861e0529675d1ab32e
   depth: 2
   resolved_by: _local/ai
-  package_type: marketplace_plugin
+  package_type: apm_package
   deployed_files:
   - .claude/agents/code-reviewer.md
   - .claude/commands/brainstorm.md
