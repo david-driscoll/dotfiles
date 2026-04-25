@@ -18,3 +18,4 @@ if ($ENV:INFOPATH) {
     $ENV:INFOPATH = "/opt/homebrew/share/info:${$ENV:INFOPATH}";
 }
 
+apm

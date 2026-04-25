@@ -75,21 +75,6 @@
         "-y",
         "duckduckgo-mcp-server"
       ]
-    },
-    "neo4j-cypher": {
-      "type": "http",
-      "url": "http://localhost:8000/mcp/",
-      "headers": {}
-    },
-    "neo4j-data-modeling": {
-      "type": "http",
-      "url": "http://localhost:8001/mcp/",
-      "headers": {}
-    },
-    "neo4j-memory": {
-      "type": "http",
-      "url": "http://localhost:8002/mcp/",
-      "headers": {}
     }
   },
   "inputs": [

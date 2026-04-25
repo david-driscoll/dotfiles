@@ -1,15 +1,5 @@
 {
   "hooks": {
-    "sessionStart": [
-      {
-        "command": "./hooks/session-start",
-        "_apm_source": "superpowers"
-      },
-      {
-        "command": "./hooks/session-start",
-        "_apm_source": "superpowers"
-      }
-    ],
     "SessionStart": [
       {
         "matcher": "startup|clear|compact",
@@ -19,6 +9,26 @@
             "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/run-hook.cmd\" session-start",
             "async": false
           }
+        ]
+      },
+      {
+        "matcher": "startup|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/run-hook.cmd\" session-start",
+            "async": false
+          }
+        ]
+      },
+      {
+        "matcher": "startup|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/run-hook.cmd\" session-start",
+            "async": false
+          }
         ],
         "_apm_source": "superpowers"
       },
@@ -33,6 +43,17 @@
         ],
         "_apm_source": "superpowers"
       }
+    ],
+    "sessionStart": [
+      {
+        "command": "./hooks/session-start",
+        "_apm_source": "superpowers"
+      },
+      {
+        "command": "./hooks/session-start",
+        "_apm_source": "superpowers"
+      }
     ]
-  }
+  },
+  "agentPushNotifEnabled": true
 }
