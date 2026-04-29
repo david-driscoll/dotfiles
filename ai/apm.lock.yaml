@@ -1,5 +1,5 @@
 lockfile_version: '1'
-generated_at: '2026-04-29T04:23:39.153159+00:00'
+generated_at: '2026-04-29T12:53:44.423963+00:00'
 apm_version: 0.10.0
 dependencies:
 - repo_url: ComposioHQ/awesome-claude-skills
@@ -273,7 +273,7 @@ dependencies:
   - .github/skills/web-artifacts-builder
   - .github/skills/webapp-testing
   - .github/skills/xlsx
-  content_hash: sha256:cbe5cb9a0636782ea9defc1bc2b2f3977a44b08db22d5d76debbb1a84afab283
+  content_hash: sha256:0298046fc0f4dc458e46a275d981178f506f1f53a32eaa351bfce7433478f578
 - repo_url: dotnet/modernize-dotnet
   host: github.com
   resolved_commit: f4b01331a8db6c185cab57fc36ff4c2d6759bf82
@@ -732,7 +732,7 @@ dependencies:
   content_hash: sha256:a77a5291ab9bb01d5c480dd6140e7de255ef030ffdb7295615f3ce2b6dc8e89e
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 7d6e3edb20a327d8a40acca90b3f107b77a6dbbf
+  resolved_commit: 4e1bed268d704dda5d0f865e794ee2e94252ba2f
   virtual_path: plugins/awesome-copilot
   is_virtual: true
   package_type: marketplace_plugin
@@ -756,7 +756,7 @@ dependencies:
   content_hash: sha256:a19a6290dee226223cabd8927736edfc325fc619e14cd53ce44296e6d5fc30da
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 7d6e3edb20a327d8a40acca90b3f107b77a6dbbf
+  resolved_commit: 4e1bed268d704dda5d0f865e794ee2e94252ba2f
   virtual_path: plugins/context-engineering
   is_virtual: true
   package_type: marketplace_plugin
@@ -780,7 +780,7 @@ dependencies:
   content_hash: sha256:8aa73614daa1064310331cab62f0a6bb1037d8b9bc8f2d11bd1a9dba482e4103
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 7d6e3edb20a327d8a40acca90b3f107b77a6dbbf
+  resolved_commit: 4e1bed268d704dda5d0f865e794ee2e94252ba2f
   virtual_path: plugins/csharp-dotnet-development
   is_virtual: true
   package_type: marketplace_plugin
@@ -819,7 +819,7 @@ dependencies:
   content_hash: sha256:1cc5c15ce1a6fd0f7ebce035446a68a8dde2144dd10d5146046edae0b727eb04
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 7d6e3edb20a327d8a40acca90b3f107b77a6dbbf
+  resolved_commit: 4e1bed268d704dda5d0f865e794ee2e94252ba2f
   virtual_path: plugins/project-planning
   is_virtual: true
   package_type: marketplace_plugin
@@ -894,7 +894,7 @@ dependencies:
   content_hash: sha256:b71ae43ca81340c78fae7baa6b2e9875eeeb9c09a6e99ad15ae98fcf2c324cf3
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 7d6e3edb20a327d8a40acca90b3f107b77a6dbbf
+  resolved_commit: 4e1bed268d704dda5d0f865e794ee2e94252ba2f
   virtual_path: plugins/software-engineering-team
   is_virtual: true
   package_type: marketplace_plugin
@@ -945,7 +945,7 @@ dependencies:
   content_hash: sha256:c4023fff92e5ec5b6a18a9075d6e79459ebc1965678549ffd167248dece9fa65
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 7d6e3edb20a327d8a40acca90b3f107b77a6dbbf
+  resolved_commit: 4e1bed268d704dda5d0f865e794ee2e94252ba2f
   virtual_path: plugins/technical-spike
   is_virtual: true
   package_type: marketplace_plugin
@@ -963,7 +963,7 @@ dependencies:
   content_hash: sha256:062cb5b0fb21a1e165b882fb2cd7c20d4efbd59a1e1f357404c7e7df8f53e7b7
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 7d6e3edb20a327d8a40acca90b3f107b77a6dbbf
+  resolved_commit: 4e1bed268d704dda5d0f865e794ee2e94252ba2f
   virtual_path: skills/acquire-codebase-knowledge
   is_virtual: true
   package_type: claude_skill
