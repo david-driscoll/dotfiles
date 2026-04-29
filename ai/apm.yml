@@ -11,103 +11,103 @@ dependencies:
   - github/awesome-copilot/plugins/software-engineering-team
   - github/awesome-copilot/plugins/technical-spike
   - github/awesome-copilot/skills/acquire-codebase-knowledge
-  - github/awesome-copilot/instructions/a11y.instructions.md
-  - github/awesome-copilot/instructions/agent-safety.instructions.md
-  - github/awesome-copilot/instructions/agent-skills.instructions.md
+  # - github/awesome-copilot/instructions/a11y.instructions.md
+  # - github/awesome-copilot/instructions/agent-safety.instructions.md
+  # - github/awesome-copilot/instructions/agent-skills.instructions.md
   - github/awesome-copilot/instructions/agents.instructions.md
-  - github/awesome-copilot/instructions/ai-prompt-engineering-safety-best-practices.instructions.md
-  - github/awesome-copilot/instructions/ansible.instructions.md
-  - github/awesome-copilot/instructions/apex.instructions.md
-  - github/awesome-copilot/instructions/arch-linux.instructions.md
-  - github/awesome-copilot/instructions/aspnet-rest-apis.instructions.md
-  - github/awesome-copilot/instructions/aws-appsync.instructions.md
-  - github/awesome-copilot/instructions/azure-devops-pipelines.instructions.md
-  - github/awesome-copilot/instructions/azure-durable-functions-csharp.instructions.md
-  - github/awesome-copilot/instructions/azure-functions-csharp.instructions.md
-  - github/awesome-copilot/instructions/azure-functions-typescript.instructions.md
-  - github/awesome-copilot/instructions/azure-logic-apps-power-automate.instructions.md
-  - github/awesome-copilot/instructions/azure-verified-modules-bicep.instructions.md
-  - github/awesome-copilot/instructions/azure-verified-modules-terraform.instructions.md
-  - github/awesome-copilot/instructions/bicep-code-best-practices.instructions.md
-  - github/awesome-copilot/instructions/blazor.instructions.md
-  - github/awesome-copilot/instructions/centos-linux.instructions.md
-  - github/awesome-copilot/instructions/clojure.instructions.md
-  - github/awesome-copilot/instructions/cmake-vcpkg.instructions.md
-  - github/awesome-copilot/instructions/code-review-generic.instructions.md
-  - github/awesome-copilot/instructions/codexer.instructions.md
-  - github/awesome-copilot/instructions/containerization-docker-best-practices.instructions.md
+  # - github/awesome-copilot/instructions/ai-prompt-engineering-safety-best-practices.instructions.md
+  # - github/awesome-copilot/instructions/ansible.instructions.md
+  # - github/awesome-copilot/instructions/apex.instructions.md
+  # - github/awesome-copilot/instructions/arch-linux.instructions.md
+  # - github/awesome-copilot/instructions/aspnet-rest-apis.instructions.md
+  # - github/awesome-copilot/instructions/aws-appsync.instructions.md
+  # - github/awesome-copilot/instructions/azure-devops-pipelines.instructions.md
+  # - github/awesome-copilot/instructions/azure-durable-functions-csharp.instructions.md
+  # - github/awesome-copilot/instructions/azure-functions-csharp.instructions.md
+  # - github/awesome-copilot/instructions/azure-functions-typescript.instructions.md
+  # - github/awesome-copilot/instructions/azure-logic-apps-power-automate.instructions.md
+  # - github/awesome-copilot/instructions/azure-verified-modules-bicep.instructions.md
+  # - github/awesome-copilot/instructions/azure-verified-modules-terraform.instructions.md
+  # - github/awesome-copilot/instructions/bicep-code-best-practices.instructions.md
+  # - github/awesome-copilot/instructions/blazor.instructions.md
+  # - github/awesome-copilot/instructions/centos-linux.instructions.md
+  # - github/awesome-copilot/instructions/clojure.instructions.md
+  # - github/awesome-copilot/instructions/cmake-vcpkg.instructions.md
+  # - github/awesome-copilot/instructions/code-review-generic.instructions.md
+  # - github/awesome-copilot/instructions/codexer.instructions.md
+  # - github/awesome-copilot/instructions/containerization-docker-best-practices.instructions.md
   - github/awesome-copilot/instructions/context-engineering.instructions.md
-  - github/awesome-copilot/instructions/context7.instructions.md
+  # - github/awesome-copilot/instructions/context7.instructions.md
   # - github/awesome-copilot/instructions/copilot-sdk-csharp.instructions.md
   # - github/awesome-copilot/instructions/copilot-sdk-go.instructions.md
   # - github/awesome-copilot/instructions/copilot-sdk-nodejs.instructions.md
-  - github/awesome-copilot/instructions/copilot-thought-logging.instructions.md
+  # - github/awesome-copilot/instructions/copilot-thought-logging.instructions.md
   # - github/awesome-copilot/instructions/cpp-language-service-tools.instructions.md
   # - github/awesome-copilot/instructions/csharp-mcp-server.instructions.md
-  - github/awesome-copilot/instructions/csharp.instructions.md
-  - github/awesome-copilot/instructions/dart-n-flutter.instructions.md
-  - github/awesome-copilot/instructions/debian-linux.instructions.md
-  - github/awesome-copilot/instructions/declarative-agents-microsoft365.instructions.md
-  - github/awesome-copilot/instructions/devbox-image-definition.instructions.md
-  - github/awesome-copilot/instructions/devops-core-principles.instructions.md
-  - github/awesome-copilot/instructions/dotnet-architecture-good-practices.instructions.md
-  - github/awesome-copilot/instructions/dotnet-framework.instructions.md
+  # - github/awesome-copilot/instructions/csharp.instructions.md
+  # - github/awesome-copilot/instructions/dart-n-flutter.instructions.md
+  # - github/awesome-copilot/instructions/debian-linux.instructions.md
+  # - github/awesome-copilot/instructions/declarative-agents-microsoft365.instructions.md
+  # - github/awesome-copilot/instructions/devbox-image-definition.instructions.md
+  # - github/awesome-copilot/instructions/devops-core-principles.instructions.md
+  # - github/awesome-copilot/instructions/dotnet-architecture-good-practices.instructions.md
+  # - github/awesome-copilot/instructions/dotnet-framework.instructions.md
   # - github/awesome-copilot/instructions/dotnet-maui.instructions.md
-  - github/awesome-copilot/instructions/dotnet-upgrade.instructions.md
+  # - github/awesome-copilot/instructions/dotnet-upgrade.instructions.md
   # - github/awesome-copilot/instructions/dotnet-wpf.instructions.md
-  - github/awesome-copilot/instructions/draw-io.instructions.md
-  - github/awesome-copilot/instructions/genaiscript.instructions.md
-  - github/awesome-copilot/instructions/generate-modern-terraform-code-for-azure.instructions.md
-  - github/awesome-copilot/instructions/gilfoyle-code-review.instructions.md
-  - github/awesome-copilot/instructions/github-actions-ci-cd-best-practices.instructions.md
-  - github/awesome-copilot/instructions/go-mcp-server.instructions.md
-  - github/awesome-copilot/instructions/go.instructions.md
-  - github/awesome-copilot/instructions/html-css-style-color-guide.instructions.md
+  # - github/awesome-copilot/instructions/draw-io.instructions.md
+  # - github/awesome-copilot/instructions/genaiscript.instructions.md
+  # - github/awesome-copilot/instructions/generate-modern-terraform-code-for-azure.instructions.md
+  # - github/awesome-copilot/instructions/gilfoyle-code-review.instructions.md
+  # - github/awesome-copilot/instructions/github-actions-ci-cd-best-practices.instructions.md
+  # - github/awesome-copilot/instructions/go-mcp-server.instructions.md
+  # - github/awesome-copilot/instructions/go.instructions.md
+  # - github/awesome-copilot/instructions/html-css-style-color-guide.instructions.md
   - github/awesome-copilot/instructions/instructions.instructions.md
-  - github/awesome-copilot/instructions/kubernetes-deployment-best-practices.instructions.md
-  - github/awesome-copilot/instructions/kubernetes-manifests.instructions.md
-  - github/awesome-copilot/instructions/langchain-python.instructions.md
-  - github/awesome-copilot/instructions/localization.instructions.md
-  - github/awesome-copilot/instructions/lwc.instructions.md
-  - github/awesome-copilot/instructions/makefile.instructions.md
-  - github/awesome-copilot/instructions/markdown-accessibility.instructions.md
-  - github/awesome-copilot/instructions/markdown-content-creation.instructions.md
-  - github/awesome-copilot/instructions/markdown-gfm.instructions.md
-  - github/awesome-copilot/instructions/markdown.instructions.md
-  - github/awesome-copilot/instructions/mcp-m365-copilot.instructions.md
+  # - github/awesome-copilot/instructions/kubernetes-deployment-best-practices.instructions.md
+  # - github/awesome-copilot/instructions/kubernetes-manifests.instructions.md
+  # - github/awesome-copilot/instructions/langchain-python.instructions.md
+  # - github/awesome-copilot/instructions/localization.instructions.md
+  # - github/awesome-copilot/instructions/lwc.instructions.md
+  # - github/awesome-copilot/instructions/makefile.instructions.md
+  # - github/awesome-copilot/instructions/markdown-accessibility.instructions.md
+  # - github/awesome-copilot/instructions/markdown-content-creation.instructions.md
+  # - github/awesome-copilot/instructions/markdown-gfm.instructions.md
+  # - github/awesome-copilot/instructions/markdown.instructions.md
+  # - github/awesome-copilot/instructions/mcp-m365-copilot.instructions.md
   - github/awesome-copilot/instructions/memory-bank.instructions.md
-  - github/awesome-copilot/instructions/ms-sql-dba.instructions.md
-  - github/awesome-copilot/instructions/nestjs.instructions.md
-  - github/awesome-copilot/instructions/nextjs-tailwind.instructions.md
-  - github/awesome-copilot/instructions/nextjs.instructions.md
-  - github/awesome-copilot/instructions/no-heredoc.instructions.md
-  - github/awesome-copilot/instructions/nodejs-javascript-vitest.instructions.md
-  - github/awesome-copilot/instructions/object-calisthenics.instructions.md
-  - github/awesome-copilot/instructions/oop-design-patterns.instructions.md
-  - github/awesome-copilot/instructions/performance-optimization.instructions.md
-  - github/awesome-copilot/instructions/performance-optimization.instructions.md
-  - github/awesome-copilot/instructions/playwright-dotnet.instructions.md
-  - github/awesome-copilot/instructions/playwright-typescript.instructions.md
-  - github/awesome-copilot/instructions/powershell-pester-5.instructions.md
+  # - github/awesome-copilot/instructions/ms-sql-dba.instructions.md
+  # - github/awesome-copilot/instructions/nestjs.instructions.md
+  # - github/awesome-copilot/instructions/nextjs-tailwind.instructions.md
+  # - github/awesome-copilot/instructions/nextjs.instructions.md
+  # - github/awesome-copilot/instructions/no-heredoc.instructions.md
+  # - github/awesome-copilot/instructions/nodejs-javascript-vitest.instructions.md
+  # - github/awesome-copilot/instructions/object-calisthenics.instructions.md
+  # - github/awesome-copilot/instructions/oop-design-patterns.instructions.md
+  # - github/awesome-copilot/instructions/performance-optimization.instructions.md
+  # - github/awesome-copilot/instructions/performance-optimization.instructions.md
+  # - github/awesome-copilot/instructions/playwright-dotnet.instructions.md
+  # - github/awesome-copilot/instructions/playwright-typescript.instructions.md
+  # - github/awesome-copilot/instructions/powershell-pester-5.instructions.md
   - github/awesome-copilot/instructions/powershell.instructions.md
   - github/awesome-copilot/instructions/prompt.instructions.md
-  - github/awesome-copilot/instructions/rust-mcp-server.instructions.md
-  - github/awesome-copilot/instructions/rust.instructions.md
-  - github/awesome-copilot/instructions/scala2.instructions.md
-  - github/awesome-copilot/instructions/security-and-owasp.instructions.md
-  - github/awesome-copilot/instructions/self-explanatory-code-commenting.instructions.md
-  - github/awesome-copilot/instructions/shell.instructions.md
-  - github/awesome-copilot/instructions/sql-sp-generation.instructions.md
-  - github/awesome-copilot/instructions/svelte.instructions.md
-  - github/awesome-copilot/instructions/tailwind-v4-vite.instructions.md
-  - github/awesome-copilot/instructions/taming-copilot.instructions.md
-  - github/awesome-copilot/instructions/taming-copilot.instructions.md
-  - github/awesome-copilot/instructions/tanstack-start-shadcn-tailwind.instructions.md
-  - github/awesome-copilot/instructions/task-implementation.instructions.md
-  - github/awesome-copilot/instructions/tasksync.instructions.md
-  - github/awesome-copilot/instructions/update-code-from-shorthand.instructions.md
-  - github/awesome-copilot/instructions/update-docs-on-code-change.instructions.md
-  - github/awesome-copilot/instructions/use-cliche-data-in-docs.instructions.md
+  # - github/awesome-copilot/instructions/rust-mcp-server.instructions.md
+  # - github/awesome-copilot/instructions/rust.instructions.md
+  # - github/awesome-copilot/instructions/scala2.instructions.md
+  # - github/awesome-copilot/instructions/security-and-owasp.instructions.md
+  # - github/awesome-copilot/instructions/self-explanatory-code-commenting.instructions.md
+  # - github/awesome-copilot/instructions/shell.instructions.md
+  # - github/awesome-copilot/instructions/sql-sp-generation.instructions.md
+  # - github/awesome-copilot/instructions/svelte.instructions.md
+  # - github/awesome-copilot/instructions/tailwind-v4-vite.instructions.md
+  # - github/awesome-copilot/instructions/taming-copilot.instructions.md
+  # - github/awesome-copilot/instructions/taming-copilot.instructions.md
+  # - github/awesome-copilot/instructions/tanstack-start-shadcn-tailwind.instructions.md
+  # - github/awesome-copilot/instructions/task-implementation.instructions.md
+  # - github/awesome-copilot/instructions/tasksync.instructions.md
+  # - github/awesome-copilot/instructions/update-code-from-shorthand.instructions.md
+  # - github/awesome-copilot/instructions/update-docs-on-code-change.instructions.md
+  # - github/awesome-copilot/instructions/use-cliche-data-in-docs.instructions.md
   - dotnet/modernize-dotnet/plugins/modernize-dotnet
   - dotnet/skills/plugins/dotnet
   - dotnet/skills/plugins/dotnet-data
@@ -133,16 +133,11 @@ dependencies:
   - .apm/instructions/neo4j-knowledgebase.instructions.md
   mcp:
   - io.github.upstash/context7
-  - com.microsoft/azure
-  - com.atlassian/atlassian-mcp-server
-  - name: github
-    registry: false
-    transport: http
-    url: https://api.githubcopilot.com/mcp/
-  - name: microsoft-docs
-    registry: false
-    transport: http
-    url: https://learn.microsoft.com/api/mcp/
+  # - com.microsoft/azure
+  - io.github.github/github-mcp-server
+  # - com.atlassian/atlassian-mcp-server
+  - microsoftdocs/mcp
+  # - microsoft/azure-devops-mcp
   - name: mermaid
     registry: false
     transport: http
