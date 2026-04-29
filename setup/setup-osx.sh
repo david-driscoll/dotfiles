@@ -87,6 +87,13 @@ rm -rf ~/.copilot/hooks
 ln -s ~/dotfiles/agents/.github/hooks ~/.copilot/hooks
 rm -rf ~/.copilot/hooks
 ln -s ~/dotfiles/agents/.github/prompts ~/.copilot/prompts
+rm ~/Library/Application\ Support/Code\ -\ Insiders/User/mcp.json
+ln -s ~/dotfiles/agents/.vscode/mcp.json ~/Library/Application\ Support/Code\ -\ Insiders/User/mcp.json
+rm ~/Library/Application\ Support/Code/User/mcp.json
+ln -s ~/dotfiles/agents/.vscode/mcp.json ~/Library/Application\ Support/Code/User/mcp.json
+
+rm ~/.copilot/mcp-config.json
+ln -s ~/dotfiles/agents/.cursor/mcp.json ~/.copilot/mcp-config.json
 
 
 ln -s ~/dotfiles/.config/thefuck/ ~/.config/thefuck/

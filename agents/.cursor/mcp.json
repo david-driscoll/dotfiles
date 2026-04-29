@@ -1,0 +1,118 @@
+{
+  "mcpServers": {
+    "pulumi": {
+      "type": "local",
+      "tools": [
+        "*"
+      ],
+      "id": "",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@pulumi/mcp-server",
+        "stdio"
+      ]
+    },
+    "kubernetes": {
+      "type": "local",
+      "tools": [
+        "*"
+      ],
+      "id": "",
+      "command": "npx",
+      "args": [
+        "-y",
+        "kubernetes-mcp-server"
+      ]
+    },
+    "mise": {
+      "type": "local",
+      "tools": [
+        "*"
+      ],
+      "id": "",
+      "command": "mise",
+      "args": [
+        "mcp"
+      ],
+      "env": {
+        "MISE_EXPERIMENTAL": "1"
+      }
+    },
+    "duckduckgo": {
+      "type": "local",
+      "tools": [
+        "*"
+      ],
+      "id": "",
+      "command": "npx",
+      "args": [
+        "-y",
+        "duckduckgo-mcp-server"
+      ]
+    },
+    "mcp": {
+      "type": "http",
+      "url": "https://learn.microsoft.com/api/mcp",
+      "tools": [
+        "*"
+      ],
+      "id": "e0455530d34a47958dc6b2888ae76c27"
+    },
+    "github-mcp-server": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "tools": [
+        "*"
+      ],
+      "id": "b1722e90be64461fb876b72736de5830",
+      "headers": {}
+    },
+    "context7": {
+      "type": "local",
+      "tools": [
+        "*"
+      ],
+      "id": "b8afd292f49f4c77be80b8eef38d3eb9",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp"
+      ]
+    },
+    "mermaid": {
+      "type": "http",
+      "url": "https://mcp.mermaidchart.com/mcp/",
+      "tools": [
+        "*"
+      ],
+      "id": ""
+    },
+    "nuget": {
+      "type": "local",
+      "tools": [
+        "*"
+      ],
+      "id": "",
+      "command": "dnx",
+      "args": [
+        "NuGet.Mcp.Server",
+        "--source",
+        "https://api.nuget.org/v3/index.json",
+        "--yes"
+      ]
+    },
+    "agentic-workflows": {
+      "type": "local",
+      "tools": [
+        "*"
+      ],
+      "id": "",
+      "command": "gh",
+      "args": [
+        "aw",
+        "mcp-server"
+      ]
+    }
+  }
+}

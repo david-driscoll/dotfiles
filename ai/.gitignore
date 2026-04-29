@@ -1,1 +1,7 @@
 apm_modules/
+.skillfile/cache/
+.skillfile/conflict
+.cursor/agents
+.cursor/rules
+.cursor/skills
+.cursor/hooks.json

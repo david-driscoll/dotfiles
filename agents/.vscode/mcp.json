@@ -6,23 +6,31 @@
       "args": [
         "-y",
         "@pulumi/mcp-server",
-        "--stdio"
+        "stdio"
       ]
     },
-    "com.atlassian/atlassian-mcp-server": {
-      "type": "http",
-      "url": "https://mcp.atlassian.com/v1/mcp",
-      "headers": {}
-    },
-    "com.microsoft/azure": {
+    "kubernetes": {
       "type": "stdio",
       "command": "npx",
       "args": [
         "-y",
-        "@azure/mcp",
-        "server",
-        "start"
+        "kubernetes-mcp-server"
       ]
+    },
+    "mise": {
+      "type": "stdio",
+      "command": "mise",
+      "args": [
+        "mcp"
+      ],
+      "env": {
+        "MISE_EXPERIMENTAL": "1"
+      }
+    },
+    "microsoftdocs/mcp": {
+      "type": "sse",
+      "url": "https://learn.microsoft.com/api/mcp",
+      "headers": {}
     },
     "io.github.upstash/context7": {
       "type": "stdio",
@@ -35,28 +43,20 @@
         "CONTEXT7_API_KEY": "${input:context7-api-key}"
       }
     },
-    "github": {
-      "type": "http",
-      "url": "https://api.githubcopilot.com/mcp/",
-      "headers": {}
-    },
-    "microsoft-docs": {
-      "type": "http",
-      "url": "https://learn.microsoft.com/api/mcp/",
-      "headers": {}
+    "io.github.github/github-mcp-server": {
+      "type": "stdio",
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "ghcr.io/github/github-mcp-server:1.0.3"
+      ]
     },
     "mermaid": {
       "type": "http",
       "url": "https://mcp.mermaidchart.com/mcp/",
       "headers": {}
-    },
-    "agentic-workflows": {
-      "type": "stdio",
-      "command": "gh",
-      "args": [
-        "aw",
-        "mcp-server"
-      ]
     },
     "nuget": {
       "type": "stdio",
@@ -66,6 +66,14 @@
         "--source",
         "https://api.nuget.org/v3/index.json",
         "--yes"
+      ]
+    },
+    "agentic-workflows": {
+      "type": "stdio",
+      "command": "gh",
+      "args": [
+        "aw",
+        "mcp-server"
       ]
     },
     "duckduckgo": {

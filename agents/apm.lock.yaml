@@ -1,25 +1,27 @@
 lockfile_version: '1'
-generated_at: '2026-04-25T23:43:05.927528+00:00'
-apm_version: 0.9.0
+generated_at: '2026-04-29T04:02:56.595337+00:00'
+apm_version: 0.10.0
 dependencies:
 - repo_url: ComposioHQ/awesome-claude-skills
   host: github.com
-  resolved_commit: 0e304eadb3949170bba5274b3bc72dd0eacd0a9a
+  resolved_commit: 337b19e0ed1260790cdfa9c5229e74db2dc6c811
   virtual_path: content-research-writer
   is_virtual: true
   package_type: claude_skill
   deployed_files:
   - .claude/skills/content-research-writer
+  - .cursor/skills/content-research-writer
   - .github/skills/content-research-writer
   content_hash: sha256:de7e9085e875a651f209c826d1a5e7dd5f2436fb38fe565ef76b54492c1a0c22
 - repo_url: ComposioHQ/awesome-claude-skills
   host: github.com
-  resolved_commit: 0e304eadb3949170bba5274b3bc72dd0eacd0a9a
+  resolved_commit: 337b19e0ed1260790cdfa9c5229e74db2dc6c811
   virtual_path: video-downloader
   is_virtual: true
   package_type: claude_skill
   deployed_files:
   - .claude/skills/video-downloader
+  - .cursor/skills/video-downloader
   - .github/skills/video-downloader
   content_hash: sha256:b5fdb1670fa368aeb3f7cd0842b4844ad7e5d077e2423ba39835bf27d9accbfe
 - repo_url: _local/ai
@@ -28,20 +30,25 @@ dependencies:
   - .claude/rules/context7.md
   - .claude/rules/neo4j-knowledgebase.md
   - .claude/skills/context7-mcp
+  - .cursor/rules/context7.mdc
+  - .cursor/rules/neo4j-knowledgebase.mdc
+  - .cursor/skills/context7-mcp
   - .github/instructions/context7.instructions.md
   - .github/instructions/neo4j-knowledgebase.instructions.md
   - .github/skills/context7-mcp
   deployed_file_hashes:
-    .claude/rules/context7.md: sha256:831582c671ca4414a86856274f9308b6c1647140e4fc632da32ccff0c0ca4b48
+    .claude/rules/context7.md: sha256:0f66072fffde531a3b65ad1fca2a0a719b2c0a146f79a32230e1566aa917a792
     .claude/rules/neo4j-knowledgebase.md: sha256:c53e0ac3586474011ffac3f91f2ef764f4fdd8f87a6c52452228c9ff928867b3
-    .github/instructions/context7.instructions.md: sha256:42ea241643495888660e79a604798945ad7d92291e3d8b73a427bffa9add7745
+    .cursor/rules/context7.mdc: sha256:5b345504d891d54f7485e77c73a6d045df9ecb14491d351cc5e9a2aee89fdccd
+    .cursor/rules/neo4j-knowledgebase.mdc: sha256:2354f7b496f63cd3bc167d3b0a0952cd4b24ea22efb1dd72ad3c8f7cd1a87f43
+    .github/instructions/context7.instructions.md: sha256:d34d07b311063df7f47597ab84693eff7dad137ca844310e5e26f7ec7e67e5e8
     .github/instructions/neo4j-knowledgebase.instructions.md: sha256:92b81ba2de19f484d289c906b4f0be03d56b7e37af1be60bad8615082fa27ffe
   source: local
   local_path: ../ai
 - repo_url: aj-geddes/useful-ai-prompts
   host: github.com
   resolved_commit: 3f5182cfd739fc113f4af5244a1cf342ad7f7911
-  package_type: apm_package
+  package_type: skill_bundle
   deployed_files:
   - .claude/skills/ab-test-analysis
   - .claude/skills/access-control-rbac
@@ -302,6 +309,265 @@ dependencies:
   - .claude/skills/wireframe-prototyping
   - .claude/skills/xss-prevention
   - .claude/skills/zero-trust-architecture
+  - .cursor/skills/ab-test-analysis
+  - .cursor/skills/access-control-rbac
+  - .cursor/skills/accessibility-compliance
+  - .cursor/skills/accessibility-testing
+  - .cursor/skills/agile-sprint-planning
+  - .cursor/skills/alert-management
+  - .cursor/skills/android-kotlin-development
+  - .cursor/skills/angular-module-design
+  - .cursor/skills/anomaly-detection
+  - .cursor/skills/ansible-automation
+  - .cursor/skills/api-authentication
+  - .cursor/skills/api-changelog-versioning
+  - .cursor/skills/api-contract-testing
+  - .cursor/skills/api-error-handling
+  - .cursor/skills/api-filtering-sorting
+  - .cursor/skills/api-gateway-configuration
+  - .cursor/skills/api-pagination
+  - .cursor/skills/api-rate-limiting
+  - .cursor/skills/api-reference-documentation
+  - .cursor/skills/api-response-optimization
+  - .cursor/skills/api-security-hardening
+  - .cursor/skills/api-versioning-strategy
+  - .cursor/skills/app-store-deployment
+  - .cursor/skills/application-logging
+  - .cursor/skills/architecture-diagrams
+  - .cursor/skills/artifact-management
+  - .cursor/skills/autoscaling-configuration
+  - .cursor/skills/aws-cloudfront-cdn
+  - .cursor/skills/aws-ec2-setup
+  - .cursor/skills/aws-lambda-functions
+  - .cursor/skills/aws-rds-database
+  - .cursor/skills/aws-s3-management
+  - .cursor/skills/azure-app-service
+  - .cursor/skills/azure-functions
+  - .cursor/skills/background-job-processing
+  - .cursor/skills/backup-disaster-recovery
+  - .cursor/skills/batch-processing-jobs
+  - .cursor/skills/blue-green-deployment
+  - .cursor/skills/browser-debugging
+  - .cursor/skills/bundle-size-optimization
+  - .cursor/skills/business-case-development
+  - .cursor/skills/caching-strategy
+  - .cursor/skills/canary-deployment
+  - .cursor/skills/capacity-planning
+  - .cursor/skills/causal-inference
+  - .cursor/skills/changelog-maintenance
+  - .cursor/skills/cicd-pipeline-setup
+  - .cursor/skills/circuit-breaker-pattern
+  - .cursor/skills/classification-modeling
+  - .cursor/skills/cloud-cost-management
+  - .cursor/skills/cloud-migration-planning
+  - .cursor/skills/cloud-security-configuration
+  - .cursor/skills/cloud-storage-optimization
+  - .cursor/skills/clustering-analysis
+  - .cursor/skills/code-documentation
+  - .cursor/skills/code-generation-template
+  - .cursor/skills/code-metrics-analysis
+  - .cursor/skills/code-review-analysis
+  - .cursor/skills/cohort-analysis
+  - .cursor/skills/color-accessibility
+  - .cursor/skills/competitor-analysis
+  - .cursor/skills/computer-vision
+  - .cursor/skills/concurrency-patterns
+  - .cursor/skills/configuration-management
+  - .cursor/skills/container-debugging
+  - .cursor/skills/container-registry-management
+  - .cursor/skills/continuous-testing
+  - .cursor/skills/correlation-analysis
+  - .cursor/skills/correlation-tracing
+  - .cursor/skills/cpu-profiling
+  - .cursor/skills/cross-platform-compatibility
+  - .cursor/skills/csrf-protection
+  - .cursor/skills/css-architecture
+  - .cursor/skills/data-cleaning-pipeline
+  - .cursor/skills/data-encryption
+  - .cursor/skills/data-migration-scripts
+  - .cursor/skills/data-replication-setup
+  - .cursor/skills/data-visualization
+  - .cursor/skills/database-backup-restore
+  - .cursor/skills/database-indexing-strategy
+  - .cursor/skills/database-migration-management
+  - .cursor/skills/database-monitoring
+  - .cursor/skills/database-performance-debugging
+  - .cursor/skills/database-query-optimization
+  - .cursor/skills/database-schema-design
+  - .cursor/skills/database-schema-documentation
+  - .cursor/skills/database-sharding
+  - .cursor/skills/dependency-management
+  - .cursor/skills/dependency-tracking
+  - .cursor/skills/deployment-automation
+  - .cursor/skills/deployment-documentation
+  - .cursor/skills/design-handoff
+  - .cursor/skills/design-patterns-implementation
+  - .cursor/skills/design-system-creation
+  - .cursor/skills/developer-onboarding
+  - .cursor/skills/dimensionality-reduction
+  - .cursor/skills/disaster-recovery-testing
+  - .cursor/skills/distributed-tracing
+  - .cursor/skills/django-application
+  - .cursor/skills/dns-management
+  - .cursor/skills/docker-containerization
+  - .cursor/skills/documentation-site-setup
+  - .cursor/skills/e2e-testing-automation
+  - .cursor/skills/email-service-integration
+  - .cursor/skills/error-tracking
+  - .cursor/skills/event-sourcing
+  - .cursor/skills/exploratory-data-analysis
+  - .cursor/skills/fastapi-development
+  - .cursor/skills/feature-engineering
+  - .cursor/skills/feature-flag-system
+  - .cursor/skills/file-upload-handling
+  - .cursor/skills/flask-api-development
+  - .cursor/skills/flutter-development
+  - .cursor/skills/form-validation
+  - .cursor/skills/frontend-accessibility
+  - .cursor/skills/frontend-routing
+  - .cursor/skills/frontend-state-management
+  - .cursor/skills/frontend-testing
+  - .cursor/skills/funnel-analysis
+  - .cursor/skills/gap-analysis
+  - .cursor/skills/gcp-cloud-functions
+  - .cursor/skills/gcp-cloud-run
+  - .cursor/skills/git-hooks-setup
+  - .cursor/skills/git-workflow-strategy
+  - .cursor/skills/github-actions-workflow
+  - .cursor/skills/gitlab-cicd-pipeline
+  - .cursor/skills/graceful-shutdown
+  - .cursor/skills/grafana-dashboard
+  - .cursor/skills/graphql-implementation
+  - .cursor/skills/grpc-service-development
+  - .cursor/skills/health-check-endpoints
+  - .cursor/skills/idempotency-handling
+  - .cursor/skills/image-optimization
+  - .cursor/skills/incident-response-plan
+  - .cursor/skills/information-architecture
+  - .cursor/skills/infrastructure-cost-optimization
+  - .cursor/skills/infrastructure-monitoring
+  - .cursor/skills/integration-testing
+  - .cursor/skills/interaction-design
+  - .cursor/skills/intermittent-issue-debugging
+  - .cursor/skills/internationalization-i18n
+  - .cursor/skills/ios-swift-development
+  - .cursor/skills/jenkins-pipeline
+  - .cursor/skills/kpi-dashboard-design
+  - .cursor/skills/kubernetes-deployment
+  - .cursor/skills/load-balancer-setup
+  - .cursor/skills/log-aggregation
+  - .cursor/skills/log-analysis
+  - .cursor/skills/logging-best-practices
+  - .cursor/skills/markdown-documentation
+  - .cursor/skills/memory-leak-detection
+  - .cursor/skills/memory-optimization
+  - .cursor/skills/microservices-architecture
+  - .cursor/skills/ml-model-explanation
+  - .cursor/skills/ml-model-training
+  - .cursor/skills/ml-pipeline-automation
+  - .cursor/skills/mobile-app-debugging
+  - .cursor/skills/mobile-app-testing
+  - .cursor/skills/mobile-first-design
+  - .cursor/skills/mobile-offline-support
+  - .cursor/skills/mocking-stubbing
+  - .cursor/skills/model-deployment
+  - .cursor/skills/model-hyperparameter-tuning
+  - .cursor/skills/model-monitoring
+  - .cursor/skills/monorepo-management
+  - .cursor/skills/multi-cloud-strategy
+  - .cursor/skills/mutation-testing
+  - .cursor/skills/natural-language-processing
+  - .cursor/skills/network-analysis
+  - .cursor/skills/network-debugging
+  - .cursor/skills/network-security-groups
+  - .cursor/skills/neural-network-design
+  - .cursor/skills/nginx-configuration
+  - .cursor/skills/nodejs-express-server
+  - .cursor/skills/nosql-database-design
+  - .cursor/skills/oauth-implementation
+  - .cursor/skills/payment-gateway-integration
+  - .cursor/skills/penetration-testing
+  - .cursor/skills/performance-regression-debugging
+  - .cursor/skills/performance-testing
+  - .cursor/skills/polyglot-integration
+  - .cursor/skills/process-mapping
+  - .cursor/skills/profiling-optimization
+  - .cursor/skills/progressive-web-app
+  - .cursor/skills/project-estimation
+  - .cursor/skills/prometheus-monitoring
+  - .cursor/skills/property-based-testing
+  - .cursor/skills/pull-request-automation
+  - .cursor/skills/push-notification-setup
+  - .cursor/skills/query-caching-strategies
+  - .cursor/skills/rate-limiting-implementation
+  - .cursor/skills/react-component-architecture
+  - .cursor/skills/react-native-app
+  - .cursor/skills/reactive-programming
+  - .cursor/skills/real-time-features
+  - .cursor/skills/recommendation-engine
+  - .cursor/skills/recommendation-system
+  - .cursor/skills/refactor-legacy-code
+  - .cursor/skills/regression-modeling
+  - .cursor/skills/release-planning
+  - .cursor/skills/requirements-gathering
+  - .cursor/skills/responsive-web-design
+  - .cursor/skills/rest-api-design
+  - .cursor/skills/retrospective-facilitation
+  - .cursor/skills/risk-assessment
+  - .cursor/skills/root-cause-analysis
+  - .cursor/skills/ruby-rails-application
+  - .cursor/skills/runbook-creation
+  - .cursor/skills/secrets-management
+  - .cursor/skills/secrets-rotation
+  - .cursor/skills/security-audit-logging
+  - .cursor/skills/security-compliance-audit
+  - .cursor/skills/security-documentation
+  - .cursor/skills/security-headers-configuration
+  - .cursor/skills/security-testing
+  - .cursor/skills/semantic-versioning
+  - .cursor/skills/sentiment-analysis
+  - .cursor/skills/server-side-rendering
+  - .cursor/skills/serverless-architecture
+  - .cursor/skills/service-mesh-implementation
+  - .cursor/skills/session-management
+  - .cursor/skills/spring-boot-application
+  - .cursor/skills/sql-injection-prevention
+  - .cursor/skills/sql-query-optimization
+  - .cursor/skills/ssl-certificate-management
+  - .cursor/skills/stakeholder-communication
+  - .cursor/skills/static-code-analysis
+  - .cursor/skills/statistical-hypothesis-testing
+  - .cursor/skills/stored-procedures
+  - .cursor/skills/stress-testing
+  - .cursor/skills/survival-analysis
+  - .cursor/skills/synthetic-monitoring
+  - .cursor/skills/technical-debt-assessment
+  - .cursor/skills/technical-roadmap-planning
+  - .cursor/skills/technical-specification
+  - .cursor/skills/terraform-infrastructure
+  - .cursor/skills/test-automation-framework
+  - .cursor/skills/test-data-generation
+  - .cursor/skills/third-party-integration
+  - .cursor/skills/time-series-analysis
+  - .cursor/skills/transaction-management
+  - .cursor/skills/troubleshooting-guide
+  - .cursor/skills/unit-testing-framework
+  - .cursor/skills/uptime-monitoring
+  - .cursor/skills/user-guide-creation
+  - .cursor/skills/user-persona-creation
+  - .cursor/skills/user-research-analysis
+  - .cursor/skills/user-story-writing
+  - .cursor/skills/visual-regression-testing
+  - .cursor/skills/vue-application-structure
+  - .cursor/skills/vulnerability-scanning
+  - .cursor/skills/web-performance-audit
+  - .cursor/skills/web-performance-optimization
+  - .cursor/skills/webhook-development
+  - .cursor/skills/webhook-integration
+  - .cursor/skills/websocket-implementation
+  - .cursor/skills/wireframe-prototyping
+  - .cursor/skills/xss-prevention
+  - .cursor/skills/zero-trust-architecture
   - .github/skills/ab-test-analysis
   - .github/skills/access-control-rbac
   - .github/skills/accessibility-compliance
@@ -561,55 +827,38 @@ dependencies:
   - .github/skills/wireframe-prototyping
   - .github/skills/xss-prevention
   - .github/skills/zero-trust-architecture
-  content_hash: sha256:d5733e8e693171ce1cc923307653845be00fa88cccaba45d4d42faa4373e1710
-- repo_url: alirezarezvani/claude-skills
-  host: github.com
-  resolved_commit: f567c61def3fb86046d7242b4bf27fceb63ad8b4
-  virtual_path: engineering
-  is_virtual: true
-  package_type: claude_skill
-  deployed_files:
-  - .claude/skills/engineering
-  - .github/skills/engineering
-  content_hash: sha256:f58556011ea21b4633ce8c370833646fcfe1bc6af01e6c517b88f2d2f519893f
-- repo_url: alirezarezvani/claude-skills
-  host: github.com
-  resolved_commit: f567c61def3fb86046d7242b4bf27fceb63ad8b4
-  virtual_path: engineering-team
-  is_virtual: true
-  package_type: claude_skill
-  deployed_files:
-  - .claude/skills/engineering-team
-  - .github/skills/engineering-team
-  content_hash: sha256:b17fe0dcd27004285a9ef4f4e6481c1ee8d944674a765b83dc039f6b130cdf7a
+  content_hash: sha256:4e3ddc7beb9150a37b446e773752cd52820822daf6af4a1e3d4f577583692b32
 - repo_url: cskiro/claudex
   host: github.com
   resolved_commit: 83e2be1c34eafdd9ee8f3107728b60f80e1db98f
   virtual_path: plugins/otel-monitoring-setup
   is_virtual: true
-  package_type: apm_package
+  package_type: skill_bundle
   deployed_files:
   - .claude/skills/otel-monitoring-setup
+  - .cursor/skills/otel-monitoring-setup
   - .github/skills/otel-monitoring-setup
-  content_hash: sha256:69be4468119d1ed52529886f94b2c095ae5347245b9313482846206a41550f2a
+  content_hash: sha256:878556ef371c2d77f7bcca238bed605aac5da356646005f9e26e70fae4e3a4ee
 - repo_url: emaynard/claude-family-history-research-skill
   host: github.com
   resolved_commit: 7334d3d400740fda3de1c54c90e186307f8f1176
   package_type: claude_skill
   deployed_files:
   - .claude/skills/claude-family-history-research-skill
+  - .cursor/skills/claude-family-history-research-skill
   - .github/skills/claude-family-history-research-skill
   content_hash: sha256:fcfeab03dffc486ed2bb6d98948b8e427101b1ffe5f70e18c5284867f5498b78
 - repo_url: jeffallan/claude-skills
   host: github.com
-  resolved_commit: 3d95bb16b030af43bd838dc99fdc77dd40b29014
+  resolved_commit: efebc44c90ae6eb3b36ff1c53802a765418481b9
   virtual_path: skills/kubernetes-specialist
   is_virtual: true
   package_type: claude_skill
   deployed_files:
   - .claude/skills/kubernetes-specialist
+  - .cursor/skills/kubernetes-specialist
   - .github/skills/kubernetes-specialist
-  content_hash: sha256:35741520ffd20f1130ed4953d2bd4f18fcd0e5bb45ca28f15589baac2accaceb
+  content_hash: sha256:dc7dfeb059ef078086ac9177eb402caef391d3474bc2bb42ec3a7f2f8d8a0fd5
 - repo_url: michalparkola/tapestry-skills
   host: github.com
   resolved_commit: 80e1dc56df74d1cb849ad649c7ead9756e7929bb
@@ -618,6 +867,7 @@ dependencies:
   package_type: claude_skill
   deployed_files:
   - .claude/skills/article-extractor
+  - .cursor/skills/article-extractor
   - .github/skills/article-extractor
   content_hash: sha256:fc3369b15640de9af0409396aac9cc7608c3aa48f902b4a80f92f98a924a1429
 - repo_url: michalparkola/tapestry-skills
@@ -628,6 +878,7 @@ dependencies:
   package_type: claude_skill
   deployed_files:
   - .claude/skills/learn-this
+  - .cursor/skills/learn-this
   - .github/skills/learn-this
   content_hash: sha256:cb479a7a8c1517ce520ce25f36e9cb8681fd9159e999f718a87f219d0fe87ce0
 - repo_url: michalparkola/tapestry-skills
@@ -638,6 +889,7 @@ dependencies:
   package_type: claude_skill
   deployed_files:
   - .claude/skills/scrum-sage
+  - .cursor/skills/scrum-sage
   - .github/skills/scrum-sage
   content_hash: sha256:745a6dafdd686ef6c8f360f6669eb425b9bfa63fd8c8128666c81f8f2f962168
 - repo_url: michalparkola/tapestry-skills
@@ -648,6 +900,7 @@ dependencies:
   package_type: claude_skill
   deployed_files:
   - .claude/skills/session-log
+  - .cursor/skills/session-log
   - .github/skills/session-log
   content_hash: sha256:eb6b207be2a78a0d3fcd361ac4dfb6bd370dc429d0ab4765f9dde7f858d51204
 - repo_url: michalparkola/tapestry-skills
@@ -658,6 +911,7 @@ dependencies:
   package_type: claude_skill
   deployed_files:
   - .claude/skills/ship-learn-next
+  - .cursor/skills/ship-learn-next
   - .github/skills/ship-learn-next
   content_hash: sha256:e04c6a8a8008e8d4bd736c345e83ffdba1d61b6b9fe861ff16cff5008481ea7d
 - repo_url: michalparkola/tapestry-skills
@@ -668,6 +922,7 @@ dependencies:
   package_type: claude_skill
   deployed_files:
   - .claude/skills/unblock-action
+  - .cursor/skills/unblock-action
   - .github/skills/unblock-action
   content_hash: sha256:ab77e0ebe24938da3801e20ba894d8430edeeebcacfc81b9bd4d8337b3f3205b
 - repo_url: michalparkola/tapestry-skills
@@ -678,14 +933,16 @@ dependencies:
   package_type: claude_skill
   deployed_files:
   - .claude/skills/youtube-transcript
+  - .cursor/skills/youtube-transcript
   - .github/skills/youtube-transcript
   content_hash: sha256:e5e29eb320d2e31eb0f0d628500d8839baac3494a1a7a51be8387d948098d3a3
 - repo_url: ryanbbrown/revealjs-skill
   host: github.com
   resolved_commit: 188e0dc90056a4d59f457fefb70c63eefac2b0a2
-  package_type: apm_package
+  package_type: marketplace_plugin
   deployed_files:
   - .claude/skills/revealjs
+  - .cursor/skills/revealjs
   - .github/skills/revealjs
   content_hash: sha256:eb0fa4aab41858ee74a66480bf9791f524b1fbc62f921499629005a4284a4531
 - repo_url: sanjay3290/ai-skills
@@ -696,11 +953,12 @@ dependencies:
   package_type: claude_skill
   deployed_files:
   - .claude/skills/deep-research
+  - .cursor/skills/deep-research
   - .github/skills/deep-research
   content_hash: sha256:978e5b1b36609b9324ccf25746df6c04a3e83c79fbed9e80409bd800f00bb1e2
 - repo_url: ComposioHQ/awesome-claude-skills
   host: github.com
-  resolved_commit: 0e304eadb3949170bba5274b3bc72dd0eacd0a9a
+  resolved_commit: 337b19e0ed1260790cdfa9c5229e74db2dc6c811
   virtual_path: developer-growth-analysis
   is_virtual: true
   depth: 2
@@ -708,14 +966,15 @@ dependencies:
   package_type: claude_skill
   deployed_files:
   - .claude/skills/developer-growth-analysis
+  - .cursor/skills/developer-growth-analysis
   - .github/skills/developer-growth-analysis
   content_hash: sha256:e3dcbe091bacd9f1afdac53319dea01aace1e50a9d8e64c21c859ab0a89765f5
 - repo_url: Jeffallan/claude-skills
   host: github.com
-  resolved_commit: 3d95bb16b030af43bd838dc99fdc77dd40b29014
+  resolved_commit: efebc44c90ae6eb3b36ff1c53802a765418481b9
   depth: 2
   resolved_by: _local/ai
-  package_type: apm_package
+  package_type: marketplace_plugin
   deployed_files:
   - .claude/skills/angular-architect
   - .claude/skills/api-designer
@@ -783,6 +1042,72 @@ dependencies:
   - .claude/skills/vue-expert-js
   - .claude/skills/websocket-engineer
   - .claude/skills/wordpress-pro
+  - .cursor/skills/angular-architect
+  - .cursor/skills/api-designer
+  - .cursor/skills/architecture-designer
+  - .cursor/skills/atlassian-mcp
+  - .cursor/skills/chaos-engineer
+  - .cursor/skills/cli-developer
+  - .cursor/skills/cloud-architect
+  - .cursor/skills/code-documenter
+  - .cursor/skills/code-reviewer
+  - .cursor/skills/cpp-pro
+  - .cursor/skills/csharp-developer
+  - .cursor/skills/database-optimizer
+  - .cursor/skills/debugging-wizard
+  - .cursor/skills/devops-engineer
+  - .cursor/skills/django-expert
+  - .cursor/skills/dotnet-core-expert
+  - .cursor/skills/embedded-systems
+  - .cursor/skills/fastapi-expert
+  - .cursor/skills/feature-forge
+  - .cursor/skills/fine-tuning-expert
+  - .cursor/skills/flutter-expert
+  - .cursor/skills/fullstack-guardian
+  - .cursor/skills/game-developer
+  - .cursor/skills/golang-pro
+  - .cursor/skills/graphql-architect
+  - .cursor/skills/java-architect
+  - .cursor/skills/javascript-pro
+  - .cursor/skills/kotlin-specialist
+  - .cursor/skills/kubernetes-specialist
+  - .cursor/skills/laravel-specialist
+  - .cursor/skills/legacy-modernizer
+  - .cursor/skills/mcp-developer
+  - .cursor/skills/microservices-architect
+  - .cursor/skills/ml-pipeline
+  - .cursor/skills/monitoring-expert
+  - .cursor/skills/nestjs-expert
+  - .cursor/skills/nextjs-developer
+  - .cursor/skills/pandas-pro
+  - .cursor/skills/php-pro
+  - .cursor/skills/playwright-expert
+  - .cursor/skills/postgres-pro
+  - .cursor/skills/prompt-engineer
+  - .cursor/skills/python-pro
+  - .cursor/skills/rag-architect
+  - .cursor/skills/rails-expert
+  - .cursor/skills/react-expert
+  - .cursor/skills/react-native-expert
+  - .cursor/skills/rust-engineer
+  - .cursor/skills/salesforce-developer
+  - .cursor/skills/secure-code-guardian
+  - .cursor/skills/security-reviewer
+  - .cursor/skills/shopify-expert
+  - .cursor/skills/spark-engineer
+  - .cursor/skills/spec-miner
+  - .cursor/skills/spring-boot-engineer
+  - .cursor/skills/sql-pro
+  - .cursor/skills/sre-engineer
+  - .cursor/skills/swift-expert
+  - .cursor/skills/terraform-engineer
+  - .cursor/skills/test-master
+  - .cursor/skills/the-fool
+  - .cursor/skills/typescript-pro
+  - .cursor/skills/vue-expert
+  - .cursor/skills/vue-expert-js
+  - .cursor/skills/websocket-engineer
+  - .cursor/skills/wordpress-pro
   - .github/skills/angular-architect
   - .github/skills/api-designer
   - .github/skills/architecture-designer
@@ -849,13 +1174,13 @@ dependencies:
   - .github/skills/vue-expert-js
   - .github/skills/websocket-engineer
   - .github/skills/wordpress-pro
-  content_hash: sha256:89414d4c233bd5f9687f28c32e9d0f427f5714bdb60b7e8dde20561cbaebeae4
+  content_hash: sha256:bef6de6b800b1d6ab3669cfab0908168d5b71fdd659e969b8c6c4f713b3d6316
 - repo_url: anthropics/skills
   host: github.com
   resolved_commit: 5128e1865d670f5d6c9cef000e6dfc4e951fb5b9
   depth: 2
   resolved_by: _local/ai
-  package_type: apm_package
+  package_type: marketplace_plugin
   deployed_files:
   - .claude/skills/algorithmic-art
   - .claude/skills/brand-guidelines
@@ -874,6 +1199,23 @@ dependencies:
   - .claude/skills/web-artifacts-builder
   - .claude/skills/webapp-testing
   - .claude/skills/xlsx
+  - .cursor/skills/algorithmic-art
+  - .cursor/skills/brand-guidelines
+  - .cursor/skills/canvas-design
+  - .cursor/skills/claude-api
+  - .cursor/skills/doc-coauthoring
+  - .cursor/skills/docx
+  - .cursor/skills/frontend-design
+  - .cursor/skills/internal-comms
+  - .cursor/skills/mcp-builder
+  - .cursor/skills/pdf
+  - .cursor/skills/pptx
+  - .cursor/skills/skill-creator
+  - .cursor/skills/slack-gif-creator
+  - .cursor/skills/theme-factory
+  - .cursor/skills/web-artifacts-builder
+  - .cursor/skills/webapp-testing
+  - .cursor/skills/xlsx
   - .github/skills/algorithmic-art
   - .github/skills/brand-guidelines
   - .github/skills/canvas-design
@@ -891,128 +1233,256 @@ dependencies:
   - .github/skills/web-artifacts-builder
   - .github/skills/webapp-testing
   - .github/skills/xlsx
-  content_hash: sha256:cbe5cb9a0636782ea9defc1bc2b2f3977a44b08db22d5d76debbb1a84afab283
+  content_hash: sha256:0298046fc0f4dc458e46a275d981178f506f1f53a32eaa351bfce7433478f578
 - repo_url: dotnet/modernize-dotnet
   host: github.com
-  resolved_commit: b2882d518cdbf9a0e6eb4ccca42b0b0a20f2a4e9
+  resolved_commit: f4b01331a8db6c185cab57fc36ff4c2d6759bf82
   virtual_path: plugins/modernize-dotnet
   is_virtual: true
   depth: 2
   resolved_by: _local/ai
-  package_type: apm_package
+  package_type: marketplace_plugin
   deployed_files:
   - .claude/agents/modernize-dotnet.md
+  - .cursor/agents/modernize-dotnet.md
   - .github/agents/modernize-dotnet.agent.md
   deployed_file_hashes:
-    .claude/agents/modernize-dotnet.md: sha256:aa5b15fd6ea89906199d36f91b964670d2ceace4522e942bfc718c59ec7fd5f4
-    .github/agents/modernize-dotnet.agent.md: sha256:aa5b15fd6ea89906199d36f91b964670d2ceace4522e942bfc718c59ec7fd5f4
-  content_hash: sha256:6aeac2df2fb09560423f67165bc7aa0c4a2d4cc7aee1625d9c59934c13dfc87b
+    .claude/agents/modernize-dotnet.md: sha256:c5a0a585eaa0ff6a0d59db7a7bdb08f18bd4438468adfb068ba394f266321cfd
+    .cursor/agents/modernize-dotnet.md: sha256:c5a0a585eaa0ff6a0d59db7a7bdb08f18bd4438468adfb068ba394f266321cfd
+    .github/agents/modernize-dotnet.agent.md: sha256:c5a0a585eaa0ff6a0d59db7a7bdb08f18bd4438468adfb068ba394f266321cfd
+  content_hash: sha256:1fb61b65bcf43714cc9964710a552721961f2dca4e4c271e3f0037b50ab6daf1
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: 59c795c896a7fbce1ef7fa6257e8cc6639b1ba7d
+  resolved_commit: a55227f030d90e4d29df9684c53b34cb40ac0243
   virtual_path: plugins/dotnet
   is_virtual: true
   depth: 2
   resolved_by: _local/ai
-  package_type: apm_package
+  package_type: marketplace_plugin
+  deployed_files:
+  - .claude/skills/csharp-scripts
+  - .claude/skills/dotnet-pinvoke
+  - .claude/skills/nuget-trusted-publishing
+  - .cursor/skills/csharp-scripts
+  - .cursor/skills/dotnet-pinvoke
+  - .cursor/skills/nuget-trusted-publishing
+  - .github/skills/csharp-scripts
+  - .github/skills/dotnet-pinvoke
+  - .github/skills/nuget-trusted-publishing
   content_hash: sha256:ab39726eec9ee1dfece30570897472bbb4f7ce71652c1f81a2ba411c0b67c4d6
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: 59c795c896a7fbce1ef7fa6257e8cc6639b1ba7d
+  resolved_commit: a55227f030d90e4d29df9684c53b34cb40ac0243
   virtual_path: plugins/dotnet-ai
   is_virtual: true
   depth: 2
   resolved_by: _local/ai
-  package_type: apm_package
+  package_type: marketplace_plugin
+  deployed_files:
+  - .claude/skills/mcp-csharp-create
+  - .claude/skills/mcp-csharp-debug
+  - .claude/skills/mcp-csharp-publish
+  - .claude/skills/mcp-csharp-test
+  - .claude/skills/technology-selection
+  - .cursor/skills/mcp-csharp-create
+  - .cursor/skills/mcp-csharp-debug
+  - .cursor/skills/mcp-csharp-publish
+  - .cursor/skills/mcp-csharp-test
+  - .cursor/skills/technology-selection
+  - .github/skills/mcp-csharp-create
+  - .github/skills/mcp-csharp-debug
+  - .github/skills/mcp-csharp-publish
+  - .github/skills/mcp-csharp-test
+  - .github/skills/technology-selection
   content_hash: sha256:6c9a1ce85502db842120796d6912604e9728248f895e452edb558e977aa2c087
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: 59c795c896a7fbce1ef7fa6257e8cc6639b1ba7d
+  resolved_commit: a55227f030d90e4d29df9684c53b34cb40ac0243
   virtual_path: plugins/dotnet-aspnet
   is_virtual: true
   depth: 2
   resolved_by: _local/ai
-  package_type: apm_package
+  package_type: marketplace_plugin
+  deployed_files:
+  - .claude/skills/configuring-opentelemetry-dotnet
+  - .claude/skills/minimal-api-file-upload
+  - .cursor/skills/configuring-opentelemetry-dotnet
+  - .cursor/skills/minimal-api-file-upload
+  - .github/skills/configuring-opentelemetry-dotnet
+  - .github/skills/minimal-api-file-upload
   content_hash: sha256:05e456043af4fd7503687126bd3ed0f3ec48d0a0022da15301e6b44924f22ae4
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: 59c795c896a7fbce1ef7fa6257e8cc6639b1ba7d
+  resolved_commit: a55227f030d90e4d29df9684c53b34cb40ac0243
   virtual_path: plugins/dotnet-data
   is_virtual: true
   depth: 2
   resolved_by: _local/ai
-  package_type: apm_package
+  package_type: marketplace_plugin
+  deployed_files:
+  - .claude/skills/optimizing-ef-core-queries
+  - .cursor/skills/optimizing-ef-core-queries
+  - .github/skills/optimizing-ef-core-queries
   content_hash: sha256:ce98fbc46cd1ae400d234cef0b7ca1086ba7c3c260f8fd908a8a6efcc9da41c4
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: 59c795c896a7fbce1ef7fa6257e8cc6639b1ba7d
+  resolved_commit: a55227f030d90e4d29df9684c53b34cb40ac0243
   virtual_path: plugins/dotnet-diag
   is_virtual: true
   depth: 2
   resolved_by: _local/ai
-  package_type: apm_package
+  package_type: marketplace_plugin
   deployed_files:
   - .claude/agents/optimizing-dotnet-performance.md
+  - .claude/skills/analyzing-dotnet-performance
+  - .claude/skills/android-tombstone-symbolication
+  - .claude/skills/apple-crash-symbolication
+  - .claude/skills/clr-activation-debugging
+  - .claude/skills/dotnet-trace-collect
+  - .claude/skills/dump-collect
+  - .claude/skills/microbenchmarking
+  - .cursor/agents/optimizing-dotnet-performance.md
+  - .cursor/skills/analyzing-dotnet-performance
+  - .cursor/skills/android-tombstone-symbolication
+  - .cursor/skills/apple-crash-symbolication
+  - .cursor/skills/clr-activation-debugging
+  - .cursor/skills/dotnet-trace-collect
+  - .cursor/skills/dump-collect
+  - .cursor/skills/microbenchmarking
   - .github/agents/optimizing-dotnet-performance.agent.md
+  - .github/skills/analyzing-dotnet-performance
+  - .github/skills/android-tombstone-symbolication
+  - .github/skills/apple-crash-symbolication
+  - .github/skills/clr-activation-debugging
+  - .github/skills/dotnet-trace-collect
+  - .github/skills/dump-collect
+  - .github/skills/microbenchmarking
   deployed_file_hashes:
     .claude/agents/optimizing-dotnet-performance.md: sha256:aeae8474777971a8e29873b132963b18ef3a76acab706473734a9a82d19c6a84
+    .cursor/agents/optimizing-dotnet-performance.md: sha256:aeae8474777971a8e29873b132963b18ef3a76acab706473734a9a82d19c6a84
     .github/agents/optimizing-dotnet-performance.agent.md: sha256:aeae8474777971a8e29873b132963b18ef3a76acab706473734a9a82d19c6a84
   content_hash: sha256:d4a531a5095c906ba68a16115e03cdbe4b0ee3c2d6a7a329cc751817b71f9ae7
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: 59c795c896a7fbce1ef7fa6257e8cc6639b1ba7d
+  resolved_commit: a55227f030d90e4d29df9684c53b34cb40ac0243
   virtual_path: plugins/dotnet-msbuild
   is_virtual: true
   depth: 2
   resolved_by: _local/ai
-  package_type: apm_package
+  package_type: marketplace_plugin
   deployed_files:
   - .claude/agents/build-perf.md
   - .claude/agents/msbuild-code-review.md
   - .claude/agents/msbuild.md
+  - .claude/skills/binlog-failure-analysis
+  - .claude/skills/binlog-generation
+  - .claude/skills/build-parallelism
+  - .claude/skills/build-perf-baseline
+  - .claude/skills/build-perf-diagnostics
+  - .claude/skills/check-bin-obj-clash
+  - .claude/skills/directory-build-organization
+  - .claude/skills/eval-performance
+  - .claude/skills/including-generated-files
+  - .claude/skills/incremental-build
+  - .claude/skills/msbuild-antipatterns
+  - .claude/skills/msbuild-modernization
+  - .claude/skills/msbuild-server
+  - .claude/skills/resolve-project-references
+  - .cursor/agents/build-perf.md
+  - .cursor/agents/msbuild-code-review.md
+  - .cursor/agents/msbuild.md
+  - .cursor/skills/binlog-failure-analysis
+  - .cursor/skills/binlog-generation
+  - .cursor/skills/build-parallelism
+  - .cursor/skills/build-perf-baseline
+  - .cursor/skills/build-perf-diagnostics
+  - .cursor/skills/check-bin-obj-clash
+  - .cursor/skills/directory-build-organization
+  - .cursor/skills/eval-performance
+  - .cursor/skills/including-generated-files
+  - .cursor/skills/incremental-build
+  - .cursor/skills/msbuild-antipatterns
+  - .cursor/skills/msbuild-modernization
+  - .cursor/skills/msbuild-server
+  - .cursor/skills/resolve-project-references
   - .github/agents/build-perf.agent.md
   - .github/agents/msbuild-code-review.agent.md
   - .github/agents/msbuild.agent.md
+  - .github/skills/binlog-failure-analysis
+  - .github/skills/binlog-generation
+  - .github/skills/build-parallelism
+  - .github/skills/build-perf-baseline
+  - .github/skills/build-perf-diagnostics
+  - .github/skills/check-bin-obj-clash
+  - .github/skills/directory-build-organization
+  - .github/skills/eval-performance
+  - .github/skills/including-generated-files
+  - .github/skills/incremental-build
+  - .github/skills/msbuild-antipatterns
+  - .github/skills/msbuild-modernization
+  - .github/skills/msbuild-server
+  - .github/skills/resolve-project-references
   deployed_file_hashes:
     .claude/agents/build-perf.md: sha256:e1807c11fe7f2e0194d121cf2cc4143833bd04c088693d263db7d28f77521866
     .claude/agents/msbuild-code-review.md: sha256:ddf05459f8521a8d2ca7a3612017d6abc2d100895d6bfecbcb5e122c2c006d78
     .claude/agents/msbuild.md: sha256:ddcc60dbe00aa6c7b66a00e61a7602dd580d8e4ac4c8881e5aca3602d749151d
+    .cursor/agents/build-perf.md: sha256:e1807c11fe7f2e0194d121cf2cc4143833bd04c088693d263db7d28f77521866
+    .cursor/agents/msbuild-code-review.md: sha256:ddf05459f8521a8d2ca7a3612017d6abc2d100895d6bfecbcb5e122c2c006d78
+    .cursor/agents/msbuild.md: sha256:ddcc60dbe00aa6c7b66a00e61a7602dd580d8e4ac4c8881e5aca3602d749151d
     .github/agents/build-perf.agent.md: sha256:e1807c11fe7f2e0194d121cf2cc4143833bd04c088693d263db7d28f77521866
     .github/agents/msbuild-code-review.agent.md: sha256:ddf05459f8521a8d2ca7a3612017d6abc2d100895d6bfecbcb5e122c2c006d78
     .github/agents/msbuild.agent.md: sha256:ddcc60dbe00aa6c7b66a00e61a7602dd580d8e4ac4c8881e5aca3602d749151d
-  content_hash: sha256:ab146f2bce3f3ee2fd35297c56b26b733c53849216e0ebccf2037e9600c39735
+  content_hash: sha256:510b7a0661eadd432090b40eb96fed93dc54e938f6877f616384a68f115ea5c3
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: 59c795c896a7fbce1ef7fa6257e8cc6639b1ba7d
+  resolved_commit: a55227f030d90e4d29df9684c53b34cb40ac0243
   virtual_path: plugins/dotnet-nuget
   is_virtual: true
   depth: 2
   resolved_by: _local/ai
-  package_type: apm_package
+  package_type: marketplace_plugin
+  deployed_files:
+  - .claude/skills/convert-to-cpm
+  - .cursor/skills/convert-to-cpm
+  - .github/skills/convert-to-cpm
   content_hash: sha256:9609b9607f0a3b4c4024a20c535e3ffb90e679d8e1facd69705f9525fdcb33d1
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: 59c795c896a7fbce1ef7fa6257e8cc6639b1ba7d
+  resolved_commit: a55227f030d90e4d29df9684c53b34cb40ac0243
   virtual_path: plugins/dotnet-template-engine
   is_virtual: true
   depth: 2
   resolved_by: _local/ai
-  package_type: apm_package
+  package_type: marketplace_plugin
   deployed_files:
   - .claude/agents/template-engine.md
+  - .claude/skills/template-authoring
+  - .claude/skills/template-discovery
+  - .claude/skills/template-instantiation
+  - .claude/skills/template-validation
+  - .cursor/agents/template-engine.md
+  - .cursor/skills/template-authoring
+  - .cursor/skills/template-discovery
+  - .cursor/skills/template-instantiation
+  - .cursor/skills/template-validation
   - .github/agents/template-engine.agent.md
+  - .github/skills/template-authoring
+  - .github/skills/template-discovery
+  - .github/skills/template-instantiation
+  - .github/skills/template-validation
   deployed_file_hashes:
     .claude/agents/template-engine.md: sha256:1ea0c16d838ade1a413bd3ed6e0d208c5aa847424de32d841d18301e4a823a3b
+    .cursor/agents/template-engine.md: sha256:1ea0c16d838ade1a413bd3ed6e0d208c5aa847424de32d841d18301e4a823a3b
     .github/agents/template-engine.agent.md: sha256:1ea0c16d838ade1a413bd3ed6e0d208c5aa847424de32d841d18301e4a823a3b
   content_hash: sha256:8d93218f4a0f0348881d16719e0bdbfbbd462dd2778dfa5643d85be1544487f9
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: 59c795c896a7fbce1ef7fa6257e8cc6639b1ba7d
+  resolved_commit: a55227f030d90e4d29df9684c53b34cb40ac0243
   virtual_path: plugins/dotnet-test
   is_virtual: true
   depth: 2
   resolved_by: _local/ai
-  package_type: apm_package
+  package_type: marketplace_plugin
   deployed_files:
   - .claude/agents/code-testing-builder.md
   - .claude/agents/code-testing-fixer.md
@@ -1025,6 +1495,53 @@ dependencies:
   - .claude/agents/test-migration.md
   - .claude/agents/test-quality-auditor.md
   - .claude/agents/testability-migration.md
+  - .claude/skills/code-testing-agent
+  - .claude/skills/code-testing-extensions
+  - .claude/skills/coverage-analysis
+  - .claude/skills/crap-score
+  - .claude/skills/detect-static-dependencies
+  - .claude/skills/dotnet-test-frameworks
+  - .claude/skills/filter-syntax
+  - .claude/skills/generate-testability-wrappers
+  - .claude/skills/migrate-mstest-v1v2-to-v3
+  - .claude/skills/migrate-mstest-v3-to-v4
+  - .claude/skills/migrate-static-to-wrapper
+  - .claude/skills/migrate-vstest-to-mtp
+  - .claude/skills/migrate-xunit-to-xunit-v3
+  - .claude/skills/mtp-hot-reload
+  - .claude/skills/platform-detection
+  - .claude/skills/run-tests
+  - .claude/skills/test-anti-patterns
+  - .claude/skills/writing-mstest-tests
+  - .cursor/agents/code-testing-builder.md
+  - .cursor/agents/code-testing-fixer.md
+  - .cursor/agents/code-testing-generator.md
+  - .cursor/agents/code-testing-implementer.md
+  - .cursor/agents/code-testing-linter.md
+  - .cursor/agents/code-testing-planner.md
+  - .cursor/agents/code-testing-researcher.md
+  - .cursor/agents/code-testing-tester.md
+  - .cursor/agents/test-migration.md
+  - .cursor/agents/test-quality-auditor.md
+  - .cursor/agents/testability-migration.md
+  - .cursor/skills/code-testing-agent
+  - .cursor/skills/code-testing-extensions
+  - .cursor/skills/coverage-analysis
+  - .cursor/skills/crap-score
+  - .cursor/skills/detect-static-dependencies
+  - .cursor/skills/dotnet-test-frameworks
+  - .cursor/skills/filter-syntax
+  - .cursor/skills/generate-testability-wrappers
+  - .cursor/skills/migrate-mstest-v1v2-to-v3
+  - .cursor/skills/migrate-mstest-v3-to-v4
+  - .cursor/skills/migrate-static-to-wrapper
+  - .cursor/skills/migrate-vstest-to-mtp
+  - .cursor/skills/migrate-xunit-to-xunit-v3
+  - .cursor/skills/mtp-hot-reload
+  - .cursor/skills/platform-detection
+  - .cursor/skills/run-tests
+  - .cursor/skills/test-anti-patterns
+  - .cursor/skills/writing-mstest-tests
   - .github/agents/code-testing-builder.agent.md
   - .github/agents/code-testing-fixer.agent.md
   - .github/agents/code-testing-generator.agent.md
@@ -1036,6 +1553,24 @@ dependencies:
   - .github/agents/test-migration.agent.md
   - .github/agents/test-quality-auditor.agent.md
   - .github/agents/testability-migration.agent.md
+  - .github/skills/code-testing-agent
+  - .github/skills/code-testing-extensions
+  - .github/skills/coverage-analysis
+  - .github/skills/crap-score
+  - .github/skills/detect-static-dependencies
+  - .github/skills/dotnet-test-frameworks
+  - .github/skills/filter-syntax
+  - .github/skills/generate-testability-wrappers
+  - .github/skills/migrate-mstest-v1v2-to-v3
+  - .github/skills/migrate-mstest-v3-to-v4
+  - .github/skills/migrate-static-to-wrapper
+  - .github/skills/migrate-vstest-to-mtp
+  - .github/skills/migrate-xunit-to-xunit-v3
+  - .github/skills/mtp-hot-reload
+  - .github/skills/platform-detection
+  - .github/skills/run-tests
+  - .github/skills/test-anti-patterns
+  - .github/skills/writing-mstest-tests
   deployed_file_hashes:
     .claude/agents/code-testing-builder.md: sha256:4caf996507502b260afddee4b36062691c00cb6111ccf1cedb12b0ca8ac9681e
     .claude/agents/code-testing-fixer.md: sha256:63f6b83e5affdc405db369663e6da5245ec502d6d93826bd1263919e7b3d4374
@@ -1048,6 +1583,17 @@ dependencies:
     .claude/agents/test-migration.md: sha256:354cbbc354b9b71c9034d2fdf1626e1328d3e488c09b8952dada257e74848ad3
     .claude/agents/test-quality-auditor.md: sha256:e9f872e6b75855eecc045540b93e2023a8506ada5c731836a77c06ab281600b2
     .claude/agents/testability-migration.md: sha256:904e5dc2ea8aa636519e6dd1718379d1d842771f2f14050bdd2cd2cc958038d9
+    .cursor/agents/code-testing-builder.md: sha256:4caf996507502b260afddee4b36062691c00cb6111ccf1cedb12b0ca8ac9681e
+    .cursor/agents/code-testing-fixer.md: sha256:63f6b83e5affdc405db369663e6da5245ec502d6d93826bd1263919e7b3d4374
+    .cursor/agents/code-testing-generator.md: sha256:7c76b5a515f5a45c2a71952d8ef5cb667a7db9ac07efe75ba387c39f7386581c
+    .cursor/agents/code-testing-implementer.md: sha256:7c436e24da6d861c83a9324d1d79426af2c9a4d9fe4584d5b24b29858d5a907d
+    .cursor/agents/code-testing-linter.md: sha256:81ce088dce035d6314e3447c423fe9798144ae612bac0cba7bcf5bee90baa1c5
+    .cursor/agents/code-testing-planner.md: sha256:d2ee0e74ce7371a1765a45f630aba9abd96dbdb40819dec353a74511e908d1ad
+    .cursor/agents/code-testing-researcher.md: sha256:1d2ee54338d98b9eb8a7426109aedd7dacfbc1e726b66e1f78a1f4ed8678be28
+    .cursor/agents/code-testing-tester.md: sha256:7202f4aaaa3efeb89a38e9236d0a5b4f86f622cb15d19813c44b358043b1b7c4
+    .cursor/agents/test-migration.md: sha256:354cbbc354b9b71c9034d2fdf1626e1328d3e488c09b8952dada257e74848ad3
+    .cursor/agents/test-quality-auditor.md: sha256:e9f872e6b75855eecc045540b93e2023a8506ada5c731836a77c06ab281600b2
+    .cursor/agents/testability-migration.md: sha256:904e5dc2ea8aa636519e6dd1718379d1d842771f2f14050bdd2cd2cc958038d9
     .github/agents/code-testing-builder.agent.md: sha256:4caf996507502b260afddee4b36062691c00cb6111ccf1cedb12b0ca8ac9681e
     .github/agents/code-testing-fixer.agent.md: sha256:63f6b83e5affdc405db369663e6da5245ec502d6d93826bd1263919e7b3d4374
     .github/agents/code-testing-generator.agent.md: sha256:7c76b5a515f5a45c2a71952d8ef5cb667a7db9ac07efe75ba387c39f7386581c
@@ -1062,52 +1608,32 @@ dependencies:
   content_hash: sha256:34a375d69d75741101977831023c616a3d367381c828f4be7bd66a22b69e9ba9
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: 59c795c896a7fbce1ef7fa6257e8cc6639b1ba7d
+  resolved_commit: a55227f030d90e4d29df9684c53b34cb40ac0243
   virtual_path: plugins/dotnet-upgrade
   is_virtual: true
   depth: 2
   resolved_by: _local/ai
-  package_type: apm_package
+  package_type: marketplace_plugin
+  deployed_files:
+  - .claude/skills/dotnet-aot-compat
+  - .claude/skills/migrate-dotnet10-to-dotnet11
+  - .claude/skills/migrate-dotnet8-to-dotnet9
+  - .claude/skills/migrate-dotnet9-to-dotnet10
+  - .claude/skills/migrate-nullable-references
+  - .claude/skills/thread-abort-migration
+  - .cursor/skills/dotnet-aot-compat
+  - .cursor/skills/migrate-dotnet10-to-dotnet11
+  - .cursor/skills/migrate-dotnet8-to-dotnet9
+  - .cursor/skills/migrate-dotnet9-to-dotnet10
+  - .cursor/skills/migrate-nullable-references
+  - .cursor/skills/thread-abort-migration
+  - .github/skills/dotnet-aot-compat
+  - .github/skills/migrate-dotnet10-to-dotnet11
+  - .github/skills/migrate-dotnet8-to-dotnet9
+  - .github/skills/migrate-dotnet9-to-dotnet10
+  - .github/skills/migrate-nullable-references
+  - .github/skills/thread-abort-migration
   content_hash: sha256:d1deb9e694d2d41c575627ba1d5ce02e46720ba2219e7fefdd85e9337de80bdb
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/a11y.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/a11y.md
-  - .github/instructions/a11y.instructions.md
-  deployed_file_hashes:
-    .claude/rules/a11y.md: sha256:37c404bfad0db461f133be430dc4572aac074b5481d32d96fee9abbea216589d
-    .github/instructions/a11y.instructions.md: sha256:d85d6df4945f3816e5775915ab1eb051f289626e4ea85ba3ac9aa4eff6aa402c
-  content_hash: sha256:2e970f4604b399633102e34e66f8c97bea5b1290302be8369c91bc8afee0a8ce
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/agent-safety.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/agent-safety.md
-  - .github/instructions/agent-safety.instructions.md
-  deployed_file_hashes:
-    .claude/rules/agent-safety.md: sha256:547ca6d3947dc17c21b0cb74d7d058a851b3d09895146d924cf2ed3195d21f28
-    .github/instructions/agent-safety.instructions.md: sha256:f32c666ffae1777a57475bce56fc49f01cc76cdd2fea82ff2b9d976fad0b8a8b
-  content_hash: sha256:4bbc09505433818b0bee5fe3463393f7b5096b2fe4505c7fc8bcf7e333336e7a
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/agent-skills.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/agent-skills.md
-  - .github/instructions/agent-skills.instructions.md
-  deployed_file_hashes:
-    .claude/rules/agent-skills.md: sha256:2b71c776522f709576cb680aa3d79b876758b1a6e2098812e84f4426deeda6b0
-    .github/instructions/agent-skills.instructions.md: sha256:4ec02159b0f335f0ce2362cd366aca67743fd0bec9148e240b1a7a19ec2eaadb
-  content_hash: sha256:47030fd379254cd5a13407bd141b6eefbfcd01dd96444541ac16ad34beb973eb
 - repo_url: github/awesome-copilot
   host: github.com
   virtual_path: instructions/agents.instructions.md
@@ -1116,284 +1642,13 @@ dependencies:
   resolved_by: _local/ai
   deployed_files:
   - .claude/rules/agents.md
+  - .cursor/rules/agents.mdc
   - .github/instructions/agents.instructions.md
   deployed_file_hashes:
     .claude/rules/agents.md: sha256:ad2a9b3af38acf22c25865028916ca62ba0d8f8889433fd9b4c51ae4b7b97ffd
+    .cursor/rules/agents.mdc: sha256:74631447a9527d07fc155b69b0c8e13d888a375e046c63459cd5cd939641d0af
     .github/instructions/agents.instructions.md: sha256:05ca77656669d76091460783bf8e82bcd0ec91e9d27f6d2dab570a66e170380d
   content_hash: sha256:d07c345b3767232098773e612b9e40a4771c4f9c572c24083fa3259e2ba303a6
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/ai-prompt-engineering-safety-best-practices.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/ai-prompt-engineering-safety-best-practices.md
-  - .github/instructions/ai-prompt-engineering-safety-best-practices.instructions.md
-  deployed_file_hashes:
-    .claude/rules/ai-prompt-engineering-safety-best-practices.md: sha256:d6f6f067b79b24671385149cf9f7fa84842659e9dafb3a2f57e814ae8075d6ad
-    .github/instructions/ai-prompt-engineering-safety-best-practices.instructions.md: sha256:ba321f291131f1d64fd16bb2ad4359497e9b9befe4fea7fc1ab2b288fa1cefe7
-  content_hash: sha256:4f02883aef16cb41fb44b223891a74f604b9fdf56996435a010c628a8b70c69f
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/ansible.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/ansible.md
-  - .github/instructions/ansible.instructions.md
-  deployed_file_hashes:
-    .claude/rules/ansible.md: sha256:0dff9585eb9cb9c6c0382e88d78c8775e93cbd9d0089cf67f19b6f19d78817c5
-    .github/instructions/ansible.instructions.md: sha256:2bacffb876f3557e01322197d8d89ddac8fec0e7e9d737f7251dcb09a001fb05
-  content_hash: sha256:be852b2777d20e80a9b87a52dfff11cb5ad34eba1789363fe9f416bc9b8ecf42
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/apex.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/apex.md
-  - .github/instructions/apex.instructions.md
-  deployed_file_hashes:
-    .claude/rules/apex.md: sha256:ed79a7812ee5f1b4bbd77aa26da244400d003266fbb2037d5436bea7a4c31a38
-    .github/instructions/apex.instructions.md: sha256:8989215863a030fe14c94c7617afc10318c22128a2366855aeb7a2151cee6f90
-  content_hash: sha256:91465df70f71cfa07b0daa85f0df537691278bd6fbf42d72176e57ead8193772
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/arch-linux.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/arch-linux.md
-  - .github/instructions/arch-linux.instructions.md
-  deployed_file_hashes:
-    .claude/rules/arch-linux.md: sha256:d2e335b75c6b3a341c675bc0b4d356ce77d5bc1b0346fff992f67a867cb3bdca
-    .github/instructions/arch-linux.instructions.md: sha256:30308f27f7ccd547343706d13746ebead8083f9f303b13770b1de03f0522ad93
-  content_hash: sha256:77f21574223c12c9a3eb4b1b358fe925ddd3127fcff4489f272ad2f504cd1fe7
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/aspnet-rest-apis.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/aspnet-rest-apis.md
-  - .github/instructions/aspnet-rest-apis.instructions.md
-  deployed_file_hashes:
-    .claude/rules/aspnet-rest-apis.md: sha256:9ca7d7687bbdf2a79afd697133e634246912d880716c3098f9bec3414c1c5633
-    .github/instructions/aspnet-rest-apis.instructions.md: sha256:adab10c739e705232f92a3cc92b791020e7ec9c417629b2d773ca30e81a67fe2
-  content_hash: sha256:25133a792b4041ca41f21a6ad04326e0c7b1d2787bb9921e8d1a4018155c128c
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/aws-appsync.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/aws-appsync.md
-  - .github/instructions/aws-appsync.instructions.md
-  deployed_file_hashes:
-    .claude/rules/aws-appsync.md: sha256:cd049b735c1a2dd1b4bac31bf589853bb380c0137dd85fef43be3f71382e66a5
-    .github/instructions/aws-appsync.instructions.md: sha256:587d650a461e81666618639f83b8e3f6c716717aa2cc465be5cacbae16d9d3da
-  content_hash: sha256:4e867d2f7d9201f7009f89c88dfff37a615ab057f5700d8268236bddcdc42517
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/azure-devops-pipelines.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/azure-devops-pipelines.md
-  - .github/instructions/azure-devops-pipelines.instructions.md
-  deployed_file_hashes:
-    .claude/rules/azure-devops-pipelines.md: sha256:306f702b3a6038075509de4b99b54fe2b4bbe2579c110336c093c4fccbc076d8
-    .github/instructions/azure-devops-pipelines.instructions.md: sha256:3ee7f6c7dd9f4d46903ea79797398d69829725e0b3de0cba8a986b420d985697
-  content_hash: sha256:e7a0546d76c17697b73282a09ec0a12ca1cd7f9613f0076b356ebe061d45eaa0
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/azure-durable-functions-csharp.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/azure-durable-functions-csharp.md
-  - .github/instructions/azure-durable-functions-csharp.instructions.md
-  deployed_file_hashes:
-    .claude/rules/azure-durable-functions-csharp.md: sha256:7b3303d0ec3a4d4192a5e90d87c84cc170475bcef56d9a63af0c2ace7ea23dbc
-    .github/instructions/azure-durable-functions-csharp.instructions.md: sha256:098d6f12eee1bf9c1c5c90478ba59a3c5668ae28906d650c172e4710e615dede
-  content_hash: sha256:fea47413a28e2e2ff9472618aa9da17045b93f2af70667c3a7a2bd3e569c118a
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/azure-functions-csharp.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/azure-functions-csharp.md
-  - .github/instructions/azure-functions-csharp.instructions.md
-  deployed_file_hashes:
-    .claude/rules/azure-functions-csharp.md: sha256:4434ba51822be09781bba599de9c500005f5329d83b61677ef1128714431df71
-    .github/instructions/azure-functions-csharp.instructions.md: sha256:0a804e38dd4709befc0b13b19611c8a8375f6497b4845d224cee5f043c53d570
-  content_hash: sha256:a54767ab83ec20e062940d01c8ff19d60d6646e308e85ce179da960230ef4192
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/azure-functions-typescript.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/azure-functions-typescript.md
-  - .github/instructions/azure-functions-typescript.instructions.md
-  deployed_file_hashes:
-    .claude/rules/azure-functions-typescript.md: sha256:925559ee06c8cf22cbbebe4299ec6489fedc06ef2d56d15d8b3f7b36b8cd3bbe
-    .github/instructions/azure-functions-typescript.instructions.md: sha256:7bf82e4fa2d275a635124bcdaf952661e1d20ca98111cbaf70bfcb5c48e49e5c
-  content_hash: sha256:1b3a469ea02e1ca54639550507eefa967b9ebbc8ace1e54fc54d92ae05a06ddb
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/azure-logic-apps-power-automate.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/azure-logic-apps-power-automate.md
-  - .github/instructions/azure-logic-apps-power-automate.instructions.md
-  deployed_file_hashes:
-    .claude/rules/azure-logic-apps-power-automate.md: sha256:8c2181a42d5583dcc2844e121d52077f868dba85540d86ece383105575f29d95
-    .github/instructions/azure-logic-apps-power-automate.instructions.md: sha256:a3cae709ed0fa3f4bd9b3102c12b0a6bec03e9da6a169bddf81e4f7ffed170ef
-  content_hash: sha256:d2f7f448ed797f45b8c3c49307ad0d61fad52efef8167d9950a3625ef2246ad8
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/azure-verified-modules-bicep.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/azure-verified-modules-bicep.md
-  - .github/instructions/azure-verified-modules-bicep.instructions.md
-  deployed_file_hashes:
-    .claude/rules/azure-verified-modules-bicep.md: sha256:22f5ff43c78dcf7219ba6f8977147d229a32bac4f61f040a6070ea882fee3aa7
-    .github/instructions/azure-verified-modules-bicep.instructions.md: sha256:8b4e50456f97af456cd6c3893319c731980f32ffc84c2f59301c2fde4b174e32
-  content_hash: sha256:9ad369084b1c3c5aa2679115c2e378607d064dc6fe444c6af52b963ee32afd9a
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/azure-verified-modules-terraform.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/azure-verified-modules-terraform.md
-  - .github/instructions/azure-verified-modules-terraform.instructions.md
-  deployed_file_hashes:
-    .claude/rules/azure-verified-modules-terraform.md: sha256:02acca50246c5532d506202be6a6db0633e74dc31bcb2478d4ebd742b4a0559f
-    .github/instructions/azure-verified-modules-terraform.instructions.md: sha256:7c64355703d449eeb56438c8b79b8b6b55af06ac9e7aae8da5e5e639bf520e00
-  content_hash: sha256:bbad29ae0200473f8f25ca39a57c60d66434a485350008f1167f16f852fad8a0
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/bicep-code-best-practices.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/bicep-code-best-practices.md
-  - .github/instructions/bicep-code-best-practices.instructions.md
-  deployed_file_hashes:
-    .claude/rules/bicep-code-best-practices.md: sha256:06ef493f7fda700e522ce9313bb1c96c8e4b2e66f412700e5e9955e7291c98c6
-    .github/instructions/bicep-code-best-practices.instructions.md: sha256:e5dc63050d0e55b9c658292e5bbf0d15ed0babdacafe449195c037a09d7aad50
-  content_hash: sha256:11a6d6ef946f7c217de8f554b419926becff6ee0a0831279eb175d0f7e40190e
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/blazor.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/blazor.md
-  - .github/instructions/blazor.instructions.md
-  deployed_file_hashes:
-    .claude/rules/blazor.md: sha256:c7e517ca8a121ae7c3630772793f9eb9f3e43664eb496845fa1266df0f184f07
-    .github/instructions/blazor.instructions.md: sha256:0ed7fbdf5ad43255634af2905dc0b31d760b4d9e7d70bb3b14a4920c7a8f605b
-  content_hash: sha256:33e3e15bc677849aed3b6b77c4bb7ca1bc7d44d83d312e3c3fc76e5c6af29f79
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/centos-linux.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/centos-linux.md
-  - .github/instructions/centos-linux.instructions.md
-  deployed_file_hashes:
-    .claude/rules/centos-linux.md: sha256:2cf6d4af0a41a3355b9ba8a6b60513ef31d6b0463e91c6eed232db51044fa995
-    .github/instructions/centos-linux.instructions.md: sha256:8cf9e52de20756c8f145ad7bc18efa13fccb182db19152bce5acc42e071a5d3f
-  content_hash: sha256:61dfdd9276db94e676491f822a973c2d1f021451fc81da3ec8c606aea1256511
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/clojure.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/clojure.md
-  - .github/instructions/clojure.instructions.md
-  deployed_file_hashes:
-    .claude/rules/clojure.md: sha256:278b03e4191b900c7de3229c1c135694cf6651af185e27a7fb46356656fbe3b8
-    .github/instructions/clojure.instructions.md: sha256:19279142bf9e21f68bd6f17758981bfd45178d4a7fa0583f5fdfd005a58e091d
-  content_hash: sha256:3d859dc621cd20fb6dc1d4158778630a4828dd924c076fe9a7bd0e0f500abe13
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/cmake-vcpkg.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/cmake-vcpkg.md
-  - .github/instructions/cmake-vcpkg.instructions.md
-  deployed_file_hashes:
-    .claude/rules/cmake-vcpkg.md: sha256:b4b049e25d84a027d13f946a86275f47180cbeaf4b885b3954db2a037b2333e9
-    .github/instructions/cmake-vcpkg.instructions.md: sha256:262c62d2ae53233d2c166e8570fbd9fa4b25537bdac3b59fb6a48a04c7eebace
-  content_hash: sha256:d7df7ad4fb9c3afdfc5e2bcf1cf8eb60331474ddd2d8a5891cf5ba1c3f401505
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/code-review-generic.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/code-review-generic.md
-  - .github/instructions/code-review-generic.instructions.md
-  deployed_file_hashes:
-    .claude/rules/code-review-generic.md: sha256:438a95faf5d7e0c1d52f0be55ca6d751a133a30f07cd95f09390803635267e5d
-    .github/instructions/code-review-generic.instructions.md: sha256:e6917309e3e986cde1650768cc871f54e5d054e90c4518afb5c937941ee212a9
-  content_hash: sha256:31212689590950d38ab751ad947ac94078ec57eb71a497c5b126135bc05dc7e1
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/codexer.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/codexer.md
-  - .github/instructions/codexer.instructions.md
-  deployed_file_hashes:
-    .claude/rules/codexer.md: sha256:e8d9841cd039491142067043e31de15e96dda7c06d548008099a0b40d412c986
-    .github/instructions/codexer.instructions.md: sha256:3b062bb9784ff00f8e2a2b644fd8a0c6c36af785a4f01d8437348161e3ec068c
-  content_hash: sha256:59d7de9c80b14417f45c3cc3f678eff1ea3708c5d6e75715f7b4ca8d8e764452
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/containerization-docker-best-practices.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/containerization-docker-best-practices.md
-  - .github/instructions/containerization-docker-best-practices.instructions.md
-  deployed_file_hashes:
-    .claude/rules/containerization-docker-best-practices.md: sha256:4ac2eccf2f996bf6ce51aa7c6cc600f99fa979404f036175db36af7dc1637be7
-    .github/instructions/containerization-docker-best-practices.instructions.md: sha256:92736c4f0869bbfee1799012644bb54b32965ee32db35160a846f5e184750a17
-  content_hash: sha256:1c00a635bd064e21c1c7e7192e4a5e15fe6ceb18847e3ef09dc248d7c4acc094
 - repo_url: github/awesome-copilot
   host: github.com
   virtual_path: instructions/context-engineering.instructions.md
@@ -1402,258 +1657,13 @@ dependencies:
   resolved_by: _local/ai
   deployed_files:
   - .claude/rules/context-engineering.md
+  - .cursor/rules/context-engineering.mdc
   - .github/instructions/context-engineering.instructions.md
   deployed_file_hashes:
     .claude/rules/context-engineering.md: sha256:20db2e9dc06873577473f0a45c6f5c5490d5749dfc1ab02269eba089f9c3d3ea
+    .cursor/rules/context-engineering.mdc: sha256:d9ed2655f9438d50c1d729945225d1060b16c417affb735bedb386ba4a943157
     .github/instructions/context-engineering.instructions.md: sha256:303780cee09b1707be6b2aa99ad2215514f2f76cbd2da59378194483dc6bf499
   content_hash: sha256:4586c2567260b5c8a6357755330dd95f81814bebbcb00dab5c002d2d330f5d0e
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/context7.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/context7.md
-  - .github/instructions/context7.instructions.md
-  deployed_file_hashes:
-    .claude/rules/context7.md: sha256:831582c671ca4414a86856274f9308b6c1647140e4fc632da32ccff0c0ca4b48
-    .github/instructions/context7.instructions.md: sha256:42ea241643495888660e79a604798945ad7d92291e3d8b73a427bffa9add7745
-  content_hash: sha256:bddc03ecb548d5bfc3a08d8552a8eeb0d7ded4c02578e9279bb2da47d5265686
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/copilot-thought-logging.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/copilot-thought-logging.md
-  - .github/instructions/copilot-thought-logging.instructions.md
-  deployed_file_hashes:
-    .claude/rules/copilot-thought-logging.md: sha256:f9d7d2081645f94553b755e61c917608db24137a00e63c5186d03bb11adf9c78
-    .github/instructions/copilot-thought-logging.instructions.md: sha256:cc397cf4f54d1cc22d2b85c35298237c606e66986f5c5b37d845b711e3eeab3d
-  content_hash: sha256:8f42098d8f89644eed439424a3ff57319f731cf45895c2b01a37c7f472ff4a3c
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/csharp.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/csharp.md
-  - .github/instructions/csharp.instructions.md
-  deployed_file_hashes:
-    .claude/rules/csharp.md: sha256:d1f3af8ab0bfe2c91f3bb0cf42d12a4acd48178dbdddc4aa816483401ca97ac7
-    .github/instructions/csharp.instructions.md: sha256:260d67446b88b08f996b4849d55df7e57674d5ff1d80a7cf481660d78c0e3690
-  content_hash: sha256:0dddfb0193514f4fc7eaf879d8c582e06ce1784185a41098b7c34b851c726bf9
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/dart-n-flutter.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/dart-n-flutter.md
-  - .github/instructions/dart-n-flutter.instructions.md
-  deployed_file_hashes:
-    .claude/rules/dart-n-flutter.md: sha256:349977358fbcfa6b9e3151ec87bafa048cb2f9c403bcd1a2457b2f0a0416c3fc
-    .github/instructions/dart-n-flutter.instructions.md: sha256:4e28e54c47299f5b04d75742ae34d982847278b48bc5193e31fb770cc4f54677
-  content_hash: sha256:827354659c1b153b8202e39ddd5d36ca31cb02bcc2cea2b99d25b80202b078c8
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/debian-linux.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/debian-linux.md
-  - .github/instructions/debian-linux.instructions.md
-  deployed_file_hashes:
-    .claude/rules/debian-linux.md: sha256:d9a23a772787fc0812c3b51d7e040dc311ed69a31e4041cdd28323c7466f54d7
-    .github/instructions/debian-linux.instructions.md: sha256:86f6958407e8d0e8512cb188868e48f135d9ad8a6cc7f9910e8550cb49e62554
-  content_hash: sha256:82c6d8144ad6b471c59e03930813246ba4d79a56c2b12539b5ce154a2664e795
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/declarative-agents-microsoft365.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/declarative-agents-microsoft365.md
-  - .github/instructions/declarative-agents-microsoft365.instructions.md
-  deployed_file_hashes:
-    .claude/rules/declarative-agents-microsoft365.md: sha256:5060b59df878640ef869415319d43358fb5964427215a20172e02187789a86b7
-    .github/instructions/declarative-agents-microsoft365.instructions.md: sha256:bc289254a7c73e474f04e4580536855a76f42f4a1ce52183c99ed9c37790208f
-  content_hash: sha256:70eb5545b69c315ecc733ce07ea4be290da67d13b8bbad349b65438467017af7
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/devbox-image-definition.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/devbox-image-definition.md
-  - .github/instructions/devbox-image-definition.instructions.md
-  deployed_file_hashes:
-    .claude/rules/devbox-image-definition.md: sha256:0a01392a021a02a11a23ab46403956761afa2db553c610ba59f074c16eecd34e
-    .github/instructions/devbox-image-definition.instructions.md: sha256:fcbd4b0c3a82b2eeaa75c2192c7823253ddd1764c0f5671fa3bbd1531afe09db
-  content_hash: sha256:d4eed32efbfa9c879c5e06b8bc178bf548bf139874ddcc74d9bf27f0271b073a
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/devops-core-principles.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/devops-core-principles.md
-  - .github/instructions/devops-core-principles.instructions.md
-  deployed_file_hashes:
-    .claude/rules/devops-core-principles.md: sha256:f44ed4a3109edb249d64de5f8c9061d2ca755cca300f1c4c292fe8e42e902958
-    .github/instructions/devops-core-principles.instructions.md: sha256:7a9329490a0413871ff4b451bd98e08b4a9a0bd8c69864ed51ebc55c47265cd2
-  content_hash: sha256:bf0bccaf5a45d159c93ea7089cfdc864449aa42facd2e9dff30a6cc98db8cca2
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/dotnet-architecture-good-practices.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/dotnet-architecture-good-practices.md
-  - .github/instructions/dotnet-architecture-good-practices.instructions.md
-  deployed_file_hashes:
-    .claude/rules/dotnet-architecture-good-practices.md: sha256:fd93bae0ec142a2d049ffda8741649aa44230e20ea3c2c4a8b8114a72ef463f7
-    .github/instructions/dotnet-architecture-good-practices.instructions.md: sha256:e28a4f6526bcf6dea17157b1e6db035507a8299dc19d1690ba20e438aa90845b
-  content_hash: sha256:8071008fb203a0e83f9e790425b0807531acb32731515adf737d7e86c9336fac
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/dotnet-framework.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/dotnet-framework.md
-  - .github/instructions/dotnet-framework.instructions.md
-  deployed_file_hashes:
-    .claude/rules/dotnet-framework.md: sha256:68bf8f79dec0c4c00bf48fa885f9322158bf5065c05ad775e781bda7e0c12d67
-    .github/instructions/dotnet-framework.instructions.md: sha256:fb3625268e078354b19761d3c916ef461ac6ae58560d2538e515cead962116df
-  content_hash: sha256:90b44fd6282ec71bb3f7f4bc0f987fcd2b1172d76a4af5b85fb9cd20944523f2
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/dotnet-upgrade.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/dotnet-upgrade.md
-  - .github/instructions/dotnet-upgrade.instructions.md
-  deployed_file_hashes:
-    .claude/rules/dotnet-upgrade.md: sha256:714f0ddccb0417534a379ff046cbe8b9f2103e606b1a1956d89cdfbd234e2237
-    .github/instructions/dotnet-upgrade.instructions.md: sha256:62cc465bad649c0b245b5b0e4528c7ff0b1e417bd63d1561725405e2390e2458
-  content_hash: sha256:220e555df06d95f7e7c168f3762f22d79f7383d9a53e9b15f8bd120cd33b48f6
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/draw-io.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/draw-io.md
-  - .github/instructions/draw-io.instructions.md
-  deployed_file_hashes:
-    .claude/rules/draw-io.md: sha256:20f90896346a166d473fa5e9cc52a4eadc0c11f67ead3a80129eaab60409260a
-    .github/instructions/draw-io.instructions.md: sha256:90f579182aeaa0a79960f827eb8960c31e9f06ef140d2d58ea5223a9d5cbdc59
-  content_hash: sha256:109b89448fa797b545469f74d3a736a428bba0810879d28967ff1a3fcb4194de
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/genaiscript.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/genaiscript.md
-  - .github/instructions/genaiscript.instructions.md
-  deployed_file_hashes:
-    .claude/rules/genaiscript.md: sha256:3ab047227a8bebd2ae5539f003276ffacd5f81ddb930cf933d7681ae291e2dd7
-    .github/instructions/genaiscript.instructions.md: sha256:d7bc92b0ce96c7a7d05a6347127f8eba4af057780803ac79c4d14b185152c1fa
-  content_hash: sha256:f0e6d3a0746545d792a0236a6d9cc435e2a097c4dbd1e04749021f8023be706a
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/generate-modern-terraform-code-for-azure.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/generate-modern-terraform-code-for-azure.md
-  - .github/instructions/generate-modern-terraform-code-for-azure.instructions.md
-  deployed_file_hashes:
-    .claude/rules/generate-modern-terraform-code-for-azure.md: sha256:d64d74f4c6e1f09ff2cecd695fd88cf81f42cd1eafabab7bff03def9de0efef3
-    .github/instructions/generate-modern-terraform-code-for-azure.instructions.md: sha256:5a5f5ef3b92feb4eb93bcf5fb0fcae4e27519f248aca9d4bfabd31b7607806e7
-  content_hash: sha256:f974d8fe5a793512dae75c8bb527ca2b14703b2759774a34a834ad70c1d0dc06
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/gilfoyle-code-review.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/gilfoyle-code-review.md
-  - .github/instructions/gilfoyle-code-review.instructions.md
-  deployed_file_hashes:
-    .claude/rules/gilfoyle-code-review.md: sha256:08cfa7db45133e14d06eba549c325efd1ed8a2dc66dba931a25a5e0f99a0676f
-    .github/instructions/gilfoyle-code-review.instructions.md: sha256:5b49ab9aa9f3d93885ec4177f13a9b816935475a370882cfa94854b377d25662
-  content_hash: sha256:4c5b13098cb6ab5c29721f15f803228cc9d286b59e66b8d6ee19b21efc0fa114
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/github-actions-ci-cd-best-practices.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/github-actions-ci-cd-best-practices.md
-  - .github/instructions/github-actions-ci-cd-best-practices.instructions.md
-  deployed_file_hashes:
-    .claude/rules/github-actions-ci-cd-best-practices.md: sha256:4945874c82ee7bd2f92348b86a05ee312edf9cd59423826a7fbe1fdb4665e4b2
-    .github/instructions/github-actions-ci-cd-best-practices.instructions.md: sha256:6889e78ce6ece4326e3e1188c458c3c50e4eb21f132e01c6b2564a0b2005561c
-  content_hash: sha256:a520b3d373b6b6d1c5b2d6715272321ddaf51c8ef6876fff5f56dfba2c1610b6
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/go-mcp-server.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/go-mcp-server.md
-  - .github/instructions/go-mcp-server.instructions.md
-  deployed_file_hashes:
-    .claude/rules/go-mcp-server.md: sha256:f5ead25417b36cb5925ff97fad02e8e5c8fe7d1552dd5efd8e4c62a1acfec1c9
-    .github/instructions/go-mcp-server.instructions.md: sha256:f781b70ca4d681859e47fa6a7837e5c0586e2036d7d26225044f9819afeffed4
-  content_hash: sha256:cb198cb2803d4cd5ef59284ccf700c695af13dbb38fe6604ba57ee81bfa8e83e
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/go.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/go.md
-  - .github/instructions/go.instructions.md
-  deployed_file_hashes:
-    .claude/rules/go.md: sha256:1532c8420d2fc1429da341f71e2a7c712d87109e1a7a0de67462ffc0020fd905
-    .github/instructions/go.instructions.md: sha256:c73b7cece283d87ec892b7a9dfc730be4f6d249e78bda84849f33740eb161c68
-  content_hash: sha256:0ea9b708e20648bdd0e9b8955992f1df76484eb14001c135e64b24df58d7ccd5
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/html-css-style-color-guide.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/html-css-style-color-guide.md
-  - .github/instructions/html-css-style-color-guide.instructions.md
-  deployed_file_hashes:
-    .claude/rules/html-css-style-color-guide.md: sha256:95a9928743a95bcb074c98c8849086e1e2caf15de0c864ddc70d6e5944ab8de1
-    .github/instructions/html-css-style-color-guide.instructions.md: sha256:5edafc8f6920c3bc62e6f18b927adbb971d5782bdcd0b54ad0ab9428a56c76e9
-  content_hash: sha256:7566f55a7f9c818b293fa7915d3e77b45f43a2c0cd78ef638ee2d6900701d48e
 - repo_url: github/awesome-copilot
   host: github.com
   virtual_path: instructions/instructions.instructions.md
@@ -1662,154 +1672,13 @@ dependencies:
   resolved_by: _local/ai
   deployed_files:
   - .claude/rules/instructions.md
+  - .cursor/rules/instructions.mdc
   - .github/instructions/instructions.instructions.md
   deployed_file_hashes:
     .claude/rules/instructions.md: sha256:12143206b81f13aef4efb2e26f6a65483211c63407fcafc289775866ee6879cc
+    .cursor/rules/instructions.mdc: sha256:f323fcb47cc747aa2df001bd7d8701b7177ca269bf381ed4f154e225ab81d1df
     .github/instructions/instructions.instructions.md: sha256:a38e647c44a1b3702cea44569ddb4cb3f3b53a78d08f7f457d14c12e9e65eaba
   content_hash: sha256:c190999f713a13bc01b918acf454e7546a9dc9fe254e0f9d6705df3ff698c917
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/kubernetes-deployment-best-practices.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/kubernetes-deployment-best-practices.md
-  - .github/instructions/kubernetes-deployment-best-practices.instructions.md
-  deployed_file_hashes:
-    .claude/rules/kubernetes-deployment-best-practices.md: sha256:125a8120679565bda90a388425848bd1a36dc19b15710a1cc84e83addfbefe7c
-    .github/instructions/kubernetes-deployment-best-practices.instructions.md: sha256:0aa8ddf92cb0534b373a987dd3b1e7f39338fcc9b18cb9c7a7d002aa8780bc09
-  content_hash: sha256:71b4d3383a44f5c03fc90467ce8ff6fcd804653f23b50cd1a05e1fcc465c0c9b
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/kubernetes-manifests.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/kubernetes-manifests.md
-  - .github/instructions/kubernetes-manifests.instructions.md
-  deployed_file_hashes:
-    .claude/rules/kubernetes-manifests.md: sha256:48de124c68c8811225f821a40671639358f658a2a4b5dfc0690efa697db3f8e4
-    .github/instructions/kubernetes-manifests.instructions.md: sha256:e54ba3f60913c4f391de409f72662ba2e34fd51926c3d16317a43415a7cd3ff1
-  content_hash: sha256:7f4fd6e65abbf73edb437281e489b45d1329a04caa296d9afa675575b848d2be
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/langchain-python.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/langchain-python.md
-  - .github/instructions/langchain-python.instructions.md
-  deployed_file_hashes:
-    .claude/rules/langchain-python.md: sha256:8424ba27430aea4e546b84f77f0aa96f41445ed8ee8619d787d769d44d1f1414
-    .github/instructions/langchain-python.instructions.md: sha256:62a8481b6d21f1c48556d74dad9f732a0b21fc7997fae6e94c01209069dae0d1
-  content_hash: sha256:5725476c178a7e541c87d80b435be68d0a4005e28c3ee369e9b9976498e459a6
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/localization.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/localization.md
-  - .github/instructions/localization.instructions.md
-  deployed_file_hashes:
-    .claude/rules/localization.md: sha256:a5a4305929557867e15c423f55dd5958d5e1734ca91ad4621e0e4eac45171916
-    .github/instructions/localization.instructions.md: sha256:82d9a72b589a21bc5701c40a5807196318e0ce693493d507874516d314ac1b7f
-  content_hash: sha256:e9d57c298dda826650dfa797c36430b82a8923f3975d8017cf0cc0e10da38867
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/lwc.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/lwc.md
-  - .github/instructions/lwc.instructions.md
-  deployed_file_hashes:
-    .claude/rules/lwc.md: sha256:715e487e8f2cb028b63ebada4b08d13747ddc5ff297d971f4534cb63c9222257
-    .github/instructions/lwc.instructions.md: sha256:83ec9673560600f2249c96aaea4d73430be7c983158f5b0109864fdd1231174a
-  content_hash: sha256:4ac956515851a65cf200a32c1a444a96ffd515378f0d0bc05132be59c375ba08
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/makefile.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/makefile.md
-  - .github/instructions/makefile.instructions.md
-  deployed_file_hashes:
-    .claude/rules/makefile.md: sha256:0de112167d4feb28ff86c48c41629a2cf15a354bf5df90da48bcf9e40490bfda
-    .github/instructions/makefile.instructions.md: sha256:d94cec887e63a64e2601cd2f731ebacff85c70c1ff5af4760c1816b6e4160101
-  content_hash: sha256:918b6d3932b3724ad90a4f54466d42b4139708838db1e9ec4f8da47253183250
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/markdown-accessibility.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/markdown-accessibility.md
-  - .github/instructions/markdown-accessibility.instructions.md
-  deployed_file_hashes:
-    .claude/rules/markdown-accessibility.md: sha256:640142ccc98a88a9af0161097b32bc54a434f2c973eff823c2010cefb639325c
-    .github/instructions/markdown-accessibility.instructions.md: sha256:c1332ed504fce2f0daaa3663ae919e0d6b8e66b07bef9cf0a4c68d1c2f0fa040
-  content_hash: sha256:01657a0c5663fd545c55acedd80adf40cd3133283af7e8a083d051e26f2d7032
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/markdown-content-creation.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/markdown-content-creation.md
-  - .github/instructions/markdown-content-creation.instructions.md
-  deployed_file_hashes:
-    .claude/rules/markdown-content-creation.md: sha256:1d52708f61052c34a8c4f1f9f534d040bbdc692d4dedd6a15e7c627f971e04e1
-    .github/instructions/markdown-content-creation.instructions.md: sha256:9d487fd5a17afc909984ad4bb4985f538095659f7d3b62fad04b668d8407347f
-  content_hash: sha256:820d0979852f4192eb3f267b9d6ca66a86a8b9d2dba3b6e1ab2f7a7192e8e863
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/markdown-gfm.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/markdown-gfm.md
-  - .github/instructions/markdown-gfm.instructions.md
-  deployed_file_hashes:
-    .claude/rules/markdown-gfm.md: sha256:954c6f04b8e15e0b579f4b9fe49fbbb9a64ee8acdd9ec6ecda16abd149c68b52
-    .github/instructions/markdown-gfm.instructions.md: sha256:72dff55a1857da1b01b3ef60543af066f95d1927686afaf1f9c5257fdc43d9b1
-  content_hash: sha256:85b8d6dc372a5e6afa0a873a80ebedf6c925a0ca12399d2be66ce9d1cc0330a4
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/markdown.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/markdown.md
-  - .github/instructions/markdown.instructions.md
-  deployed_file_hashes:
-    .claude/rules/markdown.md: sha256:dc847e60ca1bd9ea528d237a952cef0ff8b3f41c84804d46847050b07ebc663d
-    .github/instructions/markdown.instructions.md: sha256:4dbd77240f4e946b321fbadb3dfaa6e5add1f803e80402ea7af598de55b3991a
-  content_hash: sha256:84a6e6a3f92829fddee305f516706b794934c312f8cfb2c4a0aad402debdd704
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/mcp-m365-copilot.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/mcp-m365-copilot.md
-  - .github/instructions/mcp-m365-copilot.instructions.md
-  deployed_file_hashes:
-    .claude/rules/mcp-m365-copilot.md: sha256:328c8554934b7027287089a980595fea6cd9d81da37ef3af586e703338c4bfb2
-    .github/instructions/mcp-m365-copilot.instructions.md: sha256:589da6ef4b339238456154c82dc7d8985c2f4ab7fef97b95a629172cdc2ca73c
-  content_hash: sha256:31bb42056705bc813294733a97c7dde4b93a7b8d77329f310ce9e620bf2d3cbb
 - repo_url: github/awesome-copilot
   host: github.com
   virtual_path: instructions/memory-bank.instructions.md
@@ -1818,167 +1687,13 @@ dependencies:
   resolved_by: _local/ai
   deployed_files:
   - .claude/rules/memory-bank.md
+  - .cursor/rules/memory-bank.mdc
   - .github/instructions/memory-bank.instructions.md
   deployed_file_hashes:
     .claude/rules/memory-bank.md: sha256:a548970d441ed9e7f0b3328f683ece3f4ee4ed2e6aadf9c8bb7dedc95448d958
+    .cursor/rules/memory-bank.mdc: sha256:79dd5fb987e7f34a733fbc87cec7e1b7365d84f2145d2586db35530c6a8e0c46
     .github/instructions/memory-bank.instructions.md: sha256:8d6b774a6e4736120e11596402511355897088b5baebe3da21bd4f6b9c663e70
   content_hash: sha256:a64da76c8115f0906c4ff7d21bfa2b832804c6bd9d20cd25711ca5a757f8c68e
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/ms-sql-dba.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/ms-sql-dba.md
-  - .github/instructions/ms-sql-dba.instructions.md
-  deployed_file_hashes:
-    .claude/rules/ms-sql-dba.md: sha256:c2cd01165acab0a587d1ec0fca9c87ddfb798029a4314064410864bb3807d342
-    .github/instructions/ms-sql-dba.instructions.md: sha256:e42a8088f2eae32bb3dc4d63c9b8efdf02097ab1e3b5189d22f0987320ea877f
-  content_hash: sha256:93aaa8d099dc38491cebf8175ed92c69b5bf0dadfb497b45733190692a169d5f
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/nestjs.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/nestjs.md
-  - .github/instructions/nestjs.instructions.md
-  deployed_file_hashes:
-    .claude/rules/nestjs.md: sha256:23b79c75f0eb5e56ef86cc38c204d9943ba027ed74f40db02c95f2e4f5da8ab8
-    .github/instructions/nestjs.instructions.md: sha256:ce9d032314fe6bc64a35f8b7aa89638e85a8b06d22186a91a6d585be6cece173
-  content_hash: sha256:13c446ab758329a40e07a0ce9ec52053c5fd120c3c66a29a3b7f2fcd73734e8a
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/nextjs-tailwind.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/nextjs-tailwind.md
-  - .github/instructions/nextjs-tailwind.instructions.md
-  deployed_file_hashes:
-    .claude/rules/nextjs-tailwind.md: sha256:fad0230698c2adabfd9a811dc77b0ff5de23f188e505bf1d1868708945243c24
-    .github/instructions/nextjs-tailwind.instructions.md: sha256:9ade808b3a26c662eb1391ccfb5bb7292d7bcf4084f6196df7bb8c2f48891838
-  content_hash: sha256:42bea436a03cfaffcd6ba310e865a284f81f5944edfbc964cdd1c6581d235c81
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/nextjs.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/nextjs.md
-  - .github/instructions/nextjs.instructions.md
-  deployed_file_hashes:
-    .claude/rules/nextjs.md: sha256:6dc58fa7f613b507d0aefb201db0ace074728ced4528e2707df44dadb7897e91
-    .github/instructions/nextjs.instructions.md: sha256:b138059641f95804fc5f98fb6798bb311bb3df70a9b37aa9247904315cc1c3be
-  content_hash: sha256:b683390c581495a6383676bb8d6f25f9a611b011ee3f579715f5a9688c216764
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/no-heredoc.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/no-heredoc.md
-  - .github/instructions/no-heredoc.instructions.md
-  deployed_file_hashes:
-    .claude/rules/no-heredoc.md: sha256:161ea06c7f547fa193db593e4b6504619e8910fcbff0a609be7d23602a92cde1
-    .github/instructions/no-heredoc.instructions.md: sha256:828ebca7dba7ead6f040b8e995e56305e0f9f74113a9e95b09c853aa76b50c4e
-  content_hash: sha256:c5ea20ae93840ef36f29693f2052ea21b746962ea0c7db31828d6422ddad8940
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/nodejs-javascript-vitest.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/nodejs-javascript-vitest.md
-  - .github/instructions/nodejs-javascript-vitest.instructions.md
-  deployed_file_hashes:
-    .claude/rules/nodejs-javascript-vitest.md: sha256:ff93d418f98059086841542ddb07169e172bdf724e1740565659699c2a727503
-    .github/instructions/nodejs-javascript-vitest.instructions.md: sha256:013f3c0727d7f62d3f8a954c9d0ffec1f4dd2849a28b515b81ebc1685394bd49
-  content_hash: sha256:01fb897bdd5eceb434585fab9d5cc83ac9fd7c7c7a2e13995ef8b6cbb9b09883
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/object-calisthenics.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/object-calisthenics.md
-  - .github/instructions/object-calisthenics.instructions.md
-  deployed_file_hashes:
-    .claude/rules/object-calisthenics.md: sha256:6c0f98d243e8b1c3fac4c9c765ed10b8cec40ca5ac1aa32ad00d4799dde13e55
-    .github/instructions/object-calisthenics.instructions.md: sha256:6c90406954930e94d1e0a6a9d1b8b315cd8b58483625738ff7551aec1f65ab1d
-  content_hash: sha256:789857ba6e47703888c00871705a73673a8478d5de09d12d22a25a191e2ca40f
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/oop-design-patterns.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/oop-design-patterns.md
-  - .github/instructions/oop-design-patterns.instructions.md
-  deployed_file_hashes:
-    .claude/rules/oop-design-patterns.md: sha256:3e55e25256a248df10a192a827557873d7c7044c526b452b701eb93dee5cdc29
-    .github/instructions/oop-design-patterns.instructions.md: sha256:1c80401f806371b6227754b4dc6bf2f0b90065f5837981f37b9cc6297fc77b4a
-  content_hash: sha256:5a0c32b599f249474b0c35443b756879475a563b56d6d89f62345c26359f57c1
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/performance-optimization.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/performance-optimization.md
-  - .github/instructions/performance-optimization.instructions.md
-  deployed_file_hashes:
-    .claude/rules/performance-optimization.md: sha256:001ac3d0db0425993aea8844f69682f13cf8ac487ca9c853b0a702f32d7b6a5c
-    .github/instructions/performance-optimization.instructions.md: sha256:da6bc91eac4224b6d025c17d21b77dd5e0da936febb874e92becb550655897ec
-  content_hash: sha256:6eefad9eba4fbd2f29713c95064c4b14aec920c6d4016f9d49455b103c7e2132
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/playwright-dotnet.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/playwright-dotnet.md
-  - .github/instructions/playwright-dotnet.instructions.md
-  deployed_file_hashes:
-    .claude/rules/playwright-dotnet.md: sha256:9e13ac4f8968349bd7c0ecadbed0181bb9483821402699aea6489f1dd4d7b054
-    .github/instructions/playwright-dotnet.instructions.md: sha256:d498fb42bbab7b1da9d7f4f904ee456bae522b696ebb64d662c80d4e90691849
-  content_hash: sha256:dea159ff8691fc0c7d674d3f630f87f4364a6809e1a1071bca7fa7145498e8bb
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/playwright-typescript.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/playwright-typescript.md
-  - .github/instructions/playwright-typescript.instructions.md
-  deployed_file_hashes:
-    .claude/rules/playwright-typescript.md: sha256:f51d34d02282ccf49f9a252a8631b6b7edde4437d72b7384cdbf1122e5180714
-    .github/instructions/playwright-typescript.instructions.md: sha256:bf42d14519531fddc310b2e786982d3d669d8d1618acc1a1a4b833013fff06f1
-  content_hash: sha256:091872dc594025a8d4ca521f9b9a77a73d2c34892e3ca3538ab2a9b2ca4b646a
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/powershell-pester-5.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/powershell-pester-5.md
-  - .github/instructions/powershell-pester-5.instructions.md
-  deployed_file_hashes:
-    .claude/rules/powershell-pester-5.md: sha256:34e645640a88c8757517d07e05bb7858dda86e2f94339bd4b5a31d2014bedbfc
-    .github/instructions/powershell-pester-5.instructions.md: sha256:2701e33be4db0b2c842beb63cb4d6b765c030a994812c497c346304bb1517040
-  content_hash: sha256:65e39d55f28e8300c028c7549cdd46df0a62ba6554ee260e2e807b542bfe342f
 - repo_url: github/awesome-copilot
   host: github.com
   virtual_path: instructions/powershell.instructions.md
@@ -1987,9 +1702,11 @@ dependencies:
   resolved_by: _local/ai
   deployed_files:
   - .claude/rules/powershell.md
+  - .cursor/rules/powershell.mdc
   - .github/instructions/powershell.instructions.md
   deployed_file_hashes:
     .claude/rules/powershell.md: sha256:659cd6d5c371099ca4390970b6295bd5622a164a12c6a1c952637885dd8105b4
+    .cursor/rules/powershell.mdc: sha256:87cdb6b29fa7f04e5383a9d6919da6535a10abbb5d9cbf6b4f32db5d34a431aa
     .github/instructions/powershell.instructions.md: sha256:a8916a8aa82260b68dcc73bd659226795f6018ee2746da86ed4d27a4d5dfc1ef
   content_hash: sha256:cd8445fba8fa4bc31c8c8da719fcd2d5f74d0768f5416fc3dd0adfcd10c2ba64
 - repo_url: github/awesome-copilot
@@ -2000,269 +1717,73 @@ dependencies:
   resolved_by: _local/ai
   deployed_files:
   - .claude/rules/prompt.md
+  - .cursor/rules/prompt.mdc
   - .github/instructions/prompt.instructions.md
   deployed_file_hashes:
     .claude/rules/prompt.md: sha256:56b81c1d3066b139b6d353e18b5d66037fd91c2f86257bb0942c060ab8de0b30
+    .cursor/rules/prompt.mdc: sha256:57da13369e73705a42947fc46dcdde5f0c9bbd6beeacb9bea0136db7a5e84f3f
     .github/instructions/prompt.instructions.md: sha256:3ec80d94465a9a6f67ef3973c13956f81b385fa86d599f7c27196c49c3f4f07b
   content_hash: sha256:a77a5291ab9bb01d5c480dd6140e7de255ef030ffdb7295615f3ce2b6dc8e89e
 - repo_url: github/awesome-copilot
   host: github.com
-  virtual_path: instructions/rust-mcp-server.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/rust-mcp-server.md
-  - .github/instructions/rust-mcp-server.instructions.md
-  deployed_file_hashes:
-    .claude/rules/rust-mcp-server.md: sha256:b9a74ade2e9c24fbfaa1cb6c2e1b74a4f32abf1aa36929ef4a20e236c5d15f73
-    .github/instructions/rust-mcp-server.instructions.md: sha256:d7fc7f13e69f39b0c582923d304a47653d3a36f2d4172c24f967a7a0179a1f47
-  content_hash: sha256:6a72659a630efcd1feae34cce802fc5fdd8fb53476428bd93dffe190fa0dbf39
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/rust.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/rust.md
-  - .github/instructions/rust.instructions.md
-  deployed_file_hashes:
-    .claude/rules/rust.md: sha256:2829b8587025bb8c8d3e3a581ab3d32bd528e737c8b68eaf62724a379337a25e
-    .github/instructions/rust.instructions.md: sha256:2cf9d7e354250ba199dc1f3b0cbe7c4fff69d78e03a26c6fe1781c022d6092b3
-  content_hash: sha256:0c03536745ba6b699bc9b1a518c73719ce4aef1cc4e9772fd12317157f514392
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/scala2.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/scala2.md
-  - .github/instructions/scala2.instructions.md
-  deployed_file_hashes:
-    .claude/rules/scala2.md: sha256:222b1a4bf493076e1122514775c612eb8c322f6c50987c4a06fffc658952737a
-    .github/instructions/scala2.instructions.md: sha256:a581251d9169dbdb0d53fc93c17d0cb3f100eebda205fba46779ccabd561128e
-  content_hash: sha256:6c0f45869b12e3a8cd0b85d573791651ad05dc203b881ac17ef84dc6c89aa75d
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/security-and-owasp.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/security-and-owasp.md
-  - .github/instructions/security-and-owasp.instructions.md
-  deployed_file_hashes:
-    .claude/rules/security-and-owasp.md: sha256:538220735a2064fa76c5f4cfcc73a99eb53dec7a86ccc23a2a73d1577411708c
-    .github/instructions/security-and-owasp.instructions.md: sha256:2e8a79305e0451ec2c2f32a610d7ac95da00b288bfe826d453b9917462c49500
-  content_hash: sha256:d40edcfdf851f140acddc14db5637a850b67874059136e5414c3e444a4f04f79
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/self-explanatory-code-commenting.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/self-explanatory-code-commenting.md
-  - .github/instructions/self-explanatory-code-commenting.instructions.md
-  deployed_file_hashes:
-    .claude/rules/self-explanatory-code-commenting.md: sha256:51d5f142b29abad2158ba4d366e7cb5c9137c7e1d3433089155c6758d29089aa
-    .github/instructions/self-explanatory-code-commenting.instructions.md: sha256:817b73ae219c5be1c3ed225e028996048d77a043dccbfea31033d6b56c64d95a
-  content_hash: sha256:4b879d21e2a0eaaa805a5f608d0796e260b901f489e00293de0d5b51362749ad
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/shell.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/shell.md
-  - .github/instructions/shell.instructions.md
-  deployed_file_hashes:
-    .claude/rules/shell.md: sha256:12e73c0ad17144ee074335b4d4325df85e3969200969a17c9f05f8f5bb6cc01d
-    .github/instructions/shell.instructions.md: sha256:3f44bbf86fea7526cc14a250cc23a357fbb861e6281a6ac6fc7a74d771304b8f
-  content_hash: sha256:9fb163b5a5a893e3e7fc00375c246b3cde9092f9f2daa3f7eaba986fdd72f2ef
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/sql-sp-generation.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/sql-sp-generation.md
-  - .github/instructions/sql-sp-generation.instructions.md
-  deployed_file_hashes:
-    .claude/rules/sql-sp-generation.md: sha256:d5b0814c953999307ac4447ffd8d75d1663884de1eee2f1c3024a3fd11ad03f2
-    .github/instructions/sql-sp-generation.instructions.md: sha256:6e7a66e3d4f5a62cccfc47324002ae10e61eb6660f041c2d6d11b3c2a58d0c07
-  content_hash: sha256:b7434a53997a31cb98f279afa1cc4cad65b51155d345dcb9f5bb5d97ee72368e
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/svelte.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/svelte.md
-  - .github/instructions/svelte.instructions.md
-  deployed_file_hashes:
-    .claude/rules/svelte.md: sha256:b6cb211f24021fca5bb65812b4f81c020fa6b8b1cfba1d613c878dd57741ae8e
-    .github/instructions/svelte.instructions.md: sha256:c0b0b957aa1b6fdc5ea70d468e7b53e496986281dbe26be4a48537ce193c73e1
-  content_hash: sha256:7f4de783765f5949e1ef228bca319c2dfe24260a537a521623a3d66231b2fafe
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/tailwind-v4-vite.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/tailwind-v4-vite.md
-  - .github/instructions/tailwind-v4-vite.instructions.md
-  deployed_file_hashes:
-    .claude/rules/tailwind-v4-vite.md: sha256:9cc6f10ebe2704b5001ce402c4b40c2d95f34376cbacc7f64160e9c23273d5ed
-    .github/instructions/tailwind-v4-vite.instructions.md: sha256:f43bf4fdbc4040b2e4c75f68d6451079bfe51ea654414acff6d628eb6a448af3
-  content_hash: sha256:c2d1458b960590236a02ca95773c0b04bba48772e66e6b6b814a8d2f117578f2
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/taming-copilot.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/taming-copilot.md
-  - .github/instructions/taming-copilot.instructions.md
-  deployed_file_hashes:
-    .claude/rules/taming-copilot.md: sha256:2e72e9758b8742784c49850bd682ed5b94fb2421c4d32b7ffa51867160fac178
-    .github/instructions/taming-copilot.instructions.md: sha256:72500a4221558125e60ff5d2207dccaa0d486ff8430a4358575874501813e50e
-  content_hash: sha256:5830e171d3f87c77b88743b8bdcbcbba37af345ca870a635a9bdf48f7caffeee
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/tanstack-start-shadcn-tailwind.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/tanstack-start-shadcn-tailwind.md
-  - .github/instructions/tanstack-start-shadcn-tailwind.instructions.md
-  deployed_file_hashes:
-    .claude/rules/tanstack-start-shadcn-tailwind.md: sha256:bbb6fd78152903d8cf4176dd2881b7e3300607db7f82e26ee30668ca3c845690
-    .github/instructions/tanstack-start-shadcn-tailwind.instructions.md: sha256:bf7ac4b26501c21b4e03b8bf2ea8740fe9a33c960bf09a8f1916b14327631fbd
-  content_hash: sha256:eb0f78769e86d3e4d126bcb3d2e53c8004ff1bc18425d7f491d4369d1d3b0021
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/task-implementation.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/task-implementation.md
-  - .github/instructions/task-implementation.instructions.md
-  deployed_file_hashes:
-    .claude/rules/task-implementation.md: sha256:5ed143bc41d47b6830ff658be098f86c5983b6180ab989b3948bf4e75731d7bd
-    .github/instructions/task-implementation.instructions.md: sha256:fd9a224daaf1b01489b808bbb30e6cf9d7e6653cb975f0ef5f88b40648cdd70b
-  content_hash: sha256:be49a80d221228f49fc44b08225db04029f3200ecdd77045939c99e6117f307a
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/tasksync.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/tasksync.md
-  - .github/instructions/tasksync.instructions.md
-  deployed_file_hashes:
-    .claude/rules/tasksync.md: sha256:64101cd5bd648872c51ca351379da218212c23599f6fdb3d5bea9eb60e37182a
-    .github/instructions/tasksync.instructions.md: sha256:9cfe548857b08252995b57847cfccfe1e42a36bf0ba2fe3aefc49764f93662e5
-  content_hash: sha256:57589fa18e109c0f4b16d776b06246021c2a9fdfc1925359d6a6ade4b345ab65
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/update-code-from-shorthand.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/update-code-from-shorthand.md
-  - .github/instructions/update-code-from-shorthand.instructions.md
-  deployed_file_hashes:
-    .claude/rules/update-code-from-shorthand.md: sha256:45f40fcd974ee9e2473afea62c32b865760ec72021b89640949263e354285abb
-    .github/instructions/update-code-from-shorthand.instructions.md: sha256:995ad70be8077cf031cfea6ed633884625c18ccf211fe47da1906fce455182fa
-  content_hash: sha256:f7e4aebd2a4e954e9606dfffb62e60a2cae5a1eaf233df8d72e24e5b7f0547e9
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/update-docs-on-code-change.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/update-docs-on-code-change.md
-  - .github/instructions/update-docs-on-code-change.instructions.md
-  deployed_file_hashes:
-    .claude/rules/update-docs-on-code-change.md: sha256:26ca7a65ceee49035eec96373f95819ae47c0c129ea2cb4d89c7fa807cac0ea0
-    .github/instructions/update-docs-on-code-change.instructions.md: sha256:159ee49a9b6ba62f3d8cfb93a93c8e19f344f0571fdeb4462676144766cf0e4f
-  content_hash: sha256:630b1ab90d9ed919232fbe166382a0aa9123d2d1a52cae4cb430fde8c5a06c64
-- repo_url: github/awesome-copilot
-  host: github.com
-  virtual_path: instructions/use-cliche-data-in-docs.instructions.md
-  is_virtual: true
-  depth: 2
-  resolved_by: _local/ai
-  deployed_files:
-  - .claude/rules/use-cliche-data-in-docs.md
-  - .github/instructions/use-cliche-data-in-docs.instructions.md
-  deployed_file_hashes:
-    .claude/rules/use-cliche-data-in-docs.md: sha256:537c8dc1f41503a6b6ac12605ed0b90e369d0d101cd96d439b2196523baee87d
-    .github/instructions/use-cliche-data-in-docs.instructions.md: sha256:123fe5cba35a24e5ed57dc4118aab9111021f86c07d9d47189fd802b99a27f1c
-  content_hash: sha256:ad4eb8739d136868efdfaf8eb0d20fac4c6d7060fb3db81d1483134a13c8a538
-- repo_url: github/awesome-copilot
-  host: github.com
-  resolved_commit: 63d08d51f792d53feec8c1c06897cee870e83c18
+  resolved_commit: 7d6e3edb20a327d8a40acca90b3f107b77a6dbbf
   virtual_path: plugins/awesome-copilot
   is_virtual: true
   depth: 2
   resolved_by: _local/ai
-  package_type: apm_package
+  package_type: marketplace_plugin
   deployed_files:
   - .claude/agents/meta-agentic-project-scaffold.md
   - .claude/skills/suggest-awesome-github-copilot-agents
   - .claude/skills/suggest-awesome-github-copilot-instructions
   - .claude/skills/suggest-awesome-github-copilot-skills
+  - .cursor/agents/meta-agentic-project-scaffold.md
+  - .cursor/skills/suggest-awesome-github-copilot-agents
+  - .cursor/skills/suggest-awesome-github-copilot-instructions
+  - .cursor/skills/suggest-awesome-github-copilot-skills
   - .github/agents/meta-agentic-project-scaffold.agent.md
   - .github/skills/suggest-awesome-github-copilot-agents
   - .github/skills/suggest-awesome-github-copilot-instructions
   - .github/skills/suggest-awesome-github-copilot-skills
   deployed_file_hashes:
     .claude/agents/meta-agentic-project-scaffold.md: sha256:045954f1d22f9c9e5cf36ca248d60b53ace5ffdc286998592df37662795ddda8
+    .cursor/agents/meta-agentic-project-scaffold.md: sha256:045954f1d22f9c9e5cf36ca248d60b53ace5ffdc286998592df37662795ddda8
     .github/agents/meta-agentic-project-scaffold.agent.md: sha256:045954f1d22f9c9e5cf36ca248d60b53ace5ffdc286998592df37662795ddda8
   content_hash: sha256:a19a6290dee226223cabd8927736edfc325fc619e14cd53ce44296e6d5fc30da
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 63d08d51f792d53feec8c1c06897cee870e83c18
+  resolved_commit: 7d6e3edb20a327d8a40acca90b3f107b77a6dbbf
   virtual_path: plugins/context-engineering
   is_virtual: true
   depth: 2
   resolved_by: _local/ai
-  package_type: apm_package
+  package_type: marketplace_plugin
   deployed_files:
   - .claude/agents/context-architect.md
   - .claude/skills/context-map
   - .claude/skills/refactor-plan
   - .claude/skills/what-context-needed
+  - .cursor/agents/context-architect.md
+  - .cursor/skills/context-map
+  - .cursor/skills/refactor-plan
+  - .cursor/skills/what-context-needed
   - .github/agents/context-architect.agent.md
   - .github/skills/context-map
   - .github/skills/refactor-plan
   - .github/skills/what-context-needed
   deployed_file_hashes:
     .claude/agents/context-architect.md: sha256:6da7a854a670d2810fc61b173eea2500a2af644d8292f58e3d440ac2d120ee0d
+    .cursor/agents/context-architect.md: sha256:6da7a854a670d2810fc61b173eea2500a2af644d8292f58e3d440ac2d120ee0d
     .github/agents/context-architect.agent.md: sha256:6da7a854a670d2810fc61b173eea2500a2af644d8292f58e3d440ac2d120ee0d
   content_hash: sha256:8aa73614daa1064310331cab62f0a6bb1037d8b9bc8f2d11bd1a9dba482e4103
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 63d08d51f792d53feec8c1c06897cee870e83c18
+  resolved_commit: 7d6e3edb20a327d8a40acca90b3f107b77a6dbbf
   virtual_path: plugins/csharp-dotnet-development
   is_virtual: true
   depth: 2
   resolved_by: _local/ai
-  package_type: apm_package
+  package_type: marketplace_plugin
   deployed_files:
   - .claude/agents/expert-dotnet-software-engineer.md
   - .claude/skills/aspnet-minimal-api-openapi
@@ -2273,6 +1794,15 @@ dependencies:
   - .claude/skills/csharp-xunit
   - .claude/skills/dotnet-best-practices
   - .claude/skills/dotnet-upgrade
+  - .cursor/agents/expert-dotnet-software-engineer.md
+  - .cursor/skills/aspnet-minimal-api-openapi
+  - .cursor/skills/csharp-async
+  - .cursor/skills/csharp-mstest
+  - .cursor/skills/csharp-nunit
+  - .cursor/skills/csharp-tunit
+  - .cursor/skills/csharp-xunit
+  - .cursor/skills/dotnet-best-practices
+  - .cursor/skills/dotnet-upgrade
   - .github/agents/expert-dotnet-software-engineer.agent.md
   - .github/skills/aspnet-minimal-api-openapi
   - .github/skills/csharp-async
@@ -2284,16 +1814,17 @@ dependencies:
   - .github/skills/dotnet-upgrade
   deployed_file_hashes:
     .claude/agents/expert-dotnet-software-engineer.md: sha256:28a306e1a700abd0435f1fd6aef365341ac2519cc460f0c83a6f2a93332bf915
+    .cursor/agents/expert-dotnet-software-engineer.md: sha256:28a306e1a700abd0435f1fd6aef365341ac2519cc460f0c83a6f2a93332bf915
     .github/agents/expert-dotnet-software-engineer.agent.md: sha256:28a306e1a700abd0435f1fd6aef365341ac2519cc460f0c83a6f2a93332bf915
   content_hash: sha256:1cc5c15ce1a6fd0f7ebce035446a68a8dde2144dd10d5146046edae0b727eb04
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 63d08d51f792d53feec8c1c06897cee870e83c18
+  resolved_commit: 7d6e3edb20a327d8a40acca90b3f107b77a6dbbf
   virtual_path: plugins/project-planning
   is_virtual: true
   depth: 2
   resolved_by: _local/ai
-  package_type: apm_package
+  package_type: marketplace_plugin
   deployed_files:
   - .claude/agents/implementation-plan.md
   - .claude/agents/plan.md
@@ -2310,6 +1841,21 @@ dependencies:
   - .claude/skills/create-implementation-plan
   - .claude/skills/create-technical-spike
   - .claude/skills/update-implementation-plan
+  - .cursor/agents/implementation-plan.md
+  - .cursor/agents/plan.md
+  - .cursor/agents/planner.md
+  - .cursor/agents/prd.md
+  - .cursor/agents/research-technical-spike.md
+  - .cursor/agents/task-planner.md
+  - .cursor/agents/task-researcher.md
+  - .cursor/skills/breakdown-epic-arch
+  - .cursor/skills/breakdown-epic-pm
+  - .cursor/skills/breakdown-feature-implementation
+  - .cursor/skills/breakdown-feature-prd
+  - .cursor/skills/create-github-issues-feature-from-implementation-plan
+  - .cursor/skills/create-implementation-plan
+  - .cursor/skills/create-technical-spike
+  - .cursor/skills/update-implementation-plan
   - .github/agents/implementation-plan.agent.md
   - .github/agents/plan.agent.md
   - .github/agents/planner.agent.md
@@ -2333,6 +1879,13 @@ dependencies:
     .claude/agents/research-technical-spike.md: sha256:d094ae33f4e3b42e249491a82530485b0be7949df7ff41c7a9e48cf7a2773740
     .claude/agents/task-planner.md: sha256:396e333df4318d590a8b07f960a61361169689d68896731149ea1f5a11ddc8fd
     .claude/agents/task-researcher.md: sha256:75369373a1a00f2c8243b18a31df35978d759376de6b22df7308090dece514c2
+    .cursor/agents/implementation-plan.md: sha256:eec19038008d9a73d21ddf679babf1f0e971a1b3bee3d11e6d17fbdb2e5082d0
+    .cursor/agents/plan.md: sha256:b5735cbb2af5da39738b5e47f8e60878cf5caf7c3e373e2e1ce3bd5665498f04
+    .cursor/agents/planner.md: sha256:58109e974ea551e1e6cfa0c2047d6d525cde6d0475d93a5d7665f04273060dfe
+    .cursor/agents/prd.md: sha256:5d6d67c10825893aba682761e3d6404b430e915686f249057e9d544fd6e64c62
+    .cursor/agents/research-technical-spike.md: sha256:d094ae33f4e3b42e249491a82530485b0be7949df7ff41c7a9e48cf7a2773740
+    .cursor/agents/task-planner.md: sha256:396e333df4318d590a8b07f960a61361169689d68896731149ea1f5a11ddc8fd
+    .cursor/agents/task-researcher.md: sha256:75369373a1a00f2c8243b18a31df35978d759376de6b22df7308090dece514c2
     .github/agents/implementation-plan.agent.md: sha256:eec19038008d9a73d21ddf679babf1f0e971a1b3bee3d11e6d17fbdb2e5082d0
     .github/agents/plan.agent.md: sha256:b5735cbb2af5da39738b5e47f8e60878cf5caf7c3e373e2e1ce3bd5665498f04
     .github/agents/planner.agent.md: sha256:58109e974ea551e1e6cfa0c2047d6d525cde6d0475d93a5d7665f04273060dfe
@@ -2343,12 +1896,12 @@ dependencies:
   content_hash: sha256:b71ae43ca81340c78fae7baa6b2e9875eeeb9c09a6e99ad15ae98fcf2c324cf3
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 63d08d51f792d53feec8c1c06897cee870e83c18
+  resolved_commit: 7d6e3edb20a327d8a40acca90b3f107b77a6dbbf
   virtual_path: plugins/software-engineering-team
   is_virtual: true
   depth: 2
   resolved_by: _local/ai
-  package_type: apm_package
+  package_type: marketplace_plugin
   deployed_files:
   - .claude/agents/se-gitops-ci-specialist.md
   - .claude/agents/se-product-manager-advisor.md
@@ -2357,6 +1910,13 @@ dependencies:
   - .claude/agents/se-system-architecture-reviewer.md
   - .claude/agents/se-technical-writer.md
   - .claude/agents/se-ux-ui-designer.md
+  - .cursor/agents/se-gitops-ci-specialist.md
+  - .cursor/agents/se-product-manager-advisor.md
+  - .cursor/agents/se-responsible-ai-code.md
+  - .cursor/agents/se-security-reviewer.md
+  - .cursor/agents/se-system-architecture-reviewer.md
+  - .cursor/agents/se-technical-writer.md
+  - .cursor/agents/se-ux-ui-designer.md
   - .github/agents/se-gitops-ci-specialist.agent.md
   - .github/agents/se-product-manager-advisor.agent.md
   - .github/agents/se-responsible-ai-code.agent.md
@@ -2372,6 +1932,13 @@ dependencies:
     .claude/agents/se-system-architecture-reviewer.md: sha256:b50b7f02658270ba4ec70413ff57c7ec628cc7e710e3d0b4646544d438dfd5fd
     .claude/agents/se-technical-writer.md: sha256:e2b7fe3959fee4701084022bdfb6bae9c24b2890d44305f17d779d0055ec9506
     .claude/agents/se-ux-ui-designer.md: sha256:a7078735984cfec19643027b8e876435b3d73f43ab431f910186e16a11b0bdd2
+    .cursor/agents/se-gitops-ci-specialist.md: sha256:8ca4679e0e55f39ecadc50834354a8d9ea7162b1ca1cdd13521ed59717148a76
+    .cursor/agents/se-product-manager-advisor.md: sha256:d38a92f0b9a8c8a6d78c303378f95d16d040836e027f63628e4d0266aacddd11
+    .cursor/agents/se-responsible-ai-code.md: sha256:e893e9c3c9c3475629094730221eca4f4d2bcff65875bd303bf6fb016600ba19
+    .cursor/agents/se-security-reviewer.md: sha256:3b5fec1f93bf21e20b865493ceca30708738642887d00c68e0bd0051f2d0e1fc
+    .cursor/agents/se-system-architecture-reviewer.md: sha256:b50b7f02658270ba4ec70413ff57c7ec628cc7e710e3d0b4646544d438dfd5fd
+    .cursor/agents/se-technical-writer.md: sha256:e2b7fe3959fee4701084022bdfb6bae9c24b2890d44305f17d779d0055ec9506
+    .cursor/agents/se-ux-ui-designer.md: sha256:a7078735984cfec19643027b8e876435b3d73f43ab431f910186e16a11b0bdd2
     .github/agents/se-gitops-ci-specialist.agent.md: sha256:8ca4679e0e55f39ecadc50834354a8d9ea7162b1ca1cdd13521ed59717148a76
     .github/agents/se-product-manager-advisor.agent.md: sha256:d38a92f0b9a8c8a6d78c303378f95d16d040836e027f63628e4d0266aacddd11
     .github/agents/se-responsible-ai-code.agent.md: sha256:e893e9c3c9c3475629094730221eca4f4d2bcff65875bd303bf6fb016600ba19
@@ -2382,24 +1949,27 @@ dependencies:
   content_hash: sha256:c4023fff92e5ec5b6a18a9075d6e79459ebc1965678549ffd167248dece9fa65
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 63d08d51f792d53feec8c1c06897cee870e83c18
+  resolved_commit: 7d6e3edb20a327d8a40acca90b3f107b77a6dbbf
   virtual_path: plugins/technical-spike
   is_virtual: true
   depth: 2
   resolved_by: _local/ai
-  package_type: apm_package
+  package_type: marketplace_plugin
   deployed_files:
   - .claude/agents/research-technical-spike.md
   - .claude/skills/create-technical-spike
+  - .cursor/agents/research-technical-spike.md
+  - .cursor/skills/create-technical-spike
   - .github/agents/research-technical-spike.agent.md
   - .github/skills/create-technical-spike
   deployed_file_hashes:
     .claude/agents/research-technical-spike.md: sha256:d094ae33f4e3b42e249491a82530485b0be7949df7ff41c7a9e48cf7a2773740
+    .cursor/agents/research-technical-spike.md: sha256:d094ae33f4e3b42e249491a82530485b0be7949df7ff41c7a9e48cf7a2773740
     .github/agents/research-technical-spike.agent.md: sha256:d094ae33f4e3b42e249491a82530485b0be7949df7ff41c7a9e48cf7a2773740
   content_hash: sha256:062cb5b0fb21a1e165b882fb2cd7c20d4efbd59a1e1f357404c7e7df8f53e7b7
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 63d08d51f792d53feec8c1c06897cee870e83c18
+  resolved_commit: 7d6e3edb20a327d8a40acca90b3f107b77a6dbbf
   virtual_path: skills/acquire-codebase-knowledge
   is_virtual: true
   depth: 2
@@ -2407,6 +1977,7 @@ dependencies:
   package_type: claude_skill
   deployed_files:
   - .claude/skills/acquire-codebase-knowledge
+  - .cursor/skills/acquire-codebase-knowledge
   - .github/skills/acquire-codebase-knowledge
   content_hash: sha256:94a1da1b609e31d3ac4629f4670784c63675639955965b503d10928035b4f727
 - repo_url: obra/superpowers
@@ -2414,7 +1985,7 @@ dependencies:
   resolved_commit: 6efe32c9e2dd002d0c394e861e0529675d1ab32e
   depth: 2
   resolved_by: _local/ai
-  package_type: apm_package
+  package_type: marketplace_plugin
   deployed_files:
   - .claude/agents/code-reviewer.md
   - .claude/commands/brainstorm.md
@@ -2434,6 +2005,21 @@ dependencies:
   - .claude/skills/verification-before-completion
   - .claude/skills/writing-plans
   - .claude/skills/writing-skills
+  - .cursor/agents/code-reviewer.md
+  - .cursor/skills/brainstorming
+  - .cursor/skills/dispatching-parallel-agents
+  - .cursor/skills/executing-plans
+  - .cursor/skills/finishing-a-development-branch
+  - .cursor/skills/receiving-code-review
+  - .cursor/skills/requesting-code-review
+  - .cursor/skills/subagent-driven-development
+  - .cursor/skills/systematic-debugging
+  - .cursor/skills/test-driven-development
+  - .cursor/skills/using-git-worktrees
+  - .cursor/skills/using-superpowers
+  - .cursor/skills/verification-before-completion
+  - .cursor/skills/writing-plans
+  - .cursor/skills/writing-skills
   - .github/agents/code-reviewer.agent.md
   - .github/hooks/superpowers-hooks-cursor.json
   - .github/hooks/superpowers-hooks-cursor.json
@@ -2461,6 +2047,7 @@ dependencies:
     .claude/commands/brainstorm.md: sha256:a4d0fa13d2ddde166dc787cf2b6e82ad405faf3672688fe4912577c93b0735e1
     .claude/commands/execute-plan.md: sha256:a7451e57675741c5e5a026027c4e1d736e9052b5736a9fb1276657a8bc5dccd6
     .claude/commands/write-plan.md: sha256:a5af69db689faeb4ad7ce2252e3606255b8f6a7f16bb0b56b78864410b972235
+    .cursor/agents/code-reviewer.md: sha256:b17be291994b798cf34b74c5d0afcb9da92dd466453557933161cc4e7332029d
     .github/agents/code-reviewer.agent.md: sha256:b17be291994b798cf34b74c5d0afcb9da92dd466453557933161cc4e7332029d
     .github/hooks/superpowers-hooks-cursor.json: sha256:7ea8854c2b2b1ab21ede07575c4d8a624e877f4880cdeab13b66bcf8ac5653d9
     .github/hooks/superpowers-hooks.json: sha256:01616c57b96cc234cc984e77d2fc241dfd0e0bfacda54fe54589cd669a0d998e
@@ -2478,6 +2065,7 @@ dependencies:
   package_type: claude_skill
   deployed_files:
   - .claude/skills/atlassian
+  - .cursor/skills/atlassian
   - .github/skills/atlassian
   content_hash: sha256:906ed943fbc35fdda2b320eaf7cf13cb63dd2842ecf9ea31c6c9c1019c4f89bf
 - repo_url: sanjay3290/ai-skills
@@ -2490,6 +2078,7 @@ dependencies:
   package_type: claude_skill
   deployed_files:
   - .claude/skills/azure-devops
+  - .cursor/skills/azure-devops
   - .github/skills/azure-devops
   content_hash: sha256:d846123b38ee0c5b2ba88b16b490d3efc18ad6349e9da7ce02ffce9847121592
 - repo_url: sanjay3290/ai-skills
@@ -2502,6 +2091,7 @@ dependencies:
   package_type: claude_skill
   deployed_files:
   - .claude/skills/mssql
+  - .cursor/skills/mssql
   - .github/skills/mssql
   content_hash: sha256:a6327128fb37f270dadc00c746cf07fa15be73c74cd60cde830e27b1e34cc82e
 - repo_url: sanjay3290/ai-skills
@@ -2514,6 +2104,7 @@ dependencies:
   package_type: claude_skill
   deployed_files:
   - .claude/skills/mysql
+  - .cursor/skills/mysql
   - .github/skills/mysql
   content_hash: sha256:0be82288e6935520d3d1e97908a9ce81d4257d747bccb33e554b9afe7ec7ca89
 - repo_url: sanjay3290/ai-skills
@@ -2526,6 +2117,7 @@ dependencies:
   package_type: claude_skill
   deployed_files:
   - .claude/skills/postgres
+  - .cursor/skills/postgres
   - .github/skills/postgres
   content_hash: sha256:a4e5c30ce29b704a3e5724615cc5712066f909483c5dafe7291d84888c1d0170
 - repo_url: testdino-hq/playwright-skill
@@ -2536,20 +2128,18 @@ dependencies:
   package_type: claude_skill
   deployed_files:
   - .claude/skills/playwright-skill
+  - .cursor/skills/playwright-skill
   - .github/skills/playwright-skill
   content_hash: sha256:0f5de33ba010d26fc5f778ea9616ab56b0a0821aaf642053a46ea75b152978d7
 mcp_servers:
 - agentic-workflows
-- com.atlassian/atlassian-mcp-server
-- com.microsoft/azure
 - duckduckgo
-- github
+- io.github.github/github-mcp-server
 - io.github.upstash/context7
+- kubernetes
 - mermaid
-- microsoft-docs
-- neo4j-cypher
-- neo4j-data-modeling
-- neo4j-memory
+- microsoftdocs/mcp
+- mise
 - nuget
 - pulumi
 mcp_configs:
@@ -2561,10 +2151,6 @@ mcp_configs:
     - mcp-server
     registry: false
     command: gh
-  com.atlassian/atlassian-mcp-server:
-    name: com.atlassian/atlassian-mcp-server
-  com.microsoft/azure:
-    name: com.microsoft/azure
   duckduckgo:
     name: duckduckgo
     transport: stdio
@@ -2573,38 +2159,34 @@ mcp_configs:
     - duckduckgo-mcp-server
     registry: false
     command: npx
-  github:
-    name: github
-    transport: http
-    registry: false
-    url: https://api.githubcopilot.com/mcp/
+  io.github.github/github-mcp-server:
+    name: io.github.github/github-mcp-server
   io.github.upstash/context7:
     name: io.github.upstash/context7
+  kubernetes:
+    name: kubernetes
+    transport: stdio
+    args:
+    - -y
+    - kubernetes-mcp-server
+    registry: false
+    command: npx
   mermaid:
     name: mermaid
     transport: http
     registry: false
     url: https://mcp.mermaidchart.com/mcp/
-  microsoft-docs:
-    name: microsoft-docs
-    transport: http
+  microsoftdocs/mcp:
+    name: microsoftdocs/mcp
+  mise:
+    name: mise
+    transport: stdio
+    env:
+      MISE_EXPERIMENTAL: '1'
+    args:
+    - mcp
     registry: false
-    url: https://learn.microsoft.com/api/mcp/
-  neo4j-cypher:
-    name: neo4j-cypher
-    transport: http
-    registry: false
-    url: http://localhost:8000/mcp/
-  neo4j-data-modeling:
-    name: neo4j-data-modeling
-    transport: http
-    registry: false
-    url: http://localhost:8001/mcp/
-  neo4j-memory:
-    name: neo4j-memory
-    transport: http
-    registry: false
-    url: http://localhost:8002/mcp/
+    command: mise
   nuget:
     name: nuget
     transport: stdio
@@ -2621,6 +2203,6 @@ mcp_configs:
     args:
     - -y
     - '@pulumi/mcp-server'
-    - --stdio
+    - stdio
     registry: false
     command: npx

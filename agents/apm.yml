@@ -5,24 +5,31 @@ author: David Driscoll
 dependencies:
   apm:
   - ../ai
-  - ComposioHQ/awesome-claude-skills/video-downloader
-  - ComposioHQ/awesome-claude-skills/content-research-writer
-  - ryanbbrown/revealjs-skill
-  - sanjay3290/ai-skills/skills/deep-research
-  - emaynard/claude-family-history-research-skill
-  - michalparkola/tapestry-skills/article-extractor
-  - michalparkola/tapestry-skills/learn-this
-  - michalparkola/tapestry-skills/scrum-sage
-  - michalparkola/tapestry-skills/session-log
-  - michalparkola/tapestry-skills/ship-learn-next
-  - michalparkola/tapestry-skills/unblock-action
-  - michalparkola/tapestry-skills/youtube-transcript
-  - alirezarezvani/claude-skills/engineering-team
-  - alirezarezvani/claude-skills/engineering
-  - jeffallan/claude-skills/skills/kubernetes-specialist
-  - cskiro/claudex/plugins/otel-monitoring-setup
-  - aj-geddes/useful-ai-prompts
+  - ComposioHQ/awesome-claude-skills/video-downloader@337b19e0ed1260790cdfa9c5229e74db2dc6c811
+  - ComposioHQ/awesome-claude-skills/content-research-writer@337b19e0ed1260790cdfa9c5229e74db2dc6c811
+  - ryanbbrown/revealjs-skill@188e0dc90056a4d59f457fefb70c63eefac2b0a2
+  - sanjay3290/ai-skills/skills/deep-research@cde1c8385ead64df501c9b214e63d7ba9b283ff9
+  - emaynard/claude-family-history-research-skill@v1.0.6
+  - michalparkola/tapestry-skills/article-extractor@80e1dc56df74d1cb849ad649c7ead9756e7929bb
+  - michalparkola/tapestry-skills/learn-this@80e1dc56df74d1cb849ad649c7ead9756e7929bb
+  - michalparkola/tapestry-skills/scrum-sage@80e1dc56df74d1cb849ad649c7ead9756e7929bb
+  - michalparkola/tapestry-skills/session-log@80e1dc56df74d1cb849ad649c7ead9756e7929bb
+  - michalparkola/tapestry-skills/ship-learn-next@80e1dc56df74d1cb849ad649c7ead9756e7929bb
+  - michalparkola/tapestry-skills/unblock-action@80e1dc56df74d1cb849ad649c7ead9756e7929bb
+  - michalparkola/tapestry-skills/youtube-transcript@80e1dc56df74d1cb849ad649c7ead9756e7929bb
+  # - alirezarezvani/claude-skills/engineering-team
+  # - alirezarezvani/claude-skills/engineering
+  - jeffallan/claude-skills/skills/kubernetes-specialist@v0.4.13
+  - cskiro/claudex/plugins/otel-monitoring-setup@marketplace@6.2.0
+  - aj-geddes/useful-ai-prompts@3f5182cfd739fc113f4af5244a1cf342ad7f7911
   mcp:
+  - name: kubernetes
+    registry: false
+    transport: stdio
+    command: npx
+    args:
+    - -y
+    - kubernetes-mcp-server
   - name: pulumi
     registry: false
     transport: stdio
@@ -30,5 +37,13 @@ dependencies:
     args:
     - -y
     - '@pulumi/mcp-server'
-    - --stdio
+    - stdio
+  - name: mise
+    registry: false
+    transport: stdio
+    command: mise
+    env:
+      MISE_EXPERIMENTAL: "1"
+    args:
+    - mcp
 scripts: {}
