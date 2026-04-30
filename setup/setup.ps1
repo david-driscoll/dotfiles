@@ -218,7 +218,7 @@ rm -Recurse -Force "$ENV:USERPROFILE/.claude/hooks" -ErrorAction SilentlyContinu
 New-Item -ItemType SymbolicLink -Value "$ENV:USERPROFILE/agents/.claude/hooks/" -Path "$ENV:USERPROFILE/.claude/hooks"
 rm -Recurse -Force "$ENV:USERPROFILE/.claude/rules" -ErrorAction SilentlyContinue
 New-Item -ItemType SymbolicLink -Value "$ENV:USERPROFILE/agents/.claude/rules/" -Path "$ENV:USERPROFILE/.claude/rules"
-rm -Recurse -Force "$ENV:USERPROFILE/.claude/rules" -ErrorAction SilentlyContinue
+rm -Recurse -Force "$ENV:USERPROFILE/.claude/commands" -ErrorAction SilentlyContinue
 New-Item -ItemType SymbolicLink -Value "$ENV:USERPROFILE/agents/.claude/commands/" -Path "$ENV:USERPROFILE/.claude/commands"
 
 # GitHub Copilot user-level config
