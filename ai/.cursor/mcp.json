@@ -1,0 +1,79 @@
+{
+  "mcpServers": {
+    "mcp": {
+      "type": "http",
+      "url": "https://learn.microsoft.com/api/mcp",
+      "tools": [
+        "*"
+      ],
+      "id": "e0455530d34a47958dc6b2888ae76c27"
+    },
+    "github-mcp-server": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "tools": [
+        "*"
+      ],
+      "id": "33c7b38413004ecfb07d101390b0cf29",
+      "headers": {}
+    },
+    "context7": {
+      "type": "local",
+      "tools": [
+        "*"
+      ],
+      "id": "1473e16cc5434aff91f7d34735ebbc48",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp"
+      ]
+    },
+    "mermaid": {
+      "type": "http",
+      "url": "https://mcp.mermaidchart.com/mcp/",
+      "tools": [
+        "*"
+      ],
+      "id": ""
+    },
+    "nuget": {
+      "type": "local",
+      "tools": [
+        "*"
+      ],
+      "id": "",
+      "command": "dnx",
+      "args": [
+        "NuGet.Mcp.Server",
+        "--source",
+        "https://api.nuget.org/v3/index.json",
+        "--yes"
+      ]
+    },
+    "agentic-workflows": {
+      "type": "local",
+      "tools": [
+        "*"
+      ],
+      "id": "",
+      "command": "gh",
+      "args": [
+        "aw",
+        "mcp-server"
+      ]
+    },
+    "duckduckgo": {
+      "type": "local",
+      "tools": [
+        "*"
+      ],
+      "id": "",
+      "command": "npx",
+      "args": [
+        "-y",
+        "duckduckgo-mcp-server"
+      ]
+    }
+  }
+}
