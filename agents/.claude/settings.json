@@ -55,5 +55,5 @@
       }
     ]
   },
-  "agentPushNotifEnabled": true
+  "effortLevel": "medium"
 }
