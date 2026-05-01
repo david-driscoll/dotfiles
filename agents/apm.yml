@@ -21,6 +21,7 @@ dependencies:
   - jeffallan/claude-skills/skills/kubernetes-specialist#v0.4.13
   - cskiro/claudex/plugins/otel-monitoring-setup#marketplace@6.2.0
   - aj-geddes/useful-ai-prompts#3f5182cfd739fc113f4af5244a1cf342ad7f7911
+  - affaan-m/everything-claude-code#v1.10.0
   mcp:
   - name: kubernetes
     registry: false
