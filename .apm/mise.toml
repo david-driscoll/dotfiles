@@ -1,0 +1,2 @@
+[tools]
+"github:microsoft/apm" = { version = "v0.10.0", bin = "apm" }

@@ -48,6 +48,7 @@ ln -s ~/dotfiles/gpg-agent.conf ~/.gnupg/gpg-agent.conf
 find .gnupg/ -type f -print0 | xargs -0 chmod 644
 
 mkdir -p ~/.config/mise/
+rm ~/.config/mise/config.toml
 ln -s ~/dotfiles/mise.config.toml ~/.config/mise/config.toml
 chmod 644 ~/.config/mise/config.toml
 ln -s ~/dotfiles/.config/.bashrc ~/.bashrc
@@ -58,43 +59,13 @@ ln -s ~/dotfiles/.config/.bash_aliases ~/.bash_aliases
 chmod 644 ~/.bash_aliases
 ln -s ~/dotfiles/.config/powershell/macos.ps1 ~/.config/powershell/Microsoft.PowerShell_profile.ps1
 
-
-mkdir -p ~/.claude/
-rm ~/.claude/CLAUDE.md
-ln -s ~/dotfiles/agents/.claude/CLAUDE.md ~/.claude/CLAUDE.md
-rm ~/.claude/settings.json
-ln -s ~/dotfiles/agents/.claude/settings.json ~/.claude/settings.json
-rm -rf ~/.claude/agents
-ln -s ~/dotfiles/agents/.claude/agents ~/.claude/agents
-rm -rf ~/.claude/rules
-ln -s ~/dotfiles/agents/.claude/rules ~/.claude/rules
-rm -rf ~/.claude/skills
-ln -s ~/dotfiles/agents/.claude/skills ~/.claude/skills
-rm -rf ~/.claude/hooks
-ln -s ~/dotfiles/agents/.claude/hooks ~/.claude/hooks
-
-# GitHub Copilot user-level config
-mkdir -p ~/.copilot/
-rm ~/.copilot/copilot-instructions.md
-ln -s ~/dotfiles/agents/.github/copilot-instructions.md ~/.copilot/copilot-instructions.md
-rm -rf ~/.copilot/agents
-ln -s ~/dotfiles/agents/.github/agents ~/.copilot/agents
-rm -rf ~/.copilot/instructions
-ln -s ~/dotfiles/agents/.github/instructions ~/.copilot/instructions
-rm -rf ~/.copilot/skills
-ln -s ~/dotfiles/agents/.github/skills ~/.copilot/skills
-rm -rf ~/.copilot/hooks
-ln -s ~/dotfiles/agents/.github/hooks ~/.copilot/hooks
-rm -rf ~/.copilot/hooks
-ln -s ~/dotfiles/agents/.github/prompts ~/.copilot/prompts
-rm ~/Library/Application\ Support/Code\ -\ Insiders/User/mcp.json
-ln -s ~/dotfiles/agents/.vscode/mcp.json ~/Library/Application\ Support/Code\ -\ Insiders/User/mcp.json
-rm ~/Library/Application\ Support/Code/User/mcp.json
-ln -s ~/dotfiles/agents/.vscode/mcp.json ~/Library/Application\ Support/Code/User/mcp.json
-
-rm ~/.copilot/mcp-config.json
-ln -s ~/dotfiles/agents/.cursor/mcp.json ~/.copilot/mcp-config.json
-
+mkdir -p ~/.apm/
+rm -f ~/.apm/config.json
+ln -s ~/dotfiles/.apm/config.json ~/.apm/config.json
+rm -f ~/.apm/marketplaces.json
+ln -s ~/dotfiles/.apm/marketplaces.json ~/.apm/marketplaces.json
+rm -f ~/.apm/mise.toml
+ln -s ~/dotfiles/.apm/mise.toml ~/.apm/mise.toml
 
 ln -s ~/dotfiles/.config/thefuck/ ~/.config/thefuck/
 find ~/.config/thefuck/ -type f -print0 | xargs -0 chmod 644

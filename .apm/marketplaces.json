@@ -1,0 +1,22 @@
+{
+  "marketplaces": [
+    {
+      "name": "claudex",
+      "owner": "cskiro",
+      "repo": "claudex",
+      "path": ".claude-plugin/marketplace.json"
+    },
+    {
+      "name": "alirezarezvani",
+      "owner": "alirezarezvani",
+      "repo": "claude-skills",
+      "path": ".claude-plugin/marketplace.json"
+    },
+    {
+      "name": "everything-claude-code",
+      "owner": "affaan-m",
+      "repo": "everything-claude-code",
+      "path": ".claude-plugin/marketplace.json"
+    }
+  ]
+}

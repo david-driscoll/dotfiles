@@ -2,3 +2,7 @@
 /ssh/known_hosts
 Brewfile.lock.json
 .DS_Store
+
+
+# APM dependencies
+apm_modules/
