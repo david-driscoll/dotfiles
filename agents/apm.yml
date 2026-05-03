@@ -22,6 +22,7 @@ dependencies:
   - cskiro/claudex/plugins/otel-monitoring-setup#marketplace@6.2.0
   - aj-geddes/useful-ai-prompts#3f5182cfd739fc113f4af5244a1cf342ad7f7911
   - affaan-m/everything-claude-code#v1.10.0
+  - fluxcd/agent-skills#v0.0.3
   mcp:
   - name: kubernetes
     registry: false
@@ -43,7 +44,7 @@ dependencies:
     transport: stdio
     command: mise
     env:
-      MISE_EXPERIMENTAL: "1"
+      MISE_EXPERIMENTAL: '1'
     args:
     - mcp
 scripts: {}

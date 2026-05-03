@@ -1,32 +1,5 @@
 {
   "servers": {
-    "pulumi": {
-      "type": "stdio",
-      "command": "npx",
-      "args": [
-        "-y",
-        "@pulumi/mcp-server",
-        "stdio"
-      ]
-    },
-    "kubernetes": {
-      "type": "stdio",
-      "command": "npx",
-      "args": [
-        "-y",
-        "kubernetes-mcp-server"
-      ]
-    },
-    "mise": {
-      "type": "stdio",
-      "command": "mise",
-      "args": [
-        "mcp"
-      ],
-      "env": {
-        "MISE_EXPERIMENTAL": "1"
-      }
-    },
     "microsoftdocs/mcp": {
       "type": "sse",
       "url": "https://learn.microsoft.com/api/mcp",
@@ -43,16 +16,6 @@
         "CONTEXT7_API_KEY": "${input:context7-api-key}"
       }
     },
-    "io.github.github/github-mcp-server": {
-      "type": "stdio",
-      "command": "docker",
-      "args": [
-        "run",
-        "-i",
-        "--rm",
-        "ghcr.io/github/github-mcp-server:1.0.3"
-      ]
-    },
     "mermaid": {
       "type": "http",
       "url": "https://mcp.mermaidchart.com/mcp/",
@@ -68,14 +31,6 @@
         "--yes"
       ]
     },
-    "agentic-workflows": {
-      "type": "stdio",
-      "command": "gh",
-      "args": [
-        "aw",
-        "mcp-server"
-      ]
-    },
     "duckduckgo": {
       "type": "stdio",
       "command": "npx",
@@ -83,6 +38,33 @@
         "-y",
         "duckduckgo-mcp-server"
       ]
+    },
+    "kubernetes": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "kubernetes-mcp-server"
+      ]
+    },
+    "pulumi": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@pulumi/mcp-server",
+        "stdio"
+      ]
+    },
+    "mise": {
+      "type": "stdio",
+      "command": "mise",
+      "args": [
+        "mcp"
+      ],
+      "env": {
+        "MISE_EXPERIMENTAL": "1"
+      }
     }
   },
   "inputs": [
