@@ -832,6 +832,28 @@ dependencies:
   - .cursor/skills/claude-family-history-research-skill
   - .github/skills/claude-family-history-research-skill
   content_hash: sha256:be0abf53c7f1726c134cb1e5d7c92e2be48acb889b82489bb92d76aa73774faf
+- repo_url: fluxcd/agent-skills
+  host: github.com
+  resolved_commit: 4ba2c6133d29a0d31dd9db0b50fe975affcd312f
+  package_type: marketplace_plugin
+  deployed_files:
+  - .claude/agents/fluxcd.md
+  - .claude/skills/gitops-cluster-debug
+  - .claude/skills/gitops-knowledge
+  - .claude/skills/gitops-repo-audit
+  - .cursor/agents/fluxcd.md
+  - .cursor/skills/gitops-cluster-debug
+  - .cursor/skills/gitops-knowledge
+  - .cursor/skills/gitops-repo-audit
+  - .github/agents/fluxcd.agent.md
+  - .github/skills/gitops-cluster-debug
+  - .github/skills/gitops-knowledge
+  - .github/skills/gitops-repo-audit
+  deployed_file_hashes:
+    .claude/agents/fluxcd.md: sha256:99a786c13ff65a5149b69bbeb7a550ab159557bf0ef7006b18e1c09c4db7200f
+    .cursor/agents/fluxcd.md: sha256:99a786c13ff65a5149b69bbeb7a550ab159557bf0ef7006b18e1c09c4db7200f
+    .github/agents/fluxcd.agent.md: sha256:99a786c13ff65a5149b69bbeb7a550ab159557bf0ef7006b18e1c09c4db7200f
+  content_hash: sha256:61205a0e509f7d39daf92ca95229670eaa9390b4c016490ac79dc562cf8173be
 - repo_url: jeffallan/claude-skills
   host: github.com
   resolved_commit: efebc44c90ae6eb3b36ff1c53802a765418481b9
