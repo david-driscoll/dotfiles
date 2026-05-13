@@ -1,20 +1,5 @@
 {
   "servers": {
-    "microsoftdocs/mcp": {
-      "type": "sse",
-      "url": "https://learn.microsoft.com/api/mcp",
-      "headers": {}
-    },
-    "io.github.github/github-mcp-server": {
-      "type": "stdio",
-      "command": "docker",
-      "args": [
-        "run",
-        "-i",
-        "--rm",
-        "ghcr.io/github/github-mcp-server:1.0.3"
-      ]
-    },
     "io.github.upstash/context7": {
       "type": "stdio",
       "command": "npx",
@@ -25,6 +10,21 @@
       "env": {
         "CONTEXT7_API_KEY": "${input:context7-api-key}"
       }
+    },
+    "io.github.github/github-mcp-server": {
+      "type": "stdio",
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "ghcr.io/github/github-mcp-server:1.0.4"
+      ]
+    },
+    "microsoftdocs/mcp": {
+      "type": "sse",
+      "url": "https://learn.microsoft.com/api/mcp",
+      "headers": {}
     },
     "mermaid": {
       "type": "http",
