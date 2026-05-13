@@ -1,3 +1,54 @@
 {
-  "mcpServers": {}
+  "mcpServers": {
+    "context7": {
+      "type": "stdio",
+      "id": "77ee8a01b7324da197b84f14d3d6d83a",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp"
+      ]
+    },
+    "github-mcp-server": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "id": "36469f602f054de89d21098ba0586dc3",
+      "headers": {}
+    },
+    "mcp": {
+      "type": "http",
+      "url": "https://learn.microsoft.com/api/mcp",
+      "id": "e0455530d34a47958dc6b2888ae76c27"
+    },
+    "mermaid": {
+      "type": "http",
+      "url": "https://mcp.mermaidchart.com/mcp/"
+    },
+    "nuget": {
+      "type": "stdio",
+      "command": "dnx",
+      "args": [
+        "NuGet.Mcp.Server",
+        "--source",
+        "https://api.nuget.org/v3/index.json",
+        "--yes"
+      ]
+    },
+    "agentic-workflows": {
+      "type": "stdio",
+      "command": "gh",
+      "args": [
+        "aw",
+        "mcp-server"
+      ]
+    },
+    "duckduckgo": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "duckduckgo-mcp-server"
+      ]
+    }
+  }
 }

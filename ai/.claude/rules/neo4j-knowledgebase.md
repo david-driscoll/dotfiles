@@ -1,8 +1,3 @@
----
-paths:
-  - "**"
----
-
 Use the `neo4j-local` MCP server to query and manage the local Neo4j knowledge graph. This is a fully local graph database populated by ingesting unstructured documents via llm-graph-builder.
 
 **When to use**: When the user asks about topics that may be in the knowledge base, wants to find relationships between concepts, asks to store new information, or wants to explore the graph.
@@ -18,6 +13,7 @@ Use the `neo4j-local` MCP server to query and manage the local Neo4j knowledge g
 ## Query Patterns
 
 ### Explore what's in the graph
+
 ```cypher
 // See all node labels and counts
 CALL apoc.meta.stats() YIELD labels RETURN labels
@@ -32,6 +28,7 @@ RETURN n, r, m LIMIT 50
 ```
 
 ### Find related concepts
+
 ```cypher
 // Shortest path between two concepts
 MATCH path = shortestPath((a)-[*..6]-(b))
@@ -44,6 +41,7 @@ RETURN type(r), neighbor.name, neighbor
 ```
 
 ### Check schema before querying
+
 ```cypher
 CALL apoc.meta.data()
 ```
@@ -51,6 +49,7 @@ CALL apoc.meta.data()
 ## Service Status
 
 The knowledgebase requires these services to be running:
+
 - Neo4j + Neo4j Cypher MCP: `cd <knowledgebase-dir> && ./run.sh --start`
 - MCP endpoint: http://localhost:8000/mcp/
 - Neo4j Browser UI: http://localhost:7474
@@ -60,6 +59,7 @@ If MCP tools are unavailable, the services may need to be started. Inform the us
 ## Ingesting New Documents
 
 To add new knowledge:
+
 1. Open http://localhost:8080 (llm-graph-builder UI)
 2. Select `ollama_llama3.2` from the model dropdown
 3. Upload documents (PDF, TXT, Markdown, HTML)

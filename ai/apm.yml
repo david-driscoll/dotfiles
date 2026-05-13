@@ -129,6 +129,7 @@ dependencies:
   - sanjay3290/ai-skills/skills/postgres
   - sanjay3290/ai-skills/skills/mssql
   - sanjay3290/ai-skills/skills/mysql
+  - DuendeSoftware/duende-skills
   local:
   - .apm/instructions/neo4j-knowledgebase.instructions.md
   mcp:
