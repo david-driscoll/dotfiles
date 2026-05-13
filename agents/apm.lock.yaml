@@ -1,6 +1,6 @@
 lockfile_version: '1'
-generated_at: '2026-04-29T12:52:51.337099+00:00'
-apm_version: 0.10.0
+generated_at: '2026-05-13T16:07:21.928312+00:00'
+apm_version: 0.13.0
 dependencies:
 - repo_url: ComposioHQ/awesome-claude-skills
   host: github.com
@@ -10,9 +10,9 @@ dependencies:
   is_virtual: true
   package_type: claude_skill
   deployed_files:
+  - .agents/skills/content-research-writer
   - .claude/skills/content-research-writer
-  - .cursor/skills/content-research-writer
-  - .github/skills/content-research-writer
+  - .windsurf/skills/content-research-writer
   content_hash: sha256:de7e9085e875a651f209c826d1a5e7dd5f2436fb38fe565ef76b54492c1a0c22
 - repo_url: ComposioHQ/awesome-claude-skills
   host: github.com
@@ -22,16 +22,281 @@ dependencies:
   is_virtual: true
   package_type: claude_skill
   deployed_files:
+  - .agents/skills/video-downloader
   - .claude/skills/video-downloader
-  - .cursor/skills/video-downloader
-  - .github/skills/video-downloader
+  - .windsurf/skills/video-downloader
   content_hash: sha256:b5fdb1670fa368aeb3f7cd0842b4844ad7e5d077e2423ba39835bf27d9accbfe
+- repo_url: affaan-m/everything-claude-code
+  host: github.com
+  resolved_commit: 846ffb75da9a5f4e677d927af1ad4a1951652267
+  resolved_ref: v1.10.0
+  package_type: marketplace_plugin
+  content_hash: sha256:bae8d337e892738c04b50321745ba32932989bffab8b3928345d7c8015adf449
 - repo_url: aj-geddes/useful-ai-prompts
   host: github.com
   resolved_commit: 3f5182cfd739fc113f4af5244a1cf342ad7f7911
   resolved_ref: 3f5182cfd739fc113f4af5244a1cf342ad7f7911
   package_type: skill_bundle
   deployed_files:
+  - .agents/skills/ab-test-analysis
+  - .agents/skills/access-control-rbac
+  - .agents/skills/accessibility-compliance
+  - .agents/skills/accessibility-testing
+  - .agents/skills/agile-sprint-planning
+  - .agents/skills/alert-management
+  - .agents/skills/android-kotlin-development
+  - .agents/skills/angular-module-design
+  - .agents/skills/anomaly-detection
+  - .agents/skills/ansible-automation
+  - .agents/skills/api-authentication
+  - .agents/skills/api-changelog-versioning
+  - .agents/skills/api-contract-testing
+  - .agents/skills/api-error-handling
+  - .agents/skills/api-filtering-sorting
+  - .agents/skills/api-gateway-configuration
+  - .agents/skills/api-pagination
+  - .agents/skills/api-rate-limiting
+  - .agents/skills/api-reference-documentation
+  - .agents/skills/api-response-optimization
+  - .agents/skills/api-security-hardening
+  - .agents/skills/api-versioning-strategy
+  - .agents/skills/app-store-deployment
+  - .agents/skills/application-logging
+  - .agents/skills/architecture-diagrams
+  - .agents/skills/artifact-management
+  - .agents/skills/autoscaling-configuration
+  - .agents/skills/aws-cloudfront-cdn
+  - .agents/skills/aws-ec2-setup
+  - .agents/skills/aws-lambda-functions
+  - .agents/skills/aws-rds-database
+  - .agents/skills/aws-s3-management
+  - .agents/skills/azure-app-service
+  - .agents/skills/azure-functions
+  - .agents/skills/background-job-processing
+  - .agents/skills/backup-disaster-recovery
+  - .agents/skills/batch-processing-jobs
+  - .agents/skills/blue-green-deployment
+  - .agents/skills/browser-debugging
+  - .agents/skills/bundle-size-optimization
+  - .agents/skills/business-case-development
+  - .agents/skills/caching-strategy
+  - .agents/skills/canary-deployment
+  - .agents/skills/capacity-planning
+  - .agents/skills/causal-inference
+  - .agents/skills/changelog-maintenance
+  - .agents/skills/cicd-pipeline-setup
+  - .agents/skills/circuit-breaker-pattern
+  - .agents/skills/classification-modeling
+  - .agents/skills/cloud-cost-management
+  - .agents/skills/cloud-migration-planning
+  - .agents/skills/cloud-security-configuration
+  - .agents/skills/cloud-storage-optimization
+  - .agents/skills/clustering-analysis
+  - .agents/skills/code-documentation
+  - .agents/skills/code-generation-template
+  - .agents/skills/code-metrics-analysis
+  - .agents/skills/code-review-analysis
+  - .agents/skills/cohort-analysis
+  - .agents/skills/color-accessibility
+  - .agents/skills/competitor-analysis
+  - .agents/skills/computer-vision
+  - .agents/skills/concurrency-patterns
+  - .agents/skills/configuration-management
+  - .agents/skills/container-debugging
+  - .agents/skills/container-registry-management
+  - .agents/skills/continuous-testing
+  - .agents/skills/correlation-analysis
+  - .agents/skills/correlation-tracing
+  - .agents/skills/cpu-profiling
+  - .agents/skills/cross-platform-compatibility
+  - .agents/skills/csrf-protection
+  - .agents/skills/css-architecture
+  - .agents/skills/data-cleaning-pipeline
+  - .agents/skills/data-encryption
+  - .agents/skills/data-migration-scripts
+  - .agents/skills/data-replication-setup
+  - .agents/skills/data-visualization
+  - .agents/skills/database-backup-restore
+  - .agents/skills/database-indexing-strategy
+  - .agents/skills/database-migration-management
+  - .agents/skills/database-monitoring
+  - .agents/skills/database-performance-debugging
+  - .agents/skills/database-query-optimization
+  - .agents/skills/database-schema-design
+  - .agents/skills/database-schema-documentation
+  - .agents/skills/database-sharding
+  - .agents/skills/dependency-management
+  - .agents/skills/dependency-tracking
+  - .agents/skills/deployment-automation
+  - .agents/skills/deployment-documentation
+  - .agents/skills/design-handoff
+  - .agents/skills/design-patterns-implementation
+  - .agents/skills/design-system-creation
+  - .agents/skills/developer-onboarding
+  - .agents/skills/dimensionality-reduction
+  - .agents/skills/disaster-recovery-testing
+  - .agents/skills/distributed-tracing
+  - .agents/skills/django-application
+  - .agents/skills/dns-management
+  - .agents/skills/docker-containerization
+  - .agents/skills/documentation-site-setup
+  - .agents/skills/e2e-testing-automation
+  - .agents/skills/email-service-integration
+  - .agents/skills/error-tracking
+  - .agents/skills/event-sourcing
+  - .agents/skills/exploratory-data-analysis
+  - .agents/skills/fastapi-development
+  - .agents/skills/feature-engineering
+  - .agents/skills/feature-flag-system
+  - .agents/skills/file-upload-handling
+  - .agents/skills/flask-api-development
+  - .agents/skills/flutter-development
+  - .agents/skills/form-validation
+  - .agents/skills/frontend-accessibility
+  - .agents/skills/frontend-routing
+  - .agents/skills/frontend-state-management
+  - .agents/skills/frontend-testing
+  - .agents/skills/funnel-analysis
+  - .agents/skills/gap-analysis
+  - .agents/skills/gcp-cloud-functions
+  - .agents/skills/gcp-cloud-run
+  - .agents/skills/git-hooks-setup
+  - .agents/skills/git-workflow-strategy
+  - .agents/skills/github-actions-workflow
+  - .agents/skills/gitlab-cicd-pipeline
+  - .agents/skills/graceful-shutdown
+  - .agents/skills/grafana-dashboard
+  - .agents/skills/graphql-implementation
+  - .agents/skills/grpc-service-development
+  - .agents/skills/health-check-endpoints
+  - .agents/skills/idempotency-handling
+  - .agents/skills/image-optimization
+  - .agents/skills/incident-response-plan
+  - .agents/skills/information-architecture
+  - .agents/skills/infrastructure-cost-optimization
+  - .agents/skills/infrastructure-monitoring
+  - .agents/skills/integration-testing
+  - .agents/skills/interaction-design
+  - .agents/skills/intermittent-issue-debugging
+  - .agents/skills/internationalization-i18n
+  - .agents/skills/ios-swift-development
+  - .agents/skills/jenkins-pipeline
+  - .agents/skills/kpi-dashboard-design
+  - .agents/skills/kubernetes-deployment
+  - .agents/skills/load-balancer-setup
+  - .agents/skills/log-aggregation
+  - .agents/skills/log-analysis
+  - .agents/skills/logging-best-practices
+  - .agents/skills/markdown-documentation
+  - .agents/skills/memory-leak-detection
+  - .agents/skills/memory-optimization
+  - .agents/skills/microservices-architecture
+  - .agents/skills/ml-model-explanation
+  - .agents/skills/ml-model-training
+  - .agents/skills/ml-pipeline-automation
+  - .agents/skills/mobile-app-debugging
+  - .agents/skills/mobile-app-testing
+  - .agents/skills/mobile-first-design
+  - .agents/skills/mobile-offline-support
+  - .agents/skills/mocking-stubbing
+  - .agents/skills/model-deployment
+  - .agents/skills/model-hyperparameter-tuning
+  - .agents/skills/model-monitoring
+  - .agents/skills/monorepo-management
+  - .agents/skills/multi-cloud-strategy
+  - .agents/skills/mutation-testing
+  - .agents/skills/natural-language-processing
+  - .agents/skills/network-analysis
+  - .agents/skills/network-debugging
+  - .agents/skills/network-security-groups
+  - .agents/skills/neural-network-design
+  - .agents/skills/nginx-configuration
+  - .agents/skills/nodejs-express-server
+  - .agents/skills/nosql-database-design
+  - .agents/skills/oauth-implementation
+  - .agents/skills/payment-gateway-integration
+  - .agents/skills/penetration-testing
+  - .agents/skills/performance-regression-debugging
+  - .agents/skills/performance-testing
+  - .agents/skills/polyglot-integration
+  - .agents/skills/process-mapping
+  - .agents/skills/profiling-optimization
+  - .agents/skills/progressive-web-app
+  - .agents/skills/project-estimation
+  - .agents/skills/prometheus-monitoring
+  - .agents/skills/property-based-testing
+  - .agents/skills/pull-request-automation
+  - .agents/skills/push-notification-setup
+  - .agents/skills/query-caching-strategies
+  - .agents/skills/rate-limiting-implementation
+  - .agents/skills/react-component-architecture
+  - .agents/skills/react-native-app
+  - .agents/skills/reactive-programming
+  - .agents/skills/real-time-features
+  - .agents/skills/recommendation-engine
+  - .agents/skills/recommendation-system
+  - .agents/skills/refactor-legacy-code
+  - .agents/skills/regression-modeling
+  - .agents/skills/release-planning
+  - .agents/skills/requirements-gathering
+  - .agents/skills/responsive-web-design
+  - .agents/skills/rest-api-design
+  - .agents/skills/retrospective-facilitation
+  - .agents/skills/risk-assessment
+  - .agents/skills/root-cause-analysis
+  - .agents/skills/ruby-rails-application
+  - .agents/skills/runbook-creation
+  - .agents/skills/secrets-management
+  - .agents/skills/secrets-rotation
+  - .agents/skills/security-audit-logging
+  - .agents/skills/security-compliance-audit
+  - .agents/skills/security-documentation
+  - .agents/skills/security-headers-configuration
+  - .agents/skills/security-testing
+  - .agents/skills/semantic-versioning
+  - .agents/skills/sentiment-analysis
+  - .agents/skills/server-side-rendering
+  - .agents/skills/serverless-architecture
+  - .agents/skills/service-mesh-implementation
+  - .agents/skills/session-management
+  - .agents/skills/spring-boot-application
+  - .agents/skills/sql-injection-prevention
+  - .agents/skills/sql-query-optimization
+  - .agents/skills/ssl-certificate-management
+  - .agents/skills/stakeholder-communication
+  - .agents/skills/static-code-analysis
+  - .agents/skills/statistical-hypothesis-testing
+  - .agents/skills/stored-procedures
+  - .agents/skills/stress-testing
+  - .agents/skills/survival-analysis
+  - .agents/skills/synthetic-monitoring
+  - .agents/skills/technical-debt-assessment
+  - .agents/skills/technical-roadmap-planning
+  - .agents/skills/technical-specification
+  - .agents/skills/terraform-infrastructure
+  - .agents/skills/test-automation-framework
+  - .agents/skills/test-data-generation
+  - .agents/skills/third-party-integration
+  - .agents/skills/time-series-analysis
+  - .agents/skills/transaction-management
+  - .agents/skills/troubleshooting-guide
+  - .agents/skills/unit-testing-framework
+  - .agents/skills/uptime-monitoring
+  - .agents/skills/user-guide-creation
+  - .agents/skills/user-persona-creation
+  - .agents/skills/user-research-analysis
+  - .agents/skills/user-story-writing
+  - .agents/skills/visual-regression-testing
+  - .agents/skills/vue-application-structure
+  - .agents/skills/vulnerability-scanning
+  - .agents/skills/web-performance-audit
+  - .agents/skills/web-performance-optimization
+  - .agents/skills/webhook-development
+  - .agents/skills/webhook-integration
+  - .agents/skills/websocket-implementation
+  - .agents/skills/wireframe-prototyping
+  - .agents/skills/xss-prevention
+  - .agents/skills/zero-trust-architecture
   - .claude/skills/ab-test-analysis
   - .claude/skills/access-control-rbac
   - .claude/skills/accessibility-compliance
@@ -291,524 +556,265 @@ dependencies:
   - .claude/skills/wireframe-prototyping
   - .claude/skills/xss-prevention
   - .claude/skills/zero-trust-architecture
-  - .cursor/skills/ab-test-analysis
-  - .cursor/skills/access-control-rbac
-  - .cursor/skills/accessibility-compliance
-  - .cursor/skills/accessibility-testing
-  - .cursor/skills/agile-sprint-planning
-  - .cursor/skills/alert-management
-  - .cursor/skills/android-kotlin-development
-  - .cursor/skills/angular-module-design
-  - .cursor/skills/anomaly-detection
-  - .cursor/skills/ansible-automation
-  - .cursor/skills/api-authentication
-  - .cursor/skills/api-changelog-versioning
-  - .cursor/skills/api-contract-testing
-  - .cursor/skills/api-error-handling
-  - .cursor/skills/api-filtering-sorting
-  - .cursor/skills/api-gateway-configuration
-  - .cursor/skills/api-pagination
-  - .cursor/skills/api-rate-limiting
-  - .cursor/skills/api-reference-documentation
-  - .cursor/skills/api-response-optimization
-  - .cursor/skills/api-security-hardening
-  - .cursor/skills/api-versioning-strategy
-  - .cursor/skills/app-store-deployment
-  - .cursor/skills/application-logging
-  - .cursor/skills/architecture-diagrams
-  - .cursor/skills/artifact-management
-  - .cursor/skills/autoscaling-configuration
-  - .cursor/skills/aws-cloudfront-cdn
-  - .cursor/skills/aws-ec2-setup
-  - .cursor/skills/aws-lambda-functions
-  - .cursor/skills/aws-rds-database
-  - .cursor/skills/aws-s3-management
-  - .cursor/skills/azure-app-service
-  - .cursor/skills/azure-functions
-  - .cursor/skills/background-job-processing
-  - .cursor/skills/backup-disaster-recovery
-  - .cursor/skills/batch-processing-jobs
-  - .cursor/skills/blue-green-deployment
-  - .cursor/skills/browser-debugging
-  - .cursor/skills/bundle-size-optimization
-  - .cursor/skills/business-case-development
-  - .cursor/skills/caching-strategy
-  - .cursor/skills/canary-deployment
-  - .cursor/skills/capacity-planning
-  - .cursor/skills/causal-inference
-  - .cursor/skills/changelog-maintenance
-  - .cursor/skills/cicd-pipeline-setup
-  - .cursor/skills/circuit-breaker-pattern
-  - .cursor/skills/classification-modeling
-  - .cursor/skills/cloud-cost-management
-  - .cursor/skills/cloud-migration-planning
-  - .cursor/skills/cloud-security-configuration
-  - .cursor/skills/cloud-storage-optimization
-  - .cursor/skills/clustering-analysis
-  - .cursor/skills/code-documentation
-  - .cursor/skills/code-generation-template
-  - .cursor/skills/code-metrics-analysis
-  - .cursor/skills/code-review-analysis
-  - .cursor/skills/cohort-analysis
-  - .cursor/skills/color-accessibility
-  - .cursor/skills/competitor-analysis
-  - .cursor/skills/computer-vision
-  - .cursor/skills/concurrency-patterns
-  - .cursor/skills/configuration-management
-  - .cursor/skills/container-debugging
-  - .cursor/skills/container-registry-management
-  - .cursor/skills/continuous-testing
-  - .cursor/skills/correlation-analysis
-  - .cursor/skills/correlation-tracing
-  - .cursor/skills/cpu-profiling
-  - .cursor/skills/cross-platform-compatibility
-  - .cursor/skills/csrf-protection
-  - .cursor/skills/css-architecture
-  - .cursor/skills/data-cleaning-pipeline
-  - .cursor/skills/data-encryption
-  - .cursor/skills/data-migration-scripts
-  - .cursor/skills/data-replication-setup
-  - .cursor/skills/data-visualization
-  - .cursor/skills/database-backup-restore
-  - .cursor/skills/database-indexing-strategy
-  - .cursor/skills/database-migration-management
-  - .cursor/skills/database-monitoring
-  - .cursor/skills/database-performance-debugging
-  - .cursor/skills/database-query-optimization
-  - .cursor/skills/database-schema-design
-  - .cursor/skills/database-schema-documentation
-  - .cursor/skills/database-sharding
-  - .cursor/skills/dependency-management
-  - .cursor/skills/dependency-tracking
-  - .cursor/skills/deployment-automation
-  - .cursor/skills/deployment-documentation
-  - .cursor/skills/design-handoff
-  - .cursor/skills/design-patterns-implementation
-  - .cursor/skills/design-system-creation
-  - .cursor/skills/developer-onboarding
-  - .cursor/skills/dimensionality-reduction
-  - .cursor/skills/disaster-recovery-testing
-  - .cursor/skills/distributed-tracing
-  - .cursor/skills/django-application
-  - .cursor/skills/dns-management
-  - .cursor/skills/docker-containerization
-  - .cursor/skills/documentation-site-setup
-  - .cursor/skills/e2e-testing-automation
-  - .cursor/skills/email-service-integration
-  - .cursor/skills/error-tracking
-  - .cursor/skills/event-sourcing
-  - .cursor/skills/exploratory-data-analysis
-  - .cursor/skills/fastapi-development
-  - .cursor/skills/feature-engineering
-  - .cursor/skills/feature-flag-system
-  - .cursor/skills/file-upload-handling
-  - .cursor/skills/flask-api-development
-  - .cursor/skills/flutter-development
-  - .cursor/skills/form-validation
-  - .cursor/skills/frontend-accessibility
-  - .cursor/skills/frontend-routing
-  - .cursor/skills/frontend-state-management
-  - .cursor/skills/frontend-testing
-  - .cursor/skills/funnel-analysis
-  - .cursor/skills/gap-analysis
-  - .cursor/skills/gcp-cloud-functions
-  - .cursor/skills/gcp-cloud-run
-  - .cursor/skills/git-hooks-setup
-  - .cursor/skills/git-workflow-strategy
-  - .cursor/skills/github-actions-workflow
-  - .cursor/skills/gitlab-cicd-pipeline
-  - .cursor/skills/graceful-shutdown
-  - .cursor/skills/grafana-dashboard
-  - .cursor/skills/graphql-implementation
-  - .cursor/skills/grpc-service-development
-  - .cursor/skills/health-check-endpoints
-  - .cursor/skills/idempotency-handling
-  - .cursor/skills/image-optimization
-  - .cursor/skills/incident-response-plan
-  - .cursor/skills/information-architecture
-  - .cursor/skills/infrastructure-cost-optimization
-  - .cursor/skills/infrastructure-monitoring
-  - .cursor/skills/integration-testing
-  - .cursor/skills/interaction-design
-  - .cursor/skills/intermittent-issue-debugging
-  - .cursor/skills/internationalization-i18n
-  - .cursor/skills/ios-swift-development
-  - .cursor/skills/jenkins-pipeline
-  - .cursor/skills/kpi-dashboard-design
-  - .cursor/skills/kubernetes-deployment
-  - .cursor/skills/load-balancer-setup
-  - .cursor/skills/log-aggregation
-  - .cursor/skills/log-analysis
-  - .cursor/skills/logging-best-practices
-  - .cursor/skills/markdown-documentation
-  - .cursor/skills/memory-leak-detection
-  - .cursor/skills/memory-optimization
-  - .cursor/skills/microservices-architecture
-  - .cursor/skills/ml-model-explanation
-  - .cursor/skills/ml-model-training
-  - .cursor/skills/ml-pipeline-automation
-  - .cursor/skills/mobile-app-debugging
-  - .cursor/skills/mobile-app-testing
-  - .cursor/skills/mobile-first-design
-  - .cursor/skills/mobile-offline-support
-  - .cursor/skills/mocking-stubbing
-  - .cursor/skills/model-deployment
-  - .cursor/skills/model-hyperparameter-tuning
-  - .cursor/skills/model-monitoring
-  - .cursor/skills/monorepo-management
-  - .cursor/skills/multi-cloud-strategy
-  - .cursor/skills/mutation-testing
-  - .cursor/skills/natural-language-processing
-  - .cursor/skills/network-analysis
-  - .cursor/skills/network-debugging
-  - .cursor/skills/network-security-groups
-  - .cursor/skills/neural-network-design
-  - .cursor/skills/nginx-configuration
-  - .cursor/skills/nodejs-express-server
-  - .cursor/skills/nosql-database-design
-  - .cursor/skills/oauth-implementation
-  - .cursor/skills/payment-gateway-integration
-  - .cursor/skills/penetration-testing
-  - .cursor/skills/performance-regression-debugging
-  - .cursor/skills/performance-testing
-  - .cursor/skills/polyglot-integration
-  - .cursor/skills/process-mapping
-  - .cursor/skills/profiling-optimization
-  - .cursor/skills/progressive-web-app
-  - .cursor/skills/project-estimation
-  - .cursor/skills/prometheus-monitoring
-  - .cursor/skills/property-based-testing
-  - .cursor/skills/pull-request-automation
-  - .cursor/skills/push-notification-setup
-  - .cursor/skills/query-caching-strategies
-  - .cursor/skills/rate-limiting-implementation
-  - .cursor/skills/react-component-architecture
-  - .cursor/skills/react-native-app
-  - .cursor/skills/reactive-programming
-  - .cursor/skills/real-time-features
-  - .cursor/skills/recommendation-engine
-  - .cursor/skills/recommendation-system
-  - .cursor/skills/refactor-legacy-code
-  - .cursor/skills/regression-modeling
-  - .cursor/skills/release-planning
-  - .cursor/skills/requirements-gathering
-  - .cursor/skills/responsive-web-design
-  - .cursor/skills/rest-api-design
-  - .cursor/skills/retrospective-facilitation
-  - .cursor/skills/risk-assessment
-  - .cursor/skills/root-cause-analysis
-  - .cursor/skills/ruby-rails-application
-  - .cursor/skills/runbook-creation
-  - .cursor/skills/secrets-management
-  - .cursor/skills/secrets-rotation
-  - .cursor/skills/security-audit-logging
-  - .cursor/skills/security-compliance-audit
-  - .cursor/skills/security-documentation
-  - .cursor/skills/security-headers-configuration
-  - .cursor/skills/security-testing
-  - .cursor/skills/semantic-versioning
-  - .cursor/skills/sentiment-analysis
-  - .cursor/skills/server-side-rendering
-  - .cursor/skills/serverless-architecture
-  - .cursor/skills/service-mesh-implementation
-  - .cursor/skills/session-management
-  - .cursor/skills/spring-boot-application
-  - .cursor/skills/sql-injection-prevention
-  - .cursor/skills/sql-query-optimization
-  - .cursor/skills/ssl-certificate-management
-  - .cursor/skills/stakeholder-communication
-  - .cursor/skills/static-code-analysis
-  - .cursor/skills/statistical-hypothesis-testing
-  - .cursor/skills/stored-procedures
-  - .cursor/skills/stress-testing
-  - .cursor/skills/survival-analysis
-  - .cursor/skills/synthetic-monitoring
-  - .cursor/skills/technical-debt-assessment
-  - .cursor/skills/technical-roadmap-planning
-  - .cursor/skills/technical-specification
-  - .cursor/skills/terraform-infrastructure
-  - .cursor/skills/test-automation-framework
-  - .cursor/skills/test-data-generation
-  - .cursor/skills/third-party-integration
-  - .cursor/skills/time-series-analysis
-  - .cursor/skills/transaction-management
-  - .cursor/skills/troubleshooting-guide
-  - .cursor/skills/unit-testing-framework
-  - .cursor/skills/uptime-monitoring
-  - .cursor/skills/user-guide-creation
-  - .cursor/skills/user-persona-creation
-  - .cursor/skills/user-research-analysis
-  - .cursor/skills/user-story-writing
-  - .cursor/skills/visual-regression-testing
-  - .cursor/skills/vue-application-structure
-  - .cursor/skills/vulnerability-scanning
-  - .cursor/skills/web-performance-audit
-  - .cursor/skills/web-performance-optimization
-  - .cursor/skills/webhook-development
-  - .cursor/skills/webhook-integration
-  - .cursor/skills/websocket-implementation
-  - .cursor/skills/wireframe-prototyping
-  - .cursor/skills/xss-prevention
-  - .cursor/skills/zero-trust-architecture
-  - .github/skills/ab-test-analysis
-  - .github/skills/access-control-rbac
-  - .github/skills/accessibility-compliance
-  - .github/skills/accessibility-testing
-  - .github/skills/agile-sprint-planning
-  - .github/skills/alert-management
-  - .github/skills/android-kotlin-development
-  - .github/skills/angular-module-design
-  - .github/skills/anomaly-detection
-  - .github/skills/ansible-automation
-  - .github/skills/api-authentication
-  - .github/skills/api-changelog-versioning
-  - .github/skills/api-contract-testing
-  - .github/skills/api-error-handling
-  - .github/skills/api-filtering-sorting
-  - .github/skills/api-gateway-configuration
-  - .github/skills/api-pagination
-  - .github/skills/api-rate-limiting
-  - .github/skills/api-reference-documentation
-  - .github/skills/api-response-optimization
-  - .github/skills/api-security-hardening
-  - .github/skills/api-versioning-strategy
-  - .github/skills/app-store-deployment
-  - .github/skills/application-logging
-  - .github/skills/architecture-diagrams
-  - .github/skills/artifact-management
-  - .github/skills/autoscaling-configuration
-  - .github/skills/aws-cloudfront-cdn
-  - .github/skills/aws-ec2-setup
-  - .github/skills/aws-lambda-functions
-  - .github/skills/aws-rds-database
-  - .github/skills/aws-s3-management
-  - .github/skills/azure-app-service
-  - .github/skills/azure-functions
-  - .github/skills/background-job-processing
-  - .github/skills/backup-disaster-recovery
-  - .github/skills/batch-processing-jobs
-  - .github/skills/blue-green-deployment
-  - .github/skills/browser-debugging
-  - .github/skills/bundle-size-optimization
-  - .github/skills/business-case-development
-  - .github/skills/caching-strategy
-  - .github/skills/canary-deployment
-  - .github/skills/capacity-planning
-  - .github/skills/causal-inference
-  - .github/skills/changelog-maintenance
-  - .github/skills/cicd-pipeline-setup
-  - .github/skills/circuit-breaker-pattern
-  - .github/skills/classification-modeling
-  - .github/skills/cloud-cost-management
-  - .github/skills/cloud-migration-planning
-  - .github/skills/cloud-security-configuration
-  - .github/skills/cloud-storage-optimization
-  - .github/skills/clustering-analysis
-  - .github/skills/code-documentation
-  - .github/skills/code-generation-template
-  - .github/skills/code-metrics-analysis
-  - .github/skills/code-review-analysis
-  - .github/skills/cohort-analysis
-  - .github/skills/color-accessibility
-  - .github/skills/competitor-analysis
-  - .github/skills/computer-vision
-  - .github/skills/concurrency-patterns
-  - .github/skills/configuration-management
-  - .github/skills/container-debugging
-  - .github/skills/container-registry-management
-  - .github/skills/continuous-testing
-  - .github/skills/correlation-analysis
-  - .github/skills/correlation-tracing
-  - .github/skills/cpu-profiling
-  - .github/skills/cross-platform-compatibility
-  - .github/skills/csrf-protection
-  - .github/skills/css-architecture
-  - .github/skills/data-cleaning-pipeline
-  - .github/skills/data-encryption
-  - .github/skills/data-migration-scripts
-  - .github/skills/data-replication-setup
-  - .github/skills/data-visualization
-  - .github/skills/database-backup-restore
-  - .github/skills/database-indexing-strategy
-  - .github/skills/database-migration-management
-  - .github/skills/database-monitoring
-  - .github/skills/database-performance-debugging
-  - .github/skills/database-query-optimization
-  - .github/skills/database-schema-design
-  - .github/skills/database-schema-documentation
-  - .github/skills/database-sharding
-  - .github/skills/dependency-management
-  - .github/skills/dependency-tracking
-  - .github/skills/deployment-automation
-  - .github/skills/deployment-documentation
-  - .github/skills/design-handoff
-  - .github/skills/design-patterns-implementation
-  - .github/skills/design-system-creation
-  - .github/skills/developer-onboarding
-  - .github/skills/dimensionality-reduction
-  - .github/skills/disaster-recovery-testing
-  - .github/skills/distributed-tracing
-  - .github/skills/django-application
-  - .github/skills/dns-management
-  - .github/skills/docker-containerization
-  - .github/skills/documentation-site-setup
-  - .github/skills/e2e-testing-automation
-  - .github/skills/email-service-integration
-  - .github/skills/error-tracking
-  - .github/skills/event-sourcing
-  - .github/skills/exploratory-data-analysis
-  - .github/skills/fastapi-development
-  - .github/skills/feature-engineering
-  - .github/skills/feature-flag-system
-  - .github/skills/file-upload-handling
-  - .github/skills/flask-api-development
-  - .github/skills/flutter-development
-  - .github/skills/form-validation
-  - .github/skills/frontend-accessibility
-  - .github/skills/frontend-routing
-  - .github/skills/frontend-state-management
-  - .github/skills/frontend-testing
-  - .github/skills/funnel-analysis
-  - .github/skills/gap-analysis
-  - .github/skills/gcp-cloud-functions
-  - .github/skills/gcp-cloud-run
-  - .github/skills/git-hooks-setup
-  - .github/skills/git-workflow-strategy
-  - .github/skills/github-actions-workflow
-  - .github/skills/gitlab-cicd-pipeline
-  - .github/skills/graceful-shutdown
-  - .github/skills/grafana-dashboard
-  - .github/skills/graphql-implementation
-  - .github/skills/grpc-service-development
-  - .github/skills/health-check-endpoints
-  - .github/skills/idempotency-handling
-  - .github/skills/image-optimization
-  - .github/skills/incident-response-plan
-  - .github/skills/information-architecture
-  - .github/skills/infrastructure-cost-optimization
-  - .github/skills/infrastructure-monitoring
-  - .github/skills/integration-testing
-  - .github/skills/interaction-design
-  - .github/skills/intermittent-issue-debugging
-  - .github/skills/internationalization-i18n
-  - .github/skills/ios-swift-development
-  - .github/skills/jenkins-pipeline
-  - .github/skills/kpi-dashboard-design
-  - .github/skills/kubernetes-deployment
-  - .github/skills/load-balancer-setup
-  - .github/skills/log-aggregation
-  - .github/skills/log-analysis
-  - .github/skills/logging-best-practices
-  - .github/skills/markdown-documentation
-  - .github/skills/memory-leak-detection
-  - .github/skills/memory-optimization
-  - .github/skills/microservices-architecture
-  - .github/skills/ml-model-explanation
-  - .github/skills/ml-model-training
-  - .github/skills/ml-pipeline-automation
-  - .github/skills/mobile-app-debugging
-  - .github/skills/mobile-app-testing
-  - .github/skills/mobile-first-design
-  - .github/skills/mobile-offline-support
-  - .github/skills/mocking-stubbing
-  - .github/skills/model-deployment
-  - .github/skills/model-hyperparameter-tuning
-  - .github/skills/model-monitoring
-  - .github/skills/monorepo-management
-  - .github/skills/multi-cloud-strategy
-  - .github/skills/mutation-testing
-  - .github/skills/natural-language-processing
-  - .github/skills/network-analysis
-  - .github/skills/network-debugging
-  - .github/skills/network-security-groups
-  - .github/skills/neural-network-design
-  - .github/skills/nginx-configuration
-  - .github/skills/nodejs-express-server
-  - .github/skills/nosql-database-design
-  - .github/skills/oauth-implementation
-  - .github/skills/payment-gateway-integration
-  - .github/skills/penetration-testing
-  - .github/skills/performance-regression-debugging
-  - .github/skills/performance-testing
-  - .github/skills/polyglot-integration
-  - .github/skills/process-mapping
-  - .github/skills/profiling-optimization
-  - .github/skills/progressive-web-app
-  - .github/skills/project-estimation
-  - .github/skills/prometheus-monitoring
-  - .github/skills/property-based-testing
-  - .github/skills/pull-request-automation
-  - .github/skills/push-notification-setup
-  - .github/skills/query-caching-strategies
-  - .github/skills/rate-limiting-implementation
-  - .github/skills/react-component-architecture
-  - .github/skills/react-native-app
-  - .github/skills/reactive-programming
-  - .github/skills/real-time-features
-  - .github/skills/recommendation-engine
-  - .github/skills/recommendation-system
-  - .github/skills/refactor-legacy-code
-  - .github/skills/regression-modeling
-  - .github/skills/release-planning
-  - .github/skills/requirements-gathering
-  - .github/skills/responsive-web-design
-  - .github/skills/rest-api-design
-  - .github/skills/retrospective-facilitation
-  - .github/skills/risk-assessment
-  - .github/skills/root-cause-analysis
-  - .github/skills/ruby-rails-application
-  - .github/skills/runbook-creation
-  - .github/skills/secrets-management
-  - .github/skills/secrets-rotation
-  - .github/skills/security-audit-logging
-  - .github/skills/security-compliance-audit
-  - .github/skills/security-documentation
-  - .github/skills/security-headers-configuration
-  - .github/skills/security-testing
-  - .github/skills/semantic-versioning
-  - .github/skills/sentiment-analysis
-  - .github/skills/server-side-rendering
-  - .github/skills/serverless-architecture
-  - .github/skills/service-mesh-implementation
-  - .github/skills/session-management
-  - .github/skills/spring-boot-application
-  - .github/skills/sql-injection-prevention
-  - .github/skills/sql-query-optimization
-  - .github/skills/ssl-certificate-management
-  - .github/skills/stakeholder-communication
-  - .github/skills/static-code-analysis
-  - .github/skills/statistical-hypothesis-testing
-  - .github/skills/stored-procedures
-  - .github/skills/stress-testing
-  - .github/skills/survival-analysis
-  - .github/skills/synthetic-monitoring
-  - .github/skills/technical-debt-assessment
-  - .github/skills/technical-roadmap-planning
-  - .github/skills/technical-specification
-  - .github/skills/terraform-infrastructure
-  - .github/skills/test-automation-framework
-  - .github/skills/test-data-generation
-  - .github/skills/third-party-integration
-  - .github/skills/time-series-analysis
-  - .github/skills/transaction-management
-  - .github/skills/troubleshooting-guide
-  - .github/skills/unit-testing-framework
-  - .github/skills/uptime-monitoring
-  - .github/skills/user-guide-creation
-  - .github/skills/user-persona-creation
-  - .github/skills/user-research-analysis
-  - .github/skills/user-story-writing
-  - .github/skills/visual-regression-testing
-  - .github/skills/vue-application-structure
-  - .github/skills/vulnerability-scanning
-  - .github/skills/web-performance-audit
-  - .github/skills/web-performance-optimization
-  - .github/skills/webhook-development
-  - .github/skills/webhook-integration
-  - .github/skills/websocket-implementation
-  - .github/skills/wireframe-prototyping
-  - .github/skills/xss-prevention
-  - .github/skills/zero-trust-architecture
+  - .windsurf/skills/ab-test-analysis
+  - .windsurf/skills/access-control-rbac
+  - .windsurf/skills/accessibility-compliance
+  - .windsurf/skills/accessibility-testing
+  - .windsurf/skills/agile-sprint-planning
+  - .windsurf/skills/alert-management
+  - .windsurf/skills/android-kotlin-development
+  - .windsurf/skills/angular-module-design
+  - .windsurf/skills/anomaly-detection
+  - .windsurf/skills/ansible-automation
+  - .windsurf/skills/api-authentication
+  - .windsurf/skills/api-changelog-versioning
+  - .windsurf/skills/api-contract-testing
+  - .windsurf/skills/api-error-handling
+  - .windsurf/skills/api-filtering-sorting
+  - .windsurf/skills/api-gateway-configuration
+  - .windsurf/skills/api-pagination
+  - .windsurf/skills/api-rate-limiting
+  - .windsurf/skills/api-reference-documentation
+  - .windsurf/skills/api-response-optimization
+  - .windsurf/skills/api-security-hardening
+  - .windsurf/skills/api-versioning-strategy
+  - .windsurf/skills/app-store-deployment
+  - .windsurf/skills/application-logging
+  - .windsurf/skills/architecture-diagrams
+  - .windsurf/skills/artifact-management
+  - .windsurf/skills/autoscaling-configuration
+  - .windsurf/skills/aws-cloudfront-cdn
+  - .windsurf/skills/aws-ec2-setup
+  - .windsurf/skills/aws-lambda-functions
+  - .windsurf/skills/aws-rds-database
+  - .windsurf/skills/aws-s3-management
+  - .windsurf/skills/azure-app-service
+  - .windsurf/skills/azure-functions
+  - .windsurf/skills/background-job-processing
+  - .windsurf/skills/backup-disaster-recovery
+  - .windsurf/skills/batch-processing-jobs
+  - .windsurf/skills/blue-green-deployment
+  - .windsurf/skills/browser-debugging
+  - .windsurf/skills/bundle-size-optimization
+  - .windsurf/skills/business-case-development
+  - .windsurf/skills/caching-strategy
+  - .windsurf/skills/canary-deployment
+  - .windsurf/skills/capacity-planning
+  - .windsurf/skills/causal-inference
+  - .windsurf/skills/changelog-maintenance
+  - .windsurf/skills/cicd-pipeline-setup
+  - .windsurf/skills/circuit-breaker-pattern
+  - .windsurf/skills/classification-modeling
+  - .windsurf/skills/cloud-cost-management
+  - .windsurf/skills/cloud-migration-planning
+  - .windsurf/skills/cloud-security-configuration
+  - .windsurf/skills/cloud-storage-optimization
+  - .windsurf/skills/clustering-analysis
+  - .windsurf/skills/code-documentation
+  - .windsurf/skills/code-generation-template
+  - .windsurf/skills/code-metrics-analysis
+  - .windsurf/skills/code-review-analysis
+  - .windsurf/skills/cohort-analysis
+  - .windsurf/skills/color-accessibility
+  - .windsurf/skills/competitor-analysis
+  - .windsurf/skills/computer-vision
+  - .windsurf/skills/concurrency-patterns
+  - .windsurf/skills/configuration-management
+  - .windsurf/skills/container-debugging
+  - .windsurf/skills/container-registry-management
+  - .windsurf/skills/continuous-testing
+  - .windsurf/skills/correlation-analysis
+  - .windsurf/skills/correlation-tracing
+  - .windsurf/skills/cpu-profiling
+  - .windsurf/skills/cross-platform-compatibility
+  - .windsurf/skills/csrf-protection
+  - .windsurf/skills/css-architecture
+  - .windsurf/skills/data-cleaning-pipeline
+  - .windsurf/skills/data-encryption
+  - .windsurf/skills/data-migration-scripts
+  - .windsurf/skills/data-replication-setup
+  - .windsurf/skills/data-visualization
+  - .windsurf/skills/database-backup-restore
+  - .windsurf/skills/database-indexing-strategy
+  - .windsurf/skills/database-migration-management
+  - .windsurf/skills/database-monitoring
+  - .windsurf/skills/database-performance-debugging
+  - .windsurf/skills/database-query-optimization
+  - .windsurf/skills/database-schema-design
+  - .windsurf/skills/database-schema-documentation
+  - .windsurf/skills/database-sharding
+  - .windsurf/skills/dependency-management
+  - .windsurf/skills/dependency-tracking
+  - .windsurf/skills/deployment-automation
+  - .windsurf/skills/deployment-documentation
+  - .windsurf/skills/design-handoff
+  - .windsurf/skills/design-patterns-implementation
+  - .windsurf/skills/design-system-creation
+  - .windsurf/skills/developer-onboarding
+  - .windsurf/skills/dimensionality-reduction
+  - .windsurf/skills/disaster-recovery-testing
+  - .windsurf/skills/distributed-tracing
+  - .windsurf/skills/django-application
+  - .windsurf/skills/dns-management
+  - .windsurf/skills/docker-containerization
+  - .windsurf/skills/documentation-site-setup
+  - .windsurf/skills/e2e-testing-automation
+  - .windsurf/skills/email-service-integration
+  - .windsurf/skills/error-tracking
+  - .windsurf/skills/event-sourcing
+  - .windsurf/skills/exploratory-data-analysis
+  - .windsurf/skills/fastapi-development
+  - .windsurf/skills/feature-engineering
+  - .windsurf/skills/feature-flag-system
+  - .windsurf/skills/file-upload-handling
+  - .windsurf/skills/flask-api-development
+  - .windsurf/skills/flutter-development
+  - .windsurf/skills/form-validation
+  - .windsurf/skills/frontend-accessibility
+  - .windsurf/skills/frontend-routing
+  - .windsurf/skills/frontend-state-management
+  - .windsurf/skills/frontend-testing
+  - .windsurf/skills/funnel-analysis
+  - .windsurf/skills/gap-analysis
+  - .windsurf/skills/gcp-cloud-functions
+  - .windsurf/skills/gcp-cloud-run
+  - .windsurf/skills/git-hooks-setup
+  - .windsurf/skills/git-workflow-strategy
+  - .windsurf/skills/github-actions-workflow
+  - .windsurf/skills/gitlab-cicd-pipeline
+  - .windsurf/skills/graceful-shutdown
+  - .windsurf/skills/grafana-dashboard
+  - .windsurf/skills/graphql-implementation
+  - .windsurf/skills/grpc-service-development
+  - .windsurf/skills/health-check-endpoints
+  - .windsurf/skills/idempotency-handling
+  - .windsurf/skills/image-optimization
+  - .windsurf/skills/incident-response-plan
+  - .windsurf/skills/information-architecture
+  - .windsurf/skills/infrastructure-cost-optimization
+  - .windsurf/skills/infrastructure-monitoring
+  - .windsurf/skills/integration-testing
+  - .windsurf/skills/interaction-design
+  - .windsurf/skills/intermittent-issue-debugging
+  - .windsurf/skills/internationalization-i18n
+  - .windsurf/skills/ios-swift-development
+  - .windsurf/skills/jenkins-pipeline
+  - .windsurf/skills/kpi-dashboard-design
+  - .windsurf/skills/kubernetes-deployment
+  - .windsurf/skills/load-balancer-setup
+  - .windsurf/skills/log-aggregation
+  - .windsurf/skills/log-analysis
+  - .windsurf/skills/logging-best-practices
+  - .windsurf/skills/markdown-documentation
+  - .windsurf/skills/memory-leak-detection
+  - .windsurf/skills/memory-optimization
+  - .windsurf/skills/microservices-architecture
+  - .windsurf/skills/ml-model-explanation
+  - .windsurf/skills/ml-model-training
+  - .windsurf/skills/ml-pipeline-automation
+  - .windsurf/skills/mobile-app-debugging
+  - .windsurf/skills/mobile-app-testing
+  - .windsurf/skills/mobile-first-design
+  - .windsurf/skills/mobile-offline-support
+  - .windsurf/skills/mocking-stubbing
+  - .windsurf/skills/model-deployment
+  - .windsurf/skills/model-hyperparameter-tuning
+  - .windsurf/skills/model-monitoring
+  - .windsurf/skills/monorepo-management
+  - .windsurf/skills/multi-cloud-strategy
+  - .windsurf/skills/mutation-testing
+  - .windsurf/skills/natural-language-processing
+  - .windsurf/skills/network-analysis
+  - .windsurf/skills/network-debugging
+  - .windsurf/skills/network-security-groups
+  - .windsurf/skills/neural-network-design
+  - .windsurf/skills/nginx-configuration
+  - .windsurf/skills/nodejs-express-server
+  - .windsurf/skills/nosql-database-design
+  - .windsurf/skills/oauth-implementation
+  - .windsurf/skills/payment-gateway-integration
+  - .windsurf/skills/penetration-testing
+  - .windsurf/skills/performance-regression-debugging
+  - .windsurf/skills/performance-testing
+  - .windsurf/skills/polyglot-integration
+  - .windsurf/skills/process-mapping
+  - .windsurf/skills/profiling-optimization
+  - .windsurf/skills/progressive-web-app
+  - .windsurf/skills/project-estimation
+  - .windsurf/skills/prometheus-monitoring
+  - .windsurf/skills/property-based-testing
+  - .windsurf/skills/pull-request-automation
+  - .windsurf/skills/push-notification-setup
+  - .windsurf/skills/query-caching-strategies
+  - .windsurf/skills/rate-limiting-implementation
+  - .windsurf/skills/react-component-architecture
+  - .windsurf/skills/react-native-app
+  - .windsurf/skills/reactive-programming
+  - .windsurf/skills/real-time-features
+  - .windsurf/skills/recommendation-engine
+  - .windsurf/skills/recommendation-system
+  - .windsurf/skills/refactor-legacy-code
+  - .windsurf/skills/regression-modeling
+  - .windsurf/skills/release-planning
+  - .windsurf/skills/requirements-gathering
+  - .windsurf/skills/responsive-web-design
+  - .windsurf/skills/rest-api-design
+  - .windsurf/skills/retrospective-facilitation
+  - .windsurf/skills/risk-assessment
+  - .windsurf/skills/root-cause-analysis
+  - .windsurf/skills/ruby-rails-application
+  - .windsurf/skills/runbook-creation
+  - .windsurf/skills/secrets-management
+  - .windsurf/skills/secrets-rotation
+  - .windsurf/skills/security-audit-logging
+  - .windsurf/skills/security-compliance-audit
+  - .windsurf/skills/security-documentation
+  - .windsurf/skills/security-headers-configuration
+  - .windsurf/skills/security-testing
+  - .windsurf/skills/semantic-versioning
+  - .windsurf/skills/sentiment-analysis
+  - .windsurf/skills/server-side-rendering
+  - .windsurf/skills/serverless-architecture
+  - .windsurf/skills/service-mesh-implementation
+  - .windsurf/skills/session-management
+  - .windsurf/skills/spring-boot-application
+  - .windsurf/skills/sql-injection-prevention
+  - .windsurf/skills/sql-query-optimization
+  - .windsurf/skills/ssl-certificate-management
+  - .windsurf/skills/stakeholder-communication
+  - .windsurf/skills/static-code-analysis
+  - .windsurf/skills/statistical-hypothesis-testing
+  - .windsurf/skills/stored-procedures
+  - .windsurf/skills/stress-testing
+  - .windsurf/skills/survival-analysis
+  - .windsurf/skills/synthetic-monitoring
+  - .windsurf/skills/technical-debt-assessment
+  - .windsurf/skills/technical-roadmap-planning
+  - .windsurf/skills/technical-specification
+  - .windsurf/skills/terraform-infrastructure
+  - .windsurf/skills/test-automation-framework
+  - .windsurf/skills/test-data-generation
+  - .windsurf/skills/third-party-integration
+  - .windsurf/skills/time-series-analysis
+  - .windsurf/skills/transaction-management
+  - .windsurf/skills/troubleshooting-guide
+  - .windsurf/skills/unit-testing-framework
+  - .windsurf/skills/uptime-monitoring
+  - .windsurf/skills/user-guide-creation
+  - .windsurf/skills/user-persona-creation
+  - .windsurf/skills/user-research-analysis
+  - .windsurf/skills/user-story-writing
+  - .windsurf/skills/visual-regression-testing
+  - .windsurf/skills/vue-application-structure
+  - .windsurf/skills/vulnerability-scanning
+  - .windsurf/skills/web-performance-audit
+  - .windsurf/skills/web-performance-optimization
+  - .windsurf/skills/webhook-development
+  - .windsurf/skills/webhook-integration
+  - .windsurf/skills/websocket-implementation
+  - .windsurf/skills/wireframe-prototyping
+  - .windsurf/skills/xss-prevention
+  - .windsurf/skills/zero-trust-architecture
   content_hash: sha256:4e3ddc7beb9150a37b446e773752cd52820822daf6af4a1e3d4f577583692b32
 - repo_url: cskiro/claudex
   host: github.com
@@ -818,9 +824,9 @@ dependencies:
   is_virtual: true
   package_type: skill_bundle
   deployed_files:
+  - .agents/skills/otel-monitoring-setup
   - .claude/skills/otel-monitoring-setup
-  - .cursor/skills/otel-monitoring-setup
-  - .github/skills/otel-monitoring-setup
+  - .windsurf/skills/otel-monitoring-setup
   content_hash: sha256:878556ef371c2d77f7bcca238bed605aac5da356646005f9e26e70fae4e3a4ee
 - repo_url: emaynard/claude-family-history-research-skill
   host: github.com
@@ -828,32 +834,36 @@ dependencies:
   resolved_ref: v1.0.6
   package_type: claude_skill
   deployed_files:
+  - .agents/skills/claude-family-history-research-skill
   - .claude/skills/claude-family-history-research-skill
-  - .cursor/skills/claude-family-history-research-skill
-  - .github/skills/claude-family-history-research-skill
+  - .windsurf/skills/claude-family-history-research-skill
   content_hash: sha256:be0abf53c7f1726c134cb1e5d7c92e2be48acb889b82489bb92d76aa73774faf
 - repo_url: fluxcd/agent-skills
   host: github.com
-  resolved_commit: 4ba2c6133d29a0d31dd9db0b50fe975affcd312f
+  resolved_commit: df7cf2c5dbb64ded73913fea775f6a9fc4f7c209
+  resolved_ref: v0.0.3
   package_type: marketplace_plugin
   deployed_files:
+  - .agents/skills/gitops-cluster-debug
+  - .agents/skills/gitops-knowledge
+  - .agents/skills/gitops-repo-audit
+  - .claude/agents/fluxcd.md
   - .claude/agents/fluxcd.md
   - .claude/skills/gitops-cluster-debug
   - .claude/skills/gitops-knowledge
   - .claude/skills/gitops-repo-audit
-  - .cursor/agents/fluxcd.md
-  - .cursor/skills/gitops-cluster-debug
-  - .cursor/skills/gitops-knowledge
-  - .cursor/skills/gitops-repo-audit
   - .github/agents/fluxcd.agent.md
-  - .github/skills/gitops-cluster-debug
-  - .github/skills/gitops-knowledge
-  - .github/skills/gitops-repo-audit
+  - .github/agents/fluxcd.agent.md
+  - .windsurf/skills/fluxcd/SKILL.md
+  - .windsurf/skills/fluxcd/SKILL.md
+  - .windsurf/skills/gitops-cluster-debug
+  - .windsurf/skills/gitops-knowledge
+  - .windsurf/skills/gitops-repo-audit
   deployed_file_hashes:
-    .claude/agents/fluxcd.md: sha256:99a786c13ff65a5149b69bbeb7a550ab159557bf0ef7006b18e1c09c4db7200f
-    .cursor/agents/fluxcd.md: sha256:99a786c13ff65a5149b69bbeb7a550ab159557bf0ef7006b18e1c09c4db7200f
-    .github/agents/fluxcd.agent.md: sha256:99a786c13ff65a5149b69bbeb7a550ab159557bf0ef7006b18e1c09c4db7200f
-  content_hash: sha256:61205a0e509f7d39daf92ca95229670eaa9390b4c016490ac79dc562cf8173be
+    .claude/agents/fluxcd.md: sha256:651fc69a42b7e4b4986cbcb8138a5706d40c91fdf52a720d9cfb174af5d4923f
+    .github/agents/fluxcd.agent.md: sha256:651fc69a42b7e4b4986cbcb8138a5706d40c91fdf52a720d9cfb174af5d4923f
+    .windsurf/skills/fluxcd/SKILL.md: sha256:2c3d0813681d0caae30fdf47ae2f05c791aa534f03c83445d85efd0b8c8d2e55
+  content_hash: sha256:1e8c4dd5956458fd3ab820fbe39cdef76792cc579e81bed33dbc1c509049d421
 - repo_url: jeffallan/claude-skills
   host: github.com
   resolved_commit: efebc44c90ae6eb3b36ff1c53802a765418481b9
@@ -862,9 +872,9 @@ dependencies:
   is_virtual: true
   package_type: claude_skill
   deployed_files:
+  - .agents/skills/kubernetes-specialist
   - .claude/skills/kubernetes-specialist
-  - .cursor/skills/kubernetes-specialist
-  - .github/skills/kubernetes-specialist
+  - .windsurf/skills/kubernetes-specialist
   content_hash: sha256:dc7dfeb059ef078086ac9177eb402caef391d3474bc2bb42ec3a7f2f8d8a0fd5
 - repo_url: michalparkola/tapestry-skills
   host: github.com
@@ -874,9 +884,9 @@ dependencies:
   is_virtual: true
   package_type: claude_skill
   deployed_files:
+  - .agents/skills/article-extractor
   - .claude/skills/article-extractor
-  - .cursor/skills/article-extractor
-  - .github/skills/article-extractor
+  - .windsurf/skills/article-extractor
   content_hash: sha256:fc3369b15640de9af0409396aac9cc7608c3aa48f902b4a80f92f98a924a1429
 - repo_url: michalparkola/tapestry-skills
   host: github.com
@@ -886,9 +896,9 @@ dependencies:
   is_virtual: true
   package_type: claude_skill
   deployed_files:
+  - .agents/skills/learn-this
   - .claude/skills/learn-this
-  - .cursor/skills/learn-this
-  - .github/skills/learn-this
+  - .windsurf/skills/learn-this
   content_hash: sha256:cb479a7a8c1517ce520ce25f36e9cb8681fd9159e999f718a87f219d0fe87ce0
 - repo_url: michalparkola/tapestry-skills
   host: github.com
@@ -898,9 +908,9 @@ dependencies:
   is_virtual: true
   package_type: claude_skill
   deployed_files:
+  - .agents/skills/scrum-sage
   - .claude/skills/scrum-sage
-  - .cursor/skills/scrum-sage
-  - .github/skills/scrum-sage
+  - .windsurf/skills/scrum-sage
   content_hash: sha256:745a6dafdd686ef6c8f360f6669eb425b9bfa63fd8c8128666c81f8f2f962168
 - repo_url: michalparkola/tapestry-skills
   host: github.com
@@ -910,9 +920,9 @@ dependencies:
   is_virtual: true
   package_type: claude_skill
   deployed_files:
+  - .agents/skills/session-log
   - .claude/skills/session-log
-  - .cursor/skills/session-log
-  - .github/skills/session-log
+  - .windsurf/skills/session-log
   content_hash: sha256:eb6b207be2a78a0d3fcd361ac4dfb6bd370dc429d0ab4765f9dde7f858d51204
 - repo_url: michalparkola/tapestry-skills
   host: github.com
@@ -922,9 +932,9 @@ dependencies:
   is_virtual: true
   package_type: claude_skill
   deployed_files:
+  - .agents/skills/ship-learn-next
   - .claude/skills/ship-learn-next
-  - .cursor/skills/ship-learn-next
-  - .github/skills/ship-learn-next
+  - .windsurf/skills/ship-learn-next
   content_hash: sha256:e04c6a8a8008e8d4bd736c345e83ffdba1d61b6b9fe861ff16cff5008481ea7d
 - repo_url: michalparkola/tapestry-skills
   host: github.com
@@ -934,9 +944,9 @@ dependencies:
   is_virtual: true
   package_type: claude_skill
   deployed_files:
+  - .agents/skills/unblock-action
   - .claude/skills/unblock-action
-  - .cursor/skills/unblock-action
-  - .github/skills/unblock-action
+  - .windsurf/skills/unblock-action
   content_hash: sha256:ab77e0ebe24938da3801e20ba894d8430edeeebcacfc81b9bd4d8337b3f3205b
 - repo_url: michalparkola/tapestry-skills
   host: github.com
@@ -946,9 +956,9 @@ dependencies:
   is_virtual: true
   package_type: claude_skill
   deployed_files:
+  - .agents/skills/youtube-transcript
   - .claude/skills/youtube-transcript
-  - .cursor/skills/youtube-transcript
-  - .github/skills/youtube-transcript
+  - .windsurf/skills/youtube-transcript
   content_hash: sha256:e5e29eb320d2e31eb0f0d628500d8839baac3494a1a7a51be8387d948098d3a3
 - repo_url: ryanbbrown/revealjs-skill
   host: github.com
@@ -956,10 +966,10 @@ dependencies:
   resolved_ref: 188e0dc90056a4d59f457fefb70c63eefac2b0a2
   package_type: marketplace_plugin
   deployed_files:
+  - .agents/skills/revealjs
   - .claude/skills/revealjs
-  - .cursor/skills/revealjs
-  - .github/skills/revealjs
-  content_hash: sha256:eb0fa4aab41858ee74a66480bf9791f524b1fbc62f921499629005a4284a4531
+  - .windsurf/skills/revealjs
+  content_hash: sha256:f0c659c5cc6950c176dd9fee75fbc4c86659c4f2b79d9dd5b88fa63c0096c41b
 - repo_url: sanjay3290/ai-skills
   host: github.com
   resolved_commit: cde1c8385ead64df501c9b214e63d7ba9b283ff9
@@ -968,21 +978,56 @@ dependencies:
   is_virtual: true
   package_type: claude_skill
   deployed_files:
+  - .agents/skills/deep-research
   - .claude/skills/deep-research
-  - .cursor/skills/deep-research
-  - .github/skills/deep-research
+  - .windsurf/skills/deep-research
   content_hash: sha256:978e5b1b36609b9324ccf25746df6c04a3e83c79fbed9e80409bd800f00bb1e2
 mcp_servers:
+- context7
+- exa
+- github
 - kubernetes
+- memory
 - mise
+- playwright
 - pulumi
+- sequential-thinking
 mcp_configs:
+  context7:
+    name: context7
+    transport: stdio
+    args:
+    - -y
+    - '@upstash/context7-mcp@2.1.4'
+    registry: false
+    command: npx
+  exa:
+    name: exa
+    transport: http
+    registry: false
+    url: https://mcp.exa.ai/mcp
+  github:
+    name: github
+    transport: stdio
+    args:
+    - -y
+    - '@modelcontextprotocol/server-github@2025.4.8'
+    registry: false
+    command: npx
   kubernetes:
     name: kubernetes
     transport: stdio
     args:
     - -y
     - kubernetes-mcp-server
+    registry: false
+    command: npx
+  memory:
+    name: memory
+    transport: stdio
+    args:
+    - -y
+    - '@modelcontextprotocol/server-memory@2026.1.26'
     registry: false
     command: npx
   mise:
@@ -994,6 +1039,15 @@ mcp_configs:
     - mcp
     registry: false
     command: mise
+  playwright:
+    name: playwright
+    transport: stdio
+    args:
+    - -y
+    - '@playwright/mcp@0.0.69'
+    - --extension
+    registry: false
+    command: npx
   pulumi:
     name: pulumi
     transport: stdio
@@ -1001,5 +1055,13 @@ mcp_configs:
     - -y
     - '@pulumi/mcp-server'
     - stdio
+    registry: false
+    command: npx
+  sequential-thinking:
+    name: sequential-thinking
+    transport: stdio
+    args:
+    - -y
+    - '@modelcontextprotocol/server-sequential-thinking@2025.12.18'
     registry: false
     command: npx
