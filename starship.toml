@@ -97,10 +97,10 @@ $character\
 
 [battery]
 # full_symbol = "🔋"
-full_symbol = "🔋🪫"
-charging_symbol = ""
-discharging_symbol = ""
-empty_symbol = ""
+full_symbol = "🔋"
+charging_symbol = "󰂏"
+discharging_symbol = "󰂄"
+empty_symbol = "󰂃"
 format = "[$symbol]($style)"
 
 [[battery.display]]
