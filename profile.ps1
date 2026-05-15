@@ -19,7 +19,7 @@ foreach ($x in Get-ChildItem $PSScriptRoot/profile.pwsh -Filter *.ps1) {
     . $x.FullName
 }
 
-foreach ($x in $PROFILE | Get-Member | where { $_.Name.StartsWith("Current") } | foreach { $PROFILE.($_.Name) } | foreach { Split-Path -Parent $_ } | select -Unique | foreach { Get-ChildItem "$_/Profile/" -Filter *.ps1 }) {
+foreach ($x in $PROFILE | Get-Member | where { $_.Name.StartsWith("Current") } | foreach { $PROFILE.($_.Name) } | foreach { Split-Path -Parent $_ } | select -Unique | foreach { Get-ChildItem -ErrorAction SilentlyContinue "$_/Profile/" -Filter *.ps1 }) {
     . $x.FullName
 }
 
