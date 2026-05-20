@@ -1,10 +1,15 @@
 function Merge-PullRequests {
-    $prs = gh pr list --json title, number | ConvertFrom-Json;
+    $prs = gh pr list --limit 100 --json "title,number" | ConvertFrom-Json;
 
     foreach ($pr in $prs) {
-        if ($Host.UI.PromptForChoice("Merge PR #$($_.number)", "Do you want to merge #$($_.number) '$($_.title)'?", @('&yes', '&no'), 1 ) -eq 0) {
+        $d = $Host.UI.PromptForChoice("Merge PR #$($pr.number)", "Do you want to merge #$($pr.number) '$($pr.title)'?", @('&yes', '&no', '&close'), 1 );
+        if ($d -eq 0) {
             Write-Host "Merging PR #$($pr.number): $($pr.title)" -ForegroundColor green;
-            # gh pr merge $pr.number --squash --delete-branch
+            gh pr merge $pr.number --squash --delete-branch
+        }
+        elseif ($d -eq 2) {
+            Write-Host "Closing PR #$($pr.number): $($pr.title)" -ForegroundColor red;
+            gh pr close $pr.number
         }
     }
 }
