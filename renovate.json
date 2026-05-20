@@ -4,11 +4,11 @@
   "enabledManagers": ["mise"],
   "automerge": true,
   "mise": {
-    "fileMatch": [
-      "\\.mise\\.toml$",
-      "mise\\.toml$",
-      "\\.mise/config\\.toml$",
-      "mise/config\\.toml$"
+    "managerFilePatterns": [
+      "/\\.mise\\.toml$/",
+      "/mise\\.toml$/",
+      "/\\.mise/config\\.toml$/",
+      "/mise/config\\.toml$/"
     ]
   }
 }
