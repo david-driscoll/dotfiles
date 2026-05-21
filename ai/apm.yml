@@ -135,7 +135,15 @@ dependencies:
   mcp:
   - io.github.upstash/context7
   # - com.microsoft/azure
-  - io.github.github/github-mcp-server
+  # - io.github.github/github-mcp-server
+  - name: github
+    registry: false
+    transport: stdio
+    command: gh
+    args:
+      - mcp
+    env:
+      GITHUB_DYNAMIC_TOOLSETS: "1"
   # - com.atlassian/atlassian-mcp-server
   - microsoftdocs/mcp
   # - microsoft/azure-devops-mcp

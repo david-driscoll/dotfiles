@@ -174,6 +174,7 @@ gh extension install meiji163/gh-notify
 gh extension install seachicken/gh-poi
 gh extension install vilmibm/gh-screensaver
 gh extension install AdamVig/gh-watch
+gh extension install shuymn/gh-mcp
 
 # keybase login
 
