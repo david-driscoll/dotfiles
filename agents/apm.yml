@@ -2,6 +2,9 @@ name: agents
 version: 1.0.0
 description: APM project for agents
 author: David Driscoll
+targets:
+  - copilot
+  - claude
 dependencies:
   apm:
   - ComposioHQ/awesome-claude-skills/video-downloader#337b19e0ed1260790cdfa9c5229e74db2dc6c811
@@ -21,7 +24,7 @@ dependencies:
   - jeffallan/claude-skills/skills/kubernetes-specialist#v0.4.13
   - cskiro/claudex/plugins/otel-monitoring-setup#marketplace@6.2.0
   - aj-geddes/useful-ai-prompts#3f5182cfd739fc113f4af5244a1cf342ad7f7911
-  - affaan-m/everything-claude-code#v1.10.0
+  # - affaan-m/everything-claude-code#v1.10.0
   - fluxcd/agent-skills#v0.0.3
   mcp:
   - name: kubernetes

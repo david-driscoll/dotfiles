@@ -1,6 +1,6 @@
 lockfile_version: '1'
-generated_at: '2026-05-13T16:07:21.928312+00:00'
-apm_version: 0.13.0
+generated_at: '2026-05-21T19:37:10.982235+00:00'
+apm_version: 0.14.1
 dependencies:
 - repo_url: ComposioHQ/awesome-claude-skills
   host: github.com
@@ -26,12 +26,6 @@ dependencies:
   - .claude/skills/video-downloader
   - .windsurf/skills/video-downloader
   content_hash: sha256:b5fdb1670fa368aeb3f7cd0842b4844ad7e5d077e2423ba39835bf27d9accbfe
-- repo_url: affaan-m/everything-claude-code
-  host: github.com
-  resolved_commit: 846ffb75da9a5f4e677d927af1ad4a1951652267
-  resolved_ref: v1.10.0
-  package_type: marketplace_plugin
-  content_hash: sha256:bae8d337e892738c04b50321745ba32932989bffab8b3928345d7c8015adf449
 - repo_url: aj-geddes/useful-ai-prompts
   host: github.com
   resolved_commit: 3f5182cfd739fc113f4af5244a1cf342ad7f7911
@@ -983,51 +977,16 @@ dependencies:
   - .windsurf/skills/deep-research
   content_hash: sha256:978e5b1b36609b9324ccf25746df6c04a3e83c79fbed9e80409bd800f00bb1e2
 mcp_servers:
-- context7
-- exa
-- github
 - kubernetes
-- memory
 - mise
-- playwright
 - pulumi
-- sequential-thinking
 mcp_configs:
-  context7:
-    name: context7
-    transport: stdio
-    args:
-    - -y
-    - '@upstash/context7-mcp@2.1.4'
-    registry: false
-    command: npx
-  exa:
-    name: exa
-    transport: http
-    registry: false
-    url: https://mcp.exa.ai/mcp
-  github:
-    name: github
-    transport: stdio
-    args:
-    - -y
-    - '@modelcontextprotocol/server-github@2025.4.8'
-    registry: false
-    command: npx
   kubernetes:
     name: kubernetes
     transport: stdio
     args:
     - -y
     - kubernetes-mcp-server
-    registry: false
-    command: npx
-  memory:
-    name: memory
-    transport: stdio
-    args:
-    - -y
-    - '@modelcontextprotocol/server-memory@2026.1.26'
     registry: false
     command: npx
   mise:
@@ -1039,15 +998,6 @@ mcp_configs:
     - mcp
     registry: false
     command: mise
-  playwright:
-    name: playwright
-    transport: stdio
-    args:
-    - -y
-    - '@playwright/mcp@0.0.69'
-    - --extension
-    registry: false
-    command: npx
   pulumi:
     name: pulumi
     transport: stdio
@@ -1055,13 +1005,5 @@ mcp_configs:
     - -y
     - '@pulumi/mcp-server'
     - stdio
-    registry: false
-    command: npx
-  sequential-thinking:
-    name: sequential-thinking
-    transport: stdio
-    args:
-    - -y
-    - '@modelcontextprotocol/server-sequential-thinking@2025.12.18'
     registry: false
     command: npx
