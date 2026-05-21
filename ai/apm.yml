@@ -2,6 +2,9 @@ name: agents
 version: 1.0.0
 description: APM project for ai
 author: David Driscoll
+targets:
+  - copilot
+  - claude
 dependencies:
   apm:
   - github/awesome-copilot/plugins/awesome-copilot

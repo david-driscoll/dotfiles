@@ -5,7 +5,7 @@
 [tasks.update-agents]
 description = "Update agents to the latest version"
 run = [
-    "cd {{config_root}}/ai && apm install --trust-transitive-mcp --target all",
-    "cd {{config_root}}/agents && apm install --trust-transitive-mcp --target all",
-    "apm install --global --trust-transitive-mcp --target all",
+    "cd {{config_root}}/ai && apm install --trust-transitive-mcp --force",
+    "cd {{config_root}}/agents && apm install --trust-transitive-mcp --force",
+    "apm install --global --trust-transitive-mcp --force",
 ]

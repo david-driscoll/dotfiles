@@ -1,10 +1,10 @@
 lockfile_version: '1'
-generated_at: '2026-05-13T15:14:00.427415+00:00'
-apm_version: 0.13.0
+generated_at: '2026-05-21T19:38:48.960339+00:00'
+apm_version: 0.14.1
 dependencies:
 - repo_url: ComposioHQ/awesome-claude-skills
   host: github.com
-  resolved_commit: f2b5e29bc315f04c8e09591ba275f4c4f7d4b8fe
+  resolved_commit: a33691242ede7d05df93ec5cdc2607ea1bc432da
   virtual_path: developer-growth-analysis
   is_virtual: true
   package_type: claude_skill
@@ -100,7 +100,7 @@ dependencies:
   content_hash: sha256:3dac2b6617f9a65c51cacdf931445bcc5c63529b994f4d8bc41f59df9e0b1850
 - repo_url: Jeffallan/claude-skills
   host: github.com
-  resolved_commit: 5e8b6b8ff4007414f91f980771047b6136600c34
+  resolved_commit: e8be415bc94d8d6ebddc2fb50e5d03c6e27d4319
   package_type: marketplace_plugin
   deployed_files:
   - .agents/skills/angular-architect
@@ -301,10 +301,10 @@ dependencies:
   - .windsurf/skills/vue-expert-js
   - .windsurf/skills/websocket-engineer
   - .windsurf/skills/wordpress-pro
-  content_hash: sha256:c1065f02f2f24e3c76fbb43103355748fd9955f322172753bbbaf787d4bb5182
+  content_hash: sha256:3025575ace434bbdbcea61f55e3a65e0de762a94079818943795115b6bdfc77d
 - repo_url: anthropics/skills
   host: github.com
-  resolved_commit: f458cee31a7577a47ba0c9a101976fa599385174
+  resolved_commit: 690f15cac7f7b4c055c5ab109c79ed9259934081
   package_type: marketplace_plugin
   deployed_files:
   - .agents/skills/algorithmic-art
@@ -358,25 +358,27 @@ dependencies:
   - .windsurf/skills/web-artifacts-builder
   - .windsurf/skills/webapp-testing
   - .windsurf/skills/xlsx
-  content_hash: sha256:3e6145cda1d7e38e85396009b2b8850b22ad0c4f8598f09481aeaf5a66226ab6
+  content_hash: sha256:63d974c20e09dd09a04192137dbdc6b0978b002d96811759531ce2ef74dd9583
 - repo_url: dotnet/modernize-dotnet
   host: github.com
-  resolved_commit: 4b3111721c24967ced5dc96db54fe94d54dd0562
+  resolved_commit: df1a5f2d2e4f70e5485917f9c4648f4d75412d8f
   virtual_path: plugins/modernize-dotnet
   is_virtual: true
   package_type: marketplace_plugin
   deployed_files:
   - .claude/agents/modernize-dotnet.md
   - .github/agents/modernize-dotnet.agent.md
+  - .github/hooks/modernize-dotnet-hooks.json
   - .windsurf/skills/modernize-dotnet/SKILL.md
   deployed_file_hashes:
-    .claude/agents/modernize-dotnet.md: sha256:d5e7185c68d204b9f99d6681b0e1ecebc3f283b56604235d156b0454885da408
-    .github/agents/modernize-dotnet.agent.md: sha256:d5e7185c68d204b9f99d6681b0e1ecebc3f283b56604235d156b0454885da408
-    .windsurf/skills/modernize-dotnet/SKILL.md: sha256:8c781cbe560b7499ef806c10e1781c251b16e7ae480fb96ef5eda6f50f71f4cc
-  content_hash: sha256:cb27f1ebd7ed2ad6acf21a5a3984dd7e9492dc7dcfe3e18a06babc97db76af3f
+    .claude/agents/modernize-dotnet.md: sha256:bd812ac067f06e4ebb65e7316f6662a97568f1a32f5b61b4784446e392379928
+    .github/agents/modernize-dotnet.agent.md: sha256:bd812ac067f06e4ebb65e7316f6662a97568f1a32f5b61b4784446e392379928
+    .github/hooks/modernize-dotnet-hooks.json: sha256:fc524ca2efe268e50536514b4304cbb62d855390bcecdd7783be0e70f2fd844f
+    .windsurf/skills/modernize-dotnet/SKILL.md: sha256:c88902f2ba47107301b0e5b05ed7e58cba98af9b9d9eaea5edaddbffc68569b0
+  content_hash: sha256:63b0624f447093dea605c03130baeb4737d6fd425fcf3081768f2a3551e0b296
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: f1b09eba79be95ed502ee0e2db83c01d2fb3930d
+  resolved_commit: 3b0ece94adf31952adb0ef1edb263730813881ee
   virtual_path: plugins/dotnet
   is_virtual: true
   package_type: marketplace_plugin
@@ -390,10 +392,10 @@ dependencies:
   - .windsurf/skills/csharp-scripts
   - .windsurf/skills/dotnet-pinvoke
   - .windsurf/skills/nuget-trusted-publishing
-  content_hash: sha256:3ce92644d887e5ba60be8c4846ef9c7f26c545146d35107bb4bb691470c12ac5
+  content_hash: sha256:fae9b386448374a38305b1a661df658396f456a754c95de24366b8f665045103
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: f1b09eba79be95ed502ee0e2db83c01d2fb3930d
+  resolved_commit: 3b0ece94adf31952adb0ef1edb263730813881ee
   virtual_path: plugins/dotnet-ai
   is_virtual: true
   package_type: marketplace_plugin
@@ -416,21 +418,24 @@ dependencies:
   content_hash: sha256:bf06587a27535d1bd9d5302a8433e4b657a089a4603683200509572b896b8eab
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: f1b09eba79be95ed502ee0e2db83c01d2fb3930d
+  resolved_commit: 3b0ece94adf31952adb0ef1edb263730813881ee
   virtual_path: plugins/dotnet-aspnet
   is_virtual: true
   package_type: marketplace_plugin
   deployed_files:
   - .agents/skills/configuring-opentelemetry-dotnet
+  - .agents/skills/dotnet-webapi
   - .agents/skills/minimal-api-file-upload
   - .claude/skills/configuring-opentelemetry-dotnet
+  - .claude/skills/dotnet-webapi
   - .claude/skills/minimal-api-file-upload
   - .windsurf/skills/configuring-opentelemetry-dotnet
+  - .windsurf/skills/dotnet-webapi
   - .windsurf/skills/minimal-api-file-upload
-  content_hash: sha256:8f17d99867e424e4b55a2861e1418cfe4e2731e580b5a6490c0d03097873cd59
+  content_hash: sha256:6562effcd44e3af5969a7636a0b47dfbfe505dd34c6a3679ff28e7f0c42385cb
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: f1b09eba79be95ed502ee0e2db83c01d2fb3930d
+  resolved_commit: 3b0ece94adf31952adb0ef1edb263730813881ee
   virtual_path: plugins/dotnet-data
   is_virtual: true
   package_type: marketplace_plugin
@@ -441,7 +446,7 @@ dependencies:
   content_hash: sha256:9d3f671571d97c3ccde19800ec0110dca1216c656fdc0fb022bf7ecc41f60e7f
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: f1b09eba79be95ed502ee0e2db83c01d2fb3930d
+  resolved_commit: 3b0ece94adf31952adb0ef1edb263730813881ee
   virtual_path: plugins/dotnet-diag
   is_virtual: true
   package_type: marketplace_plugin
@@ -477,7 +482,7 @@ dependencies:
   content_hash: sha256:376f3fd5bf3da9e1d8c381c84fc0c652cbaf4cc5a5fba4d488fc8801295368b1
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: f1b09eba79be95ed502ee0e2db83c01d2fb3930d
+  resolved_commit: 3b0ece94adf31952adb0ef1edb263730813881ee
   virtual_path: plugins/dotnet-msbuild
   is_virtual: true
   package_type: marketplace_plugin
@@ -543,10 +548,10 @@ dependencies:
     .windsurf/skills/build-perf/SKILL.md: sha256:265626dd474bb1c81f0806b20ea5157799e1377af37934849f1cef50dc21cbb9
     .windsurf/skills/msbuild-code-review/SKILL.md: sha256:f3ec9dbfea44ce232bd49d25b36ffabd924cf1f695fc63eb7cff099d6635b205
     .windsurf/skills/msbuild/SKILL.md: sha256:21edd88a92b6f09a021f5d00caac1dd903b900014a5075cb9d655714101c300c
-  content_hash: sha256:afa8bf6f3d06b495bc813289df7a13a830db4415dd2409d460ac0aad340faff5
+  content_hash: sha256:d664e0265a523b6f568e769cb26c2c188059335bdf2c84aeb3f6e745870e78cc
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: f1b09eba79be95ed502ee0e2db83c01d2fb3930d
+  resolved_commit: 3b0ece94adf31952adb0ef1edb263730813881ee
   virtual_path: plugins/dotnet-nuget
   is_virtual: true
   package_type: marketplace_plugin
@@ -557,7 +562,7 @@ dependencies:
   content_hash: sha256:accae49ab4f1015ede1c1082deb3996c3026484cbc4d7fb93a8b482df8c16357
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: f1b09eba79be95ed502ee0e2db83c01d2fb3930d
+  resolved_commit: 3b0ece94adf31952adb0ef1edb263730813881ee
   virtual_path: plugins/dotnet-template-engine
   is_virtual: true
   package_type: marketplace_plugin
@@ -584,7 +589,7 @@ dependencies:
   content_hash: sha256:9cccb03653046d9a24a6cb8c8680708fee435e510331187103e18ccae046b4f0
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: f1b09eba79be95ed502ee0e2db83c01d2fb3930d
+  resolved_commit: 3b0ece94adf31952adb0ef1edb263730813881ee
   virtual_path: plugins/dotnet-test
   is_virtual: true
   package_type: marketplace_plugin
@@ -690,42 +695,42 @@ dependencies:
   - .windsurf/skills/writing-mstest-tests
   deployed_file_hashes:
     .claude/agents/code-testing-builder.md: sha256:6a81734d4ecce8dd6fe39405aa3efac309b5157bbb46ab9d79cc535436f3ac34
-    .claude/agents/code-testing-fixer.md: sha256:1a7aca2d50bd0d410800ab13796178fd57613cd483a9a7705878ef4bcf43c260
-    .claude/agents/code-testing-generator.md: sha256:35a13ade8359afd954281c9c0c81b7ff0ccc7693bf587ae6c0902c5b88a186eb
-    .claude/agents/code-testing-implementer.md: sha256:16672f2b0e6f23ec442c7fcb5bfc83ed9871bedc0fe6883db36d67f118b3d469
+    .claude/agents/code-testing-fixer.md: sha256:a02c1f5111ada99208c5f664c89ffa2a2977453f819fc6a82b01c11752ea492c
+    .claude/agents/code-testing-generator.md: sha256:03f15e78c257f2a5dd78026fe267e63cd580422d2a3044c0c03cf785298c420f
+    .claude/agents/code-testing-implementer.md: sha256:3d620daeb4786d886d28247ab59c3f6fba16f2ad947c396ba326380d4eb6837d
     .claude/agents/code-testing-linter.md: sha256:40916380eb80fab367936d31d5ee8e06a50aba27e46498bdfee7034dd45feb46
     .claude/agents/code-testing-planner.md: sha256:c645a7dff73bef5caf3a22f8559bd1d2e368962b6bbcf54c52a6d0a2c72a160a
     .claude/agents/code-testing-researcher.md: sha256:2a0586d85cb0e7075bad0a9665fe8339777970c4b66ec088e42ade4ba75eaf50
-    .claude/agents/code-testing-tester.md: sha256:45d9789e8882d4f4671aa3efb5179beab919997417a9239021c1cfaf49f42780
-    .claude/agents/test-migration.md: sha256:2a9f61776eae4b3b77353e9ac03c0e65c50c42534d9d33bb2408be958d17017a
-    .claude/agents/test-quality-auditor.md: sha256:8daa154196f379f571d8c861e759229b3ecd445752658265f0e1b299aa29d318
-    .claude/agents/testability-migration.md: sha256:10f14089fd3495500384e63e927ce8f75a2389214b55e13585129fb41770d607
+    .claude/agents/code-testing-tester.md: sha256:e04e27d6c9092c481cc8bc8024bed0e8792fee417d8915d8aec16e8597370fd9
+    .claude/agents/test-migration.md: sha256:a840854191caff44ab78b774cf13f53e57474b0b8452177e2de9a280e943a42d
+    .claude/agents/test-quality-auditor.md: sha256:c4566ccb690f23e358a8604c7289c9f9f54f62d43fb934eee9ebdd0b50105a09
+    .claude/agents/testability-migration.md: sha256:8a8daadf89609a49b91ebf57822997b977e09c0b286418c5a7e41f637677cb36
     .github/agents/code-testing-builder.agent.md: sha256:6a81734d4ecce8dd6fe39405aa3efac309b5157bbb46ab9d79cc535436f3ac34
-    .github/agents/code-testing-fixer.agent.md: sha256:1a7aca2d50bd0d410800ab13796178fd57613cd483a9a7705878ef4bcf43c260
-    .github/agents/code-testing-generator.agent.md: sha256:35a13ade8359afd954281c9c0c81b7ff0ccc7693bf587ae6c0902c5b88a186eb
-    .github/agents/code-testing-implementer.agent.md: sha256:16672f2b0e6f23ec442c7fcb5bfc83ed9871bedc0fe6883db36d67f118b3d469
+    .github/agents/code-testing-fixer.agent.md: sha256:a02c1f5111ada99208c5f664c89ffa2a2977453f819fc6a82b01c11752ea492c
+    .github/agents/code-testing-generator.agent.md: sha256:03f15e78c257f2a5dd78026fe267e63cd580422d2a3044c0c03cf785298c420f
+    .github/agents/code-testing-implementer.agent.md: sha256:3d620daeb4786d886d28247ab59c3f6fba16f2ad947c396ba326380d4eb6837d
     .github/agents/code-testing-linter.agent.md: sha256:40916380eb80fab367936d31d5ee8e06a50aba27e46498bdfee7034dd45feb46
     .github/agents/code-testing-planner.agent.md: sha256:c645a7dff73bef5caf3a22f8559bd1d2e368962b6bbcf54c52a6d0a2c72a160a
     .github/agents/code-testing-researcher.agent.md: sha256:2a0586d85cb0e7075bad0a9665fe8339777970c4b66ec088e42ade4ba75eaf50
-    .github/agents/code-testing-tester.agent.md: sha256:45d9789e8882d4f4671aa3efb5179beab919997417a9239021c1cfaf49f42780
-    .github/agents/test-migration.agent.md: sha256:2a9f61776eae4b3b77353e9ac03c0e65c50c42534d9d33bb2408be958d17017a
-    .github/agents/test-quality-auditor.agent.md: sha256:8daa154196f379f571d8c861e759229b3ecd445752658265f0e1b299aa29d318
-    .github/agents/testability-migration.agent.md: sha256:10f14089fd3495500384e63e927ce8f75a2389214b55e13585129fb41770d607
+    .github/agents/code-testing-tester.agent.md: sha256:e04e27d6c9092c481cc8bc8024bed0e8792fee417d8915d8aec16e8597370fd9
+    .github/agents/test-migration.agent.md: sha256:a840854191caff44ab78b774cf13f53e57474b0b8452177e2de9a280e943a42d
+    .github/agents/test-quality-auditor.agent.md: sha256:c4566ccb690f23e358a8604c7289c9f9f54f62d43fb934eee9ebdd0b50105a09
+    .github/agents/testability-migration.agent.md: sha256:8a8daadf89609a49b91ebf57822997b977e09c0b286418c5a7e41f637677cb36
     .windsurf/skills/code-testing-builder/SKILL.md: sha256:aa61e4c4e2c6352b98b9bc9817d2914b09490836c479022e64a8a41d5051989c
-    .windsurf/skills/code-testing-fixer/SKILL.md: sha256:0c1f7d325fee8e990ba31f3d46c631e4953b1988a45046380ef12e3385884b40
-    .windsurf/skills/code-testing-generator/SKILL.md: sha256:e1a066051ee20d455808e733966baa92748ec5cf77ff6dae07ee86c3cc5e3897
-    .windsurf/skills/code-testing-implementer/SKILL.md: sha256:49dfb5be17a6ccf726eb5c4c267af1fe5324f02b4781e2cc960cdb902598d04d
+    .windsurf/skills/code-testing-fixer/SKILL.md: sha256:82ded2a93db811647fa66362d4fca0e86e51d20d7a314db4329faa1ad8f4605f
+    .windsurf/skills/code-testing-generator/SKILL.md: sha256:93ac843919621d53c1ca3e6282c2b215c7082857bc0c3086049373e21718c876
+    .windsurf/skills/code-testing-implementer/SKILL.md: sha256:7826b01176c1d131f2aadd5795481c30e9c79bce05a9bfb307065d1abaddf2d7
     .windsurf/skills/code-testing-linter/SKILL.md: sha256:80d1cdc427293acb7d6f9b1d4e7c76aa76545ae2cb3dfe6668350d657d14c913
     .windsurf/skills/code-testing-planner/SKILL.md: sha256:8f82ad289676592cb774a418c1d4e056bb7f3782a020a164b6a47857bd7c8ffb
     .windsurf/skills/code-testing-researcher/SKILL.md: sha256:3a3da9ab642c40508df76ed22d733085f26b7222897679c72332315ba3c8afcb
-    .windsurf/skills/code-testing-tester/SKILL.md: sha256:fe29c2f6a12591bd526bee8da909b09a09070164825a9e4a7e39e8ab7aeab6bb
+    .windsurf/skills/code-testing-tester/SKILL.md: sha256:e7c678550b9b2ff0a295d9f621745d5a79072e78e5edfc594b2d404e8d4a6559
     .windsurf/skills/test-migration/SKILL.md: sha256:a5d81bc12ac4e5cbe8813d34563dfe2159d10017d13515782bc44285c578142b
     .windsurf/skills/test-quality-auditor/SKILL.md: sha256:cfe1392242f110296d5f7d6eec9f06efbbd4b975b492b091b974c702e81d81a7
     .windsurf/skills/testability-migration/SKILL.md: sha256:8e9d2cfa520b022444b5681714e8b4a5c941a10bde7661c6235ff98fa35c11f4
-  content_hash: sha256:4c1d4f52e92af19f4e5d637be02109278b36b4a29d04dd1e708d0577e49f563a
+  content_hash: sha256:0a8f97db7ad20c7431172188b720837ed01769fcd2b1fdbf647f9575ca42e89a
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: f1b09eba79be95ed502ee0e2db83c01d2fb3930d
+  resolved_commit: 3b0ece94adf31952adb0ef1edb263730813881ee
   virtual_path: plugins/dotnet-upgrade
   is_virtual: true
   package_type: marketplace_plugin
@@ -751,7 +756,7 @@ dependencies:
   content_hash: sha256:c8f981aebe4d096494aa1aa1e148cefa1ed8fabc4f4b93540f7ab14fa2ff8824
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 4e136f38768fbbd9ea38946348022f1ce5c5a7a3
+  resolved_commit: 0f4adc2055e3e6add799b2e5ecbabfbe730954ea
   virtual_path: instructions/agents.instructions.md
   is_virtual: true
   deployed_files:
@@ -765,7 +770,7 @@ dependencies:
   content_hash: sha256:097d9cecd575b13da536332fce5308d8f62e2b5b7a1a1e8f93c433979202ef0c
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 4e136f38768fbbd9ea38946348022f1ce5c5a7a3
+  resolved_commit: 0f4adc2055e3e6add799b2e5ecbabfbe730954ea
   virtual_path: instructions/context-engineering.instructions.md
   is_virtual: true
   deployed_files:
@@ -779,7 +784,7 @@ dependencies:
   content_hash: sha256:2bcb85569ec273ceb432a9f8b247021da2b5e3deddf1f703d7849c87175c8e79
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 4e136f38768fbbd9ea38946348022f1ce5c5a7a3
+  resolved_commit: 0f4adc2055e3e6add799b2e5ecbabfbe730954ea
   virtual_path: instructions/instructions.instructions.md
   is_virtual: true
   deployed_files:
@@ -793,7 +798,7 @@ dependencies:
   content_hash: sha256:baa92bcb8cb2bdb992d5827fa92e424b6b92ae00ca9028b77ff2eb1745f45317
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 4e136f38768fbbd9ea38946348022f1ce5c5a7a3
+  resolved_commit: 0f4adc2055e3e6add799b2e5ecbabfbe730954ea
   virtual_path: instructions/memory-bank.instructions.md
   is_virtual: true
   deployed_files:
@@ -807,7 +812,7 @@ dependencies:
   content_hash: sha256:9f21bdd9ca2246f34db8d9daece545661dfdc6251e2b0f27d9031469ee740fb9
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 4e136f38768fbbd9ea38946348022f1ce5c5a7a3
+  resolved_commit: 0f4adc2055e3e6add799b2e5ecbabfbe730954ea
   virtual_path: instructions/powershell.instructions.md
   is_virtual: true
   deployed_files:
@@ -821,7 +826,7 @@ dependencies:
   content_hash: sha256:5a8dacd0cca2a95d2f505562b27532a4906bbaeae774dabbd49843a653ab80ac
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 4e136f38768fbbd9ea38946348022f1ce5c5a7a3
+  resolved_commit: 0f4adc2055e3e6add799b2e5ecbabfbe730954ea
   virtual_path: instructions/prompt.instructions.md
   is_virtual: true
   deployed_files:
@@ -835,7 +840,7 @@ dependencies:
   content_hash: sha256:41d3a1666bfe3eb844121d5514fd8f12ec0335410d8f7be07f9f5a7fa4858ccb
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 4e136f38768fbbd9ea38946348022f1ce5c5a7a3
+  resolved_commit: 0f4adc2055e3e6add799b2e5ecbabfbe730954ea
   virtual_path: plugins/awesome-copilot
   is_virtual: true
   package_type: marketplace_plugin
@@ -859,7 +864,7 @@ dependencies:
   content_hash: sha256:41d38e70147d07aa6938bb7ec232162404aa5e98a066349f6b9d39ba1178d97a
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 4e136f38768fbbd9ea38946348022f1ce5c5a7a3
+  resolved_commit: 0f4adc2055e3e6add799b2e5ecbabfbe730954ea
   virtual_path: plugins/context-engineering
   is_virtual: true
   package_type: marketplace_plugin
@@ -883,7 +888,7 @@ dependencies:
   content_hash: sha256:8c4f6fb390c55b7fdf376929fcc720f957f7cdc90afd41abcb4a803f24e258ee
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 4e136f38768fbbd9ea38946348022f1ce5c5a7a3
+  resolved_commit: 0f4adc2055e3e6add799b2e5ecbabfbe730954ea
   virtual_path: plugins/csharp-dotnet-development
   is_virtual: true
   package_type: marketplace_plugin
@@ -922,7 +927,7 @@ dependencies:
   content_hash: sha256:fb33ac51fcb93bb21d0a0d7ff6427e5d97712c84900cb70d08236acb5e4288cc
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 4e136f38768fbbd9ea38946348022f1ce5c5a7a3
+  resolved_commit: 0f4adc2055e3e6add799b2e5ecbabfbe730954ea
   virtual_path: plugins/project-planning
   is_virtual: true
   package_type: marketplace_plugin
@@ -997,7 +1002,7 @@ dependencies:
   content_hash: sha256:e6d6ae24ee0fc593c7464225d022ad1c6940e931e84d77e66ae5797ad6c878de
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 4e136f38768fbbd9ea38946348022f1ce5c5a7a3
+  resolved_commit: 0f4adc2055e3e6add799b2e5ecbabfbe730954ea
   virtual_path: plugins/software-engineering-team
   is_virtual: true
   package_type: marketplace_plugin
@@ -1048,18 +1053,25 @@ dependencies:
   content_hash: sha256:52769ccc6f141765a48d451cbb0974eb0f296fa8aa7021e49d7570a5e3681cec
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 4e136f38768fbbd9ea38946348022f1ce5c5a7a3
+  resolved_commit: 0f4adc2055e3e6add799b2e5ecbabfbe730954ea
   virtual_path: plugins/technical-spike
   is_virtual: true
   package_type: marketplace_plugin
   deployed_files:
   - .agents/skills/create-technical-spike
+  - .claude/agents/research-technical-spike.md
   - .claude/skills/create-technical-spike
+  - .github/agents/research-technical-spike.agent.md
   - .windsurf/skills/create-technical-spike
+  - .windsurf/skills/research-technical-spike/SKILL.md
+  deployed_file_hashes:
+    .claude/agents/research-technical-spike.md: sha256:b80e5a4585aaa1f0f1dad07e0929c7db6ad56264654e7a1da70d70c452a94758
+    .github/agents/research-technical-spike.agent.md: sha256:b80e5a4585aaa1f0f1dad07e0929c7db6ad56264654e7a1da70d70c452a94758
+    .windsurf/skills/research-technical-spike/SKILL.md: sha256:29ffd8c10b13f7b2c9839a15071710907651e52346abdfaef71e0fc754ba32d6
   content_hash: sha256:15c4f849ab0218c953da8571a1728e95e1896627776e56b934792de85ccbbdd1
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 4e136f38768fbbd9ea38946348022f1ce5c5a7a3
+  resolved_commit: 0f4adc2055e3e6add799b2e5ecbabfbe730954ea
   virtual_path: skills/acquire-codebase-knowledge
   is_virtual: true
   package_type: claude_skill
@@ -1087,6 +1099,8 @@ dependencies:
   - .agents/skills/verification-before-completion
   - .agents/skills/writing-plans
   - .agents/skills/writing-skills
+  - .claude/hooks/superpowers/hooks/run-hook.cmd
+  - .claude/hooks/superpowers/hooks/run-hook.cmd
   - .claude/skills/brainstorming
   - .claude/skills/dispatching-parallel-agents
   - .claude/skills/executing-plans
@@ -1101,8 +1115,14 @@ dependencies:
   - .claude/skills/verification-before-completion
   - .claude/skills/writing-plans
   - .claude/skills/writing-skills
+  - .github/hooks/scripts/superpowers/hooks/run-hook.cmd
+  - .github/hooks/scripts/superpowers/hooks/run-hook.cmd
+  - .github/hooks/superpowers-hooks-cursor.json
   - .github/hooks/superpowers-hooks-cursor.json
   - .github/hooks/superpowers-hooks.json
+  - .github/hooks/superpowers-hooks.json
+  - .windsurf/hooks/superpowers/hooks/run-hook.cmd
+  - .windsurf/hooks/superpowers/hooks/run-hook.cmd
   - .windsurf/skills/brainstorming
   - .windsurf/skills/dispatching-parallel-agents
   - .windsurf/skills/executing-plans
@@ -1118,8 +1138,11 @@ dependencies:
   - .windsurf/skills/writing-plans
   - .windsurf/skills/writing-skills
   deployed_file_hashes:
+    .claude/hooks/superpowers/hooks/run-hook.cmd: sha256:d3d9c6199678dab2858e60509dde5e7414f13c2a2b5e48a38b1d368b6e1d6abb
+    .github/hooks/scripts/superpowers/hooks/run-hook.cmd: sha256:d3d9c6199678dab2858e60509dde5e7414f13c2a2b5e48a38b1d368b6e1d6abb
     .github/hooks/superpowers-hooks-cursor.json: sha256:b9ece7e601639a8f8da883eed873fca594d3209df1f94d77d5765c6373e99b4c
-    .github/hooks/superpowers-hooks.json: sha256:f850fb725745662642e07f3e28f7f10d7ec4c3d48b452d9162afc998436e1555
+    .github/hooks/superpowers-hooks.json: sha256:5e164fb4b581c26d8fa92540d419a938c1fd44f64629c2357bc3c21ba8adb980
+    .windsurf/hooks/superpowers/hooks/run-hook.cmd: sha256:d3d9c6199678dab2858e60509dde5e7414f13c2a2b5e48a38b1d368b6e1d6abb
   content_hash: sha256:05988c4c700fc30c6d48145c334834437bcd5786375efabcf351a9dc7f3da75b
 - repo_url: sanjay3290/ai-skills
   host: github.com
@@ -1187,8 +1210,9 @@ dependencies:
   content_hash: sha256:7c906f3375d370496b71786712263decab7235d1e368d4dc223a7408ccd46298
 mcp_servers:
 - agentic-workflows
+- binlog
 - duckduckgo
-- io.github.github/github-mcp-server
+- github
 - io.github.upstash/context7
 - mermaid
 - microsoftdocs/mcp
@@ -1202,6 +1226,20 @@ mcp_configs:
     - mcp-server
     registry: false
     command: gh
+  binlog:
+    name: binlog
+    transport: stdio
+    args:
+    - dnx
+    - AITools.BinlogMcp
+    - --yes
+    - --prerelease
+    - --add-source
+    - https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-tools/nuget/v3/index.json
+    registry: false
+    tools:
+    - '*'
+    command: dotnet
   duckduckgo:
     name: duckduckgo
     transport: stdio
@@ -1210,8 +1248,15 @@ mcp_configs:
     - duckduckgo-mcp-server
     registry: false
     command: npx
-  io.github.github/github-mcp-server:
-    name: io.github.github/github-mcp-server
+  github:
+    name: github
+    transport: stdio
+    env:
+      GITHUB_DYNAMIC_TOOLSETS: '1'
+    args:
+    - mcp
+    registry: false
+    command: gh
   io.github.upstash/context7:
     name: io.github.upstash/context7
   mermaid:
