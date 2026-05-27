@@ -43,6 +43,7 @@ dependencies:
   - sanjay3290/ai-skills/skills/mysql
   - DuendeSoftware/duende-skills
   - MicrosoftDocs/agent-skills
+  - yvgude/lean-ctx
   local:
   - .apm/instructions/neo4j-knowledgebase.instructions.md
   mcp:

@@ -2,10 +2,10 @@
   "hooks": {
     "sessionStart": [
       {
-        "command": "C:\\Users\\ddriscoll\\dotfiles\\ai\\apm_modules\\obra\\superpowers\\.apm\\hooks\\hooks\\run-hook.cmd session-start"
+        "command": "/Users/david/dotfiles/ai/apm_modules/obra/superpowers/.apm/hooks/hooks/run-hook.cmd session-start"
       },
       {
-        "command": "C:\\Users\\ddriscoll\\dotfiles\\ai\\apm_modules\\obra\\superpowers\\hooks\\hooks\\run-hook.cmd session-start"
+        "command": "/Users/david/dotfiles/ai/apm_modules/obra/superpowers/hooks/hooks/run-hook.cmd session-start"
       }
     ],
     "SessionStart": [
@@ -14,7 +14,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "\"C:\\Users\\ddriscoll\\dotfiles\\ai\\.claude\\hooks\\superpowers\\hooks\\run-hook.cmd\" session-start",
+            "command": "\"/Users/david/dotfiles/ai/.claude/hooks/superpowers/hooks/run-hook.cmd\" session-start",
             "async": false
           }
         ]

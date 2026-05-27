@@ -17,6 +17,12 @@
       "owner": "affaan-m",
       "repo": "everything-claude-code",
       "path": ".claude-plugin/marketplace.json"
+    },
+    {
+      "name": "unifi-plugins",
+      "owner": "sirkirby",
+      "repo": "unifi-mcp",
+      "path": ".claude-plugin/marketplace.json"
     }
   ]
 }

@@ -72,7 +72,7 @@
       "command": "dotnet",
       "args": [
         "dnx",
-        "AITools.BinlogMcp",
+        "Microsoft.AITools.BinlogMcp",
         "--yes",
         "--prerelease",
         "--add-source",

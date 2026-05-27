@@ -1,17 +1,16 @@
 lockfile_version: '1'
-generated_at: '2026-05-21T19:38:48.960339+00:00'
+generated_at: '2026-05-23T02:48:33.628380+00:00'
 apm_version: 0.14.1
 dependencies:
 - repo_url: ComposioHQ/awesome-claude-skills
   host: github.com
-  resolved_commit: a33691242ede7d05df93ec5cdc2607ea1bc432da
+  resolved_commit: 92568c1edaff1bde5371154f036d959346c145a8
   virtual_path: developer-growth-analysis
   is_virtual: true
   package_type: claude_skill
   deployed_files:
   - .agents/skills/developer-growth-analysis
   - .claude/skills/developer-growth-analysis
-  - .windsurf/skills/developer-growth-analysis
   content_hash: sha256:e3dcbe091bacd9f1afdac53319dea01aace1e50a9d8e64c21c859ab0a89765f5
 - repo_url: DuendeSoftware/duende-skills
   host: github.com
@@ -64,40 +63,18 @@ dependencies:
   - .claude/skills/identityserver4-migration
   - .claude/skills/oauth-oidc-protocols
   - .claude/skills/token-management
+  - .cursor/agents/identity-server-specialist.md
+  - .cursor/agents/oauth-oidc-specialist.md
   - .github/agents/identity-server-specialist.agent.md
   - .github/agents/oauth-oidc-specialist.agent.md
-  - .windsurf/skills/aspnetcore-authentication
-  - .windsurf/skills/aspnetcore-authorization
-  - .windsurf/skills/claims-authorization
-  - .windsurf/skills/duende-bff
-  - .windsurf/skills/identity-security-hardening
-  - .windsurf/skills/identity-server-specialist/SKILL.md
-  - .windsurf/skills/identity-testing-patterns
-  - .windsurf/skills/identityserver-api-protection
-  - .windsurf/skills/identityserver-aspire
-  - .windsurf/skills/identityserver-configuration
-  - .windsurf/skills/identityserver-dcr
-  - .windsurf/skills/identityserver-deployment
-  - .windsurf/skills/identityserver-hosting-setup
-  - .windsurf/skills/identityserver-key-management
-  - .windsurf/skills/identityserver-saml
-  - .windsurf/skills/identityserver-sessions-providers
-  - .windsurf/skills/identityserver-stores
-  - .windsurf/skills/identityserver-token-lifecycle
-  - .windsurf/skills/identityserver-token-security
-  - .windsurf/skills/identityserver-ui-flows
-  - .windsurf/skills/identityserver4-migration
-  - .windsurf/skills/oauth-oidc-protocols
-  - .windsurf/skills/oauth-oidc-specialist/SKILL.md
-  - .windsurf/skills/token-management
   deployed_file_hashes:
-    .claude/agents/identity-server-specialist.md: sha256:531e6d4bfbbba887cb6ac4b1821c375cce49ce73f8028d4d04d0d056662cf229
-    .claude/agents/oauth-oidc-specialist.md: sha256:63cddac4d19059bc0a09326f5f2f1c26022912b2b0a7c4196bfea1234b2031c7
-    .github/agents/identity-server-specialist.agent.md: sha256:531e6d4bfbbba887cb6ac4b1821c375cce49ce73f8028d4d04d0d056662cf229
-    .github/agents/oauth-oidc-specialist.agent.md: sha256:63cddac4d19059bc0a09326f5f2f1c26022912b2b0a7c4196bfea1234b2031c7
-    .windsurf/skills/identity-server-specialist/SKILL.md: sha256:f905909c01562397e4137f6729bd0ef4806e2485b5c5420cfd47e8f87639a4f9
-    .windsurf/skills/oauth-oidc-specialist/SKILL.md: sha256:74975b94f45063020a587c793d2b704f1c316da18b8da1c4de66be9a3650e208
-  content_hash: sha256:3dac2b6617f9a65c51cacdf931445bcc5c63529b994f4d8bc41f59df9e0b1850
+    .claude/agents/identity-server-specialist.md: sha256:2124bc24323c475cffdbf971ec544959769117d614c317ad17a8cae68f274b7c
+    .claude/agents/oauth-oidc-specialist.md: sha256:0647072fb2751096e9831d21d12504652c086f3f755908f3ccc083f68f729855
+    .cursor/agents/identity-server-specialist.md: sha256:2124bc24323c475cffdbf971ec544959769117d614c317ad17a8cae68f274b7c
+    .cursor/agents/oauth-oidc-specialist.md: sha256:0647072fb2751096e9831d21d12504652c086f3f755908f3ccc083f68f729855
+    .github/agents/identity-server-specialist.agent.md: sha256:2124bc24323c475cffdbf971ec544959769117d614c317ad17a8cae68f274b7c
+    .github/agents/oauth-oidc-specialist.agent.md: sha256:0647072fb2751096e9831d21d12504652c086f3f755908f3ccc083f68f729855
+  content_hash: sha256:242d87c66cf97067310ba10b71c8748e81ac8ae48e58f0347d41efd29b57a7d2
 - repo_url: Jeffallan/claude-skills
   host: github.com
   resolved_commit: e8be415bc94d8d6ebddc2fb50e5d03c6e27d4319
@@ -235,73 +212,7 @@ dependencies:
   - .claude/skills/vue-expert-js
   - .claude/skills/websocket-engineer
   - .claude/skills/wordpress-pro
-  - .windsurf/skills/angular-architect
-  - .windsurf/skills/api-designer
-  - .windsurf/skills/architecture-designer
-  - .windsurf/skills/atlassian-mcp
-  - .windsurf/skills/chaos-engineer
-  - .windsurf/skills/cli-developer
-  - .windsurf/skills/cloud-architect
-  - .windsurf/skills/code-documenter
-  - .windsurf/skills/code-reviewer
-  - .windsurf/skills/cpp-pro
-  - .windsurf/skills/csharp-developer
-  - .windsurf/skills/database-optimizer
-  - .windsurf/skills/debugging-wizard
-  - .windsurf/skills/devops-engineer
-  - .windsurf/skills/django-expert
-  - .windsurf/skills/dotnet-core-expert
-  - .windsurf/skills/embedded-systems
-  - .windsurf/skills/fastapi-expert
-  - .windsurf/skills/feature-forge
-  - .windsurf/skills/fine-tuning-expert
-  - .windsurf/skills/flutter-expert
-  - .windsurf/skills/fullstack-guardian
-  - .windsurf/skills/game-developer
-  - .windsurf/skills/golang-pro
-  - .windsurf/skills/graphql-architect
-  - .windsurf/skills/java-architect
-  - .windsurf/skills/javascript-pro
-  - .windsurf/skills/kotlin-specialist
-  - .windsurf/skills/kubernetes-specialist
-  - .windsurf/skills/laravel-specialist
-  - .windsurf/skills/legacy-modernizer
-  - .windsurf/skills/mcp-developer
-  - .windsurf/skills/microservices-architect
-  - .windsurf/skills/ml-pipeline
-  - .windsurf/skills/monitoring-expert
-  - .windsurf/skills/nestjs-expert
-  - .windsurf/skills/nextjs-developer
-  - .windsurf/skills/pandas-pro
-  - .windsurf/skills/php-pro
-  - .windsurf/skills/playwright-expert
-  - .windsurf/skills/postgres-pro
-  - .windsurf/skills/prompt-engineer
-  - .windsurf/skills/python-pro
-  - .windsurf/skills/rag-architect
-  - .windsurf/skills/rails-expert
-  - .windsurf/skills/react-expert
-  - .windsurf/skills/react-native-expert
-  - .windsurf/skills/rust-engineer
-  - .windsurf/skills/salesforce-developer
-  - .windsurf/skills/secure-code-guardian
-  - .windsurf/skills/security-reviewer
-  - .windsurf/skills/shopify-expert
-  - .windsurf/skills/spark-engineer
-  - .windsurf/skills/spec-miner
-  - .windsurf/skills/spring-boot-engineer
-  - .windsurf/skills/sql-pro
-  - .windsurf/skills/sre-engineer
-  - .windsurf/skills/swift-expert
-  - .windsurf/skills/terraform-engineer
-  - .windsurf/skills/test-master
-  - .windsurf/skills/the-fool
-  - .windsurf/skills/typescript-pro
-  - .windsurf/skills/vue-expert
-  - .windsurf/skills/vue-expert-js
-  - .windsurf/skills/websocket-engineer
-  - .windsurf/skills/wordpress-pro
-  content_hash: sha256:3025575ace434bbdbcea61f55e3a65e0de762a94079818943795115b6bdfc77d
+  content_hash: sha256:100f442c9170f1890d25be5aadf73da3807891c64cf734462da1d4cd4486dc40
 - repo_url: MicrosoftDocs/agent-skills
   host: github.com
   resolved_commit: b45a2ef0d3d6c0b378a055696ea4d212b34beb2a
@@ -689,198 +600,7 @@ dependencies:
   - .claude/skills/microsoft-foundry-classic
   - .claude/skills/microsoft-foundry-local
   - .claude/skills/microsoft-foundry-tools
-  - .windsurf/skills/azure-active-directory-b2c
-  - .windsurf/skills/azure-advisor
-  - .windsurf/skills/azure-ai-vision
-  - .windsurf/skills/azure-aks-edge-essentials
-  - .windsurf/skills/azure-analysis-services
-  - .windsurf/skills/azure-anomaly-detector
-  - .windsurf/skills/azure-api-center
-  - .windsurf/skills/azure-api-management
-  - .windsurf/skills/azure-app-configuration
-  - .windsurf/skills/azure-app-service
-  - .windsurf/skills/azure-app-testing
-  - .windsurf/skills/azure-application-gateway
-  - .windsurf/skills/azure-arc
-  - .windsurf/skills/azure-architecture
-  - .windsurf/skills/azure-artifact-signing
-  - .windsurf/skills/azure-artifacts
-  - .windsurf/skills/azure-attestation
-  - .windsurf/skills/azure-automation
-  - .windsurf/skills/azure-backup
-  - .windsurf/skills/azure-baremetal-infrastructure
-  - .windsurf/skills/azure-bastion
-  - .windsurf/skills/azure-batch
-  - .windsurf/skills/azure-blob-storage
-  - .windsurf/skills/azure-blueprints
-  - .windsurf/skills/azure-boards
-  - .windsurf/skills/azure-bot-service
-  - .windsurf/skills/azure-business-process-tracking
-  - .windsurf/skills/azure-cache-redis
-  - .windsurf/skills/azure-carbon-optimization
-  - .windsurf/skills/azure-chaos-studio
-  - .windsurf/skills/azure-cloud-adoption-framework
-  - .windsurf/skills/azure-cloud-hsm
-  - .windsurf/skills/azure-cloud-services
-  - .windsurf/skills/azure-cloud-shell
-  - .windsurf/skills/azure-cognitive-search
-  - .windsurf/skills/azure-communication-services
-  - .windsurf/skills/azure-confidential-computing
-  - .windsurf/skills/azure-confidential-ledger
-  - .windsurf/skills/azure-container-apps
-  - .windsurf/skills/azure-container-instances
-  - .windsurf/skills/azure-container-registry
-  - .windsurf/skills/azure-container-storage
-  - .windsurf/skills/azure-content-safety
-  - .windsurf/skills/azure-copilot
-  - .windsurf/skills/azure-cosmos-db
-  - .windsurf/skills/azure-cost-management
-  - .windsurf/skills/azure-custom-vision
-  - .windsurf/skills/azure-cyclecloud
-  - .windsurf/skills/azure-data-api-builder
-  - .windsurf/skills/azure-data-box-family
-  - .windsurf/skills/azure-data-explorer
-  - .windsurf/skills/azure-data-factory
-  - .windsurf/skills/azure-data-manager-for-agri
-  - .windsurf/skills/azure-data-science-vm
-  - .windsurf/skills/azure-data-share
-  - .windsurf/skills/azure-database-migration
-  - .windsurf/skills/azure-database-mysql
-  - .windsurf/skills/azure-database-postgresql
-  - .windsurf/skills/azure-databricks
-  - .windsurf/skills/azure-ddos-protection
-  - .windsurf/skills/azure-dedicated-hsm
-  - .windsurf/skills/azure-defender-for-cloud
-  - .windsurf/skills/azure-defender-for-iot
-  - .windsurf/skills/azure-deployment-environments
-  - .windsurf/skills/azure-dev-box
-  - .windsurf/skills/azure-devops
-  - .windsurf/skills/azure-devtest-labs
-  - .windsurf/skills/azure-digital-twins
-  - .windsurf/skills/azure-dns
-  - .windsurf/skills/azure-document-intelligence
-  - .windsurf/skills/azure-education-hub
-  - .windsurf/skills/azure-elastic-san
-  - .windsurf/skills/azure-energy-data-services
-  - .windsurf/skills/azure-event-grid
-  - .windsurf/skills/azure-event-hubs
-  - .windsurf/skills/azure-expressroute
-  - .windsurf/skills/azure-extended-zones
-  - .windsurf/skills/azure-files
-  - .windsurf/skills/azure-firewall
-  - .windsurf/skills/azure-firewall-manager
-  - .windsurf/skills/azure-firmware-analysis
-  - .windsurf/skills/azure-fluid-relay
-  - .windsurf/skills/azure-front-door
-  - .windsurf/skills/azure-functions
-  - .windsurf/skills/azure-hdinsight
-  - .windsurf/skills/azure-health-bot
-  - .windsurf/skills/azure-health-data-services
-  - .windsurf/skills/azure-hpc-cache
-  - .windsurf/skills/azure-immersive-reader
-  - .windsurf/skills/azure-impact-reporting
-  - .windsurf/skills/azure-import-export
-  - .windsurf/skills/azure-information-protection
-  - .windsurf/skills/azure-internet-peering
-  - .windsurf/skills/azure-iot
-  - .windsurf/skills/azure-iot-central
-  - .windsurf/skills/azure-iot-edge
-  - .windsurf/skills/azure-iot-hub
-  - .windsurf/skills/azure-iot-operations
-  - .windsurf/skills/azure-key-vault
-  - .windsurf/skills/azure-kubernetes-service
-  - .windsurf/skills/azure-lab-services
-  - .windsurf/skills/azure-language-service
-  - .windsurf/skills/azure-large-instances
-  - .windsurf/skills/azure-lighthouse
-  - .windsurf/skills/azure-load-balancer
-  - .windsurf/skills/azure-local
-  - .windsurf/skills/azure-logic-apps
-  - .windsurf/skills/azure-machine-learning
-  - .windsurf/skills/azure-managed-applications
-  - .windsurf/skills/azure-managed-grafana
-  - .windsurf/skills/azure-managed-lustre
-  - .windsurf/skills/azure-managed-redis
-  - .windsurf/skills/azure-maps
-  - .windsurf/skills/azure-metrics-advisor
-  - .windsurf/skills/azure-microsoft-discovery
-  - .windsurf/skills/azure-migrate
-  - .windsurf/skills/azure-monitor
-  - .windsurf/skills/azure-nat-gateway
-  - .windsurf/skills/azure-netapp-files
-  - .windsurf/skills/azure-network-function-manager
-  - .windsurf/skills/azure-network-watcher
-  - .windsurf/skills/azure-networking
-  - .windsurf/skills/azure-notification-hubs
-  - .windsurf/skills/azure-open-datasets
-  - .windsurf/skills/azure-operator-nexus
-  - .windsurf/skills/azure-operator-service-manager
-  - .windsurf/skills/azure-oracle
-  - .windsurf/skills/azure-osconfig
-  - .windsurf/skills/azure-partner-solutions
-  - .windsurf/skills/azure-payment-hsm
-  - .windsurf/skills/azure-peering-service
-  - .windsurf/skills/azure-personalizer
-  - .windsurf/skills/azure-pipelines
-  - .windsurf/skills/azure-planetary-computer-pro
-  - .windsurf/skills/azure-playwright-workspaces
-  - .windsurf/skills/azure-policy
-  - .windsurf/skills/azure-portal
-  - .windsurf/skills/azure-private-link
-  - .windsurf/skills/azure-quantum
-  - .windsurf/skills/azure-queue-storage
-  - .windsurf/skills/azure-quotas
-  - .windsurf/skills/azure-rbac
-  - .windsurf/skills/azure-redhat-openshift
-  - .windsurf/skills/azure-relay
-  - .windsurf/skills/azure-reliability
-  - .windsurf/skills/azure-repos
-  - .windsurf/skills/azure-resiliency
-  - .windsurf/skills/azure-resource-graph
-  - .windsurf/skills/azure-resource-manager
-  - .windsurf/skills/azure-route-server
-  - .windsurf/skills/azure-sap
-  - .windsurf/skills/azure-security
-  - .windsurf/skills/azure-sentinel
-  - .windsurf/skills/azure-service-bus
-  - .windsurf/skills/azure-service-connector
-  - .windsurf/skills/azure-service-fabric
-  - .windsurf/skills/azure-service-health
-  - .windsurf/skills/azure-signalr-service
-  - .windsurf/skills/azure-site-recovery
-  - .windsurf/skills/azure-sovereign-us
-  - .windsurf/skills/azure-speech
-  - .windsurf/skills/azure-spring-apps
-  - .windsurf/skills/azure-sql-database
-  - .windsurf/skills/azure-sql-managed-instance
-  - .windsurf/skills/azure-sql-virtual-machines
-  - .windsurf/skills/azure-sre-agent
-  - .windsurf/skills/azure-stack-edge
-  - .windsurf/skills/azure-static-web-apps
-  - .windsurf/skills/azure-stream-analytics
-  - .windsurf/skills/azure-synapse-analytics
-  - .windsurf/skills/azure-table-storage
-  - .windsurf/skills/azure-test-plans
-  - .windsurf/skills/azure-traffic-manager
-  - .windsurf/skills/azure-translator
-  - .windsurf/skills/azure-update-manager
-  - .windsurf/skills/azure-video-indexer
-  - .windsurf/skills/azure-virtual-desktop
-  - .windsurf/skills/azure-virtual-machines
-  - .windsurf/skills/azure-virtual-network
-  - .windsurf/skills/azure-virtual-network-manager
-  - .windsurf/skills/azure-virtual-wan
-  - .windsurf/skills/azure-vm-scalesets
-  - .windsurf/skills/azure-vmware-solution
-  - .windsurf/skills/azure-vpn-gateway
-  - .windsurf/skills/azure-web-application-firewall
-  - .windsurf/skills/azure-web-pubsub
-  - .windsurf/skills/azure-well-architected
-  - .windsurf/skills/microsoft-foundry
-  - .windsurf/skills/microsoft-foundry-classic
-  - .windsurf/skills/microsoft-foundry-local
-  - .windsurf/skills/microsoft-foundry-tools
-  content_hash: sha256:58a05cec309144fcee6353177ac85e49dc7bb92c1b4db98c30d61ecc277f87ab
+  content_hash: sha256:f079bc61daaa47f1fcf1a038abcf69c16d34f3ebad53e126f94542e13b78b1a0
 - repo_url: anthropics/skills
   host: github.com
   resolved_commit: 690f15cac7f7b4c055c5ab109c79ed9259934081
@@ -920,24 +640,7 @@ dependencies:
   - .claude/skills/web-artifacts-builder
   - .claude/skills/webapp-testing
   - .claude/skills/xlsx
-  - .windsurf/skills/algorithmic-art
-  - .windsurf/skills/brand-guidelines
-  - .windsurf/skills/canvas-design
-  - .windsurf/skills/claude-api
-  - .windsurf/skills/doc-coauthoring
-  - .windsurf/skills/docx
-  - .windsurf/skills/frontend-design
-  - .windsurf/skills/internal-comms
-  - .windsurf/skills/mcp-builder
-  - .windsurf/skills/pdf
-  - .windsurf/skills/pptx
-  - .windsurf/skills/skill-creator
-  - .windsurf/skills/slack-gif-creator
-  - .windsurf/skills/theme-factory
-  - .windsurf/skills/web-artifacts-builder
-  - .windsurf/skills/webapp-testing
-  - .windsurf/skills/xlsx
-  content_hash: sha256:63d974c20e09dd09a04192137dbdc6b0978b002d96811759531ce2ef74dd9583
+  content_hash: sha256:7a4a0e3e4e60d1ead46aa2fed8bedde7bd565e6212b7541ed4aef2d41418b23a
 - repo_url: dotnet/modernize-dotnet
   host: github.com
   resolved_commit: df1a5f2d2e4f70e5485917f9c4648f4d75412d8f
@@ -946,18 +649,18 @@ dependencies:
   package_type: marketplace_plugin
   deployed_files:
   - .claude/agents/modernize-dotnet.md
+  - .cursor/agents/modernize-dotnet.md
   - .github/agents/modernize-dotnet.agent.md
   - .github/hooks/modernize-dotnet-hooks.json
-  - .windsurf/skills/modernize-dotnet/SKILL.md
   deployed_file_hashes:
-    .claude/agents/modernize-dotnet.md: sha256:bd812ac067f06e4ebb65e7316f6662a97568f1a32f5b61b4784446e392379928
-    .github/agents/modernize-dotnet.agent.md: sha256:bd812ac067f06e4ebb65e7316f6662a97568f1a32f5b61b4784446e392379928
-    .github/hooks/modernize-dotnet-hooks.json: sha256:fc524ca2efe268e50536514b4304cbb62d855390bcecdd7783be0e70f2fd844f
-    .windsurf/skills/modernize-dotnet/SKILL.md: sha256:c88902f2ba47107301b0e5b05ed7e58cba98af9b9d9eaea5edaddbffc68569b0
-  content_hash: sha256:63b0624f447093dea605c03130baeb4737d6fd425fcf3081768f2a3551e0b296
+    .claude/agents/modernize-dotnet.md: sha256:be257c31c62f1732b2d3cef49027f6139e980f9668d25d03f73f64c9891fd242
+    .cursor/agents/modernize-dotnet.md: sha256:be257c31c62f1732b2d3cef49027f6139e980f9668d25d03f73f64c9891fd242
+    .github/agents/modernize-dotnet.agent.md: sha256:be257c31c62f1732b2d3cef49027f6139e980f9668d25d03f73f64c9891fd242
+    .github/hooks/modernize-dotnet-hooks.json: sha256:93f0235aff3ea05f01e2a072d8af7920b6a38238e5b0a0b0c67eaf3345228cea
+  content_hash: sha256:2d186a7eb05ada1ba4fd87528cd763306b15ae5147ece788cf6b15264e7da4fd
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: 3b0ece94adf31952adb0ef1edb263730813881ee
+  resolved_commit: 0724ccf8ac485af4b6bf95b2489886cc33f170a3
   virtual_path: plugins/dotnet
   is_virtual: true
   package_type: marketplace_plugin
@@ -968,13 +671,10 @@ dependencies:
   - .claude/skills/csharp-scripts
   - .claude/skills/dotnet-pinvoke
   - .claude/skills/nuget-trusted-publishing
-  - .windsurf/skills/csharp-scripts
-  - .windsurf/skills/dotnet-pinvoke
-  - .windsurf/skills/nuget-trusted-publishing
-  content_hash: sha256:fae9b386448374a38305b1a661df658396f456a754c95de24366b8f665045103
+  content_hash: sha256:1afee9b9df9a348401626e6792ea361c0a5b3bfa7936bad1266f76e9f17648a0
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: 3b0ece94adf31952adb0ef1edb263730813881ee
+  resolved_commit: 0724ccf8ac485af4b6bf95b2489886cc33f170a3
   virtual_path: plugins/dotnet-ai
   is_virtual: true
   package_type: marketplace_plugin
@@ -989,15 +689,10 @@ dependencies:
   - .claude/skills/mcp-csharp-publish
   - .claude/skills/mcp-csharp-test
   - .claude/skills/technology-selection
-  - .windsurf/skills/mcp-csharp-create
-  - .windsurf/skills/mcp-csharp-debug
-  - .windsurf/skills/mcp-csharp-publish
-  - .windsurf/skills/mcp-csharp-test
-  - .windsurf/skills/technology-selection
-  content_hash: sha256:bf06587a27535d1bd9d5302a8433e4b657a089a4603683200509572b896b8eab
+  content_hash: sha256:d09778a87fb1aca1b8f0d77777ea856d5337bf41d8d047c4993684c535e10221
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: 3b0ece94adf31952adb0ef1edb263730813881ee
+  resolved_commit: 0724ccf8ac485af4b6bf95b2489886cc33f170a3
   virtual_path: plugins/dotnet-aspnet
   is_virtual: true
   package_type: marketplace_plugin
@@ -1008,24 +703,20 @@ dependencies:
   - .claude/skills/configuring-opentelemetry-dotnet
   - .claude/skills/dotnet-webapi
   - .claude/skills/minimal-api-file-upload
-  - .windsurf/skills/configuring-opentelemetry-dotnet
-  - .windsurf/skills/dotnet-webapi
-  - .windsurf/skills/minimal-api-file-upload
-  content_hash: sha256:6562effcd44e3af5969a7636a0b47dfbfe505dd34c6a3679ff28e7f0c42385cb
+  content_hash: sha256:cdfd5c81c0c3c9ad4f65dad35f6f76e961dca965abc8bfdf923262530b9149a5
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: 3b0ece94adf31952adb0ef1edb263730813881ee
+  resolved_commit: 0724ccf8ac485af4b6bf95b2489886cc33f170a3
   virtual_path: plugins/dotnet-data
   is_virtual: true
   package_type: marketplace_plugin
   deployed_files:
   - .agents/skills/optimizing-ef-core-queries
   - .claude/skills/optimizing-ef-core-queries
-  - .windsurf/skills/optimizing-ef-core-queries
-  content_hash: sha256:9d3f671571d97c3ccde19800ec0110dca1216c656fdc0fb022bf7ecc41f60e7f
+  content_hash: sha256:ce98fbc46cd1ae400d234cef0b7ca1086ba7c3c260f8fd908a8a6efcc9da41c4
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: 3b0ece94adf31952adb0ef1edb263730813881ee
+  resolved_commit: 0724ccf8ac485af4b6bf95b2489886cc33f170a3
   virtual_path: plugins/dotnet-diag
   is_virtual: true
   package_type: marketplace_plugin
@@ -1045,23 +736,16 @@ dependencies:
   - .claude/skills/dotnet-trace-collect
   - .claude/skills/dump-collect
   - .claude/skills/microbenchmarking
+  - .cursor/agents/optimizing-dotnet-performance.md
   - .github/agents/optimizing-dotnet-performance.agent.md
-  - .windsurf/skills/analyzing-dotnet-performance
-  - .windsurf/skills/android-tombstone-symbolication
-  - .windsurf/skills/apple-crash-symbolication
-  - .windsurf/skills/clr-activation-debugging
-  - .windsurf/skills/dotnet-trace-collect
-  - .windsurf/skills/dump-collect
-  - .windsurf/skills/microbenchmarking
-  - .windsurf/skills/optimizing-dotnet-performance/SKILL.md
   deployed_file_hashes:
-    .claude/agents/optimizing-dotnet-performance.md: sha256:ac1867ca97fd5a25ea904737e03eb161c275f112a5d3c3265e73e2e3e65b8ae7
-    .github/agents/optimizing-dotnet-performance.agent.md: sha256:ac1867ca97fd5a25ea904737e03eb161c275f112a5d3c3265e73e2e3e65b8ae7
-    .windsurf/skills/optimizing-dotnet-performance/SKILL.md: sha256:a50f57f40271b1947423c1d1f84c8b25d8fa5625a7284f74d4d04ada7381c09a
-  content_hash: sha256:376f3fd5bf3da9e1d8c381c84fc0c652cbaf4cc5a5fba4d488fc8801295368b1
+    .claude/agents/optimizing-dotnet-performance.md: sha256:aeae8474777971a8e29873b132963b18ef3a76acab706473734a9a82d19c6a84
+    .cursor/agents/optimizing-dotnet-performance.md: sha256:aeae8474777971a8e29873b132963b18ef3a76acab706473734a9a82d19c6a84
+    .github/agents/optimizing-dotnet-performance.agent.md: sha256:aeae8474777971a8e29873b132963b18ef3a76acab706473734a9a82d19c6a84
+  content_hash: sha256:5f3c10b504643d7567fdbb0991361da4892964bb24c5ca9758e80693f4f194cd
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: 3b0ece94adf31952adb0ef1edb263730813881ee
+  resolved_commit: 0724ccf8ac485af4b6bf95b2489886cc33f170a3
   virtual_path: plugins/dotnet-msbuild
   is_virtual: true
   package_type: marketplace_plugin
@@ -1074,12 +758,16 @@ dependencies:
   - .agents/skills/check-bin-obj-clash
   - .agents/skills/directory-build-organization
   - .agents/skills/eval-performance
+  - .agents/skills/extension-points
   - .agents/skills/including-generated-files
   - .agents/skills/incremental-build
+  - .agents/skills/item-management
   - .agents/skills/msbuild-antipatterns
   - .agents/skills/msbuild-modernization
   - .agents/skills/msbuild-server
+  - .agents/skills/property-patterns
   - .agents/skills/resolve-project-references
+  - .agents/skills/target-authoring
   - .claude/agents/build-perf.md
   - .claude/agents/msbuild-code-review.md
   - .claude/agents/msbuild.md
@@ -1091,57 +779,46 @@ dependencies:
   - .claude/skills/check-bin-obj-clash
   - .claude/skills/directory-build-organization
   - .claude/skills/eval-performance
+  - .claude/skills/extension-points
   - .claude/skills/including-generated-files
   - .claude/skills/incremental-build
+  - .claude/skills/item-management
   - .claude/skills/msbuild-antipatterns
   - .claude/skills/msbuild-modernization
   - .claude/skills/msbuild-server
+  - .claude/skills/property-patterns
   - .claude/skills/resolve-project-references
+  - .claude/skills/target-authoring
+  - .cursor/agents/build-perf.md
+  - .cursor/agents/msbuild-code-review.md
+  - .cursor/agents/msbuild.md
   - .github/agents/build-perf.agent.md
   - .github/agents/msbuild-code-review.agent.md
   - .github/agents/msbuild.agent.md
-  - .windsurf/skills/binlog-failure-analysis
-  - .windsurf/skills/binlog-generation
-  - .windsurf/skills/build-parallelism
-  - .windsurf/skills/build-perf-baseline
-  - .windsurf/skills/build-perf-diagnostics
-  - .windsurf/skills/build-perf/SKILL.md
-  - .windsurf/skills/check-bin-obj-clash
-  - .windsurf/skills/directory-build-organization
-  - .windsurf/skills/eval-performance
-  - .windsurf/skills/including-generated-files
-  - .windsurf/skills/incremental-build
-  - .windsurf/skills/msbuild-antipatterns
-  - .windsurf/skills/msbuild-code-review/SKILL.md
-  - .windsurf/skills/msbuild-modernization
-  - .windsurf/skills/msbuild-server
-  - .windsurf/skills/msbuild/SKILL.md
-  - .windsurf/skills/resolve-project-references
   deployed_file_hashes:
-    .claude/agents/build-perf.md: sha256:e208960add8c1448955bf5b0cd27c9b6a133d2d31cec7201d8700586119377d1
-    .claude/agents/msbuild-code-review.md: sha256:3a0a9bed76e7f0c4597ebe4eaf763421459e93d93c6fc225cd891fd92bcf92cf
-    .claude/agents/msbuild.md: sha256:df0615b18713ca670025219e980ececcc137bf38c642b65d76208ae9a65a497a
-    .github/agents/build-perf.agent.md: sha256:e208960add8c1448955bf5b0cd27c9b6a133d2d31cec7201d8700586119377d1
-    .github/agents/msbuild-code-review.agent.md: sha256:3a0a9bed76e7f0c4597ebe4eaf763421459e93d93c6fc225cd891fd92bcf92cf
-    .github/agents/msbuild.agent.md: sha256:df0615b18713ca670025219e980ececcc137bf38c642b65d76208ae9a65a497a
-    .windsurf/skills/build-perf/SKILL.md: sha256:265626dd474bb1c81f0806b20ea5157799e1377af37934849f1cef50dc21cbb9
-    .windsurf/skills/msbuild-code-review/SKILL.md: sha256:f3ec9dbfea44ce232bd49d25b36ffabd924cf1f695fc63eb7cff099d6635b205
-    .windsurf/skills/msbuild/SKILL.md: sha256:21edd88a92b6f09a021f5d00caac1dd903b900014a5075cb9d655714101c300c
-  content_hash: sha256:d664e0265a523b6f568e769cb26c2c188059335bdf2c84aeb3f6e745870e78cc
+    .claude/agents/build-perf.md: sha256:5995d46bd024f19ee4b7a028ae8efa70b628baaa9f7cf7950cd91cdcfe3d8652
+    .claude/agents/msbuild-code-review.md: sha256:ddf05459f8521a8d2ca7a3612017d6abc2d100895d6bfecbcb5e122c2c006d78
+    .claude/agents/msbuild.md: sha256:ddcc60dbe00aa6c7b66a00e61a7602dd580d8e4ac4c8881e5aca3602d749151d
+    .cursor/agents/build-perf.md: sha256:5995d46bd024f19ee4b7a028ae8efa70b628baaa9f7cf7950cd91cdcfe3d8652
+    .cursor/agents/msbuild-code-review.md: sha256:ddf05459f8521a8d2ca7a3612017d6abc2d100895d6bfecbcb5e122c2c006d78
+    .cursor/agents/msbuild.md: sha256:ddcc60dbe00aa6c7b66a00e61a7602dd580d8e4ac4c8881e5aca3602d749151d
+    .github/agents/build-perf.agent.md: sha256:5995d46bd024f19ee4b7a028ae8efa70b628baaa9f7cf7950cd91cdcfe3d8652
+    .github/agents/msbuild-code-review.agent.md: sha256:ddf05459f8521a8d2ca7a3612017d6abc2d100895d6bfecbcb5e122c2c006d78
+    .github/agents/msbuild.agent.md: sha256:ddcc60dbe00aa6c7b66a00e61a7602dd580d8e4ac4c8881e5aca3602d749151d
+  content_hash: sha256:b5e21dd2633350428b354255f6dd446e23b47dd9e28a89639e43f9dc4c0db112
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: 3b0ece94adf31952adb0ef1edb263730813881ee
+  resolved_commit: 0724ccf8ac485af4b6bf95b2489886cc33f170a3
   virtual_path: plugins/dotnet-nuget
   is_virtual: true
   package_type: marketplace_plugin
   deployed_files:
   - .agents/skills/convert-to-cpm
   - .claude/skills/convert-to-cpm
-  - .windsurf/skills/convert-to-cpm
-  content_hash: sha256:accae49ab4f1015ede1c1082deb3996c3026484cbc4d7fb93a8b482df8c16357
+  content_hash: sha256:9609b9607f0a3b4c4024a20c535e3ffb90e679d8e1facd69705f9525fdcb33d1
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: 3b0ece94adf31952adb0ef1edb263730813881ee
+  resolved_commit: 0724ccf8ac485af4b6bf95b2489886cc33f170a3
   virtual_path: plugins/dotnet-template-engine
   is_virtual: true
   package_type: marketplace_plugin
@@ -1155,20 +832,16 @@ dependencies:
   - .claude/skills/template-discovery
   - .claude/skills/template-instantiation
   - .claude/skills/template-validation
+  - .cursor/agents/template-engine.md
   - .github/agents/template-engine.agent.md
-  - .windsurf/skills/template-authoring
-  - .windsurf/skills/template-discovery
-  - .windsurf/skills/template-engine/SKILL.md
-  - .windsurf/skills/template-instantiation
-  - .windsurf/skills/template-validation
   deployed_file_hashes:
-    .claude/agents/template-engine.md: sha256:8174e85ce1a01cf379cfa0c7c5c2565e7b331ef9afffc07fb5c94bb5b6e25973
-    .github/agents/template-engine.agent.md: sha256:8174e85ce1a01cf379cfa0c7c5c2565e7b331ef9afffc07fb5c94bb5b6e25973
-    .windsurf/skills/template-engine/SKILL.md: sha256:7fcac8a43186fd189fa757d6d7e296f36fcc4c376d3f475cf12ac4e9701aca74
-  content_hash: sha256:9cccb03653046d9a24a6cb8c8680708fee435e510331187103e18ccae046b4f0
+    .claude/agents/template-engine.md: sha256:1ea0c16d838ade1a413bd3ed6e0d208c5aa847424de32d841d18301e4a823a3b
+    .cursor/agents/template-engine.md: sha256:1ea0c16d838ade1a413bd3ed6e0d208c5aa847424de32d841d18301e4a823a3b
+    .github/agents/template-engine.agent.md: sha256:1ea0c16d838ade1a413bd3ed6e0d208c5aa847424de32d841d18301e4a823a3b
+  content_hash: sha256:8d93218f4a0f0348881d16719e0bdbfbbd462dd2778dfa5643d85be1544487f9
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: 3b0ece94adf31952adb0ef1edb263730813881ee
+  resolved_commit: 0724ccf8ac485af4b6bf95b2489886cc33f170a3
   virtual_path: plugins/dotnet-test
   is_virtual: true
   package_type: marketplace_plugin
@@ -1228,6 +901,17 @@ dependencies:
   - .claude/skills/test-smell-detection
   - .claude/skills/test-tagging
   - .claude/skills/writing-mstest-tests
+  - .cursor/agents/code-testing-builder.md
+  - .cursor/agents/code-testing-fixer.md
+  - .cursor/agents/code-testing-generator.md
+  - .cursor/agents/code-testing-implementer.md
+  - .cursor/agents/code-testing-linter.md
+  - .cursor/agents/code-testing-planner.md
+  - .cursor/agents/code-testing-researcher.md
+  - .cursor/agents/code-testing-tester.md
+  - .cursor/agents/test-migration.md
+  - .cursor/agents/test-quality-auditor.md
+  - .cursor/agents/testability-migration.md
   - .github/agents/code-testing-builder.agent.md
   - .github/agents/code-testing-fixer.agent.md
   - .github/agents/code-testing-generator.agent.md
@@ -1239,77 +923,44 @@ dependencies:
   - .github/agents/test-migration.agent.md
   - .github/agents/test-quality-auditor.agent.md
   - .github/agents/testability-migration.agent.md
-  - .windsurf/skills/assertion-quality
-  - .windsurf/skills/code-testing-agent
-  - .windsurf/skills/code-testing-builder/SKILL.md
-  - .windsurf/skills/code-testing-extensions
-  - .windsurf/skills/code-testing-fixer/SKILL.md
-  - .windsurf/skills/code-testing-generator/SKILL.md
-  - .windsurf/skills/code-testing-implementer/SKILL.md
-  - .windsurf/skills/code-testing-linter/SKILL.md
-  - .windsurf/skills/code-testing-planner/SKILL.md
-  - .windsurf/skills/code-testing-researcher/SKILL.md
-  - .windsurf/skills/code-testing-tester/SKILL.md
-  - .windsurf/skills/coverage-analysis
-  - .windsurf/skills/crap-score
-  - .windsurf/skills/detect-static-dependencies
-  - .windsurf/skills/dotnet-test-frameworks
-  - .windsurf/skills/filter-syntax
-  - .windsurf/skills/generate-testability-wrappers
-  - .windsurf/skills/migrate-mstest-v1v2-to-v3
-  - .windsurf/skills/migrate-mstest-v3-to-v4
-  - .windsurf/skills/migrate-static-to-wrapper
-  - .windsurf/skills/migrate-vstest-to-mtp
-  - .windsurf/skills/migrate-xunit-to-xunit-v3
-  - .windsurf/skills/mtp-hot-reload
-  - .windsurf/skills/platform-detection
-  - .windsurf/skills/run-tests
-  - .windsurf/skills/test-anti-patterns
-  - .windsurf/skills/test-gap-analysis
-  - .windsurf/skills/test-migration/SKILL.md
-  - .windsurf/skills/test-quality-auditor/SKILL.md
-  - .windsurf/skills/test-smell-detection
-  - .windsurf/skills/test-tagging
-  - .windsurf/skills/testability-migration/SKILL.md
-  - .windsurf/skills/writing-mstest-tests
   deployed_file_hashes:
-    .claude/agents/code-testing-builder.md: sha256:6a81734d4ecce8dd6fe39405aa3efac309b5157bbb46ab9d79cc535436f3ac34
-    .claude/agents/code-testing-fixer.md: sha256:a02c1f5111ada99208c5f664c89ffa2a2977453f819fc6a82b01c11752ea492c
-    .claude/agents/code-testing-generator.md: sha256:03f15e78c257f2a5dd78026fe267e63cd580422d2a3044c0c03cf785298c420f
-    .claude/agents/code-testing-implementer.md: sha256:3d620daeb4786d886d28247ab59c3f6fba16f2ad947c396ba326380d4eb6837d
-    .claude/agents/code-testing-linter.md: sha256:40916380eb80fab367936d31d5ee8e06a50aba27e46498bdfee7034dd45feb46
-    .claude/agents/code-testing-planner.md: sha256:c645a7dff73bef5caf3a22f8559bd1d2e368962b6bbcf54c52a6d0a2c72a160a
-    .claude/agents/code-testing-researcher.md: sha256:2a0586d85cb0e7075bad0a9665fe8339777970c4b66ec088e42ade4ba75eaf50
-    .claude/agents/code-testing-tester.md: sha256:e04e27d6c9092c481cc8bc8024bed0e8792fee417d8915d8aec16e8597370fd9
-    .claude/agents/test-migration.md: sha256:a840854191caff44ab78b774cf13f53e57474b0b8452177e2de9a280e943a42d
-    .claude/agents/test-quality-auditor.md: sha256:c4566ccb690f23e358a8604c7289c9f9f54f62d43fb934eee9ebdd0b50105a09
-    .claude/agents/testability-migration.md: sha256:8a8daadf89609a49b91ebf57822997b977e09c0b286418c5a7e41f637677cb36
-    .github/agents/code-testing-builder.agent.md: sha256:6a81734d4ecce8dd6fe39405aa3efac309b5157bbb46ab9d79cc535436f3ac34
-    .github/agents/code-testing-fixer.agent.md: sha256:a02c1f5111ada99208c5f664c89ffa2a2977453f819fc6a82b01c11752ea492c
-    .github/agents/code-testing-generator.agent.md: sha256:03f15e78c257f2a5dd78026fe267e63cd580422d2a3044c0c03cf785298c420f
-    .github/agents/code-testing-implementer.agent.md: sha256:3d620daeb4786d886d28247ab59c3f6fba16f2ad947c396ba326380d4eb6837d
-    .github/agents/code-testing-linter.agent.md: sha256:40916380eb80fab367936d31d5ee8e06a50aba27e46498bdfee7034dd45feb46
-    .github/agents/code-testing-planner.agent.md: sha256:c645a7dff73bef5caf3a22f8559bd1d2e368962b6bbcf54c52a6d0a2c72a160a
-    .github/agents/code-testing-researcher.agent.md: sha256:2a0586d85cb0e7075bad0a9665fe8339777970c4b66ec088e42ade4ba75eaf50
-    .github/agents/code-testing-tester.agent.md: sha256:e04e27d6c9092c481cc8bc8024bed0e8792fee417d8915d8aec16e8597370fd9
-    .github/agents/test-migration.agent.md: sha256:a840854191caff44ab78b774cf13f53e57474b0b8452177e2de9a280e943a42d
-    .github/agents/test-quality-auditor.agent.md: sha256:c4566ccb690f23e358a8604c7289c9f9f54f62d43fb934eee9ebdd0b50105a09
-    .github/agents/testability-migration.agent.md: sha256:8a8daadf89609a49b91ebf57822997b977e09c0b286418c5a7e41f637677cb36
-    .windsurf/skills/code-testing-builder/SKILL.md: sha256:aa61e4c4e2c6352b98b9bc9817d2914b09490836c479022e64a8a41d5051989c
-    .windsurf/skills/code-testing-fixer/SKILL.md: sha256:82ded2a93db811647fa66362d4fca0e86e51d20d7a314db4329faa1ad8f4605f
-    .windsurf/skills/code-testing-generator/SKILL.md: sha256:93ac843919621d53c1ca3e6282c2b215c7082857bc0c3086049373e21718c876
-    .windsurf/skills/code-testing-implementer/SKILL.md: sha256:7826b01176c1d131f2aadd5795481c30e9c79bce05a9bfb307065d1abaddf2d7
-    .windsurf/skills/code-testing-linter/SKILL.md: sha256:80d1cdc427293acb7d6f9b1d4e7c76aa76545ae2cb3dfe6668350d657d14c913
-    .windsurf/skills/code-testing-planner/SKILL.md: sha256:8f82ad289676592cb774a418c1d4e056bb7f3782a020a164b6a47857bd7c8ffb
-    .windsurf/skills/code-testing-researcher/SKILL.md: sha256:3a3da9ab642c40508df76ed22d733085f26b7222897679c72332315ba3c8afcb
-    .windsurf/skills/code-testing-tester/SKILL.md: sha256:e7c678550b9b2ff0a295d9f621745d5a79072e78e5edfc594b2d404e8d4a6559
-    .windsurf/skills/test-migration/SKILL.md: sha256:a5d81bc12ac4e5cbe8813d34563dfe2159d10017d13515782bc44285c578142b
-    .windsurf/skills/test-quality-auditor/SKILL.md: sha256:cfe1392242f110296d5f7d6eec9f06efbbd4b975b492b091b974c702e81d81a7
-    .windsurf/skills/testability-migration/SKILL.md: sha256:8e9d2cfa520b022444b5681714e8b4a5c941a10bde7661c6235ff98fa35c11f4
-  content_hash: sha256:0a8f97db7ad20c7431172188b720837ed01769fcd2b1fdbf647f9575ca42e89a
+    .claude/agents/code-testing-builder.md: sha256:4caf996507502b260afddee4b36062691c00cb6111ccf1cedb12b0ca8ac9681e
+    .claude/agents/code-testing-fixer.md: sha256:63f6b83e5affdc405db369663e6da5245ec502d6d93826bd1263919e7b3d4374
+    .claude/agents/code-testing-generator.md: sha256:a2d463855540ca4ee10fb65851b62c4bb5048ea50ef291c568433eac0ea15d93
+    .claude/agents/code-testing-implementer.md: sha256:0cdb395f2bbff3ebef2e4c951dd04b478fbfea9a9869dfffcb1dc9c293a574cb
+    .claude/agents/code-testing-linter.md: sha256:81ce088dce035d6314e3447c423fe9798144ae612bac0cba7bcf5bee90baa1c5
+    .claude/agents/code-testing-planner.md: sha256:d2ee0e74ce7371a1765a45f630aba9abd96dbdb40819dec353a74511e908d1ad
+    .claude/agents/code-testing-researcher.md: sha256:f3d2dbff06f39fe5bc3f31194ddf57f85223274c7c63caefb56f08acaba6624c
+    .claude/agents/code-testing-tester.md: sha256:41efd087a3f742ff64bf7a2181548430c2662f3a2b3bef92aa906e7e6ec24313
+    .claude/agents/test-migration.md: sha256:0e6c95399ab47aea31df6fce57fde2844af004a4cb1f9a4d589291198351c4ab
+    .claude/agents/test-quality-auditor.md: sha256:b3d123c0fb34cba90a8d92e4deeea3b9d437f51ba8ff056e48b902119c8180cd
+    .claude/agents/testability-migration.md: sha256:cad6dd9a0ef2ee4a3062e33c428a8fa42e6442999f1e107b9e3c9a4a228bbfe6
+    .cursor/agents/code-testing-builder.md: sha256:4caf996507502b260afddee4b36062691c00cb6111ccf1cedb12b0ca8ac9681e
+    .cursor/agents/code-testing-fixer.md: sha256:63f6b83e5affdc405db369663e6da5245ec502d6d93826bd1263919e7b3d4374
+    .cursor/agents/code-testing-generator.md: sha256:a2d463855540ca4ee10fb65851b62c4bb5048ea50ef291c568433eac0ea15d93
+    .cursor/agents/code-testing-implementer.md: sha256:0cdb395f2bbff3ebef2e4c951dd04b478fbfea9a9869dfffcb1dc9c293a574cb
+    .cursor/agents/code-testing-linter.md: sha256:81ce088dce035d6314e3447c423fe9798144ae612bac0cba7bcf5bee90baa1c5
+    .cursor/agents/code-testing-planner.md: sha256:d2ee0e74ce7371a1765a45f630aba9abd96dbdb40819dec353a74511e908d1ad
+    .cursor/agents/code-testing-researcher.md: sha256:f3d2dbff06f39fe5bc3f31194ddf57f85223274c7c63caefb56f08acaba6624c
+    .cursor/agents/code-testing-tester.md: sha256:41efd087a3f742ff64bf7a2181548430c2662f3a2b3bef92aa906e7e6ec24313
+    .cursor/agents/test-migration.md: sha256:0e6c95399ab47aea31df6fce57fde2844af004a4cb1f9a4d589291198351c4ab
+    .cursor/agents/test-quality-auditor.md: sha256:b3d123c0fb34cba90a8d92e4deeea3b9d437f51ba8ff056e48b902119c8180cd
+    .cursor/agents/testability-migration.md: sha256:cad6dd9a0ef2ee4a3062e33c428a8fa42e6442999f1e107b9e3c9a4a228bbfe6
+    .github/agents/code-testing-builder.agent.md: sha256:4caf996507502b260afddee4b36062691c00cb6111ccf1cedb12b0ca8ac9681e
+    .github/agents/code-testing-fixer.agent.md: sha256:63f6b83e5affdc405db369663e6da5245ec502d6d93826bd1263919e7b3d4374
+    .github/agents/code-testing-generator.agent.md: sha256:a2d463855540ca4ee10fb65851b62c4bb5048ea50ef291c568433eac0ea15d93
+    .github/agents/code-testing-implementer.agent.md: sha256:0cdb395f2bbff3ebef2e4c951dd04b478fbfea9a9869dfffcb1dc9c293a574cb
+    .github/agents/code-testing-linter.agent.md: sha256:81ce088dce035d6314e3447c423fe9798144ae612bac0cba7bcf5bee90baa1c5
+    .github/agents/code-testing-planner.agent.md: sha256:d2ee0e74ce7371a1765a45f630aba9abd96dbdb40819dec353a74511e908d1ad
+    .github/agents/code-testing-researcher.agent.md: sha256:f3d2dbff06f39fe5bc3f31194ddf57f85223274c7c63caefb56f08acaba6624c
+    .github/agents/code-testing-tester.agent.md: sha256:41efd087a3f742ff64bf7a2181548430c2662f3a2b3bef92aa906e7e6ec24313
+    .github/agents/test-migration.agent.md: sha256:0e6c95399ab47aea31df6fce57fde2844af004a4cb1f9a4d589291198351c4ab
+    .github/agents/test-quality-auditor.agent.md: sha256:b3d123c0fb34cba90a8d92e4deeea3b9d437f51ba8ff056e48b902119c8180cd
+    .github/agents/testability-migration.agent.md: sha256:cad6dd9a0ef2ee4a3062e33c428a8fa42e6442999f1e107b9e3c9a4a228bbfe6
+  content_hash: sha256:b518f801d6989bbddc30f70346b88e43b587cabb34d1e16ed696bd0cb053f403
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: 3b0ece94adf31952adb0ef1edb263730813881ee
+  resolved_commit: 0724ccf8ac485af4b6bf95b2489886cc33f170a3
   virtual_path: plugins/dotnet-upgrade
   is_virtual: true
   package_type: marketplace_plugin
@@ -1326,100 +977,94 @@ dependencies:
   - .claude/skills/migrate-dotnet9-to-dotnet10
   - .claude/skills/migrate-nullable-references
   - .claude/skills/thread-abort-migration
-  - .windsurf/skills/dotnet-aot-compat
-  - .windsurf/skills/migrate-dotnet10-to-dotnet11
-  - .windsurf/skills/migrate-dotnet8-to-dotnet9
-  - .windsurf/skills/migrate-dotnet9-to-dotnet10
-  - .windsurf/skills/migrate-nullable-references
-  - .windsurf/skills/thread-abort-migration
-  content_hash: sha256:c8f981aebe4d096494aa1aa1e148cefa1ed8fabc4f4b93540f7ab14fa2ff8824
+  content_hash: sha256:2802e631ff4db17a838830a8d5fe3952d306216cd248786ae2be03e482ff5d0a
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 0f4adc2055e3e6add799b2e5ecbabfbe730954ea
+  resolved_commit: 5b049e4e196c10aab8ddfd9e492323d08cf985b0
   virtual_path: instructions/agents.instructions.md
   is_virtual: true
   deployed_files:
   - .claude/rules/agents.md
+  - .cursor/rules/agents.mdc
   - .github/instructions/agents.instructions.md
-  - .windsurf/rules/agents.md
   deployed_file_hashes:
-    .claude/rules/agents.md: sha256:276a2e11ea2fbaee77d931bb22257bf1d4a86a215c73e30fd8f5161da33fa26c
-    .github/instructions/agents.instructions.md: sha256:d808f6de34d2d8d0202fbb43c786d69bedbeb8055f71f7288bb7d3b008d14e04
-    .windsurf/rules/agents.md: sha256:4f31c525b26d51761048f1e807169dc3d6e0b7e64c652ad17fd1e2ccd8dd3e7c
-  content_hash: sha256:097d9cecd575b13da536332fce5308d8f62e2b5b7a1a1e8f93c433979202ef0c
+    .claude/rules/agents.md: sha256:ad2a9b3af38acf22c25865028916ca62ba0d8f8889433fd9b4c51ae4b7b97ffd
+    .cursor/rules/agents.mdc: sha256:74631447a9527d07fc155b69b0c8e13d888a375e046c63459cd5cd939641d0af
+    .github/instructions/agents.instructions.md: sha256:05ca77656669d76091460783bf8e82bcd0ec91e9d27f6d2dab570a66e170380d
+  content_hash: sha256:d07c345b3767232098773e612b9e40a4771c4f9c572c24083fa3259e2ba303a6
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 0f4adc2055e3e6add799b2e5ecbabfbe730954ea
+  resolved_commit: 5b049e4e196c10aab8ddfd9e492323d08cf985b0
   virtual_path: instructions/context-engineering.instructions.md
   is_virtual: true
   deployed_files:
   - .claude/rules/context-engineering.md
+  - .cursor/rules/context-engineering.mdc
   - .github/instructions/context-engineering.instructions.md
-  - .windsurf/rules/context-engineering.md
   deployed_file_hashes:
-    .claude/rules/context-engineering.md: sha256:d7806005fd50e8671ca886a42d9dade2f06d8e9b91559759b63533a1b96c5f54
-    .github/instructions/context-engineering.instructions.md: sha256:b5222b349d48adfe46a1be4b301dba5be127d0a49c7aff31178cf2e17f84f02e
-    .windsurf/rules/context-engineering.md: sha256:afdfd7afdefb2e521c7941e72810e5b33256f94a3ba998ef2bf4f6a06e3368ea
-  content_hash: sha256:2bcb85569ec273ceb432a9f8b247021da2b5e3deddf1f703d7849c87175c8e79
+    .claude/rules/context-engineering.md: sha256:20db2e9dc06873577473f0a45c6f5c5490d5749dfc1ab02269eba089f9c3d3ea
+    .cursor/rules/context-engineering.mdc: sha256:d9ed2655f9438d50c1d729945225d1060b16c417affb735bedb386ba4a943157
+    .github/instructions/context-engineering.instructions.md: sha256:303780cee09b1707be6b2aa99ad2215514f2f76cbd2da59378194483dc6bf499
+  content_hash: sha256:4586c2567260b5c8a6357755330dd95f81814bebbcb00dab5c002d2d330f5d0e
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 0f4adc2055e3e6add799b2e5ecbabfbe730954ea
+  resolved_commit: 5b049e4e196c10aab8ddfd9e492323d08cf985b0
   virtual_path: instructions/instructions.instructions.md
   is_virtual: true
   deployed_files:
   - .claude/rules/instructions.md
+  - .cursor/rules/instructions.mdc
   - .github/instructions/instructions.instructions.md
-  - .windsurf/rules/instructions.md
   deployed_file_hashes:
-    .claude/rules/instructions.md: sha256:401eaeb599da7006067ae2c3a7cbce281ea8f780d7dff341c54b86ba1a6c5e9c
-    .github/instructions/instructions.instructions.md: sha256:69da69ff5594c26d5b87b873036f7d0fdef6689fb7d75cfc5514346ab8cda4bd
-    .windsurf/rules/instructions.md: sha256:4be41d251a1624dc90ae90fdafd367d5aea6d9ea1818328eb5c695098c4e8768
-  content_hash: sha256:baa92bcb8cb2bdb992d5827fa92e424b6b92ae00ca9028b77ff2eb1745f45317
+    .claude/rules/instructions.md: sha256:12143206b81f13aef4efb2e26f6a65483211c63407fcafc289775866ee6879cc
+    .cursor/rules/instructions.mdc: sha256:f323fcb47cc747aa2df001bd7d8701b7177ca269bf381ed4f154e225ab81d1df
+    .github/instructions/instructions.instructions.md: sha256:a38e647c44a1b3702cea44569ddb4cb3f3b53a78d08f7f457d14c12e9e65eaba
+  content_hash: sha256:c190999f713a13bc01b918acf454e7546a9dc9fe254e0f9d6705df3ff698c917
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 0f4adc2055e3e6add799b2e5ecbabfbe730954ea
+  resolved_commit: 5b049e4e196c10aab8ddfd9e492323d08cf985b0
   virtual_path: instructions/memory-bank.instructions.md
   is_virtual: true
   deployed_files:
   - .claude/rules/memory-bank.md
+  - .cursor/rules/memory-bank.mdc
   - .github/instructions/memory-bank.instructions.md
-  - .windsurf/rules/memory-bank.md
   deployed_file_hashes:
-    .claude/rules/memory-bank.md: sha256:fdbc20e65fd2591e1eb41bd6eae4b56de14b7a6efad190257b79e83d0f459ff7
-    .github/instructions/memory-bank.instructions.md: sha256:5c2d111c82bf64bf096abb8e33a061a0db5c1abfc87527346ecdff29e99cfb44
-    .windsurf/rules/memory-bank.md: sha256:0e344e134325a810bbd8a2beeac2fc1ae8186f853cdb31a4ac90c71a18d7c707
-  content_hash: sha256:9f21bdd9ca2246f34db8d9daece545661dfdc6251e2b0f27d9031469ee740fb9
+    .claude/rules/memory-bank.md: sha256:a548970d441ed9e7f0b3328f683ece3f4ee4ed2e6aadf9c8bb7dedc95448d958
+    .cursor/rules/memory-bank.mdc: sha256:79dd5fb987e7f34a733fbc87cec7e1b7365d84f2145d2586db35530c6a8e0c46
+    .github/instructions/memory-bank.instructions.md: sha256:8d6b774a6e4736120e11596402511355897088b5baebe3da21bd4f6b9c663e70
+  content_hash: sha256:a64da76c8115f0906c4ff7d21bfa2b832804c6bd9d20cd25711ca5a757f8c68e
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 0f4adc2055e3e6add799b2e5ecbabfbe730954ea
+  resolved_commit: 5b049e4e196c10aab8ddfd9e492323d08cf985b0
   virtual_path: instructions/powershell.instructions.md
   is_virtual: true
   deployed_files:
   - .claude/rules/powershell.md
+  - .cursor/rules/powershell.mdc
   - .github/instructions/powershell.instructions.md
-  - .windsurf/rules/powershell.md
   deployed_file_hashes:
-    .claude/rules/powershell.md: sha256:7c2780706f7642728be39f68b3b1d6aab6a01841826fae17b8d49014416031fe
-    .github/instructions/powershell.instructions.md: sha256:c92faa0a84fc2ac43f4904f0ecf6044e4ab8ed2371509e594c0352cdf0cd2475
-    .windsurf/rules/powershell.md: sha256:a406a7c42106c77e9ff42c928d4f1d5a8dabc0d6a51f5fc35ccf2a72a9a06a30
-  content_hash: sha256:5a8dacd0cca2a95d2f505562b27532a4906bbaeae774dabbd49843a653ab80ac
+    .claude/rules/powershell.md: sha256:659cd6d5c371099ca4390970b6295bd5622a164a12c6a1c952637885dd8105b4
+    .cursor/rules/powershell.mdc: sha256:87cdb6b29fa7f04e5383a9d6919da6535a10abbb5d9cbf6b4f32db5d34a431aa
+    .github/instructions/powershell.instructions.md: sha256:a8916a8aa82260b68dcc73bd659226795f6018ee2746da86ed4d27a4d5dfc1ef
+  content_hash: sha256:cd8445fba8fa4bc31c8c8da719fcd2d5f74d0768f5416fc3dd0adfcd10c2ba64
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 0f4adc2055e3e6add799b2e5ecbabfbe730954ea
+  resolved_commit: 5b049e4e196c10aab8ddfd9e492323d08cf985b0
   virtual_path: instructions/prompt.instructions.md
   is_virtual: true
   deployed_files:
   - .claude/rules/prompt.md
+  - .cursor/rules/prompt.mdc
   - .github/instructions/prompt.instructions.md
-  - .windsurf/rules/prompt.md
   deployed_file_hashes:
-    .claude/rules/prompt.md: sha256:ee1cc7ba5bc8a6a0cfa2ec64e8a98d5151ae34d3c35e1fc37bc38b566b9e88a7
-    .github/instructions/prompt.instructions.md: sha256:6294596eea318fd337bc6ac7ceb9910498e3dba7aae0b8df252292bc66ef6495
-    .windsurf/rules/prompt.md: sha256:e435fe0e548ded965431c25d52491af2ff1d4bed6d7f6c87214719c6d2911917
-  content_hash: sha256:41d3a1666bfe3eb844121d5514fd8f12ec0335410d8f7be07f9f5a7fa4858ccb
+    .claude/rules/prompt.md: sha256:56b81c1d3066b139b6d353e18b5d66037fd91c2f86257bb0942c060ab8de0b30
+    .cursor/rules/prompt.mdc: sha256:57da13369e73705a42947fc46dcdde5f0c9bbd6beeacb9bea0136db7a5e84f3f
+    .github/instructions/prompt.instructions.md: sha256:3ec80d94465a9a6f67ef3973c13956f81b385fa86d599f7c27196c49c3f4f07b
+  content_hash: sha256:a77a5291ab9bb01d5c480dd6140e7de255ef030ffdb7295615f3ce2b6dc8e89e
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 0f4adc2055e3e6add799b2e5ecbabfbe730954ea
+  resolved_commit: 5b049e4e196c10aab8ddfd9e492323d08cf985b0
   virtual_path: plugins/awesome-copilot
   is_virtual: true
   package_type: marketplace_plugin
@@ -1431,19 +1076,16 @@ dependencies:
   - .claude/skills/suggest-awesome-github-copilot-agents
   - .claude/skills/suggest-awesome-github-copilot-instructions
   - .claude/skills/suggest-awesome-github-copilot-skills
+  - .cursor/agents/meta-agentic-project-scaffold.md
   - .github/agents/meta-agentic-project-scaffold.agent.md
-  - .windsurf/skills/meta-agentic-project-scaffold/SKILL.md
-  - .windsurf/skills/suggest-awesome-github-copilot-agents
-  - .windsurf/skills/suggest-awesome-github-copilot-instructions
-  - .windsurf/skills/suggest-awesome-github-copilot-skills
   deployed_file_hashes:
-    .claude/agents/meta-agentic-project-scaffold.md: sha256:ff165bf768655e2733948ee24b671672885d69b13ca9d16dd8343236816f5f24
-    .github/agents/meta-agentic-project-scaffold.agent.md: sha256:ff165bf768655e2733948ee24b671672885d69b13ca9d16dd8343236816f5f24
-    .windsurf/skills/meta-agentic-project-scaffold/SKILL.md: sha256:0cc2e8897105989ef0ee34c07d5adf5f22e7edfc4021767d26ceb590b8b6a726
-  content_hash: sha256:41d38e70147d07aa6938bb7ec232162404aa5e98a066349f6b9d39ba1178d97a
+    .claude/agents/meta-agentic-project-scaffold.md: sha256:045954f1d22f9c9e5cf36ca248d60b53ace5ffdc286998592df37662795ddda8
+    .cursor/agents/meta-agentic-project-scaffold.md: sha256:045954f1d22f9c9e5cf36ca248d60b53ace5ffdc286998592df37662795ddda8
+    .github/agents/meta-agentic-project-scaffold.agent.md: sha256:045954f1d22f9c9e5cf36ca248d60b53ace5ffdc286998592df37662795ddda8
+  content_hash: sha256:9576476acadcd8b40a8503942d0896f0cae0080908e6ca9a6d36c21b4b14ed42
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 0f4adc2055e3e6add799b2e5ecbabfbe730954ea
+  resolved_commit: 5b049e4e196c10aab8ddfd9e492323d08cf985b0
   virtual_path: plugins/context-engineering
   is_virtual: true
   package_type: marketplace_plugin
@@ -1455,19 +1097,16 @@ dependencies:
   - .claude/skills/context-map
   - .claude/skills/refactor-plan
   - .claude/skills/what-context-needed
+  - .cursor/agents/context-architect.md
   - .github/agents/context-architect.agent.md
-  - .windsurf/skills/context-architect/SKILL.md
-  - .windsurf/skills/context-map
-  - .windsurf/skills/refactor-plan
-  - .windsurf/skills/what-context-needed
   deployed_file_hashes:
-    .claude/agents/context-architect.md: sha256:e4fdb79550b685c2397ab43bd6eda2f491f73a23000665e462dab85a51d49938
-    .github/agents/context-architect.agent.md: sha256:e4fdb79550b685c2397ab43bd6eda2f491f73a23000665e462dab85a51d49938
-    .windsurf/skills/context-architect/SKILL.md: sha256:4aee06f785a0104531bac1f7338e08d31be416156eaaa66528dca99c24e975f9
-  content_hash: sha256:8c4f6fb390c55b7fdf376929fcc720f957f7cdc90afd41abcb4a803f24e258ee
+    .claude/agents/context-architect.md: sha256:6da7a854a670d2810fc61b173eea2500a2af644d8292f58e3d440ac2d120ee0d
+    .cursor/agents/context-architect.md: sha256:6da7a854a670d2810fc61b173eea2500a2af644d8292f58e3d440ac2d120ee0d
+    .github/agents/context-architect.agent.md: sha256:6da7a854a670d2810fc61b173eea2500a2af644d8292f58e3d440ac2d120ee0d
+  content_hash: sha256:6d5ed9518d725ff8ff634939759a4b1069b1b89ef9a885bfedd6df569722d473
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 0f4adc2055e3e6add799b2e5ecbabfbe730954ea
+  resolved_commit: 5b049e4e196c10aab8ddfd9e492323d08cf985b0
   virtual_path: plugins/csharp-dotnet-development
   is_virtual: true
   package_type: marketplace_plugin
@@ -1489,24 +1128,16 @@ dependencies:
   - .claude/skills/csharp-xunit
   - .claude/skills/dotnet-best-practices
   - .claude/skills/dotnet-upgrade
+  - .cursor/agents/expert-dotnet-software-engineer.md
   - .github/agents/expert-dotnet-software-engineer.agent.md
-  - .windsurf/skills/aspnet-minimal-api-openapi
-  - .windsurf/skills/csharp-async
-  - .windsurf/skills/csharp-mstest
-  - .windsurf/skills/csharp-nunit
-  - .windsurf/skills/csharp-tunit
-  - .windsurf/skills/csharp-xunit
-  - .windsurf/skills/dotnet-best-practices
-  - .windsurf/skills/dotnet-upgrade
-  - .windsurf/skills/expert-dotnet-software-engineer/SKILL.md
   deployed_file_hashes:
-    .claude/agents/expert-dotnet-software-engineer.md: sha256:4c24ba7bb5dd6b7c79b2840a78d73ae02028776e7ce6f14ae7d86bd2e33f23bb
-    .github/agents/expert-dotnet-software-engineer.agent.md: sha256:4c24ba7bb5dd6b7c79b2840a78d73ae02028776e7ce6f14ae7d86bd2e33f23bb
-    .windsurf/skills/expert-dotnet-software-engineer/SKILL.md: sha256:72cfafadeec944bb158760c7079c0818cbade430f08cf5b67494fbe4d2991951
-  content_hash: sha256:fb33ac51fcb93bb21d0a0d7ff6427e5d97712c84900cb70d08236acb5e4288cc
+    .claude/agents/expert-dotnet-software-engineer.md: sha256:28a306e1a700abd0435f1fd6aef365341ac2519cc460f0c83a6f2a93332bf915
+    .cursor/agents/expert-dotnet-software-engineer.md: sha256:28a306e1a700abd0435f1fd6aef365341ac2519cc460f0c83a6f2a93332bf915
+    .github/agents/expert-dotnet-software-engineer.agent.md: sha256:28a306e1a700abd0435f1fd6aef365341ac2519cc460f0c83a6f2a93332bf915
+  content_hash: sha256:50c15691d05dac6ab39fb591fc6d56b629b1104f7321ec23aa5ab00e171d5cd9
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 0f4adc2055e3e6add799b2e5ecbabfbe730954ea
+  resolved_commit: 5b049e4e196c10aab8ddfd9e492323d08cf985b0
   virtual_path: plugins/project-planning
   is_virtual: true
   package_type: marketplace_plugin
@@ -1534,6 +1165,13 @@ dependencies:
   - .claude/skills/create-implementation-plan
   - .claude/skills/create-technical-spike
   - .claude/skills/update-implementation-plan
+  - .cursor/agents/implementation-plan.md
+  - .cursor/agents/plan.md
+  - .cursor/agents/planner.md
+  - .cursor/agents/prd.md
+  - .cursor/agents/research-technical-spike.md
+  - .cursor/agents/task-planner.md
+  - .cursor/agents/task-researcher.md
   - .github/agents/implementation-plan.agent.md
   - .github/agents/plan.agent.md
   - .github/agents/planner.agent.md
@@ -1541,47 +1179,32 @@ dependencies:
   - .github/agents/research-technical-spike.agent.md
   - .github/agents/task-planner.agent.md
   - .github/agents/task-researcher.agent.md
-  - .windsurf/skills/breakdown-epic-arch
-  - .windsurf/skills/breakdown-epic-pm
-  - .windsurf/skills/breakdown-feature-implementation
-  - .windsurf/skills/breakdown-feature-prd
-  - .windsurf/skills/create-github-issues-feature-from-implementation-plan
-  - .windsurf/skills/create-implementation-plan
-  - .windsurf/skills/create-technical-spike
-  - .windsurf/skills/implementation-plan/SKILL.md
-  - .windsurf/skills/plan/SKILL.md
-  - .windsurf/skills/planner/SKILL.md
-  - .windsurf/skills/prd/SKILL.md
-  - .windsurf/skills/research-technical-spike/SKILL.md
-  - .windsurf/skills/task-planner/SKILL.md
-  - .windsurf/skills/task-researcher/SKILL.md
-  - .windsurf/skills/update-implementation-plan
   deployed_file_hashes:
-    .claude/agents/implementation-plan.md: sha256:4e872a3818f4a8a0aade596f49adea4ad56b6afcd0e8bdf12800a5d9f79eb25b
-    .claude/agents/plan.md: sha256:6b0e8ed34a69d3a78a4220416683831bffa9d994c59d0dddb3b3e7728e841bd3
-    .claude/agents/planner.md: sha256:13ae18085fcf9b25c5b990a9c7dc71ced61e7dba00d762c63eb13cf55be8d5a8
-    .claude/agents/prd.md: sha256:a3c4d4f63c621979fee4310b81ff1a334d45f933a5e94ba2150f83384a4c6fd3
-    .claude/agents/research-technical-spike.md: sha256:b80e5a4585aaa1f0f1dad07e0929c7db6ad56264654e7a1da70d70c452a94758
-    .claude/agents/task-planner.md: sha256:6fb553d785a9e26e7cae034527acf3d363c8ac2acb6dc11dd8235a6fcca0f975
-    .claude/agents/task-researcher.md: sha256:df8936f9fa945c07392bdb9edc09cdde6a59b48b503df7888c6c435b6e52ec10
-    .github/agents/implementation-plan.agent.md: sha256:4e872a3818f4a8a0aade596f49adea4ad56b6afcd0e8bdf12800a5d9f79eb25b
-    .github/agents/plan.agent.md: sha256:6b0e8ed34a69d3a78a4220416683831bffa9d994c59d0dddb3b3e7728e841bd3
-    .github/agents/planner.agent.md: sha256:13ae18085fcf9b25c5b990a9c7dc71ced61e7dba00d762c63eb13cf55be8d5a8
-    .github/agents/prd.agent.md: sha256:a3c4d4f63c621979fee4310b81ff1a334d45f933a5e94ba2150f83384a4c6fd3
-    .github/agents/research-technical-spike.agent.md: sha256:b80e5a4585aaa1f0f1dad07e0929c7db6ad56264654e7a1da70d70c452a94758
-    .github/agents/task-planner.agent.md: sha256:6fb553d785a9e26e7cae034527acf3d363c8ac2acb6dc11dd8235a6fcca0f975
-    .github/agents/task-researcher.agent.md: sha256:df8936f9fa945c07392bdb9edc09cdde6a59b48b503df7888c6c435b6e52ec10
-    .windsurf/skills/implementation-plan/SKILL.md: sha256:ea355181f8e60455a4ef010beaa4ff0076a8d1d4dce99e914b5cfcadb9f19233
-    .windsurf/skills/plan/SKILL.md: sha256:e8f50d9423e62348340b1c6724a2001cfee2f6759af1107d2be21e2c72d8a8a2
-    .windsurf/skills/planner/SKILL.md: sha256:1615a6065f2fc3450205c8bb0da8b0732fb7c96b6613691fc2a09cb77c6f7192
-    .windsurf/skills/prd/SKILL.md: sha256:f7f42e123928c43aec8fad72f61b5b8260354a3e7c22ecd54cb4106b8eba6673
-    .windsurf/skills/research-technical-spike/SKILL.md: sha256:29ffd8c10b13f7b2c9839a15071710907651e52346abdfaef71e0fc754ba32d6
-    .windsurf/skills/task-planner/SKILL.md: sha256:1dc8ef399610ab2e5084643f163dd24b962e2e632eeb569ebdba2bf97fd26be9
-    .windsurf/skills/task-researcher/SKILL.md: sha256:9371e9bcd68a3d31bbfc6eb2f8c0af5a0ee11f9ca4e7272bdd29a0b037592d07
-  content_hash: sha256:e6d6ae24ee0fc593c7464225d022ad1c6940e931e84d77e66ae5797ad6c878de
+    .claude/agents/implementation-plan.md: sha256:eec19038008d9a73d21ddf679babf1f0e971a1b3bee3d11e6d17fbdb2e5082d0
+    .claude/agents/plan.md: sha256:b5735cbb2af5da39738b5e47f8e60878cf5caf7c3e373e2e1ce3bd5665498f04
+    .claude/agents/planner.md: sha256:58109e974ea551e1e6cfa0c2047d6d525cde6d0475d93a5d7665f04273060dfe
+    .claude/agents/prd.md: sha256:5d6d67c10825893aba682761e3d6404b430e915686f249057e9d544fd6e64c62
+    .claude/agents/research-technical-spike.md: sha256:d094ae33f4e3b42e249491a82530485b0be7949df7ff41c7a9e48cf7a2773740
+    .claude/agents/task-planner.md: sha256:396e333df4318d590a8b07f960a61361169689d68896731149ea1f5a11ddc8fd
+    .claude/agents/task-researcher.md: sha256:75369373a1a00f2c8243b18a31df35978d759376de6b22df7308090dece514c2
+    .cursor/agents/implementation-plan.md: sha256:eec19038008d9a73d21ddf679babf1f0e971a1b3bee3d11e6d17fbdb2e5082d0
+    .cursor/agents/plan.md: sha256:b5735cbb2af5da39738b5e47f8e60878cf5caf7c3e373e2e1ce3bd5665498f04
+    .cursor/agents/planner.md: sha256:58109e974ea551e1e6cfa0c2047d6d525cde6d0475d93a5d7665f04273060dfe
+    .cursor/agents/prd.md: sha256:5d6d67c10825893aba682761e3d6404b430e915686f249057e9d544fd6e64c62
+    .cursor/agents/research-technical-spike.md: sha256:d094ae33f4e3b42e249491a82530485b0be7949df7ff41c7a9e48cf7a2773740
+    .cursor/agents/task-planner.md: sha256:396e333df4318d590a8b07f960a61361169689d68896731149ea1f5a11ddc8fd
+    .cursor/agents/task-researcher.md: sha256:75369373a1a00f2c8243b18a31df35978d759376de6b22df7308090dece514c2
+    .github/agents/implementation-plan.agent.md: sha256:eec19038008d9a73d21ddf679babf1f0e971a1b3bee3d11e6d17fbdb2e5082d0
+    .github/agents/plan.agent.md: sha256:b5735cbb2af5da39738b5e47f8e60878cf5caf7c3e373e2e1ce3bd5665498f04
+    .github/agents/planner.agent.md: sha256:58109e974ea551e1e6cfa0c2047d6d525cde6d0475d93a5d7665f04273060dfe
+    .github/agents/prd.agent.md: sha256:5d6d67c10825893aba682761e3d6404b430e915686f249057e9d544fd6e64c62
+    .github/agents/research-technical-spike.agent.md: sha256:d094ae33f4e3b42e249491a82530485b0be7949df7ff41c7a9e48cf7a2773740
+    .github/agents/task-planner.agent.md: sha256:396e333df4318d590a8b07f960a61361169689d68896731149ea1f5a11ddc8fd
+    .github/agents/task-researcher.agent.md: sha256:75369373a1a00f2c8243b18a31df35978d759376de6b22df7308090dece514c2
+  content_hash: sha256:bd553e563dff7c549c1079f1840e9f2cda79b69d0fb4d77d773a78c00ac1e42c
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 0f4adc2055e3e6add799b2e5ecbabfbe730954ea
+  resolved_commit: 5b049e4e196c10aab8ddfd9e492323d08cf985b0
   virtual_path: plugins/software-engineering-team
   is_virtual: true
   package_type: marketplace_plugin
@@ -1593,6 +1216,13 @@ dependencies:
   - .claude/agents/se-system-architecture-reviewer.md
   - .claude/agents/se-technical-writer.md
   - .claude/agents/se-ux-ui-designer.md
+  - .cursor/agents/se-gitops-ci-specialist.md
+  - .cursor/agents/se-product-manager-advisor.md
+  - .cursor/agents/se-responsible-ai-code.md
+  - .cursor/agents/se-security-reviewer.md
+  - .cursor/agents/se-system-architecture-reviewer.md
+  - .cursor/agents/se-technical-writer.md
+  - .cursor/agents/se-ux-ui-designer.md
   - .github/agents/se-gitops-ci-specialist.agent.md
   - .github/agents/se-product-manager-advisor.agent.md
   - .github/agents/se-responsible-ai-code.agent.md
@@ -1600,39 +1230,32 @@ dependencies:
   - .github/agents/se-system-architecture-reviewer.agent.md
   - .github/agents/se-technical-writer.agent.md
   - .github/agents/se-ux-ui-designer.agent.md
-  - .windsurf/skills/se-gitops-ci-specialist/SKILL.md
-  - .windsurf/skills/se-product-manager-advisor/SKILL.md
-  - .windsurf/skills/se-responsible-ai-code/SKILL.md
-  - .windsurf/skills/se-security-reviewer/SKILL.md
-  - .windsurf/skills/se-system-architecture-reviewer/SKILL.md
-  - .windsurf/skills/se-technical-writer/SKILL.md
-  - .windsurf/skills/se-ux-ui-designer/SKILL.md
   deployed_file_hashes:
-    .claude/agents/se-gitops-ci-specialist.md: sha256:c1381dcc23bf5d75c5e7faa144ccc9c4e578c4191a8383afa3b22243a61210b2
-    .claude/agents/se-product-manager-advisor.md: sha256:7157b3639273db8b9aa4b6b6d301e164d229ee4b124d81825d8252981e2ce11f
-    .claude/agents/se-responsible-ai-code.md: sha256:1613b07901815aaf65f446b47aabd28f01ea99659ceb190e6f8013f2f6de9a9d
-    .claude/agents/se-security-reviewer.md: sha256:98065e5c9a8079dd902fd3454467674c97d27f8818824aad0a12db6b7d5c8516
-    .claude/agents/se-system-architecture-reviewer.md: sha256:4470afea63bdb5f73c29438269686c2197a6e36730dc850f87c977b3077bf981
-    .claude/agents/se-technical-writer.md: sha256:bd414b4af2bb7423f59361fc03c22b9d63347d448a2e5f52ffece68d6168ae1b
-    .claude/agents/se-ux-ui-designer.md: sha256:8bd92d41f54d2e09a9e3f1e0ea08944b03a9e5d74eb3a7de805eaf8ebf63ce0f
-    .github/agents/se-gitops-ci-specialist.agent.md: sha256:c1381dcc23bf5d75c5e7faa144ccc9c4e578c4191a8383afa3b22243a61210b2
-    .github/agents/se-product-manager-advisor.agent.md: sha256:7157b3639273db8b9aa4b6b6d301e164d229ee4b124d81825d8252981e2ce11f
-    .github/agents/se-responsible-ai-code.agent.md: sha256:1613b07901815aaf65f446b47aabd28f01ea99659ceb190e6f8013f2f6de9a9d
-    .github/agents/se-security-reviewer.agent.md: sha256:98065e5c9a8079dd902fd3454467674c97d27f8818824aad0a12db6b7d5c8516
-    .github/agents/se-system-architecture-reviewer.agent.md: sha256:4470afea63bdb5f73c29438269686c2197a6e36730dc850f87c977b3077bf981
-    .github/agents/se-technical-writer.agent.md: sha256:bd414b4af2bb7423f59361fc03c22b9d63347d448a2e5f52ffece68d6168ae1b
-    .github/agents/se-ux-ui-designer.agent.md: sha256:8bd92d41f54d2e09a9e3f1e0ea08944b03a9e5d74eb3a7de805eaf8ebf63ce0f
-    .windsurf/skills/se-gitops-ci-specialist/SKILL.md: sha256:c85213eca5573f6f1c1d7a76bf74aef6d20d5e010e84303a038a9df532dd5a7c
-    .windsurf/skills/se-product-manager-advisor/SKILL.md: sha256:dbfc3b95e616c1b5c63f4b2ef18eeee9555511d169714abc1d10abf1e6a7430f
-    .windsurf/skills/se-responsible-ai-code/SKILL.md: sha256:22f92a079bc13a7f09032b87e91735f9e7e42b923d72b4628744ab8452f4abad
-    .windsurf/skills/se-security-reviewer/SKILL.md: sha256:96983a4ba0e5886af976f85e622f7b3508228200b46262db90287ef5d5fdbe49
-    .windsurf/skills/se-system-architecture-reviewer/SKILL.md: sha256:50ffe7b7354ab4fb8462d68023148671f327442458780ce023baead2caef663a
-    .windsurf/skills/se-technical-writer/SKILL.md: sha256:1432862579adbcbbd2fb7212a184032de6f912c8db747b4008259b1b110a2007
-    .windsurf/skills/se-ux-ui-designer/SKILL.md: sha256:769bf1cfe0c1cc9a19cc70cdbf29f4d8b7ed8089ea07d9148bcbda05adeb9dca
-  content_hash: sha256:52769ccc6f141765a48d451cbb0974eb0f296fa8aa7021e49d7570a5e3681cec
+    .claude/agents/se-gitops-ci-specialist.md: sha256:8ca4679e0e55f39ecadc50834354a8d9ea7162b1ca1cdd13521ed59717148a76
+    .claude/agents/se-product-manager-advisor.md: sha256:d38a92f0b9a8c8a6d78c303378f95d16d040836e027f63628e4d0266aacddd11
+    .claude/agents/se-responsible-ai-code.md: sha256:e893e9c3c9c3475629094730221eca4f4d2bcff65875bd303bf6fb016600ba19
+    .claude/agents/se-security-reviewer.md: sha256:3b5fec1f93bf21e20b865493ceca30708738642887d00c68e0bd0051f2d0e1fc
+    .claude/agents/se-system-architecture-reviewer.md: sha256:b50b7f02658270ba4ec70413ff57c7ec628cc7e710e3d0b4646544d438dfd5fd
+    .claude/agents/se-technical-writer.md: sha256:e2b7fe3959fee4701084022bdfb6bae9c24b2890d44305f17d779d0055ec9506
+    .claude/agents/se-ux-ui-designer.md: sha256:a7078735984cfec19643027b8e876435b3d73f43ab431f910186e16a11b0bdd2
+    .cursor/agents/se-gitops-ci-specialist.md: sha256:8ca4679e0e55f39ecadc50834354a8d9ea7162b1ca1cdd13521ed59717148a76
+    .cursor/agents/se-product-manager-advisor.md: sha256:d38a92f0b9a8c8a6d78c303378f95d16d040836e027f63628e4d0266aacddd11
+    .cursor/agents/se-responsible-ai-code.md: sha256:e893e9c3c9c3475629094730221eca4f4d2bcff65875bd303bf6fb016600ba19
+    .cursor/agents/se-security-reviewer.md: sha256:3b5fec1f93bf21e20b865493ceca30708738642887d00c68e0bd0051f2d0e1fc
+    .cursor/agents/se-system-architecture-reviewer.md: sha256:b50b7f02658270ba4ec70413ff57c7ec628cc7e710e3d0b4646544d438dfd5fd
+    .cursor/agents/se-technical-writer.md: sha256:e2b7fe3959fee4701084022bdfb6bae9c24b2890d44305f17d779d0055ec9506
+    .cursor/agents/se-ux-ui-designer.md: sha256:a7078735984cfec19643027b8e876435b3d73f43ab431f910186e16a11b0bdd2
+    .github/agents/se-gitops-ci-specialist.agent.md: sha256:8ca4679e0e55f39ecadc50834354a8d9ea7162b1ca1cdd13521ed59717148a76
+    .github/agents/se-product-manager-advisor.agent.md: sha256:d38a92f0b9a8c8a6d78c303378f95d16d040836e027f63628e4d0266aacddd11
+    .github/agents/se-responsible-ai-code.agent.md: sha256:e893e9c3c9c3475629094730221eca4f4d2bcff65875bd303bf6fb016600ba19
+    .github/agents/se-security-reviewer.agent.md: sha256:3b5fec1f93bf21e20b865493ceca30708738642887d00c68e0bd0051f2d0e1fc
+    .github/agents/se-system-architecture-reviewer.agent.md: sha256:b50b7f02658270ba4ec70413ff57c7ec628cc7e710e3d0b4646544d438dfd5fd
+    .github/agents/se-technical-writer.agent.md: sha256:e2b7fe3959fee4701084022bdfb6bae9c24b2890d44305f17d779d0055ec9506
+    .github/agents/se-ux-ui-designer.agent.md: sha256:a7078735984cfec19643027b8e876435b3d73f43ab431f910186e16a11b0bdd2
+  content_hash: sha256:c4023fff92e5ec5b6a18a9075d6e79459ebc1965678549ffd167248dece9fa65
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 0f4adc2055e3e6add799b2e5ecbabfbe730954ea
+  resolved_commit: 5b049e4e196c10aab8ddfd9e492323d08cf985b0
   virtual_path: plugins/technical-spike
   is_virtual: true
   package_type: marketplace_plugin
@@ -1640,24 +1263,22 @@ dependencies:
   - .agents/skills/create-technical-spike
   - .claude/agents/research-technical-spike.md
   - .claude/skills/create-technical-spike
+  - .cursor/agents/research-technical-spike.md
   - .github/agents/research-technical-spike.agent.md
-  - .windsurf/skills/create-technical-spike
-  - .windsurf/skills/research-technical-spike/SKILL.md
   deployed_file_hashes:
-    .claude/agents/research-technical-spike.md: sha256:b80e5a4585aaa1f0f1dad07e0929c7db6ad56264654e7a1da70d70c452a94758
-    .github/agents/research-technical-spike.agent.md: sha256:b80e5a4585aaa1f0f1dad07e0929c7db6ad56264654e7a1da70d70c452a94758
-    .windsurf/skills/research-technical-spike/SKILL.md: sha256:29ffd8c10b13f7b2c9839a15071710907651e52346abdfaef71e0fc754ba32d6
-  content_hash: sha256:15c4f849ab0218c953da8571a1728e95e1896627776e56b934792de85ccbbdd1
+    .claude/agents/research-technical-spike.md: sha256:d094ae33f4e3b42e249491a82530485b0be7949df7ff41c7a9e48cf7a2773740
+    .cursor/agents/research-technical-spike.md: sha256:d094ae33f4e3b42e249491a82530485b0be7949df7ff41c7a9e48cf7a2773740
+    .github/agents/research-technical-spike.agent.md: sha256:d094ae33f4e3b42e249491a82530485b0be7949df7ff41c7a9e48cf7a2773740
+  content_hash: sha256:062cb5b0fb21a1e165b882fb2cd7c20d4efbd59a1e1f357404c7e7df8f53e7b7
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 0f4adc2055e3e6add799b2e5ecbabfbe730954ea
+  resolved_commit: 5b049e4e196c10aab8ddfd9e492323d08cf985b0
   virtual_path: skills/acquire-codebase-knowledge
   is_virtual: true
   package_type: claude_skill
   deployed_files:
   - .agents/skills/acquire-codebase-knowledge
   - .claude/skills/acquire-codebase-knowledge
-  - .windsurf/skills/acquire-codebase-knowledge
   content_hash: sha256:94a1da1b609e31d3ac4629f4670784c63675639955965b503d10928035b4f727
 - repo_url: obra/superpowers
   host: github.com
@@ -1694,35 +1315,21 @@ dependencies:
   - .claude/skills/verification-before-completion
   - .claude/skills/writing-plans
   - .claude/skills/writing-skills
+  - .cursor/hooks/superpowers/hooks/run-hook.cmd
+  - .cursor/hooks/superpowers/hooks/run-hook.cmd
   - .github/hooks/scripts/superpowers/hooks/run-hook.cmd
   - .github/hooks/scripts/superpowers/hooks/run-hook.cmd
   - .github/hooks/superpowers-hooks-cursor.json
   - .github/hooks/superpowers-hooks-cursor.json
   - .github/hooks/superpowers-hooks.json
   - .github/hooks/superpowers-hooks.json
-  - .windsurf/hooks/superpowers/hooks/run-hook.cmd
-  - .windsurf/hooks/superpowers/hooks/run-hook.cmd
-  - .windsurf/skills/brainstorming
-  - .windsurf/skills/dispatching-parallel-agents
-  - .windsurf/skills/executing-plans
-  - .windsurf/skills/finishing-a-development-branch
-  - .windsurf/skills/receiving-code-review
-  - .windsurf/skills/requesting-code-review
-  - .windsurf/skills/subagent-driven-development
-  - .windsurf/skills/systematic-debugging
-  - .windsurf/skills/test-driven-development
-  - .windsurf/skills/using-git-worktrees
-  - .windsurf/skills/using-superpowers
-  - .windsurf/skills/verification-before-completion
-  - .windsurf/skills/writing-plans
-  - .windsurf/skills/writing-skills
   deployed_file_hashes:
     .claude/hooks/superpowers/hooks/run-hook.cmd: sha256:d3d9c6199678dab2858e60509dde5e7414f13c2a2b5e48a38b1d368b6e1d6abb
+    .cursor/hooks/superpowers/hooks/run-hook.cmd: sha256:d3d9c6199678dab2858e60509dde5e7414f13c2a2b5e48a38b1d368b6e1d6abb
     .github/hooks/scripts/superpowers/hooks/run-hook.cmd: sha256:d3d9c6199678dab2858e60509dde5e7414f13c2a2b5e48a38b1d368b6e1d6abb
-    .github/hooks/superpowers-hooks-cursor.json: sha256:b9ece7e601639a8f8da883eed873fca594d3209df1f94d77d5765c6373e99b4c
-    .github/hooks/superpowers-hooks.json: sha256:5e164fb4b581c26d8fa92540d419a938c1fd44f64629c2357bc3c21ba8adb980
-    .windsurf/hooks/superpowers/hooks/run-hook.cmd: sha256:d3d9c6199678dab2858e60509dde5e7414f13c2a2b5e48a38b1d368b6e1d6abb
-  content_hash: sha256:05988c4c700fc30c6d48145c334834437bcd5786375efabcf351a9dc7f3da75b
+    .github/hooks/superpowers-hooks-cursor.json: sha256:53d8ceb3ff5d8bb1c4f283f238cc868b8c1af22e40a3ac30f6d6e4173effefbd
+    .github/hooks/superpowers-hooks.json: sha256:414b2cda93dfd4523ea183cc02c29b17b7c92bbfd54ad89acd83aadac042ea5a
+  content_hash: sha256:fb4f87bfef928a6d68f5d5aaa29e3eba011961c5f03bbf171c3c348d8d161abb
 - repo_url: sanjay3290/ai-skills
   host: github.com
   resolved_commit: cde1c8385ead64df501c9b214e63d7ba9b283ff9
@@ -1732,7 +1339,6 @@ dependencies:
   deployed_files:
   - .agents/skills/atlassian
   - .claude/skills/atlassian
-  - .windsurf/skills/atlassian
   content_hash: sha256:906ed943fbc35fdda2b320eaf7cf13cb63dd2842ecf9ea31c6c9c1019c4f89bf
 - repo_url: sanjay3290/ai-skills
   host: github.com
@@ -1743,7 +1349,6 @@ dependencies:
   deployed_files:
   - .agents/skills/azure-devops
   - .claude/skills/azure-devops
-  - .windsurf/skills/azure-devops
   content_hash: sha256:d846123b38ee0c5b2ba88b16b490d3efc18ad6349e9da7ce02ffce9847121592
 - repo_url: sanjay3290/ai-skills
   host: github.com
@@ -1754,7 +1359,6 @@ dependencies:
   deployed_files:
   - .agents/skills/mssql
   - .claude/skills/mssql
-  - .windsurf/skills/mssql
   content_hash: sha256:a6327128fb37f270dadc00c746cf07fa15be73c74cd60cde830e27b1e34cc82e
 - repo_url: sanjay3290/ai-skills
   host: github.com
@@ -1765,7 +1369,6 @@ dependencies:
   deployed_files:
   - .agents/skills/mysql
   - .claude/skills/mysql
-  - .windsurf/skills/mysql
   content_hash: sha256:0be82288e6935520d3d1e97908a9ce81d4257d747bccb33e554b9afe7ec7ca89
 - repo_url: sanjay3290/ai-skills
   host: github.com
@@ -1776,7 +1379,6 @@ dependencies:
   deployed_files:
   - .agents/skills/postgres
   - .claude/skills/postgres
-  - .windsurf/skills/postgres
   content_hash: sha256:a4e5c30ce29b704a3e5724615cc5712066f909483c5dafe7291d84888c1d0170
 - repo_url: testdino-hq/playwright-skill
   host: github.com
@@ -1785,7 +1387,6 @@ dependencies:
   deployed_files:
   - .agents/skills/playwright-skill
   - .claude/skills/playwright-skill
-  - .windsurf/skills/playwright-skill
   content_hash: sha256:7c906f3375d370496b71786712263decab7235d1e368d4dc223a7408ccd46298
 mcp_servers:
 - agentic-workflows
@@ -1810,7 +1411,7 @@ mcp_configs:
     transport: stdio
     args:
     - dnx
-    - AITools.BinlogMcp
+    - Microsoft.AITools.BinlogMcp
     - --yes
     - --prerelease
     - --add-source
@@ -1860,15 +1461,14 @@ local_deployed_files:
 - .claude/rules/context7.md
 - .claude/rules/neo4j-knowledgebase.md
 - .claude/skills/context7-mcp
+- .cursor/rules/context7.mdc
+- .cursor/rules/neo4j-knowledgebase.mdc
 - .github/instructions/context7.instructions.md
 - .github/instructions/neo4j-knowledgebase.instructions.md
-- .windsurf/rules/context7.md
-- .windsurf/rules/neo4j-knowledgebase.md
-- .windsurf/skills/context7-mcp
 local_deployed_file_hashes:
-  .claude/rules/context7.md: sha256:77ce3fc17d5f7dadd56c855a48160155a6f9f715cb1dbf703d979bbae3c002ce
-  .claude/rules/neo4j-knowledgebase.md: sha256:42d086f592fac5e3cd5826da3da331df2e9767e849bf111f8a0902b4402ca374
-  .github/instructions/context7.instructions.md: sha256:0452f67450502f307f6b9d28ed0f8c004e2dd6b3000301f3080c44c613b41683
-  .github/instructions/neo4j-knowledgebase.instructions.md: sha256:4fd5ab05a9aab0148c6734e1f11891f4570e3967b4e396fa6fd32d25fac9bb57
-  .windsurf/rules/context7.md: sha256:3bea1ae06f56bd2201206103d2914912c66178caea8d950051c88c6b3a7bb273
-  .windsurf/rules/neo4j-knowledgebase.md: sha256:25abf8a843c83207994a2caf26d8b34022153506fd7cae5480e45d3333ef3b4c
+  .claude/rules/context7.md: sha256:0f66072fffde531a3b65ad1fca2a0a719b2c0a146f79a32230e1566aa917a792
+  .claude/rules/neo4j-knowledgebase.md: sha256:416db8f43b40abd878578c0e11c3eb5531c646a5ac77d6df62e4f3ee0876088e
+  .cursor/rules/context7.mdc: sha256:5b345504d891d54f7485e77c73a6d045df9ecb14491d351cc5e9a2aee89fdccd
+  .cursor/rules/neo4j-knowledgebase.mdc: sha256:0f078cdaa1d2a16b9e12cf49687502ebd94dd56177272003a68b12b38a3a79ff
+  .github/instructions/context7.instructions.md: sha256:d34d07b311063df7f47597ab84693eff7dad137ca844310e5e26f7ec7e67e5e8
+  .github/instructions/neo4j-knowledgebase.instructions.md: sha256:78c4c1812618382f762272d038bdbc025c799b9dff618b7022c50073644981bf
