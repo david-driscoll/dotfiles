@@ -216,3 +216,17 @@ export PATH="$PATH:/Users/david/.lmstudio/bin"
 # End of LM Studio CLI section
 
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
+# >>> lean-ctx proxy env >>>
+export GEMINI_API_BASE_URL="http://127.0.0.1:4444"
+# <<< lean-ctx proxy env <<<
+# lean-ctx shell hook — begin
+if [ -f "/Users/david/.lean-ctx/shell-hook.zsh" ]; then
+. "/Users/david/.lean-ctx/shell-hook.zsh"
+fi
+# lean-ctx shell hook — end
+
+# >>> lean-ctx agent aliases >>>
+alias claude='LEAN_CTX_AGENT=1 BASH_ENV="$HOME/.bashenv" claude'
+alias codex='LEAN_CTX_AGENT=1 BASH_ENV="$HOME/.bashenv" codex'
+alias gemini='LEAN_CTX_AGENT=1 BASH_ENV="$HOME/.bashenv" gemini'
+# <<< lean-ctx agent aliases <<<
