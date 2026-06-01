@@ -3,5 +3,6 @@
         "*.yaml": "home-assistant"
     },
     "editor.fontFamily": "JetbrainsMono Nerd Font Propo",
+    "editor.formatOnSave": false,
     "snyk.advanced.autoSelectOrganization": true,
 }

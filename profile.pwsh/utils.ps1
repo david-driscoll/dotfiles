@@ -15,9 +15,8 @@ function Merge-PullRequests {
 }
 function Remove-PulumiResources ($endsWith) {
     $resources = op run --no-masking -- pulumi stack --show-urns --output json | ConvertFrom-Json -AsHashtable | foreach { $_.resources } | foreach { $_.urn } | where { $_ -like $endsWith };
-    foreach ($resource in $resources)
-    {
-        Write-Host "Processing resource: $($resource)" -ForegroundColor cyan;
-        op run --no-masking -- pulumi state delete $resource --yes
-    }
+    $resources = "'$($resources -join "' '")'"
+
+    Write-Host "Processing resources: $($resources)" -ForegroundColor cyan;
+    iex "op run --no-masking -- pulumi state delete $resources --yes"
 }
