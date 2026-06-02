@@ -1,9 +1,9 @@
 ---
 name: azure-cosmos-db
-description: Expert knowledge for Azure Cosmos DB development including troubleshooting, best practices, decision making, architecture & design patterns, limits & quotas, security, configuration, integrations & coding patterns, and deployment. Use when using Cosmos DB NoSQL/Mongo/Cassandra APIs, change feed, vector search/RAG, Private Link/VNet, or CI/CD IaC deployments, and other Azure Cosmos DB related development tasks. Not for Azure Table Storage (use azure-table-storage), Azure SQL Database (use azure-sql-database), Azure Database for MySQL (use azure-database-mysql), Azure Database for PostgreSQL (use azure-database-postgresql).
+description: Expert knowledge for Azure Cosmos DB development including troubleshooting, best practices, decision making, architecture & design patterns, limits & quotas, security, configuration, integrations & coding patterns, and deployment. Use when using Cosmos DB NoSQL/Mongo/Cassandra APIs, change feed, bulk ops, vector search, or Cosmos DB for PostgreSQL, and other Azure Cosmos DB related development tasks. Not for Azure Table Storage (use azure-table-storage), Azure SQL Database (use azure-sql-database), Azure SQL Managed Instance (use azure-sql-managed-instance), Azure Data Explorer (use azure-data-explorer).
 compatibility: Requires network access. Uses mcp_microsoftdocs:microsoft_docs_fetch or fetch_webpage to retrieve documentation.
 metadata:
-  generated_at: "2026-05-17"
+  generated_at: "2026-05-31"
   generator: "docs2skills/1.0.0"
 ---
 # Azure Cosmos DB Skill
@@ -25,13 +25,13 @@ This skill requires **network access** to fetch documentation content:
 | Category | Location | Description |
 |----------|----------|-------------|
 | Troubleshooting | L37-L91 | Diagnosing and fixing Cosmos DB issues across APIs and SDKs: errors (400/401/403/404/408/409/429), timeouts, performance, connectivity, CMK, and using logs/metrics/KQL for root-cause analysis. |
-| Best Practices | L92-L154 | Performance, cost, scaling, and reliability best practices for Cosmos DB (NoSQL, Mongo, Cassandra, PostgreSQL), including SDK usage, partitioning, indexing, RU optimization, and DR. |
-| Decision Making | L155-L209 | Guides for choosing Cosmos DB and Cosmos DB for PostgreSQL options (throughput, consistency, backup, regions, analytics) and planning migrations, upgrades, pricing, and MongoDB/DocumentDB compatibility |
-| Architecture & Design Patterns | L210-L243 | Patterns and architectures for AI agents, vector search, multitenancy, microservices, high availability, change feed, analytics, and migrations using Azure Cosmos DB and Cosmos DB for PostgreSQL |
-| Limits & Quotas | L244-L285 | Limits, quotas, and behaviors for Cosmos DB/DocumentDB throughput, storage, backups, free tier, serverless, partitioning, emulator, and PostgreSQL/Cassandra managed instances. |
-| Security | L286-L366 | Securing Cosmos DB: identity/RBAC, network isolation (firewall, Private Link, VNet), encryption/CMK, auditing, Defender, TLS, and per-API (NoSQL, Mongo, Cassandra, Gremlin, Table, PostgreSQL, DocumentDB) security. |
-| Configuration | [configuration.md](configuration.md) | Configuring and tuning Cosmos DB and related services: throughput, indexing, backup/restore, networking, monitoring, search/vector, SDK performance, and PostgreSQL/Cassandra/Mongo/Table setups. |
-| Integrations & Coding Patterns | [integrations.md](integrations.md) | SDK usage, bulk ops, change feed, Kafka/Spark/BI integrations, migrations, vector search/RAG, and Mongo/Cassandra/PostgreSQL/Gremlin/DocumentDB query patterns with examples. |
+| Best Practices | L92-L154 | Performance, cost, resiliency, and SDK best practices for Cosmos DB (NoSQL, Mongo, Cassandra, PostgreSQL), including partitioning, RU optimization, indexing, DR, and client/driver tuning. |
+| Decision Making | L155-L214 | Guidance for choosing Cosmos DB and DocumentDB options: consistency, throughput, scaling, regions, pricing, analytics, backups, migrations, SDK upgrades, and PostgreSQL/MongoDB integrations. |
+| Architecture & Design Patterns | L215-L246 | Patterns and architectures for AI agents, vector search, multitenancy, microservices, high availability, change feed, analytics, and migrations using Azure Cosmos DB and Cosmos DB for PostgreSQL |
+| Limits & Quotas | L247-L288 | Limits, quotas, and behaviors for Cosmos DB (and DocumentDB), including throughput, storage, backups/restore, free tier, serverless, partitioning, indexing, and emulator capabilities. |
+| Security | L289-L369 | Securing Cosmos DB: identity/RBAC, keys and encryption, network isolation (firewalls, Private Link, VNet), auditing, data masking, TLS, and security best practices across all APIs. |
+| Configuration | [configuration.md](configuration.md) | Configuring Cosmos DB and related services: throughput, indexing, backup/restore, monitoring, search/vector, SDK tuning, Cassandra/Mongo/PostgreSQL setups, fleets, and emulator/infra provisioning. |
+| Integrations & Coding Patterns | [integrations.md](integrations.md) | SDK usage, integrations, and patterns for Cosmos DB (NoSQL, Mongo, Cassandra, Gremlin, PostgreSQL, DocumentDB): bulk ops, change feed, Kafka/Spark, vector search, RAG/AI, and language-specific samples. |
 | Deployment | [deployment.md](deployment.md) | Deploying and managing Cosmos DB (NoSQL, Mongo, Cassandra, PostgreSQL, Table, DocumentDB) with Bicep/ARM/Terraform, CI/CD, emulator, migrations, upgrades, and maintenance. |
 
 ### Troubleshooting
@@ -129,7 +129,7 @@ This skill requires **network access** to fetch documentation content:
 | Use MongoDB aggregation pipelines on Azure Cosmos DB | https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/tutorial-aggregation |
 | Configure multi-region writes for Azure Cosmos DB | https://learn.microsoft.com/en-us/azure/cosmos-db/multi-region-writes |
 | Optimize Azure Cosmos DB costs for dev and production workloads | https://learn.microsoft.com/en-us/azure/cosmos-db/optimize-costs |
-| Design partitioning and horizontal scaling in Cosmos DB | https://learn.microsoft.com/en-us/azure/cosmos-db/partitioning |
+| Choose and manage partition keys in Azure Cosmos DB | https://learn.microsoft.com/en-us/azure/cosmos-db/partitioning |
 | Optimize performance of Cosmos DB .NET SDK v2 clients | https://learn.microsoft.com/en-us/azure/cosmos-db/performance-tips |
 | Optimize performance of Cosmos DB .NET SDK v3 clients | https://learn.microsoft.com/en-us/azure/cosmos-db/performance-tips-dotnet-sdk-v3 |
 | Apply Cosmos DB SDK query performance best practices | https://learn.microsoft.com/en-us/azure/cosmos-db/performance-tips-query-sdk |
@@ -198,7 +198,6 @@ This skill requires **network access** to fetch documentation content:
 | Use Azure Cosmos DB for Table with Azure Table Storage | https://learn.microsoft.com/en-us/azure/cosmos-db/table/support |
 | Configure global distribution for Azure Cosmos DB for Table | https://learn.microsoft.com/en-us/azure/cosmos-db/table/tutorial-global-distribution |
 | Decide between Cosmos DB provisioned and serverless | https://learn.microsoft.com/en-us/azure/cosmos-db/throughput-serverless |
-| Decide how to use Cosmos DB as a vector database | https://learn.microsoft.com/en-us/azure/cosmos-db/vector-database |
 | Decide between Azure DocumentDB and MongoDB Atlas | https://learn.microsoft.com/en-us/azure/documentdb/compare-mongodb-atlas |
 | Evaluate MongoDB feature compatibility in Azure DocumentDB | https://learn.microsoft.com/en-us/azure/documentdb/compatibility-features |
 | Assess MongoDB Query Language compatibility in Azure DocumentDB | https://learn.microsoft.com/en-us/azure/documentdb/compatibility-query-language |
@@ -206,6 +205,12 @@ This skill requires **network access** to fetch documentation content:
 | Evaluate MongoDB compatibility for managed DocumentDB | https://learn.microsoft.com/en-us/azure/documentdb/managed-service-compatibility |
 | Choose migration options from MongoDB to DocumentDB | https://learn.microsoft.com/en-us/azure/documentdb/migration-options |
 | Plan MongoDB to DocumentDB migration strategies | https://learn.microsoft.com/en-us/azure/documentdb/migration-options |
+| Evaluate vector index algorithms with .NET in DocumentDB | https://learn.microsoft.com/en-us/azure/documentdb/quickstart-dotnet-select-algorithm |
+| Compare vector index options with Go in DocumentDB | https://learn.microsoft.com/en-us/azure/documentdb/quickstart-go-select-algorithm |
+| Test and select vector indexes with Java in DocumentDB | https://learn.microsoft.com/en-us/azure/documentdb/quickstart-java-select-algorithm |
+| Choose vector index algorithms with TypeScript | https://learn.microsoft.com/en-us/azure/documentdb/quickstart-nodejs-select-algorithm |
+| Select optimal vector index with Python in DocumentDB | https://learn.microsoft.com/en-us/azure/documentdb/quickstart-python-select-algorithm |
+| Select Azure DocumentDB regions for deployment | https://learn.microsoft.com/en-us/azure/documentdb/regional-availability |
 
 ### Architecture & Design Patterns
 | Topic | URL |
@@ -236,8 +241,6 @@ This skill requires **network access** to fetch documentation content:
 | Understand Azure DocumentDB HA and DR internal architecture | https://learn.microsoft.com/en-us/azure/documentdb/availability-disaster-recovery-under-hood |
 | Apply half-precision vectors for efficient AI storage in DocumentDB | https://learn.microsoft.com/en-us/azure/documentdb/half-precision |
 | Use product quantization for scalable vector search in DocumentDB | https://learn.microsoft.com/en-us/azure/documentdb/product-quantization |
-| Build a Go-based AI agent architecture with DocumentDB | https://learn.microsoft.com/en-us/azure/documentdb/quickstart-agent-go |
-| Implement a TypeScript AI agent with DocumentDB vector search | https://learn.microsoft.com/en-us/azure/documentdb/quickstart-agent-nodejs |
 | Design dual-write Spark migration to Cassandra managed instances | https://learn.microsoft.com/en-us/azure/managed-instance-apache-cassandra/dual-write-proxy-migration |
 | Architect Spark-based migrations to Cassandra managed instances | https://learn.microsoft.com/en-us/azure/managed-instance-apache-cassandra/spark-migration |
 
@@ -254,6 +257,7 @@ This skill requires **network access** to fetch documentation content:
 | Understand capabilities of Linux-based Cosmos DB emulator | https://learn.microsoft.com/en-us/azure/cosmos-db/emulator-linux |
 | Reference Azure Cosmos DB service limits and quotas | https://learn.microsoft.com/en-us/azure/cosmos-db/faq |
 | Use Cosmos DB lifetime free tier limits | https://learn.microsoft.com/en-us/azure/cosmos-db/free-tier |
+| Reference stopwords for Cosmos DB full text search | https://learn.microsoft.com/en-us/azure/cosmos-db/gen-ai/stopwords |
 | Review runtime limits for Cosmos DB Gremlin engine | https://learn.microsoft.com/en-us/azure/cosmos-db/gremlin/limits |
 | Scale beyond 20-GB logical partition limits with HPK | https://learn.microsoft.com/en-us/azure/cosmos-db/hierarchical-partition-keys-unlimited-scale |
 | Alert when Cosmos DB logical partition approaches 20 GB limit | https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-alert-on-logical-partition-key-storage-size |
@@ -280,7 +284,6 @@ This skill requires **network access** to fetch documentation content:
 | Understand indexing defaults and limits in DocumentDB | https://learn.microsoft.com/en-us/azure/documentdb/indexing |
 | Reference service limits and quotas for DocumentDB | https://learn.microsoft.com/en-us/azure/documentdb/limitations |
 | Understand document size and batch write limits in Azure DocumentDB | https://learn.microsoft.com/en-us/azure/documentdb/max-document-size |
-| Check Azure DocumentDB regional availability and cloud support | https://learn.microsoft.com/en-us/azure/documentdb/regional-availability |
 | Review limits and configuration FAQs for Cassandra managed instances | https://learn.microsoft.com/en-us/azure/managed-instance-apache-cassandra/faq |
 
 ### Security
@@ -289,19 +292,19 @@ This skill requires **network access** to fetch documentation content:
 | Use managed identity for Cosmos DB access to Key Vault | https://learn.microsoft.com/en-us/azure/cosmos-db/access-key-vault-managed-identity |
 | Configure private endpoints for Cosmos DB analytical store | https://learn.microsoft.com/en-us/azure/cosmos-db/analytical-store-private-endpoints |
 | Audit Cosmos DB control plane operations with logs | https://learn.microsoft.com/en-us/azure/cosmos-db/audit-control-plane-logs |
-| Configure RBAC and Entra ID for Cosmos DB Cassandra | https://learn.microsoft.com/en-us/azure/cosmos-db/cassandra/how-to-connect-role-based-access-control |
-| Reference for Cosmos DB Cassandra data-plane RBAC roles | https://learn.microsoft.com/en-us/azure/cosmos-db/cassandra/reference-data-plane-security |
-| Reference for Cosmos DB Cassandra data-plane RBAC roles | https://learn.microsoft.com/en-us/azure/cosmos-db/cassandra/reference-data-plane-security |
-| Secure Cosmos DB Cassandra accounts and networking | https://learn.microsoft.com/en-us/azure/cosmos-db/cassandra/security |
+| Configure RBAC with Microsoft Entra ID for Cosmos DB Cassandra | https://learn.microsoft.com/en-us/azure/cosmos-db/cassandra/how-to-connect-role-based-access-control |
+| Use data plane RBAC roles in Cosmos DB Cassandra | https://learn.microsoft.com/en-us/azure/cosmos-db/cassandra/reference-data-plane-security |
+| Use data plane RBAC roles in Cosmos DB Cassandra | https://learn.microsoft.com/en-us/azure/cosmos-db/cassandra/reference-data-plane-security |
+| Harden Azure Cosmos DB Cassandra accounts and networks | https://learn.microsoft.com/en-us/azure/cosmos-db/cassandra/security |
 | Configure RBAC permissions for Cosmos DB continuous restore | https://learn.microsoft.com/en-us/azure/cosmos-db/continuous-backup-restore-permissions |
 | Configure Cosmos DB to meet data residency requirements | https://learn.microsoft.com/en-us/azure/cosmos-db/data-residency |
 | Understand encryption at rest in Azure Cosmos DB | https://learn.microsoft.com/en-us/azure/cosmos-db/database-encryption-at-rest |
 | Protect Cosmos DB with Microsoft Defender for Cloud | https://learn.microsoft.com/en-us/azure/cosmos-db/defender-for-cosmos-db |
 | Configure Dynamic Data Masking in Azure Cosmos DB | https://learn.microsoft.com/en-us/azure/cosmos-db/dynamic-data-masking |
-| Configure RBAC and Entra ID for Cosmos DB Gremlin | https://learn.microsoft.com/en-us/azure/cosmos-db/gremlin/how-to-connect-role-based-access-control |
-| Reference data plane RBAC roles for Cosmos DB Gremlin | https://learn.microsoft.com/en-us/azure/cosmos-db/gremlin/reference-data-plane-security |
-| Reference data plane RBAC roles for Cosmos DB Gremlin | https://learn.microsoft.com/en-us/azure/cosmos-db/gremlin/reference-data-plane-security |
-| Secure Cosmos DB Gremlin accounts and networks | https://learn.microsoft.com/en-us/azure/cosmos-db/gremlin/security |
+| Configure RBAC with Entra ID for Cosmos DB Gremlin | https://learn.microsoft.com/en-us/azure/cosmos-db/gremlin/how-to-connect-role-based-access-control |
+| Cosmos DB Gremlin data plane RBAC actions and roles | https://learn.microsoft.com/en-us/azure/cosmos-db/gremlin/reference-data-plane-security |
+| Cosmos DB Gremlin data plane RBAC actions and roles | https://learn.microsoft.com/en-us/azure/cosmos-db/gremlin/reference-data-plane-security |
+| Secure Azure Cosmos DB for Gremlin data and networking | https://learn.microsoft.com/en-us/azure/cosmos-db/gremlin/security |
 | Add and assign RBAC user roles in Cosmos DB | https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-add-assign-user-roles |
 | Use Always Encrypted client-side encryption in Cosmos DB | https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-always-encrypted |
 | Configure CORS for Azure Cosmos DB for NoSQL | https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-configure-cross-origin-resource-sharing |
@@ -309,19 +312,19 @@ This skill requires **network access** to fetch documentation content:
 | Secure Cosmos DB with Network Security Perimeter | https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-configure-nsp |
 | Configure Azure Private Link for Cosmos DB access | https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-configure-private-endpoints |
 | Set up virtual network service endpoints for Cosmos DB | https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-configure-vnet-service-endpoint |
-| Configure RBAC with Microsoft Entra ID for Cosmos DB | https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-connect-role-based-access-control |
+| Configure RBAC and Entra ID for Cosmos DB access | https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-connect-role-based-access-control |
 | Rotate primary and secondary keys in Cosmos DB | https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-rotate-keys |
 | Set up cross-tenant customer-managed keys for Cosmos DB | https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-setup-cross-tenant-customer-managed-keys |
 | Configure customer-managed keys with Azure Key Vault for Cosmos DB | https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-setup-customer-managed-keys |
 | Enable customer-managed keys on existing Cosmos DB accounts | https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-setup-customer-managed-keys-existing-accounts |
 | Configure CMK for Cosmos DB using Azure Managed HSM | https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-setup-customer-managed-keys-mhsm |
 | Authenticate Spark to Cosmos DB using Entra service principal | https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-spark-service-principal |
-| Connect to Cosmos DB MongoDB using Entra ID RBAC | https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/how-to-connect-role-based-access-control |
+| Configure RBAC with Entra ID for Cosmos DB MongoDB | https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/how-to-connect-role-based-access-control |
 | Configure RBAC for Cosmos DB for MongoDB data access | https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/how-to-setup-role-based-access-control |
-| Reference for Cosmos DB MongoDB data-plane roles and actions | https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/reference-data-plane-security |
-| Reference for Cosmos DB MongoDB data-plane roles and actions | https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/reference-data-plane-security |
+| Use data plane RBAC roles in Cosmos DB MongoDB | https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/reference-data-plane-security |
+| Use data plane RBAC roles in Cosmos DB MongoDB | https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/reference-data-plane-security |
 | Understand role-based access control in Cosmos DB MongoDB | https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/role-based-access-control |
-| Secure Azure Cosmos DB for MongoDB accounts and data | https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/security |
+| Harden Azure Cosmos DB for MongoDB security | https://learn.microsoft.com/en-us/azure/cosmos-db/mongodb/security |
 | Enforce governance for Cosmos DB with Azure Policy | https://learn.microsoft.com/en-us/azure/cosmos-db/policy |
 | Use built-in Azure Policy definitions for Cosmos DB governance | https://learn.microsoft.com/en-us/azure/cosmos-db/policy-reference |
 | Configure PostgreSQL and Entra ID authentication | https://learn.microsoft.com/en-us/azure/cosmos-db/postgresql/concepts-authentication |
@@ -345,10 +348,10 @@ This skill requires **network access** to fetch documentation content:
 | Enforce minimum TLS version for Cosmos DB accounts | https://learn.microsoft.com/en-us/azure/cosmos-db/self-serve-minimum-tls-enforcement |
 | Apply security best practices for Azure Cosmos DB Shell | https://learn.microsoft.com/en-us/azure/cosmos-db/shell/security |
 | Store Cosmos DB credentials securely in Azure Key Vault | https://learn.microsoft.com/en-us/azure/cosmos-db/store-credentials-key-vault |
-| Connect to Azure Cosmos DB for Table using RBAC and Entra ID | https://learn.microsoft.com/en-us/azure/cosmos-db/table/how-to-connect-role-based-access-control |
 | Configure RBAC and Entra ID for Cosmos DB Table | https://learn.microsoft.com/en-us/azure/cosmos-db/table/how-to-connect-role-based-access-control |
-| Connect to Azure Cosmos DB for Table using RBAC and Entra ID | https://learn.microsoft.com/en-us/azure/cosmos-db/table/how-to-connect-role-based-access-control |
-| Connect to Azure Cosmos DB for Table using RBAC and Entra ID | https://learn.microsoft.com/en-us/azure/cosmos-db/table/how-to-connect-role-based-access-control |
+| Configure RBAC and Entra ID for Cosmos DB Table | https://learn.microsoft.com/en-us/azure/cosmos-db/table/how-to-connect-role-based-access-control |
+| Configure RBAC and Entra ID for Cosmos DB Table | https://learn.microsoft.com/en-us/azure/cosmos-db/table/how-to-connect-role-based-access-control |
+| Configure RBAC with Microsoft Entra ID for Cosmos DB Table | https://learn.microsoft.com/en-us/azure/cosmos-db/table/how-to-connect-role-based-access-control |
 | Reference for data plane RBAC roles in Azure Cosmos DB for Table | https://learn.microsoft.com/en-us/azure/cosmos-db/table/reference-data-plane-security |
 | Reference for data plane RBAC roles in Azure Cosmos DB for Table | https://learn.microsoft.com/en-us/azure/cosmos-db/table/reference-data-plane-security |
 | Secure Azure Cosmos DB for Table accounts and data | https://learn.microsoft.com/en-us/azure/cosmos-db/table/security |

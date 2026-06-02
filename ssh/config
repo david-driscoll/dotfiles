@@ -26,3 +26,4 @@ CanonicalizeMaxDots 2
 Host *.driscoll.tech *.opossum-yo.ts.net
   SetEnv TERM=xterm
   ForwardAgent yes
+  User root

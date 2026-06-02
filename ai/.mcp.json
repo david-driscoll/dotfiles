@@ -8,7 +8,7 @@
         "@upstash/context7-mcp"
       ],
       "env": {
-        "CONTEXT7_API_KEY": ""
+        "CONTEXT7_API_KEY": "ctx7sk-9994b87c-0256-4fc1-9271-04bad67cfb5b"
       }
     },
     "github-mcp-server": {

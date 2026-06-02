@@ -1,5 +1,5 @@
 lockfile_version: '1'
-generated_at: '2026-05-23T02:48:33.628380+00:00'
+generated_at: '2026-06-02T22:12:37.223716+00:00'
 apm_version: 0.14.1
 dependencies:
 - repo_url: ComposioHQ/awesome-claude-skills
@@ -14,7 +14,7 @@ dependencies:
   content_hash: sha256:e3dcbe091bacd9f1afdac53319dea01aace1e50a9d8e64c21c859ab0a89765f5
 - repo_url: DuendeSoftware/duende-skills
   host: github.com
-  resolved_commit: 2c803785061db150d8ecea098327b404b74dbf6a
+  resolved_commit: 72e39de9f10c5dafaa7f32f58fcdbd5a8f3e5c14
   package_type: marketplace_plugin
   deployed_files:
   - .agents/skills/aspnetcore-authentication
@@ -36,6 +36,8 @@ dependencies:
   - .agents/skills/identityserver-token-lifecycle
   - .agents/skills/identityserver-token-security
   - .agents/skills/identityserver-ui-flows
+  - .agents/skills/identityserver-upgrade-v7-to-v8
+  - .agents/skills/identityserver-usermanagement
   - .agents/skills/identityserver4-migration
   - .agents/skills/oauth-oidc-protocols
   - .agents/skills/token-management
@@ -60,6 +62,8 @@ dependencies:
   - .claude/skills/identityserver-token-lifecycle
   - .claude/skills/identityserver-token-security
   - .claude/skills/identityserver-ui-flows
+  - .claude/skills/identityserver-upgrade-v7-to-v8
+  - .claude/skills/identityserver-usermanagement
   - .claude/skills/identityserver4-migration
   - .claude/skills/oauth-oidc-protocols
   - .claude/skills/token-management
@@ -74,7 +78,7 @@ dependencies:
     .cursor/agents/oauth-oidc-specialist.md: sha256:0647072fb2751096e9831d21d12504652c086f3f755908f3ccc083f68f729855
     .github/agents/identity-server-specialist.agent.md: sha256:2124bc24323c475cffdbf971ec544959769117d614c317ad17a8cae68f274b7c
     .github/agents/oauth-oidc-specialist.agent.md: sha256:0647072fb2751096e9831d21d12504652c086f3f755908f3ccc083f68f729855
-  content_hash: sha256:242d87c66cf97067310ba10b71c8748e81ac8ae48e58f0347d41efd29b57a7d2
+  content_hash: sha256:7ccb1efd8398801bf231d6129dc75af71f86a1f0a2ca2197bd0e3cff9efa3b56
 - repo_url: Jeffallan/claude-skills
   host: github.com
   resolved_commit: e8be415bc94d8d6ebddc2fb50e5d03c6e27d4319
@@ -215,7 +219,7 @@ dependencies:
   content_hash: sha256:100f442c9170f1890d25be5aadf73da3807891c64cf734462da1d4cd4486dc40
 - repo_url: MicrosoftDocs/agent-skills
   host: github.com
-  resolved_commit: b45a2ef0d3d6c0b378a055696ea4d212b34beb2a
+  resolved_commit: aab6d7889eadd5e90ff685c486a8ca1ee24c0f5f
   package_type: skill_bundle
   deployed_files:
   - .agents/skills/azure-active-directory-b2c
@@ -237,7 +241,6 @@ dependencies:
   - .agents/skills/azure-attestation
   - .agents/skills/azure-automation
   - .agents/skills/azure-backup
-  - .agents/skills/azure-baremetal-infrastructure
   - .agents/skills/azure-bastion
   - .agents/skills/azure-batch
   - .agents/skills/azure-blob-storage
@@ -295,6 +298,7 @@ dependencies:
   - .agents/skills/azure-event-hubs
   - .agents/skills/azure-expressroute
   - .agents/skills/azure-extended-zones
+  - .agents/skills/azure-external-attack-surface-management
   - .agents/skills/azure-files
   - .agents/skills/azure-firewall
   - .agents/skills/azure-firewall-manager
@@ -428,7 +432,6 @@ dependencies:
   - .claude/skills/azure-attestation
   - .claude/skills/azure-automation
   - .claude/skills/azure-backup
-  - .claude/skills/azure-baremetal-infrastructure
   - .claude/skills/azure-bastion
   - .claude/skills/azure-batch
   - .claude/skills/azure-blob-storage
@@ -486,6 +489,7 @@ dependencies:
   - .claude/skills/azure-event-hubs
   - .claude/skills/azure-expressroute
   - .claude/skills/azure-extended-zones
+  - .claude/skills/azure-external-attack-surface-management
   - .claude/skills/azure-files
   - .claude/skills/azure-firewall
   - .claude/skills/azure-firewall-manager
@@ -600,10 +604,10 @@ dependencies:
   - .claude/skills/microsoft-foundry-classic
   - .claude/skills/microsoft-foundry-local
   - .claude/skills/microsoft-foundry-tools
-  content_hash: sha256:f079bc61daaa47f1fcf1a038abcf69c16d34f3ebad53e126f94542e13b78b1a0
+  content_hash: sha256:4d33dd370e2dcf16d1651b8dc4e450de1dbc6a3957ab73a2dd97d214d01afe69
 - repo_url: anthropics/skills
   host: github.com
-  resolved_commit: 690f15cac7f7b4c055c5ab109c79ed9259934081
+  resolved_commit: da20c92503b2e8ff1cf28ca81a0df4673debdbf7
   package_type: marketplace_plugin
   deployed_files:
   - .agents/skills/algorithmic-art
@@ -640,10 +644,10 @@ dependencies:
   - .claude/skills/web-artifacts-builder
   - .claude/skills/webapp-testing
   - .claude/skills/xlsx
-  content_hash: sha256:7a4a0e3e4e60d1ead46aa2fed8bedde7bd565e6212b7541ed4aef2d41418b23a
+  content_hash: sha256:5a94c4600dca371e7571be73552f06e11293f558b3d3b295d306b0bfefb4245b
 - repo_url: dotnet/modernize-dotnet
   host: github.com
-  resolved_commit: df1a5f2d2e4f70e5485917f9c4648f4d75412d8f
+  resolved_commit: aff19b91b975217be30889b8730e10346fd45768
   virtual_path: plugins/modernize-dotnet
   is_virtual: true
   package_type: marketplace_plugin
@@ -653,14 +657,14 @@ dependencies:
   - .github/agents/modernize-dotnet.agent.md
   - .github/hooks/modernize-dotnet-hooks.json
   deployed_file_hashes:
-    .claude/agents/modernize-dotnet.md: sha256:be257c31c62f1732b2d3cef49027f6139e980f9668d25d03f73f64c9891fd242
-    .cursor/agents/modernize-dotnet.md: sha256:be257c31c62f1732b2d3cef49027f6139e980f9668d25d03f73f64c9891fd242
-    .github/agents/modernize-dotnet.agent.md: sha256:be257c31c62f1732b2d3cef49027f6139e980f9668d25d03f73f64c9891fd242
+    .claude/agents/modernize-dotnet.md: sha256:5dcaffde65aac25db6bebbf6ddad3154405e22b1089bcee4a7a0564646dbe198
+    .cursor/agents/modernize-dotnet.md: sha256:5dcaffde65aac25db6bebbf6ddad3154405e22b1089bcee4a7a0564646dbe198
+    .github/agents/modernize-dotnet.agent.md: sha256:5dcaffde65aac25db6bebbf6ddad3154405e22b1089bcee4a7a0564646dbe198
     .github/hooks/modernize-dotnet-hooks.json: sha256:93f0235aff3ea05f01e2a072d8af7920b6a38238e5b0a0b0c67eaf3345228cea
-  content_hash: sha256:2d186a7eb05ada1ba4fd87528cd763306b15ae5147ece788cf6b15264e7da4fd
+  content_hash: sha256:68d4a66c3b7a1ca1b88793eb64db269fe9179ab97b79b9884188aa6dd22a032d
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: 0724ccf8ac485af4b6bf95b2489886cc33f170a3
+  resolved_commit: 49a77a90bfa5f7b34b8d90c78a54c6b129158dfc
   virtual_path: plugins/dotnet
   is_virtual: true
   package_type: marketplace_plugin
@@ -674,7 +678,7 @@ dependencies:
   content_hash: sha256:1afee9b9df9a348401626e6792ea361c0a5b3bfa7936bad1266f76e9f17648a0
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: 0724ccf8ac485af4b6bf95b2489886cc33f170a3
+  resolved_commit: 49a77a90bfa5f7b34b8d90c78a54c6b129158dfc
   virtual_path: plugins/dotnet-ai
   is_virtual: true
   package_type: marketplace_plugin
@@ -692,21 +696,23 @@ dependencies:
   content_hash: sha256:d09778a87fb1aca1b8f0d77777ea856d5337bf41d8d047c4993684c535e10221
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: 0724ccf8ac485af4b6bf95b2489886cc33f170a3
+  resolved_commit: 49a77a90bfa5f7b34b8d90c78a54c6b129158dfc
   virtual_path: plugins/dotnet-aspnet
   is_virtual: true
   package_type: marketplace_plugin
   deployed_files:
   - .agents/skills/configuring-opentelemetry-dotnet
+  - .agents/skills/convert-blazor-server-to-webapp
   - .agents/skills/dotnet-webapi
   - .agents/skills/minimal-api-file-upload
   - .claude/skills/configuring-opentelemetry-dotnet
+  - .claude/skills/convert-blazor-server-to-webapp
   - .claude/skills/dotnet-webapi
   - .claude/skills/minimal-api-file-upload
-  content_hash: sha256:cdfd5c81c0c3c9ad4f65dad35f6f76e961dca965abc8bfdf923262530b9149a5
+  content_hash: sha256:764d7d508897322adb37a88b5e47fe7e3a9cb4d2c94ed01f43efe2d9fbe419b5
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: 0724ccf8ac485af4b6bf95b2489886cc33f170a3
+  resolved_commit: 49a77a90bfa5f7b34b8d90c78a54c6b129158dfc
   virtual_path: plugins/dotnet-data
   is_virtual: true
   package_type: marketplace_plugin
@@ -716,7 +722,7 @@ dependencies:
   content_hash: sha256:ce98fbc46cd1ae400d234cef0b7ca1086ba7c3c260f8fd908a8a6efcc9da41c4
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: 0724ccf8ac485af4b6bf95b2489886cc33f170a3
+  resolved_commit: 49a77a90bfa5f7b34b8d90c78a54c6b129158dfc
   virtual_path: plugins/dotnet-diag
   is_virtual: true
   package_type: marketplace_plugin
@@ -745,7 +751,7 @@ dependencies:
   content_hash: sha256:5f3c10b504643d7567fdbb0991361da4892964bb24c5ca9758e80693f4f194cd
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: 0724ccf8ac485af4b6bf95b2489886cc33f170a3
+  resolved_commit: 49a77a90bfa5f7b34b8d90c78a54c6b129158dfc
   virtual_path: plugins/dotnet-msbuild
   is_virtual: true
   package_type: marketplace_plugin
@@ -797,18 +803,18 @@ dependencies:
   - .github/agents/msbuild.agent.md
   deployed_file_hashes:
     .claude/agents/build-perf.md: sha256:5995d46bd024f19ee4b7a028ae8efa70b628baaa9f7cf7950cd91cdcfe3d8652
-    .claude/agents/msbuild-code-review.md: sha256:ddf05459f8521a8d2ca7a3612017d6abc2d100895d6bfecbcb5e122c2c006d78
+    .claude/agents/msbuild-code-review.md: sha256:7ad9f3d79b000551d247f39bc92ec4d3ab7a9d5dc1b66595f06c71b4a8bb5a66
     .claude/agents/msbuild.md: sha256:ddcc60dbe00aa6c7b66a00e61a7602dd580d8e4ac4c8881e5aca3602d749151d
     .cursor/agents/build-perf.md: sha256:5995d46bd024f19ee4b7a028ae8efa70b628baaa9f7cf7950cd91cdcfe3d8652
-    .cursor/agents/msbuild-code-review.md: sha256:ddf05459f8521a8d2ca7a3612017d6abc2d100895d6bfecbcb5e122c2c006d78
+    .cursor/agents/msbuild-code-review.md: sha256:7ad9f3d79b000551d247f39bc92ec4d3ab7a9d5dc1b66595f06c71b4a8bb5a66
     .cursor/agents/msbuild.md: sha256:ddcc60dbe00aa6c7b66a00e61a7602dd580d8e4ac4c8881e5aca3602d749151d
     .github/agents/build-perf.agent.md: sha256:5995d46bd024f19ee4b7a028ae8efa70b628baaa9f7cf7950cd91cdcfe3d8652
-    .github/agents/msbuild-code-review.agent.md: sha256:ddf05459f8521a8d2ca7a3612017d6abc2d100895d6bfecbcb5e122c2c006d78
+    .github/agents/msbuild-code-review.agent.md: sha256:7ad9f3d79b000551d247f39bc92ec4d3ab7a9d5dc1b66595f06c71b4a8bb5a66
     .github/agents/msbuild.agent.md: sha256:ddcc60dbe00aa6c7b66a00e61a7602dd580d8e4ac4c8881e5aca3602d749151d
-  content_hash: sha256:b5e21dd2633350428b354255f6dd446e23b47dd9e28a89639e43f9dc4c0db112
+  content_hash: sha256:a5811a6d30cc47bfbdd43eff24594ea9537858392b5d3d6e163fe4cc13128743
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: 0724ccf8ac485af4b6bf95b2489886cc33f170a3
+  resolved_commit: 49a77a90bfa5f7b34b8d90c78a54c6b129158dfc
   virtual_path: plugins/dotnet-nuget
   is_virtual: true
   package_type: marketplace_plugin
@@ -818,7 +824,7 @@ dependencies:
   content_hash: sha256:9609b9607f0a3b4c4024a20c535e3ffb90e679d8e1facd69705f9525fdcb33d1
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: 0724ccf8ac485af4b6bf95b2489886cc33f170a3
+  resolved_commit: 49a77a90bfa5f7b34b8d90c78a54c6b129158dfc
   virtual_path: plugins/dotnet-template-engine
   is_virtual: true
   package_type: marketplace_plugin
@@ -841,7 +847,7 @@ dependencies:
   content_hash: sha256:8d93218f4a0f0348881d16719e0bdbfbbd462dd2778dfa5643d85be1544487f9
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: 0724ccf8ac485af4b6bf95b2489886cc33f170a3
+  resolved_commit: 49a77a90bfa5f7b34b8d90c78a54c6b129158dfc
   virtual_path: plugins/dotnet-test
   is_virtual: true
   package_type: marketplace_plugin
@@ -863,6 +869,7 @@ dependencies:
   - .agents/skills/mtp-hot-reload
   - .agents/skills/platform-detection
   - .agents/skills/run-tests
+  - .agents/skills/test-analysis-extensions
   - .agents/skills/test-anti-patterns
   - .agents/skills/test-gap-analysis
   - .agents/skills/test-smell-detection
@@ -896,6 +903,7 @@ dependencies:
   - .claude/skills/mtp-hot-reload
   - .claude/skills/platform-detection
   - .claude/skills/run-tests
+  - .claude/skills/test-analysis-extensions
   - .claude/skills/test-anti-patterns
   - .claude/skills/test-gap-analysis
   - .claude/skills/test-smell-detection
@@ -926,41 +934,41 @@ dependencies:
   deployed_file_hashes:
     .claude/agents/code-testing-builder.md: sha256:4caf996507502b260afddee4b36062691c00cb6111ccf1cedb12b0ca8ac9681e
     .claude/agents/code-testing-fixer.md: sha256:63f6b83e5affdc405db369663e6da5245ec502d6d93826bd1263919e7b3d4374
-    .claude/agents/code-testing-generator.md: sha256:a2d463855540ca4ee10fb65851b62c4bb5048ea50ef291c568433eac0ea15d93
-    .claude/agents/code-testing-implementer.md: sha256:0cdb395f2bbff3ebef2e4c951dd04b478fbfea9a9869dfffcb1dc9c293a574cb
+    .claude/agents/code-testing-generator.md: sha256:5aeea606648ea270c88f291b91743249246e65adf8181918dfe0e4d1191d7f43
+    .claude/agents/code-testing-implementer.md: sha256:7ea2e890a3954178176ec92a7d9be6c7e28b7589ec2b80986bdef2cadd2b071e
     .claude/agents/code-testing-linter.md: sha256:81ce088dce035d6314e3447c423fe9798144ae612bac0cba7bcf5bee90baa1c5
-    .claude/agents/code-testing-planner.md: sha256:d2ee0e74ce7371a1765a45f630aba9abd96dbdb40819dec353a74511e908d1ad
-    .claude/agents/code-testing-researcher.md: sha256:f3d2dbff06f39fe5bc3f31194ddf57f85223274c7c63caefb56f08acaba6624c
+    .claude/agents/code-testing-planner.md: sha256:a4dd6bd81c08fc662cab8e1a755d6fde3b11a1de95d3af5e0bc6a7677aeb92b1
+    .claude/agents/code-testing-researcher.md: sha256:83abd8536ef6ec9d1691aabe42a1a392e77d2e9fd7f5d4096ffee5d771ff4f66
     .claude/agents/code-testing-tester.md: sha256:41efd087a3f742ff64bf7a2181548430c2662f3a2b3bef92aa906e7e6ec24313
     .claude/agents/test-migration.md: sha256:0e6c95399ab47aea31df6fce57fde2844af004a4cb1f9a4d589291198351c4ab
-    .claude/agents/test-quality-auditor.md: sha256:b3d123c0fb34cba90a8d92e4deeea3b9d437f51ba8ff056e48b902119c8180cd
+    .claude/agents/test-quality-auditor.md: sha256:180b6f070f73dd87bbbc233e7c08bb6e8a164a85c3494016ecca025df71ff312
     .claude/agents/testability-migration.md: sha256:cad6dd9a0ef2ee4a3062e33c428a8fa42e6442999f1e107b9e3c9a4a228bbfe6
     .cursor/agents/code-testing-builder.md: sha256:4caf996507502b260afddee4b36062691c00cb6111ccf1cedb12b0ca8ac9681e
     .cursor/agents/code-testing-fixer.md: sha256:63f6b83e5affdc405db369663e6da5245ec502d6d93826bd1263919e7b3d4374
-    .cursor/agents/code-testing-generator.md: sha256:a2d463855540ca4ee10fb65851b62c4bb5048ea50ef291c568433eac0ea15d93
-    .cursor/agents/code-testing-implementer.md: sha256:0cdb395f2bbff3ebef2e4c951dd04b478fbfea9a9869dfffcb1dc9c293a574cb
+    .cursor/agents/code-testing-generator.md: sha256:5aeea606648ea270c88f291b91743249246e65adf8181918dfe0e4d1191d7f43
+    .cursor/agents/code-testing-implementer.md: sha256:7ea2e890a3954178176ec92a7d9be6c7e28b7589ec2b80986bdef2cadd2b071e
     .cursor/agents/code-testing-linter.md: sha256:81ce088dce035d6314e3447c423fe9798144ae612bac0cba7bcf5bee90baa1c5
-    .cursor/agents/code-testing-planner.md: sha256:d2ee0e74ce7371a1765a45f630aba9abd96dbdb40819dec353a74511e908d1ad
-    .cursor/agents/code-testing-researcher.md: sha256:f3d2dbff06f39fe5bc3f31194ddf57f85223274c7c63caefb56f08acaba6624c
+    .cursor/agents/code-testing-planner.md: sha256:a4dd6bd81c08fc662cab8e1a755d6fde3b11a1de95d3af5e0bc6a7677aeb92b1
+    .cursor/agents/code-testing-researcher.md: sha256:83abd8536ef6ec9d1691aabe42a1a392e77d2e9fd7f5d4096ffee5d771ff4f66
     .cursor/agents/code-testing-tester.md: sha256:41efd087a3f742ff64bf7a2181548430c2662f3a2b3bef92aa906e7e6ec24313
     .cursor/agents/test-migration.md: sha256:0e6c95399ab47aea31df6fce57fde2844af004a4cb1f9a4d589291198351c4ab
-    .cursor/agents/test-quality-auditor.md: sha256:b3d123c0fb34cba90a8d92e4deeea3b9d437f51ba8ff056e48b902119c8180cd
+    .cursor/agents/test-quality-auditor.md: sha256:180b6f070f73dd87bbbc233e7c08bb6e8a164a85c3494016ecca025df71ff312
     .cursor/agents/testability-migration.md: sha256:cad6dd9a0ef2ee4a3062e33c428a8fa42e6442999f1e107b9e3c9a4a228bbfe6
     .github/agents/code-testing-builder.agent.md: sha256:4caf996507502b260afddee4b36062691c00cb6111ccf1cedb12b0ca8ac9681e
     .github/agents/code-testing-fixer.agent.md: sha256:63f6b83e5affdc405db369663e6da5245ec502d6d93826bd1263919e7b3d4374
-    .github/agents/code-testing-generator.agent.md: sha256:a2d463855540ca4ee10fb65851b62c4bb5048ea50ef291c568433eac0ea15d93
-    .github/agents/code-testing-implementer.agent.md: sha256:0cdb395f2bbff3ebef2e4c951dd04b478fbfea9a9869dfffcb1dc9c293a574cb
+    .github/agents/code-testing-generator.agent.md: sha256:5aeea606648ea270c88f291b91743249246e65adf8181918dfe0e4d1191d7f43
+    .github/agents/code-testing-implementer.agent.md: sha256:7ea2e890a3954178176ec92a7d9be6c7e28b7589ec2b80986bdef2cadd2b071e
     .github/agents/code-testing-linter.agent.md: sha256:81ce088dce035d6314e3447c423fe9798144ae612bac0cba7bcf5bee90baa1c5
-    .github/agents/code-testing-planner.agent.md: sha256:d2ee0e74ce7371a1765a45f630aba9abd96dbdb40819dec353a74511e908d1ad
-    .github/agents/code-testing-researcher.agent.md: sha256:f3d2dbff06f39fe5bc3f31194ddf57f85223274c7c63caefb56f08acaba6624c
+    .github/agents/code-testing-planner.agent.md: sha256:a4dd6bd81c08fc662cab8e1a755d6fde3b11a1de95d3af5e0bc6a7677aeb92b1
+    .github/agents/code-testing-researcher.agent.md: sha256:83abd8536ef6ec9d1691aabe42a1a392e77d2e9fd7f5d4096ffee5d771ff4f66
     .github/agents/code-testing-tester.agent.md: sha256:41efd087a3f742ff64bf7a2181548430c2662f3a2b3bef92aa906e7e6ec24313
     .github/agents/test-migration.agent.md: sha256:0e6c95399ab47aea31df6fce57fde2844af004a4cb1f9a4d589291198351c4ab
-    .github/agents/test-quality-auditor.agent.md: sha256:b3d123c0fb34cba90a8d92e4deeea3b9d437f51ba8ff056e48b902119c8180cd
+    .github/agents/test-quality-auditor.agent.md: sha256:180b6f070f73dd87bbbc233e7c08bb6e8a164a85c3494016ecca025df71ff312
     .github/agents/testability-migration.agent.md: sha256:cad6dd9a0ef2ee4a3062e33c428a8fa42e6442999f1e107b9e3c9a4a228bbfe6
-  content_hash: sha256:b518f801d6989bbddc30f70346b88e43b587cabb34d1e16ed696bd0cb053f403
+  content_hash: sha256:ae17d447ab76c4f9b264b6758022880f7372a8584d8cddb8af1d3758fbae6202
 - repo_url: dotnet/skills
   host: github.com
-  resolved_commit: 0724ccf8ac485af4b6bf95b2489886cc33f170a3
+  resolved_commit: 49a77a90bfa5f7b34b8d90c78a54c6b129158dfc
   virtual_path: plugins/dotnet-upgrade
   is_virtual: true
   package_type: marketplace_plugin
@@ -980,9 +988,10 @@ dependencies:
   content_hash: sha256:2802e631ff4db17a838830a8d5fe3952d306216cd248786ae2be03e482ff5d0a
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 5b049e4e196c10aab8ddfd9e492323d08cf985b0
+  resolved_commit: 776d84143238cb91f7242665f188887b9e8d2aa9
   virtual_path: instructions/agents.instructions.md
   is_virtual: true
+  package_type: apm_package
   deployed_files:
   - .claude/rules/agents.md
   - .cursor/rules/agents.mdc
@@ -994,9 +1003,10 @@ dependencies:
   content_hash: sha256:d07c345b3767232098773e612b9e40a4771c4f9c572c24083fa3259e2ba303a6
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 5b049e4e196c10aab8ddfd9e492323d08cf985b0
+  resolved_commit: 776d84143238cb91f7242665f188887b9e8d2aa9
   virtual_path: instructions/context-engineering.instructions.md
   is_virtual: true
+  package_type: apm_package
   deployed_files:
   - .claude/rules/context-engineering.md
   - .cursor/rules/context-engineering.mdc
@@ -1008,9 +1018,10 @@ dependencies:
   content_hash: sha256:4586c2567260b5c8a6357755330dd95f81814bebbcb00dab5c002d2d330f5d0e
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 5b049e4e196c10aab8ddfd9e492323d08cf985b0
+  resolved_commit: 776d84143238cb91f7242665f188887b9e8d2aa9
   virtual_path: instructions/instructions.instructions.md
   is_virtual: true
+  package_type: apm_package
   deployed_files:
   - .claude/rules/instructions.md
   - .cursor/rules/instructions.mdc
@@ -1022,9 +1033,10 @@ dependencies:
   content_hash: sha256:c190999f713a13bc01b918acf454e7546a9dc9fe254e0f9d6705df3ff698c917
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 5b049e4e196c10aab8ddfd9e492323d08cf985b0
+  resolved_commit: 776d84143238cb91f7242665f188887b9e8d2aa9
   virtual_path: instructions/memory-bank.instructions.md
   is_virtual: true
+  package_type: apm_package
   deployed_files:
   - .claude/rules/memory-bank.md
   - .cursor/rules/memory-bank.mdc
@@ -1036,9 +1048,10 @@ dependencies:
   content_hash: sha256:a64da76c8115f0906c4ff7d21bfa2b832804c6bd9d20cd25711ca5a757f8c68e
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 5b049e4e196c10aab8ddfd9e492323d08cf985b0
+  resolved_commit: 776d84143238cb91f7242665f188887b9e8d2aa9
   virtual_path: instructions/powershell.instructions.md
   is_virtual: true
+  package_type: apm_package
   deployed_files:
   - .claude/rules/powershell.md
   - .cursor/rules/powershell.mdc
@@ -1050,9 +1063,10 @@ dependencies:
   content_hash: sha256:cd8445fba8fa4bc31c8c8da719fcd2d5f74d0768f5416fc3dd0adfcd10c2ba64
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 5b049e4e196c10aab8ddfd9e492323d08cf985b0
+  resolved_commit: 776d84143238cb91f7242665f188887b9e8d2aa9
   virtual_path: instructions/prompt.instructions.md
   is_virtual: true
+  package_type: apm_package
   deployed_files:
   - .claude/rules/prompt.md
   - .cursor/rules/prompt.mdc
@@ -1064,7 +1078,7 @@ dependencies:
   content_hash: sha256:a77a5291ab9bb01d5c480dd6140e7de255ef030ffdb7295615f3ce2b6dc8e89e
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 5b049e4e196c10aab8ddfd9e492323d08cf985b0
+  resolved_commit: 776d84143238cb91f7242665f188887b9e8d2aa9
   virtual_path: plugins/awesome-copilot
   is_virtual: true
   package_type: marketplace_plugin
@@ -1085,7 +1099,7 @@ dependencies:
   content_hash: sha256:9576476acadcd8b40a8503942d0896f0cae0080908e6ca9a6d36c21b4b14ed42
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 5b049e4e196c10aab8ddfd9e492323d08cf985b0
+  resolved_commit: 776d84143238cb91f7242665f188887b9e8d2aa9
   virtual_path: plugins/context-engineering
   is_virtual: true
   package_type: marketplace_plugin
@@ -1106,7 +1120,7 @@ dependencies:
   content_hash: sha256:6d5ed9518d725ff8ff634939759a4b1069b1b89ef9a885bfedd6df569722d473
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 5b049e4e196c10aab8ddfd9e492323d08cf985b0
+  resolved_commit: 776d84143238cb91f7242665f188887b9e8d2aa9
   virtual_path: plugins/csharp-dotnet-development
   is_virtual: true
   package_type: marketplace_plugin
@@ -1137,7 +1151,7 @@ dependencies:
   content_hash: sha256:50c15691d05dac6ab39fb591fc6d56b629b1104f7321ec23aa5ab00e171d5cd9
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 5b049e4e196c10aab8ddfd9e492323d08cf985b0
+  resolved_commit: 776d84143238cb91f7242665f188887b9e8d2aa9
   virtual_path: plugins/project-planning
   is_virtual: true
   package_type: marketplace_plugin
@@ -1204,7 +1218,7 @@ dependencies:
   content_hash: sha256:bd553e563dff7c549c1079f1840e9f2cda79b69d0fb4d77d773a78c00ac1e42c
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 5b049e4e196c10aab8ddfd9e492323d08cf985b0
+  resolved_commit: 776d84143238cb91f7242665f188887b9e8d2aa9
   virtual_path: plugins/software-engineering-team
   is_virtual: true
   package_type: marketplace_plugin
@@ -1255,7 +1269,7 @@ dependencies:
   content_hash: sha256:c4023fff92e5ec5b6a18a9075d6e79459ebc1965678549ffd167248dece9fa65
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 5b049e4e196c10aab8ddfd9e492323d08cf985b0
+  resolved_commit: 776d84143238cb91f7242665f188887b9e8d2aa9
   virtual_path: plugins/technical-spike
   is_virtual: true
   package_type: marketplace_plugin
@@ -1272,7 +1286,7 @@ dependencies:
   content_hash: sha256:062cb5b0fb21a1e165b882fb2cd7c20d4efbd59a1e1f357404c7e7df8f53e7b7
 - repo_url: github/awesome-copilot
   host: github.com
-  resolved_commit: 5b049e4e196c10aab8ddfd9e492323d08cf985b0
+  resolved_commit: 776d84143238cb91f7242665f188887b9e8d2aa9
   virtual_path: skills/acquire-codebase-knowledge
   is_virtual: true
   package_type: claude_skill
@@ -1282,7 +1296,7 @@ dependencies:
   content_hash: sha256:94a1da1b609e31d3ac4629f4670784c63675639955965b503d10928035b4f727
 - repo_url: obra/superpowers
   host: github.com
-  resolved_commit: f2cbfbefebbfef77321e4c9abc9e949826bea9d7
+  resolved_commit: 6fd4507659784c351abbd2bc264c7162cfd386dc
   package_type: marketplace_plugin
   deployed_files:
   - .agents/skills/brainstorming
@@ -1329,7 +1343,7 @@ dependencies:
     .github/hooks/scripts/superpowers/hooks/run-hook.cmd: sha256:d3d9c6199678dab2858e60509dde5e7414f13c2a2b5e48a38b1d368b6e1d6abb
     .github/hooks/superpowers-hooks-cursor.json: sha256:53d8ceb3ff5d8bb1c4f283f238cc868b8c1af22e40a3ac30f6d6e4173effefbd
     .github/hooks/superpowers-hooks.json: sha256:414b2cda93dfd4523ea183cc02c29b17b7c92bbfd54ad89acd83aadac042ea5a
-  content_hash: sha256:fb4f87bfef928a6d68f5d5aaa29e3eba011961c5f03bbf171c3c348d8d161abb
+  content_hash: sha256:8b91ca49cbf065ffb70c91fc5b4f9a437fc56ab022203e6a617e89f9ca2730c4
 - repo_url: sanjay3290/ai-skills
   host: github.com
   resolved_commit: cde1c8385ead64df501c9b214e63d7ba9b283ff9
@@ -1382,12 +1396,20 @@ dependencies:
   content_hash: sha256:a4e5c30ce29b704a3e5724615cc5712066f909483c5dafe7291d84888c1d0170
 - repo_url: testdino-hq/playwright-skill
   host: github.com
-  resolved_commit: fef16fe778b244cec05326b15028f9fd19c29e7b
+  resolved_commit: 5df8c6e40351fdefc7b9c1c6aa8e243ae6339318
   package_type: claude_skill
   deployed_files:
   - .agents/skills/playwright-skill
   - .claude/skills/playwright-skill
-  content_hash: sha256:7c906f3375d370496b71786712263decab7235d1e368d4dc223a7408ccd46298
+  content_hash: sha256:211a0bfa6adf05480a6edf27359a064301ff295bd018efef4dd887bc58df30e5
+- repo_url: yvgude/lean-ctx
+  host: github.com
+  resolved_commit: 940b5199ff028d4d40f76b377195508704ca73d2
+  package_type: marketplace_plugin
+  deployed_files:
+  - .agents/skills/lean-ctx
+  - .claude/skills/lean-ctx
+  content_hash: sha256:a4b49b491b0c59b330f8c57ea3d1c865e88bac5c89a209607aaf233b305bd59a
 mcp_servers:
 - agentic-workflows
 - binlog

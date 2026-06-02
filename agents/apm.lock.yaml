@@ -1,5 +1,5 @@
 lockfile_version: '1'
-generated_at: '2026-05-23T02:33:24.749368+00:00'
+generated_at: '2026-06-02T22:13:19.295239+00:00'
 apm_version: 0.14.1
 dependencies:
 - repo_url: ComposioHQ/awesome-claude-skills

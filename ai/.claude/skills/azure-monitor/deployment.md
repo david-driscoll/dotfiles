@@ -7,7 +7,6 @@
 ### Deployment
 | Topic | URL |
 |-------|-----|
-| Deploy and manage Azure Monitor Agent on VMs and Arc servers | https://learn.microsoft.com/en-us/azure/azure-monitor/agents/azure-monitor-agent-manage |
 | Use Azure Policy to deploy Azure Monitor Agent at scale | https://learn.microsoft.com/en-us/azure/azure-monitor/agents/azure-monitor-agent-policy |
 | Deploy Azure Monitor and Log Analytics agents with ARM templates | https://learn.microsoft.com/en-us/azure/azure-monitor/agents/resource-manager-agent |
 | Deploy Azure Monitor alert rules via CLI, PowerShell, and ARM | https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-create-rule-cli-powershell-arm |
@@ -20,7 +19,6 @@
 | Enable Application Insights Profiler for .NET on App Service | https://learn.microsoft.com/en-us/azure/azure-monitor/profiler/profiler |
 | Deploy Profiler for .NET on Azure Service Fabric | https://learn.microsoft.com/en-us/azure/azure-monitor/profiler/profiler-servicefabric |
 | Run Application Insights Profiler on Azure VMs and scale sets | https://learn.microsoft.com/en-us/azure/azure-monitor/profiler/profiler-vm |
-| Migrate Azure Monitor Grafana dashboards to Managed Grafana | https://learn.microsoft.com/en-us/azure/azure-monitor/visualize/visualize-copy-to-managed-grafana |
 | Deploy Azure Monitor agent to Azure and hybrid VMs | https://learn.microsoft.com/en-us/azure/azure-monitor/vm/monitor-virtual-machine-agent |
 | Deploy VM monitoring at scale with Azure Monitor | https://learn.microsoft.com/en-us/azure/azure-monitor/vm/vm-enable-monitoring |
 | Upgrade and manage VM insights Dependency Agent | https://learn.microsoft.com/en-us/azure/azure-monitor/vm/vminsights-dependency-agent |
