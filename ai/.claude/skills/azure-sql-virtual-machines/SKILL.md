@@ -1,9 +1,9 @@
 ---
 name: azure-sql-virtual-machines
-description: Expert knowledge for SQL Server on Azure Virtual Machines development including troubleshooting, best practices, decision making, architecture & design patterns, limits & quotas, security, configuration, integrations & coding patterns, and deployment. Use when choosing Azure SQL vs SQL VMs, configuring Always On AG/FCI, tuning storage/VM sizing, or using Blob backups, and other SQL Server on Azure Virtual Machines related development tasks. Not for Azure SQL Database (use azure-sql-database), Azure SQL Managed Instance (use azure-sql-managed-instance), Azure Virtual Machines (use azure-virtual-machines), SAP HANA on Azure Large Instances (use azure-sap).
+description: Expert knowledge for SQL Server on Azure Virtual Machines development including troubleshooting, best practices, decision making, architecture & design patterns, limits & quotas, security, configuration, integrations & coding patterns, and deployment. Use when planning SQL VM vs managed options, Always On AG/FCI, HADR, TLS/Key Vault security, or Blob backups, and other SQL Server on Azure Virtual Machines related development tasks. Not for Azure SQL Database (use azure-sql-database), Azure SQL Managed Instance (use azure-sql-managed-instance), Azure Virtual Machines (use azure-virtual-machines), SAP HANA on Azure Large Instances (use azure-sap).
 compatibility: Requires network access. Uses mcp_microsoftdocs:microsoft_docs_fetch or fetch_webpage to retrieve documentation.
 metadata:
-  generated_at: "2026-05-17"
+  generated_at: "2026-05-31"
   generator: "docs2skills/1.0.0"
 ---
 # SQL Server on Azure Virtual Machines Skill
@@ -25,14 +25,14 @@ This skill requires **network access** to fetch documentation content:
 | Category | Lines | Description |
 |----------|-------|-------------|
 | Troubleshooting | L37-L53 | Diagnosing and fixing Azure SQL and SQL Server on Azure VM issues: connectivity, performance, capacity, memory, transaction log full, geo-replication, I/O throttling, and extension/OS problems. |
-| Best Practices | L54-L66 | Best practices for SQL Server on Azure VMs: HA/DR cluster and DNN setup, maintenance prep, backup/restore, performance baselines, VM sizing, and storage tuning. |
-| Decision Making | L67-L81 | Guidance for choosing Azure SQL vs SQL VMs, comparing pricing/licensing, selecting HADR options, and planning migrations (Db2, Oracle, SQL 2014) and regional feature availability. |
+| Best Practices | L54-L66 | Best practices for SQL Server on Azure VMs: maintenance planning, HADR/FCI/DNN setup, backup/restore, performance baselines, VM sizing, and storage configuration. |
+| Decision Making | L67-L81 | Guidance for choosing Azure SQL options and pricing, comparing SQL VMs vs managed services, planning HADR, licensing, and migrating (Db2/Oracle/SQL 2014) to SQL Server on Azure VMs. |
 | Architecture & Design Patterns | L82-L90 | High-level designs and patterns for SQL Server on Azure VMs: connectivity, Always On availability groups, failover cluster instances, and Windows Server Failover Clustering setup. |
-| Limits & Quotas | L91-L96 | Info on Azure SQL capacity limits, DTU benchmark behavior, regional feature availability, and how to request quota increases for databases and managed instances |
-| Security | L97-L107 | Securing SQL Server on Azure VMs: TLS/cert rotation, Azure Policy, Key Vault/EKM, managed identities, Entra auth, hardening guidance, and confidential VM deployment. |
-| Configuration | L108-L149 | Configuring SQL Server on Azure VMs: HA/DR (AGs, FCIs, clustering, listeners, load balancers), storage and tempdb layout, IaaS Agent, deployment options, and connectivity settings. |
-| Integrations & Coding Patterns | L150-L155 | Backing up SQL Server on Azure VMs directly to Azure Blob Storage, including configurations that use managed identities instead of stored credentials. |
-| Deployment | L156-L171 | Deploying and configuring SQL Server Always On availability groups and FCI on Azure VMs, including single/multi-subnet, cross-region, prerequisites, and migration of VMs and disks. |
+| Limits & Quotas | L91-L95 | Info on Azure SQL capacity limits, DTU benchmark behavior, regional feature availability, and how to request quota increases for databases and managed instances |
+| Security | L96-L106 | Securing SQL Server on Azure VMs: TLS/cert rotation, Azure Policy, Key Vault/EKM, managed identities, Entra auth, hardening guidance, and confidential VM deployment. |
+| Configuration | L107-L148 | Configuring SQL Server on Azure VMs: clustering/FCI and AG setups, load balancers/listeners, storage and tempdb layout, backups, editions/versions, and SQL IaaS Agent management. |
+| Integrations & Coding Patterns | L149-L154 | Backing up SQL Server on Azure VMs directly to Azure Blob Storage, including configurations that use managed identities instead of stored credentials. |
+| Deployment | L155-L170 | Deploying and configuring SQL Server Always On availability groups and FCI on Azure VMs, including single/multi-subnet, cross-region, prerequisites, and migration of VMs and disks. |
 
 ### Troubleshooting
 | Topic | URL |
@@ -62,7 +62,7 @@ This skill requires **network access** to fetch documentation content:
 | Apply performance best-practice checklist for SQL Server on Azure VMs | https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist?view=azuresql |
 | Collect performance baselines for SQL Server on Azure VMs | https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-collect-baseline?view=azuresql |
 | Optimize Azure SQL VM storage performance configuration | https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-storage?view=azuresql |
-| Select and tune VM sizes for SQL Server on Azure VMs | https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-vm-size?view=azuresql |
+| Apply VM sizing performance best practices for SQL Server on Azure VMs | https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-vm-size?view=azuresql |
 
 ### Decision Making
 | Topic | URL |
@@ -74,7 +74,7 @@ This skill requires **network access** to fetch documentation content:
 | Plan and execute Db2 to SQL on Azure VM migration | https://learn.microsoft.com/en-us/azure/azure-sql/migration-guides/virtual-machines/db2-to-sql-on-azure-vm-guide?view=azuresql |
 | Plan and execute Oracle to SQL on Azure VM migration | https://learn.microsoft.com/en-us/azure/azure-sql/migration-guides/virtual-machines/oracle-to-sql-on-azure-vm-guide?view=azuresql |
 | Use Modernization Advisor to compare SQL VM vs Managed Instance | https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/modernization-advisor?view=azuresql |
-| Choose HADR and business continuity options for SQL VMs | https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview?view=azuresql |
+| Choose HADR options for SQL Server on Azure VMs | https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview?view=azuresql |
 | Switch SQL Server VM licensing to Azure Hybrid Benefit | https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change?view=azuresql |
 | Choose cost‑effective pricing for SQL Server on Azure VMs | https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/pricing-guidance?view=azuresql |
 | Plan SQL Server 2014 end-of-support migration to Azure VMs | https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/sql-server-extend-end-of-support?view=azuresql |
@@ -92,7 +92,6 @@ This skill requires **network access** to fetch documentation content:
 | Topic | URL |
 |-------|-----|
 | Understand DTU benchmark characteristics for Azure SQL | https://learn.microsoft.com/en-us/azure/azure-sql/database/dtu-benchmark?view=azuresql |
-| Request quota increases for Azure SQL resources | https://learn.microsoft.com/en-us/azure/azure-sql/database/quota-increase-request?view=azuresql |
 
 ### Security
 | Topic | URL |
@@ -144,7 +143,7 @@ This skill requires **network access** to fetch documentation content:
 | Configure Azure Elastic SAN for SQL Server VMs | https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/storage-configuration-azure-elastic-san?view=azuresql |
 | Configure storage layout for SQL Server on Azure VMs | https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/storage-configuration?view=azuresql |
 | Configure tempdb on ephemeral storage for SQL Server VMs | https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/tempdb-ephemeral-storage?view=azuresql |
-| Configure vCore customization for SQL Server VMs | https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/vm-vcore-customization-for-sql?view=azuresql |
+| Configure vCore customization for SQL Server on Azure VMs | https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/vm-vcore-customization-for-sql?view=azuresql |
 | Configure connectivity options for SQL Server on Azure VMs | https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql?view=azuresql |
 
 ### Integrations & Coding Patterns

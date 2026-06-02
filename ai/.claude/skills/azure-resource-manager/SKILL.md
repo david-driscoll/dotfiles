@@ -1,9 +1,9 @@
 ---
 name: azure-resource-manager
-description: Expert knowledge for Azure Resource Manager development including troubleshooting, best practices, decision making, architecture & design patterns, limits & quotas, security, configuration, integrations & coding patterns, and deployment. Use when authoring Bicep/ARM templates, CI/CD deployments, template specs, deployment stacks, or cross-region moves, and other Azure Resource Manager related development tasks. Not for Azure Blueprints (use azure-blueprints), Azure Policy (use azure-policy), Azure Resource Graph (use azure-resource-graph), Azure Portal (use azure-portal).
+description: Expert knowledge for Azure Resource Manager development including troubleshooting, best practices, decision making, architecture & design patterns, limits & quotas, security, configuration, integrations & coding patterns, and deployment. Use when using Bicep/ARM templates, deployment stacks, template specs, CI/CD pipelines, or CLI/PowerShell/REST deployments, and other Azure Resource Manager related development tasks. Not for Azure Blueprints (use azure-blueprints), Azure Policy (use azure-policy), Azure Portal (use azure-portal), Azure Resource Graph (use azure-resource-graph).
 compatibility: Requires network access. Uses mcp_microsoftdocs:microsoft_docs_fetch or fetch_webpage to retrieve documentation.
 metadata:
-  generated_at: "2026-05-17"
+  generated_at: "2026-05-31"
   generator: "docs2skills/1.0.0"
 ---
 # Azure Resource Manager Skill
@@ -24,15 +24,15 @@ This skill requires **network access** to fetch documentation content:
 
 | Category | Lines | Description |
 |----------|-------|-------------|
-| Troubleshooting | L37-L132 | Diagnosing and fixing Bicep/ARM template compilation and deployment errors (BCP codes, syntax/type issues, decorators, scopes, name/path problems, and common Azure deployment failures). |
+| Troubleshooting | L37-L132 | Diagnosing and fixing Bicep/ARM template compile and deployment errors (BCP codes, syntax/type issues, decorators, scopes, resource names, policies, SKUs, and provider/region constraints). |
 | Best Practices | L133-L179 | Best practices for authoring and validating Bicep/ARM templates: linting, naming, parameters, locations, dependencies, API versions, test toolkit usage, and resilient tagging/endpoint design. |
-| Decision Making | L180-L194 | Guidance on choosing ARM deployment models and modes, migrating (ASM→ARM, JSON→Bicep, Blueprints→stacks), planning large-scale regional relocations, and understanding tags and delete behavior. |
-| Architecture & Design Patterns | L195-L202 | Bicep architecture patterns for reusable configs, flexible parameters, deterministic name generation, and sharing variables across templates for scalable ARM deployments. |
-| Limits & Quotas | L203-L229 | ARM/Bicep limits and quotas: template size, parameters, resources, outputs, tags, naming, deployment history, throttling, subscription/service quotas, and how to diagnose/resolve related errors. |
-| Security | L230-L256 | Securing ARM/Bicep deployments: handling secrets, secure parameters, RBAC, locks, Private Link, TLS, cross-tenant auth, policy mappings, and management group protection. |
-| Configuration | L257-L321 | Authoring and configuring ARM/Bicep templates: syntax, parameters, types, loops, modules, functions, tags, networking/monitoring resources, policy/governance, and deployment/monitoring behavior. |
-| Integrations & Coding Patterns | L322-L374 | Bicep/ARM template functions and operators, Bicep tooling integration, and programmatic Azure resource/tag management via CLI, PowerShell, Python, REST, and Resource Graph. |
-| Deployment | L375-L430 | Deploying and moving Azure resources with ARM/Bicep: CI/CD pipelines, template specs, deployment scripts, deployment stacks, and cross-subscription/region relocation of many Azure services. |
+| Decision Making | L180-L195 | Guidance on choosing ARM deployment modes, planning and executing migrations (ASM, ARM JSON, Blueprints), and deciding move/relocation/tagging support for Azure resources. |
+| Architecture & Design Patterns | L196-L203 | Bicep architecture patterns for reusable configs, flexible parameters, deterministic name generation, and sharing variables across templates for scalable ARM deployments. |
+| Limits & Quotas | L204-L230 | ARM/Bicep limits and quotas: template size, parameters, resources, outputs, tags, naming, deployment history, throttling, subscription/service quotas, and how to diagnose/resolve related errors. |
+| Security | L231-L257 | Securing ARM/Bicep deployments: handling secrets, secure parameters, RBAC, locks, Private Link, TLS, cross-tenant auth, policy mappings, and management group protection. |
+| Configuration | L258-L322 | Authoring and configuring ARM/Bicep templates: syntax, parameters, types, loops, modules, functions, tags, networking/monitoring resources, policy/governance, and deployment/monitoring behavior. |
+| Integrations & Coding Patterns | L323-L375 | Bicep/ARM integration patterns, functions, and operators, plus CLI/PowerShell/Python/REST examples for deploying, tagging, querying, and programmatically managing Azure resources. |
+| Deployment | L376-L430 | Deploying and moving Azure resources with ARM/Bicep: CI/CD pipelines, template specs, deployment scripts, deployment stacks, and cross-subscription/region relocation of many Azure services. |
 
 ### Troubleshooting
 | Topic | URL |
@@ -42,7 +42,7 @@ This skill requires **network access** to fetch documentation content:
 | Fix BCP009 incomplete declaration syntax issues | https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/diagnostics/bcp009 |
 | Correct BCP018 missing character syntax errors | https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/diagnostics/bcp018 |
 | Resolve BCP029 invalid resource type format | https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/diagnostics/bcp029 |
-| Handle BCP033 type mismatch assignment errors | https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/diagnostics/bcp033 |
+| Resolve BCP033 type mismatch diagnostics in Bicep | https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/diagnostics/bcp033 |
 | Fix BCP034 array item type mismatch issues | https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/diagnostics/bcp034 |
 | Resolve BCP035 missing required resource properties | https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/diagnostics/bcp035 |
 | Address BCP036 property type mismatch problems | https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/diagnostics/bcp036 |
@@ -184,6 +184,7 @@ This skill requires **network access** to fetch documentation content:
 | Migrate Azure Blueprints to deployment stacks | https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/migrate-blueprint |
 | Plan migration from Azure Service Manager to ARM | https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/asm-retirement |
 | Choose between classic and Resource Manager deployment models | https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/deployment-models |
+| Determine which Azure resources support move operations | https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/move-support-resources |
 | Evaluate Azure workloads for regional relocation | https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/relocate-evaluate |
 | Plan Azure workload relocation projects by phase | https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/relocate-index |
 | Initiate large-scale Azure relocation projects | https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/relocate-initiate |
@@ -368,7 +369,7 @@ This skill requires **network access** to fetch documentation content:
 | Deploy VM extensions via ARM templates | https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/template-tutorial-deploy-vm-extensions |
 | Use ARM deployment scripts for custom automation | https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/template-tutorial-deployment-script |
 | Use Azure Resource Graph queries for management groups | https://learn.microsoft.com/en-us/azure/governance/management-groups/resource-graph-samples |
-| Add Azure Service Group members using REST API | https://learn.microsoft.com/en-us/azure/governance/service-groups/create-service-group-member-rest-api |
+| Add Azure Service Group members via REST API | https://learn.microsoft.com/en-us/azure/governance/service-groups/create-service-group-member-rest-api |
 | Create Azure Service Groups using REST API | https://learn.microsoft.com/en-us/azure/governance/service-groups/create-service-group-rest-api |
 | Run Azure Resource Graph queries for Service Groups | https://learn.microsoft.com/en-us/azure/governance/service-groups/resource-graph-samples |
 
@@ -392,7 +393,6 @@ This skill requires **network access** to fetch documentation content:
 | Move Cloud Services (extended support) resources | https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/move-limitations/cloud-services-extended-support |
 | Handle special cases when moving Azure VMs | https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations |
 | Execute ARM move operations between subscriptions | https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/move-resource-group-and-subscription |
-| Check move support for Azure resource types | https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/move-support-resources |
 | Cut over Azure workloads after migration | https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/relocate-cutover |
 | Migrate Azure workloads to a new region | https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/relocate-migrate |
 | Relocate Azure Application Gateway and WAF between regions | https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/relocation/relocation-app-gateway |
