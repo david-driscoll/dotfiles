@@ -1,5 +1,5 @@
 [tools]
-"github:microsoft/apm" = { version = "v0.14.1", bin = "apm" }
+"github:microsoft/apm" = { version = "v0.16.1", bin = "apm" }
 "github:eljulians/skillfile" = { version = "v1.6.2", bin = "skillfile" }
 
 [tasks.update-agents]
