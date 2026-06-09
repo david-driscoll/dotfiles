@@ -1,22 +1,5 @@
 {
 	"servers": {
-		"kubernetes": {
-			"type": "stdio",
-			"command": "npx",
-			"args": [
-				"-y",
-				"kubernetes-mcp-server"
-			]
-		},
-		"pulumi": {
-			"type": "stdio",
-			"command": "npx",
-			"args": [
-				"-y",
-				"@pulumi/mcp-server",
-				"stdio"
-			]
-		},
 		"mise": {
 			"type": "stdio",
 			"command": "mise",

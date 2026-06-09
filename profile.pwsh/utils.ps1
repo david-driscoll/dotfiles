@@ -18,5 +18,5 @@ function Remove-PulumiResources ($endsWith) {
     $resources = "'$($resources -join "' '")'"
 
     Write-Host "Processing resources: $($resources)" -ForegroundColor cyan;
-    iex "op run --no-masking -- pulumi state delete $resources --yes"
+    iex "op run --no-masking -- pulumi state delete $resources --yes --target-dependents"
 }
