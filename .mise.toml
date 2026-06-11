@@ -1,6 +1,6 @@
 [tools]
 "github:microsoft/apm" = { version = "v0.18.0", bin = "apm" }
-"github:eljulians/skillfile" = { version = "v1.6.2", bin = "skillfile" }
+"github:eljulians/skillfile" = { version = "v1.7.1", bin = "skillfile" }
 
 [tasks.update-agents]
 description = "Update agents to the latest version"
