@@ -1,5 +1,5 @@
 lockfile_version: '1'
-generated_at: '2026-06-02T22:13:19.295239+00:00'
+generated_at: '2026-06-03T16:07:06.635073+00:00'
 apm_version: 0.14.1
 dependencies:
 - repo_url: ComposioHQ/awesome-claude-skills
@@ -12,6 +12,7 @@ dependencies:
   deployed_files:
   - .agents/skills/content-research-writer
   - .claude/skills/content-research-writer
+  - .windsurf/skills/content-research-writer
   content_hash: sha256:de7e9085e875a651f209c826d1a5e7dd5f2436fb38fe565ef76b54492c1a0c22
 - repo_url: ComposioHQ/awesome-claude-skills
   host: github.com
@@ -23,6 +24,7 @@ dependencies:
   deployed_files:
   - .agents/skills/video-downloader
   - .claude/skills/video-downloader
+  - .windsurf/skills/video-downloader
   content_hash: sha256:b5fdb1670fa368aeb3f7cd0842b4844ad7e5d077e2423ba39835bf27d9accbfe
 - repo_url: aj-geddes/useful-ai-prompts
   host: github.com
@@ -548,6 +550,265 @@ dependencies:
   - .claude/skills/wireframe-prototyping
   - .claude/skills/xss-prevention
   - .claude/skills/zero-trust-architecture
+  - .windsurf/skills/ab-test-analysis
+  - .windsurf/skills/access-control-rbac
+  - .windsurf/skills/accessibility-compliance
+  - .windsurf/skills/accessibility-testing
+  - .windsurf/skills/agile-sprint-planning
+  - .windsurf/skills/alert-management
+  - .windsurf/skills/android-kotlin-development
+  - .windsurf/skills/angular-module-design
+  - .windsurf/skills/anomaly-detection
+  - .windsurf/skills/ansible-automation
+  - .windsurf/skills/api-authentication
+  - .windsurf/skills/api-changelog-versioning
+  - .windsurf/skills/api-contract-testing
+  - .windsurf/skills/api-error-handling
+  - .windsurf/skills/api-filtering-sorting
+  - .windsurf/skills/api-gateway-configuration
+  - .windsurf/skills/api-pagination
+  - .windsurf/skills/api-rate-limiting
+  - .windsurf/skills/api-reference-documentation
+  - .windsurf/skills/api-response-optimization
+  - .windsurf/skills/api-security-hardening
+  - .windsurf/skills/api-versioning-strategy
+  - .windsurf/skills/app-store-deployment
+  - .windsurf/skills/application-logging
+  - .windsurf/skills/architecture-diagrams
+  - .windsurf/skills/artifact-management
+  - .windsurf/skills/autoscaling-configuration
+  - .windsurf/skills/aws-cloudfront-cdn
+  - .windsurf/skills/aws-ec2-setup
+  - .windsurf/skills/aws-lambda-functions
+  - .windsurf/skills/aws-rds-database
+  - .windsurf/skills/aws-s3-management
+  - .windsurf/skills/azure-app-service
+  - .windsurf/skills/azure-functions
+  - .windsurf/skills/background-job-processing
+  - .windsurf/skills/backup-disaster-recovery
+  - .windsurf/skills/batch-processing-jobs
+  - .windsurf/skills/blue-green-deployment
+  - .windsurf/skills/browser-debugging
+  - .windsurf/skills/bundle-size-optimization
+  - .windsurf/skills/business-case-development
+  - .windsurf/skills/caching-strategy
+  - .windsurf/skills/canary-deployment
+  - .windsurf/skills/capacity-planning
+  - .windsurf/skills/causal-inference
+  - .windsurf/skills/changelog-maintenance
+  - .windsurf/skills/cicd-pipeline-setup
+  - .windsurf/skills/circuit-breaker-pattern
+  - .windsurf/skills/classification-modeling
+  - .windsurf/skills/cloud-cost-management
+  - .windsurf/skills/cloud-migration-planning
+  - .windsurf/skills/cloud-security-configuration
+  - .windsurf/skills/cloud-storage-optimization
+  - .windsurf/skills/clustering-analysis
+  - .windsurf/skills/code-documentation
+  - .windsurf/skills/code-generation-template
+  - .windsurf/skills/code-metrics-analysis
+  - .windsurf/skills/code-review-analysis
+  - .windsurf/skills/cohort-analysis
+  - .windsurf/skills/color-accessibility
+  - .windsurf/skills/competitor-analysis
+  - .windsurf/skills/computer-vision
+  - .windsurf/skills/concurrency-patterns
+  - .windsurf/skills/configuration-management
+  - .windsurf/skills/container-debugging
+  - .windsurf/skills/container-registry-management
+  - .windsurf/skills/continuous-testing
+  - .windsurf/skills/correlation-analysis
+  - .windsurf/skills/correlation-tracing
+  - .windsurf/skills/cpu-profiling
+  - .windsurf/skills/cross-platform-compatibility
+  - .windsurf/skills/csrf-protection
+  - .windsurf/skills/css-architecture
+  - .windsurf/skills/data-cleaning-pipeline
+  - .windsurf/skills/data-encryption
+  - .windsurf/skills/data-migration-scripts
+  - .windsurf/skills/data-replication-setup
+  - .windsurf/skills/data-visualization
+  - .windsurf/skills/database-backup-restore
+  - .windsurf/skills/database-indexing-strategy
+  - .windsurf/skills/database-migration-management
+  - .windsurf/skills/database-monitoring
+  - .windsurf/skills/database-performance-debugging
+  - .windsurf/skills/database-query-optimization
+  - .windsurf/skills/database-schema-design
+  - .windsurf/skills/database-schema-documentation
+  - .windsurf/skills/database-sharding
+  - .windsurf/skills/dependency-management
+  - .windsurf/skills/dependency-tracking
+  - .windsurf/skills/deployment-automation
+  - .windsurf/skills/deployment-documentation
+  - .windsurf/skills/design-handoff
+  - .windsurf/skills/design-patterns-implementation
+  - .windsurf/skills/design-system-creation
+  - .windsurf/skills/developer-onboarding
+  - .windsurf/skills/dimensionality-reduction
+  - .windsurf/skills/disaster-recovery-testing
+  - .windsurf/skills/distributed-tracing
+  - .windsurf/skills/django-application
+  - .windsurf/skills/dns-management
+  - .windsurf/skills/docker-containerization
+  - .windsurf/skills/documentation-site-setup
+  - .windsurf/skills/e2e-testing-automation
+  - .windsurf/skills/email-service-integration
+  - .windsurf/skills/error-tracking
+  - .windsurf/skills/event-sourcing
+  - .windsurf/skills/exploratory-data-analysis
+  - .windsurf/skills/fastapi-development
+  - .windsurf/skills/feature-engineering
+  - .windsurf/skills/feature-flag-system
+  - .windsurf/skills/file-upload-handling
+  - .windsurf/skills/flask-api-development
+  - .windsurf/skills/flutter-development
+  - .windsurf/skills/form-validation
+  - .windsurf/skills/frontend-accessibility
+  - .windsurf/skills/frontend-routing
+  - .windsurf/skills/frontend-state-management
+  - .windsurf/skills/frontend-testing
+  - .windsurf/skills/funnel-analysis
+  - .windsurf/skills/gap-analysis
+  - .windsurf/skills/gcp-cloud-functions
+  - .windsurf/skills/gcp-cloud-run
+  - .windsurf/skills/git-hooks-setup
+  - .windsurf/skills/git-workflow-strategy
+  - .windsurf/skills/github-actions-workflow
+  - .windsurf/skills/gitlab-cicd-pipeline
+  - .windsurf/skills/graceful-shutdown
+  - .windsurf/skills/grafana-dashboard
+  - .windsurf/skills/graphql-implementation
+  - .windsurf/skills/grpc-service-development
+  - .windsurf/skills/health-check-endpoints
+  - .windsurf/skills/idempotency-handling
+  - .windsurf/skills/image-optimization
+  - .windsurf/skills/incident-response-plan
+  - .windsurf/skills/information-architecture
+  - .windsurf/skills/infrastructure-cost-optimization
+  - .windsurf/skills/infrastructure-monitoring
+  - .windsurf/skills/integration-testing
+  - .windsurf/skills/interaction-design
+  - .windsurf/skills/intermittent-issue-debugging
+  - .windsurf/skills/internationalization-i18n
+  - .windsurf/skills/ios-swift-development
+  - .windsurf/skills/jenkins-pipeline
+  - .windsurf/skills/kpi-dashboard-design
+  - .windsurf/skills/kubernetes-deployment
+  - .windsurf/skills/load-balancer-setup
+  - .windsurf/skills/log-aggregation
+  - .windsurf/skills/log-analysis
+  - .windsurf/skills/logging-best-practices
+  - .windsurf/skills/markdown-documentation
+  - .windsurf/skills/memory-leak-detection
+  - .windsurf/skills/memory-optimization
+  - .windsurf/skills/microservices-architecture
+  - .windsurf/skills/ml-model-explanation
+  - .windsurf/skills/ml-model-training
+  - .windsurf/skills/ml-pipeline-automation
+  - .windsurf/skills/mobile-app-debugging
+  - .windsurf/skills/mobile-app-testing
+  - .windsurf/skills/mobile-first-design
+  - .windsurf/skills/mobile-offline-support
+  - .windsurf/skills/mocking-stubbing
+  - .windsurf/skills/model-deployment
+  - .windsurf/skills/model-hyperparameter-tuning
+  - .windsurf/skills/model-monitoring
+  - .windsurf/skills/monorepo-management
+  - .windsurf/skills/multi-cloud-strategy
+  - .windsurf/skills/mutation-testing
+  - .windsurf/skills/natural-language-processing
+  - .windsurf/skills/network-analysis
+  - .windsurf/skills/network-debugging
+  - .windsurf/skills/network-security-groups
+  - .windsurf/skills/neural-network-design
+  - .windsurf/skills/nginx-configuration
+  - .windsurf/skills/nodejs-express-server
+  - .windsurf/skills/nosql-database-design
+  - .windsurf/skills/oauth-implementation
+  - .windsurf/skills/payment-gateway-integration
+  - .windsurf/skills/penetration-testing
+  - .windsurf/skills/performance-regression-debugging
+  - .windsurf/skills/performance-testing
+  - .windsurf/skills/polyglot-integration
+  - .windsurf/skills/process-mapping
+  - .windsurf/skills/profiling-optimization
+  - .windsurf/skills/progressive-web-app
+  - .windsurf/skills/project-estimation
+  - .windsurf/skills/prometheus-monitoring
+  - .windsurf/skills/property-based-testing
+  - .windsurf/skills/pull-request-automation
+  - .windsurf/skills/push-notification-setup
+  - .windsurf/skills/query-caching-strategies
+  - .windsurf/skills/rate-limiting-implementation
+  - .windsurf/skills/react-component-architecture
+  - .windsurf/skills/react-native-app
+  - .windsurf/skills/reactive-programming
+  - .windsurf/skills/real-time-features
+  - .windsurf/skills/recommendation-engine
+  - .windsurf/skills/recommendation-system
+  - .windsurf/skills/refactor-legacy-code
+  - .windsurf/skills/regression-modeling
+  - .windsurf/skills/release-planning
+  - .windsurf/skills/requirements-gathering
+  - .windsurf/skills/responsive-web-design
+  - .windsurf/skills/rest-api-design
+  - .windsurf/skills/retrospective-facilitation
+  - .windsurf/skills/risk-assessment
+  - .windsurf/skills/root-cause-analysis
+  - .windsurf/skills/ruby-rails-application
+  - .windsurf/skills/runbook-creation
+  - .windsurf/skills/secrets-management
+  - .windsurf/skills/secrets-rotation
+  - .windsurf/skills/security-audit-logging
+  - .windsurf/skills/security-compliance-audit
+  - .windsurf/skills/security-documentation
+  - .windsurf/skills/security-headers-configuration
+  - .windsurf/skills/security-testing
+  - .windsurf/skills/semantic-versioning
+  - .windsurf/skills/sentiment-analysis
+  - .windsurf/skills/server-side-rendering
+  - .windsurf/skills/serverless-architecture
+  - .windsurf/skills/service-mesh-implementation
+  - .windsurf/skills/session-management
+  - .windsurf/skills/spring-boot-application
+  - .windsurf/skills/sql-injection-prevention
+  - .windsurf/skills/sql-query-optimization
+  - .windsurf/skills/ssl-certificate-management
+  - .windsurf/skills/stakeholder-communication
+  - .windsurf/skills/static-code-analysis
+  - .windsurf/skills/statistical-hypothesis-testing
+  - .windsurf/skills/stored-procedures
+  - .windsurf/skills/stress-testing
+  - .windsurf/skills/survival-analysis
+  - .windsurf/skills/synthetic-monitoring
+  - .windsurf/skills/technical-debt-assessment
+  - .windsurf/skills/technical-roadmap-planning
+  - .windsurf/skills/technical-specification
+  - .windsurf/skills/terraform-infrastructure
+  - .windsurf/skills/test-automation-framework
+  - .windsurf/skills/test-data-generation
+  - .windsurf/skills/third-party-integration
+  - .windsurf/skills/time-series-analysis
+  - .windsurf/skills/transaction-management
+  - .windsurf/skills/troubleshooting-guide
+  - .windsurf/skills/unit-testing-framework
+  - .windsurf/skills/uptime-monitoring
+  - .windsurf/skills/user-guide-creation
+  - .windsurf/skills/user-persona-creation
+  - .windsurf/skills/user-research-analysis
+  - .windsurf/skills/user-story-writing
+  - .windsurf/skills/visual-regression-testing
+  - .windsurf/skills/vue-application-structure
+  - .windsurf/skills/vulnerability-scanning
+  - .windsurf/skills/web-performance-audit
+  - .windsurf/skills/web-performance-optimization
+  - .windsurf/skills/webhook-development
+  - .windsurf/skills/webhook-integration
+  - .windsurf/skills/websocket-implementation
+  - .windsurf/skills/wireframe-prototyping
+  - .windsurf/skills/xss-prevention
+  - .windsurf/skills/zero-trust-architecture
   content_hash: sha256:4e3ddc7beb9150a37b446e773752cd52820822daf6af4a1e3d4f577583692b32
 - repo_url: cskiro/claudex
   host: github.com
@@ -559,6 +820,7 @@ dependencies:
   deployed_files:
   - .agents/skills/otel-monitoring-setup
   - .claude/skills/otel-monitoring-setup
+  - .windsurf/skills/otel-monitoring-setup
   content_hash: sha256:878556ef371c2d77f7bcca238bed605aac5da356646005f9e26e70fae4e3a4ee
 - repo_url: emaynard/claude-family-history-research-skill
   host: github.com
@@ -568,6 +830,7 @@ dependencies:
   deployed_files:
   - .agents/skills/claude-family-history-research-skill
   - .claude/skills/claude-family-history-research-skill
+  - .windsurf/skills/claude-family-history-research-skill
   content_hash: sha256:be0abf53c7f1726c134cb1e5d7c92e2be48acb889b82489bb92d76aa73774faf
 - repo_url: fluxcd/agent-skills
   host: github.com
@@ -583,15 +846,18 @@ dependencies:
   - .claude/skills/gitops-cluster-debug
   - .claude/skills/gitops-knowledge
   - .claude/skills/gitops-repo-audit
-  - .cursor/agents/fluxcd.md
-  - .cursor/agents/fluxcd.md
   - .github/agents/fluxcd.agent.md
   - .github/agents/fluxcd.agent.md
+  - .windsurf/skills/fluxcd/SKILL.md
+  - .windsurf/skills/fluxcd/SKILL.md
+  - .windsurf/skills/gitops-cluster-debug
+  - .windsurf/skills/gitops-knowledge
+  - .windsurf/skills/gitops-repo-audit
   deployed_file_hashes:
-    .claude/agents/fluxcd.md: sha256:44218aa6042d7d48629ac24869871d289a32cb3aad6d2d01e0d129cdf87ef0fa
-    .cursor/agents/fluxcd.md: sha256:44218aa6042d7d48629ac24869871d289a32cb3aad6d2d01e0d129cdf87ef0fa
-    .github/agents/fluxcd.agent.md: sha256:44218aa6042d7d48629ac24869871d289a32cb3aad6d2d01e0d129cdf87ef0fa
-  content_hash: sha256:04699945c6115a6817b78d730eb90e378a288f8f426cbac8487cef0220497fff
+    .claude/agents/fluxcd.md: sha256:651fc69a42b7e4b4986cbcb8138a5706d40c91fdf52a720d9cfb174af5d4923f
+    .github/agents/fluxcd.agent.md: sha256:651fc69a42b7e4b4986cbcb8138a5706d40c91fdf52a720d9cfb174af5d4923f
+    .windsurf/skills/fluxcd/SKILL.md: sha256:2c3d0813681d0caae30fdf47ae2f05c791aa534f03c83445d85efd0b8c8d2e55
+  content_hash: sha256:1e8c4dd5956458fd3ab820fbe39cdef76792cc579e81bed33dbc1c509049d421
 - repo_url: jeffallan/claude-skills
   host: github.com
   resolved_commit: efebc44c90ae6eb3b36ff1c53802a765418481b9
@@ -602,6 +868,7 @@ dependencies:
   deployed_files:
   - .agents/skills/kubernetes-specialist
   - .claude/skills/kubernetes-specialist
+  - .windsurf/skills/kubernetes-specialist
   content_hash: sha256:dc7dfeb059ef078086ac9177eb402caef391d3474bc2bb42ec3a7f2f8d8a0fd5
 - repo_url: michalparkola/tapestry-skills
   host: github.com
@@ -613,6 +880,7 @@ dependencies:
   deployed_files:
   - .agents/skills/article-extractor
   - .claude/skills/article-extractor
+  - .windsurf/skills/article-extractor
   content_hash: sha256:fc3369b15640de9af0409396aac9cc7608c3aa48f902b4a80f92f98a924a1429
 - repo_url: michalparkola/tapestry-skills
   host: github.com
@@ -624,6 +892,7 @@ dependencies:
   deployed_files:
   - .agents/skills/learn-this
   - .claude/skills/learn-this
+  - .windsurf/skills/learn-this
   content_hash: sha256:cb479a7a8c1517ce520ce25f36e9cb8681fd9159e999f718a87f219d0fe87ce0
 - repo_url: michalparkola/tapestry-skills
   host: github.com
@@ -635,6 +904,7 @@ dependencies:
   deployed_files:
   - .agents/skills/scrum-sage
   - .claude/skills/scrum-sage
+  - .windsurf/skills/scrum-sage
   content_hash: sha256:745a6dafdd686ef6c8f360f6669eb425b9bfa63fd8c8128666c81f8f2f962168
 - repo_url: michalparkola/tapestry-skills
   host: github.com
@@ -646,6 +916,7 @@ dependencies:
   deployed_files:
   - .agents/skills/session-log
   - .claude/skills/session-log
+  - .windsurf/skills/session-log
   content_hash: sha256:eb6b207be2a78a0d3fcd361ac4dfb6bd370dc429d0ab4765f9dde7f858d51204
 - repo_url: michalparkola/tapestry-skills
   host: github.com
@@ -657,6 +928,7 @@ dependencies:
   deployed_files:
   - .agents/skills/ship-learn-next
   - .claude/skills/ship-learn-next
+  - .windsurf/skills/ship-learn-next
   content_hash: sha256:e04c6a8a8008e8d4bd736c345e83ffdba1d61b6b9fe861ff16cff5008481ea7d
 - repo_url: michalparkola/tapestry-skills
   host: github.com
@@ -668,6 +940,7 @@ dependencies:
   deployed_files:
   - .agents/skills/unblock-action
   - .claude/skills/unblock-action
+  - .windsurf/skills/unblock-action
   content_hash: sha256:ab77e0ebe24938da3801e20ba894d8430edeeebcacfc81b9bd4d8337b3f3205b
 - repo_url: michalparkola/tapestry-skills
   host: github.com
@@ -679,6 +952,7 @@ dependencies:
   deployed_files:
   - .agents/skills/youtube-transcript
   - .claude/skills/youtube-transcript
+  - .windsurf/skills/youtube-transcript
   content_hash: sha256:e5e29eb320d2e31eb0f0d628500d8839baac3494a1a7a51be8387d948098d3a3
 - repo_url: ryanbbrown/revealjs-skill
   host: github.com
@@ -688,7 +962,8 @@ dependencies:
   deployed_files:
   - .agents/skills/revealjs
   - .claude/skills/revealjs
-  content_hash: sha256:eb0fa4aab41858ee74a66480bf9791f524b1fbc62f921499629005a4284a4531
+  - .windsurf/skills/revealjs
+  content_hash: sha256:f0c659c5cc6950c176dd9fee75fbc4c86659c4f2b79d9dd5b88fa63c0096c41b
 - repo_url: sanjay3290/ai-skills
   host: github.com
   resolved_commit: cde1c8385ead64df501c9b214e63d7ba9b283ff9
@@ -699,6 +974,7 @@ dependencies:
   deployed_files:
   - .agents/skills/deep-research
   - .claude/skills/deep-research
+  - .windsurf/skills/deep-research
   content_hash: sha256:978e5b1b36609b9324ccf25746df6c04a3e83c79fbed9e80409bd800f00bb1e2
 mcp_servers:
 - kubernetes
