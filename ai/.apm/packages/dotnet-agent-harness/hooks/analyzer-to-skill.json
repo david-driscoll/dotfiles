@@ -1,0 +1,320 @@
+{
+  "version": "1.0.0",
+  "description": "Maps Roslyn analyzer codes to dotnet-agent-harness skills",
+  "mappings": {
+    "CA2007": {
+      "skill": "dotnet-csharp-async-patterns",
+      "title": "Do not directly await a Task",
+      "message": "Consider using ConfigureAwait with appropriate context",
+      "severity": "suggestion"
+    },
+    "CA2008": {
+      "skill": "dotnet-csharp-async-patterns",
+      "title": "Do not create tasks without passing TaskScheduler",
+      "message": "Always specify TaskScheduler for control over task execution",
+      "severity": "warning"
+    },
+    "CA2009": {
+      "skill": "dotnet-csharp-async-patterns",
+      "title": "Do not remove the operator from a disposable type",
+      "message": "Ensure proper disposal of resources",
+      "severity": "error"
+    },
+    "RCS1174": {
+      "skill": "dotnet-csharp-async-patterns",
+      "title": "Remove redundant async/await",
+      "message": "Avoid async wrapper overhead by returning Task directly",
+      "severity": "suggestion"
+    },
+    "RCS1229": {
+      "skill": "dotnet-csharp-async-patterns",
+      "title": "Use async/await when necessary",
+      "message": "Use proper async/await patterns for better stack traces",
+      "severity": "suggestion"
+    },
+    "RCS1090": {
+      "skill": "dotnet-csharp-async-patterns",
+      "title": "Add/remove ConfigureAwait(false)",
+      "message": "Consider ConfigureAwait(false) for library code, keep context for UI",
+      "severity": "suggestion"
+    },
+    "CA1816": {
+      "skill": "dotnet-gc-memory",
+      "title": "Call GC.SuppressFinalize correctly",
+      "message": "Call GC.SuppressFinalize in Dispose to prevent finalizer overhead",
+      "severity": "error"
+    },
+    "CA1821": {
+      "skill": "dotnet-gc-memory",
+      "title": "Remove empty finalizers",
+      "message": "Empty finalizers cause unnecessary GC pressure",
+      "severity": "warning"
+    },
+    "CA2000": {
+      "skill": "dotnet-gc-memory",
+      "title": "Dispose objects before losing scope",
+      "message": "Ensure proper disposal of IDisposable resources",
+      "severity": "error"
+    },
+    "CA2013": {
+      "skill": "dotnet-gc-memory",
+      "title": "Do not use ReferenceEquals with value types",
+      "message": "Avoid boxing by not using ReferenceEquals with value types",
+      "severity": "warning"
+    },
+    "CA2015": {
+      "skill": "dotnet-gc-memory",
+      "title": "Do not define finalizers for MemoryManager<T>",
+      "message": "MemoryManager<T> should not define finalizers",
+      "severity": "error"
+    },
+    "RCS1261": {
+      "skill": "dotnet-gc-memory",
+      "title": "Resource can be disposed asynchronously",
+      "message": "Consider using IAsyncDisposable for async cleanup",
+      "severity": "suggestion"
+    },
+    "CA1822": {
+      "skill": "dotnet-performance-patterns",
+      "title": "Mark members as static",
+      "message": "Non-virtual static calls are faster; mark as static if no instance data",
+      "severity": "warning"
+    },
+    "CA1831": {
+      "skill": "dotnet-performance-patterns",
+      "title": "Use AsSpan instead of range-based indexers",
+      "message": "Use Span<T> for zero-copy string manipulation",
+      "severity": "warning"
+    },
+    "CA1836": {
+      "skill": "dotnet-performance-patterns",
+      "title": "Prefer IsEmpty over Count",
+      "message": "IsEmpty is O(1) vs Count which may be O(n)",
+      "severity": "suggestion"
+    },
+    "CA1854": {
+      "skill": "dotnet-performance-patterns",
+      "title": "Prefer TryGetValue over ContainsKey + indexer",
+      "message": "Dictionary lookup optimization: use single TryGetValue call",
+      "severity": "suggestion"
+    },
+    "CA1859": {
+      "skill": "dotnet-performance-patterns",
+      "title": "Use concrete types when possible",
+      "message": "Enable devirtualization by using concrete types",
+      "severity": "suggestion"
+    },
+    "CA1860": {
+      "skill": "dotnet-performance-patterns",
+      "title": "Avoid Enumerable.Any()",
+      "message": "Use Length/Count/IsEmpty for better performance",
+      "severity": "warning"
+    },
+    "CA1861": {
+      "skill": "dotnet-performance-patterns",
+      "title": "Avoid constant arrays as arguments",
+      "message": "Cache static readonly arrays instead of creating per-call",
+      "severity": "warning"
+    },
+    "RCS1077": {
+      "skill": "dotnet-performance-patterns",
+      "title": "Optimize LINQ method call",
+      "message": "Replace LINQ with more efficient alternatives",
+      "severity": "suggestion"
+    },
+    "RCS1080": {
+      "skill": "dotnet-performance-patterns",
+      "title": "Use Count/Length instead of Any",
+      "message": "Collection optimization: direct property access",
+      "severity": "hidden"
+    },
+    "RCS1186": {
+      "skill": "dotnet-performance-patterns",
+      "title": "Use Regex instance instead of static",
+      "message": "Cache Regex instances for better performance",
+      "severity": "hidden"
+    },
+    "RCS1197": {
+      "skill": "dotnet-performance-patterns",
+      "title": "Optimize StringBuilder.Append",
+      "message": "StringBuilder efficiency: avoid intermediate strings",
+      "severity": "suggestion"
+    },
+    "CA2100": {
+      "skill": "dotnet-security-owasp",
+      "title": "Review SQL queries for security vulnerabilities",
+      "message": "Prevent SQL injection: use parameterized queries",
+      "severity": "error"
+    },
+    "CA5350": {
+      "skill": "dotnet-security-owasp",
+      "title": "Do not use weak cryptographic algorithms",
+      "message": "Use strong cryptography: AES-256, SHA-256+",
+      "severity": "error"
+    },
+    "CA5351": {
+      "skill": "dotnet-security-owasp",
+      "title": "Do not use broken cryptographic algorithms",
+      "message": "Avoid broken algorithms: MD5, SHA-1, DES",
+      "severity": "error"
+    },
+    "CA3075": {
+      "skill": "dotnet-security-owasp",
+      "title": "Insecure DTD processing in XML",
+      "message": "Secure XML processing: disable DTD processing",
+      "severity": "error"
+    },
+    "CA2153": {
+      "skill": "dotnet-security-owasp",
+      "title": "Do not catch corrupted state exceptions",
+      "message": "Security exception handling: avoid catching critical exceptions",
+      "severity": "warning"
+    },
+    "CA1001": {
+      "skill": "dotnet-architecture-patterns",
+      "title": "Types that own disposable fields should be disposable",
+      "message": "Implement IDisposable pattern for resource management",
+      "severity": "warning"
+    },
+    "CA1063": {
+      "skill": "dotnet-architecture-patterns",
+      "title": "Implement IDisposable correctly",
+      "message": "Follow proper IDisposable implementation pattern",
+      "severity": "warning"
+    },
+    "CA1031": {
+      "skill": "dotnet-architecture-patterns",
+      "title": "Do not catch general exception types",
+      "message": "Catch specific exceptions, not general Exception",
+      "severity": "warning"
+    },
+    "CA1062": {
+      "skill": "dotnet-architecture-patterns",
+      "title": "Validate arguments of public methods",
+      "message": "Defensive programming: validate arguments at public boundaries",
+      "severity": "warning"
+    },
+    "CA1507": {
+      "skill": "dotnet-architecture-patterns",
+      "title": "Use nameof in place of string",
+      "message": "Use nameof() for refactoring-safe string references",
+      "severity": "suggestion"
+    },
+    "CA1508": {
+      "skill": "dotnet-architecture-patterns",
+      "title": "Avoid dead conditional code",
+      "message": "Code correctness: remove unreachable conditions",
+      "severity": "warning"
+    },
+    "RCS1044": {
+      "skill": "dotnet-architecture-patterns",
+      "title": "Remove original exception from throw",
+      "message": "Preserve stack trace: throw; not throw ex;",
+      "severity": "warning"
+    },
+    "CA1825": {
+      "skill": "dotnet-testing-unit-test-fundamentals",
+      "title": "Avoid zero-length array allocations",
+      "message": "Testing optimization: use Array.Empty<T>()",
+      "severity": "suggestion"
+    },
+    "CA2016": {
+      "skill": "dotnet-testing-unit-test-fundamentals",
+      "title": "Forward CancellationToken",
+      "message": "Async testing: pass CancellationToken through",
+      "severity": "warning"
+    },
+    "RCS1075": {
+      "skill": "dotnet-testing-unit-test-fundamentals",
+      "title": "Avoid empty catch clause",
+      "message": "Test assertions: don't swallow exceptions silently",
+      "severity": "warning"
+    },
+    "CA1826": {
+      "skill": "dotnet-efcore-patterns",
+      "title": "Use property instead of LINQ Enumerable method",
+      "message": "EF Core optimization: translate to SQL",
+      "severity": "suggestion"
+    },
+    "CA1827": {
+      "skill": "dotnet-efcore-patterns",
+      "title": "Do not use Count when Any can be used",
+      "message": "Query efficiency: Any() translates better",
+      "severity": "suggestion"
+    },
+    "CA1828": {
+      "skill": "dotnet-efcore-patterns",
+      "title": "Do not use CountAsync when AnyAsync can be used",
+      "message": "Async query efficiency: AnyAsync is more efficient",
+      "severity": "suggestion"
+    },
+    "CA1401": {
+      "skill": "dotnet-native-interop",
+      "title": "P/Invokes should not be visible",
+      "message": "Security boundary: keep P/Invoke internal",
+      "severity": "warning"
+    },
+    "CA1416": {
+      "skill": "dotnet-native-interop",
+      "title": "Validate platform compatibility",
+      "message": "Platform checks: validate OS before native calls",
+      "severity": "warning"
+    },
+    "CA1417": {
+      "skill": "dotnet-native-interop",
+      "title": "Do not use OutAttribute on string parameters",
+      "message": "Marshalling safety: avoid OutAttribute on strings",
+      "severity": "warning"
+    },
+    "CA2255": {
+      "skill": "dotnet-csharp-configuration",
+      "title": "ModuleInitializer should not be used in libraries",
+      "message": "Startup patterns: ModuleInitializer in apps only",
+      "severity": "warning"
+    },
+    "CA2256": {
+      "skill": "dotnet-csharp-configuration",
+      "title": "All parent interface members must have implementation",
+      "message": "Interface implementations: implement all members",
+      "severity": "warning"
+    }
+  },
+  "categories": {
+    "async": {
+      "skill": "dotnet-csharp-async-patterns",
+      "analyzers": ["CA2007", "CA2008", "CA2009", "RCS1174", "RCS1229", "RCS1090"]
+    },
+    "memory": {
+      "skill": "dotnet-gc-memory",
+      "analyzers": ["CA1816", "CA1821", "CA2000", "CA2013", "CA2015", "RCS1261"]
+    },
+    "performance": {
+      "skill": "dotnet-performance-patterns",
+      "analyzers": ["CA1822", "CA1831", "CA1836", "CA1854", "CA1859", "CA1860", "CA1861", "RCS1077", "RCS1080", "RCS1186", "RCS1197"]
+    },
+    "security": {
+      "skill": "dotnet-security-owasp",
+      "analyzers": ["CA2100", "CA5350", "CA5351", "CA3075", "CA2153"]
+    },
+    "design": {
+      "skill": "dotnet-architecture-patterns",
+      "analyzers": ["CA1001", "CA1063", "CA1031", "CA1062", "CA1507", "CA1508", "RCS1044"]
+    },
+    "testing": {
+      "skill": "dotnet-testing-unit-test-fundamentals",
+      "analyzers": ["CA1825", "CA2016", "RCS1075"]
+    },
+    "efcore": {
+      "skill": "dotnet-efcore-patterns",
+      "analyzers": ["CA1826", "CA1827", "CA1828"]
+    },
+    "interop": {
+      "skill": "dotnet-native-interop",
+      "analyzers": ["CA1401", "CA1416", "CA1417"]
+    },
+    "configuration": {
+      "skill": "dotnet-csharp-configuration",
+      "analyzers": ["CA2255", "CA2256"]
+    }
+  }
+}
