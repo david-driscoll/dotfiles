@@ -50,7 +50,7 @@ Need documentation?
 ## Health Checks
 
 Session start validation:
-1. Check `.rulesync/mcp.json` exists
+1. Verify MCP servers are configured in `apm.yml` under `mcp:`
 2. Verify server connectivity
 3. Report available/unavailable status
 4. Suggest fallbacks if needed

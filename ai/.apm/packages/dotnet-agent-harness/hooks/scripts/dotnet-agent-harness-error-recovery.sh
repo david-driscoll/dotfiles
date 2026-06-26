@@ -3,16 +3,16 @@
 # Error Recovery Hook for dotnet-agent-harness
 # Extracts analyzer codes from build/test output and suggests relevant skills
 #
-# Usage: <build-output> | bash .rulesync/hooks/dotnet-agent-harness-error-recovery.sh
-#   Or:  echo '<build-output>' | bash .rulesync/hooks/dotnet-agent-harness-error-recovery.sh
+# Usage: <build-output> | bash path/to/hooks/scripts/dotnet-agent-harness-error-recovery.sh
+#   Or:  echo '<build-output>' | bash path/to/hooks/scripts/dotnet-agent-harness-error-recovery.sh
 #
 
 set -uo pipefail
 
 # Configuration
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-RULESYNC_DIR="$(dirname "$SCRIPT_DIR")"
-ANALYZER_MAP="$RULESYNC_DIR/analyzer-to-skill.json"
+HOOKS_DIR="$(dirname "$SCRIPT_DIR")"
+ANALYZER_MAP="$HOOKS_DIR/analyzer-to-skill.json"
 
 # Analyzer code patterns (CS####, CA####, NU####, MSB####, RCS####)
 ANALYZER_PATTERN='(CS[0-9]{4}|CA[0-9]{4}|NU[0-9]{4}|MSB[0-9]{4}|RCS[0-9]{4})'

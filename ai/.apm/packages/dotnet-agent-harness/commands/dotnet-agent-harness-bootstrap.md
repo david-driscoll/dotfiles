@@ -1,8 +1,8 @@
 ---
 name: dotnet-agent-harness-bootstrap
 description:
-  'Bootstrap dotnet-agent-harness as a local .NET tool, write RuleSync config, and initialize target-specific agent
-  outputs'
+  'Initialize dotnet-agent-harness APM package for a project — installs MCP servers, deploys agents,
+  compiles platform-specific files, and optionally installs the slopwatch .NET tool.'
 targets: ['*']
 portability: universal
 flattening-risk: low
@@ -15,50 +15,47 @@ codexcli:
 
 # /dotnet-agent-harness:bootstrap
 
-Bootstrap the runtime harness for OpenCode, Claude Code, Codex CLI, Gemini CLI, GitHub Copilot CLI, Antigravity, and
-Factory Droid.
+Initialize the dotnet-agent-harness toolkit for a project using APM.
 
 ## Execution Contract
 
 ```bash
-dotnet agent-harness bootstrap --profile platform-native --targets claudecode,opencode,codexcli,geminicli,copilot,antigravity,factorydroid --enable-pack dotnet-intelligence --run-rulesync
+# In the project's ai/ directory (or wherever apm.yml lives):
+apm install
+apm compile
 ```
 
 ## What It Does
 
-1. writes or updates `.config/dotnet-tools.json` for the local `dotnet-agent-harness` tool unless persistence is
-   disabled
-2. writes `rulesync.jsonc` with the selected targets and toolkit source
-3. writes a target-aware RuleSync feature map so unsupported feature/target combinations are not requested
-4. optionally installs bootstrap packs such as `dotnet-intelligence` into the local tool manifest and repo config unless
-   persistence is disabled
-5. writes repo-local state under `.dotnet-agent-harness/` unless persistence is disabled
-6. optionally runs `rulesync install` and `rulesync generate`
-7. reports which platform output roots will be generated
+1. `apm install` resolves and installs all package dependencies declared in `apm.yml`, including
+   MCP server configurations and local packages such as `dotnet-agent-harness`.
+2. `apm compile` generates platform-specific output files:
+   - `.claude/` — agents, skills, hooks, settings for Claude Code
+   - `.github/instructions/` — Copilot instruction files
+   - `AGENTS.md`, `CLAUDE.md`, `GEMINI.md` — root agent context files
+   - `.cursor/`, `.windsurf/`, `.opencode/`, `.codex/`, `.gemini/` — other runtimes
 
-## Options
+## MCP Servers configured by this package
 
-- `--profile <core|platform-native|full>`: bootstrap preset for RuleSync features. Defaults to `platform-native`
-- `--targets <csv>`: platform list. Supported ids: `claudecode`, `opencode`, `codexcli`, `geminicli`, `copilot`,
-  `antigravity`, `factorydroid`
-- `--features <csv>`: explicit RuleSync features to generate. Overrides the selected profile defaults
-- `--enable-pack <csv>`: optional packs to install. Current pack: `dotnet-intelligence`
-- `--source <owner/repo>`: RuleSync source repository. Defaults to `rudironsoni/dotnet-agent-harness`
-- `--source-path <path>`: install path for the RuleSync source. Defaults to `.rulesync`
-- `--tool-version <x.y.z>`: pin a specific local tool version in `.config/dotnet-tools.json`
-- `--run-rulesync`: run `rulesync install` and `rulesync generate` after writing config
-- `--force`: overwrite an existing `rulesync.jsonc`
-- `--no-save`: skip implicit repo-local persistence such as `.config/dotnet-tools.json`, pack files, and
-  `.dotnet-agent-harness/` state while still writing the selected RuleSync config
+| Server | Type | Purpose |
+|--------|------|---------|
+| serena | stdio (`uvx oraios/serena`) | Semantic code navigation and refactoring |
+| microsoftdocs-mcp | http | Official Microsoft/Azure documentation |
+
+## Optional: slopwatch
+
+Install [slopwatch](https://github.com/rudironsoni/slopwatch) as a local .NET tool to enable
+post-edit code quality monitoring:
+
+```bash
+dotnet tool install slopwatch.cmd --create-manifest-if-needed
+```
+
+Once installed, the `slopwatch analyze -d . --hook` post-edit hook activates automatically.
 
 ## Notes
 
-- Use this in consumer repositories where you want the local runtime and generated platform files to stay in sync.
-- `dotnet-intelligence` currently installs Slopwatch, writes `.slopwatch/config.json`, and enables advisory post-edit
-  hooks once generated files are present.
-- The generated `rulesync.jsonc` uses per-target `features` entries so mixed target sets do not request unsupported
-  surfaces.
-- `--no-save` is intended for dry-ish bootstrap previews and smoke tests where you want the RuleSync contract file
-  without mutating repo-local tool or state files.
-- If RuleSync is not installed, bootstrap still writes the repo contract and tells you what to run next.
-- Prefer this over ad hoc per-platform setup when the repository is meant to support multiple agent runtimes.
+- Run `apm install --dry-run` first to preview changes without writing files.
+- Run `apm compile --dry-run` to preview which files will be generated and where.
+- To update the package content, edit files under `ai/.apm/packages/dotnet-agent-harness/`
+  and re-run `apm compile`.

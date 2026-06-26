@@ -17,7 +17,7 @@ codexcli:
 
 # /dotnet-agent-harness:search
 
-Use the local runtime instead of manually scanning `.rulesync/`.
+Search the installed skill and agent catalog instead of manually scanning the package directory.
 
 ## Execution Contract
 
