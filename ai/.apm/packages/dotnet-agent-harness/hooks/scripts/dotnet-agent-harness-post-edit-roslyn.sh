@@ -100,7 +100,8 @@ fi
 # Load analyzer-to-skill mapping
 ANALYZER_MAP="${SCRIPT_DIR}/../analyzer-to-skill.json"
 if [[ ! -f "${ANALYZER_MAP}" ]]; then
-    ANALYZER_MAP="${PROJECT_ROOT}/.rulesync/analyzer-to-skill.json"
+echo '{"status": "skipped", "reason": "analyzer-to-skill.json not found"}'
+exit 0
 fi
 
 # Run analysis with timeout

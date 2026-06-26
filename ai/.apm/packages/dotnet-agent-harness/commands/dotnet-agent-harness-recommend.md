@@ -17,7 +17,7 @@ codexcli:
 
 # /dotnet-agent-harness:recommend
 
-Use the local runtime recommender instead of manually inferring the right toolkit content from `.rulesync/`.
+Use the local runtime recommender instead of manually inferring the right toolkit content from the package catalog.
 
 ## Execution Contract
 
@@ -31,7 +31,7 @@ dotnet agent-harness recommend [--format text|json] [--limit N] [--profile path]
 
 - `--platform` filters recommendations to surfaces that the selected runtime actually supports
 - `--platform factorydroid` is valid, but it intentionally returns no skills, subagents, or commands because Factory
-  Droid only consumes generated rules, hooks, and MCP config from RuleSync
+  Droid only consumes generated rules, hooks, and MCP config
 - `--category` narrows matches by tags, names, and descriptions
 - `--limit` applies per kind (`skill`, `subagent`, `command`)
 - `--write-state` persists `.dotnet-agent-harness/recommendations.json` for later prompt assembly

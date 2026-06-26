@@ -17,7 +17,7 @@ codexcli:
 
 # /dotnet-agent-harness:export-mcp
 
-Export MCP-ready prompts and resources from `.rulesync/` instead of hand-curating a second source tree.
+Export MCP-ready prompts and resources from the APM package instead of hand-curating a second source tree.
 
 ## Execution Contract
 
@@ -39,11 +39,11 @@ The export writes:
 
 ## Notes
 
-- `.rulesync/` remains the source of truth
+- `ai/.apm/packages/dotnet-agent-harness/` is the source of truth; edit there and re-export
 - `--output` is the export directory; use `--report-output` if you also want the JSON report written to a file
 - `--platform` filters out content unsupported by the target runtime
 - `--kind` narrows the export to one content class or keeps `all`
-- rules from `.rulesync/rules/` and `.rulesync/mcp.json` are exported as resources when included
+- instructions and MCP config are exported as resources when included
 
 ## Example
 

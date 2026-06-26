@@ -112,7 +112,7 @@ dotnet_diagnostic.CA1816.severity = error       # GC.SuppressFinalize
 | CA1001 | dotnet-architecture-patterns | IDisposable pattern |
 | CA1063 | dotnet-architecture-patterns | Implement IDisposable correctly |
 
-Full mappings in `.rulesync/analyzer-to-skill.json`
+Full mappings in `hooks/analyzer-to-skill.json` (bundled with the dotnet-agent-harness APM package)
 
 ## Git Hooks Installation
 

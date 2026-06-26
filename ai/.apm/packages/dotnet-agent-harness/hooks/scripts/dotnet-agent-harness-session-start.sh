@@ -12,7 +12,7 @@ SCRIPT_NAME="$(basename "$0")"
 if [ -f "${SCRIPT_DIR}/../mcp.json" ]; then
     MCP_CONFIG="${SCRIPT_DIR}/../mcp.json"
 else
-    MCP_CONFIG="${MCP_CONFIG:-.rulesync/mcp.json}"
+    MCP_CONFIG="${MCP_CONFIG:-}"
 fi
 
 # Colors for output (if terminal)
@@ -290,7 +290,7 @@ Commands:
 If no command is specified, runs dotnet-context by default.
 
 Environment Variables:
-  MCP_CONFIG        Path to MCP config file (default: .rulesync/mcp.json)
+  MCP_CONFIG        Path to MCP config file (default: hooks/mcp.json relative to script location)
 
 Examples:
   session-start.sh dotnet-context    # Detect .NET project
