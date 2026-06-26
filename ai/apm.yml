@@ -51,7 +51,9 @@ dependencies:
   - terrylica/cc-skills/plugins/itp/skills/mise-tasks
   - terrylica/cc-skills/plugins/mise
   local:
+  - .apm/instructions/context7.instructions.md
   - .apm/instructions/neo4j-knowledgebase.instructions.md
+  - .apm/packages/dotnet-agent-harness
   mcp:
   - io.github.upstash/context7
   - name: github
@@ -90,4 +92,17 @@ dependencies:
     args:
     - -y
     - duckduckgo-mcp-server
+  - name: serena
+    registry: false
+    transport: stdio
+    command: uvx
+    args:
+    - --from
+    - git+https://github.com/oraios/serena
+    - serena
+    - start-mcp-server
+    - --context
+    - ide
+    - --project
+    - .
 scripts: {}
