@@ -44,8 +44,16 @@ dependencies:
   - DuendeSoftware/duende-skills
   - MicrosoftDocs/agent-skills
   - yvgude/lean-ctx
+  - diegosouzapw/awesome-omni-skills/skills/mise-configurator-v2
+  - majiayu000/claude-skill-registry/skills/data/hk-setup
+  - sickn33/antigravity-awesome-skills/plugins/antigravity-awesome-skills-claude/skills/mise-configurator
+  - terrylica/cc-skills/plugins/itp/skills/mise-configuration
+  - terrylica/cc-skills/plugins/itp/skills/mise-tasks
+  - terrylica/cc-skills/plugins/mise
   local:
+  - .apm/instructions/context7.instructions.md
   - .apm/instructions/neo4j-knowledgebase.instructions.md
+  - .apm/packages/dotnet-agent-harness
   mcp:
   - io.github.upstash/context7
   - name: github
@@ -84,4 +92,17 @@ dependencies:
     args:
     - -y
     - duckduckgo-mcp-server
+  - name: serena
+    registry: false
+    transport: stdio
+    command: uvx
+    args:
+    - --from
+    - git+https://github.com/oraios/serena
+    - serena
+    - start-mcp-server
+    - --context
+    - ide
+    - --project
+    - .
 scripts: {}
