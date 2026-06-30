@@ -1,0 +1,21 @@
+catalogs:
+- name: github-spec-kit
+  url: https://raw.githubusercontent.com/github/spec-kit/main/extensions/catalog.json
+  priority: 1
+  install_allowed: true
+  description: GitHub Spec Kit Extensions
+- name: github-spec-kit-community
+  url: https://raw.githubusercontent.com/github/spec-kit/main/extensions/catalog.community.json
+  priority: 1
+  install_allowed: true
+  description: GitHub Spec Kit Community Extensions
+- name: rbbtsn0w-spec-kit-extensions
+  url: https://raw.githubusercontent.com/RbBtSn0w/spec-kit-extensions/main/catalog.json
+  priority: 10
+  install_allowed: true
+  description: RbBtSn0w Spec Kit Extensions
+- name: leocamello-spec-kit-v-model
+  url: https://github.com/leocamello/spec-kit-v-model/raw/refs/heads/main/catalog-entry.json
+  priority: 10
+  install_allowed: true
+  description: Leo Camello Spec Kit V Model
