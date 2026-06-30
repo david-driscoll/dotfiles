@@ -1,0 +1,9 @@
+[tools]
+"github:microsoft/apm" = { version = "0.23.1", bin = "apm" }
+"github:eljulians/skillfile" = { version = "v1.7.1", bin = "skillfile" }
+"github:yvgude/lean-ctx" = { version = "v3.8.17", bin = "lean-ctx" }
+"uv" = "0.11.25"
+"pipx:git+https://github.com/github/spec-kit.git" = "v0.12.2"
+"python" = "3.12.13"
+"npm:@bradygaster/squad-cli" = "0.10.0"
+"npm:@github/copilot" = "latest"

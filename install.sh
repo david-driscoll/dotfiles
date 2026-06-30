@@ -138,6 +138,7 @@ git config --global core.editor "vi"
 # TODO: Setup npiperelay
 git config --global commit.gpgsign true
 git config --global alias.amend "commit --amend --reuse-message=HEAD"
+git config --global alias.squash '!f() { git rebase -i --autosquash $1; }; f'
 # not sure if this is needed, caused issues in code spaces
 # git config --global url."git@github.com:".insteadOf "https://github.com/"
 

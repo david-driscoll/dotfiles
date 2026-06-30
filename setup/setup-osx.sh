@@ -81,6 +81,7 @@ git config --global gpg.ssh.program "/Applications/1Password.app/Contents/MacOS/
 # TODO: 1Password
 git config --global core.editor "vi"
 git config --global alias.amend "commit --amend --reuse-message=HEAD"
+git config --global alias.squash '!f() { git rebase -i --autosquash $1; }; f'
 # not sure if this is needed, caused issues in code spaces
 # git config --global url."git@github.com:".insteadOf "https://github.com/"
 

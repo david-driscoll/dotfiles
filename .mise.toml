@@ -1,6 +1,9 @@
 [tools]
 "github:microsoft/apm" = { version = "v0.18.0", bin = "apm" }
 "github:eljulians/skillfile" = { version = "v1.6.2", bin = "skillfile" }
+"uv" = "0.11.20"
+"pipx:git+https://github.com/github/spec-kit.git" = "v0.10.2"
+# "github:github/spec-kit" = { version = "v0.10.2", bin = "skillfile" }
 
 [tasks.update-agents]
 description = "Update agents to the latest version"
@@ -9,3 +12,6 @@ run = [
     "cd {{config_root}}/agents && apm install --trust-transitive-mcp --force",
     "apm install --global --trust-transitive-mcp --force",
 ]
+
+[settings]
+lockfile = true

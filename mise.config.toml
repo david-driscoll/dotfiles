@@ -1,2 +1,6 @@
 [settings]
 experimental = true
+
+[tools]
+"uv" = "0.11.20"
+"pipx:git+https://github.com/github/spec-kit.git" = "v0.10.2"
