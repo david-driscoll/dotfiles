@@ -184,12 +184,9 @@ source "/Users/david/.openclaw/completions/openclaw.bash"
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/david/.lmstudio/bin"
 # End of LM Studio CLI section
-# >>> lean-ctx proxy env >>>
-export GEMINI_API_BASE_URL="http://127.0.0.1:4444"
-# <<< lean-ctx proxy env <<<
-
 # >>> lean-ctx agent aliases >>>
 alias claude='LEAN_CTX_AGENT=1 BASH_ENV="$HOME/.bashenv" claude'
+alias codebuddy='LEAN_CTX_AGENT=1 BASH_ENV="$HOME/.bashenv" codebuddy'
 alias codex='LEAN_CTX_AGENT=1 BASH_ENV="$HOME/.bashenv" codex'
 alias gemini='LEAN_CTX_AGENT=1 BASH_ENV="$HOME/.bashenv" gemini'
 # <<< lean-ctx agent aliases <<<
