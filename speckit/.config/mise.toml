@@ -5,5 +5,5 @@
 "uv" = "0.11.26"
 "pipx:git+https://github.com/github/spec-kit.git" = "v0.12.2"
 "python" = "3.12.13"
-"npm:@bradygaster/squad-cli" = "0.10.0"
+"npm:@bradygaster/squad-cli" = "0.11.0"
 "npm:@github/copilot" = "latest"
