@@ -1,0 +1,1 @@
+. "~/dotfiles/profile.ps1"
