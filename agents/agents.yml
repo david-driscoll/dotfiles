@@ -1,0 +1,28 @@
+# Native plugin manifest for the "agents" project (machine-specific).
+#
+# See ai/agents.yml for the general-purpose manifest and format notes.
+# Marketplaces referenced below live in marketplaces.yml (repo root).
+name: agents
+description: Machine-specific plugins
+
+plugins:
+  # cskiro/claudex/plugins/otel-monitoring-setup#marketplace@6.2.0
+  - name: otel-monitoring-setup
+    marketplace: claudex
+  - name: obsidian
+    marketplace: obsidian-skills
+  - name: c-level-skills
+    marketplace: alirezarezvani
+  - name: c-level-agents
+    marketplace: alirezarezvani
+  - name: engineering-advanced-skills
+    marketplace: alirezarezvani
+  - name: engineering-skills
+    marketplace: alirezarezvani
+  - name: pm-skills
+    marketplace: alirezarezvani
+  - name: self-improving-agent
+    marketplace: alirezarezvani
+  # more
+  # - name: cc-best
+  #   marketplace: cc-best
