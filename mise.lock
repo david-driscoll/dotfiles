@@ -79,7 +79,7 @@ url = "https://github.com/microsoft/apm/releases/download/v0.23.1/apm-windows-x8
 url_api = "https://api.github.com/repos/microsoft/apm/releases/assets/462118378"
 
 [[tools."pipx:git+https://github.com/github/spec-kit.git"]]
-version = "v0.12.3"
+version = "v0.12.4"
 backend = "pipx:git+https://github.com/github/spec-kit.git"
 
 [[tools.uv]]
