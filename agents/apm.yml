@@ -6,6 +6,9 @@ targets:
   - copilot
   - claude
 dependencies:
+  # cskiro/claudex/plugins/otel-monitoring-setup moved to agents.yml - installed
+  # natively via setup/install-agent-plugins.ps1 instead of being flattened by APM.
+  # See microsoft/apm#739 and #1120.
   apm:
   - ComposioHQ/awesome-claude-skills/video-downloader#337b19e0ed1260790cdfa9c5229e74db2dc6c811
   - ComposioHQ/awesome-claude-skills/content-research-writer#337b19e0ed1260790cdfa9c5229e74db2dc6c811
@@ -20,7 +23,6 @@ dependencies:
   - michalparkola/tapestry-skills/unblock-action#80e1dc56df74d1cb849ad649c7ead9756e7929bb
   - michalparkola/tapestry-skills/youtube-transcript#80e1dc56df74d1cb849ad649c7ead9756e7929bb
   - jeffallan/claude-skills/skills/kubernetes-specialist#v0.4.13
-  - cskiro/claudex/plugins/otel-monitoring-setup#marketplace@6.2.0
   - aj-geddes/useful-ai-prompts#3f5182cfd739fc113f4af5244a1cf342ad7f7911
   # - affaan-m/everything-claude-code#v1.10.0
   - fluxcd/agent-skills#v0.0.3
