@@ -11,18 +11,20 @@ plugins:
     marketplace: claudex
   - name: obsidian
     marketplace: obsidian-skills
-  - name: c-level-skills
-    marketplace: alirezarezvani
-  - name: c-level-agents
-    marketplace: alirezarezvani
-  - name: engineering-advanced-skills
-    marketplace: alirezarezvani
-  - name: engineering-skills
-    marketplace: alirezarezvani
-  - name: pm-skills
-    marketplace: alirezarezvani
-  - name: self-improving-agent
-    marketplace: alirezarezvani
+  - name: gitops-skills
+    marketplace: fluxcd
+  # - name: c-level-skills
+  #   marketplace: alirezarezvani
+  # - name: c-level-agents
+  #   marketplace: alirezarezvani
+  # - name: engineering-advanced-skills
+  #   marketplace: alirezarezvani
+  # - name: engineering-skills
+  #   marketplace: alirezarezvani
+  # - name: pm-skills
+  #   marketplace: alirezarezvani
+  # - name: self-improving-agent
+  #   marketplace: alirezarezvani
   # more
   # - name: cc-best
   #   marketplace: cc-best

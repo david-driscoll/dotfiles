@@ -20,7 +20,9 @@
     "mise": {
       "type": "stdio",
       "command": "mise",
-      "env": {},
+      "env": {
+        "MISE_EXPERIMENTAL": "1"
+      },
       "args": [
         "mcp"
       ]

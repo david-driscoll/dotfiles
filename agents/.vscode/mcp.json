@@ -1,24 +1,5 @@
 {
   "servers": {
-    "mise": {
-      "type": "stdio",
-      "command": "mise",
-      "args": [
-        "mcp"
-      ],
-      "env": {
-        "MISE_EXPERIMENTAL": "1"
-      }
-    },
-    "microsoft/playwright-mcp": {
-      "type": "stdio",
-      "command": "npx",
-      "args": [
-        "@playwright/mcp@latest"
-      ],
-      "gallery": "https://api.mcp.github.com",
-      "version": "0.0.1-seed"
-    },
     "kubernetes": {
       "type": "stdio",
       "command": "npx",
@@ -35,6 +16,16 @@
         "@pulumi/mcp-server",
         "stdio"
       ]
+    },
+    "mise": {
+      "type": "stdio",
+      "command": "mise",
+      "args": [
+        "mcp"
+      ],
+      "env": {
+        "MISE_EXPERIMENTAL": "1"
+      }
     }
   },
   "inputs": []

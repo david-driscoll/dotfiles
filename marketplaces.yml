@@ -22,17 +22,19 @@ marketplaces:
     targets: [claude]
   - name: awesome-copilot
     repo: github/awesome-copilot
-  - name: microsoft-agent-skills
-    repo: MicrosoftDocs/agent-skills
+    targets: [copilot]
+  - name: azure-skills
+    repo: microsoft/azure-skills
   - repo: DuendeSoftware/duende-skills
     name: duende-skills
   - repo: sickn33/antigravity-awesome-skills
     name: antigravity-awesome-skills
   - repo: jeffallan/claude-skills
-    name: jeffallan-claude-skills
+    name: fullstack-dev-skills
   - name: dotnet-modernize
     repo: dotnet/modernize-dotnet
-  - name: dotnet-skills
+    targets: [copilot]
+  - name: dotnet-agent-skills
     repo: dotnet/skills
   - name: cc-skills
     repo: terrylica/cc-skills
@@ -65,3 +67,5 @@ marketplaces:
     name: cc-best
   - repo: Piebald-AI/claude-code-lsps
     name: claude-code-lsps
+  - repo: fluxcd/agent-skills
+    name: fluxcd
