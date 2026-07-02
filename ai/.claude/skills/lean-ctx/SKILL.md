@@ -1,11 +1,11 @@
 ---
 name: lean-ctx
-description: Context Runtime for AI Agents — 67 MCP tools, 10 read modes, 60+ shell patterns, tree-sitter AST for 18 languages. Compresses LLM context by up to 99%. Use when reading files, running shell commands, searching code, or exploring directories. Auto-installs if not present.
+description: Context Engineering for AI Agents — 81 MCP tools, 10 read modes, 95+ shell patterns, tree-sitter AST for 26 languages. Compresses LLM context by up to 99%. Use when reading files, running shell commands, searching code, or exploring directories. Auto-installs if not present.
 ---
 
-# LeanCTX — Context Runtime for AI Agents
+# LeanCTX — Context Engineering for AI Agents
 
-LeanCTX optimizes LLM context through 67 MCP tools, 60+ shell compression patterns, and tree-sitter AST parsing for 18 languages. It provides adaptive file reading, cross-session memory (CCP), task-conditioned relevance scoring, and a feedback loop for learning optimal compression.
+LeanCTX optimizes LLM context through 81 MCP tools, 95+ shell compression patterns, and tree-sitter AST parsing for 26 languages. It provides adaptive file reading, cross-session memory (CCP), task-conditioned relevance scoring, and a feedback loop for learning optimal compression.
 
 ## Setup (run first)
 
@@ -33,27 +33,35 @@ lean-ctx supports two integration styles (auto-detected per agent):
 
 ## When to use lean-ctx
 
-Always prefer `lean-ctx -c <command>` over running commands directly when:
+Prefer the current shell's configured compression over nested wrappers. In agent
+shells, run commands normally unless the user explicitly asks for
+`lean-ctx -c <command>` or task setup/docs explicitly say the shell is not
+wrapped. Do not inspect env vars just to decide; users may forbid env access.
+
+Use `lean-ctx -c <command>` over running commands directly only when:
 - The command produces verbose output (build logs, git diffs, dependency trees, test results)
 - You are reading files and only need the structure or API surface
 - You want to check token savings for the current session
 
-## Shell commands (use instead of raw exec)
+## Shell commands
 
 ```bash
-lean-ctx -c git status          # Compressed git output
-lean-ctx -c git diff            # Only meaningful diff lines
-lean-ctx -c git log --oneline -10
-lean-ctx -c npm install         # Strips progress bars, noise
-lean-ctx -c cargo build
-lean-ctx -c cargo test
-lean-ctx -c docker ps
-lean-ctx -c kubectl get pods
-lean-ctx -c aws ec2 describe-instances
-lean-ctx -c helm list
-lean-ctx -c prisma migrate dev
-lean-ctx -c curl -s <url>       # JSON schema extraction
-lean-ctx -c ls -la <dir>        # Grouped directory listing
+git status                      # Compressed by configured agent shell/wrapper
+git diff                        # Meaningful diff lines when configured
+git log --oneline -10
+npm install                     # Strips progress bars/noise when configured
+cargo build
+cargo test
+docker ps
+kubectl get pods
+aws ec2 describe-instances
+helm list
+prisma migrate dev
+curl -s <url>                   # JSON schema extraction
+ls -la <dir>                    # Grouped directory listing
+
+# Explicit user request / documented unwrapped shell:
+lean-ctx -c "git status"
 ```
 
 Supported: git, npm, pnpm, yarn, bun, deno, cargo, docker, kubectl, helm, gh, pip, ruff, go, eslint, prettier, tsc, aws, psql, mysql, prisma, swift, zig, cmake, ansible, composer, mix, bazel, systemd, terraform, make, maven, dotnet, flutter, poetry, rubocop, playwright, curl, wget, and more.
@@ -70,7 +78,7 @@ lean-ctx read <file> -m diff            # Only changed lines since last read
 ```
 
 Use `map` mode when you need to understand what a file does without reading every line.
-Use `signatures` mode when you need the API surface of a module (tree-sitter for 18 languages).
+Use `signatures` mode when you need the API surface of a module (tree-sitter for 26 languages).
 Use `full` mode only when you will edit the file.
 
 ## AI Tool Integration
@@ -79,6 +87,7 @@ Use `full` mode only when you will edit the file.
 lean-ctx init --global                # Install shell aliases
 lean-ctx init --agent cursor          # Hybrid (MCP reads/search + shell hooks)
 lean-ctx init --agent claude          # Hybrid (Claude Code)
+lean-ctx init --agent codebuddy       # Hybrid (CodeBuddy)
 lean-ctx init --agent codex           # Hybrid (Codex CLI)
 lean-ctx init --agent opencode        # Hybrid (OpenCode)
 
@@ -100,6 +109,7 @@ lean-ctx knowledge search "query"
 lean-ctx knowledge export [--format json|jsonl|simple] [--output <path>]
 lean-ctx knowledge import <path> [--merge replace|append|skip-existing] [--dry-run]
 lean-ctx knowledge remove --category <c> --key <k>
+lean-ctx knowledge consolidate [--all]
 
 lean-ctx session task "what you're doing"
 lean-ctx session finding "what you found"
@@ -124,6 +134,7 @@ If MCP is enabled for your IDE, the same capabilities are also available as MCP 
 ```bash
 lean-ctx sessions list          # List all CCP sessions
 lean-ctx sessions show          # Show latest session state
+lean-ctx sessions delete <id>   # Delete one saved session
 lean-ctx wrapped                # Weekly savings report card
 lean-ctx wrapped --month        # Monthly savings report card
 lean-ctx benchmark run          # Real project benchmark (terminal output)

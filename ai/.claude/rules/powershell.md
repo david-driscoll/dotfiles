@@ -1,6 +1,7 @@
 ---
 paths:
-  - "**/*.ps1,**/*.psm1"
+  - "**/*.ps1"
+  - "**/*.psm1"
 ---
 
 # PowerShell Cmdlet Development Guidelines
