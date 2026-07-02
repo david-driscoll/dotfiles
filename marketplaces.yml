@@ -1,0 +1,67 @@
+# Single shared registry of marketplaces (name -> source repo) used by every
+# agents.yml plugin manifest in this repo (ai/agents.yml, agents/agents.yml, ...).
+#
+# Splitting marketplaces out of the individual agents.yml files means:
+#   - each agents.yml only needs to list `plugins:` (name + which marketplace)
+#   - a marketplace's repo/ref only needs updating in ONE place
+#   - install-agent-plugins.ps1 always reads this file (next to the script) for
+#     marketplace sources, regardless of which agents.yml(s) you're installing from
+#
+# See install-agent-plugins.ps1 for the installer and export-agents-yml.ps1 for
+# the companion script that can regenerate/update this file from live tool state.
+name: marketplaces
+description: Shared marketplace registry for all agents.yml plugin manifests
+
+marketplaces:
+  # These two fail Copilot CLI's stricter marketplace.json validation (Zod schema
+  # checks: plugin.source format, description length <=1024, kebab-case names) -
+  # upstream issues in the marketplace repos themselves, not fixable locally.
+  # Restricted to claude via targets until upstream fixes land.
+  - name: claude-plugins-official
+    repo: anthropics/claude-plugins-official
+    targets: [claude]
+  - name: awesome-copilot
+    repo: github/awesome-copilot
+  - name: microsoft-agent-skills
+    repo: MicrosoftDocs/agent-skills
+  - repo: DuendeSoftware/duende-skills
+    name: duende-skills
+  - repo: sickn33/antigravity-awesome-skills
+    name: antigravity-awesome-skills
+  - repo: jeffallan/claude-skills
+    name: jeffallan-claude-skills
+  - name: dotnet-modernize
+    repo: dotnet/modernize-dotnet
+  - name: dotnet-skills
+    repo: dotnet/skills
+  - name: cc-skills
+    repo: terrylica/cc-skills
+  - name: claudex
+    repo: cskiro/claudex
+  - name: superpowers-marketplace
+    repo: obra/superpowers-marketplace
+  - repo: affaan-m/ECC
+    name: ecc
+  - repo: forrestchang/andrej-karpathy-skills
+    name: karpathy-skills
+  - repo: nexu-io/open-design
+    name: open-design
+  - repo: addyosmani/agent-skills
+    name: addy-agent-skills
+  - repo: upstash/context7
+    name: context7-marketplace
+  - repo: Egonex-AI/Understand-Anything
+    name: understand-anything
+  - repo: kepano/obsidian-skills
+    name: obsidian-skills
+  # - repo: Yeachan-Heo/oh-my-claudecode
+  #   name: oh-my-claudecode
+  - repo: VoltAgent/awesome-claude-code-subagents
+    name: awesome-claude-code-subagents
+  - repo: alirezarezvani/claude-skills
+    name: alirezarezvani
+    targets: [claude]
+  - repo: xiaobei930/cc-best
+    name: cc-best
+  - repo: Piebald-AI/claude-code-lsps
+    name: claude-code-lsps
