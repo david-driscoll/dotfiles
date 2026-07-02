@@ -1,21 +1,28 @@
 {
   "sessionStart": [
     {
-      "command": "C:\\Users\\ddriscoll\\dotfiles\\ai\\apm_modules\\obra\\superpowers\\.apm\\hooks\\hooks\\run-hook.cmd session-start",
-      "_apm_source": "superpowers"
-    },
-    {
-      "command": "C:\\Users\\ddriscoll\\dotfiles\\ai\\apm_modules\\obra\\superpowers\\hooks\\hooks\\run-hook.cmd session-start",
+      "command": "./hooks/run-hook.cmd session-start",
       "_apm_source": "superpowers"
     }
   ],
   "SessionStart": [
     {
+      "matcher": "startup|resume|clear",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "\".claude/hooks/superpowers/hooks/run-hook.cmd\" session-start-codex",
+          "async": false
+        }
+      ],
+      "_apm_source": "superpowers"
+    },
+    {
       "matcher": "startup|clear|compact",
       "hooks": [
         {
           "type": "command",
-          "command": "\"C:\\Users\\ddriscoll\\dotfiles\\ai\\.claude\\hooks\\superpowers\\hooks\\run-hook.cmd\" session-start",
+          "command": "\".claude/hooks/superpowers/hooks/run-hook.cmd\" session-start",
           "async": false
         }
       ],
