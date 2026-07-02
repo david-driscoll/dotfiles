@@ -6,9 +6,12 @@
 		{
 			"path": "../.apm"
 		},
-		{
-			"path": "../.claude"
-		}}
+		// {
+		// 	"path": "../.claude"
+		// },
+		// {
+		// 	"path": "../.copilot"
+		// }
 	],
 	"settings": {
 		"workbench.colorCustomizations": {

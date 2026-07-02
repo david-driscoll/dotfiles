@@ -1,7 +1,9 @@
 ---
 paths:
-  - "**"
+  - "memory-bank/**"
 ---
+
+> **Opt-in pattern.** This instruction creates and maintains a `memory-bank/` folder in the workspace root. Enable it only when you want persistent project documentation across AI sessions; otherwise the auxiliary files will accumulate in repos that don't need them.
 
 Coding standards, domain knowledge, and preferences that AI should follow.
 

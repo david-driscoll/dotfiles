@@ -22,12 +22,12 @@ plugins:
     marketplace: karpathy-skills
   - name: agent-skills
     marketplace: addy-agent-skills
-  - name: azure-agent-skills
-    marketplace: microsoft-agent-skills
+  - name: azure
+    marketplace: azure-skills
   - name: duende-skills
     marketplace: duende-skills
   - name: fullstack-dev-skills
-    marketplace: jeffallan-claude-skills
+    marketplace: fullstack-dev-skills
   # needs api key in profile
   # sops?
   - name: context7
@@ -36,43 +36,43 @@ plugins:
     marketplace: understand-anything
 
   # github/awesome-copilot/plugins/*
-  - name: awesome-copilot
-    marketplace: awesome-copilot
-  - name: context-engineering
-    marketplace: awesome-copilot
-  - name: csharp-dotnet-development
-    marketplace: awesome-copilot
-  - name: project-planning
-    marketplace: awesome-copilot
-  - name: software-engineering-team
-    marketplace: awesome-copilot
-  - name: technical-spike
-    marketplace: awesome-copilot
+  # - name: awesome-copilot
+  #   marketplace: awesome-copilot
+  # - name: context-engineering
+  #   marketplace: awesome-copilot
+  # - name: csharp-dotnet-development
+  #   marketplace: awesome-copilot
+  # - name: project-planning
+  #   marketplace: awesome-copilot
+  # - name: software-engineering-team
+  #   marketplace: awesome-copilot
+  # - name: technical-spike
+  #   marketplace: awesome-copilot
   # dotnet/modernize-dotnet/plugins/*
-  - name: modernize-dotnet
-    marketplace: dotnet-modernize
+  # - name: modernize-dotnet
+  #   marketplace: dotnet-modernize
 
   # dotnet/skills/plugins/*
   - name: dotnet
-    marketplace: dotnet-skills
+    marketplace: dotnet-agent-skills
   - name: dotnet-data
-    marketplace: dotnet-skills
+    marketplace: dotnet-agent-skills
   - name: dotnet-diag
-    marketplace: dotnet-skills
+    marketplace: dotnet-agent-skills
   - name: dotnet-msbuild
-    marketplace: dotnet-skills
+    marketplace: dotnet-agent-skills
   - name: dotnet-nuget
-    marketplace: dotnet-skills
+    marketplace: dotnet-agent-skills
   - name: dotnet-upgrade
-    marketplace: dotnet-skills
+    marketplace: dotnet-agent-skills
   - name: dotnet-ai
-    marketplace: dotnet-skills
+    marketplace: dotnet-agent-skills
   - name: dotnet-template-engine
-    marketplace: dotnet-skills
+    marketplace: dotnet-agent-skills
   - name: dotnet-test
-    marketplace: dotnet-skills
-  - name: dotnet-aspnet
-    marketplace: dotnet-skills
+    marketplace: dotnet-agent-skills
+  - name: dotnet-aspnetcore
+    marketplace: dotnet-agent-skills
 
   # terrylica/cc-skills/plugins/mise (note: itp's nested skills stay in apm.yml
   # since they are referenced as individual skills, not the whole itp plugin)
