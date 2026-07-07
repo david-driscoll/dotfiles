@@ -1,30 +1,19 @@
 {
   "servers": {
-    "io.github.upstash/context7": {
-      "type": "stdio",
-      "command": "npx",
-      "args": [
-        "-y",
-        "@upstash/context7-mcp"
-      ],
-      "env": {
-        "CONTEXT7_API_KEY": "${input:context7-api-key}"
-      }
-    },
-    "io.github.github/github-mcp-server": {
-      "type": "stdio",
-      "command": "docker",
-      "args": [
-        "run",
-        "-i",
-        "--rm",
-        "ghcr.io/github/github-mcp-server:1.0.4"
-      ]
-    },
     "microsoftdocs/mcp": {
       "type": "http",
       "url": "https://learn.microsoft.com/api/mcp",
       "headers": {}
+    },
+    "github": {
+      "type": "stdio",
+      "command": "gh",
+      "args": [
+        "mcp"
+      ],
+      "env": {
+        "GITHUB_DYNAMIC_TOOLSETS": "1"
+      }
     },
     "mermaid": {
       "type": "http",
@@ -56,36 +45,7 @@
         "-y",
         "duckduckgo-mcp-server"
       ]
-    },
-    "github": {
-      "type": "stdio",
-      "command": "gh",
-      "args": [
-        "mcp"
-      ],
-      "env": {
-        "GITHUB_DYNAMIC_TOOLSETS": "1"
-      }
-    },
-    "binlog": {
-      "type": "stdio",
-      "command": "dotnet",
-      "args": [
-        "dnx",
-        "Microsoft.AITools.BinlogMcp",
-        "--yes",
-        "--prerelease",
-        "--add-source",
-        "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-tools/nuget/v3/index.json"
-      ]
     }
   },
-  "inputs": [
-    {
-      "type": "promptString",
-      "id": "context7-api-key",
-      "description": "API key for authentication",
-      "password": true
-    }
-  ]
+  "inputs": []
 }

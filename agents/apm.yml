@@ -6,36 +6,12 @@ targets:
   - copilot
   - claude
 dependencies:
+  # cskiro/claudex/plugins/otel-monitoring-setup moved to agents.yml - installed
+  # natively via setup/install-agent-plugins.ps1 instead of being flattened by APM.
+  # See microsoft/apm#739 and #1120.
   apm:
-  # - emaynard/claude-family-history-research-skill#v1.0.6
-  # - michalparkola/tapestry-skills/article-extractor#80e1dc56df74d1cb849ad649c7ead9756e7929bb
-  # - michalparkola/tapestry-skills/learn-this#80e1dc56df74d1cb849ad649c7ead9756e7929bb
-  # - michalparkola/tapestry-skills/scrum-sage#80e1dc56df74d1cb849ad649c7ead9756e7929bb
-  # - michalparkola/tapestry-skills/session-log#80e1dc56df74d1cb849ad649c7ead9756e7929bb
-  # - michalparkola/tapestry-skills/ship-learn-next#80e1dc56df74d1cb849ad649c7ead9756e7929bb
-  # - michalparkola/tapestry-skills/unblock-action#80e1dc56df74d1cb849ad649c7ead9756e7929bb
-  # - michalparkola/tapestry-skills/youtube-transcript#80e1dc56df74d1cb849ad649c7ead9756e7929bb
-  - jeffallan/claude-skills/skills/kubernetes-specialist#v0.4.13
-  - cskiro/claudex/plugins/otel-monitoring-setup#marketplace@6.2.0
-  - aj-geddes/useful-ai-prompts#3f5182cfd739fc113f4af5244a1cf342ad7f7911
-  # - affaan-m/everything-claude-code#v1.10.0
-  - fluxcd/agent-skills#v0.0.3
+  - emaynard/claude-family-history-research-skill#v1.0.6
   mcp:
-  - name: kubernetes
-    registry: false
-    transport: stdio
-    command: npx
-    args:
-    - -y
-    - kubernetes-mcp-server
-  - name: pulumi
-    registry: false
-    transport: stdio
-    command: npx
-    args:
-    - -y
-    - '@pulumi/mcp-server'
-    - stdio
   - name: mise
     registry: false
     transport: stdio
