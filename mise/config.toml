@@ -1,5 +1,4 @@
 [tools]
 fzf = "latest"
 "uv" = "latest"
-"pipx:git+https://github.com/github/spec-kit.git" = "latest"
 "npm:@bradygaster/squad-cli" = "latest"
