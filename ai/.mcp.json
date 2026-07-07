@@ -1,25 +1,18 @@
 {
   "mcpServers": {
-    "context7": {
-      "type": "stdio",
-      "command": "npx",
-      "args": [
-        "-y",
-        "@upstash/context7-mcp"
-      ],
-      "env": {
-        "CONTEXT7_API_KEY": "iteration"
-      }
-    },
-    "github-mcp-server": {
-      "type": "http",
-      "url": "https://api.githubcopilot.com/mcp/",
-      "id": "36469f602f054de89d21098ba0586dc3",
-      "headers": {}
-    },
     "mcp": {
       "type": "http",
       "url": "https://learn.microsoft.com/api/mcp"
+    },
+    "github": {
+      "type": "stdio",
+      "command": "gh",
+      "env": {
+        "GITHUB_DYNAMIC_TOOLSETS": "1"
+      },
+      "args": [
+        "mcp"
+      ]
     },
     "mermaid": {
       "type": "http",
@@ -49,28 +42,6 @@
       "args": [
         "-y",
         "duckduckgo-mcp-server"
-      ]
-    },
-    "github": {
-      "type": "stdio",
-      "command": "gh",
-      "env": {
-        "GITHUB_DYNAMIC_TOOLSETS": "1"
-      },
-      "args": [
-        "mcp"
-      ]
-    },
-    "binlog": {
-      "type": "stdio",
-      "command": "dotnet",
-      "args": [
-        "dnx",
-        "Microsoft.AITools.BinlogMcp",
-        "--yes",
-        "--prerelease",
-        "--add-source",
-        "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-tools/nuget/v3/index.json"
       ]
     }
   }

@@ -6,54 +6,27 @@ targets:
 - copilot
 - claude
 dependencies:
+  # Plugin-shaped packages (github/awesome-copilot/plugins/*, dotnet/*/plugins/*,
+  # terrylica/cc-skills/plugins/mise) moved to agents.yml - installed natively via
+  # setup/install-agent-plugins.ps1 instead of being flattened by APM. See
+  # microsoft/apm#739 and #1120.
   apm:
-  - github/awesome-copilot/plugins/awesome-copilot
-  - github/awesome-copilot/plugins/context-engineering
-  - github/awesome-copilot/plugins/csharp-dotnet-development
-  - github/awesome-copilot/plugins/project-planning
-  - github/awesome-copilot/plugins/software-engineering-team
-  - github/awesome-copilot/plugins/technical-spike
   - github/awesome-copilot/skills/acquire-codebase-knowledge
+  - github/awesome-copilot/skills/lsp-setup
   - github/awesome-copilot/instructions/agents.instructions.md
   - github/awesome-copilot/instructions/context-engineering.instructions.md
   - github/awesome-copilot/instructions/instructions.instructions.md
   - github/awesome-copilot/instructions/memory-bank.instructions.md
   - github/awesome-copilot/instructions/powershell.instructions.md
   - github/awesome-copilot/instructions/prompt.instructions.md
-  - dotnet/modernize-dotnet/plugins/modernize-dotnet
-  - dotnet/skills/plugins/dotnet
-  - dotnet/skills/plugins/dotnet-data
-  - dotnet/skills/plugins/dotnet-diag
-  - dotnet/skills/plugins/dotnet-msbuild
-  - dotnet/skills/plugins/dotnet-nuget
-  - dotnet/skills/plugins/dotnet-upgrade
-  - dotnet/skills/plugins/dotnet-ai
-  - dotnet/skills/plugins/dotnet-template-engine
-  - dotnet/skills/plugins/dotnet-test
-  - dotnet/skills/plugins/dotnet-aspnet
   - ComposioHQ/awesome-claude-skills/developer-growth-analysis
-  - anthropics/skills
-  - Jeffallan/claude-skills
   - testdino-hq/playwright-skill
-  - obra/superpowers
-  - sanjay3290/ai-skills/skills/azure-devops
-  - sanjay3290/ai-skills/skills/atlassian
-  - sanjay3290/ai-skills/skills/postgres
-  - sanjay3290/ai-skills/skills/mssql
-  - sanjay3290/ai-skills/skills/mysql
-  - DuendeSoftware/duende-skills
-  - MicrosoftDocs/agent-skills
   - yvgude/lean-ctx
-  - diegosouzapw/awesome-omni-skills/skills/mise-configurator-v2
   - majiayu000/claude-skill-registry/skills/data/hk-setup
-  - sickn33/antigravity-awesome-skills/plugins/antigravity-awesome-skills-claude/skills/mise-configurator
+  - sickn33/antigravity-awesome-skills/skills/mise-configurator
   - terrylica/cc-skills/plugins/itp/skills/mise-configuration
   - terrylica/cc-skills/plugins/itp/skills/mise-tasks
-  - terrylica/cc-skills/plugins/mise
-  local:
-  - .apm/instructions/neo4j-knowledgebase.instructions.md
   mcp:
-  - io.github.upstash/context7
   - name: github
     registry: false
     transport: stdio

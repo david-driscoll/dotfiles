@@ -2,3 +2,4 @@
 fzf = "latest"
 "uv" = "latest"
 "npm:@bradygaster/squad-cli" = "latest"
+"npm:@github/copilot" = "latest"
