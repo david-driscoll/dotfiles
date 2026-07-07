@@ -26,41 +26,49 @@ dependencies:
   - sickn33/antigravity-awesome-skills/skills/mise-configurator
   - terrylica/cc-skills/plugins/itp/skills/mise-configuration
   - terrylica/cc-skills/plugins/itp/skills/mise-tasks
-  mcp:
-  - name: github
-    registry: false
-    transport: stdio
-    command: gh
-    args:
-    - mcp
-    env:
-      GITHUB_DYNAMIC_TOOLSETS: '1'
-  - microsoftdocs/mcp
-  - name: mermaid
-    registry: false
-    transport: http
-    url: https://mcp.mermaidchart.com/mcp/
-  - name: nuget
-    registry: false
-    transport: stdio
-    command: dnx
-    args:
-    - NuGet.Mcp.Server
-    - --source
-    - https://api.nuget.org/v3/index.json
-    - --yes
-  - name: agentic-workflows
-    registry: false
-    transport: stdio
-    command: gh
-    args:
-    - aw
-    - mcp-server
-  - name: duckduckgo
-    registry: false
-    transport: stdio
-    command: npx
-    args:
-    - -y
-    - duckduckgo-mcp-server
+  mcp: []
+  # - name: github
+  #   registry: false
+  #   transport: stdio
+  #   command: gh
+  #   args:
+  #   - mcp
+  #   env:
+  #     GITHUB_DYNAMIC_TOOLSETS: '1'
+  # - microsoftdocs/mcp
+  # - name: mermaid
+  #   registry: false
+  #   transport: http
+  #   url: https://mcp.mermaidchart.com/mcp/
+  # - name: nuget
+  #   registry: false
+  #   transport: stdio
+  #   command: dnx
+  #   args:
+  #   - NuGet.Mcp.Server
+  #   - --source
+  #   - https://api.nuget.org/v3/index.json
+  #   - --yes
+  # - name: agentic-workflows
+  #   registry: false
+  #   transport: stdio
+  #   command: gh
+  #   args:
+  #   - aw
+  #   - mcp-server
+  # - name: duckduckgo
+  #   registry: false
+  #   transport: stdio
+  #   command: npx
+  #   args:
+  #   - -y
+  #   - duckduckgo-mcp-server
+  # - name: mise
+  #   registry: false
+  #   transport: stdio
+  #   command: mise
+  #   env:
+  #     MISE_EXPERIMENTAL: '1'
+  #   args:
+  #   - mcp
 scripts: {}

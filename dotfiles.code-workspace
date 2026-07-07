@@ -6,6 +6,9 @@
 		{
 			"path": "../.apm"
 		},
+		{
+			"path": "../.config"
+		},
 		// {
 		// 	"path": "../.claude"
 		// },

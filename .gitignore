@@ -9,3 +9,4 @@ apm_modules/
 # Scratch snapshots produced by export-agents-yml.ps1 - not meant to be committed
 agents.generated.yml
 marketplaces.generated.yml
+mcp.json.backup.*

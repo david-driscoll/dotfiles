@@ -3,3 +3,20 @@ fzf = "latest"
 "uv" = "latest"
 "npm:@bradygaster/squad-cli" = "latest"
 "npm:@github/copilot" = "latest"
+"github:vlazic/mcp-server-manager" = "latest"
+jq = "latest"
+yq = "latest"
+# "github:shuymn/gh-mcp" = "latest"
+
+[hooks]
+postinstall = { task = "gh-extensions" }
+
+[tasks.mcpm]
+run = "mcp-server-manager"
+dir = "{{config_root}}/mcpm"
+
+[tasks.gh-mcp]
+run = "gh extensions install shuymn/gh-mcp"
+
+[tasks.gh-extensions]
+run.tasks = ["gh-mcp"]

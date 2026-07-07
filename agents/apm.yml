@@ -11,13 +11,13 @@ dependencies:
   # See microsoft/apm#739 and #1120.
   apm:
   - emaynard/claude-family-history-research-skill#v1.0.6
-  mcp:
-  - name: mise
-    registry: false
-    transport: stdio
-    command: mise
-    env:
-      MISE_EXPERIMENTAL: '1'
-    args:
-    - mcp
+  mcp: []
+  # - name: mise
+  #   registry: false
+  #   transport: stdio
+  #   command: mise
+  #   env:
+  #     MISE_EXPERIMENTAL: '1'
+  #   args:
+  #   - mcp
 scripts: {}
