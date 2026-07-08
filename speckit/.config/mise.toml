@@ -1,7 +1,7 @@
 [tools]
 "github:microsoft/apm" = { version = "0.24.0", bin = "apm" }
 "github:eljulians/skillfile" = { version = "v1.7.1", bin = "skillfile" }
-"github:yvgude/lean-ctx" = { version = "v3.9.2", bin = "lean-ctx" }
+"github:yvgude/lean-ctx" = { version = "v3.9.3", bin = "lean-ctx" }
 "uv" = "0.11.28"
 "pipx:git+https://github.com/github/spec-kit.git" = "v0.12.7"
 "python" = "3.14.6"
