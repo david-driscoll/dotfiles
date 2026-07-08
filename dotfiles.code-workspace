@@ -12,9 +12,12 @@
 		// {
 		// 	"path": "../.claude"
 		// },
-		// {
-		// 	"path": "../.copilot"
-		// }
+		{
+			"path": "../.copilot"
+		},
+		{
+			"path": "../.agents"
+		}
 	],
 	"settings": {
 		"workbench.colorCustomizations": {
