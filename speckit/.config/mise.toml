@@ -1,6 +1,6 @@
 [tools]
 "github:microsoft/apm" = { version = "0.25.0", bin = "apm" }
-"github:eljulians/skillfile" = { version = "v1.7.3", bin = "skillfile" }
+"github:eljulians/skillfile" = { version = "v1.7.4", bin = "skillfile" }
 "github:yvgude/lean-ctx" = { version = "v3.9.8", bin = "lean-ctx" }
 "uv" = "0.11.28"
 "pipx:git+https://github.com/github/spec-kit.git" = "v0.12.11"
