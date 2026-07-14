@@ -26,7 +26,21 @@ dependencies:
   - sickn33/antigravity-awesome-skills/skills/mise-configurator
   - terrylica/cc-skills/plugins/itp/skills/mise-configuration
   - terrylica/cc-skills/plugins/itp/skills/mise-tasks
-  mcp: []
+  mcp:
+    - name: mise
+      args:
+        - mcp
+      command: mise
+      env:
+        MISE_EXPERIMENTAL: "1"
+      registry: false
+      transport: stdio
+    - name: aspire
+      args:
+        - agent
+        - mcp
+      command: aspire
+      type: stdio
   # - name: github
   #   registry: false
   #   transport: stdio

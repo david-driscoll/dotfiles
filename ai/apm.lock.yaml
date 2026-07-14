@@ -1,12 +1,12 @@
 lockfile_version: '1'
-generated_at: '2026-07-02T21:04:27.663920+00:00'
-apm_version: 0.23.1
+generated_at: '2026-07-08T14:41:38.444207+00:00'
+apm_version: 0.24.0
 dependencies:
 - repo_url: ComposioHQ/awesome-claude-skills
-  name: awesome-claude-skills
+  name: developer-growth-analysis
   host: github.com
   resolved_commit: 92568c1edaff1bde5371154f036d959346c145a8
-  version: unknown
+  version: 1.0.0
   virtual_path: developer-growth-analysis
   is_virtual: true
   package_type: claude_skill
@@ -22,7 +22,7 @@ dependencies:
 - repo_url: github/awesome-copilot
   name: awesome-copilot-agents
   host: github.com
-  resolved_commit: 8c68eba69048c2f87389ab9fa99d28f694a11846
+  resolved_commit: 49d020f31ab5772ff3034270ebf8ac0222fb40c2
   version: 1.0.0
   virtual_path: instructions/agents.instructions.md
   is_virtual: true
@@ -33,87 +33,82 @@ dependencies:
   deployed_file_hashes:
     .claude/rules/agents.md: sha256:ad2a9b3af38acf22c25865028916ca62ba0d8f8889433fd9b4c51ae4b7b97ffd
     .github/instructions/agents.instructions.md: sha256:05ca77656669d76091460783bf8e82bcd0ec91e9d27f6d2dab570a66e170380d
-  content_hash: sha256:d07c345b3767232098773e612b9e40a4771c4f9c572c24083fa3259e2ba303a6
+  content_hash: sha256:097d9cecd575b13da536332fce5308d8f62e2b5b7a1a1e8f93c433979202ef0c
 - repo_url: github/awesome-copilot
   name: awesome-copilot-context-engineering
   host: github.com
-  resolved_commit: 8c68eba69048c2f87389ab9fa99d28f694a11846
+  resolved_commit: 49d020f31ab5772ff3034270ebf8ac0222fb40c2
   version: 1.0.0
   virtual_path: instructions/context-engineering.instructions.md
   is_virtual: true
-  package_type: apm_package
   deployed_files:
   - .claude/rules/context-engineering.md
   - .github/instructions/context-engineering.instructions.md
   deployed_file_hashes:
     .claude/rules/context-engineering.md: sha256:20db2e9dc06873577473f0a45c6f5c5490d5749dfc1ab02269eba089f9c3d3ea
     .github/instructions/context-engineering.instructions.md: sha256:303780cee09b1707be6b2aa99ad2215514f2f76cbd2da59378194483dc6bf499
-  content_hash: sha256:4586c2567260b5c8a6357755330dd95f81814bebbcb00dab5c002d2d330f5d0e
+  content_hash: sha256:2bcb85569ec273ceb432a9f8b247021da2b5e3deddf1f703d7849c87175c8e79
 - repo_url: github/awesome-copilot
   name: awesome-copilot-instructions
   host: github.com
-  resolved_commit: 8c68eba69048c2f87389ab9fa99d28f694a11846
+  resolved_commit: 49d020f31ab5772ff3034270ebf8ac0222fb40c2
   version: 1.0.0
   virtual_path: instructions/instructions.instructions.md
   is_virtual: true
-  package_type: apm_package
   deployed_files:
   - .claude/rules/instructions.md
   - .github/instructions/instructions.instructions.md
   deployed_file_hashes:
     .claude/rules/instructions.md: sha256:12143206b81f13aef4efb2e26f6a65483211c63407fcafc289775866ee6879cc
     .github/instructions/instructions.instructions.md: sha256:a38e647c44a1b3702cea44569ddb4cb3f3b53a78d08f7f457d14c12e9e65eaba
-  content_hash: sha256:c190999f713a13bc01b918acf454e7546a9dc9fe254e0f9d6705df3ff698c917
+  content_hash: sha256:baa92bcb8cb2bdb992d5827fa92e424b6b92ae00ca9028b77ff2eb1745f45317
 - repo_url: github/awesome-copilot
   name: awesome-copilot-memory-bank
   host: github.com
-  resolved_commit: 8c68eba69048c2f87389ab9fa99d28f694a11846
+  resolved_commit: 49d020f31ab5772ff3034270ebf8ac0222fb40c2
   version: 1.0.0
   virtual_path: instructions/memory-bank.instructions.md
   is_virtual: true
-  package_type: apm_package
   deployed_files:
   - .claude/rules/memory-bank.md
   - .github/instructions/memory-bank.instructions.md
   deployed_file_hashes:
     .claude/rules/memory-bank.md: sha256:ea679a8a861c616d931cc6db55e214b25154cd942edb3f4f2ef0ef30e79d8d47
     .github/instructions/memory-bank.instructions.md: sha256:195355c04136ce42f1bb683c4b22e986b0ed332ce4fd3aa4bb6a77c69cd4a531
-  content_hash: sha256:dcb4f125f134383bdd798df01156562d4e9583a46c83ff535f5c0c3b6d7106f1
+  content_hash: sha256:e0fac2ec293f2932b8612b19acc8715c0b4782b8cc2d21a9abd643afe990ee56
 - repo_url: github/awesome-copilot
   name: awesome-copilot-powershell
   host: github.com
-  resolved_commit: 8c68eba69048c2f87389ab9fa99d28f694a11846
+  resolved_commit: 49d020f31ab5772ff3034270ebf8ac0222fb40c2
   version: 1.0.0
   virtual_path: instructions/powershell.instructions.md
   is_virtual: true
-  package_type: apm_package
   deployed_files:
   - .claude/rules/powershell.md
   - .github/instructions/powershell.instructions.md
   deployed_file_hashes:
     .claude/rules/powershell.md: sha256:e7c0ca03ed91919b46498371102e9823012f514d86f8ca2569cb6ccb2bdb11dd
     .github/instructions/powershell.instructions.md: sha256:a8916a8aa82260b68dcc73bd659226795f6018ee2746da86ed4d27a4d5dfc1ef
-  content_hash: sha256:cd8445fba8fa4bc31c8c8da719fcd2d5f74d0768f5416fc3dd0adfcd10c2ba64
+  content_hash: sha256:5a8dacd0cca2a95d2f505562b27532a4906bbaeae774dabbd49843a653ab80ac
 - repo_url: github/awesome-copilot
   name: awesome-copilot-prompt
   host: github.com
-  resolved_commit: 8c68eba69048c2f87389ab9fa99d28f694a11846
+  resolved_commit: 49d020f31ab5772ff3034270ebf8ac0222fb40c2
   version: 1.0.0
   virtual_path: instructions/prompt.instructions.md
   is_virtual: true
-  package_type: apm_package
   deployed_files:
   - .claude/rules/prompt.md
   - .github/instructions/prompt.instructions.md
   deployed_file_hashes:
     .claude/rules/prompt.md: sha256:56b81c1d3066b139b6d353e18b5d66037fd91c2f86257bb0942c060ab8de0b30
     .github/instructions/prompt.instructions.md: sha256:3ec80d94465a9a6f67ef3973c13956f81b385fa86d599f7c27196c49c3f4f07b
-  content_hash: sha256:a77a5291ab9bb01d5c480dd6140e7de255ef030ffdb7295615f3ce2b6dc8e89e
+  content_hash: sha256:41d3a1666bfe3eb844121d5514fd8f12ec0335410d8f7be07f9f5a7fa4858ccb
 - repo_url: github/awesome-copilot
-  name: awesome-copilot
+  name: acquire-codebase-knowledge
   host: github.com
-  resolved_commit: 8c68eba69048c2f87389ab9fa99d28f694a11846
-  version: unknown
+  resolved_commit: 49d020f31ab5772ff3034270ebf8ac0222fb40c2
+  version: 1.0.0
   virtual_path: skills/acquire-codebase-knowledge
   is_virtual: true
   package_type: claude_skill
@@ -167,10 +162,10 @@ dependencies:
     .claude/skills/acquire-codebase-knowledge/scripts/scan.py: sha256:193d5b9f73a71d6ecc2f39f13f33d96be49d675abe83f5857ddbdc4ae21b7bd9
   content_hash: sha256:94a1da1b609e31d3ac4629f4670784c63675639955965b503d10928035b4f727
 - repo_url: github/awesome-copilot
-  name: awesome-copilot
+  name: lsp-setup
   host: github.com
-  resolved_commit: 8c68eba69048c2f87389ab9fa99d28f694a11846
-  version: unknown
+  resolved_commit: 49d020f31ab5772ff3034270ebf8ac0222fb40c2
+  version: 1.0.0
   virtual_path: skills/lsp-setup
   is_virtual: true
   package_type: claude_skill
@@ -188,10 +183,10 @@ dependencies:
     .claude/skills/lsp-setup/references/lsp-servers.md: sha256:5dc435290338d2c1ddbfa889027145fe6824ffef7de01d7db57f0ac9e9610124
   content_hash: sha256:081a8a321adb82aa4185cbde288fbfb7c89653ca104c700adc664cbea9d6f3a2
 - repo_url: majiayu000/claude-skill-registry
-  name: claude-skill-registry
+  name: hk-setup
   host: github.com
-  resolved_commit: 8271354d5dc55bdf9161be71af42c4a877f14554
-  version: unknown
+  resolved_commit: 1c23975cb6c9567f9d2938bc729fcea677287985
+  version: 1.0.0
   virtual_path: skills/data/hk-setup
   is_virtual: true
   package_type: claude_skill
@@ -209,10 +204,10 @@ dependencies:
     .claude/skills/hk-setup/metadata.json: sha256:cc5a5f4f3509f7eccb85ea4e27aa32f7b0c330d8c3d8bcbcb1d04468ccaa91e2
   content_hash: sha256:0eada7424168bf04bcb05b41b8d55db9abc32c819d4455c9b7a1815d39fad3ff
 - repo_url: sickn33/antigravity-awesome-skills
-  name: antigravity-awesome-skills
+  name: mise-configurator
   host: github.com
-  resolved_commit: 432c3e4319b41e55051b5eafad7ca33eadb534d6
-  version: unknown
+  resolved_commit: a611d9c8fae01ba4eab55b92ef589e5aa2004334
+  version: 1.0.0
   virtual_path: skills/mise-configurator
   is_virtual: true
   package_type: claude_skill
@@ -226,10 +221,10 @@ dependencies:
     .claude/skills/mise-configurator/SKILL.md: sha256:2b1898e86abd3c81bc4f869cdac2ee250d8bf2ad99d399c06a3ca54ae7b1bcc6
   content_hash: sha256:696eeb54b100091124646bebc1e5c4f6c4887167379971aa2b70b2bfb814c947
 - repo_url: terrylica/cc-skills
-  name: cc-skills
+  name: mise-configuration
   host: github.com
-  resolved_commit: 1097db1b8a5248ac239b4d61756d95cb35469c74
-  version: unknown
+  resolved_commit: 65d3da538f56e2967938e3829fa4a21b27b380ba
+  version: 1.0.0
   virtual_path: plugins/itp/skills/mise-configuration
   is_virtual: true
   package_type: claude_skill
@@ -271,10 +266,10 @@ dependencies:
     .claude/skills/mise-configuration/references/task-orchestration.md: sha256:83dcd63c756b7635215c741ec1ddeb62ce477380ac80f6a74686d8dacfce02c3
   content_hash: sha256:0f125b4b212fa4083132aac5ddaab297c719fa672f4d757103456ff4e7ec083d
 - repo_url: terrylica/cc-skills
-  name: cc-skills
+  name: mise-tasks
   host: github.com
-  resolved_commit: 1097db1b8a5248ac239b4d61756d95cb35469c74
-  version: unknown
+  resolved_commit: 65d3da538f56e2967938e3829fa4a21b27b380ba
+  version: 1.0.0
   virtual_path: plugins/itp/skills/mise-tasks
   is_virtual: true
   package_type: claude_skill
@@ -327,7 +322,7 @@ dependencies:
   name: playwright-skill
   host: github.com
   resolved_commit: d3be9ca4d7303e2aee3eba4842963abf573117b0
-  version: unknown
+  version: 1.0.0
   package_type: claude_skill
   deployed_files:
   - .agents/skills/playwright-skill
@@ -649,8 +644,8 @@ dependencies:
 - repo_url: yvgude/lean-ctx
   name: lean-ctx
   host: github.com
-  resolved_commit: 7febb8d05109cfc4bf29140a14d751b08102f04e
-  version: 7febb8d
+  resolved_commit: 4e728c0e2c8cfc3516d4f38241d0dee37e0cb792
+  version: 4e728c0
   package_type: marketplace_plugin
   deployed_files:
   - .agents/skills/lean-ctx
@@ -660,61 +655,11 @@ dependencies:
   - .claude/skills/lean-ctx/SKILL.md
   - .claude/skills/lean-ctx/scripts/install.sh
   deployed_file_hashes:
-    .agents/skills/lean-ctx/SKILL.md: sha256:f265ba703222e69e23f818bba9e989ebaa1fa52b4343806a841c5c0c275259eb
+    .agents/skills/lean-ctx/SKILL.md: sha256:6f71b0eeb7c37e958998b683113026a33dc77a52d428f9992f7112d86de49042
     .agents/skills/lean-ctx/scripts/install.sh: sha256:7b42ea292086ea57dc6a1514e094fa37840b5a24ad8ebf5f26a7eb87fa1b03f0
-    .claude/skills/lean-ctx/SKILL.md: sha256:f265ba703222e69e23f818bba9e989ebaa1fa52b4343806a841c5c0c275259eb
+    .claude/skills/lean-ctx/SKILL.md: sha256:6f71b0eeb7c37e958998b683113026a33dc77a52d428f9992f7112d86de49042
     .claude/skills/lean-ctx/scripts/install.sh: sha256:7b42ea292086ea57dc6a1514e094fa37840b5a24ad8ebf5f26a7eb87fa1b03f0
-  content_hash: sha256:15a1024f2a76969b33e784525df07812aac807272fe3a4ebf66573b86ff6441a
-mcp_servers:
-- agentic-workflows
-- duckduckgo
-- github
-- mermaid
-- microsoftdocs/mcp
-- nuget
-mcp_configs:
-  agentic-workflows:
-    name: agentic-workflows
-    transport: stdio
-    args:
-    - aw
-    - mcp-server
-    registry: false
-    command: gh
-  duckduckgo:
-    name: duckduckgo
-    transport: stdio
-    args:
-    - -y
-    - duckduckgo-mcp-server
-    registry: false
-    command: npx
-  github:
-    name: github
-    transport: stdio
-    env:
-      GITHUB_DYNAMIC_TOOLSETS: '1'
-    args:
-    - mcp
-    registry: false
-    command: gh
-  mermaid:
-    name: mermaid
-    transport: http
-    registry: false
-    url: https://mcp.mermaidchart.com/mcp/
-  microsoftdocs/mcp:
-    name: microsoftdocs/mcp
-  nuget:
-    name: nuget
-    transport: stdio
-    args:
-    - NuGet.Mcp.Server
-    - --source
-    - https://api.nuget.org/v3/index.json
-    - --yes
-    registry: false
-    command: dnx
+  content_hash: sha256:e9bccacebe0fa285c250739e9aaf4a550cd21318e41b801fabe3457f7189850b
 local_deployed_files:
 - .claude/rules/neo4j-knowledgebase.md
 - .github/instructions/neo4j-knowledgebase.instructions.md
