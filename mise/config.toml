@@ -1,22 +1,31 @@
 [tools]
 fzf = "latest"
 "uv" = "latest"
-"npm:@bradygaster/squad-cli" = "latest"
-"npm:@github/copilot" = "latest"
-"github:vlazic/mcp-server-manager" = "latest"
 jq = "latest"
 yq = "latest"
-# "github:shuymn/gh-mcp" = "latest"
+sops = "latest"
+age = "latest"
+"npm:@bradygaster/squad-cli" = "latest"
+"npm:@github/copilot" = "latest"
+"github:tbxark/mcp-proxy" = "latest"
+"dotnet:graphify-dotnet" = "latest"
+biome = "latest"
+"npm:@opengsd/gsd-core" = "latest"
 
 [hooks]
 postinstall = { task = "gh-extensions" }
-
-[tasks.mcpm]
-run = "mcp-server-manager"
-dir = "{{config_root}}/mcpm"
 
 [tasks.gh-mcp]
 run = "gh extensions install shuymn/gh-mcp"
 
 [tasks.gh-extensions]
 run.tasks = ["gh-mcp"]
+
+[tasks.mcp-gateway]
+run = [
+    "echo {{ cwd }}",
+    # todo make this better for environment variables
+    "docker run --name mcphub -p 3000:3000 -e SLACK_CLIENT_ID -e CONTEXT7_API_KEY -e ADMIN_PASSWORD -v ./mcp_settings.json:/app/mcp_settings.json -v ./servers.json:/app/servers.json samanhappy/mcphub"
+]
+dir = "{{ env.HOME | default(value=env.USERPROFILE) }}/dotfiles/mcphub"
+env = { _.file = { path = "~/dotfiles/mcphub/secrets.sops.json", redact = true } }

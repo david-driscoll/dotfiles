@@ -1,13 +1,13 @@
 lockfile_version: '1'
-generated_at: '2026-07-02T20:59:16.336239+00:00'
-apm_version: 0.23.1
+generated_at: '2026-07-08T14:17:54.425222+00:00'
+apm_version: 0.24.0
 dependencies:
 - repo_url: emaynard/claude-family-history-research-skill
-  name: claude-family-history-research-skill
+  name: family-history-planning
   host: github.com
   resolved_commit: 8b153b306a955ce5cec3fac3d33261b1b732ab97
   resolved_ref: v1.0.6
-  version: unknown
+  version: 1.0.0
   package_type: claude_skill
   deployed_files:
   - .agents/skills/claude-family-history-research-skill
@@ -94,34 +94,3 @@ dependencies:
     .claude/skills/claude-family-history-research-skill/references/research-plan-guidance.md: sha256:59c6651a5c7c367a2a661e37af373d9a85f1b879369dbcb75e99cff24bc7edca
     .claude/skills/claude-family-history-research-skill/references/research-strategies.md: sha256:5a9a3784da184d40742eec8a543c27fab46fd3967f7e8fc043f8d62ef089e289
   content_hash: sha256:be0abf53c7f1726c134cb1e5d7c92e2be48acb889b82489bb92d76aa73774faf
-mcp_servers:
-- kubernetes
-- mise
-- pulumi
-mcp_configs:
-  kubernetes:
-    name: kubernetes
-    transport: stdio
-    args:
-    - -y
-    - kubernetes-mcp-server
-    registry: false
-    command: npx
-  mise:
-    name: mise
-    transport: stdio
-    env:
-      MISE_EXPERIMENTAL: '1'
-    args:
-    - mcp
-    registry: false
-    command: mise
-  pulumi:
-    name: pulumi
-    transport: stdio
-    args:
-    - -y
-    - '@pulumi/mcp-server'
-    - stdio
-    registry: false
-    command: npx
