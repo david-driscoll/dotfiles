@@ -1,3 +1,87 @@
 {
-  "agents": {}
+  "agents": [
+    {
+      "persistent_name": "Holden",
+      "role": "Lead / Architect",
+      "universe": "the-expanse",
+      "created_at": "2026-07-14T14:13:13-04:00",
+      "legacy_named": false,
+      "status": "active"
+    },
+    {
+      "persistent_name": "Naomi",
+      "role": "Modern .NET Developer",
+      "universe": "the-expanse",
+      "created_at": "2026-07-14T14:13:13-04:00",
+      "legacy_named": false,
+      "status": "active"
+    },
+    {
+      "persistent_name": "Miller",
+      "role": "Preview .NET Developer",
+      "universe": "the-expanse",
+      "created_at": "2026-07-14T14:13:13-04:00",
+      "legacy_named": false,
+      "status": "active"
+    },
+    {
+      "persistent_name": "Amos",
+      "role": "MSBuild / NuGet Developer",
+      "universe": "the-expanse",
+      "created_at": "2026-07-14T14:13:13-04:00",
+      "legacy_named": false,
+      "status": "active"
+    },
+    {
+      "persistent_name": "Alex",
+      "role": "PowerShell Specialist",
+      "universe": "the-expanse",
+      "created_at": "2026-07-14T14:13:13-04:00",
+      "legacy_named": false,
+      "status": "active"
+    },
+    {
+      "persistent_name": "Bobbie",
+      "role": "Git / GitHub Specialist",
+      "universe": "the-expanse",
+      "created_at": "2026-07-14T14:13:13-04:00",
+      "legacy_named": false,
+      "status": "active"
+    },
+    {
+      "persistent_name": "Drummer",
+      "role": "Azure DevOps Specialist",
+      "universe": "the-expanse",
+      "created_at": "2026-07-14T14:13:13-04:00",
+      "legacy_named": false,
+      "status": "active"
+    },
+    {
+      "persistent_name": "Scribe",
+      "role": "Session Logger",
+      "universe": null,
+      "created_at": "2026-07-14T14:13:13-04:00",
+      "legacy_named": false,
+      "status": "active",
+      "exempt": true
+    },
+    {
+      "persistent_name": "Ralph",
+      "role": "Work Monitor",
+      "universe": null,
+      "created_at": "2026-07-14T14:13:13-04:00",
+      "legacy_named": false,
+      "status": "active",
+      "exempt": true
+    },
+    {
+      "persistent_name": "Rai",
+      "role": "RAI Reviewer",
+      "universe": null,
+      "created_at": "2026-07-14T14:13:13-04:00",
+      "legacy_named": false,
+      "status": "active",
+      "exempt": true
+    }
+  ]
 }

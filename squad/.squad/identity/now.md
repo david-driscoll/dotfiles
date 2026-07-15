@@ -1,9 +1,5 @@
----
-updated_at: 2026-07-14T17:51:08.209Z
-focus_area: Initial setup
-active_issues: []
----
+# Current Focus
 
-# What We're Focused On
+**Last updated:** 2026-07-14
 
-Getting started. Updated by coordinator at session start.
+Team just initialized. No active focus yet.
