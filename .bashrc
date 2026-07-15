@@ -184,9 +184,3 @@ source "/Users/david/.openclaw/completions/openclaw.bash"
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/david/.lmstudio/bin"
 # End of LM Studio CLI section
-# >>> lean-ctx agent aliases >>>
-alias claude='LEAN_CTX_AGENT=1 BASH_ENV="$HOME/.bashenv" claude'
-alias codebuddy='LEAN_CTX_AGENT=1 BASH_ENV="$HOME/.bashenv" codebuddy'
-alias codex='LEAN_CTX_AGENT=1 BASH_ENV="$HOME/.bashenv" codex'
-alias gemini='LEAN_CTX_AGENT=1 BASH_ENV="$HOME/.bashenv" gemini'
-# <<< lean-ctx agent aliases <<<

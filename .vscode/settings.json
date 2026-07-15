@@ -4,5 +4,28 @@
     },
     "editor.fontFamily": "JetbrainsMono Nerd Font Propo",
     "editor.formatOnSave": false,
-    "snyk.advanced.autoSelectOrganization": true
+    "snyk.advanced.autoSelectOrganization": true,
+    "workbench.colorCustomizations": {
+        "activityBar.activeBackground": "#a893f2",
+        "activityBar.background": "#a893f2",
+        "activityBar.foreground": "#15202b",
+        "activityBar.inactiveForeground": "#15202b99",
+        "activityBarBadge.background": "#fce8e3",
+        "activityBarBadge.foreground": "#15202b",
+        "editorGroup.border": "#a893f2",
+        "panel.border": "#a893f2",
+        "sash.hoverBorder": "#a893f2",
+        "sideBar.border": "#a893f2",
+        "statusBar.background": "#6039e6",
+        "statusBar.border": "#6039e6",
+        "statusBar.debuggingBackground": "#bfe639",
+        "statusBar.debuggingBorder": "#bfe639",
+        "statusBar.debuggingForeground": "#15202b",
+        "statusBar.foreground": "#e7e7e7",
+        "statusBarItem.hoverBackground": "#8466ec",
+        "statusBarItem.remoteBackground": "#6039e6",
+        "statusBarItem.remoteForeground": "#e7e7e7",
+        "tab.activeBorder": "#a893f2"
+    },
+    "peacock.color": "#8466ec"
 }
