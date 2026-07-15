@@ -1,5 +1,5 @@
 # RAI Audit Trail
 
-> Append-only evidence log. Entries are redacted — never contains raw secrets or harmful content.
+> Append-only. Managed by Rai. Redacted — never contains raw secrets or harmful content.
 
-<!-- Rai appends findings below -->
+<!-- audit entries below -->

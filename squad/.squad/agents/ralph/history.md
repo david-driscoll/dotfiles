@@ -1,16 +1,10 @@
-# Project Context
+# Session History
 
-- **Project:** squad
-- **Created:** 2026-07-14
+## Initialization — 2026-07-14
 
-## Core Context
+**Project:** David Driscoll's global dotfiles team
+**Owner:** David Driscoll
+**Stack:** .NET 10/11, C#, MSBuild, NuGet, Aspire, Blazor, PowerShell, Azure DevOps, Git/GitHub
+**Purpose:** Day-to-day development acceleration across all projects
 
-Agent Ralph initialized and ready for work.
-
-## Recent Updates
-
-📌 Team initialized on 2026-07-14
-
-## Learnings
-
-Initial setup complete.
+Team initialized. Ready for work.

@@ -1,40 +1,22 @@
-# Work Routing
-
-How to decide who handles what.
-
-## Routing Table
-
-| Work Type | Route To | Examples |
-|-----------|----------|----------|
-| {domain 1} | {Name} | {example tasks} |
-| {domain 2} | {Name} | {example tasks} |
-| {domain 3} | {Name} | {example tasks} |
-| Code review | {Name} | Review PRs, check quality, suggest improvements |
-| Testing | {Name} | Write tests, find edge cases, verify fixes |
-| Scope & priorities | {Name} | What to build next, trade-offs, decisions |
-| Session logging | Scribe | Automatic — never needs routing |
-| RAI review | Rai | Content safety, bias checks, credential detection, ethical review |
-
-## Issue Routing
-
-| Label | Action | Who |
-|-------|--------|-----|
-| `squad` | Triage: analyze issue, assign `squad:{member}` label | Lead |
-| `squad:{name}` | Pick up issue and complete the work | Named member |
-
-### How Issue Assignment Works
-
-1. When a GitHub issue gets the `squad` label, the **Lead** triages it — analyzing content, assigning the right `squad:{member}` label, and commenting with triage notes.
-2. When a `squad:{member}` label is applied, that member picks up the issue in their next session.
-3. Members can reassign by removing their label and adding another member's label.
-4. The `squad` label is the "inbox" — untriaged issues waiting for Lead review.
+# Routing
 
 ## Rules
 
-1. **Eager by default** — spawn all agents who could usefully start work, including anticipatory downstream work.
-2. **Scribe always runs** after substantial work, always as `mode: "background"`. Never blocks.
-3. **Quick facts → coordinator answers directly.** Don't spawn an agent for "what port does the server run on?"
-4. **When two agents could handle it**, pick the one whose domain is the primary concern.
-5. **"Team, ..." → fan-out.** Spawn all relevant agents in parallel as `mode: "background"`.
-6. **Anticipate downstream work.** If a feature is being built, spawn the tester to write test cases from requirements simultaneously.
-7. **Issue-labeled work** — when a `squad:{member}` label is applied to an issue, route to that member. The Lead handles all `squad` (base label) triage.
+| Signal | Agent |
+|--------|-------|
+| Architecture, cross-cutting design, code review spanning multiple domains | Holden |
+| Modern C#/.NET 10, Blazor, xUnit, TUnit, Aspire AppHosts | Naomi |
+| .NET 11 preview, C# 14+ language features, BCL/runtime changes | Miller |
+| MSBuild, `.props`/`.targets`, project SDK, NuGet package authoring/publishing | Amos |
+| PowerShell scripts, shell automation, dotfiles management, cross-platform scripting | Alex |
+| Git branching, PR workflows, GitHub Actions, CI/CD on GitHub, repo hygiene | Bobbie |
+| Azure Pipelines (YAML/classic), ADO builds/releases, Azure DevOps boards & repos | Drummer |
+| Memory, decisions merge, session logs, orchestration log | Scribe |
+| Work queue, backlog monitor, keep-alive between tasks | Ralph |
+| RAI review, content safety, ethical check | Rai |
+
+## Escalation
+
+When a task spans multiple domains (e.g., MSBuild + CI pipeline), route to **Holden** to
+decompose and fan out to the specialists. For ambiguous requests, prefer the most specific
+specialist; Holden handles ambiguity as a last resort.
