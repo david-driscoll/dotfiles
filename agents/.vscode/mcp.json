@@ -1,32 +1,97 @@
 {
-  "servers": {
-    "kubernetes": {
-      "type": "stdio",
-      "command": "npx",
-      "args": [
-        "-y",
-        "kubernetes-mcp-server"
-      ]
-    },
-    "pulumi": {
-      "type": "stdio",
-      "command": "npx",
-      "args": [
-        "-y",
-        "@pulumi/mcp-server",
-        "stdio"
-      ]
-    },
-    "mise": {
-      "type": "stdio",
-      "command": "mise",
-      "args": [
-        "mcp"
-      ],
-      "env": {
-        "MISE_EXPERIMENTAL": "1"
-      }
-    }
-  },
-  "inputs": []
+	"inputs": [
+		{
+			"id": "CONTEXT7_API_KEY",
+			"type": "promptString",
+			"description": "API key for authentication",
+			"password": true
+		},
+		{
+			"id": "ado_org",
+			"type": "promptString",
+			"description": "Azure DevOps organization name (e.g., contoso).",
+			"password": false
+		},
+		{
+			"id": "ado_domain",
+			"type": "promptString",
+			"description": "Repeat to enable specific domains: core, work, work-items, search, test-plans, repositories, wiki, pipelines, advanced-security.",
+			"password": false
+		}
+	],
+	"servers": {
+		"binlog": {
+			"args": [
+				"dnx",
+				"Microsoft.AITools.BinlogMcp",
+				"--yes"
+			],
+			"command": "dotnet",
+			"type": "stdio"
+		},
+		"duckduckgo": {
+			"args": [
+				"-y",
+				"duckduckgo-mcp-server"
+			],
+			"command": "npx",
+			"transport": "stdio",
+			"type": "stdio"
+		},
+		// "slack": {
+		// 	"auth": {
+		// 		"redirectPort": 61549
+		// 	},
+		// 	"oauthClientId": "53356079991.11533420335366",
+		// 	"oauthPublicClient": true,
+		// 	"type": "http",
+		// 	"url": "https://mcp.slack.com/mcp,"
+		// },
+		"microsoft/playwright-mcp": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"@playwright/mcp@latest"
+			],
+			"gallery": "https://api.mcp.github.com",
+			"version": "0.0.1-seed"
+		},
+		"io.github.github/github-mcp-server": {
+			"type": "http",
+			"url": "https://api.githubcopilot.com/mcp/",
+			"gallery": "https://api.mcp.github.com",
+			"version": "1.5.0"
+		},
+		"microsoft/azure-devops-mcp": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"-y",
+				"@azure-devops/mcp@latest",
+				"${input:ado_org}",
+				"-d",
+				"${input:ado_domain}"
+			],
+			"gallery": "https://api.mcp.github.com",
+			"version": "1.0.0"
+		},
+		"microsoftdocs/mcp": {
+			"type": "http",
+			"url": "https://learn.microsoft.com/api/mcp",
+			"gallery": "https://api.mcp.github.com",
+			"version": "1.0.0"
+		},
+		"com.figma.mcp/mcp": {
+			"type": "http",
+			"url": "https://mcp.figma.com/mcp",
+			"gallery": "https://api.mcp.github.com",
+			"version": "1.0.3"
+		},
+		"com.atlassian/atlassian-mcp-server": {
+			"type": "http",
+			"url": "https://mcp.atlassian.com/v1/mcp",
+			"gallery": "https://api.mcp.github.com",
+			"version": "1.1.3"
+		}
+	}
 }

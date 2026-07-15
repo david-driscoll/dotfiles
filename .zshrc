@@ -208,29 +208,10 @@ autoload -Uz compinit
 compinit
 # End of Docker CLI completions
 
-# OpenClaw Completion
-source "/Users/david/.openclaw/completions/openclaw.zsh"
-
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/david/.lmstudio/bin"
 # End of LM Studio CLI section
+export DOTNET_ROOT="/usr/local/share/dotnet"
+export PATH="/usr/local/share/dotnet:$PATH"
 
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
-# lean-ctx shell hook — begin
-if [ -f "/Users/david/.config/lean-ctx/shell-hook.zsh" ]; then
-. "/Users/david/.config/lean-ctx/shell-hook.zsh"
-fi
-# lean-ctx shell hook — end
-
-# >>> lean-ctx agent aliases >>>
-alias claude='LEAN_CTX_AGENT=1 BASH_ENV="$HOME/.bashenv" claude'
-alias codebuddy='LEAN_CTX_AGENT=1 BASH_ENV="$HOME/.bashenv" codebuddy'
-alias codex='LEAN_CTX_AGENT=1 BASH_ENV="$HOME/.bashenv" codex'
-alias gemini='LEAN_CTX_AGENT=1 BASH_ENV="$HOME/.bashenv" gemini'
-# <<< lean-ctx agent aliases <<<
-
-# >>> lean-ctx proxy env >>>
-# ANTHROPIC_BASE_URL omitted: Claude Pro/Max subscription authenticates against api.anthropic.com directly (set ANTHROPIC_API_KEY to route Claude through the proxy)
-export OPENAI_BASE_URL="http://127.0.0.1:4444/v1"
-export GEMINI_API_BASE_URL="http://127.0.0.1:4444"
-# <<< lean-ctx proxy env <<<
