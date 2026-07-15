@@ -252,3 +252,10 @@ Procfile text
 
 .gitattributes export-ignore
 .gitignore export-ignore
+
+# Squad — append-only state files use union merge to avoid conflicts across branches
+.squad/decisions.md merge=union
+.squad/agents/*/history.md merge=union
+.squad/log/** merge=union
+.squad/orchestration-log/** merge=union
+.squad/rai/audit-trail.md merge=union
