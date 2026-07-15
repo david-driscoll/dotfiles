@@ -11,7 +11,8 @@
         { "name": "Amos",   "role": "MSBuild / NuGet Developer" },
         { "name": "Alex",   "role": "PowerShell Specialist" },
         { "name": "Bobbie", "role": "Git / GitHub Specialist" },
-        { "name": "Drummer","role": "Azure DevOps Specialist" }
+        { "name": "Drummer","role": "Azure DevOps Specialist" },
+        { "name": "Monica", "role": "Documentation Specialist" }
       ]
     }
   ]

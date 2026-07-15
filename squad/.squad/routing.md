@@ -11,6 +11,7 @@
 | PowerShell scripts, shell automation, dotfiles management, cross-platform scripting | Alex |
 | Git branching, PR workflows, GitHub Actions, CI/CD on GitHub, repo hygiene | Bobbie |
 | Azure Pipelines (YAML/classic), ADO builds/releases, Azure DevOps boards & repos | Drummer |
+| Docs sites (Astro/Starlight), README/ADR/CHANGELOG, .NET XML documentation comments | Monica |
 | Memory, decisions merge, session logs, orchestration log | Scribe |
 | Work queue, backlog monitor, keep-alive between tasks | Ralph |
 | RAI review, content safety, ethical check | Rai |
