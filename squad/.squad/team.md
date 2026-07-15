@@ -18,6 +18,7 @@
 | Alex | PowerShell Specialist | .squad/agents/alex/charter.md | 💻 |
 | Bobbie | Git / GitHub Specialist | .squad/agents/bobbie/charter.md | 🗃️ |
 | Drummer | Azure DevOps Specialist | .squad/agents/drummer/charter.md | ⚙️ |
+| Monica | Documentation Specialist | .squad/agents/monica/charter.md | 📝 |
 | Scribe | Session Logger | .squad/agents/scribe/charter.md | 📋 |
 | Ralph | Work Monitor | .squad/agents/ralph/charter.md | 🔄 |
 | Rai | RAI Reviewer | .squad/agents/rai/charter.md | 🛡️ |
