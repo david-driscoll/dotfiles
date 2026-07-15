@@ -1,0 +1,44 @@
+{
+  "marketplaces": [
+    {
+      "name": "awesome-copilot",
+      "source": "github/awesome-copilot",
+      "added_at": "2026-07-15T03:14:57.994Z"
+    },
+    {
+      "name": "claude-plugins-official",
+      "source": "anthropics/claude-plugins-official",
+      "added_at": "2026-07-15T03:15:37.865Z"
+    },
+    {
+      "name": "azure-skills",
+      "source": "microsoft/azure-skills",
+      "added_at": "2026-07-15T03:15:58.844Z"
+    },
+    {
+      "name": "duende-skills",
+      "source": "DuendeSoftware/duende-skills",
+      "added_at": "2026-07-15T03:16:06.683Z"
+    },
+    {
+      "name": "modernize-dotnet",
+      "source": "dotnet/modernize-dotnet",
+      "added_at": "2026-07-15T03:16:16.368Z"
+    },
+    {
+      "name": "skills",
+      "source": "dotnet/skills",
+      "added_at": "2026-07-15T03:16:25.934Z"
+    },
+    {
+      "name": "claude-skills",
+      "source": "alirezarezvani/claude-skills",
+      "added_at": "2026-07-15T03:16:37.300Z"
+    },
+    {
+      "name": "context7",
+      "source": "upstash/context7",
+      "added_at": "2026-07-15T03:16:51.023Z"
+    }
+  ]
+}
