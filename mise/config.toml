@@ -28,3 +28,6 @@ run = [
 ]
 dir = "{{ env.HOME | default(value=env.USERPROFILE) }}/dotfiles/mcphub"
 env = { _.file = { path = "~/dotfiles/mcphub/secrets.sops.json", redact = true } }
+
+[settings]
+idiomatic_version_file_enable_tools = ["dotnet"]
