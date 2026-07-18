@@ -14,10 +14,10 @@ name: ai
 description: General-purpose plugins shared across machines
 
 plugins:
-  - name: superpowers
-    marketplace: superpowers-marketplace
-  - name: ecc
-    marketplace: ecc
+  # - name: superpowers
+  #   marketplace: superpowers-marketplace
+  # - name: ecc
+  #   marketplace: ecc
   - name: andrej-karpathy-skills
     marketplace: karpathy-skills
   - name: agent-skills
