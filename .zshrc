@@ -187,9 +187,6 @@ fi
 if [ -x "$(command -v op)" ]; then
   eval "$(op completion zsh)"
 fi
-if [ -x "$(command -v mise)" ]; then
-  eval "$(mise activate zsh)"
-fi
 if [ -x "$(command -v pulumi)" ]; then
   eval "$(pulumi completion zsh)"
 fi
@@ -215,3 +212,7 @@ export DOTNET_ROOT="/usr/local/share/dotnet"
 export PATH="/usr/local/share/dotnet:$PATH"
 
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
+
+if [ -x "$(command -v mise)" ]; then
+  eval "$(mise activate zsh)"
+fi
