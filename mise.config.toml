@@ -2,4 +2,4 @@
 experimental = true
 
 [tools]
-"uv" = "0.11.31"
+"uv" = "0.11.32"
