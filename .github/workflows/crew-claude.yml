@@ -72,3 +72,4 @@ jobs:
                 (github.event_name == 'issues' &&
                  format('You are the Crew coordinator for this repository. Read the coordinator protocol in .github/agents/crew.agent.md and the team roster in .crew/team.md, then handle issue #{0} ({1}) end to end: route it to the right specialist charter under .crew/agents/, implement the change on a branch named claude/issue-{0}, run the project checks, and open a draft PR that references the issue. Log the decision per the protocol.', github.event.issue.number, github.event.issue.title) || '') }}
           claude_args: '--max-turns 60'
+~

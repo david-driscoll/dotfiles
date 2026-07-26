@@ -9,6 +9,14 @@
       "tools": [
         "*"
       ]
+    },
+    "mise": {
+      "args": ["mcp"],
+      "command": "mise",
+      "env": {
+        "MISE_EXPERIMENTAL": "1"
+      },
+      "type": "stdio"
     }
   }
 }
