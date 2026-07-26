@@ -1,25 +1,32 @@
+## REPO-LOCAL mise config — NOT symlinked anywhere. Only active when your cwd is
+## inside this checkout of dotfiles. Crew tooling, backend agent tools, and
+## repo-only tasks/hooks/env live here. General-purpose CLI tools that belong on
+## every machine live in the GLOBAL config: `.config/mise/config.toml` (symlinked
+## to `~/.config/mise/config.toml` by the installers).
+##
+## `{{config_root}}` here resolves to this repo's root (this file's directory) —
+## before the #63 split this file's tasks/env lived in `.config/mise.toml`, where
+## `{{config_root}}` resolved to `.config/` instead. Two things changed as a
+## result and were adjusted deliberately:
+##   - CREW_PERSONAL_DIR dropped its `../` (was `{{config_root}}/../.crew/.crew`,
+##     now `{{config_root}}/.crew/.crew`) so it still resolves to repo-root/.crew/.crew.
+##   - CREW_SRC/CREW_BIN's on-disk location shifts from `.config/.cache/*` to
+##     `.cache/*` at repo root. Harmless: `.cache/` is gitignored either way and
+##     this is an ephemeral build cache with nothing to migrate.
+##   - Bonus fix: `update-agents` used `cd {{config_root}}/ai` / `.../agents`,
+##     which resolved to the nonexistent `.config/ai` / `.config/agents` and was
+##     silently broken. Now that config_root is the repo root, it correctly
+##     targets the real `ai/` and `agents/` directories.
+
 [tools]
-fzf = "0.74.1"
-uv = "0.11.32"
-jq = "1.8.2"
-yq = "4.53.3"
-sops = "3.13.3"
-age = "1.3.1"
-"npm:@github/copilot" = "1.0.75"
-"dotnet:graphify-dotnet" = "0.7.0"
-biome = "2.5.5"
-node = "24.18.0"
-dotnet = "10.0.302"
+"github:microsoft/apm" = { version = "v0.26.0", bin = "apm" }
+"github:eljulians/skillfile" = { version = "v1.9.0", bin = "skillfile" }
 
 [hooks]
 postinstall = [{ task = "gh-extensions" }, { task = "crew:update" }]
 
-[settings]
-idiomatic_version_file_enable_tools = ["dotnet"]
-lockfile = true
-
 [env]
-CREW_PERSONAL_DIR = "{{config_root}}/../.crew/.crew"
+CREW_PERSONAL_DIR = "{{config_root}}/.crew/.crew"
 # Local checkout of Blacklite/crew used to build the CLI from source
 CREW_SRC = "{{config_root}}/.cache/crew-source"
 # mise owns the `crew` command via PATH instead of a global `npm link`.
