@@ -69,9 +69,10 @@ auto_env = true
 # ssh perm requirements (700/600) behind a single link mise doesn't manage
 # file-by-file. symlink-each keeps ~/.ssh a real directory — mise creates
 # it if missing — and links only what's tracked here (authorized_keys,
-# config, 1Password/config, known_hosts.old); anything ssh or another tool
-# drops in later (host keys, a live known_hosts, control-master sockets)
-# is left alone.
+# config, 1Password/config — known_hosts.old was also tracked here until
+# #76 deleted it as stale cruft); anything ssh or another tool drops in
+# later (host keys, a live known_hosts, control-master sockets) is left
+# alone.
 "~/.ssh" = { source = "ssh", mode = "symlink-each" }
 "~/.config/starship.toml" = { source = "starship.toml" }
 # Directory symlink on every platform — install.sh used to link the whole
