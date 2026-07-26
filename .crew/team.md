@@ -18,6 +18,14 @@
 | Rai | RAI Reviewer | `.crew/agents/Rai/charter.md` | 🛡️ RAI |
 | Fact Checker | Fact Checker | `.crew/agents/fact-checker/charter.md` | 🔍 Verifier |
 
+## Issue Source
+
+**Repository:** david-driscoll/dotfiles  
+**Connected:** 2026-07-26  
+**Platform:** GitHub  
+**Filters:**
+- Labels: `crew`, `crew:*`
+
 ## Project Context
 
 - **Owner:** David Driscoll
