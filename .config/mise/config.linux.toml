@@ -10,3 +10,10 @@
 # so symlinking it on every Linux box (Codespaces, Coder, bare-metal, WSL)
 # is harmless where it isn't WSL — it just sits unread.
 "~/.wslrc" = {}
+# Feeds the base ~/.gitconfig's `[include] path = ~/.gitconfig.local` (#65),
+# same mechanism as config.macos.toml's entry above. Deliberately empty
+# today (no 1Password desktop on Codespaces/Coder) — see
+# git/gitconfig.linux's header. NOTE: this also fires for WSL, since mise
+# reports WSL as plain "linux" — see git/gitconfig.wsl for why the
+# WSL-specific 1Password path can't be routed here automatically.
+"~/.gitconfig.local" = { source = "git/gitconfig.linux" }

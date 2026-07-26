@@ -73,20 +73,11 @@ rm -f ~/.apm/mise.toml
 # if that ever needs to be its own minimal file again.
 ln -s ~/dotfiles/mise.toml ~/.apm/mise.toml
 
-git config --global core.eol lf
-git config --global github.user david-driscoll
-git config --global gpg.format ssh
-git config --global user.signingkey "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFEZpmeANLSx9Worwn0REmiWKLEkDvGaaz5ZlCVuRc67"
-git config --global user.name "David Driscoll"
-git config --global user.email "david.driscoll@gmail.com"
-git config --global commit.gpgsign true
-git config --global gpg.ssh.program "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-# TODO: 1Password
-git config --global core.editor "vi"
-git config --global alias.amend "commit --amend --reuse-message=HEAD"
-git config --global alias.squash '!f() { git rebase -i --autosquash $1; }; f'
-# not sure if this is needed, caused issues in code spaces
-# git config --global url."git@github.com:".insteadOf "https://github.com/"
+# git config: now a committed ~/.gitconfig deployed via `[dotfiles]` in
+# .config/mise/config.toml + config.macos.toml (#65) — run `mise dotfiles
+# apply` instead of re-adding `git config --global` lines here. The macOS
+# 1Password SSH-signing path this script used to set directly now lives at
+# git/gitconfig.darwin.
 
 gh extension install davidraviv/gh-clean-branches
 gh extension install github/gh-codeql

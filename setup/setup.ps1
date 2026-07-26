@@ -233,24 +233,11 @@ foreach ($path in $PROFILE | Get-Member | where { $_.Name.StartsWith("Current") 
 gci $ENV:USERPROFILE\.ssh\ | foreach { Unblock-File $_.FullName }
 gci $ENV:USERPROFILE\.gnupg\ | foreach { Unblock-File $_.FullName }
 
-git config --global core.eol lf
-git config --global core.autocrlf true
-git config --global github.user david-driscoll
-git config --global gpg.format ssh
-git config --global user.signingkey "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFEZpmeANLSx9Worwn0REmiWKLEkDvGaaz5ZlCVuRc67"
-git config --global user.name "David Driscoll"
-git config --global user.email "david.driscoll@gmail.com"
-git config --global commit.gpgsign true
-git config --global core.sshCommand "C:/Windows/System32/OpenSSH/ssh.exe"
-git config --global alias.amend "commit --amend --reuse-message=HEAD"
-git config --global alias.squash '!f() { git rebase -i --autosquash $1; }; f'
-# not sure if this is needed, caused issues in code spaces
-# git config --global url."git@github.com:".insteadOf "https://github.com/"
-git config --global gpg."ssh".program "C:/Program Files/1Password/app/8/op-ssh-sign.exe"
-
-# try to handle error: fetch-pack: unexpected disconnect while reading sideband packet
-git config --global core.packedGitLimit 512m
-git config --global core.packedGitWindowSize 512m
-git config --global pack.deltaCacheSize 2047m
-git config --global pack.packSizeLimit 2047m
-git config --global pack.windowMemory 2047m
+# git config: now a committed ~/.gitconfig deployed via `[dotfiles]` (#65) —
+# not yet wired up for Windows (mise's [dotfiles] platform layering only
+# covers mac/linux today; Windows deployment is #72's job). Until #72 lands,
+# the settings this script used to set here (core.autocrlf=true — settled to
+# false everywhere per #65 since .gitattributes already enforces eol=lf;
+# core.sshCommand and the 1Password SSH-signing path) live at
+# git/gitconfig.windows, applied manually — see that file's header for the
+# one-line `git config --global include.path` command.

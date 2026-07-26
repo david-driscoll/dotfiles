@@ -1,0 +1,14 @@
+## macOS override for ~/.gitconfig.local. Deployed by mise's [dotfiles] via
+## .config/mise/config.macos.toml — platform config-file layering
+## (<basename>.<platform>.toml, gated by MISE_AUTO_ENV=1), the same
+## mechanism PR #79 used for karabiner.json and 1Password's agent.toml. This
+## is NOT a git [includeIf] — git's own conditional-include keywords are
+## gitdir, gitdir/i, onbranch, and hasconfig:remote.*.url (see `git help
+## config`, verified on git 2.55.0); none of them can express "this OS".
+## mise's platform layering is the only mechanism in this stack that
+## actually knows what OS it's running on, so it does the OS branching and
+## git's [include] (unconditional) just pulls in whatever landed at the
+## fixed ~/.gitconfig.local path.
+
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign

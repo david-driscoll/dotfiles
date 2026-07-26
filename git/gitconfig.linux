@@ -1,0 +1,18 @@
+## Linux override for ~/.gitconfig.local (Codespaces / Coder / bare-metal
+## Linux). Deployed via .config/mise/config.linux.toml — same platform
+## config-file layering mechanism as git/gitconfig.darwin (see that file's
+## header for why this isn't a git [includeIf]).
+##
+## Deliberately empty of a gpg.ssh.program override: these Linux targets
+## don't run the 1Password desktop app, so there's no op-ssh-sign binary to
+## point at. Git 2.34+ falls back to `ssh-keygen -Y sign` for SSH commit
+## signing when gpg.ssh.program is unset, which needs a real private key
+## file or an ssh-agent socket available — not verified working in this
+## environment; confirm commit signing actually succeeds on a fresh
+## Codespace/Coder box before relying on it.
+##
+## WSL is intentionally NOT covered by this file, even though mise's own
+## auto_env platform detection reports WSL as plain "linux" (no separate
+## "wsl" platform exists in mise) — see git/gitconfig.wsl for the full
+## explanation of why WSL can't be routed here automatically with the
+## tools available today.
