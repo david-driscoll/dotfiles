@@ -1,7 +1,5 @@
 tap "homebrew/cask"
-tap "powershell/tap"
 
-brew "powershell/tap/powershell"
 brew "zsh"
 brew "zsh-autosuggestions"
 brew "zsh-autocomplete"
@@ -9,10 +7,8 @@ brew "zsh-syntax-highlighting"
 brew "zsh-completions"
 brew "zsh-you-should-use"
 brew "docker"
-brew "python"
 
 brew "azure-cli"
-brew "python"
 brew "mise"
 brew "moreutils"
 cask "wezterm"
