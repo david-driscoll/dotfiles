@@ -232,7 +232,11 @@ New-Item -ItemType SymbolicLink -Value "$ENV:USERPROFILE/agents/.github/instruct
 
 mkdir "$ENV:USERPROFILE/.config/mise/" -ErrorAction SilentlyContinue
 rm "$ENV:USERPROFILE/.config/mise/config.toml" -ErrorAction SilentlyContinue
-New-Item -ItemType SymbolicLink -Value "$ENV:USERPROFILE/dotfiles/mise/config.toml" -Path "$ENV:USERPROFILE/.config/mise/config.toml"
+# NOTE: file symlink to the new location, not yet the directory junction
+# (~/.config/mise -> ~/dotfiles/.config/mise) the target layout wants — that
+# switch is installer work tracked in #68/#69/#72. This just stops pointing at
+# the long-dangling dotfiles/mise/config.toml (predates even mise.config.toml).
+New-Item -ItemType SymbolicLink -Value "$ENV:USERPROFILE/dotfiles/.config/mise/config.toml" -Path "$ENV:USERPROFILE/.config/mise/config.toml"
 New-Item -ItemType File -Path "$ENV:USERPROFILE/.config/mise/config.local.toml"
 
 # mkdir $ENV:LOCALAPPDATA/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/ -ErrorAction SilentlyContinue

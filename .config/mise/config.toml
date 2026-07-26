@@ -1,0 +1,90 @@
+## GLOBAL mise config — symlinked to ~/.config/mise/config.toml on every machine.
+## General-purpose CLI tool set + settings that apply everywhere, independent of
+## which repo (if any) you're standing in. Per review on #78, crew tooling
+## (the crew CLI, apm, skillfile, and the env/hooks that support them) lives
+## here rather than in the repo-local `mise.toml`, since the whole point is
+## that `crew` works from any directory, not just inside this checkout.
+## Repo-only tooling (currently just `update-agents`, which operates on this
+## repo's own `ai/`/`agents/` apm projects) stays in the repo-local file —
+## see that file's header for why.
+##
+## `{{config_root}}` for THIS file resolves to `$HOME` (mise's
+## `MISE_GLOBAL_CONFIG_ROOT` default for the global config, regardless of
+## this file itself being reached via a symlink from the dotfiles checkout —
+## confirmed against https://mise.jdx.dev/configuration.html and
+## https://github.com/jdx/mise/discussions/9100). So every `{{config_root}}`
+## path below is `$HOME`-relative and stable no matter which directory you
+## run mise from: CREW_PERSONAL_DIR -> ~/.crew/.crew, CREW_SRC ->
+## ~/.cache/crew-source, CREW_BIN -> ~/.cache/bin.
+
+[tools]
+fzf = "0.74.1"
+uv = "0.11.32"
+jq = "1.8.2"
+yq = "4.53.3"
+sops = "3.13.3"
+age = "1.3.1"
+"npm:@github/copilot" = "1.0.75"
+"dotnet:graphify-dotnet" = "0.7.0"
+biome = "2.5.5"
+node = "24.18.0"
+dotnet = "10.0.302"
+"github:microsoft/apm" = { version = "v0.26.0", bin = "apm" }
+"github:eljulians/skillfile" = { version = "v1.9.0", bin = "skillfile" }
+
+[settings]
+# Merged in from the old root `mise.config.toml` (deleted by the #63 split).
+experimental = true
+idiomatic_version_file_enable_tools = ["dotnet"]
+lockfile = true
+
+[hooks]
+postinstall = [{ task = "gh-extensions" }, { task = "crew:update" }]
+
+[env]
+CREW_PERSONAL_DIR = "{{config_root}}/.crew/.crew"
+# Local checkout of Blacklite/crew used to build the CLI from source
+CREW_SRC = "{{config_root}}/.cache/crew-source"
+# mise owns the `crew` command via PATH instead of a global `npm link`.
+# The install task drops a single `crew` symlink here pointing at the built CLI.
+CREW_BIN = "{{config_root}}/.cache/bin"
+_.path = ["{{config_root}}/.cache/bin"]
+
+# TODO(#follow-up issue filed separately per review on #78): installing gh CLI
+# extensions this way is a stopgap — revisit as part of mise bootstrap once
+# that issue lands.
+[tasks.gh-mcp]
+run = "gh extensions install shuymn/gh-mcp"
+
+[tasks.gh-extensions]
+run.tasks = ["gh-mcp"]
+
+[tasks."crew:install"]
+description = "Clone Blacklite/crew, build, and expose the crew CLI via mise PATH"
+run = """
+set -euo pipefail
+if [ -d "$CREW_SRC/.git" ]; then
+  # build scripts bump version files in the checkout; discard before pulling
+  git -C "$CREW_SRC" reset --hard
+  git -C "$CREW_SRC" pull --ff-only
+else
+  git clone https://github.com/Blacklite/crew.git "$CREW_SRC"
+fi
+cd "$CREW_SRC"
+npm install
+npm run build
+# Expose the built entry as `crew` on PATH — no global npm symlink.
+entry="$CREW_SRC/packages/crew-cli/dist/cli-entry.js"
+chmod +x "$entry"          # tsc emits 644; PATH exec needs the bit set
+mkdir -p "$CREW_BIN"
+ln -sfn "$entry" "$CREW_BIN/crew"
+crew --version
+"""
+
+[tasks."crew:update"]
+description = "Pull latest Blacklite/crew source and rebuild the crew CLI"
+depends = ["crew:install"]
+
+[tasks."crew:uninstall"]
+description = "Remove the crew CLI symlink from mise PATH"
+run = "rm -f \"$CREW_BIN/crew\""
