@@ -19,7 +19,12 @@ else
 fi
 
 
-brew bundle --file ./setup/Brewfile
+# setup/Brewfile (the old formula-only Brewfile) is gone as of #67 — its
+# entries moved into .config/mise/config.macos.toml's [bootstrap.packages],
+# which also used to include `mise` itself as a plain Brewfile entry. Install
+# mise directly instead so the rest of this script (and the mise-managed
+# [bootstrap.packages]/[dotfiles] below) has it on PATH.
+brew install mise
 
 # sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 # wget https://dot.net/v1/dotnet-install.sh \
@@ -41,6 +46,23 @@ rm ~/.config/mise/config.toml > /dev/null 2>&1
 # the now-deleted mise.config.toml.
 ln -s ~/dotfiles/.config/mise/config.toml ~/.config/mise/config.toml
 chmod 644 ~/.config/mise/config.toml
+
+if [[ "$(uname)" == "Darwin" ]]; then
+    # Formulae (zsh + plugins, powershell, git, moreutils, mas, azure-cli,
+    # gitkraken-cli, speedtest-cli) live in config.macos.toml's
+    # [bootstrap.packages] as of #67; `packages apply`'s own documented
+    # sequence runs [bootstrap.hooks.post-packages] afterward, which fires
+    # the brew:casks task (setup/Brewfile.darwin) — one call for both.
+    # MISE_AUTO_ENV=1 makes mise load config.macos.toml alongside
+    # config.toml (see that file's [settings] comment for why the setting
+    # alone isn't enough during a one-shot script run before .zshrc/.bashrc
+    # have exported it).
+    mise trust ~/.config/mise/config.toml
+    MISE_AUTO_ENV=1 mise bootstrap --only packages --yes
+    # Linux formula/cask provisioning via Homebrew is not covered here —
+    # these tools were previously bundled from a shared setup/Brewfile that
+    # no longer exists. See PR #67's description.
+fi
 
 # .bashrc, .zshrc, .zprofile, .inputrc, .bash_aliases, ~/.ssh, ~/.config/powershell,
 # ~/.claude/{rules,skills}: now managed by `[dotfiles]` in .config/mise/config.toml
