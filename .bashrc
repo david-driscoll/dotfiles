@@ -101,7 +101,6 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-eval "$(thefuck --alias)"
 
 if [ -x "$(command -v gh)" ]; then
     eval "$(gh completion --shell bash)"

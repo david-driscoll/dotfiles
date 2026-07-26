@@ -67,9 +67,6 @@ ln -s ~/dotfiles/.apm/marketplaces.json ~/.apm/marketplaces.json
 rm -f ~/.apm/mise.toml
 ln -s ~/dotfiles/.apm/mise.toml ~/.apm/mise.toml
 
-ln -s ~/dotfiles/.config/thefuck/ ~/.config/thefuck/
-find ~/.config/thefuck/ -type f -print0 | xargs -0 chmod 644
-
 git config --global core.eol lf
 git config --global github.user david-driscoll
 git config --global gpg.format ssh
