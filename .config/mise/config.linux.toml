@@ -1,0 +1,12 @@
+## Linux-only [dotfiles] entries — symlinked to ~/.config/mise/config.linux.toml.
+## Loaded automatically alongside config.toml on Linux (including WSL — mise
+## has no separate "wsl" platform, WSL reports as plain linux) *only when
+## MISE_AUTO_ENV=1 is set* (see config.toml's [settings] comment for why the
+## auto_env setting alone isn't enough).
+## https://mise.jdx.dev/configuration/environments.html#platform-environments
+
+[dotfiles]
+# .bashrc only sources ~/.wslrc when `/proc/version` mentions "microsoft",
+# so symlinking it on every Linux box (Codespaces, Coder, bare-metal, WSL)
+# is harmless where it isn't WSL — it just sits unread.
+"~/.wslrc" = {}

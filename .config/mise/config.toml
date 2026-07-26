@@ -37,6 +37,63 @@ dotnet = "10.0.302"
 experimental = true
 idiomatic_version_file_enable_tools = ["dotnet"]
 lockfile = true
+# `dotfiles.root` is the checkout itself: when a [dotfiles] entry omits
+# `source`, mise mirrors the home-relative target under this root, e.g.
+# `~/.zshrc` -> `~/dotfiles/.zshrc`.
+dotfiles.root = "~/dotfiles"
+# NOTE: this alone does NOT make the mac/linux-only config.*.toml files below
+# load automatically — verified empirically (mise 2026.7.7) that the
+# auto_env platform-file mechanism only activates when MISE_AUTO_ENV=1 is
+# set as a real environment variable before mise reads any config; the
+# setting here is inert on its own due to bootstrap ordering (mise has to
+# know which extra files to read before it can read this file to learn that
+# it should). `.zshrc`/`.bashrc` export MISE_AUTO_ENV=1 ahead of `mise
+# activate` to make this work in practice. See the PR description for the
+# doc citations and the reproduction.
+auto_env = true
+
+## [dotfiles] — entries that apply on every platform this repo currently
+## targets (mac + linux; Windows is out of scope, see #72). macOS-only
+## entries live in the sibling `config.macos.toml`, loaded automatically
+## when MISE_AUTO_ENV=1 is set (see above); Linux/WSL-only entries live in
+## `config.linux.toml`. mise has no per-entry `os =` field for [dotfiles]
+## (only [tools] has that) — platform config-file layering is the
+## documented alternative: https://mise.jdx.dev/configuration/environments.html#platform-environments
+[dotfiles]
+"~/.zshrc" = {}
+"~/.zprofile" = {}
+"~/.bashrc" = {}
+"~/.bash_aliases" = {}
+"~/.inputrc" = {}
+# Whole-dir symlink would put host keys, known_hosts churn, and strict
+# ssh perm requirements (700/600) behind a single link mise doesn't manage
+# file-by-file. symlink-each keeps ~/.ssh a real directory — mise creates
+# it if missing — and links only what's tracked here (authorized_keys,
+# config, 1Password/config, known_hosts.old); anything ssh or another tool
+# drops in later (host keys, a live known_hosts, control-master sockets)
+# is left alone.
+"~/.ssh" = { source = "ssh", mode = "symlink-each" }
+"~/.config/starship.toml" = { source = "starship.toml" }
+# Directory symlink on every platform — install.sh used to link the whole
+# dir, setup/setup.sh linked just the one file; this repo's powershell/
+# has always had both macos.ps1 and Microsoft.PowerShell_profile.ps1 (plus
+# a stray self-referential `powershell/powershell` symlink worth cleaning
+# up separately), so the directory form is the one that doesn't silently
+# drop a file.
+"~/.config/powershell" = { source = "powershell" }
+"~/.gnupg/gpg-agent.conf" = { source = "gpg-agent.conf" }
+# ai/.claude/{rules,skills} is the real, apm-generated source for global
+# Claude Code user config — content-identical today with the live
+# ~/.claude/rules on this machine, confirmed by inspection. The old
+# install.sh targets (ai/claude/CLAUDE.md, ai/claude/settings.json,
+# ai/agents/, ai/copilot/*) do not exist anywhere in this repo and are
+# dropped; see the PR description for what else already exists but isn't
+# covered here (agents/.claude/skills, and Copilot's user-level config).
+"~/.claude/rules" = { source = "ai/.claude/rules" }
+# symlink-each: ~/.claude/skills is also populated by agents/.claude/skills
+# (a second apm project in this repo, out of scope for #64 — see PR body)
+# and by `apm install --global`, so it can't be a single whole-dir symlink.
+"~/.claude/skills" = { source = "ai/.claude/skills", mode = "symlink-each" }
 
 [hooks]
 postinstall = [{ task = "gh-extensions" }, { task = "crew:update" }]

@@ -31,12 +31,9 @@ curl https://get.volta.sh | bash
 
 # keybase login
 
-rm -rf ~/.ssh > /dev/null 2>&1
-ln -s ~/dotfiles/ssh/authorized_keys ~/.ssh/authorized_keys
-cp ~/dotfiles/ssh/config ~/.ssh/config
-cp ~/dotfiles/ssh/known_hosts ~/.ssh/known_hosts
-
-find ~/.ssh/ -type f -print0 | xargs -0 chmod 600
+# ~/.ssh: now managed by `[dotfiles]` in .config/mise/config.toml (#64,
+# symlink-each mode — see that file for why). This used to `rm -rf ~/.ssh`
+# with no `mkdir` first; `mise dotfiles apply` creates the directory safely.
 
 mkdir -p ~/.config/mise/
 rm ~/.config/mise/config.toml > /dev/null 2>&1
@@ -47,32 +44,12 @@ rm ~/.config/mise/config.toml > /dev/null 2>&1
 ln -s ~/dotfiles/.config/mise/config.toml ~/.config/mise/config.toml
 chmod 644 ~/.config/mise/config.toml
 
-mkdir ~/.gnupg/
-ln -s ~/dotfiles/gpg-agent.conf ~/.gnupg/gpg-agent.conf
-find ~/.gnupg/ -type f -print0 | xargs -0 chmod 644
-
-rm ~/.bashrc
-ln -s ~/dotfiles/.bashrc ~/.bashrc
-chmod 644 ~/.bashrc
-
-rm ~/.zprofile
-ln -s ~/dotfiles/.zprofile ~/.zprofile
-chmod 644 ~/.zprofile
-
-rm ~/.zshrc
-ln -s ~/dotfiles/.zshrc ~/.zshrc
-chmod 644 ~/.zshrc
-
-rm ~/.inputrc
-ln -s ~/dotfiles/.inputrc ~/.inputrc
-chmod 644 ~/.inputrc
-
-rm ~/.bash_aliases
-ln -s ~/dotfiles/.bash_aliases ~/.bash_aliases
-chmod 644 ~/.bash_aliases
-
-mkdir -p ~/.config/powershell/
-ln -s ~/dotfiles/powershell/Microsoft.PowerShell_profile.ps1 ~/.config/powershell/Microsoft.PowerShell_profile.ps1
+# ~/.gnupg/gpg-agent.conf, .bashrc, .zprofile, .zshrc, .inputrc, .bash_aliases,
+# ~/.config/powershell: now managed by `[dotfiles]` in .config/mise/config.toml
+# (#64) — run `mise dotfiles apply` instead of re-adding ln -s lines here.
+# (This script previously linked ~/.config/powershell to a single file while
+# install.sh linked the whole directory; [dotfiles] resolves that in favor
+# of the directory form.)
 
 git config --global core.eol lf
 git config --global core.autocrlf true

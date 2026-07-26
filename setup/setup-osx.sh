@@ -33,19 +33,9 @@ az extension add --name interactive
 
 # keybase login
 
-rm -rf ~/.ssh > /dev/null 2>&1
-mkdir -p ~/.ssh
-ln -s ~/dotfiles/ssh/authorized_keys ~/.ssh/authorized_keys
-cp ~/dotfiles/ssh/config ~/.ssh/config
-cp ~/dotfiles/ssh/known_hosts ~/.ssh/known_hosts
-find ~/.ssh/ -type f -print0 | xargs -0 chmod 600
-
-mkdir -p ~/dotfiles/karabiner/
-rm -f ~/.config/karabiner/karabiner.json
-ln -s ~/dotfiles/karabiner/karabiner.json ~/.config/karabiner/karabiner.json
-
-ln -s ~/dotfiles/gpg-agent.conf ~/.gnupg/gpg-agent.conf
-find .gnupg/ -type f -print0 | xargs -0 chmod 644
+# ~/.ssh, ~/.config/karabiner/karabiner.json, ~/.gnupg/gpg-agent.conf: now
+# managed by `[dotfiles]` in .config/mise/config.toml + config.macos.toml
+# (#64) — run `mise dotfiles apply` instead of re-adding ln -s lines here.
 
 mkdir -p ~/.config/mise/
 rm ~/.config/mise/config.toml
@@ -55,13 +45,11 @@ rm ~/.config/mise/config.toml
 # the now-deleted mise.config.toml.
 ln -s ~/dotfiles/.config/mise/config.toml ~/.config/mise/config.toml
 chmod 644 ~/.config/mise/config.toml
-ln -s ~/dotfiles/.config/.bashrc ~/.bashrc
-chmod 644 ~/.bashrc
-ln -s ~/dotfiles/.config/.inputrc ~/.inputrc
-chmod 644 ~/.inputrc
-ln -s ~/dotfiles/.config/.bash_aliases ~/.bash_aliases
-chmod 644 ~/.bash_aliases
-ln -s ~/dotfiles/.config/powershell/macos.ps1 ~/.config/powershell/Microsoft.PowerShell_profile.ps1
+
+# .bashrc, .inputrc, .bash_aliases, ~/.config/powershell: now managed by
+# `[dotfiles]` in .config/mise/config.toml (#64). These lines used to point
+# at ~/dotfiles/.config/.bashrc etc, which never existed in this repo —
+# the real files are at the repo root (~/dotfiles/.bashrc).
 
 mkdir -p ~/.apm/
 rm -f ~/.apm/config.json
