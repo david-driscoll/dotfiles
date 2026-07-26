@@ -8,9 +8,25 @@
 ##
 ## What's left here is genuinely repo-specific: `update-agents` only makes
 ## sense run from inside this checkout, since it operates on this repo's own
-## `ai/` and `agents/` apm projects.
+## `ai/` and `agents/` apm projects. `brew:casks` (added by #67) is
+## repo-specific for a different reason: it shells out to
+## `{{config_root}}/setup/Brewfile.darwin`, a repo-relative path that only
+## resolves correctly when `{{config_root}}` is this repo's root — moving it
+## to the global config would silently break it, since {{config_root}} there
+## resolves to $HOME instead (see .config/mise/config.toml's header).
 ##
 ## `{{config_root}}` here resolves to this repo's root (this file's directory).
+
+[tasks."brew:casks"]
+description = "Install macOS GUI apps from setup/Brewfile.darwin via Homebrew Bundle (#67; macOS-only, idempotent)"
+run = """
+set -euo pipefail
+if [[ "$(uname)" != "Darwin" ]]; then
+  echo "brew:casks: skipping — macOS only" >&2
+  exit 0
+fi
+brew bundle --file "{{config_root}}/setup/Brewfile.darwin"
+"""
 
 [tasks.update-agents]
 description = "Update agents to the latest version"

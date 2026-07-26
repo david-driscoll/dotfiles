@@ -1,6 +1,5 @@
 alias cls=clear
 
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 if [ $WT_SESSION ]; then
     alias icode="\"$(which code-insiders)\""
     alias rcode="\"$(which code)\""
