@@ -49,7 +49,11 @@ find .gnupg/ -type f -print0 | xargs -0 chmod 644
 
 mkdir -p ~/.config/mise/
 rm ~/.config/mise/config.toml
-ln -s ~/dotfiles/mise.config.toml ~/.config/mise/config.toml
+# NOTE: file symlink to the new location, not yet the directory symlink
+# (~/.config/mise -> ~/dotfiles/.config/mise) the target layout wants — that
+# switch is installer work tracked in #68/#69/#72. This just stops pointing at
+# the now-deleted mise.config.toml.
+ln -s ~/dotfiles/.config/mise/config.toml ~/.config/mise/config.toml
 chmod 644 ~/.config/mise/config.toml
 ln -s ~/dotfiles/.config/.bashrc ~/.bashrc
 chmod 644 ~/.bashrc
@@ -65,7 +69,12 @@ ln -s ~/dotfiles/.apm/config.json ~/.apm/config.json
 rm -f ~/.apm/marketplaces.json
 ln -s ~/dotfiles/.apm/marketplaces.json ~/.apm/marketplaces.json
 rm -f ~/.apm/mise.toml
-ln -s ~/dotfiles/.apm/mise.toml ~/.apm/mise.toml
+# .apm/mise.toml was folded into the repo-local mise.toml at repo root (#63) —
+# this now links to the whole repo-local config (crew tasks/env included, not
+# just the apm/skillfile tool pins the old dedicated file had). Harmless for
+# mise inside ~/.apm/ (unused tasks/env just sit idle), but worth a second look
+# if that ever needs to be its own minimal file again.
+ln -s ~/dotfiles/mise.toml ~/.apm/mise.toml
 
 git config --global core.eol lf
 git config --global github.user david-driscoll

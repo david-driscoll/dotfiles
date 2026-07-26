@@ -1,0 +1,21 @@
+## REPO-LOCAL mise config — NOT symlinked anywhere. Only active when your cwd is
+## inside this checkout of dotfiles. Per review on #78, crew tooling (the crew
+## CLI itself, its personal-dir/cache env, gh extension bootstrapping) is NOT
+## repo-specific — it should work from any directory — so all of that now
+## lives in the GLOBAL config: `.config/mise/config.toml` (symlinked to
+## `~/.config/mise/config.toml` by the installers). apm and skillfile moved
+## there too, for the same reason.
+##
+## What's left here is genuinely repo-specific: `update-agents` only makes
+## sense run from inside this checkout, since it operates on this repo's own
+## `ai/` and `agents/` apm projects.
+##
+## `{{config_root}}` here resolves to this repo's root (this file's directory).
+
+[tasks.update-agents]
+description = "Update agents to the latest version"
+run = [
+    "cd {{config_root}}/ai && apm install --trust-transitive-mcp --force",
+    "cd {{config_root}}/agents && apm install --trust-transitive-mcp --force",
+    "apm install --global --trust-transitive-mcp --force",
+]

@@ -40,7 +40,11 @@ find ~/.ssh/ -type f -print0 | xargs -0 chmod 600
 
 mkdir -p ~/.config/mise/
 rm ~/.config/mise/config.toml > /dev/null 2>&1
-ln -s ~/dotfiles/mise.config.toml ~/.config/mise/config.toml
+# NOTE: file symlink to the new location, not yet the directory symlink
+# (~/.config/mise -> ~/dotfiles/.config/mise) the target layout wants — that
+# switch is installer work tracked in #68/#69/#72. This just stops pointing at
+# the now-deleted mise.config.toml.
+ln -s ~/dotfiles/.config/mise/config.toml ~/.config/mise/config.toml
 chmod 644 ~/.config/mise/config.toml
 
 mkdir ~/.gnupg/
