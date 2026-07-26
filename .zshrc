@@ -102,7 +102,6 @@ plugins=(
   git-escape-magic
   z
   starship
-  thefuck
   themes
   terraform
   lol

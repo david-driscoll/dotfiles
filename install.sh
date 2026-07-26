@@ -67,10 +67,6 @@ find ~/.ssh/ -type f -print0 | xargs -0 chmod 600
 
 mkdir ~/.config/ > /dev/null 2>&1
 
-rm ~/.config/thefuck/ > /dev/null 2>&1
-ln -s ~/dotfiles/thefuck/ ~/.config/thefuck
-find ~/.config/thefuck/ -type f -print0 | xargs -0 chmod 644
-
 rm ~/.config/powershell/ > /dev/null 2>&1
 ln -s ~/dotfiles/powershell/ ~/.config/powershell
 find ~/.config/powershell/ -type f -print0 | xargs -0 chmod 644
