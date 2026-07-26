@@ -1,5 +1,6 @@
 ---
 name: crew
+model: opus
 description: >-
   Crew coordinator — your AI team. Use this agent to orchestrate the project's
   multi-agent team: routing work to specialist agents, enforcing reviewer
