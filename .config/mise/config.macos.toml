@@ -1,0 +1,17 @@
+## macOS-only [dotfiles] entries — symlinked to ~/.config/mise/config.macos.toml.
+## Loaded automatically alongside config.toml on macOS *only when
+## MISE_AUTO_ENV=1 is set* (see config.toml's [settings] comment for why
+## the auto_env setting alone isn't enough). Naming follows mise's platform
+## config-file convention: <basename>.<platform>.toml next to <basename>.toml,
+## where <platform> is one of unix/linux/macos/windows (with optional -arch
+## suffix). https://mise.jdx.dev/configuration/environments.html#platform-environments
+
+[dotfiles]
+"~/.config/karabiner/karabiner.json" = { source = "karabiner/karabiner.json" }
+# 1Password's SSH agent config has never been symlinked by any script in
+# this repo before now (#64's whole reason for existing). Declared mac-only
+# because that's the only platform this has been verified on; David also
+# runs Linux (Codespaces/Coder) where 1Password desktop + its SSH agent
+# socket generally isn't present, so a linux entry isn't added here without
+# confirmation it's wanted there too.
+"~/.config/1Password/ssh/agent.toml" = { source = "1password/agent.toml" }

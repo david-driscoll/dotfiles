@@ -114,6 +114,11 @@ fi
 if [ -x "$(command -v op)" ]; then
     eval "$(op completion bash)"
 fi
+# Enables mise's platform config-file layering (config.macos.toml /
+# config.linux.toml alongside .config/mise/config.toml) so [dotfiles]
+# entries can be scoped per-OS. Must be a real env var, not just
+# settings.auto_env in the toml — see that file for why. (#64)
+export MISE_AUTO_ENV=1
 if [ -x "$(command -v mise)" ]; then
     eval "$(mise activate bash)"
 fi
