@@ -24,3 +24,4 @@ mcp.json.backup.*
 # /Crew: state owned by crew-state branch
 # Crew: SubCrew activation file (local to this machine)
 .crew-workstream
+.claude/worktrees/
