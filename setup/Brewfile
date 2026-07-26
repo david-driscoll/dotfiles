@@ -29,7 +29,6 @@ brew "fzf"
 brew "eza"
 
 brew "azure-cli"
-brew "thefuck"
 brew "starship"
 brew "python"
 brew "age"

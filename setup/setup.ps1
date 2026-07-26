@@ -158,7 +158,6 @@ volta.exe install node
 dotnet tool install -g dotnet-try
 dotnet try jupyter install
 
-pip install thefuck
 # dotnet tool update -g Microsoft.dotnet-try
 # dotnet try jupyter install
 
@@ -200,10 +199,6 @@ New-Item -ItemType SymbolicLink -Value $ENV:USERPROFILE/dotfiles/gpg-agent.conf 
 mkdir $ENV:APPDATA/gnupg/ -ErrorAction SilentlyContinue
 rm $ENV:APPDATA/gnupg/gpg-agent.conf -ErrorAction SilentlyContinue
 New-Item -ItemType SymbolicLink -Value $ENV:USERPROFILE/dotfiles/gpg-agent.conf -Path $ENV:APPDATA/gnupg/gpg-agent.conf
-
-mkdir $ENV:USERPROFILE/.config/ -ErrorAction SilentlyContinue
-rm -Recurse -Force "$ENV:USERPROFILE/.config/thefuck" -ErrorAction SilentlyContinue
-New-Item -ItemType SymbolicLink -Value $ENV:USERPROFILE/dotfiles/thefuck/ -Path "$ENV:USERPROFILE/.config/thefuck/"
 
 # Claude Code user-level config
 mkdir "$ENV:USERPROFILE/.claude/" -ErrorAction SilentlyContinue

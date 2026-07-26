@@ -70,9 +70,6 @@ chmod 644 ~/.bash_aliases
 mkdir -p ~/.config/powershell/
 ln -s ~/dotfiles/powershell/Microsoft.PowerShell_profile.ps1 ~/.config/powershell/Microsoft.PowerShell_profile.ps1
 
-ln -s ~/dotfiles/thefuck ~/.config/thefuck
-find ~/.config/thefuck/ -type f -print0 | xargs -0 chmod 644
-
 git config --global core.eol lf
 git config --global core.autocrlf true
 git config --global github.user david-driscoll
