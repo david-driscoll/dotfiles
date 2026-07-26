@@ -18,20 +18,12 @@ fi
 brew bundle --file=./Brewfile
 brew bundle --file=./Brewfile.darwin
 
-volta install node
-
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-dotnet tool install -g dotnet-try
-dotnet try jupyter install
 
 az extension add --name azure-devops
 az extension add --name interactive
 
-# path for volta
 # path for python / pip
-
-# keybase login
 
 # ~/.ssh, ~/.config/karabiner/karabiner.json, ~/.gnupg/gpg-agent.conf: now
 # managed by `[dotfiles]` in .config/mise/config.toml + config.macos.toml

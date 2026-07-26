@@ -28,9 +28,6 @@ brew bundle --file ./setup/Brewfile
 #     && rm dotnet-install.sh
 # wget -qO- https://aka.ms/install-artifacts-credprovider.sh | bash
 
-# volta
-# volta install node
-
 az extension add --name azure-devops
 az extension add --name interactive
 

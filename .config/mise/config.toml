@@ -32,6 +32,35 @@ dotnet = "10.0.302"
 "github:microsoft/apm" = { version = "v0.26.0", bin = "apm" }
 "github:eljulians/skillfile" = { version = "v1.9.0", bin = "skillfile" }
 
+## Added by #66 (general-purpose CLI consolidation) — versions are each
+## tool's current release as of this PR, resolved with `mise latest <tool>`
+## against the live registry, not guessed. Every entry below was confirmed
+## to exist in `mise registry` first; backends noted here so bumps/breakage
+## are easy to trace back to the right upstream project.
+gh = "2.96.0" # aqua:cli/cli
+terraform = "1.15.8" # aqua:hashicorp/terraform
+pulumi = "3.254.0" # aqua:pulumi/pulumi
+kubectl = "1.36.3" # aqua:kubernetes/kubernetes/kubectl
+helm = "4.2.3" # aqua:helm/helm
+helmfile = "1.7.1" # aqua:helmfile/helmfile
+kustomize = "5.8.1" # aqua:kubernetes-sigs/kustomize
+kubeconform = "0.8.0" # aqua:yannh/kubeconform
+# NOTE: the issue calls this tool "flux" but that shorthand isn't in mise's
+# registry — the Flux CLI is registered as `flux2` (aqua:fluxcd/flux2). The
+# installed binary is still named `flux`; only the mise config key differs
+# from the issue text.
+flux2 = "2.9.3" # aqua:fluxcd/flux2 -> installs the `flux` binary
+# Same story as flux2: the issue calls this "go-task" but the registry
+# shorthand is `task` (aqua:go-task/task); the binary is `task`.
+task = "3.52.0" # aqua:go-task/task -> installs the `task` binary
+starship = "1.26.0" # aqua:starship/starship
+zoxide = "0.10.0" # aqua:ajeetdsouza/zoxide
+direnv = "2.37.1" # aqua:direnv/direnv
+eza = "0.23.5" # asdf:mise-plugins/mise-eza (no aqua backend for eza; cargo:eza is the other option)
+talosctl = "1.13.7" # aqua:siderolabs/talos
+talhelper = "3.1.15" # aqua:budimanjojo/talhelper
+mkcert = "1.4.4" # aqua:FiloSottile/mkcert
+
 [settings]
 # Merged in from the old root `mise.config.toml` (deleted by the #63 split).
 experimental = true

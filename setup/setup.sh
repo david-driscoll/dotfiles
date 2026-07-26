@@ -26,11 +26,6 @@ sudo update-alternatives --install /usr/bin/pip pip /usr/bin/pip3 10
 az extension add --name azure-devops
 az extension add --name interactive
 
-# volta
-curl https://get.volta.sh | bash
-
-# keybase login
-
 # ~/.ssh: now managed by `[dotfiles]` in .config/mise/config.toml (#64,
 # symlink-each mode — see that file for why). This used to `rm -rf ~/.ssh`
 # with no `mkdir` first; `mise dotfiles apply` creates the directory safely.

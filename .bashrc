@@ -172,7 +172,6 @@ if ! shopt -oq posix; then
     fi
 fi
 
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 if [[ $(grep microsoft /proc/version) ]]; then
     . ~/.wslrc
 fi
