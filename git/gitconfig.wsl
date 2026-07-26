@@ -1,0 +1,26 @@
+## WSL override for ~/.gitconfig.local. NOT wired into any automatic
+## deployment mechanism, and *can't* be with the tools this stack has
+## today:
+##
+## - mise's platform auto_env layering (config.macos.toml /
+##   config.linux.toml) reports WSL as plain "linux" — there is no separate
+##   "wsl" platform in mise. A WSL box would silently receive
+##   git/gitconfig.linux's (empty) override, not this one.
+## - git's own [includeIf] can't fill the gap either: none of its
+##   conditions (gitdir, gitdir/i, onbranch, hasconfig:remote.*.url) test
+##   the OS or environment (`git help config`, git 2.55.0).
+##
+## install.sh used to paper over exactly this at the shell level with an
+## `if [ $WT_SESSION ]` check before calling `git config --global
+## gpg.ssh.program ...` directly (itself an imprecise proxy for "is this
+## WSL" — WT_SESSION really just means "running inside Windows Terminal").
+## That branch is deleted along with the rest of install.sh's imperative
+## git config per #65, and nothing here replaces its detection logic.
+##
+## Until WSL gets real detection wired into mise (or some other mechanism),
+## apply this by hand on a WSL box:
+##
+##   ln -sf ~/dotfiles/git/gitconfig.wsl ~/.gitconfig.local
+
+[gpg "ssh"]
+	program = /mnt/c/Program Files/1Password/app/8/op-ssh-sign-wsl

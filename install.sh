@@ -74,9 +74,10 @@ fi
 mkdir ~/.config/ > /dev/null 2>&1
 
 if [ $WT_SESSION ]; then
-    # ssh forwarding
-    # todo configure for current wsl user
-    git config --global gpg."ssh".program "/mnt/c/Program Files/1Password/app/8/op-ssh-sign-wsl"
+    # WSL under Windows Terminal: 1Password's SSH-signing path for git is now
+    # committed at git/gitconfig.wsl (#65) instead of set here imperatively —
+    # see that file's header for why it isn't wired up automatically yet.
+    :
 elif [[ "$(uname)" != "Darwin" ]]; then
     ARCH=$(uname -m)
     case $ARCH in
@@ -95,21 +96,10 @@ elif [[ "$(uname)" != "Darwin" ]]; then
         sudo chmod g+s /usr/local/bin/op
 fi
 
-git config --global core.eol lf
-git config --global core.autocrlf false
-git config --global github.user david-driscoll
-git config --global gpg.format ssh
-git config --global user.signingkey "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFEZpmeANLSx9Worwn0REmiWKLEkDvGaaz5ZlCVuRc67"
-git config --global user.name "David Driscoll"
-git config --global user.email "david.driscoll@gmail.com"
-git config --global core.editor "vi"
-# TODO: 1Password
+# git config: now a committed ~/.gitconfig deployed via `[dotfiles]` in
+# .config/mise/config.toml (#65) — run `mise dotfiles apply` instead of
+# re-adding `git config --global` lines here.
 # TODO: Setup npiperelay
-git config --global commit.gpgsign true
-git config --global alias.amend "commit --amend --reuse-message=HEAD"
-git config --global alias.squash '!f() { git rebase -i --autosquash $1; }; f'
-# not sure if this is needed, caused issues in code spaces
-# git config --global url."git@github.com:".insteadOf "https://github.com/"
 
 gh auth login
 gh extension install davidraviv/gh-clean-branches

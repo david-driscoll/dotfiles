@@ -46,27 +46,8 @@ chmod 644 ~/.config/mise/config.toml
 # install.sh linked the whole directory; [dotfiles] resolves that in favor
 # of the directory form.)
 
-git config --global core.eol lf
-git config --global core.autocrlf true
-git config --global github.user david-driscoll
-git config --global user.name "David Driscoll"
-git config --global user.email "david.driscoll@gmail.com"
-# git config --global user.signingkey "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFEZpmeANLSx9Worwn0REmiWKLEkDvGaaz5ZlCVuRc67"
-# git config --global gpg.format ssh
-# git config --global commit.gpgsign true
-# git config --global gpg.ssh.program "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
-
-# TODO: 1Password
-git config --global gpg.program "gpg"
-git config --global core.editor "vi"
-git config --global alias.amend "commit --amend --reuse-message=HEAD"
-git config --global alias.squash '!f() { git rebase -i --autosquash $1; }; f'
-# not sure if this is needed, caused issues in code spaces
-# git config --global url."git@github.com:".insteadOf "https://github.com/"
-
-# try to handle error: fetch-pack: unexpected disconnect while reading sideband packet
-git config --global core.packedGitLimit 512m
-git config --global core.packedGitWindowSize 512m
-git config --global pack.deltaCacheSize 2047m
-git config --global pack.packSizeLimit 2047m
-git config --global pack.windowMemory 2047m
+# git config: now a committed ~/.gitconfig deployed via `[dotfiles]` in
+# .config/mise/config.toml (#65) — run `mise dotfiles apply` instead of
+# re-adding `git config --global` lines here. This script's own
+# core.autocrlf=true (vs. install.sh's false) was one of the exact
+# conflicts #65 resolved — settled to false everywhere.

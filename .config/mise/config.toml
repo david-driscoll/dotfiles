@@ -129,6 +129,15 @@ auto_env = true
 # Removed per review on #64: apm already handles most of the AI skills
 # management, so a separate mise-managed symlink for ~/.claude/rules and
 # ~/.claude/skills is redundant for now.
+# Committed git config (#65) — replaces the ~4 `git config --global` blocks
+# that used to be scattered (and contradict each other) across install.sh,
+# setup/setup.sh, setup/setup-osx.sh, and setup/setup.ps1. Per-OS overrides
+# (1Password's SSH-signing program path) load via this file's own plain
+# `[include] path = ~/.gitconfig.local` — see git/gitconfig's header and
+# config.macos.toml/config.linux.toml below for the mechanism, since mise's
+# [dotfiles] table itself has no per-entry `os =` field (same limitation
+# noted above for the mac/linux-only entries).
+"~/.gitconfig" = { source = "git/gitconfig" }
 
 [hooks]
 postinstall = [{ task = "gh-extensions" }, { task = "crew:update" }]
