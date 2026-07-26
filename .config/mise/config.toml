@@ -81,19 +81,15 @@ auto_env = true
 # up separately), so the directory form is the one that doesn't silently
 # drop a file.
 "~/.config/powershell" = { source = "powershell" }
-"~/.gnupg/gpg-agent.conf" = { source = "gpg-agent.conf" }
-# ai/.claude/{rules,skills} is the real, apm-generated source for global
-# Claude Code user config — content-identical today with the live
-# ~/.claude/rules on this machine, confirmed by inspection. The old
-# install.sh targets (ai/claude/CLAUDE.md, ai/claude/settings.json,
-# ai/agents/, ai/copilot/*) do not exist anywhere in this repo and are
-# dropped; see the PR description for what else already exists but isn't
-# covered here (agents/.claude/skills, and Copilot's user-level config).
-"~/.claude/rules" = { source = "ai/.claude/rules" }
-# symlink-each: ~/.claude/skills is also populated by agents/.claude/skills
-# (a second apm project in this repo, out of scope for #64 — see PR body)
-# and by `apm install --global`, so it can't be a single whole-dir symlink.
-"~/.claude/skills" = { source = "ai/.claude/skills", mode = "symlink-each" }
+# Commented out per review on #64: David doesn't generally set up gpg unless
+# he needs it. Left in place (not deleted) so it's a one-line re-enable when
+# that changes. Note this is gpg-agent.conf specifically — the 1Password SSH
+# agent config (config.macos.toml's "~/.config/1Password/ssh/agent.toml"
+# entry) is unrelated and stays active.
+# "~/.gnupg/gpg-agent.conf" = { source = "gpg-agent.conf" }
+# Removed per review on #64: apm already handles most of the AI skills
+# management, so a separate mise-managed symlink for ~/.claude/rules and
+# ~/.claude/skills is redundant for now.
 
 [hooks]
 postinstall = [{ task = "gh-extensions" }, { task = "crew:update" }]
