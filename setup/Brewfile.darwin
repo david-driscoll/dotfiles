@@ -1,28 +1,61 @@
+# macOS GUI apps (casks only — formulae live in .config/mise/config.macos.toml's
+# [bootstrap.packages] as of #67; `mas`, `git`, `gitkraken-cli`, and
+# `speedtest-cli` used to leak into this file as formulae and have moved
+# there). Installed idempotently via the `brew:casks` mise task
+# (mise.toml), which runs `brew bundle --file setup/Brewfile.darwin`.
+#
+# Grouped for readability; alphabetical order isn't preserved on purpose —
+# related apps sit together. See the PR body for a decision checklist on
+# the terminals/browsers/fonts groups (which entries are actually in use
+# on this machine) and the `mas` question (zero Mac App Store apps are
+# declared below even though the formula that manages them is installed).
 
-# macos
-brew "mas"
+# --- Security & 1Password ---
 cask "1password/tap/1password-cli"
-brew "git"
-brew "speedtest-cli"
-brew "gitkraken-cli"
+cask "gpg-suite"
+cask "tailscale-app"
 
+# --- Input & display utilities ---
 cask "karabiner-elements"
 cask "linearmouse"
 cask "middleclick"
-cask "warp"
-cask "arc"
-cask "discord"
-cask "vivaldi"
-cask "iterm2"
 cask "stats"
+cask "eul"
+cask "hiddenbar"
+cask "alcove"
+cask "dockdoor"
+cask "betterdisplay"
+cask "typewhisper/tap/typewhisper"
+
+# --- Terminals ---
+# 3 terminals declared here (wezterm/iterm2/warp) — see PR body for which
+# are actually installed on this machine and a trim recommendation.
+cask "wezterm"
+cask "iterm2"
+cask "warp"
+
+# --- Dev tools ---
+cask "jetbrains-toolbox"
+cask "visual-studio-code"
+cask "visual-studio-code@insiders"
+cask "docker"
+cask "gitkraken"
+cask "devtoys"
+
+# --- Browsers ---
+# 5 browsers declared here — see PR body for which are actually installed.
+cask "arc"
 cask "google-chrome"
 cask "firefox"
 cask "microsoft-edge"
-cask "eul"
-cask "gitkraken"
+cask "vivaldi"
+
+# --- Comms ---
 cask "slack"
 cask "microsoft-teams"
-cask "gpg-suite"
+cask "discord"
+
+# --- Fonts ---
 cask "font-fira-code"
 cask "font-fira-code-nerd-font"
 cask "font-fira-mono-nerd-font"
@@ -33,17 +66,3 @@ cask "font-cascadia-mono-pl"
 cask "font-cascadia-code-pl"
 cask "font-cascadia-mono"
 cask "font-cascadia-code"
-cask "devtoys"
-cask "tailscale-app"
-cask "hiddenbar"
-cask "alcove"
-cask "dockdoor"
-cask "typewhisper/tap/typewhisper"
-
-cask "jetbrains-toolbox"
-cask "visual-studio-code"
-cask "visual-studio-code@insiders"
-cask "docker"
-cask "betterdisplay"
-
-
