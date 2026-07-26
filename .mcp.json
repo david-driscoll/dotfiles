@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "crew_state": {
+      "command": "crew",
+      "args": [
+        "state-mcp"
+      ],
+      "env": {},
+      "tools": [
+        "*"
+      ]
+    }
+  }
+}
