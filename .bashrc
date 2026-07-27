@@ -8,6 +8,14 @@ case $- in
 *) return ;;
 esac
 
+# mise (https://mise.run) installs to ~/.local/bin by default. Most distros'
+# default /etc/skel/.profile adds ~/.local/bin to PATH, but this file
+# replaces ~/.bashrc wholesale (see #64/[dotfiles]) so that default doesn't
+# apply here — make it explicit instead of relying on it. Without this,
+# `command -v mise` below never finds mise on a bare Linux image (Codespaces,
+# Coder), and `mise activate`/its shims (~/.local/share/mise/shims) never
+# make it onto PATH for future shells. (#68)
+PATH=$HOME/.local/bin:$PATH
 PATH=$HOME/.dotnet:$PATH
 PATH=$HOME/.dotnet/tools:$PATH
 PATH=$HOME/.jetbrains:$PATH
@@ -179,7 +187,11 @@ fi
 # add Pulumi to the PATH
 export PATH=$PATH:$HOME/.pulumi/bin
 
-. "$HOME/.local/bin/env"
+# Only present on machines where some other installer (rustup, uv's own
+# curl installer, etc.) dropped this file — nothing in this repo writes it.
+# Was previously sourced unconditionally, which errors on any box (e.g. a
+# fresh Codespace/Coder Linux box) where it doesn't exist. (#68)
+[ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
 
 # OpenClaw Completion
 source "/Users/david/.openclaw/completions/openclaw.bash"
