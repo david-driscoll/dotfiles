@@ -6,11 +6,11 @@
 # Coder container builds), and failure-isolated per extension so one broken/
 # renamed extension can't abort the other nine or fail the postinstall hook
 # chain. Full design rationale lives in the comment above the
-# `[tasks.gh-extensions]` task in .config/mise/config.toml, which invokes
-# this file as `& "$HOME/.config/mise/scripts/gh-extensions.ps1"` -- see
-# that comment for why `$HOME` (not `{{config_root}}`, which resolves to
-# `$HOME` anyway for the *global* mise config this task lives in, and not a
-# hardcoded repo path) is the right anchor for this file's own location.
+# `[tasks.gh-extensions]` task in .config/mise/config.toml, which locates
+# and invokes this file via a `{{config_root}}`-first, `$HOME`-fallback
+# resolution (#96) rather than a hard-coded `$HOME` path -- see that
+# comment for why, and for what happens (a warning, then a clean `exit 0`)
+# if neither location has this file.
 
 $ErrorActionPreference = "Continue"
 

@@ -5,10 +5,11 @@
 # NOT gate the install, since `az extension add` downloads a wheel from the
 # public extension index and doesn't need an authenticated session. Full
 # design rationale lives in the comment above the `[tasks.az-extensions]`
-# task in .config/mise/config.toml, which invokes this file as
-# `& "$HOME/.config/mise/scripts/az-extensions.ps1"` -- see that comment
-# (and gh-extensions.ps1's own header) for why `$HOME` is the right anchor
-# for this file's own location.
+# task in .config/mise/config.toml, which locates and invokes this file via
+# a `{{config_root}}`-first, `$HOME`-fallback resolution (#96) rather than
+# a hard-coded `$HOME` path -- see that comment (and gh-extensions.ps1's
+# own header) for why, and for what happens (a warning, then a clean
+# `exit 0`) if neither location has this file.
 
 $ErrorActionPreference = "Continue"
 
