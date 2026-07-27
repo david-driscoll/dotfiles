@@ -145,6 +145,85 @@ three_finger_drag = false
 [bootstrap.macos.defaults]
 "NSGlobalDomain" = { AppleShowAllExtensions = true }
 
+## Optional macOS launchd agent — periodic mise bootstrap DRIFT CHECK (#74,
+## last additive piece of epic #61). SHIPPED DISABLED (commented out below):
+## this is the one part of the whole migration that would run unattended,
+## forever, on David's daily driver — that's a deliberate new background
+## cost, not something that should switch on silently the next time
+## `mise bootstrap` happens to run. Uncomment the `[bootstrap.macos.launchd
+## .agents.mise-sync]` block below, then either re-run `mise bootstrap`
+## (loads it in phase 7, "Write and load LaunchAgents" — see
+## https://mise.jdx.dev/bootstrap.html) or just
+## `mise bootstrap macos launchd-agents apply` to load only this.
+##
+## What it runs, and why NOT `mise up`: the issue (#74) suggested `mise up`
+## and/or `mise dotfiles status`. `mise up` UPGRADES pinned tool versions —
+## an unattended agent silently bumping [tools] pins on a daily driver is
+## exactly what this repo's "pin explicitly, a floating version is a future
+## broken machine" principle (see config.toml's [tools] entries, each
+## pinned to an exact version resolved by hand) argues against, and it would
+## fight Renovate, which already owns every version bump in this repo via
+## PRs — two automated systems independently deciding what version a tool
+## should be is a conflict, not a convenience. So this agent runs
+## `mise bootstrap status --missing` instead (via the wrapper script below,
+## for PATH + log-rotation handling) — confirmed against mise's own docs and
+## empirically on this machine: it is READ-ONLY, reports drift across
+## dotfiles/packages/macos defaults/launchd/user/tools in one table, and
+## never mutates anything. It only ever tells David something drifted; he
+## decides by hand whether to run `mise bootstrap`.
+##
+## PATH: launchd agents get a minimal environment
+## (/usr/bin:/bin:/usr/sbin:/sbin) — no Homebrew directory, so a launchd
+## agent that just ran `mise` bare would silently do nothing (the single
+## most common failure mode for these — confirmed against mise's own
+## `bootstrap/launchd.html` example, which sets `environment.PATH` for
+## exactly this reason). `environment.PATH` below covers both Homebrew
+## prefixes (arm64 /opt/homebrew, Intel /usr/local — this repo dropped the
+## separate config.macos-x64.toml twin, so this file has to work on either
+## architecture without per-arch branching) plus the standard system dirs
+## `mise bootstrap status` itself shells out to (`brew`, `git`, `defaults`,
+## ...). `program` deliberately does NOT hardcode an architecture-specific
+## `mise` path (e.g. `/opt/homebrew/bin/mise`) for the same reason — it
+## points at the wrapper script below instead, which resolves `mise` off
+## its own PATH export. This is genuinely redundant with `environment.PATH`
+## (belt and suspenders) — see the script's own header for why both exist.
+##
+## Schedule: once daily (`start_calendar_interval`), not `start_interval` —
+## drift detection doesn't need to be tight, and a background job that
+## fires every few minutes is exactly the kind of "background cost" this
+## repo should avoid on a daily driver. `run_at_load = true` so applying the
+## agent produces an immediate first log entry rather than a 24h wait to
+## find out if it's even working.
+##
+## Logging: setup/mise-bootstrap-status.sh (committed, see its own header)
+## writes timestamped entries to ~/Library/Logs/mise-bootstrap-status.log —
+## somewhere David would actually look — and trims that file to its last
+## ~4000 lines before every run, so a year of daily runs can't grow it
+## without bound. stdout_path/stderr_path point at the same file as a
+## fallback (e.g. if the script itself fails to start, launchd's own
+## redirection still captures why).
+##
+## Removal — easy, two commands, no dotfiles/mise state touched:
+##   launchctl bootout gui/$UID/dev.mise.mise-sync
+##   rm ~/Library/LaunchAgents/dev.mise.mise-sync.plist
+## (then re-comment the block below so a future `mise bootstrap` doesn't
+## reinstall it).
+##
+# [bootstrap.macos.launchd.agents.mise-sync]
+# # setup/mise-bootstrap-status.sh (committed, tested) is what actually runs
+# # `mise bootstrap status --missing` — it also sets PATH itself (belt and
+# # suspenders with `environment.PATH` below) and rotates the log file. Bare
+# # `~` expands here (mise docs: program/working_directory/stdout_path/
+# # stderr_path all do; environment values do not, hence the literal PATH
+# # below instead of a templated one).
+# program = "~/dotfiles/setup/mise-bootstrap-status.sh"
+# run_at_load = true
+# start_calendar_interval = { hour = 9, minute = 0 }
+# environment = { PATH = "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin" }
+# working_directory = "~"
+# stdout_path = "~/Library/Logs/mise-bootstrap-status.log"
+# stderr_path = "~/Library/Logs/mise-bootstrap-status.log"
+
 [dotfiles]
 "~/.config/karabiner/karabiner.json" = { source = "karabiner/karabiner.json" }
 # 1Password's SSH agent config has never been symlinked by any script in
