@@ -85,9 +85,27 @@ install_homebrew() {
     # reflows the file. NONINTERACTIVE=1 is Homebrew's own documented flag
     # for the same goal done properly: skip all prompts, fail loudly
     # instead of hanging.
-    if ! NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; then
+    #
+    # Download first rather than piping straight into bash, same reasoning
+    # as install_mise() in install.sh (#68): confirms the download actually
+    # completed and gives a chance to sanity-check the content before
+    # executing anything, instead of streaming a possibly-truncated
+    # in-progress response straight into a shell.
+    local installer
+    installer="$(mktemp)"
+    if ! curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh -o "$installer"; then
+        rm -f "$installer"
+        die "failed to download the Homebrew installer"
+    fi
+    if [ ! -s "$installer" ] || ! head -n1 "$installer" | grep -q '^#!'; then
+        rm -f "$installer"
+        die "Homebrew installer download looks corrupt (empty or missing shebang) — refusing to execute it"
+    fi
+    if ! NONINTERACTIVE=1 /bin/bash "$installer"; then
+        rm -f "$installer"
         die "Homebrew installer exited non-zero"
     fi
+    rm -f "$installer"
 
     if [ ! -x /opt/homebrew/bin/brew ] && [ ! -x /usr/local/bin/brew ]; then
         die "Homebrew installer completed but brew is not present at /opt/homebrew or /usr/local — something changed upstream"
@@ -193,7 +211,8 @@ link_mise_config() {
         log "~/.config/mise is a symlink to '$current' (stale, dangling, or pointing at a different checkout) — relinking to $source"
         rm -f "$target"
     elif [ -d "$target" ]; then
-        local backup="${target}.bak.$(date +%Y%m%d%H%M%S)"
+        local backup
+        backup="${target}.bak.$(date +%Y%m%d%H%M%S)"
         log "~/.config/mise exists as a real directory (not a symlink) — moving it aside to $backup rather than overwriting it"
         mv "$target" "$backup"
     elif [ -e "$target" ]; then
