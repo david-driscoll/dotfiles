@@ -208,28 +208,52 @@ _.path = ["{{config_root}}/.cache/bin"]
 #   parsing behaves the same for `run` and `run_windows`.
 # - The script body lives in a real, checked-in, AST-parseable file
 #   (`.config/mise/scripts/gh-extensions.ps1`) rather than inline here, per
-#   review on #89. It's invoked via `$HOME`, not `{{config_root}}`: for
-#   the *global* mise config (this file), `{{config_root}}` resolves to
-#   `$HOME` itself (established in #63 — that's exactly why `brew:casks`,
-#   which needs a real repo-relative path, had to move to the repo-local
-#   `mise.toml` instead of living here), so a `{{config_root}}`-based path
-#   here would silently mean `~/scripts/...`, not this repo's scripts
-#   directory. `$HOME/.config/mise/scripts/...` works everywhere instead,
-#   because every bootstrap script (install.sh, setup-macos.sh, setup.ps1)
-#   symlinks/junctions `~/.config/mise` to `<repo>/.config/mise` *before*
-#   running `mise bootstrap` — so this path is stable across every
-#   machine regardless of where the repo itself was cloned (notably
-#   Codespaces, which clones to `/workspaces/...`, not `~/dotfiles`). Mise
-#   template variables were checked for a "directory of this config file"
-#   variable that would avoid the `$HOME` indirection entirely — per
-#   https://mise.jdx.dev/templates.html, no such variable exists;
-#   `config_root` is the only config-relative one, and it's special-cased
-#   to `$HOME` for the global config specifically, which is the whole
-#   problem being routed around here.
+#   review on #89. Locating that file no longer hard-codes `$HOME` (#96):
+#   `mise install`'s `postinstall` hook always invokes this task as
+#   `mise --cd <repo> run gh-extensions` (confirmed from the actual WARN
+#   line mise prints on failure), and under that exact invocation mise
+#   resolves `{{config_root}}` via ordinary per-directory config discovery
+#   rooted at the `--cd` path, NOT via the special-cased "global config →
+#   `$HOME`" rule that #63/#89 measured (that measurement was for a bare
+#   `mise run` invoked from an unrelated cwd, which is a different
+#   discovery path). Verified empirically both ways with the read-only
+#   `mise --cd <dir> tasks info gh-extensions --json` (`dir` shares
+#   `{{config_root}}`'s default and render logic, so it's a safe proxy for
+#   what the templated `run` string below would receive):
+#     - pre-bootstrap (`~/.config/mise` missing OR, David's actual case on
+#       #96, a *real* directory containing only a dangling `config.toml`
+#       symlink): `{{config_root}}` renders to the repo root itself, found
+#       by mise's plain directory walk from the `--cd` target — no
+#       symlink required.
+#     - post-bootstrap (`~/.config/mise` correctly symlinked/junctioned to
+#       `<repo>/.config/mise`): mise recognizes the resolved path as the
+#       canonical global-config location and `{{config_root}}` renders to
+#       `$HOME` instead — which is fine, because the bootstrap symlink
+#       makes `$HOME/.config/mise/...` resolve back to this same repo
+#       path anyway.
+#   So the `run` script below tries the `{{config_root}}`-relative path
+#   first, falls back to the historical `$HOME`-relative path (covers any
+#   invocation shape not exercised above, e.g. a bare `mise run` from
+#   elsewhere post-bootstrap), and — this is the part #96 broke without —
+#   if *neither* resolves, it warns and exits 0 instead of failing, so a
+#   missing optional extension installer can never fail `mise install`'s
+#   `postinstall` hook chain. Confirmed via isolated `pwsh -NoProfile`
+#   runs against a scratch dir covering all three outcomes (repo-relative
+#   hit, `$HOME`-relative hit via a real symlink, and the neither-exists
+#   warn-and-exit-0 path) — see PR #96 description for the exact commands.
 [tasks.gh-extensions]
-description = "Install this repo's gh CLI extensions (idempotent, auth-guarded, failure-isolated; #83)"
+description = "Install this repo's gh CLI extensions (idempotent, auth-guarded, failure-isolated; #83, #96)"
 shell = "pwsh -NoProfile -Command"
-run = '& "$HOME/.config/mise/scripts/gh-extensions.ps1"'
+run = '''
+$repoScript = Join-Path "{{config_root}}" ".config/mise/scripts/gh-extensions.ps1"
+$homeScript = Join-Path $HOME ".config/mise/scripts/gh-extensions.ps1"
+$script = @($repoScript, $homeScript) | Where-Object { Test-Path $_ } | Select-Object -First 1
+if (-not $script) {
+    Write-Warning "[gh-extensions] script not found at '$repoScript' or '$homeScript' -- skipping (has the dotfiles bootstrap symlink been created yet? see #96)"
+    exit 0
+}
+& $script
+'''
 
 # az CLI extensions this repo wants everywhere `az` itself is installed
 # (#90). Historically duplicated as `az extension add --name azure-devops`
@@ -290,14 +314,23 @@ run = '& "$HOME/.config/mise/scripts/gh-extensions.ps1"'
 #   rationale (shebang portability, pwsh already being a [tools] entry).
 # - The script body lives in a real, checked-in, AST-parseable file
 #   (`.config/mise/scripts/az-extensions.ps1`) rather than inline here, for
-#   the same reason and via the same `$HOME`-anchored invocation as
-#   gh-extensions -- see that task's comment above for why `{{config_root}}`
-#   would silently break here (it resolves to `$HOME` for this *global*
-#   config, not this repo) and why no better mise template variable exists.
+#   the same reason as gh-extensions -- and resolved the same
+#   config_root-first, $HOME-fallback, warn-and-exit-0-if-neither way
+#   (#96); see that task's comment above for the full investigation and
+#   what was verified.
 [tasks.az-extensions]
-description = "Install this repo's az CLI extensions (idempotent, failure-isolated; #90)"
+description = "Install this repo's az CLI extensions (idempotent, failure-isolated; #90, #96)"
 shell = "pwsh -NoProfile -Command"
-run = '& "$HOME/.config/mise/scripts/az-extensions.ps1"'
+run = '''
+$repoScript = Join-Path "{{config_root}}" ".config/mise/scripts/az-extensions.ps1"
+$homeScript = Join-Path $HOME ".config/mise/scripts/az-extensions.ps1"
+$script = @($repoScript, $homeScript) | Where-Object { Test-Path $_ } | Select-Object -First 1
+if (-not $script) {
+    Write-Warning "[az-extensions] script not found at '$repoScript' or '$homeScript' -- skipping (has the dotfiles bootstrap symlink been created yet? see #96)"
+    exit 0
+}
+& $script
+'''
 
 [tasks."crew:install"]
 description = "Clone Blacklite/crew, build, and expose the crew CLI via mise PATH"
