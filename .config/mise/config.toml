@@ -90,10 +90,18 @@ dotfiles.root = "~/dotfiles"
 # doc citations and the reproduction.
 auto_env = true
 
-## [dotfiles] — entries that apply on every platform this repo currently
-## targets (mac + linux; Windows is out of scope, see #72). macOS-only
-## entries live in the sibling `config.macos.toml`, loaded automatically
-## when MISE_AUTO_ENV=1 is set (see above); Linux/WSL-only entries live in
+## [dotfiles] — entries that apply on every platform that reads THIS file as
+## its global config. That used to mean mac + linux only, with Windows
+## explicitly out of scope; as of #72, setup/setup.ps1 junctions
+## ~/.config/mise to this same directory, so Windows now loads this exact
+## table too (copy fallback for the file/symlink-each entries, since Windows
+## file symlinks need elevation — see setup.ps1's own header comment).
+## Nothing here is Windows-gated: ~/.zshrc, ~/.ssh, etc. all get created on
+## Windows now, mostly harmlessly (unused by native pwsh, but real for Git
+## Bash). macOS-only entries live in the sibling `config.macos.toml`, loaded
+## automatically when MISE_AUTO_ENV=1 is set (see above; not set by
+## setup.ps1, so this file's own Windows-agnostic entries are what Windows
+## gets — no config.windows.toml exists yet); Linux/WSL-only entries live in
 ## `config.linux.toml`. mise has no per-entry `os =` field for [dotfiles]
 ## (only [tools] has that) — platform config-file layering is the
 ## documented alternative: https://mise.jdx.dev/configuration/environments.html#platform-environments
