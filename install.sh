@@ -154,7 +154,8 @@ link_mise_config() {
         log "~/.config/mise is a symlink to '$current' (stale, dangling, or pointing at a different checkout) — relinking to $source"
         rm -f "$target"
     elif [ -d "$target" ]; then
-        local backup="${target}.bak.$(date +%Y%m%d%H%M%S)"
+        local backup
+        backup="${target}.bak.$(date +%Y%m%d%H%M%S)"
         log "~/.config/mise exists as a real directory (not a symlink) — moving it aside to $backup rather than overwriting it"
         mv "$target" "$backup"
     elif [ -e "$target" ]; then
