@@ -1,14 +1,24 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended"],
-  "enabledManagers": ["mise"],
-  "automerge": true,
-  "mise": {
-    "managerFilePatterns": [
-      "/\\.mise\\.toml$/",
-      "/mise\\.toml$/",
-      "/\\.mise/config\\.toml$/",
-      "/mise/config\\.toml$/"
-    ]
-  }
+  "enabledManagers": ["mise", "github-actions"],
+  "packageRules": [
+    {
+      "description": "Automerge patch-level mise tool bumps only. The mise manager can refresh mise.lock via `mise lock` (lib/modules/manager/mise/artifacts.ts), but that only runs if the Renovate host's allowedUnsafeExecutions includes \"mise\" -- a self-hosted/admin setting, not something this repo's config controls or can confirm. Scoping automerge to patch bumps limits the blast radius on the chance the lockfile silently isn't refreshed.",
+      "matchManagers": ["mise"],
+      "matchUpdateTypes": ["patch"],
+      "automerge": true
+    },
+    {
+      "description": "Minor/major mise bumps always get a reviewable PR. This repo bootstraps two of David's real machines (macOS daily driver + Windows work machine) via `mise install`, so a larger version jump merging unattended is more blast radius than is worth it.",
+      "matchManagers": ["mise"],
+      "matchUpdateTypes": ["minor", "major"],
+      "automerge": false
+    },
+    {
+      "description": "GitHub Actions bumps never automerge. Actions execute with repo permissions in CI, so a version bump deserves a human look before it runs.",
+      "matchManagers": ["github-actions"],
+      "automerge": false
+    }
+  ]
 }
