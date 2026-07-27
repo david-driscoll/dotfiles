@@ -206,67 +206,30 @@ _.path = ["{{config_root}}/.cache/bin"]
 #   `sh` and Debian/Ubuntu's default `sh` are different shells; `pipefail`
 #   isn't POSIX) and the untested question of whether mise's shebang
 #   parsing behaves the same for `run` and `run_windows`.
+# - The script body lives in a real, checked-in, AST-parseable file
+#   (`.config/mise/scripts/gh-extensions.ps1`) rather than inline here, per
+#   review on #89. It's invoked via `$HOME`, not `{{config_root}}`: for
+#   the *global* mise config (this file), `{{config_root}}` resolves to
+#   `$HOME` itself (established in #63 — that's exactly why `brew:casks`,
+#   which needs a real repo-relative path, had to move to the repo-local
+#   `mise.toml` instead of living here), so a `{{config_root}}`-based path
+#   here would silently mean `~/scripts/...`, not this repo's scripts
+#   directory. `$HOME/.config/mise/scripts/...` works everywhere instead,
+#   because every bootstrap script (install.sh, setup-macos.sh, setup.ps1)
+#   symlinks/junctions `~/.config/mise` to `<repo>/.config/mise` *before*
+#   running `mise bootstrap` — so this path is stable across every
+#   machine regardless of where the repo itself was cloned (notably
+#   Codespaces, which clones to `/workspaces/...`, not `~/dotfiles`). Mise
+#   template variables were checked for a "directory of this config file"
+#   variable that would avoid the `$HOME` indirection entirely — per
+#   https://mise.jdx.dev/templates.html, no such variable exists;
+#   `config_root` is the only config-relative one, and it's special-cased
+#   to `$HOME` for the global config specifically, which is the whole
+#   problem being routed around here.
 [tasks.gh-extensions]
 description = "Install this repo's gh CLI extensions (idempotent, auth-guarded, failure-isolated; #83)"
 shell = "pwsh -NoProfile -Command"
-run = '''
-$ErrorActionPreference = "Continue"
-
-$extensions = @(
-  "davidraviv/gh-clean-branches",
-  "github/gh-codeql",
-  "mislav/gh-contrib",
-  "github/gh-copilot",
-  "dlvhdr/gh-dash",
-  "meiji163/gh-notify",
-  "seachicken/gh-poi",
-  "vilmibm/gh-screensaver",
-  "AdamVig/gh-watch",
-  "shuymn/gh-mcp"
-)
-
-if (-not (Get-Command gh -ErrorAction SilentlyContinue)) {
-  Write-Warning "gh-extensions: gh CLI not on PATH -- skipping (should have just been installed by [tools])"
-  exit 0
-}
-
-gh auth status *> $null
-$authOk = ($LASTEXITCODE -eq 0)
-if (-not $authOk -and -not $env:GITHUB_TOKEN -and -not $env:GH_TOKEN) {
-  Write-Warning 'gh-extensions: gh is not authenticated (gh auth status failed, no GITHUB_TOKEN/GH_TOKEN set) -- skipping extension install. This never prompts; run "gh auth login" yourself, then re-run: mise run gh-extensions'
-  exit 0
-}
-
-$installedSlugs = @()
-foreach ($line in ((gh extension list 2>$null) -split "`n")) {
-  $parts = $line -split "`t"
-  if ($parts.Length -ge 2) { $installedSlugs += $parts[1].Trim().ToLowerInvariant() }
-}
-
-$installedCount = 0
-$skippedCount = 0
-$failedExt = @()
-
-foreach ($ext in $extensions) {
-  if ($installedSlugs -contains $ext.ToLowerInvariant()) {
-    $skippedCount++
-    continue
-  }
-  Write-Host "gh-extensions: installing $ext"
-  gh extension install $ext *> $null
-  if ($LASTEXITCODE -eq 0) {
-    $installedCount++
-  } else {
-    $failedExt += $ext
-  }
-}
-
-Write-Host "gh-extensions: $installedCount installed, $skippedCount already present, $($failedExt.Count) failed"
-if ($failedExt.Count -gt 0) {
-  Write-Warning "gh-extensions: failed to install: $($failedExt -join ', ')"
-}
-exit 0
-'''
+run = '& "$HOME/.config/mise/scripts/gh-extensions.ps1"'
 
 [tasks."crew:install"]
 description = "Clone Blacklite/crew, build, and expose the crew CLI via mise PATH"
