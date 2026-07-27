@@ -1,0 +1,72 @@
+## macOS-only [dotfiles] entries — symlinked to ~/.config/mise/config.macos.toml.
+## Loaded automatically alongside config.toml on macOS *only when
+## MISE_AUTO_ENV=1 is set* (see config.toml's [settings] comment for why
+## the auto_env setting alone isn't enough). Naming follows mise's platform
+## config-file convention: <basename>.<platform>.toml next to <basename>.toml,
+## where <platform> is one of unix/linux/macos/windows (with optional -arch
+## suffix). https://mise.jdx.dev/configuration/environments.html#platform-environments
+
+## Formulae Homebrew (not mise's own registry) has to provide on macOS —
+## the zsh ecosystem, git, moreutils, mas, azure-cli, gitkraken-cli,
+## speedtest-cli (#67). This is the ONE place these are
+## declared: they used to live in setup/Brewfile (deleted by #67), invoked
+## via a raw `brew bundle --file ./setup/Brewfile` call in install.sh /
+## setup-osx.sh. Keeping a second Brewfile-shaped declaration around would
+## be exactly the double source of truth the issue warned against, so that
+## file is gone — `mise bootstrap packages status` is now the only way to
+## check these, and `mise bootstrap` (or `mise bootstrap --only packages`)
+## is the only way to install them.
+##
+## speedtest-cli was flagged with a "?" in the epic (#61) and wasn't in
+## #67's explicit target list for setup/Brewfile — it's carried forward
+## here from Brewfile.darwin (where it had leaked in as a formula) rather
+## than silently dropped. Confirm keep/drop in the PR.
+##
+## Casks can't live here — mise's own `brew-cask:` manager prefix does
+## exist in this mise version (verified: `mise bootstrap packages status`
+## against a scratch `brew-cask:1password` entry resolves correctly), but
+## using it would mean re-typing every GUI app as a flat TOML key instead
+## of the grouped, commented setup/Brewfile.darwin — so casks stay there,
+## wired below via `[bootstrap.hooks.post-packages]` into the brew:casks
+## mise task (mise.toml) instead.
+[bootstrap.packages]
+"brew:zsh" = "latest"
+"brew:zsh-autosuggestions" = "latest"
+"brew:zsh-autocomplete" = "latest"
+"brew:zsh-syntax-highlighting" = "latest"
+"brew:zsh-completions" = "latest"
+"brew:zsh-you-should-use" = "latest"
+# powershell is NOT here — per review on #66, it's a core mise tool
+# (mise-versions.jdx.dev/tools/powershell), pinned in .config/mise/config.toml's
+# [tools] instead of installed via Homebrew.
+"brew:git" = "latest"
+"brew:moreutils" = "latest"
+"brew:mas" = "latest"
+"brew:azure-cli" = "latest"
+"brew:gitkraken-cli" = "latest"
+"brew:speedtest-cli" = "latest" # "?" in the epic — confirm keep/drop
+# thefuck was carried forward here as `brew:thefuck` when this PR was
+# originally written (owned by #76, which was going to remove thefuck
+# everywhere at once). #76 has since merged and done exactly that — removed
+# thefuck entirely, including this entry, the .zshrc/.bashrc hooks, and the
+# thefuck/ dir — so it's gone rather than carried forward again.
+
+## Runs after [bootstrap.packages] installs (part of `mise bootstrap`'s own
+## documented sequence: "`mise bootstrap packages apply` — install missing
+## [bootstrap.packages] then [bootstrap.hooks.post-packages]"). This is how
+## setup/Brewfile.darwin's casks get installed without [bootstrap.packages]
+## support for them and without a second imperative `brew bundle` call
+## bolted onto install.sh/setup-osx.sh — one `mise bootstrap` (or `mise
+## bootstrap --only packages`) run does formulae then casks.
+[bootstrap.hooks]
+post-packages = [{ task = "brew:casks" }]
+
+[dotfiles]
+"~/.config/karabiner/karabiner.json" = { source = "karabiner/karabiner.json" }
+# 1Password's SSH agent config has never been symlinked by any script in
+# this repo before now (#64's whole reason for existing). Declared mac-only
+# because that's the only platform this has been verified on; David also
+# runs Linux (Codespaces/Coder) where 1Password desktop + its SSH agent
+# socket generally isn't present, so a linux entry isn't added here without
+# confirmation it's wanted there too.
+"~/.config/1Password/ssh/agent.toml" = { source = "1password/agent.toml" }

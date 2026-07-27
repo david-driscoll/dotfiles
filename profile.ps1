@@ -65,7 +65,6 @@ Invoke-Expression $promptModule
 $oldPreference = $ErrorActionPreference
 $ErrorActionPreference = "SilentlyContinue"
 
-CheckAndRun "volta completions powershell"
 CheckAndRun "gh completion -s powershell"
 CheckAndRun "op completion powershell"
 CheckAndRun "mise activate pwsh"
