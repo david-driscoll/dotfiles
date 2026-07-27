@@ -6,23 +6,28 @@
 ## last on a given machine silently won. This file is now the single source
 ## of truth for every OS; those four scripts' git-config blocks are deleted.
 ##
-## The per-OS bits (1Password SSH-signing program path, and on native
-## Windows the ssh.exe used for git's own transport) are pulled in via a
-## plain [include] at the bottom of this file, NOT git's own [includeIf].
-## Git's conditional-include keywords are gitdir, gitdir/i, onbranch, and
-## hasconfig:remote.*.url (verified against `git help config` on git
-## 2.55.0) — none of them can test "which OS is this". See
+## The per-OS bits — identity (user.email, user.signingkey, github.user) as
+## of David's review on #81, plus the 1Password SSH-signing program path,
+## and on native Windows the ssh.exe used for git's own transport — are
+## pulled in via a plain [include] at the bottom of this file, NOT git's
+## own [includeIf]. Git's conditional-include keywords are gitdir, gitdir/i,
+## onbranch, and hasconfig:remote.*.url (verified against `git help config`
+## on git 2.55.0) — none of them can test "which OS is this". See
 ## git/gitconfig.darwin's header comment for the mechanism actually used.
+##
+## Identity moved out of this shared file per #81 review: David may use a
+## different email/signing key on his work Windows machine than on his
+## personal mac. See git/gitconfig.darwin (and .linux/.windows/.wsl) for
+## the actual user.email/user.signingkey/github.user values — each one
+## starts from the same values that used to live here, so nothing changes
+## on any machine until one of those files is deliberately edited.
 
 [user]
+	# Only the display name is shared across every machine — it's the one
+	# identity field that doesn't change with "which situation" David is
+	# in, unlike email and the signing key (which do, per his review — see
+	# above). If that assumption is wrong, this should move per-OS too.
 	name = David Driscoll
-	email = david.driscoll@gmail.com
-	# Public half of an ssh-ed25519 key, used only for commit signing
-	# verification — safe to commit (public by definition).
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFEZpmeANLSx9Worwn0REmiWKLEkDvGaaz5ZlCVuRc67
-
-[github]
-	user = david-driscoll
 
 [core]
 	eol = lf

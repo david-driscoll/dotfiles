@@ -16,3 +16,18 @@
 ## "wsl" platform exists in mise) — see git/gitconfig.wsl for the full
 ## explanation of why WSL can't be routed here automatically with the
 ## tools available today.
+##
+## Identity block below (#81 review): starting point is an identical copy
+## of git/gitconfig.darwin's values — nothing changes on any current Linux
+## box (Codespaces, Coder, bare-metal) until this is deliberately edited.
+## Edit THIS block if Linux machines should use a different email/signing
+## key than the mac (e.g. a separate identity for ephemeral Codespaces).
+
+[user]
+	email = david.driscoll@gmail.com
+	# Public half of an ssh-ed25519 key, used only for commit signing
+	# verification — safe to commit (public by definition).
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFEZpmeANLSx9Worwn0REmiWKLEkDvGaaz5ZlCVuRc67
+
+[github]
+	user = david-driscoll
