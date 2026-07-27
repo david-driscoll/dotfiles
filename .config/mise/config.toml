@@ -119,8 +119,8 @@ auto_env = true
 # #76 deleted it as stale cruft); anything ssh or another tool drops in
 # later (host keys, a live known_hosts, control-master sockets) is left
 # alone.
-"~/.ssh" = { source = "ssh", mode = "symlink-each" }
-"~/.config/starship.toml" = { source = "starship.toml" }
+"~/.ssh" = { source = "~/dotfiles/ssh", mode = "symlink-each" }
+"~/.config/starship.toml" = { source = "~/dotfiles/starship.toml" }
 # Directory symlink on every platform — install.sh used to link the whole
 # dir, setup/setup.sh linked just the one file; this repo's powershell/
 # held both macos.ps1 and Microsoft.PowerShell_profile.ps1 until #69
@@ -129,7 +129,7 @@ auto_env = true
 # self-referential `powershell/powershell` symlink worth cleaning up
 # separately — so the directory form is still the one that doesn't
 # silently drop a file if another one shows up later.
-"~/.config/powershell" = { source = "powershell" }
+"~/.config/powershell" = { source = "~/dotfiles/powershell" }
 # `~/.apm/config.json` + `~/.apm/marketplaces.json`: the deleted
 # `setup/setup-osx.sh` was the *only* script that ever symlinked these
 # (#69) — meaning `apm`'s default_client and marketplace list were never
@@ -161,7 +161,7 @@ auto_env = true
 # config.macos.toml/config.linux.toml below for the mechanism, since mise's
 # [dotfiles] table itself has no per-entry `os =` field (same limitation
 # noted above for the mac/linux-only entries).
-"~/.gitconfig" = { source = "git/gitconfig" }
+"~/.gitconfig" = { source = "~/dotfiles/git/gitconfig" }
 
 [hooks]
 postinstall = [{ task = "gh-extensions" }, { task = "az-extensions" }, { task = "crew:update" }]
