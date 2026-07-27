@@ -27,3 +27,30 @@ these Claude Code–specific adjustments:
   available, follow the protocol's state-backend handshake halt rules.
 - **User input:** where the protocol says `ask_user`, use the AskUserQuestion
   tool when available; otherwise ask in plain text and wait.
+- **Worktree hygiene:** agents spawned with `isolation: "worktree"` each leave
+  a worktree under `.claude/worktrees/`. These accumulate fast — one per
+  spawn — and a stale worktree also *holds its branch checked out*, which
+  makes `git rebase`/`git branch -f` on that branch fail elsewhere. Sweep
+  them as a routine step: after a batch of agent work completes, and again
+  whenever PRs merge.
+
+  Before removing any worktree, verify it is safe to drop:
+
+  ```bash
+  # per worktree: uncommitted changes, and commits not on the remote
+  git -C <worktree> status --porcelain          # must be empty
+  git -C <worktree> rev-list --count origin/<branch>..<branch>
+  ```
+
+  Remove a worktree only when its working tree is clean **and** its work is
+  either merged or pushed. Note that squash-merged branches will not show as
+  ancestors of `master` and their remote branch is usually auto-deleted on
+  merge — confirm the *content* landed (check the PR state via
+  `gh pr list --state all --json number,state,headRefName`) rather than
+  relying on `git branch --merged`.
+
+  **Never remove** a worktree belonging to an agent that is still running, one
+  whose PR is still open, or one with uncommitted work — ask the user first.
+  Then `git worktree remove <path>`, and `git worktree prune` to clear stale
+  metadata. Removing a worktree leaves its local branch ref behind; that is
+  harmless, but mention it if the user wants a full prune.
