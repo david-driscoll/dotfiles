@@ -65,9 +65,6 @@ $wingetPrograms = @(
     "AgileBits.1Password.CLI",
     "AgileBits.1Password",
     "tailscale",
-    "Microsoft.DotNet.SDK.8",
-    "Microsoft.DotNet.SDK.7",
-    "Microsoft.DotNet.SDK.6",
     "Microsoft.VisualStudioCode",
     "Microsoft.VisualStudioCode.Insiders",
     "Microsoft.PowerShell.Preview",
@@ -79,7 +76,6 @@ $wingetPrograms = @(
     "Microsoft.Azure.StorageExplorer",
     "Microsoft.Azure.CosmosEmulator",
     "python3",
-    "Anaconda.Miniconda3",
     "sysinternals",
     "NirSoft.ShellExView",
     "NirSoft.NirCmd",
@@ -87,22 +83,18 @@ $wingetPrograms = @(
     "NirSoft.BlueScreenView",
     "NirSoft.AdvancedRun",
     "Microsoft.Office",
-    "Starship.Starship",
     "Google.Chrome",
     "Google.Chrome.Beta",
     "Mozilla.Firefox",
     "Microsoft.Edge",
     "Microsoft.Edge.Beta",
     "GitHub.GitHubDesktop",
-    "GitHub.cli",
     "GitHub.GitLFS",
     "SlackTechnologies.Slack",
     "Microsoft.Teams",
     "Microsoft.PowerToys",
-    "stedolan.jq",
     "GnuPG.Gpg4win",
     "OlegDanilov.RapidEnvironmentEditor",
-    "Keybase.Keybase",
     "Notepad++.Notepad++",
     "TortoiseGit.TortoiseGit",
     "Git.Git",
@@ -121,18 +113,7 @@ $wingetPrograms = @(
     "LINQPad.LINQPad.6",
     "KirillOsenkov.MSBuildStructuredLogViewer",
     "jstarks.npiperelay",
-    "Hashicorp.Terraform",
-    "Pulumi.Pulumi",
-    "Microsoft.NuGet",
-    "Volta.Volta",
-    "ProjectJupyter.JupyterLab",
-    "ajeetdsouza.zoxide",
-    "Kubernetes.kubectl",
-    "Helm.Helm",
-    "Mozilla.SOPS",
-    "FluxCD.Flux",
-    "FiloSottile.age",
-    "talosctl"
+    "Microsoft.NuGet"
 );
 foreach ($program in $wingetPrograms) {
     iex "winget install $program";
@@ -152,15 +133,6 @@ Remove-Item "$ENV:USERPROFILE/installcredprovider.ps1"
 
 RefreshEnv
 
-volta.exe setup
-volta.exe install node
-
-dotnet tool install -g dotnet-try
-dotnet try jupyter install
-
-# dotnet tool update -g Microsoft.dotnet-try
-# dotnet try jupyter install
-
 az extension add --name azure-devops
 az extension add --name interactive
 
@@ -174,8 +146,6 @@ gh extension install seachicken/gh-poi
 gh extension install vilmibm/gh-screensaver
 gh extension install AdamVig/gh-watch
 gh extension install shuymn/gh-mcp
-
-# keybase login
 
 rm -Recurse -Force $ENV:USERPROFILE/.ssh/
 New-Item -ItemType SymbolicLink -Value $ENV:USERPROFILE/dotfiles/ssh/ -Path $ENV:USERPROFILE/.ssh/

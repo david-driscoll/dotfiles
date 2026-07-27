@@ -32,11 +32,103 @@ dotnet = "10.0.302"
 "github:microsoft/apm" = { version = "v0.26.0", bin = "apm" }
 "github:eljulians/skillfile" = { version = "v1.9.0", bin = "skillfile" }
 
+## Added by #66 (general-purpose CLI consolidation) — versions are each
+## tool's current release as of this PR, resolved with `mise latest <tool>`
+## against the live registry, not guessed. Every entry below was confirmed
+## to exist in `mise registry` first; backends noted here so bumps/breakage
+## are easy to trace back to the right upstream project.
+gh = "2.96.0" # aqua:cli/cli
+terraform = "1.15.8" # aqua:hashicorp/terraform
+pulumi = "3.254.0" # aqua:pulumi/pulumi
+kubectl = "1.36.3" # aqua:kubernetes/kubernetes/kubectl
+helm = "4.2.3" # aqua:helm/helm
+helmfile = "1.7.1" # aqua:helmfile/helmfile
+kustomize = "5.8.1" # aqua:kubernetes-sigs/kustomize
+kubeconform = "0.8.0" # aqua:yannh/kubeconform
+# NOTE: the issue calls this tool "flux" but that shorthand isn't in mise's
+# registry — the Flux CLI is registered as `flux2` (aqua:fluxcd/flux2). The
+# installed binary is still named `flux`; only the mise config key differs
+# from the issue text.
+flux2 = "2.9.3" # aqua:fluxcd/flux2 -> installs the `flux` binary
+# Same story as flux2: the issue calls this "go-task" but the registry
+# shorthand is `task` (aqua:go-task/task); the binary is `task`.
+task = "3.52.0" # aqua:go-task/task -> installs the `task` binary
+starship = "1.26.0" # aqua:starship/starship
+zoxide = "0.10.0" # aqua:ajeetdsouza/zoxide
+direnv = "2.37.1" # aqua:direnv/direnv
+eza = "0.23.5" # asdf:mise-plugins/mise-eza (no aqua backend for eza; cargo:eza is the other option)
+talosctl = "1.13.7" # aqua:siderolabs/talos
+talhelper = "3.1.15" # aqua:budimanjojo/talhelper
+mkcert = "1.4.4" # aqua:FiloSottile/mkcert
+
+# Added per review on #66: both are available as core mise tools (confirmed
+# against https://mise-versions.jdx.dev/tools/powershell and
+# https://mise-versions.jdx.dev/tools/python), so pin them here instead of
+# installing via Homebrew. Replaces `brew "powershell/tap/powershell"` +
+# `tap "powershell/tap"`, and the (duplicated) `brew "python"` entries, in
+# setup/Brewfile.
+powershell = "7.6.4"
+python = "3.14.6"
+
 [settings]
 # Merged in from the old root `mise.config.toml` (deleted by the #63 split).
 experimental = true
 idiomatic_version_file_enable_tools = ["dotnet"]
 lockfile = true
+# `dotfiles.root` is the checkout itself: when a [dotfiles] entry omits
+# `source`, mise mirrors the home-relative target under this root, e.g.
+# `~/.zshrc` -> `~/dotfiles/.zshrc`.
+dotfiles.root = "~/dotfiles"
+# NOTE: this alone does NOT make the mac/linux-only config.*.toml files below
+# load automatically — verified empirically (mise 2026.7.7) that the
+# auto_env platform-file mechanism only activates when MISE_AUTO_ENV=1 is
+# set as a real environment variable before mise reads any config; the
+# setting here is inert on its own due to bootstrap ordering (mise has to
+# know which extra files to read before it can read this file to learn that
+# it should). `.zshrc`/`.bashrc` export MISE_AUTO_ENV=1 ahead of `mise
+# activate` to make this work in practice. See the PR description for the
+# doc citations and the reproduction.
+auto_env = true
+
+## [dotfiles] — entries that apply on every platform this repo currently
+## targets (mac + linux; Windows is out of scope, see #72). macOS-only
+## entries live in the sibling `config.macos.toml`, loaded automatically
+## when MISE_AUTO_ENV=1 is set (see above); Linux/WSL-only entries live in
+## `config.linux.toml`. mise has no per-entry `os =` field for [dotfiles]
+## (only [tools] has that) — platform config-file layering is the
+## documented alternative: https://mise.jdx.dev/configuration/environments.html#platform-environments
+[dotfiles]
+"~/.zshrc" = {}
+"~/.zprofile" = {}
+"~/.bashrc" = {}
+"~/.bash_aliases" = {}
+"~/.inputrc" = {}
+# Whole-dir symlink would put host keys, known_hosts churn, and strict
+# ssh perm requirements (700/600) behind a single link mise doesn't manage
+# file-by-file. symlink-each keeps ~/.ssh a real directory — mise creates
+# it if missing — and links only what's tracked here (authorized_keys,
+# config, 1Password/config — known_hosts.old was also tracked here until
+# #76 deleted it as stale cruft); anything ssh or another tool drops in
+# later (host keys, a live known_hosts, control-master sockets) is left
+# alone.
+"~/.ssh" = { source = "ssh", mode = "symlink-each" }
+"~/.config/starship.toml" = { source = "starship.toml" }
+# Directory symlink on every platform — install.sh used to link the whole
+# dir, setup/setup.sh linked just the one file; this repo's powershell/
+# has always had both macos.ps1 and Microsoft.PowerShell_profile.ps1 (plus
+# a stray self-referential `powershell/powershell` symlink worth cleaning
+# up separately), so the directory form is the one that doesn't silently
+# drop a file.
+"~/.config/powershell" = { source = "powershell" }
+# Commented out per review on #64: David doesn't generally set up gpg unless
+# he needs it. Left in place (not deleted) so it's a one-line re-enable when
+# that changes. Note this is gpg-agent.conf specifically — the 1Password SSH
+# agent config (config.macos.toml's "~/.config/1Password/ssh/agent.toml"
+# entry) is unrelated and stays active.
+# "~/.gnupg/gpg-agent.conf" = { source = "gpg-agent.conf" }
+# Removed per review on #64: apm already handles most of the AI skills
+# management, so a separate mise-managed symlink for ~/.claude/rules and
+# ~/.claude/skills is redundant for now.
 
 [hooks]
 postinstall = [{ task = "gh-extensions" }, { task = "crew:update" }]

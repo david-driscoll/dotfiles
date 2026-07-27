@@ -8,7 +8,7 @@ if (-not (Get-Command choco)) {
     choco feature enable -n allowGlobalConfirmation
 }
 
-$wingetPrograms = @("AgileBits.1Password.CLI", "AgileBits.1Password", "Keybase.Keybase")
+$wingetPrograms = @("AgileBits.1Password.CLI", "AgileBits.1Password")
 
 foreach ($program in $wingetPrograms) {
     iex "winget install -e --id $program";
