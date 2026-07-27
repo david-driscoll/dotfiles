@@ -90,10 +90,18 @@ dotfiles.root = "~/dotfiles"
 # doc citations and the reproduction.
 auto_env = true
 
-## [dotfiles] — entries that apply on every platform this repo currently
-## targets (mac + linux; Windows is out of scope, see #72). macOS-only
-## entries live in the sibling `config.macos.toml`, loaded automatically
-## when MISE_AUTO_ENV=1 is set (see above); Linux/WSL-only entries live in
+## [dotfiles] — entries that apply on every platform that reads THIS file as
+## its global config. That used to mean mac + linux only, with Windows
+## explicitly out of scope; as of #72, setup/setup.ps1 junctions
+## ~/.config/mise to this same directory, so Windows now loads this exact
+## table too (copy fallback for the file/symlink-each entries, since Windows
+## file symlinks need elevation — see setup.ps1's own header comment).
+## Nothing here is Windows-gated: ~/.zshrc, ~/.ssh, etc. all get created on
+## Windows now, mostly harmlessly (unused by native pwsh, but real for Git
+## Bash). macOS-only entries live in the sibling `config.macos.toml`, loaded
+## automatically when MISE_AUTO_ENV=1 is set (see above; not set by
+## setup.ps1, so this file's own Windows-agnostic entries are what Windows
+## gets — no config.windows.toml exists yet); Linux/WSL-only entries live in
 ## `config.linux.toml`. mise has no per-entry `os =` field for [dotfiles]
 ## (only [tools] has that) — platform config-file layering is the
 ## documented alternative: https://mise.jdx.dev/configuration/environments.html#platform-environments
@@ -115,11 +123,27 @@ auto_env = true
 "~/.config/starship.toml" = { source = "starship.toml" }
 # Directory symlink on every platform — install.sh used to link the whole
 # dir, setup/setup.sh linked just the one file; this repo's powershell/
-# has always had both macos.ps1 and Microsoft.PowerShell_profile.ps1 (plus
-# a stray self-referential `powershell/powershell` symlink worth cleaning
-# up separately), so the directory form is the one that doesn't silently
-# drop a file.
+# held both macos.ps1 and Microsoft.PowerShell_profile.ps1 until #69
+# deleted macos.ps1 (dead UTF-16LE duplicate of profile.darwin.ps1, only
+# ever referenced by the now-deleted setup-osx.sh) — plus a stray
+# self-referential `powershell/powershell` symlink worth cleaning up
+# separately — so the directory form is still the one that doesn't
+# silently drop a file if another one shows up later.
 "~/.config/powershell" = { source = "powershell" }
+# `~/.apm/config.json` + `~/.apm/marketplaces.json`: the deleted
+# `setup/setup-osx.sh` was the *only* script that ever symlinked these
+# (#69) — meaning `apm`'s default_client and marketplace list were never
+# actually wired up on a bootstrap-only machine, mac or otherwise. Not
+# mac-specific (unlike setup-osx.sh's placement suggested): `apm` itself is
+# a cross-platform `[tools]` entry above, so its config belongs in the
+# cross-platform table too. Default (no `source =`) is correct here since
+# the home-relative target already matches this repo's layout 1:1:
+# `~/.apm/config.json` -> `{{dotfiles.root}}/.apm/config.json`. NOTE:
+# `~/.apm/mise.toml` is deliberately NOT relinked here — #63 folded it into
+# this repo's own root `mise.toml`, so there's no separate file left to
+# point at (see that file's header).
+"~/.apm/config.json" = {}
+"~/.apm/marketplaces.json" = {}
 # Commented out per review on #64: David doesn't generally set up gpg unless
 # he needs it. Left in place (not deleted) so it's a one-line re-enable when
 # that changes. Note this is gpg-agent.conf specifically — the 1Password SSH
@@ -129,6 +153,15 @@ auto_env = true
 # Removed per review on #64: apm already handles most of the AI skills
 # management, so a separate mise-managed symlink for ~/.claude/rules and
 # ~/.claude/skills is redundant for now.
+# Committed git config (#65) — replaces the ~4 `git config --global` blocks
+# that used to be scattered (and contradict each other) across install.sh,
+# setup/setup.sh, setup/setup-osx.sh, and setup/setup.ps1. Per-OS overrides
+# (1Password's SSH-signing program path) load via this file's own plain
+# `[include] path = ~/.gitconfig.local` — see git/gitconfig's header and
+# config.macos.toml/config.linux.toml below for the mechanism, since mise's
+# [dotfiles] table itself has no per-entry `os =` field (same limitation
+# noted above for the mac/linux-only entries).
+"~/.gitconfig" = { source = "git/gitconfig" }
 
 [hooks]
 postinstall = [{ task = "gh-extensions" }, { task = "crew:update" }]
