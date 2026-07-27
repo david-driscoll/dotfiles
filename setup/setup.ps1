@@ -51,6 +51,19 @@
 
 #Requires -Version 5.1
 
+[Diagnostics.CodeAnalysis.SuppressMessageAttribute(
+    'PSAvoidUsingWriteHost',
+    '',
+    Justification = 'Deliberate: this script is the user''s only feedback ' +
+        'during a long, unattended-looking install (winget package installs, ' +
+        'feature enablement, junction/profile setup can each take a while). ' +
+        'Write-Host is the one output cmdlet guaranteed to reach the console ' +
+        'regardless of $InformationPreference/redirection -- Write-Information ' +
+        'would silently disappear for anyone who hasn''t set ' +
+        '-InformationAction Continue, which defeats the point here.'
+)]
+param()
+
 if (-not [Security.Principal.WindowsIdentity]::GetCurrent().Owner.IsWellKnown([Security.Principal.WellKnownSidType]::BuiltinAdministratorsSid)) {
     Start-Process -FilePath 'powershell.exe' -ArgumentList @('-File', ('"{0}"' -f $PSCommandPath)) -Verb RunAs
     exit
