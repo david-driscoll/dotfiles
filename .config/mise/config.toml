@@ -115,11 +115,27 @@ auto_env = true
 "~/.config/starship.toml" = { source = "starship.toml" }
 # Directory symlink on every platform — install.sh used to link the whole
 # dir, setup/setup.sh linked just the one file; this repo's powershell/
-# has always had both macos.ps1 and Microsoft.PowerShell_profile.ps1 (plus
-# a stray self-referential `powershell/powershell` symlink worth cleaning
-# up separately), so the directory form is the one that doesn't silently
-# drop a file.
+# held both macos.ps1 and Microsoft.PowerShell_profile.ps1 until #69
+# deleted macos.ps1 (dead UTF-16LE duplicate of profile.darwin.ps1, only
+# ever referenced by the now-deleted setup-osx.sh) — plus a stray
+# self-referential `powershell/powershell` symlink worth cleaning up
+# separately — so the directory form is still the one that doesn't
+# silently drop a file if another one shows up later.
 "~/.config/powershell" = { source = "powershell" }
+# `~/.apm/config.json` + `~/.apm/marketplaces.json`: the deleted
+# `setup/setup-osx.sh` was the *only* script that ever symlinked these
+# (#69) — meaning `apm`'s default_client and marketplace list were never
+# actually wired up on a bootstrap-only machine, mac or otherwise. Not
+# mac-specific (unlike setup-osx.sh's placement suggested): `apm` itself is
+# a cross-platform `[tools]` entry above, so its config belongs in the
+# cross-platform table too. Default (no `source =`) is correct here since
+# the home-relative target already matches this repo's layout 1:1:
+# `~/.apm/config.json` -> `{{dotfiles.root}}/.apm/config.json`. NOTE:
+# `~/.apm/mise.toml` is deliberately NOT relinked here — #63 folded it into
+# this repo's own root `mise.toml`, so there's no separate file left to
+# point at (see that file's header).
+"~/.apm/config.json" = {}
+"~/.apm/marketplaces.json" = {}
 # Commented out per review on #64: David doesn't generally set up gpg unless
 # he needs it. Left in place (not deleted) so it's a one-line re-enable when
 # that changes. Note this is gpg-agent.conf specifically — the 1Password SSH
