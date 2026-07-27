@@ -175,14 +175,61 @@ CREW_SRC = "{{config_root}}/.cache/crew-source"
 CREW_BIN = "{{config_root}}/.cache/bin"
 _.path = ["{{config_root}}/.cache/bin"]
 
-# TODO(#follow-up issue filed separately per review on #78): installing gh CLI
-# extensions this way is a stopgap — revisit as part of mise bootstrap once
-# that issue lands.
-[tasks.gh-mcp]
-run = "gh extensions install shuymn/gh-mcp"
-
+# gh CLI extensions this repo wants everywhere `gh` itself is installed
+# (#83). Single source of truth: previously duplicated across install.sh,
+# setup/setup-osx.sh (deleted, #69), setup/setup.ps1 (rewritten, #72), and
+# this task's own one-extension stub (`gh extensions install`, plural —
+# not a valid `gh` subcommand). Design notes:
+#
+# - Idempotent via a pre-check against `gh extension list`, not `--force`.
+#   `gh extension install --help` documents `--force` as "Force upgrade
+#   extension, or ignore if latest already installed" — that phrasing only
+#   makes sense if a bare re-install of an already-present extension is
+#   NOT a no-op by default (confirmed by #73's spike; not independently
+#   re-verified by actually installing, since `gh extension install` is
+#   off-limits under this task's hard safety rules). Skipping extensions
+#   already listed avoids both the unverified default-error path and an
+#   unconditional network upgrade check on every single bootstrap run.
+# - Auth-guarded: no-ops with a clear message (never hangs, never fails
+#   the task) when `gh auth status` fails and neither GITHUB_TOKEN nor
+#   GH_TOKEN is set — required so this never blocks unattended Codespaces/
+#   Coder container builds. Never calls `gh auth login`.
+# - Failure-isolated per extension: one unavailable/renamed extension is
+#   caught and reported in the end-of-run summary, not allowed to abort
+#   the other nine or fail this task (and therefore the `postinstall`
+#   hook chain / `mise bootstrap`).
+# - One script body covers macOS, Linux, AND Windows: written in
+#   PowerShell and run via `shell = "pwsh -NoProfile -Command"` rather
+#   than bash + a separate `run_windows`, because `pwsh` is already a
+#   plain cross-platform `[tools]` entry in this exact file (see above) —
+#   reusing it here avoids both non-portable bash-isms (macOS's default
+#   `sh` and Debian/Ubuntu's default `sh` are different shells; `pipefail`
+#   isn't POSIX) and the untested question of whether mise's shebang
+#   parsing behaves the same for `run` and `run_windows`.
+# - The script body lives in a real, checked-in, AST-parseable file
+#   (`.config/mise/scripts/gh-extensions.ps1`) rather than inline here, per
+#   review on #89. It's invoked via `$HOME`, not `{{config_root}}`: for
+#   the *global* mise config (this file), `{{config_root}}` resolves to
+#   `$HOME` itself (established in #63 — that's exactly why `brew:casks`,
+#   which needs a real repo-relative path, had to move to the repo-local
+#   `mise.toml` instead of living here), so a `{{config_root}}`-based path
+#   here would silently mean `~/scripts/...`, not this repo's scripts
+#   directory. `$HOME/.config/mise/scripts/...` works everywhere instead,
+#   because every bootstrap script (install.sh, setup-macos.sh, setup.ps1)
+#   symlinks/junctions `~/.config/mise` to `<repo>/.config/mise` *before*
+#   running `mise bootstrap` — so this path is stable across every
+#   machine regardless of where the repo itself was cloned (notably
+#   Codespaces, which clones to `/workspaces/...`, not `~/dotfiles`). Mise
+#   template variables were checked for a "directory of this config file"
+#   variable that would avoid the `$HOME` indirection entirely — per
+#   https://mise.jdx.dev/templates.html, no such variable exists;
+#   `config_root` is the only config-relative one, and it's special-cased
+#   to `$HOME` for the global config specifically, which is the whole
+#   problem being routed around here.
 [tasks.gh-extensions]
-run.tasks = ["gh-mcp"]
+description = "Install this repo's gh CLI extensions (idempotent, auth-guarded, failure-isolated; #83)"
+shell = "pwsh -NoProfile -Command"
+run = '& "$HOME/.config/mise/scripts/gh-extensions.ps1"'
 
 [tasks."crew:install"]
 description = "Clone Blacklite/crew, build, and expose the crew CLI via mise PATH"
