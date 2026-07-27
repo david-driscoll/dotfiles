@@ -51,7 +51,7 @@
 "brew:moreutils" = "latest"
 "brew:mas" = "latest"
 "brew:azure-cli" = "latest"
-"brew:gitkraken-cli" = "latest"
+# "brew:gitkraken-cli" = "latest"
 "brew:speedtest-cli" = "latest" # "?" in the epic — confirm keep/drop
 # thefuck was carried forward here as `brew:thefuck` when this PR was
 # originally written (owned by #76, which was going to remove thefuck
@@ -225,17 +225,17 @@ three_finger_drag = false
 # stderr_path = "~/Library/Logs/mise-bootstrap-status.log"
 
 [dotfiles]
-"~/.config/karabiner/karabiner.json" = { source = "karabiner/karabiner.json" }
+"~/.config/karabiner/karabiner.json" = { source = "~/dotfiles/karabiner/karabiner.json" }
 # 1Password's SSH agent config has never been symlinked by any script in
 # this repo before now (#64's whole reason for existing). Declared mac-only
 # because that's the only platform this has been verified on; David also
 # runs Linux (Codespaces/Coder) where 1Password desktop + its SSH agent
 # socket generally isn't present, so a linux entry isn't added here without
 # confirmation it's wanted there too.
-"~/.config/1Password/ssh/agent.toml" = { source = "1password/agent.toml" }
+"~/.config/1Password/ssh/agent.toml" = { source = "~/dotfiles/1password/agent.toml" }
 # Feeds the base ~/.gitconfig's `[include] path = ~/.gitconfig.local` (#65)
 # with the macOS-only 1Password SSH-signing program path. This is the
 # actual OS-branching mechanism for git config in this repo — git's own
 # [includeIf] has no condition that tests the OS (verified against `git
 # help config`; only gitdir/gitdir-i/onbranch/hasconfig:remote exist).
-"~/.gitconfig.local" = { source = "git/gitconfig.darwin" }
+"~/.gitconfig.local" = { source = "~/dotfiles/git/gitconfig.darwin" }
