@@ -164,7 +164,7 @@ auto_env = true
 "~/.gitconfig" = { source = "git/gitconfig" }
 
 [hooks]
-postinstall = [{ task = "gh-extensions" }, { task = "crew:update" }]
+postinstall = [{ task = "gh-extensions" }, { task = "az-extensions" }, { task = "crew:update" }]
 
 [env]
 CREW_PERSONAL_DIR = "{{config_root}}/.crew/.crew"
@@ -230,6 +230,125 @@ _.path = ["{{config_root}}/.cache/bin"]
 description = "Install this repo's gh CLI extensions (idempotent, auth-guarded, failure-isolated; #83)"
 shell = "pwsh -NoProfile -Command"
 run = '& "$HOME/.config/mise/scripts/gh-extensions.ps1"'
+
+# az CLI extensions this repo wants everywhere `az` itself is installed
+# (#90). Historically duplicated as `az extension add --name azure-devops`
+# / `--name interactive` across install.sh, setup/setup-osx.sh (deleted,
+# #69), setup/setup.ps1 (rewritten, #72), and setup/setup.sh (deleted) --
+# #68's install.sh rewrite deliberately did not reintroduce it, deferring
+# to this issue (see install.sh's own comment at the old call site).
+# Mirrors gh-extensions' shape above property-for-property, with two
+# deliberate differences explained inline below. Design notes:
+#
+# - `az` itself is provisioned by [bootstrap.packages] on macOS
+#   ("brew:azure-cli", config.macos.toml) and by winget on Windows
+#   (setup/setup.ps1) but NOT on Linux -- there is no azure-cli entry in
+#   config.linux.toml. That's intentional scope: this task guards on `az`
+#   being on PATH (below) and no-ops cleanly rather than assuming it
+#   exists, the same way gh-extensions guards on `gh`. Provisioning `az`
+#   on Linux is a separate, out-of-scope concern.
+# - Idempotent via a pre-check against `az extension list --output json`,
+#   parsed with ConvertFrom-Json and matched on `.name` -- same rationale
+#   as gh-extensions' pre-check against `gh extension list`: avoids
+#   relying on undocumented re-add behavior and avoids an unconditional
+#   network call on every bootstrap run for extensions already present.
+# - Auth is checked but does NOT gate the install (this is the one place
+#   this task deliberately diverges from gh-extensions' pattern):
+#   `az extension add` downloads a Python wheel from the public extension
+#   index and pip-installs it locally -- no ARM/Azure API call is
+#   involved, confirmed against
+#   https://learn.microsoft.com/cli/azure/azure-cli-extensions-overview
+#   ("How to install extensions" describes a pure index-lookup-and-wheel-
+#   install flow with no sign-in step, unlike most extensions' own
+#   commands once installed). Unlike `gh`, which Codespaces/Coder
+#   pre-populate with GITHUB_TOKEN/GH_TOKEN, `az` has no ambient-token
+#   equivalent -- `az login` is interactive-only. Gating this task on
+#   `az account show` succeeding would therefore make it silently do
+#   nothing on every unauthenticated container, which is exactly the
+#   common case this task exists to cover. `az account show` is still
+#   called and logged for visibility/debugging, but a failure is
+#   informational, not a skip condition. This task still NEVER calls
+#   `az login` and never prompts.
+# - `interactive` (`az interactive`) is passed --allow-preview true: it
+#   has never shipped past 1.0.0b1 / preview:true in the extension index
+#   (verified via `az extension list-available`) since it was published,
+#   and `az extension add` excludes preview-only packages unless that
+#   flag is set. NOTE for David: this extension has been in perpetual
+#   preview for years with no GA release in sight -- it's still nominally
+#   maintained (changelog shows recent Python-version-compat updates) and
+#   is a distinct thing from the actually-deprecated `azure-cli-shell`
+#   PyPI package, but if you'd rather not enshrine a beta-forever
+#   extension in bootstrap, delete this one entry (and its comment above)
+#   and keep just azure-devops.
+# - `--yes` on every `az extension add` call: belt-and-suspenders against
+#   any confirmation prompt (`--yes`/`-y` is documented as "Do not prompt
+#   for confirmation" by `az extension add --help`) so this can never
+#   block on stdin even if some prompt exists that this session's research
+#   didn't surface.
+# - Failure-isolated per extension and one cross-platform pwsh body, same
+#   as gh-extensions -- see that task's comment above for the full
+#   rationale (shebang portability, pwsh already being a [tools] entry).
+[tasks.az-extensions]
+description = "Install this repo's az CLI extensions (idempotent, failure-isolated; #90)"
+shell = "pwsh -NoProfile -Command"
+run = '''
+$ErrorActionPreference = "Continue"
+
+$extensions = @(
+  @{ Name = "azure-devops"; AllowPreview = $false },
+  @{ Name = "interactive"; AllowPreview = $true }
+)
+
+if (-not (Get-Command az -ErrorAction SilentlyContinue)) {
+  Write-Warning "az-extensions: az CLI not on PATH -- skipping (expected on Linux, where az isn't provisioned by this repo yet)"
+  exit 0
+}
+
+# Informational only -- NOT a gate. See the block comment above this task
+# for why: az extension add doesn't call any Azure API, so it doesn't
+# need an authenticated session, and gating on one here would defeat the
+# purpose of this task on unattended/unauthenticated containers.
+az account show *> $null
+if ($LASTEXITCODE -ne 0) {
+  Write-Host "az-extensions: az is not logged in (az account show failed) -- proceeding anyway; extension install doesn't require auth"
+}
+
+$installedNames = @()
+try {
+  $installedJson = az extension list --output json 2>$null | ConvertFrom-Json
+  foreach ($e in $installedJson) { $installedNames += ([string]$e.name).ToLowerInvariant() }
+} catch {
+  Write-Warning "az-extensions: could not parse 'az extension list' output -- treating as no extensions installed"
+}
+
+$installedCount = 0
+$skippedCount = 0
+$failedExt = @()
+
+foreach ($ext in $extensions) {
+  if ($installedNames -contains $ext.Name.ToLowerInvariant()) {
+    $skippedCount++
+    continue
+  }
+  Write-Host "az-extensions: installing $($ext.Name)"
+  if ($ext.AllowPreview) {
+    az extension add --name $ext.Name --allow-preview true --yes *> $null
+  } else {
+    az extension add --name $ext.Name --yes *> $null
+  }
+  if ($LASTEXITCODE -eq 0) {
+    $installedCount++
+  } else {
+    $failedExt += $ext.Name
+  }
+}
+
+Write-Host "az-extensions: $installedCount installed, $skippedCount already present, $($failedExt.Count) failed"
+if ($failedExt.Count -gt 0) {
+  Write-Warning "az-extensions: failed to install: $($failedExt -join ', ')"
+}
+exit 0
+'''
 
 [tasks."crew:install"]
 description = "Clone Blacklite/crew, build, and expose the crew CLI via mise PATH"
