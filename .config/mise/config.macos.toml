@@ -36,9 +36,17 @@
 "brew:zsh-syntax-highlighting" = "latest"
 "brew:zsh-completions" = "latest"
 "brew:zsh-you-should-use" = "latest"
-# powershell is NOT here — per review on #66, it's a core mise tool
-# (mise-versions.jdx.dev/tools/powershell), pinned in .config/mise/config.toml's
-# [tools] instead of installed via Homebrew.
+# powershell IS here too, as of #71 — deliberately re-adding what #66 took
+# out, for one narrow reason: the login shell. General-purpose pwsh (running
+# scripts, opening a terminal manually) still comes from the mise-tool pin in
+# .config/mise/config.toml's [tools] — that pin is untouched. This brew
+# formula exists only so [bootstrap.user] (config.macos-arm64.toml /
+# config.macos-x64.toml) has a real, mise-independent binary to point chsh
+# at — see those files for the full reasoning (mise-tool shims are unsafe as
+# a login shell target, and bootstrap's own phase order — packages before
+# tools — means the mise-tool pwsh doesn't even exist yet when the user
+# phase runs). This is a deliberate duplication, not an oversight.
+"brew:powershell" = "latest"
 "brew:git" = "latest"
 "brew:moreutils" = "latest"
 "brew:mas" = "latest"

@@ -4,6 +4,37 @@
 ## MISE_AUTO_ENV=1 is set* (see config.toml's [settings] comment for why the
 ## auto_env setting alone isn't enough).
 ## https://mise.jdx.dev/configuration/environments.html#platform-environments
+##
+## NOTE on #71 (pwsh login shell, epic #61): deliberately NOT here. No
+## [bootstrap.user] entry exists for Linux. Two independent reasons, either
+## one sufficient:
+##
+## 1. No safe binary to point at. Unlike macOS (Homebrew's `opt/` path —
+##    see config.macos-arm64.toml), this repo has no established
+##    mise-independent pwsh install on Linux — David's Linux targets
+##    (Codespaces/Coder) get pwsh only via the mise-tool pin in
+##    .config/mise/config.toml's [tools], which is exactly the shim-as-
+##    login-shell hazard documented there. Standing up a parallel
+##    apt/snap/tarball install just for this would be new surface area for
+##    a feature that fails the next test anyway:
+##
+## 2. It would be inert (or a hazard) on the actual Linux targets. GitHub
+##    Codespaces hardcodes `$SHELL=/bin/bash` for every new terminal
+##    regardless of what /etc/passwd says — confirmed via GitHub's own
+##    community docs (github.com/orgs/community/discussions/148958) and
+##    Codespaces' "changing the shell in a codespace" documentation, which
+##    describes setting a VS Code terminal *profile* as the actual
+##    mechanism, not chsh. A `chsh`-based login_shell change would run
+##    "successfully" and then do nothing observable — the definition of
+##    inert. Self-hosted Coder workspaces are architecturally similar
+##    (container + IDE-driven terminal, not a real login(1) session) and
+##    likely share this failure mode, though that wasn't independently
+##    verified against a live Coder instance — flagging the uncertainty
+##    rather than asserting it.
+##
+## Scoped to macOS only for #71. Revisit if a Linux target starts using
+## real login sessions (bare-metal/VM Linux over SSH, where chsh does work
+## as expected) and a non-shim pwsh install path is established there.
 
 [dotfiles]
 # .bashrc only sources ~/.wslrc when `/proc/version` mentions "microsoft",
