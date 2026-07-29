@@ -289,43 +289,43 @@ url_api = "https://api.github.com/repos/cli/cli/releases/assets/464728577"
 provenance = "github-attestations"
 
 [[tools."github:eljulians/skillfile"]]
-version = "1.9.0"
+version = "1.9.1"
 backend = "github:eljulians/skillfile"
 
 [tools."github:eljulians/skillfile"."platforms.linux-arm64"]
-checksum = "sha256:3153926f04eda3620306991535a2c6ce015a900a9956ad6cbc1ded4cfcfd6aba"
-url = "https://github.com/eljulians/skillfile/releases/download/v1.9.0/skillfile-aarch64-linux"
-url_api = "https://api.github.com/repos/eljulians/skillfile/releases/assets/484848275"
+checksum = "sha256:78db56aa9299e02ce106ea7047fc245263c36892e6cd10d2d1dd067d41860baf"
+url = "https://github.com/eljulians/skillfile/releases/download/v1.9.1/skillfile-aarch64-linux"
+url_api = "https://api.github.com/repos/eljulians/skillfile/releases/assets/493940062"
 
 [tools."github:eljulians/skillfile"."platforms.linux-arm64-musl"]
-checksum = "sha256:3153926f04eda3620306991535a2c6ce015a900a9956ad6cbc1ded4cfcfd6aba"
-url = "https://github.com/eljulians/skillfile/releases/download/v1.9.0/skillfile-aarch64-linux"
-url_api = "https://api.github.com/repos/eljulians/skillfile/releases/assets/484848275"
+checksum = "sha256:78db56aa9299e02ce106ea7047fc245263c36892e6cd10d2d1dd067d41860baf"
+url = "https://github.com/eljulians/skillfile/releases/download/v1.9.1/skillfile-aarch64-linux"
+url_api = "https://api.github.com/repos/eljulians/skillfile/releases/assets/493940062"
 
 [tools."github:eljulians/skillfile"."platforms.linux-x64"]
-checksum = "sha256:494c3b508e188e7bcad73dc6a9ef93e8b36030e5ceab8175b74eca0107644377"
-url = "https://github.com/eljulians/skillfile/releases/download/v1.9.0/skillfile-x86_64-linux"
-url_api = "https://api.github.com/repos/eljulians/skillfile/releases/assets/484848270"
+checksum = "sha256:bbf2f2e42e4597e2efdea599d732a6f3eb55cbf42b73c16dcdb317125264180b"
+url = "https://github.com/eljulians/skillfile/releases/download/v1.9.1/skillfile-x86_64-linux"
+url_api = "https://api.github.com/repos/eljulians/skillfile/releases/assets/493940060"
 
 [tools."github:eljulians/skillfile"."platforms.linux-x64-musl"]
-checksum = "sha256:494c3b508e188e7bcad73dc6a9ef93e8b36030e5ceab8175b74eca0107644377"
-url = "https://github.com/eljulians/skillfile/releases/download/v1.9.0/skillfile-x86_64-linux"
-url_api = "https://api.github.com/repos/eljulians/skillfile/releases/assets/484848270"
+checksum = "sha256:bbf2f2e42e4597e2efdea599d732a6f3eb55cbf42b73c16dcdb317125264180b"
+url = "https://github.com/eljulians/skillfile/releases/download/v1.9.1/skillfile-x86_64-linux"
+url_api = "https://api.github.com/repos/eljulians/skillfile/releases/assets/493940060"
 
 [tools."github:eljulians/skillfile"."platforms.macos-arm64"]
-checksum = "sha256:2c0ea151388850ea0c2bc976ee2b0b60d091242e684e58f468e6bc831872671b"
-url = "https://github.com/eljulians/skillfile/releases/download/v1.9.0/skillfile-aarch64-macos"
-url_api = "https://api.github.com/repos/eljulians/skillfile/releases/assets/484848276"
+checksum = "sha256:406af38bfc4a9e4641bc5ed780fd1a53c2eecf2b3ff613f709a9135ca36e05ae"
+url = "https://github.com/eljulians/skillfile/releases/download/v1.9.1/skillfile-aarch64-macos"
+url_api = "https://api.github.com/repos/eljulians/skillfile/releases/assets/493940058"
 
 [tools."github:eljulians/skillfile"."platforms.macos-x64"]
-checksum = "sha256:5a214f7307e29d8d0a93281ecc2b9f73088c12ac90138f90ef3458ba9167ece1"
-url = "https://github.com/eljulians/skillfile/releases/download/v1.9.0/skillfile-x86_64-macos"
-url_api = "https://api.github.com/repos/eljulians/skillfile/releases/assets/484848272"
+checksum = "sha256:b04d3970a8e6ac88ca0b8553221ae4d8e9af820b244ddc56f7a0d1a29fa4fcca"
+url = "https://github.com/eljulians/skillfile/releases/download/v1.9.1/skillfile-x86_64-macos"
+url_api = "https://api.github.com/repos/eljulians/skillfile/releases/assets/493940056"
 
 [tools."github:eljulians/skillfile"."platforms.windows-x64"]
-checksum = "sha256:4112cdc97c6d6a75842c64844ccf7c5987e068fd5f162f636197a5ffb6c086dd"
-url = "https://github.com/eljulians/skillfile/releases/download/v1.9.0/skillfile-x86_64-windows.exe"
-url_api = "https://api.github.com/repos/eljulians/skillfile/releases/assets/484848274"
+checksum = "sha256:188f5202a393a60e26cb497de87974e5698c0d5a350e0f7157a50580769a348d"
+url = "https://github.com/eljulians/skillfile/releases/download/v1.9.1/skillfile-x86_64-windows.exe"
+url_api = "https://api.github.com/repos/eljulians/skillfile/releases/assets/493940061"
 
 [[tools."github:microsoft/apm"]]
 version = "0.26.0"
