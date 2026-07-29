@@ -30,7 +30,7 @@ biome = "2.5.5"
 node = "24.18.0"
 dotnet = "10.0.302"
 "github:microsoft/apm" = { version = "v0.26.0", bin = "apm" }
-"github:eljulians/skillfile" = { version = "v1.9.0", bin = "skillfile" }
+"github:eljulians/skillfile" = { version = "v1.9.1", bin = "skillfile" }
 
 ## Added by #66 (general-purpose CLI consolidation) — versions are each
 ## tool's current release as of this PR, resolved with `mise latest <tool>`
