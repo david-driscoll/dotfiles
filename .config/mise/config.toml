@@ -37,7 +37,7 @@ dotnet = "10.0.302"
 ## against the live registry, not guessed. Every entry below was confirmed
 ## to exist in `mise registry` first; backends noted here so bumps/breakage
 ## are easy to trace back to the right upstream project.
-gh = "2.96.0" # aqua:cli/cli
+gh = "2.97.0" # aqua:cli/cli
 terraform = "1.15.8" # aqua:hashicorp/terraform
 pulumi = "3.254.0" # aqua:pulumi/pulumi
 kubectl = "1.36.3" # aqua:kubernetes/kubernetes/kubectl
