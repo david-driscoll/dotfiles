@@ -49,7 +49,7 @@ kubeconform = "0.8.0" # aqua:yannh/kubeconform
 # registry — the Flux CLI is registered as `flux2` (aqua:fluxcd/flux2). The
 # installed binary is still named `flux`; only the mise config key differs
 # from the issue text.
-flux2 = "2.9.3" # aqua:fluxcd/flux2 -> installs the `flux` binary
+flux2 = "2.9.4" # aqua:fluxcd/flux2 -> installs the `flux` binary
 # Same story as flux2: the issue calls this "go-task" but the registry
 # shorthand is `task` (aqua:go-task/task); the binary is `task`.
 task = "3.52.0" # aqua:go-task/task -> installs the `task` binary
