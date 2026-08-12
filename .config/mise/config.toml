@@ -68,7 +68,7 @@ mkcert = "1.4.4" # aqua:FiloSottile/mkcert
 # `tap "powershell/tap"`, and the (duplicated) `brew "python"` entries, in
 # setup/Brewfile.
 powershell = "7.6.4"
-python = "3.14.6"
+python = "3.14.7"
 
 [settings]
 # Merged in from the old root `mise.config.toml` (deleted by the #63 split).
