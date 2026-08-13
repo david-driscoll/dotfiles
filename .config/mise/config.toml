@@ -58,7 +58,7 @@ zoxide = "0.10.0" # aqua:ajeetdsouza/zoxide
 direnv = "2.37.1" # aqua:direnv/direnv
 eza = "0.23.5" # asdf:mise-plugins/mise-eza (no aqua backend for eza; cargo:eza is the other option)
 talosctl = "1.13.8" # aqua:siderolabs/talos
-talhelper = "3.1.15" # aqua:budimanjojo/talhelper
+talhelper = "3.1.16" # aqua:budimanjojo/talhelper
 mkcert = "1.4.4" # aqua:FiloSottile/mkcert
 
 # Added per review on #66: both are available as core mise tools (confirmed
