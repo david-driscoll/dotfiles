@@ -67,7 +67,7 @@ mkcert = "1.4.4" # aqua:FiloSottile/mkcert
 # installing via Homebrew. Replaces `brew "powershell/tap/powershell"` +
 # `tap "powershell/tap"`, and the (duplicated) `brew "python"` entries, in
 # setup/Brewfile.
-powershell = "7.6.4"
+powershell = "7.6.5"
 python = "3.14.7"
 
 [settings]
