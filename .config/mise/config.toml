@@ -52,7 +52,7 @@ kubeconform = "0.8.0" # aqua:yannh/kubeconform
 flux2 = "2.9.4" # aqua:fluxcd/flux2 -> installs the `flux` binary
 # Same story as flux2: the issue calls this "go-task" but the registry
 # shorthand is `task` (aqua:go-task/task); the binary is `task`.
-task = "3.52.0" # aqua:go-task/task -> installs the `task` binary
+task = "3.53.1" # aqua:go-task/task -> installs the `task` binary
 starship = "1.26.0" # aqua:starship/starship
 zoxide = "0.10.0" # aqua:ajeetdsouza/zoxide
 direnv = "2.37.1" # aqua:direnv/direnv
