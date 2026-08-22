@@ -13,6 +13,7 @@ function Merge-PullRequests {
         }
     }
 }
+
 function Remove-PulumiResources ($endsWith) {
     $resources = op run --no-masking -- pulumi stack --show-urns --output json | ConvertFrom-Json -AsHashtable | foreach { $_.resources } | foreach { $_.urn } | where { $_ -like $endsWith };
     $resources = "'$($resources -join "' '")'"

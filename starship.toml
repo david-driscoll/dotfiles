@@ -461,9 +461,6 @@ format = "[$symbol($version )]($style)"
 [vagrant]
 format = "[$symbol($version )]($style)"
 
-[vcs]
-format = "[$symbol$branch]($style) "
-
 [vlang]
 format = "[$symbol($version )]($style)"
 
