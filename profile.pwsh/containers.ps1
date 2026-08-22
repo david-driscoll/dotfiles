@@ -1,3 +1,2 @@
 Import-Module DockerCompletion
 Import-Module PSKubectlCompletion
-Import-Module TerraformCompletion
