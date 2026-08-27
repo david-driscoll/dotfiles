@@ -8,6 +8,14 @@ case $- in
 *) return ;;
 esac
 
+# mise (https://mise.run) installs to ~/.local/bin by default. Most distros'
+# default /etc/skel/.profile adds ~/.local/bin to PATH, but this file
+# replaces ~/.bashrc wholesale (see #64/[dotfiles]) so that default doesn't
+# apply here — make it explicit instead of relying on it. Without this,
+# `command -v mise` below never finds mise on a bare Linux image (Codespaces,
+# Coder), and `mise activate`/its shims (~/.local/share/mise/shims) never
+# make it onto PATH for future shells. (#68)
+PATH=$HOME/.local/bin:$PATH
 PATH=$HOME/.dotnet:$PATH
 PATH=$HOME/.dotnet/tools:$PATH
 PATH=$HOME/.jetbrains:$PATH
@@ -101,7 +109,6 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-eval "$(thefuck --alias)"
 
 if [ -x "$(command -v gh)" ]; then
     eval "$(gh completion --shell bash)"
@@ -115,6 +122,11 @@ fi
 if [ -x "$(command -v op)" ]; then
     eval "$(op completion bash)"
 fi
+# Enables mise's platform config-file layering (config.macos.toml /
+# config.linux.toml alongside .config/mise/config.toml) so [dotfiles]
+# entries can be scoped per-OS. Must be a real env var, not just
+# settings.auto_env in the toml — see that file for why. (#64)
+export MISE_AUTO_ENV=1
 if [ -x "$(command -v mise)" ]; then
     eval "$(mise activate bash)"
 fi
@@ -168,7 +180,6 @@ if ! shopt -oq posix; then
     fi
 fi
 
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 if [[ $(grep microsoft /proc/version) ]]; then
     . ~/.wslrc
 fi
@@ -176,7 +187,11 @@ fi
 # add Pulumi to the PATH
 export PATH=$PATH:$HOME/.pulumi/bin
 
-. "$HOME/.local/bin/env"
+# Only present on machines where some other installer (rustup, uv's own
+# curl installer, etc.) dropped this file — nothing in this repo writes it.
+# Was previously sourced unconditionally, which errors on any box (e.g. a
+# fresh Codespace/Coder Linux box) where it doesn't exist. (#68)
+[ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
 
 # OpenClaw Completion
 source "/Users/david/.openclaw/completions/openclaw.bash"

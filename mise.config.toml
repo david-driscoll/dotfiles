@@ -1,5 +1,0 @@
-[settings]
-experimental = true
-
-[tools]
-"uv" = "0.11.28"

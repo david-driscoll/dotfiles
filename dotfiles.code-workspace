@@ -9,14 +9,8 @@
 		{
 			"path": "../.config"
 		},
-		// {
-		// 	"path": "../.claude"
-		// },
 		{
-			"path": "../.copilot"
-		},
-		{
-			"path": "../.agents"
+			"path": "../.crew"
 		}
 	],
 	"settings": {
@@ -31,8 +25,8 @@
 			"panel.border": "#4646fd",
 			"sash.hoverBorder": "#4646fd",
 			"sideBar.border": "#4646fd",
-			"statusBar.background": "#0302db",
-			"statusBar.debuggingBackground": "#dadb02",
+			"statusBar.background": "#1413fd",
+			"statusBar.debuggingBackground": "#fcfd13",
 			"statusBar.debuggingForeground": "#15202b",
 			"statusBar.foreground": "#e7e7e7",
 			"statusBarItem.hoverBackground": "#1413fd",

@@ -1,17 +1,25 @@
+$PSReadLineOptions = @{
+	EditMode                      = "Emacs"
+	AddToHistoryHandler           = { return $true }
+	CompletionQueryItems          = 200
+	HistoryNoDuplicates           = $true
+	HistorySaveStyle              = "SaveIncrementally"
+	HistorySearchCursorMovesToEnd = $true
+	PredictionSource              = "HistoryAndPlugin"
+	PredictionViewStyle           = "ListView" # InlineView
+	ShowToolTips                  = $true
+	# Colors                        = @{
+	# 	"Command" = "#8181f7"
+	# }
+}
+Set-PSReadLineOption @PSReadLineOptions
 
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 # Search auto-completion from history
-Set-PSReadLineOption -HistorySearchCursorMovesToEnd
 Set-PSReadLineKeyHandler -Key UpArrow -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
-
-# Show auto-complete predictions from history
-Set-PSReadLineOption -ShowToolTips
-if ( $host.Version.Major -gt 5) {
-	Set-PSReadLineOption -PredictionSource history
-}
 if ($IsMacOS -or $IsLinux) {
-	Set-PSReadLineKeyHandler -Key Escape -Function BackwardKillLine
+	# Set-PSReadLineKeyHandler -Key Escape -Function BackwardKillInput
 }
 if ($IsWindows) {
 }

@@ -1,0 +1,87 @@
+## Apple Silicon (arm64) architecture-specific macOS config — symlinked to
+## ~/.config/mise/config.macos-arm64.toml. Layered on top of config.toml and
+## config.macos.toml per mise's platform-file precedence
+## (unix < macos < macos-arm64/macos-x64 < explicit MISE_ENV entries),
+## confirmed against
+## https://mise.jdx.dev/configuration/environments.html#platform-environments.
+## Loaded automatically *only when MISE_AUTO_ENV=1 is set* — see config.toml's
+## [settings] comment for why the auto_env setting alone isn't enough.
+##
+## Exists solely to hold the arm64 half of [bootstrap.user] below — Homebrew's
+## prefix (and therefore pwsh's install path) differs between Apple Silicon
+## (/opt/homebrew) and Intel (/usr/local), so this can't live in the shared
+## config.macos.toml without hardcoding one architecture. This is David's
+## daily-driver architecture; config.macos-x64.toml is the Intel twin, kept
+## for portability even though it's unverified on real Intel hardware.
+
+## [bootstrap.user] — pwsh as login shell (#71, part of epic #61). Full
+## reasoning (see the PR body for the same writeup with citations):
+##
+## 1. Absolute path required. mise's docs are explicit: "relative shell
+##    names are skipped with a warning. Use the full path" —
+##    https://mise.jdx.dev/bootstrap/user.html. A bare "pwsh" would be
+##    silently ignored, not an error — worth stating since that failure mode
+##    is easy to miss in testing.
+##
+## 2. Points at the Homebrew-installed pwsh (brew:powershell, added to
+##    [bootstrap.packages] in the sibling config.macos.toml), NOT the
+##    mise-tool pwsh pinned in .config/mise/config.toml's [tools]. Either of
+##    the next two reasons alone would settle this:
+##
+##    a. Bootstrap phase order. `mise bootstrap` runs, in this fixed
+##       sequence: plugins, packages, repos, dotfiles, shell-activate,
+##       macos, launchd, systemd, user, tools, plugin-package-managers,
+##       bootstrap-task, final-hook — confirmed against
+##       https://mise.jdx.dev/bootstrap.html. [bootstrap.packages] is phase
+##       2; [bootstrap.user] is phase 9; [tools] is phase 10 — AFTER user.
+##       On a brand-new machine's very first `mise bootstrap --yes`, the
+##       mise-tool pwsh would not exist yet when chsh runs. Pointing
+##       login_shell at a mise-tool shim path would target a nonexistent
+##       binary on exactly the run where it matters most.
+##
+##    b. Even with ordering fixed, a mise-tool shim is a thin wrapper that
+##       re-resolves the real binary through mise's own state on every
+##       invocation. If mise is upgraded, uninstalled, has its shim
+##       directory relocated, or the pinned version gets pruned, the login
+##       shell — the thing you'd need working to fix any of the above from
+##       a normal terminal — breaks along with it. A Homebrew-managed
+##       binary has no such dependency on mise being healthy.
+##
+## 3. Uses `/opt/homebrew/opt/powershell/bin/pwsh`, NOT
+##    `/opt/homebrew/bin/pwsh`. Homebrew always creates the `opt/<formula>`
+##    symlink (-> the current keg) once a formula is installed, independent
+##    of whether that formula's binaries are actually linked into the
+##    top-level `bin/`. Verified empirically on the machine this PR was
+##    written on: `brew list --versions powershell` shows 7.6.3_1 installed,
+##    but `/opt/homebrew/bin/pwsh` does NOT exist — it's unlinked, and
+##    `/usr/local/bin/pwsh` (an unrelated, non-brew pwsh install already on
+##    that machine) shadows it on PATH anyway. `/opt/homebrew/opt/powershell/
+##    bin/pwsh` resolves correctly regardless. The top-level bin path would
+##    have silently pointed chsh at nothing on this exact real-world machine
+##    — a concrete example of why the `opt/` path is the safer choice, not
+##    just a theoretical one.
+##
+## 4. Deliberate duplication with [tools]' `powershell` pin, not an
+##    oversight of #66's brew-vs-mise consolidation review. The mise tool
+##    stays for interactive/script use (pinned version, consistent across
+##    OSes incl. Windows); the brew formula exists only to give the login
+##    shell a binary that doesn't depend on mise's own state. See the
+##    comment on `"brew:powershell"` in config.macos.toml's
+##    [bootstrap.packages].
+##
+## /etc/shells + sudo: /etc/shells is root-owned. mise's docs say it uses
+## "the same non-interactive sudo behavior as system packages" to add the
+## shell there if missing — in practice this means an interactive sudo
+## password prompt the first time `mise bootstrap --yes` reaches this phase
+## on a real terminal (there's a TTY on David's mac, so this should just
+## work — expect a password prompt). See the PR body for what happens
+## instead in a no-TTY context (not applicable to macOS as scoped here).
+##
+## Reversibility: `chsh -s /bin/zsh` restores the previous default. zsh
+## stays listed in /etc/shells (macOS ships it there by default) and
+## remains fully dotfiles-managed via config.toml's [dotfiles] table — this
+## change does not touch .zshrc, .zprofile, or remove zsh from /etc/shells.
+## Terminal apps configured to launch a specific shell/command rather than
+## "the account's login shell" are unaffected either way.
+[bootstrap.user]
+login_shell = "/opt/homebrew/opt/powershell/bin/pwsh"
