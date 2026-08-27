@@ -1,34 +1,3 @@
-## macOS-only [dotfiles] entries — symlinked to ~/.config/mise/config.macos.toml.
-## Loaded automatically alongside config.toml on macOS *only when
-## MISE_AUTO_ENV=1 is set* (see config.toml's [settings] comment for why
-## the auto_env setting alone isn't enough). Naming follows mise's platform
-## config-file convention: <basename>.<platform>.toml next to <basename>.toml,
-## where <platform> is one of unix/linux/macos/windows (with optional -arch
-## suffix). https://mise.jdx.dev/configuration/environments.html#platform-environments
-
-## Formulae Homebrew (not mise's own registry) has to provide on macOS —
-## the zsh ecosystem, git, moreutils, mas, azure-cli, gitkraken-cli,
-## speedtest-cli (#67). This is the ONE place these are
-## declared: they used to live in setup/Brewfile (deleted by #67), invoked
-## via a raw `brew bundle --file ./setup/Brewfile` call in install.sh /
-## setup-osx.sh. Keeping a second Brewfile-shaped declaration around would
-## be exactly the double source of truth the issue warned against, so that
-## file is gone — `mise bootstrap packages status` is now the only way to
-## check these, and `mise bootstrap` (or `mise bootstrap --only packages`)
-## is the only way to install them.
-##
-## speedtest-cli was flagged with a "?" in the epic (#61) and wasn't in
-## #67's explicit target list for setup/Brewfile — it's carried forward
-## here from Brewfile.darwin (where it had leaked in as a formula) rather
-## than silently dropped. Confirm keep/drop in the PR.
-##
-## Casks can't live here — mise's own `brew-cask:` manager prefix does
-## exist in this mise version (verified: `mise bootstrap packages status`
-## against a scratch `brew-cask:1password` entry resolves correctly), but
-## using it would mean re-typing every GUI app as a flat TOML key instead
-## of the grouped, commented setup/Brewfile.darwin — so casks stay there,
-## wired below via `[bootstrap.hooks.post-packages]` into the brew:casks
-## mise task (mise.toml) instead.
 [bootstrap.packages]
 "brew:zsh" = "latest"
 "brew:zsh-autosuggestions" = "latest"
@@ -51,65 +20,11 @@
 "brew:moreutils" = "latest"
 "brew:mas" = "latest"
 "brew:azure-cli" = "latest"
-# "brew:gitkraken-cli" = "latest"
 "brew:speedtest-cli" = "latest" # "?" in the epic — confirm keep/drop
-# thefuck was carried forward here as `brew:thefuck` when this PR was
-# originally written (owned by #76, which was going to remove thefuck
-# everywhere at once). #76 has since merged and done exactly that — removed
-# thefuck entirely, including this entry, the .zshrc/.bashrc hooks, and the
-# thefuck/ dir — so it's gone rather than carried forward again.
 
-## Runs after [bootstrap.packages] installs (part of `mise bootstrap`'s own
-## documented sequence: "`mise bootstrap packages apply` — install missing
-## [bootstrap.packages] then [bootstrap.hooks.post-packages]"). This is how
-## setup/Brewfile.darwin's casks get installed without [bootstrap.packages]
-## support for them and without a second imperative `brew bundle` call
-## bolted onto install.sh/setup-osx.sh — one `mise bootstrap` (or `mise
-## bootstrap --only packages`) run does formulae then casks.
 [bootstrap.hooks]
 post-packages = [{ task = "brew:casks" }]
 
-## macOS System Settings (#70) — dock/finder/keyboard/trackpad/screenshots.
-##
-## mise has no auto-export/derivation mechanism for current `defaults`
-## values (confirmed against https://mise.jdx.dev/bootstrap/macos-defaults.html:
-## "mise provides no automatic export or derivation mechanism for current
-## defaults") — every value below was read off David's live mac by hand
-## with `defaults read` / `defaults read-type` (see setup/capture-defaults.sh),
-## then cross-checked against mise's own source
-## (github.com/jdx/mise src/system/mod.rs — merge_dock_defaults /
-## merge_finder_defaults / merge_keyboard_defaults / merge_trackpad_defaults
-## / defaults_from_config) for the exact friendly-key -> domain/key mapping
-## and expected TOML type, since that's stricter ground truth than the docs
-## page (which disagreed with the source on fn_state's value shape).
-##
-## BASELINE PROPERTY: every value below is David's CURRENT setting on
-## 2026-07-27, not a suggested default — that's what makes the first
-## `mise bootstrap macos defaults apply` a no-op. Verify before trusting:
-##   mise bootstrap macos defaults status   # should show zero drift
-##   mise bootstrap macos defaults apply --dry-run   # should show nothing to change
-## If either shows drift, something below doesn't match the live machine —
-## don't apply until that's understood.
-##
-## Deliberately NOT encoded (see PR #70 body for the full table):
-## - dock.show_recents / dock.mru_spaces: no `show-recents`/`mru-spaces`
-##   key present in `com.apple.dock` at all — OS default in effect,
-##   never touched. Guessing a boolean here would silently turn "baseline
-##   on current state" into "introduce a new deliberate setting".
-## - finder.show_pathbar / show_status_bar / show_extensions_warning:
-##   same — unset, OS default in effect.
-## - keyboard.key_repeat / initial_key_repeat / press_and_hold: same —
-##   unset (David hasn't customized key repeat speed).
-## - com.apple.screencapture entirely (no [bootstrap.macos.defaults] entry
-##   for it): the domain has NO location/type/format/shadow keys set —
-##   screenshots land on ~/Desktop as PNG because that's the untouched OS
-##   default, not a deliberate choice. Nothing to preserve; add this back
-##   the moment he actually customizes it (capture-defaults.sh's diff
-##   workflow will show exactly which key changed).
-## - Per-window Finder view state, Dock's persistent-apps/recent-apps tile
-##   lists, window positions, "last-analytics-stamp", etc: transient state
-##   that changes on every use — encoding it would fight the OS on every
-##   `apply`, and was explicitly out of scope for #70.
 [bootstrap.macos.dock]
 autohide = false
 orientation = "bottom"
@@ -122,120 +37,17 @@ show_all_files = true
 preferred_view_style = "list"
 
 [bootstrap.macos.keyboard]
-# "Use F1, F2, etc. keys as standard function keys" — checked on his
-# machine. Verified this is what NSGlobalDomain.com.apple.keyboard.fnState
-# actually controls (not obvious from the key name alone) before encoding
-# it — see PR #70 body.
 fn_state = true
 
 [bootstrap.macos.trackpad]
 tap_to_click = false
 three_finger_drag = false
 
-## Raw escape hatch — one setting the friendly sections above don't cover.
-## "Show all filename extensions" (Finder > Settings > Advanced) is
-## NSGlobalDomain.AppleShowAllExtensions — a DIFFERENT preference from
-## [bootstrap.macos.finder]'s show_all_files (com.apple.finder.AppleShowAllFiles,
-## the "show hidden files" toggle, above). Vanilla macOS default is false;
-## David has this on. Sharing the NSGlobalDomain domain with the keyboard
-## friendly section above is fine — mise merges raw/friendly entries by
-## (domain, key) pair, and this is a different key (AppleShowAllExtensions
-## vs. com.apple.keyboard.fnState), confirmed against defaults_from_config
-## in mise's source.
 [bootstrap.macos.defaults]
 "NSGlobalDomain" = { AppleShowAllExtensions = true }
 
-## Optional macOS launchd agent — periodic mise bootstrap DRIFT CHECK (#74,
-## last additive piece of epic #61). SHIPPED DISABLED (commented out below):
-## this is the one part of the whole migration that would run unattended,
-## forever, on David's daily driver — that's a deliberate new background
-## cost, not something that should switch on silently the next time
-## `mise bootstrap` happens to run. Uncomment the `[bootstrap.macos.launchd
-## .agents.mise-sync]` block below, then either re-run `mise bootstrap`
-## (loads it in phase 7, "Write and load LaunchAgents" — see
-## https://mise.jdx.dev/bootstrap.html) or just
-## `mise bootstrap macos launchd-agents apply` to load only this.
-##
-## What it runs, and why NOT `mise up`: the issue (#74) suggested `mise up`
-## and/or `mise dotfiles status`. `mise up` UPGRADES pinned tool versions —
-## an unattended agent silently bumping [tools] pins on a daily driver is
-## exactly what this repo's "pin explicitly, a floating version is a future
-## broken machine" principle (see config.toml's [tools] entries, each
-## pinned to an exact version resolved by hand) argues against, and it would
-## fight Renovate, which already owns every version bump in this repo via
-## PRs — two automated systems independently deciding what version a tool
-## should be is a conflict, not a convenience. So this agent runs
-## `mise bootstrap status --missing` instead (via the wrapper script below,
-## for PATH + log-rotation handling) — confirmed against mise's own docs and
-## empirically on this machine: it is READ-ONLY, reports drift across
-## dotfiles/packages/macos defaults/launchd/user/tools in one table, and
-## never mutates anything. It only ever tells David something drifted; he
-## decides by hand whether to run `mise bootstrap`.
-##
-## PATH: launchd agents get a minimal environment
-## (/usr/bin:/bin:/usr/sbin:/sbin) — no Homebrew directory, so a launchd
-## agent that just ran `mise` bare would silently do nothing (the single
-## most common failure mode for these — confirmed against mise's own
-## `bootstrap/launchd.html` example, which sets `environment.PATH` for
-## exactly this reason). `environment.PATH` below covers both Homebrew
-## prefixes (arm64 /opt/homebrew, Intel /usr/local — this repo dropped the
-## separate config.macos-x64.toml twin, so this file has to work on either
-## architecture without per-arch branching) plus the standard system dirs
-## `mise bootstrap status` itself shells out to (`brew`, `git`, `defaults`,
-## ...). `program` deliberately does NOT hardcode an architecture-specific
-## `mise` path (e.g. `/opt/homebrew/bin/mise`) for the same reason — it
-## points at the wrapper script below instead, which resolves `mise` off
-## its own PATH export. This is genuinely redundant with `environment.PATH`
-## (belt and suspenders) — see the script's own header for why both exist.
-##
-## Schedule: once daily (`start_calendar_interval`), not `start_interval` —
-## drift detection doesn't need to be tight, and a background job that
-## fires every few minutes is exactly the kind of "background cost" this
-## repo should avoid on a daily driver. `run_at_load = true` so applying the
-## agent produces an immediate first log entry rather than a 24h wait to
-## find out if it's even working.
-##
-## Logging: setup/mise-bootstrap-status.sh (committed, see its own header)
-## writes timestamped entries to ~/Library/Logs/mise-bootstrap-status.log —
-## somewhere David would actually look — and trims that file to its last
-## ~4000 lines before every run, so a year of daily runs can't grow it
-## without bound. stdout_path/stderr_path point at the same file as a
-## fallback (e.g. if the script itself fails to start, launchd's own
-## redirection still captures why).
-##
-## Removal — easy, two commands, no dotfiles/mise state touched:
-##   launchctl bootout gui/$UID/dev.mise.mise-sync
-##   rm ~/Library/LaunchAgents/dev.mise.mise-sync.plist
-## (then re-comment the block below so a future `mise bootstrap` doesn't
-## reinstall it).
-##
-# [bootstrap.macos.launchd.agents.mise-sync]
-# # setup/mise-bootstrap-status.sh (committed, tested) is what actually runs
-# # `mise bootstrap status --missing` — it also sets PATH itself (belt and
-# # suspenders with `environment.PATH` below) and rotates the log file. Bare
-# # `~` expands here (mise docs: program/working_directory/stdout_path/
-# # stderr_path all do; environment values do not, hence the literal PATH
-# # below instead of a templated one).
-# program = "~/dotfiles/setup/mise-bootstrap-status.sh"
-# run_at_load = true
-# start_calendar_interval = { hour = 9, minute = 0 }
-# environment = { PATH = "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin" }
-# working_directory = "~"
-# stdout_path = "~/Library/Logs/mise-bootstrap-status.log"
-# stderr_path = "~/Library/Logs/mise-bootstrap-status.log"
-
 [dotfiles]
 "~/.config/karabiner/karabiner.json" = { source = "~/dotfiles/karabiner/karabiner.json" }
-# 1Password's SSH agent config has never been symlinked by any script in
-# this repo before now (#64's whole reason for existing). Declared mac-only
-# because that's the only platform this has been verified on; David also
-# runs Linux (Codespaces/Coder) where 1Password desktop + its SSH agent
-# socket generally isn't present, so a linux entry isn't added here without
-# confirmation it's wanted there too.
 "~/.config/1Password/ssh/agent.toml" = { source = "~/dotfiles/1password/agent.toml" }
-# Feeds the base ~/.gitconfig's `[include] path = ~/.gitconfig.local` (#65)
-# with the macOS-only 1Password SSH-signing program path. This is the
-# actual OS-branching mechanism for git config in this repo — git's own
-# [includeIf] has no condition that tests the OS (verified against `git
-# help config`; only gitdir/gitdir-i/onbranch/hasconfig:remote exist).
 "~/.gitconfig.local" = { source = "~/dotfiles/git/gitconfig.darwin" }
+"~/.ssh" = { source = "~/dotfiles/ssh", mode = "symlink-each" }
