@@ -11,6 +11,8 @@ age = "latest"
 "dotnet:graphify-dotnet" = "latest"
 biome = "latest"
 "npm:@opengsd/gsd-core" = "latest"
+just = "latest"
+bun = "latest"
 
 [hooks]
 postinstall = { task = "gh-extensions" }
