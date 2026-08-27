@@ -69,6 +69,7 @@ mkcert = "1.4.4" # aqua:FiloSottile/mkcert
 # setup/Brewfile.
 powershell = "7.6.5"
 python = "3.14.7"
+"github:Graphify-Labs/graphify" = "0.9.50"
 
 [settings]
 # Merged in from the old root `mise.config.toml` (deleted by the #63 split).
