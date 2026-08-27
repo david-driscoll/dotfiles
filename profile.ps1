@@ -4,6 +4,13 @@ $DotfilesModulePath = Join-path $PSScriptRoot "psmodules/"
 if (-not $env:PSModulePath.Contains($DotfilesModulePath) ) {
     $env:PSModulePath = $env:PSModulePath.Insert(0, "$DotfilesModulePath$([System.IO.Path]::PathSeparator)")
 }
+foreach ($x in Get-ChildItem $PSScriptRoot/profile.pwsh -Filter *.ps1) {
+    . $x.FullName
+}
+
+foreach ($x in $PROFILE | Get-Member | where { $_.Name.StartsWith("Current") } | foreach { $PROFILE.($_.Name) } | foreach { Split-Path -Parent $_ } | select -Unique | foreach { Get-ChildItem -ErrorAction SilentlyContinue "$_/Profile/" -Filter *.ps1 }) {
+    . $x.FullName
+}
 
 if ($IsMacOS) {
     . "$PSScriptRoot/profile.darwin.ps1"
@@ -13,14 +20,6 @@ if ($IsWindows) {
 }
 if ($IsLinux) {
     . "$PSScriptRoot/profile.linux.ps1"
-}
-
-foreach ($x in Get-ChildItem $PSScriptRoot/profile.pwsh -Filter *.ps1) {
-    . $x.FullName
-}
-
-foreach ($x in $PROFILE | Get-Member | where { $_.Name.StartsWith("Current") } | foreach { $PROFILE.($_.Name) } | foreach { Split-Path -Parent $_ } | select -Unique | foreach { Get-ChildItem -ErrorAction SilentlyContinue "$_/Profile/" -Filter *.ps1 }) {
-    . $x.FullName
 }
 
 $ENV:STARSHIP_CONFIG = Join-Path $PSScriptRoot 'starship.toml';
@@ -52,24 +51,5 @@ $title = $title.Substring($space + 1, ($gitStop - $space)-1)
 $host.UI.RawUI.WindowTitle = ($title -replace '\x1b\[[0-9;]*m', '') -replace '', '📂'
 '@;
 
-function CheckAndRun($command) {
-    if (-not (Get-Command $command.Split(' ')[0] -ErrorAction SilentlyContinue)) {
-        return
-    }
-    (iex $command) | Out-String | Invoke-Expression
-}
-
 $promptModule = $promptModule.Replace("# Return the prompt", $customPrompt);
 Invoke-Expression $promptModule
-
-$oldPreference = $ErrorActionPreference
-$ErrorActionPreference = "SilentlyContinue"
-
-CheckAndRun "volta completions powershell"
-CheckAndRun "gh completion -s powershell"
-CheckAndRun "op completion powershell"
-CheckAndRun "mise activate pwsh"
-CheckAndRun "kubectl completion powershell"
-CheckAndRun "helm completion powershell"
-
-$ErrorActionPreference = $oldPreference

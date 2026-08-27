@@ -21,7 +21,6 @@ dependencies:
   - github/awesome-copilot/instructions/prompt.instructions.md
   - ComposioHQ/awesome-claude-skills/developer-growth-analysis
   - testdino-hq/playwright-skill
-  - yvgude/lean-ctx
   - majiayu000/claude-skill-registry/skills/data/hk-setup
   - sickn33/antigravity-awesome-skills/skills/mise-configurator
   - terrylica/cc-skills/plugins/itp/skills/mise-configuration

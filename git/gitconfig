@@ -1,0 +1,105 @@
+## Git configuration — deployed to ~/.gitconfig via mise's [dotfiles] table
+## (.config/mise/config.toml). See #65 for the "why": four setup scripts
+## (install.sh, setup/setup.sh, setup/setup-osx.sh, setup/setup.ps1) used to
+## run `git config --global ...` imperatively, and disagreed with each other
+## on core.autocrlf, commit signing, and pack tuning — whichever script ran
+## last on a given machine silently won. This file is now the single source
+## of truth for every OS; those four scripts' git-config blocks are deleted.
+##
+## The per-OS bits — identity (user.email, user.signingkey, github.user) as
+## of David's review on #81, plus the 1Password SSH-signing program path,
+## and on native Windows the ssh.exe used for git's own transport — are
+## pulled in via a plain [include] at the bottom of this file, NOT git's
+## own [includeIf]. Git's conditional-include keywords are gitdir, gitdir/i,
+## onbranch, and hasconfig:remote.*.url (verified against `git help config`
+## on git 2.55.0) — none of them can test "which OS is this". See
+## git/gitconfig.darwin's header comment for the mechanism actually used.
+##
+## Identity moved out of this shared file per #81 review: David may use a
+## different email/signing key on his work Windows machine than on his
+## personal mac. See git/gitconfig.darwin (and .linux/.windows/.wsl) for
+## the actual user.email/user.signingkey/github.user values — each one
+## starts from the same values that used to live here, so nothing changes
+## on any machine until one of those files is deliberately edited.
+
+[user]
+	# Only the display name is shared across every machine — it's the one
+	# identity field that doesn't change with "which situation" David is
+	# in, unlike email and the signing key (which do, per his review — see
+	# above). If that assumption is wrong, this should move per-OS too.
+	name = David Driscoll
+
+[core]
+	eol = lf
+	# All four scripts disagreed here: install.sh said false, setup.sh and
+	# setup.ps1 said true, setup-osx.sh didn't set it at all. Settled to
+	# false everywhere per #65 — this repo's own .gitattributes already
+	# enforces `* text=auto eol=lf` file-by-file, so autocrlf=true on
+	# Windows was redundant at best (files already normalized to LF via
+	# .gitattributes don't need autocrlf's help) and a source of
+	# unnecessary CRLF/LF churn at worst for anything .gitattributes
+	# doesn't cover.
+	autocrlf = false
+	# Not a real conflict — install.sh/setup.sh/setup-osx.sh all set this,
+	# setup.ps1 simply never mentioned it (not a contradiction). Kept as a
+	# shared default; Git for Windows ships vim, so `vi` resolves there too.
+	editor = vi
+	# Pack tuning below: only setup.sh and setup.ps1 had these 5 keys
+	# (install.sh and setup-osx.sh never set them), but they're live on
+	# this machine today and are a pure perf/reliability tweak (the
+	# comment in setup.sh calls out "fetch-pack: unexpected disconnect
+	# while reading sideband packet") — carried forward for every OS.
+	packedGitLimit = 512m
+	packedGitWindowSize = 512m
+
+[pack]
+	deltaCacheSize = 2047m
+	packSizeLimit = 2047m
+	windowMemory = 2047m
+
+[gpg]
+	format = ssh
+
+[commit]
+	gpgsign = true
+
+[pull]
+	# Live-only setting: no script ever set this, but `git config --global
+	# --list` shows it live on this machine. Carried forward on the
+	# assumption it's a deliberate preference (rebase-on-pull avoids merge
+	# commits); flag in the PR in case it's unwanted or accidental.
+	rebase = true
+
+[tag]
+	# Live-only setting, same story as pull.rebase above — no script set
+	# this, but it's live today. Carried forward as a good default (signs
+	# annotated tags the same way commits are signed) with the same flag.
+	forceSignAnnotated = true
+
+[diff "sopsdiffer"]
+	# Live-only setting, referenced by .sops.yaml-adjacent diff drivers in
+	# other repos (lets `git diff` show decrypted sops content). No script
+	# ever set this either; carried forward since dropping it would
+	# silently break sops-aware diffing anywhere it's relied on via
+	# .gitattributes `diff=sopsdiffer`.
+	textconv = sops -d --config /dev/null
+
+[alias]
+	amend = commit --amend --reuse-message=HEAD
+	# Must be double-quoted: the embedded `;` is otherwise silently parsed as
+	# an inline comment start by git's own config parser (no whitespace
+	# needed before `;`/`#` for it to trigger), which truncates the value to
+	# `!f() { git rebase -i --autosquash $1` and drops `; }; f` — reproduced
+	# empirically against git 2.55.0 before fixing this. Confirmed correct
+	# by round-tripping through `git config --file <f> alias.squash '...'`,
+	# which quotes the value the same way when writing it itself.
+	squash = "!f() { git rebase -i --autosquash $1; }; f"
+
+# Per-OS overrides live in ~/.gitconfig.local, deployed by mise's [dotfiles]
+# platform-config-layering (config.macos.toml / config.linux.toml — the same
+# mechanism PR #79 established for karabiner.json and 1Password's
+# agent.toml). A plain [include] here works on every OS: if
+# ~/.gitconfig.local doesn't exist yet, git silently skips it rather than
+# erroring (verified empirically against git 2.55.0 in a scratch config).
+[include]
+	path = ~/.gitconfig.local

@@ -9,7 +9,6 @@ foreach ($d in $distros) {
 rm ~/dotfiles
 ln -s /mnt/c/Users/$ENV:USERNAME/dotfiles/ ~/dotfiles
 ~/dotfiles/install.sh
-~/dotfiles/setup/setup.sh
 
 "@.Replace("`r", "")
     $file = New-TemporaryFile

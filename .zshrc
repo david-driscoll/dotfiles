@@ -1,6 +1,15 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# mise (https://mise.run) installs to ~/.local/bin by default. Most distros'
+# default /etc/skel/.profile adds ~/.local/bin to PATH, but this file
+# replaces ~/.zshrc wholesale (see #64/[dotfiles]) so that default doesn't
+# apply here — make it explicit instead of relying on it. Without this,
+# `command -v mise` below never finds mise on a bare Linux image (Codespaces,
+# Coder), and `mise activate`/its shims (~/.local/share/mise/shims) never
+# make it onto PATH for future shells. (#68)
+export PATH="$HOME/.local/bin:$PATH"
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export STARSHIP_CONFIG=~/dotfiles/starship.toml
@@ -102,7 +111,6 @@ plugins=(
   git-escape-magic
   z
   starship
-  thefuck
   themes
   terraform
   lol
@@ -187,9 +195,6 @@ fi
 if [ -x "$(command -v op)" ]; then
   eval "$(op completion zsh)"
 fi
-if [ -x "$(command -v mise)" ]; then
-  eval "$(mise activate zsh)"
-fi
 if [ -x "$(command -v pulumi)" ]; then
   eval "$(pulumi completion zsh)"
 fi
@@ -201,7 +206,11 @@ fi
 autoload -U +X bashcompinit && bashcompinit
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
-. "$HOME/.local/bin/env"
+# Only present on machines where some other installer (rustup, uv's own
+# curl installer, etc.) dropped this file — nothing in this repo writes it.
+# Was previously sourced unconditionally, which errors on any box (e.g. a
+# fresh Codespace/Coder Linux box) where it doesn't exist. (#68)
+[ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(/Users/david/.docker/completions $fpath)
 autoload -Uz compinit
@@ -215,3 +224,12 @@ export DOTNET_ROOT="/usr/local/share/dotnet"
 export PATH="/usr/local/share/dotnet:$PATH"
 
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
+
+# Enables mise's platform config-file layering (config.macos.toml /
+# config.linux.toml alongside .config/mise/config.toml) so [dotfiles]
+# entries can be scoped per-OS. Must be a real env var, not just
+# settings.auto_env in the toml — see that file for why. (#64)
+export MISE_AUTO_ENV=1
+if [ -x "$(command -v mise)" ]; then
+  eval "$(mise activate zsh)"
+fi

@@ -1,0 +1,50 @@
+## Linux-only [dotfiles] entries — symlinked to ~/.config/mise/config.linux.toml.
+## Loaded automatically alongside config.toml on Linux (including WSL — mise
+## has no separate "wsl" platform, WSL reports as plain linux) *only when
+## MISE_AUTO_ENV=1 is set* (see config.toml's [settings] comment for why the
+## auto_env setting alone isn't enough).
+## https://mise.jdx.dev/configuration/environments.html#platform-environments
+##
+## NOTE on #71 (pwsh login shell, epic #61): deliberately NOT here. No
+## [bootstrap.user] entry exists for Linux. Two independent reasons, either
+## one sufficient:
+##
+## 1. No safe binary to point at. Unlike macOS (Homebrew's `opt/` path —
+##    see config.macos-arm64.toml), this repo has no established
+##    mise-independent pwsh install on Linux — David's Linux targets
+##    (Codespaces/Coder) get pwsh only via the mise-tool pin in
+##    .config/mise/config.toml's [tools], which is exactly the shim-as-
+##    login-shell hazard documented there. Standing up a parallel
+##    apt/snap/tarball install just for this would be new surface area for
+##    a feature that fails the next test anyway:
+##
+## 2. It would be inert (or a hazard) on the actual Linux targets. GitHub
+##    Codespaces hardcodes `$SHELL=/bin/bash` for every new terminal
+##    regardless of what /etc/passwd says — confirmed via GitHub's own
+##    community docs (github.com/orgs/community/discussions/148958) and
+##    Codespaces' "changing the shell in a codespace" documentation, which
+##    describes setting a VS Code terminal *profile* as the actual
+##    mechanism, not chsh. A `chsh`-based login_shell change would run
+##    "successfully" and then do nothing observable — the definition of
+##    inert. Self-hosted Coder workspaces are architecturally similar
+##    (container + IDE-driven terminal, not a real login(1) session) and
+##    likely share this failure mode, though that wasn't independently
+##    verified against a live Coder instance — flagging the uncertainty
+##    rather than asserting it.
+##
+## Scoped to macOS only for #71. Revisit if a Linux target starts using
+## real login sessions (bare-metal/VM Linux over SSH, where chsh does work
+## as expected) and a non-shim pwsh install path is established there.
+
+[dotfiles]
+# .bashrc only sources ~/.wslrc when `/proc/version` mentions "microsoft",
+# so symlinking it on every Linux box (Codespaces, Coder, bare-metal, WSL)
+# is harmless where it isn't WSL — it just sits unread.
+"~/.wslrc" = {}
+# Feeds the base ~/.gitconfig's `[include] path = ~/.gitconfig.local` (#65),
+# same mechanism as config.macos.toml's entry above. Deliberately empty
+# today (no 1Password desktop on Codespaces/Coder) — see
+# git/gitconfig.linux's header. NOTE: this also fires for WSL, since mise
+# reports WSL as plain "linux" — see git/gitconfig.wsl for why the
+# WSL-specific 1Password path can't be routed here automatically.
+"~/.gitconfig.local" = { source = "~/dotfiles/git/gitconfig.linux" }
