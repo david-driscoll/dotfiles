@@ -22,3 +22,11 @@
 - **facilitator:** Holden
 - **participants:** Naomi, Miller, Amos
 - **purpose:** Review design decisions, flag concerns, align on patterns
+
+### Spec Review
+- **trigger:** before
+- **when:** a specification/plan drafted by Fred is about to be decomposed into work items
+- **facilitator:** Avasarala
+- **participants:** Fred, Elvi
+- **purpose:** Confirm the spec serves the overall project, all unknowns are resolved or
+  explicitly flagged as open questions, and the spec is ready to become work items for Ralph

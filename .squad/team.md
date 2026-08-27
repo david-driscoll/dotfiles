@@ -18,6 +18,11 @@
 | Alex | PowerShell Specialist | .squad/agents/alex/charter.md | 💻 |
 | Bobbie | Git / GitHub Specialist | .squad/agents/bobbie/charter.md | 🗃️ |
 | Drummer | Azure DevOps Specialist | .squad/agents/drummer/charter.md | ⚙️ |
+| Avasarala | Project Manager | .squad/agents/avasarala/charter.md | 📊 |
+| Fred | Technical Planner | .squad/agents/fred/charter.md | 🗺️ |
+| Elvi | Technical Researcher | .squad/agents/elvi/charter.md | 🔍 |
+| Sakai | Graph Database Engineer | .squad/agents/sakai/charter.md | 🕸️ |
+| Ashford | SQL & Cosmos DBA | .squad/agents/ashford/charter.md | 🗄️ |
 | Scribe | Session Logger | .squad/agents/scribe/charter.md | 📋 |
 | Ralph | Work Monitor | .squad/agents/ralph/charter.md | 🔄 |
 | Rai | RAI Reviewer | .squad/agents/rai/charter.md | 🛡️ |

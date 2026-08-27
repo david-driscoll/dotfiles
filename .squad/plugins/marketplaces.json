@@ -1,0 +1,10 @@
+{
+  "marketplaces": [
+    {
+      "name": "neo4j-skills",
+      "source": "https://github.com/neo4j-contrib/neo4j-skills",
+      "added_at": "2026-07-15T14:46:54-04:00",
+      "notes": "Agent skills for Neo4j — Cypher queries, graph modeling, drivers, imports, GraphRAG, GDS, vector indexes, Aura provisioning. Installed via `npx skills add https://github.com/neo4j-contrib/neo4j-skills`."
+    }
+  ]
+}

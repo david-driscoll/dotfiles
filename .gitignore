@@ -10,3 +10,17 @@ apm_modules/
 agents.generated.yml
 marketplaces.generated.yml
 mcp.json.backup.*
+.squad/log/
+.squad/orchestration-log/
+.squad/agents/*/history.md
+
+
+
+git rm --cached .squad/agents/bobbie/history.md
+git rm --cached .squad/agents/elvi/history.md
+git rm --cached .squad/agents/fred/history.md
+git rm --cached .squad/agents/holden/history.md
+git rm --cached .squad/agents/naomi/history.md
+git rm --cached .squad/agents/rai/history.md
+git rm --cached .squad/agents/ralph/history.md
+git rm --cached .squad/agents/scribe/history.md

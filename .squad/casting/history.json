@@ -13,6 +13,32 @@
         { "name": "Bobbie", "role": "Git / GitHub Specialist" },
         { "name": "Drummer","role": "Azure DevOps Specialist" }
       ]
+    },
+    {
+      "assignment_id": "dotfiles-global-2026-07-15-add-pm-planner-researcher",
+      "universe": "the-expanse",
+      "created_at": "2026-07-15T13:38:56-04:00",
+      "agents": [
+        { "name": "Avasarala", "role": "Project Manager" },
+        { "name": "Fred",      "role": "Technical Planner" },
+        { "name": "Elvi",      "role": "Technical Researcher" }
+      ]
+    },
+    {
+      "assignment_id": "dotfiles-global-2026-07-15-add-graph-db-engineer",
+      "universe": "the-expanse",
+      "created_at": "2026-07-15T14:46:54-04:00",
+      "agents": [
+        { "name": "Sakai", "role": "Graph Database Engineer" }
+      ]
+    },
+    {
+      "assignment_id": "dotfiles-global-2026-07-16-add-sql-cosmos-dba",
+      "universe": "the-expanse",
+      "created_at": "2026-07-16T15:11:18-04:00",
+      "agents": [
+        { "name": "Ashford", "role": "SQL & Cosmos DBA" }
+      ]
     }
   ]
 }
