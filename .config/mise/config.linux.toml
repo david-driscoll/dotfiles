@@ -48,3 +48,4 @@
 # reports WSL as plain "linux" — see git/gitconfig.wsl for why the
 # WSL-specific 1Password path can't be routed here automatically.
 "~/.gitconfig.local" = { source = "~/dotfiles/git/gitconfig.linux" }
+"~/.ssh" = { source = "~/dotfiles/ssh", mode = "symlink-each" }
