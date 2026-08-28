@@ -32,12 +32,12 @@ readonly SCRIPT_NAME="capture-defaults.sh"
 # Fixed domain list — see header. Ordering is stable so snapshot files are
 # always named/sorted the same way across runs.
 readonly DOMAINS=(
-    "com.apple.dock"
-    "com.apple.finder"
-    "NSGlobalDomain"
-    "com.apple.AppleMultitouchTrackpad"
-    "com.apple.driver.AppleBluetoothMultitouch.trackpad"
-    "com.apple.screencapture"
+	"com.apple.dock"
+	"com.apple.finder"
+	"NSGlobalDomain"
+	"com.apple.AppleMultitouchTrackpad"
+	"com.apple.driver.AppleBluetoothMultitouch.trackpad"
+	"com.apple.screencapture"
 )
 
 # Default base directory for snapshots. $HOME, not a bare `~`, so it expands
@@ -46,16 +46,16 @@ readonly DOMAINS=(
 DEFAULT_BASE_DIR="$HOME/.cache/dotfiles-defaults-snapshots"
 
 log() {
-    printf '[%s] %s\n' "$SCRIPT_NAME" "$*"
+	printf '[%s] %s\n' "$SCRIPT_NAME" "$*"
 }
 
 die() {
-    printf '[%s] ERROR: %s\n' "$SCRIPT_NAME" "$*" >&2
-    exit 1
+	printf '[%s] ERROR: %s\n' "$SCRIPT_NAME" "$*" >&2
+	exit 1
 }
 
 usage() {
-    cat <<EOF
+	cat <<EOF
 $SCRIPT_NAME — READ-ONLY macOS 'defaults' snapshot/diff helper.
 
 This script never runs 'defaults write' or 'defaults delete'. It only reads.
@@ -100,153 +100,153 @@ EOF
 }
 
 require_cmd() {
-    command -v "$1" >/dev/null 2>&1 || die "required command '$1' not found on PATH"
+	command -v "$1" >/dev/null 2>&1 || die "required command '$1' not found on PATH"
 }
 
 # Snapshot one domain's full 'defaults read' output into $2. Missing/empty
 # domains are recorded as such rather than aborting the whole snapshot —
 # see header comment.
 snapshot_domain() {
-    local domain="$1"
-    local outfile="$2"
-    if defaults read "$domain" >"$outfile" 2>/dev/null; then
-        return 0
-    fi
-    printf '(domain "%s" has no preferences — defaults read exited non-zero)\n' "$domain" >"$outfile"
+	local domain="$1"
+	local outfile="$2"
+	if defaults read "$domain" >"$outfile" 2>/dev/null; then
+		return 0
+	fi
+	printf '(domain "%s" has no preferences — defaults read exited non-zero)\n' "$domain" >"$outfile"
 }
 
 cmd_snapshot() {
-    local name="${1:-}"
-    [ -n "$name" ] || die "snapshot requires a <name> argument, e.g. '$SCRIPT_NAME snapshot before'"
-    shift
-    local base_dir="$DEFAULT_BASE_DIR"
-    while [ $# -gt 0 ]; do
-        case "$1" in
-        --dir)
-            [ $# -ge 2 ] || die "--dir requires a value"
-            base_dir="$2"
-            shift 2
-            ;;
-        *)
-            die "unrecognized argument to snapshot: $1"
-            ;;
-        esac
-    done
+	local name="${1:-}"
+	[ -n "$name" ] || die "snapshot requires a <name> argument, e.g. '$SCRIPT_NAME snapshot before'"
+	shift
+	local base_dir="$DEFAULT_BASE_DIR"
+	while [ $# -gt 0 ]; do
+		case "$1" in
+		--dir)
+			[ $# -ge 2 ] || die "--dir requires a value"
+			base_dir="$2"
+			shift 2
+			;;
+		*)
+			die "unrecognized argument to snapshot: $1"
+			;;
+		esac
+	done
 
-    local snap_dir="$base_dir/$name"
-    mkdir -p "$snap_dir"
+	local snap_dir="$base_dir/$name"
+	mkdir -p "$snap_dir"
 
-    local domain
-    local outfile
-    for domain in "${DOMAINS[@]}"; do
-        outfile="$snap_dir/$domain.txt"
-        snapshot_domain "$domain" "$outfile"
-        log "captured $domain -> $outfile"
-    done
-    log "snapshot '$name' complete: $snap_dir"
+	local domain
+	local outfile
+	for domain in "${DOMAINS[@]}"; do
+		outfile="$snap_dir/$domain.txt"
+		snapshot_domain "$domain" "$outfile"
+		log "captured $domain -> $outfile"
+	done
+	log "snapshot '$name' complete: $snap_dir"
 }
 
 cmd_diff() {
-    local before="${1:-}"
-    local after="${2:-}"
-    [ -n "$before" ] && [ -n "$after" ] || die "diff requires <name-before> <name-after>, e.g. '$SCRIPT_NAME diff before after'"
-    shift 2
-    local base_dir="$DEFAULT_BASE_DIR"
-    while [ $# -gt 0 ]; do
-        case "$1" in
-        --dir)
-            [ $# -ge 2 ] || die "--dir requires a value"
-            base_dir="$2"
-            shift 2
-            ;;
-        *)
-            die "unrecognized argument to diff: $1"
-            ;;
-        esac
-    done
+	local before="${1:-}"
+	local after="${2:-}"
+	[ -n "$before" ] && [ -n "$after" ] || die "diff requires <name-before> <name-after>, e.g. '$SCRIPT_NAME diff before after'"
+	shift 2
+	local base_dir="$DEFAULT_BASE_DIR"
+	while [ $# -gt 0 ]; do
+		case "$1" in
+		--dir)
+			[ $# -ge 2 ] || die "--dir requires a value"
+			base_dir="$2"
+			shift 2
+			;;
+		*)
+			die "unrecognized argument to diff: $1"
+			;;
+		esac
+	done
 
-    local before_dir="$base_dir/$before"
-    local after_dir="$base_dir/$after"
-    [ -d "$before_dir" ] || die "no snapshot named '$before' under $base_dir"
-    [ -d "$after_dir" ] || die "no snapshot named '$after' under $base_dir"
+	local before_dir="$base_dir/$before"
+	local after_dir="$base_dir/$after"
+	[ -d "$before_dir" ] || die "no snapshot named '$before' under $base_dir"
+	[ -d "$after_dir" ] || die "no snapshot named '$after' under $base_dir"
 
-    local domain
-    local any_diff=0
-    for domain in "${DOMAINS[@]}"; do
-        local before_file="$before_dir/$domain.txt"
-        local after_file="$after_dir/$domain.txt"
-        if ! diff -u "$before_file" "$after_file" 2>/dev/null; then
-            any_diff=1
-        fi
-    done
+	local domain
+	local any_diff=0
+	for domain in "${DOMAINS[@]}"; do
+		local before_file="$before_dir/$domain.txt"
+		local after_file="$after_dir/$domain.txt"
+		if ! diff -u "$before_file" "$after_file" 2>/dev/null; then
+			any_diff=1
+		fi
+	done
 
-    if [ "$any_diff" -eq 0 ]; then
-        log "no differences between '$before' and '$after'"
-    fi
+	if [ "$any_diff" -eq 0 ]; then
+		log "no differences between '$before' and '$after'"
+	fi
 }
 
 cmd_type() {
-    local domain="${1:-}"
-    local key="${2:-}"
-    [ -n "$domain" ] && [ -n "$key" ] || die "type requires <domain> <key>, e.g. '$SCRIPT_NAME type com.apple.dock tilesize'"
-    defaults read-type "$domain" "$key"
+	local domain="${1:-}"
+	local key="${2:-}"
+	[ -n "$domain" ] && [ -n "$key" ] || die "type requires <domain> <key>, e.g. '$SCRIPT_NAME type com.apple.dock tilesize'"
+	defaults read-type "$domain" "$key"
 }
 
 cmd_list() {
-    local base_dir="$DEFAULT_BASE_DIR"
-    while [ $# -gt 0 ]; do
-        case "$1" in
-        --dir)
-            [ $# -ge 2 ] || die "--dir requires a value"
-            base_dir="$2"
-            shift 2
-            ;;
-        *)
-            die "unrecognized argument to list: $1"
-            ;;
-        esac
-    done
+	local base_dir="$DEFAULT_BASE_DIR"
+	while [ $# -gt 0 ]; do
+		case "$1" in
+		--dir)
+			[ $# -ge 2 ] || die "--dir requires a value"
+			base_dir="$2"
+			shift 2
+			;;
+		*)
+			die "unrecognized argument to list: $1"
+			;;
+		esac
+	done
 
-    [ -d "$base_dir" ] || {
-        log "no snapshots yet under $base_dir"
-        return 0
-    }
+	[ -d "$base_dir" ] || {
+		log "no snapshots yet under $base_dir"
+		return 0
+	}
 
-    local entry
-    for entry in "$base_dir"/*/; do
-        [ -d "$entry" ] || continue
-        printf '%s\n' "$(basename "$entry")"
-    done
+	local entry
+	for entry in "$base_dir"/*/; do
+		[ -d "$entry" ] || continue
+		printf '%s\n' "$(basename "$entry")"
+	done
 }
 
 main() {
-    require_cmd defaults
+	require_cmd defaults
 
-    local sub="${1:-}"
-    case "$sub" in
-    -h | --help | "" | help)
-        usage
-        ;;
-    snapshot)
-        shift
-        cmd_snapshot "$@"
-        ;;
-    diff)
-        shift
-        cmd_diff "$@"
-        ;;
-    type)
-        shift
-        cmd_type "$@"
-        ;;
-    list)
-        shift
-        cmd_list "$@"
-        ;;
-    *)
-        die "unknown subcommand '$sub' — run '$SCRIPT_NAME --help'"
-        ;;
-    esac
+	local sub="${1:-}"
+	case "$sub" in
+	-h | --help | "" | help)
+		usage
+		;;
+	snapshot)
+		shift
+		cmd_snapshot "$@"
+		;;
+	diff)
+		shift
+		cmd_diff "$@"
+		;;
+	type)
+		shift
+		cmd_type "$@"
+		;;
+	list)
+		shift
+		cmd_list "$@"
+		;;
+	*)
+		die "unknown subcommand '$sub' — run '$SCRIPT_NAME --help'"
+		;;
+	esac
 }
 
 main "$@"

@@ -41,20 +41,20 @@ export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 mkdir -p "$(dirname "$LOG_FILE")"
 
 if [ -f "$LOG_FILE" ]; then
-    line_count="$(wc -l <"$LOG_FILE" | tr -d ' ')"
-    if [ "$line_count" -gt "$MAX_LOG_LINES" ]; then
-        tail -n "$TRIM_TO_LINES" "$LOG_FILE" >"$LOG_FILE.tmp" && mv "$LOG_FILE.tmp" "$LOG_FILE"
-    fi
+	line_count="$(wc -l <"$LOG_FILE" | tr -d ' ')"
+	if [ "$line_count" -gt "$MAX_LOG_LINES" ]; then
+		tail -n "$TRIM_TO_LINES" "$LOG_FILE" >"$LOG_FILE.tmp" && mv "$LOG_FILE.tmp" "$LOG_FILE"
+	fi
 fi
 
 {
-    printf '===== %s =====\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
-    if ! command -v mise >/dev/null 2>&1; then
-        printf 'ERROR: mise not found on PATH (%s)\n' "$PATH"
-    elif mise bootstrap status --missing; then
-        printf '\nSUMMARY: OK — no drift detected\n'
-    else
-        printf '\nSUMMARY: DRIFT DETECTED — review the table above, then decide by hand whether to run "mise bootstrap" (this agent never applies anything itself)\n'
-    fi
-    printf '\n'
+	printf '===== %s =====\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+	if ! command -v mise >/dev/null 2>&1; then
+		printf 'ERROR: mise not found on PATH (%s)\n' "$PATH"
+	elif mise bootstrap status --missing; then
+		printf '\nSUMMARY: OK — no drift detected\n'
+	else
+		printf '\nSUMMARY: DRIFT DETECTED — review the table above, then decide by hand whether to run "mise bootstrap" (this agent never applies anything itself)\n'
+	fi
+	printf '\n'
 } >>"$LOG_FILE" 2>&1

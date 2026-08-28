@@ -23,12 +23,12 @@
 set -euo pipefail
 
 log() {
-    printf '[setup-macos.sh] %s\n' "$*"
+	printf '[setup-macos.sh] %s\n' "$*"
 }
 
 die() {
-    printf '[setup-macos.sh] ERROR: %s\n' "$*" >&2
-    exit 1
+	printf '[setup-macos.sh] ERROR: %s\n' "$*" >&2
+	exit 1
 }
 
 # Resolve the repo root from this script's own location rather than
@@ -36,16 +36,16 @@ die() {
 # lives one directory deeper, at setup/setup-macos.sh, hence the extra
 # `/..`).
 resolve_repo_dir() {
-    local script_dir
-    script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd -P)"
-    (cd -- "$script_dir/.." >/dev/null 2>&1 && pwd -P)
+	local script_dir
+	script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd -P)"
+	(cd -- "$script_dir/.." >/dev/null 2>&1 && pwd -P)
 }
 
 REPO_DIR="$(resolve_repo_dir)"
 readonly REPO_DIR
 
 require_cmd() {
-    command -v "$1" >/dev/null 2>&1 || die "required command '$1' not found on PATH"
+	command -v "$1" >/dev/null 2>&1 || die "required command '$1' not found on PATH"
 }
 
 # --- OS guard ---------------------------------------------------------
@@ -54,10 +54,10 @@ require_cmd() {
 # fail loudly (not do something wrong) if it's ever run directly on the
 # wrong OS.
 check_os() {
-    local os
-    os="$(uname -s)"
-    [ "$os" = "Darwin" ] || die "this script only bootstraps macOS (got '$os') — use install.sh on Linux (Codespaces/Coder/WSL)."
-    log "OS: macOS $(sw_vers -productVersion 2>/dev/null || echo '(version unknown)') ($(uname -m))"
+	local os
+	os="$(uname -s)"
+	[ "$os" = "Darwin" ] || die "this script only bootstraps macOS (got '$os') — use install.sh on Linux (Codespaces/Coder/WSL)."
+	log "OS: macOS $(sw_vers -productVersion 2>/dev/null || echo '(version unknown)') ($(uname -m))"
 }
 
 # --- Homebrew install ----------------------------------------------------
@@ -65,52 +65,52 @@ check_os() {
 # Idempotent: skips entirely if brew is already resolvable, either on PATH
 # or at its default install location for either architecture.
 install_homebrew() {
-    if command -v brew >/dev/null 2>&1; then
-        log "Homebrew already on PATH ($(command -v brew)) — skipping install"
-        return 0
-    fi
-    if [ -x /opt/homebrew/bin/brew ] || [ -x /usr/local/bin/brew ]; then
-        log "Homebrew already installed but not yet on PATH for this shell — shellenv will fix that below"
-        return 0
-    fi
+	if command -v brew >/dev/null 2>&1; then
+		log "Homebrew already on PATH ($(command -v brew)) — skipping install"
+		return 0
+	fi
+	if [ -x /opt/homebrew/bin/brew ] || [ -x /usr/local/bin/brew ]; then
+		log "Homebrew already installed but not yet on PATH for this shell — shellenv will fix that below"
+		return 0
+	fi
 
-    require_cmd curl
+	require_cmd curl
 
-    log "installing Homebrew via the upstream installer (NONINTERACTIVE=1)"
-    # Plain upstream installer, unmodified — deliberately NOT patched with
-    # the `sed '532s/abort/warn/'` hardcoded-line-number hack that used to
-    # live here (and in the deleted setup.sh/setup-osx.sh, #68/#69): that
-    # patch targeted a script this repo doesn't control, and was guaranteed
-    # to silently stop doing whatever it was for the moment upstream
-    # reflows the file. NONINTERACTIVE=1 is Homebrew's own documented flag
-    # for the same goal done properly: skip all prompts, fail loudly
-    # instead of hanging.
-    #
-    # Download first rather than piping straight into bash, same reasoning
-    # as install_mise() in install.sh (#68): confirms the download actually
-    # completed and gives a chance to sanity-check the content before
-    # executing anything, instead of streaming a possibly-truncated
-    # in-progress response straight into a shell.
-    local installer
-    installer="$(mktemp)"
-    if ! curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh -o "$installer"; then
-        rm -f "$installer"
-        die "failed to download the Homebrew installer"
-    fi
-    if [ ! -s "$installer" ] || ! head -n1 "$installer" | grep -q '^#!'; then
-        rm -f "$installer"
-        die "Homebrew installer download looks corrupt (empty or missing shebang) — refusing to execute it"
-    fi
-    if ! NONINTERACTIVE=1 /bin/bash "$installer"; then
-        rm -f "$installer"
-        die "Homebrew installer exited non-zero"
-    fi
-    rm -f "$installer"
+	log "installing Homebrew via the upstream installer (NONINTERACTIVE=1)"
+	# Plain upstream installer, unmodified — deliberately NOT patched with
+	# the `sed '532s/abort/warn/'` hardcoded-line-number hack that used to
+	# live here (and in the deleted setup.sh/setup-osx.sh, #68/#69): that
+	# patch targeted a script this repo doesn't control, and was guaranteed
+	# to silently stop doing whatever it was for the moment upstream
+	# reflows the file. NONINTERACTIVE=1 is Homebrew's own documented flag
+	# for the same goal done properly: skip all prompts, fail loudly
+	# instead of hanging.
+	#
+	# Download first rather than piping straight into bash, same reasoning
+	# as install_mise() in install.sh (#68): confirms the download actually
+	# completed and gives a chance to sanity-check the content before
+	# executing anything, instead of streaming a possibly-truncated
+	# in-progress response straight into a shell.
+	local installer
+	installer="$(mktemp)"
+	if ! curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh -o "$installer"; then
+		rm -f "$installer"
+		die "failed to download the Homebrew installer"
+	fi
+	if [ ! -s "$installer" ] || ! head -n1 "$installer" | grep -q '^#!'; then
+		rm -f "$installer"
+		die "Homebrew installer download looks corrupt (empty or missing shebang) — refusing to execute it"
+	fi
+	if ! NONINTERACTIVE=1 /bin/bash "$installer"; then
+		rm -f "$installer"
+		die "Homebrew installer exited non-zero"
+	fi
+	rm -f "$installer"
 
-    if [ ! -x /opt/homebrew/bin/brew ] && [ ! -x /usr/local/bin/brew ]; then
-        die "Homebrew installer completed but brew is not present at /opt/homebrew or /usr/local — something changed upstream"
-    fi
-    log "Homebrew installed"
+	if [ ! -x /opt/homebrew/bin/brew ] && [ ! -x /usr/local/bin/brew ]; then
+		die "Homebrew installer completed but brew is not present at /opt/homebrew or /usr/local — something changed upstream"
+	fi
+	log "Homebrew installed"
 }
 
 # Loads `brew shellenv` into THIS script's environment (not just the
@@ -120,15 +120,15 @@ install_homebrew() {
 # paths Homebrew's own post-install instructions point at: /opt/homebrew
 # on Apple Silicon, /usr/local on Intel.
 load_brew_shellenv() {
-    local brew_bin
-    if [ -x /opt/homebrew/bin/brew ]; then
-        brew_bin="/opt/homebrew/bin/brew"
-    elif [ -x /usr/local/bin/brew ]; then
-        brew_bin="/usr/local/bin/brew"
-    else
-        die "brew not found at /opt/homebrew or /usr/local — install_homebrew should have caught this"
-    fi
-    eval "$("$brew_bin" shellenv)"
+	local brew_bin
+	if [ -x /opt/homebrew/bin/brew ]; then
+		brew_bin="/opt/homebrew/bin/brew"
+	elif [ -x /usr/local/bin/brew ]; then
+		brew_bin="/usr/local/bin/brew"
+	else
+		die "brew not found at /opt/homebrew or /usr/local — install_homebrew should have caught this"
+	fi
+	eval "$("$brew_bin" shellenv)"
 }
 
 # --- mise install ---------------------------------------------------------
@@ -138,14 +138,14 @@ load_brew_shellenv() {
 # install.sh's `https://mise.run` method on a machine that runs both
 # scripts — no reason to fight that or install it twice).
 install_mise() {
-    if command -v mise >/dev/null 2>&1; then
-        log "mise already on PATH ($(command -v mise)) — skipping install"
-        return 0
-    fi
-    log "installing mise via Homebrew"
-    brew install mise || die "brew install mise failed — see output above"
-    command -v mise >/dev/null 2>&1 || die "brew install mise completed but mise is still not on PATH"
-    log "mise installed ($(command -v mise))"
+	if command -v mise >/dev/null 2>&1; then
+		log "mise already on PATH ($(command -v mise)) — skipping install"
+		return 0
+	fi
+	log "installing mise via Homebrew"
+	brew install mise || die "brew install mise failed — see output above"
+	command -v mise >/dev/null 2>&1 || die "brew install mise completed but mise is still not on PATH"
+	log "mise installed ($(command -v mise))"
 }
 
 # --- oh-my-zsh -------------------------------------------------------------
@@ -160,27 +160,27 @@ install_mise() {
 # installed) and safe to re-run on David's already-configured mac, where
 # this is a no-op.
 install_oh_my_zsh() {
-    if [ -d "$HOME/.oh-my-zsh" ]; then
-        log "oh-my-zsh already installed at ~/.oh-my-zsh — skipping"
-        return 0
-    fi
+	if [ -d "$HOME/.oh-my-zsh" ]; then
+		log "oh-my-zsh already installed at ~/.oh-my-zsh — skipping"
+		return 0
+	fi
 
-    require_cmd curl
+	require_cmd curl
 
-    log "installing oh-my-zsh (.zshrc depends on \$ZSH/oh-my-zsh.sh; not something brew/mise manages)"
-    # --unattended: oh-my-zsh's own documented non-interactive flag — skips
-    # the "change your default shell?" prompt and doesn't exec into a new
-    # zsh afterward (both of which would otherwise stall/misbehave in a
-    # non-interactive run here). KEEP_ZSHRC=yes: if a ~/.zshrc already
-    # exists (e.g. this step somehow runs after [dotfiles] already applied
-    # it), don't let the installer back it up and replace it with its
-    # default template — this repo's [dotfiles]-managed .zshrc wins either
-    # way, but there's no reason to make the installer fight it.
-    if ! RUNZSH=no CHSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended; then
-        die "oh-my-zsh installer failed"
-    fi
-    [ -d "$HOME/.oh-my-zsh" ] || die "oh-my-zsh installer completed but ~/.oh-my-zsh is not present — something changed upstream"
-    log "oh-my-zsh installed to ~/.oh-my-zsh"
+	log "installing oh-my-zsh (.zshrc depends on \$ZSH/oh-my-zsh.sh; not something brew/mise manages)"
+	# --unattended: oh-my-zsh's own documented non-interactive flag — skips
+	# the "change your default shell?" prompt and doesn't exec into a new
+	# zsh afterward (both of which would otherwise stall/misbehave in a
+	# non-interactive run here). KEEP_ZSHRC=yes: if a ~/.zshrc already
+	# exists (e.g. this step somehow runs after [dotfiles] already applied
+	# it), don't let the installer back it up and replace it with its
+	# default template — this repo's [dotfiles]-managed .zshrc wins either
+	# way, but there's no reason to make the installer fight it.
+	if ! RUNZSH=no CHSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended; then
+		die "oh-my-zsh installer failed"
+	fi
+	[ -d "$HOME/.oh-my-zsh" ] || die "oh-my-zsh installer completed but ~/.oh-my-zsh is not present — something changed upstream"
+	log "oh-my-zsh installed to ~/.oh-my-zsh"
 }
 
 # --- ~/.config/mise symlink ---------------------------------------------
@@ -194,33 +194,33 @@ install_oh_my_zsh() {
 # David's current state today), or a real directory (back it up rather
 # than deleting anything).
 link_mise_config() {
-    local target="$HOME/.config/mise"
-    local source="$REPO_DIR/.config/mise"
+	local target="$HOME/.config/mise"
+	local source="$REPO_DIR/.config/mise"
 
-    [ -d "$source" ] || die "expected $source to exist (this repo's mise config) but it doesn't"
+	[ -d "$source" ] || die "expected $source to exist (this repo's mise config) but it doesn't"
 
-    mkdir -p "$HOME/.config"
+	mkdir -p "$HOME/.config"
 
-    if [ -L "$target" ]; then
-        local current
-        current="$(readlink "$target")"
-        if [ "$current" = "$source" ]; then
-            log "~/.config/mise already links to $source"
-            return 0
-        fi
-        log "~/.config/mise is a symlink to '$current' (stale, dangling, or pointing at a different checkout) — relinking to $source"
-        rm -f "$target"
-    elif [ -d "$target" ]; then
-        local backup
-        backup="${target}.bak.$(date +%Y%m%d%H%M%S)"
-        log "~/.config/mise exists as a real directory (not a symlink) — moving it aside to $backup rather than overwriting it"
-        mv "$target" "$backup"
-    elif [ -e "$target" ]; then
-        die "~/.config/mise exists and is neither a directory nor a symlink — refusing to touch it, please move it aside manually"
-    fi
+	if [ -L "$target" ]; then
+		local current
+		current="$(readlink "$target")"
+		if [ "$current" = "$source" ]; then
+			log "~/.config/mise already links to $source"
+			return 0
+		fi
+		log "~/.config/mise is a symlink to '$current' (stale, dangling, or pointing at a different checkout) — relinking to $source"
+		rm -f "$target"
+	elif [ -d "$target" ]; then
+		local backup
+		backup="${target}.bak.$(date +%Y%m%d%H%M%S)"
+		log "~/.config/mise exists as a real directory (not a symlink) — moving it aside to $backup rather than overwriting it"
+		mv "$target" "$backup"
+	elif [ -e "$target" ]; then
+		die "~/.config/mise exists and is neither a directory nor a symlink — refusing to touch it, please move it aside manually"
+	fi
 
-    ln -s "$source" "$target"
-    log "linked ~/.config/mise -> $source"
+	ln -s "$source" "$target"
+	log "linked ~/.config/mise -> $source"
 }
 
 # --- mise trust + bootstrap ----------------------------------------------
@@ -238,29 +238,29 @@ link_mise_config() {
 # the brew:casks task), [dotfiles], and [tools] — none of which install.sh
 # alone ever reached on macOS.
 trust_and_bootstrap() {
-    export MISE_AUTO_ENV=1
+	export MISE_AUTO_ENV=1
 
-    log "trusting mise config under ~/.config/mise"
-    (cd "$HOME/.config/mise" && mise trust --all) \
-        || die "mise trust failed — see output above"
+	log "trusting mise config under ~/.config/mise"
+	(cd "$HOME/.config/mise" && mise trust --all) ||
+		die "mise trust failed — see output above"
 
-    log "running mise bootstrap --yes (packages, Brewfile.darwin casks, dotfiles, tools)"
-    mise bootstrap --yes \
-        || die "mise bootstrap failed — see output above. Safe to re-run: 'mise bootstrap --yes', or inspect state first with 'mise bootstrap status'."
+	log "running mise bootstrap --yes (packages, Brewfile.darwin casks, dotfiles, tools)"
+	mise bootstrap --yes ||
+		die "mise bootstrap failed — see output above. Safe to re-run: 'mise bootstrap --yes', or inspect state first with 'mise bootstrap status'."
 }
 
 main() {
-    check_os
+	check_os
 
-    install_homebrew
-    load_brew_shellenv
-    install_mise
-    install_oh_my_zsh
-    link_mise_config
-    trust_and_bootstrap
+	install_homebrew
+	load_brew_shellenv
+	install_mise
+	install_oh_my_zsh
+	link_mise_config
+	trust_and_bootstrap
 
-    log "done. Re-run this script any time — every step here is safe to repeat."
-    log "Inspect state with: mise bootstrap status"
+	log "done. Re-run this script any time — every step here is safe to repeat."
+	log "Inspect state with: mise bootstrap status"
 }
 
 main "$@"

@@ -35,3 +35,10 @@ run = [
     "cd {{config_root}}/agents && apm install --trust-transitive-mcp --force",
     "apm install --global --trust-transitive-mcp --force",
 ]
+
+[hooks]
+postinstall = [{ task = "hk:install" }]
+
+[tasks."hk:install"]
+description = "Install this repository's hk git hooks through mise"
+run = "hk install --mise"
