@@ -6,9 +6,17 @@ foreach ($d in $distros) {
 
     $script = @"
 #!/bin/bash
-rm ~/dotfiles
-ln -s /mnt/c/Users/$ENV:USERNAME/dotfiles/ ~/dotfiles
-~/dotfiles/install.sh
+    set -euo pipefail
+
+    if [ -L "`$HOME/dotfiles" ]; then
+        rm "`$HOME/dotfiles"
+    elif [ -e "`$HOME/dotfiles" ]; then
+        echo "Expected `$HOME/dotfiles to be a symlink; refusing to replace an existing path." >&2
+        exit 1
+    fi
+
+    ln -s /mnt/c/Users/$ENV:USERNAME/dotfiles "`$HOME/dotfiles"
+    exec bash "`$HOME/dotfiles/install.sh"
 
 "@.Replace("`r", "")
     $file = New-TemporaryFile

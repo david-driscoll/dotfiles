@@ -101,10 +101,10 @@ In order:
    are stubs, not `[dotfiles]` entries.
 6. Wires `git config --global include.path` to `git\gitconfig.windows` for
    the Windows-only overrides.
-7. `mise trust`, `mise dotfiles apply --yes`, `mise install` — run
-   individually rather than `mise bootstrap`, since Windows has nothing in
-   `[bootstrap.packages]` or `[bootstrap.user]` (see
-   [Windows caveats](#platform-caveats)).
+7. `mise trust --all`, then `mise bootstrap --yes` — applies dotfiles and
+   installs the pinned tools through the same declarative bootstrap used on
+   macOS and Linux. Before running it, the script makes mise's .NET SDK root
+   the active `dotnet` host so the dotnet backend can verify its installation.
 8. Installs the winget package list at the bottom of the script — GUI apps
    and platform pieces mise/aqua has no backend for (1Password, VS Code,
    browsers, Docker Desktop, fonts, etc.).
@@ -114,6 +114,40 @@ AST parse) from macOS — it has not yet been run on a real Windows machine.
 Treat the first run as a dry run you watch closely.
 
 Source: `setup/setup.ps1`.
+
+### PowerShell profile performance
+
+The Windows bootstrap creates both the all-hosts and current-host PowerShell
+profile stubs. They can both run during one shell startup, but the shared
+`profile.ps1` initializes only once per process. This avoids regenerating
+native completions and running `mise activate pwsh` twice.
+
+Generated PowerShell completions are cached in
+`.cache\powershell-completions`. The cache is ignored whenever
+`.config\mise\mise.lock` has a different modified timestamp, ensuring a tool
+version update regenerates the scripts.
+
+Zsh, Bash, and PowerShell enable documented completions for the mise-managed
+tools that provide them: uv, yq, dotnet, gh, kubectl, Helm, kustomize, Flux,
+Starship, talosctl, and talhelper. Zsh and Bash additionally enable Pulumi,
+fzf, sops, Copilot CLI, Terraform, and zoxide. Their completion setup runs after
+`mise activate`, so mise-managed tools are available on a fresh shell.
+Completion generation temporarily disables mise auto-install, so a missing
+tool never turns profile startup into an installation attempt.
+
+To print a per-step startup breakdown for a new PowerShell session, set the
+environment variable before launching it:
+
+```powershell
+$env:DOTFILES_PROFILE_TIMING = '1'
+pwsh
+```
+
+The most recent startup breakdown also remains available in the session:
+
+```powershell
+Show-DotfilesProfileStartupTiming
+```
 
 ## Architecture
 

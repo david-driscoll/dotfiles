@@ -5,13 +5,20 @@ $PSReadLineOptions = @{
 	HistoryNoDuplicates           = $true
 	HistorySaveStyle              = "SaveIncrementally"
 	HistorySearchCursorMovesToEnd = $true
-	PredictionSource              = "HistoryAndPlugin"
-	PredictionViewStyle           = "ListView" # InlineView
 	ShowToolTips                  = $true
 	# Colors                        = @{
 	# 	"Command" = "#8181f7"
 	# }
 }
+
+# Prediction rendering requires a terminal with virtual-terminal support.
+if ($Host.UI.PSObject.Properties['SupportsVirtualTerminal'] -and
+    $Host.UI.SupportsVirtualTerminal -and
+    -not [Console]::IsOutputRedirected) {
+	$PSReadLineOptions.PredictionSource = "HistoryAndPlugin"
+	$PSReadLineOptions.PredictionViewStyle = "ListView" # InlineView
+}
+
 Set-PSReadLineOption @PSReadLineOptions
 
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
