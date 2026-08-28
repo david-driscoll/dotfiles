@@ -289,43 +289,43 @@ url_api = "https://api.github.com/repos/cli/cli/releases/assets/464728577"
 provenance = "github-attestations"
 
 [[tools."github:Graphify-Labs/graphify"]]
-version = "0.9.50"
+version = "0.9.51"
 backend = "github:Graphify-Labs/graphify"
 
 [tools."github:Graphify-Labs/graphify"."platforms.linux-arm64"]
-checksum = "sha256:31d951749370ef8dc719911e435b6bbd26bb1034f4078dd3f129417a01ccd069"
-url = "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.50/graphify-self-graph.tar.gz"
-url_api = "https://api.github.com/repos/Graphify-Labs/graphify/releases/assets/529558635"
+checksum = "sha256:7422d7faaa9ac638570d98302e7ba58e3cc612d15f39aadbce8cea0ec455efdf"
+url = "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.51/graphify-self-graph.tar.gz"
+url_api = "https://api.github.com/repos/Graphify-Labs/graphify/releases/assets/533046480"
 
 [tools."github:Graphify-Labs/graphify"."platforms.linux-arm64-musl"]
-checksum = "sha256:31d951749370ef8dc719911e435b6bbd26bb1034f4078dd3f129417a01ccd069"
-url = "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.50/graphify-self-graph.tar.gz"
-url_api = "https://api.github.com/repos/Graphify-Labs/graphify/releases/assets/529558635"
+checksum = "sha256:7422d7faaa9ac638570d98302e7ba58e3cc612d15f39aadbce8cea0ec455efdf"
+url = "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.51/graphify-self-graph.tar.gz"
+url_api = "https://api.github.com/repos/Graphify-Labs/graphify/releases/assets/533046480"
 
 [tools."github:Graphify-Labs/graphify"."platforms.linux-x64"]
-checksum = "sha256:31d951749370ef8dc719911e435b6bbd26bb1034f4078dd3f129417a01ccd069"
-url = "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.50/graphify-self-graph.tar.gz"
-url_api = "https://api.github.com/repos/Graphify-Labs/graphify/releases/assets/529558635"
+checksum = "sha256:7422d7faaa9ac638570d98302e7ba58e3cc612d15f39aadbce8cea0ec455efdf"
+url = "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.51/graphify-self-graph.tar.gz"
+url_api = "https://api.github.com/repos/Graphify-Labs/graphify/releases/assets/533046480"
 
 [tools."github:Graphify-Labs/graphify"."platforms.linux-x64-musl"]
-checksum = "sha256:31d951749370ef8dc719911e435b6bbd26bb1034f4078dd3f129417a01ccd069"
-url = "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.50/graphify-self-graph.tar.gz"
-url_api = "https://api.github.com/repos/Graphify-Labs/graphify/releases/assets/529558635"
+checksum = "sha256:7422d7faaa9ac638570d98302e7ba58e3cc612d15f39aadbce8cea0ec455efdf"
+url = "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.51/graphify-self-graph.tar.gz"
+url_api = "https://api.github.com/repos/Graphify-Labs/graphify/releases/assets/533046480"
 
 [tools."github:Graphify-Labs/graphify"."platforms.macos-arm64"]
-checksum = "sha256:31d951749370ef8dc719911e435b6bbd26bb1034f4078dd3f129417a01ccd069"
-url = "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.50/graphify-self-graph.tar.gz"
-url_api = "https://api.github.com/repos/Graphify-Labs/graphify/releases/assets/529558635"
+checksum = "sha256:7422d7faaa9ac638570d98302e7ba58e3cc612d15f39aadbce8cea0ec455efdf"
+url = "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.51/graphify-self-graph.tar.gz"
+url_api = "https://api.github.com/repos/Graphify-Labs/graphify/releases/assets/533046480"
 
 [tools."github:Graphify-Labs/graphify"."platforms.macos-x64"]
-checksum = "sha256:31d951749370ef8dc719911e435b6bbd26bb1034f4078dd3f129417a01ccd069"
-url = "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.50/graphify-self-graph.tar.gz"
-url_api = "https://api.github.com/repos/Graphify-Labs/graphify/releases/assets/529558635"
+checksum = "sha256:7422d7faaa9ac638570d98302e7ba58e3cc612d15f39aadbce8cea0ec455efdf"
+url = "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.51/graphify-self-graph.tar.gz"
+url_api = "https://api.github.com/repos/Graphify-Labs/graphify/releases/assets/533046480"
 
 [tools."github:Graphify-Labs/graphify"."platforms.windows-x64"]
-checksum = "sha256:31d951749370ef8dc719911e435b6bbd26bb1034f4078dd3f129417a01ccd069"
-url = "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.50/graphify-self-graph.tar.gz"
-url_api = "https://api.github.com/repos/Graphify-Labs/graphify/releases/assets/529558635"
+checksum = "sha256:7422d7faaa9ac638570d98302e7ba58e3cc612d15f39aadbce8cea0ec455efdf"
+url = "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.51/graphify-self-graph.tar.gz"
+url_api = "https://api.github.com/repos/Graphify-Labs/graphify/releases/assets/533046480"
 
 [[tools."github:eljulians/skillfile"]]
 version = "1.9.1"

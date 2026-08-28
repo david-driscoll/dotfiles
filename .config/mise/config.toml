@@ -29,7 +29,7 @@ talhelper = "3.1.17" # aqua:budimanjojo/talhelper
 mkcert = "1.4.4" # aqua:FiloSottile/mkcert
 powershell = "7.6.5"
 python = "3.14.7"
-"github:Graphify-Labs/graphify" = "0.9.50"
+"github:Graphify-Labs/graphify" = "v0.9.51"
 
 [settings]
 experimental = true
