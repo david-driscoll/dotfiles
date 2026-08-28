@@ -224,70 +224,70 @@ if (-not $script) {
 '''
 
 
-[tasks."crew:install"]
-description = "Clone Blacklite/crew, build, and expose the crew CLI via mise PATH"
-run = """
-set -euo pipefail
-mkdir -p "$(dirname "$CREW_SRC")"
-if [ -d "$CREW_SRC/.git" ]; then
-  # build scripts bump version files in the checkout; discard before pulling
-  git -C "$CREW_SRC" reset --hard
-  git -C "$CREW_SRC" pull --ff-only
-else
-  git clone https://github.com/Blacklite/crew.git "$CREW_SRC"
-fi
-cd "$CREW_SRC"
-npm install
-npm run build
-# Expose the built entry as `crew` on PATH — no global npm symlink.
-entry="$CREW_SRC/packages/crew-cli/dist/cli-entry.js"
-chmod +x "$entry"          # tsc emits 644; PATH exec needs the bit set
-mkdir -p "$CREW_BIN"
-ln -sfn "$entry" "$CREW_BIN/crew"
-crew --version
-"""
-run_windows = '''
-$ErrorActionPreference = 'Stop'
+# [tasks."crew:install"]
+# description = "Clone Blacklite/crew, build, and expose the crew CLI via mise PATH"
+# run = """
+# set -euo pipefail
+# mkdir -p "$(dirname "$CREW_SRC")"
+# if [ -d "$CREW_SRC/.git" ]; then
+#   # build scripts bump version files in the checkout; discard before pulling
+#   git -C "$CREW_SRC" reset --hard
+#   git -C "$CREW_SRC" pull --ff-only
+# else
+#   git clone https://github.com/Blacklite/crew.git "$CREW_SRC"
+# fi
+# cd "$CREW_SRC"
+# npm install
+# npm run build
+# # Expose the built entry as `crew` on PATH — no global npm symlink.
+# entry="$CREW_SRC/packages/crew-cli/dist/cli-entry.js"
+# chmod +x "$entry"          # tsc emits 644; PATH exec needs the bit set
+# mkdir -p "$CREW_BIN"
+# ln -sfn "$entry" "$CREW_BIN/crew"
+# crew --version
+# """
+# run_windows = '''
+# $ErrorActionPreference = 'Stop'
 
-if ([string]::IsNullOrWhiteSpace($env:CREW_SRC) -or [string]::IsNullOrWhiteSpace($env:CREW_BIN)) {
-  throw 'CREW_SRC and CREW_BIN must be set by the mise environment.'
-}
+# if ([string]::IsNullOrWhiteSpace($env:CREW_SRC) -or [string]::IsNullOrWhiteSpace($env:CREW_BIN)) {
+#   throw 'CREW_SRC and CREW_BIN must be set by the mise environment.'
+# }
 
-New-Item -ItemType Directory -Path (Split-Path -Parent $env:CREW_SRC) -Force | Out-Null
-if (Test-Path -LiteralPath (Join-Path $env:CREW_SRC '.git')) {
-  git -C $env:CREW_SRC reset --hard
-  git -C $env:CREW_SRC pull --ff-only
-} else {
-  git clone https://github.com/Blacklite/crew.git $env:CREW_SRC
-}
+# New-Item -ItemType Directory -Path (Split-Path -Parent $env:CREW_SRC) -Force | Out-Null
+# if (Test-Path -LiteralPath (Join-Path $env:CREW_SRC '.git')) {
+#   git -C $env:CREW_SRC reset --hard
+#   git -C $env:CREW_SRC pull --ff-only
+# } else {
+#   git clone https://github.com/Blacklite/crew.git $env:CREW_SRC
+# }
 
-Push-Location $env:CREW_SRC
-try {
-  npm install
-  npm run build
-} finally {
-  Pop-Location
-}
+# Push-Location $env:CREW_SRC
+# try {
+#   npm install
+#   npm run build
+# } finally {
+#   Pop-Location
+# }
 
-$entry = Join-Path $env:CREW_SRC 'packages\crew-cli\dist\cli-entry.js'
-if (-not (Test-Path -LiteralPath $entry)) {
-  throw "Crew CLI entry point was not built: $entry"
-}
+# $entry = Join-Path $env:CREW_SRC 'packages\crew-cli\dist\cli-entry.js'
+# if (-not (Test-Path -LiteralPath $entry)) {
+#   throw "Crew CLI entry point was not built: $entry"
+# }
 
-New-Item -ItemType Directory -Path $env:CREW_BIN -Force | Out-Null
-$launcher = Join-Path $env:CREW_BIN 'crew.cmd'
-Set-Content -LiteralPath $launcher -Encoding Ascii -Value "@echo off`r`nnode `"$entry`" %*`r`n"
-& $launcher --version
-if ($LASTEXITCODE -ne 0) {
-  throw "Crew CLI verification failed with exit code $LASTEXITCODE."
-}
-'''
+# New-Item -ItemType Directory -Path $env:CREW_BIN -Force | Out-Null
+# $launcher = Join-Path $env:CREW_BIN 'crew.cmd'
+# Set-Content -LiteralPath $launcher -Encoding Ascii -Value "@echo off`r`nnode `"$entry`" %*`r`n"
+# & $launcher --version
+# if ($LASTEXITCODE -ne 0) {
+#   throw "Crew CLI verification failed with exit code $LASTEXITCODE."
+# }
+# '''
 
-[tasks."crew:update"]
-description = "Pull latest Blacklite/crew source and rebuild the crew CLI"
-depends = ["crew:install"]
+# [tasks."crew:update"]
+# description = "Pull latest Blacklite/crew source and rebuild the crew CLI"
+# depends = ["crew:install"]
 
-[tasks."crew:uninstall"]
-description = "Remove the crew CLI symlink from mise PATH"
-run = "rm -f \"$CREW_BIN/crew\""
-run_windows = 'Remove-Item -LiteralPath (Join-Path $env:CREW_BIN "crew.cmd") -Force -ErrorAction SilentlyContinue'
+# [tasks."crew:uninstall"]
+# description = "Remove the crew CLI symlink from mise PATH"
+# run = "rm -f \"$CREW_BIN/crew\""
+# run_windows = 'Remove-Item -LiteralPath (Join-Path $env:CREW_BIN "crew.cmd") -Force -ErrorAction SilentlyContinue'
