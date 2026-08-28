@@ -50,6 +50,7 @@ auto_env = true
 "~/.apm/marketplaces.json" = {}
 "~/.gitconfig" = { source = "~/dotfiles/git/gitconfig" }
 "~/.config/mise/config.toml" = { source = "~/dotfiles/mise/config.toml" }
+"~/.config/mise/scripts" = { source = "~/dotfiles/mise/scripts", mode = "symlink-each" }
 
 [hooks]
 postinstall = [{ task = "gh-extensions" }, { task = "az-extensions" }, { task = "crew:update" }]
