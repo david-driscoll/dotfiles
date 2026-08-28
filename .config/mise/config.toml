@@ -14,7 +14,7 @@ dotnet = "10.0.400"
 "github:eljulians/skillfile" = { version = "v1.9.1", bin = "skillfile" }
 gh = "2.96.0" # aqua:cli/cli
 terraform = "1.15.8" # aqua:hashicorp/terraform
-pulumi = "3.254.0" # aqua:pulumi/pulumi
+pulumi = "3.260.0" # aqua:pulumi/pulumi
 kubectl = "1.36.3" # aqua:kubernetes/kubernetes/kubectl
 helm = "4.2.4" # aqua:helm/helm
 helmfile = "1.7.4" # aqua:helmfile/helmfile
