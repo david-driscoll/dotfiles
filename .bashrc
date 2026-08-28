@@ -26,6 +26,24 @@ fi
 # Remove any existing mise paths before activating
 PATH=$(echo $PATH | tr ':' '\n' | grep -v "mise" | paste -sd: -)
 
+# Enables mise's platform config-file layering (config.macos.toml /
+# config.linux.toml alongside .config/mise/config.toml) so [dotfiles]
+# entries can be scoped per-OS. Must be a real env var, not just
+# settings.auto_env in the toml — see that file for why. (#64)
+export MISE_AUTO_ENV=1
+if [ -x "$(command -v mise)" ]; then
+    eval "$(mise activate bash)"
+fi
+
+load_completion() {
+    local executable="$1"
+    shift
+    if ! command -v "$executable" >/dev/null 2>&1; then
+        return
+    fi
+    MISE_AUTO_INSTALL=false "$@" 2>/dev/null
+}
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -110,31 +128,56 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+if [ -x "$(command -v fzf)" ]; then
+    eval "$(load_completion fzf fzf --bash)"
+fi
+if [ -x "$(command -v uv)" ]; then
+    eval "$(load_completion uv uv generate-shell-completion bash)"
+fi
+if [ -x "$(command -v yq)" ]; then
+    eval "$(load_completion yq yq shell-completion bash)"
+fi
+if [ -x "$(command -v sops)" ]; then
+    eval "$(load_completion sops sops completion bash)"
+fi
+if [ -x "$(command -v copilot)" ]; then
+    eval "$(load_completion copilot copilot completion bash)"
+fi
+if [ -x "$(command -v dotnet)" ]; then
+    eval "$(load_completion dotnet dotnet completions script bash)"
+fi
 if [ -x "$(command -v gh)" ]; then
-    eval "$(gh completion --shell bash)"
-fi
-if [ -x "$(command -v kubectl)" ]; then
-    eval "$(kubectl completion bash)"
-fi
-if [ -x "$(command -v helm)" ]; then
-    eval "$(helm completion bash)"
+    eval "$(load_completion gh gh completion --shell bash)"
 fi
 if [ -x "$(command -v op)" ]; then
-    eval "$(op completion bash)"
-fi
-# Enables mise's platform config-file layering (config.macos.toml /
-# config.linux.toml alongside .config/mise/config.toml) so [dotfiles]
-# entries can be scoped per-OS. Must be a real env var, not just
-# settings.auto_env in the toml — see that file for why. (#64)
-export MISE_AUTO_ENV=1
-if [ -x "$(command -v mise)" ]; then
-    eval "$(mise activate bash)"
+    eval "$(load_completion op op completion bash)"
 fi
 if [ -x "$(command -v pulumi)" ]; then
-    eval "$(pulumi completion bash)"
+    eval "$(load_completion pulumi pulumi gen-completion bash)"
+fi
+if [ -x "$(command -v kubectl)" ]; then
+    eval "$(load_completion kubectl kubectl completion bash)"
+fi
+if [ -x "$(command -v helm)" ]; then
+    eval "$(load_completion helm helm completion bash)"
+fi
+if [ -x "$(command -v kustomize)" ]; then
+    eval "$(load_completion kustomize kustomize completion bash)"
+fi
+if [ -x "$(command -v flux)" ]; then
+    eval "$(load_completion flux flux completion bash)"
+fi
+if [ -x "$(command -v starship)" ]; then
+    eval "$(load_completion starship starship completions bash)"
+fi
+if [ -x "$(command -v talosctl)" ]; then
+    eval "$(load_completion talosctl talosctl completion bash)"
+fi
+if [ -x "$(command -v talhelper)" ]; then
+    eval "$(load_completion talhelper talhelper completion bash)"
 fi
 if [ -x "$(command -v terraform)" ]; then
-    terraform -install-autocomplete
+    complete -C "$(command -v terraform)" terraform
 fi
 if [ -x "$(command -v kubectl)" ]; then
     export PATH="$HOME/.krew/bin:$PATH"

@@ -14,10 +14,9 @@
       #73 spike on the third-party mise-winget plugin (3 commits, one author;
       rejected). The winget package list below stays an imperative array in
       this script, not a mise-declared one.
-    - [bootstrap.user] login_shell is chsh-based and Unix-only; there is no
-      Windows equivalent, so `mise bootstrap` is never invoked here -- the
-      three commands it would otherwise chain (trust / dotfiles apply /
-      install) are called directly instead.
+    - [bootstrap.user] login_shell is chsh-based and Unix-only, so its
+      platform-specific configuration remains macOS-only. `mise bootstrap`
+      still owns the Windows dotfiles and tool-install phases.
     - mise's [dotfiles] file symlinks (and symlink-each entries) fall back to
       *copying* on Windows, because a real file symlink needs
       SeCreateSymbolicLinkPrivilege (elevation or Developer Mode). A copy
@@ -157,6 +156,7 @@ if (-not (Get-Command git -ErrorAction SilentlyContinue)) {
 $MiseConfigHome = Join-Path (Join-Path $env:USERPROFILE '.config') 'mise'
 $MiseConfigRepo = Join-Path (Join-Path $RepoRoot '.config') 'mise'
 $MiseConfigFile = Join-Path $MiseConfigRepo 'config.toml'
+$MiseDotnetRoot = Join-Path $env:LOCALAPPDATA 'mise\dotnet-root'
 
 $ExistingLink = Get-Item -LiteralPath $MiseConfigHome -ErrorAction SilentlyContinue
 $LinkIsCorrect = $ExistingLink -and $ExistingLink.LinkType -eq 'Junction' -and
@@ -217,7 +217,7 @@ $ProfileTargets = @(
 $StubContent = @"
 # Managed by $RepoRoot\setup\setup.ps1 -- edit $RepoRoot\profile.ps1 instead.
 # This file is regenerated every time setup.ps1 runs.
-`$env:PATH = "`$env:USERPROFILE\.local\share\mise\shims;`$env:PATH"
+`$env:PATH = "$env:LOCALAPPDATA\mise\shims;`$env:PATH"
 . "$RepoRoot\profile.ps1"
 "@
 
@@ -243,20 +243,31 @@ if (Test-Path -LiteralPath $GitConfigWindows) {
     git config --global include.path $GitConfigWindows
 }
 
-# --- mise: trust, apply dotfiles, install tools ------------------------------
+# --- mise: trust and bootstrap ------------------------------------------------
 
-# Not `mise bootstrap` -- on Windows there is nothing in [bootstrap.packages]
-# or [bootstrap.user] to run (see the header comment), so the three steps it
-# would otherwise chain are called directly.
-mise trust $MiseConfigFile
-mise dotfiles apply --yes
-mise install
+# The dotnet backend verifies installed SDKs by resolving `dotnet.exe` from
+# PATH. Prefer mise's SDK root to the system-wide host for this invocation.
+$env:MISE_AUTO_ENV = '1'
+$env:MISE_DOTNET_ROOT = $MiseDotnetRoot
+$env:DOTNET_ROOT = $MiseDotnetRoot
+$env:DOTNET_MULTILEVEL_LOOKUP = '0'
+$env:PATH = "$MiseDotnetRoot;$env:PATH"
+
+mise trust --all
+if ($LASTEXITCODE -ne 0) {
+    throw "mise trust failed with exit code $LASTEXITCODE."
+}
+
+mise bootstrap --yes
+if ($LASTEXITCODE -ne 0) {
+    throw "mise bootstrap failed with exit code $LASTEXITCODE."
+}
 
 # --- winget: apps and platform pieces mise cannot install --------------------
 
 # Every CLI tool #66 moved into mise [tools] (jq, kubectl, helm, terraform,
 # pulumi, starship, zoxide, sops, flux, age, gh, python, powershell, ...) is
-# gone from this list -- `mise install` above is what installs those now,
+# gone from this list -- `mise bootstrap` above is what installs those now,
 # on Windows same as everywhere else. What's left is GUI apps and a couple
 # of platform pieces with no mise/aqua backend.
 $WingetPackages = @(

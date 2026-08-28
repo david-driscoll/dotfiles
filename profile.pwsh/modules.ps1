@@ -1,8 +1,18 @@
-Import-Module Pansies
-Import-Module posh-git
-Import-Module Terminal-Icons
-Import-Module Microsoft.PowerShell.TextUtility
-Import-Module npm-completion
+Invoke-DotfilesProfileStartupStep -Name 'Import Pansies' -ScriptBlock {
+    Import-Module Pansies
+}
+Invoke-DotfilesProfileStartupStep -Name 'Import posh-git' -ScriptBlock {
+    Import-Module posh-git
+}
+Invoke-DotfilesProfileStartupStep -Name 'Import Terminal-Icons' -ScriptBlock {
+    Import-Module Terminal-Icons
+}
+Invoke-DotfilesProfileStartupStep -Name 'Import Microsoft.PowerShell.TextUtility' -ScriptBlock {
+    Import-Module Microsoft.PowerShell.TextUtility
+}
+Invoke-DotfilesProfileStartupStep -Name 'Import npm-completion' -ScriptBlock {
+    Import-Module npm-completion
+}
 
 function Get-ComputerName {
     if (Test-PsCore -and $PSVersionTable.Platform -ne 'Windows') {

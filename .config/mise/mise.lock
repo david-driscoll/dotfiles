@@ -132,7 +132,7 @@ url = "https://github.com/direnv/direnv/releases/download/v2.37.1/direnv.windows
 url_api = "https://api.github.com/repos/direnv/direnv/releases/assets/274610569"
 
 [[tools.dotnet]]
-version = "10.0.302"
+version = "10.0.400"
 backend = "core:dotnet"
 
 [[tools."dotnet:graphify-dotnet"]]

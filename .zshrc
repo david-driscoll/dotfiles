@@ -109,14 +109,11 @@ plugins=(
   gh
   git-auto-fetch
   git-escape-magic
-  z
   starship
   themes
   terraform
   lol
-  fzf
   # zsh_reload
-  zoxide
 )
 
 if [ $WT_SESSION ]; then
@@ -183,20 +180,74 @@ zstyle ':omz:plugins:eza' 'icons' yes
 # zstyle ':omz:plugins:eza' 'time-style' $TIME_STYLE
 zstyle ':omz:plugins:eza' 'hyperlink' yes
 
+# Enables mise's platform config-file layering (config.macos.toml /
+# config.linux.toml alongside .config/mise/config.toml) so [dotfiles]
+# entries can be scoped per-OS. Must be a real env var, not just
+# settings.auto_env in the toml — see that file for why. (#64)
+export MISE_AUTO_ENV=1
+if [ -x "$(command -v mise)" ]; then
+  eval "$(mise activate zsh)"
+fi
+
+load_completion() {
+  local executable="$1"
+  shift
+  if ! command -v "$executable" >/dev/null 2>&1; then
+    return
+  fi
+  MISE_AUTO_INSTALL=false "$@" 2>/dev/null
+}
+
+if [ -x "$(command -v fzf)" ]; then
+  eval "$(load_completion fzf fzf --zsh)"
+fi
+if [ -x "$(command -v uv)" ]; then
+  eval "$(load_completion uv uv generate-shell-completion zsh)"
+fi
+if [ -x "$(command -v yq)" ]; then
+  eval "$(load_completion yq yq shell-completion zsh)"
+fi
+if [ -x "$(command -v sops)" ]; then
+  eval "$(load_completion sops sops completion zsh)"
+fi
+if [ -x "$(command -v copilot)" ]; then
+  eval "$(load_completion copilot copilot completion zsh)"
+fi
+if [ -x "$(command -v dotnet)" ]; then
+  eval "$(load_completion dotnet dotnet completions script zsh)"
+fi
 if [ -x "$(command -v gh)" ]; then
-  eval "$(gh completion --shell zsh)"
-fi
-if [ -x "$(command -v kubectl)" ]; then
-  eval "$(kubectl completion zsh)"
-fi
-if [ -x "$(command -v helm)" ]; then
-  eval "$(helm completion zsh)"
+  eval "$(load_completion gh gh completion --shell zsh)"
 fi
 if [ -x "$(command -v op)" ]; then
-  eval "$(op completion zsh)"
+  eval "$(load_completion op op completion zsh)"
 fi
 if [ -x "$(command -v pulumi)" ]; then
-  eval "$(pulumi completion zsh)"
+  eval "$(load_completion pulumi pulumi gen-completion zsh)"
+fi
+if [ -x "$(command -v kubectl)" ]; then
+  eval "$(load_completion kubectl kubectl completion zsh)"
+fi
+if [ -x "$(command -v helm)" ]; then
+  eval "$(load_completion helm helm completion zsh)"
+fi
+if [ -x "$(command -v kustomize)" ]; then
+  eval "$(load_completion kustomize kustomize completion zsh)"
+fi
+if [ -x "$(command -v flux)" ]; then
+  eval "$(load_completion flux flux completion zsh)"
+fi
+if [ -x "$(command -v starship)" ]; then
+  eval "$(load_completion starship starship completions zsh)"
+fi
+if [ -x "$(command -v talosctl)" ]; then
+  eval "$(load_completion talosctl talosctl completion zsh)"
+fi
+if [ -x "$(command -v talhelper)" ]; then
+  eval "$(load_completion talhelper talhelper completion zsh)"
+fi
+if [ -x "$(command -v zoxide)" ]; then
+  eval "$(load_completion zoxide zoxide init zsh)"
 fi
 if [ -x "$(command -v kubectl)" ]; then
   export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
@@ -223,13 +274,6 @@ export PATH="$PATH:/Users/david/.lmstudio/bin"
 export DOTNET_ROOT="/usr/local/share/dotnet"
 export PATH="/usr/local/share/dotnet:$PATH"
 
-complete -o nospace -C /opt/homebrew/bin/terraform terraform
-
-# Enables mise's platform config-file layering (config.macos.toml /
-# config.linux.toml alongside .config/mise/config.toml) so [dotfiles]
-# entries can be scoped per-OS. Must be a real env var, not just
-# settings.auto_env in the toml — see that file for why. (#64)
-export MISE_AUTO_ENV=1
-if [ -x "$(command -v mise)" ]; then
-  eval "$(mise activate zsh)"
+if [ -x "$(command -v terraform)" ]; then
+  complete -C "$(command -v terraform)" terraform
 fi
