@@ -188,6 +188,9 @@ export MISE_AUTO_ENV=1
 if [ -x "$(command -v mise)" ]; then
   eval "$(mise activate zsh)"
 fi
+if [ -x "$(command -v fnox)" ]; then
+  eval "$(fnox activate zsh)"
+fi
 
 load_completion() {
   local executable="$1"
@@ -206,6 +209,9 @@ if [ -x "$(command -v uv)" ]; then
 fi
 if [ -x "$(command -v yq)" ]; then
   eval "$(load_completion yq yq shell-completion zsh)"
+fi
+if [ -x "$(command -v fnox)" ]; then
+  eval "$(load_completion fnox fnox completion zsh)"
 fi
 if [ -x "$(command -v sops)" ]; then
   eval "$(load_completion sops sops completion zsh)"

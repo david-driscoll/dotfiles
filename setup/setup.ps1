@@ -196,6 +196,86 @@ if (-not $LinkIsCorrect) {
     Write-Verbose "~/.config/mise is already junctioned to the repo."
 }
 
+# --- age.key for fnox and mise decryption -----------------------------------
+
+# Repository secrets in fnox.toml are encrypted against the age recipients.
+# Ensure ~/.config/mise/age.key and ~/.config/fnox/age.key exist and match an authorized recipient.
+$FnoxConfigHome = Join-Path (Join-Path $env:USERPROFILE '.config') 'fnox'
+$MiseAgeKey = Join-Path $MiseConfigHome 'age.key'
+$MiseAgeTxt = Join-Path $MiseConfigHome 'age.txt'
+$FnoxAgeKey = Join-Path $FnoxConfigHome 'age.key'
+$FnoxAgeTxt = Join-Path $FnoxConfigHome 'age.txt'
+$SopsAgeKey = Join-Path (Join-Path $env:APPDATA 'sops') (Join-Path 'age' 'keys.txt')
+
+if (-not (Test-Path -LiteralPath $FnoxConfigHome)) {
+    New-Item -ItemType Directory -Path $FnoxConfigHome -Force | Out-Null
+}
+
+if (-not (Test-Path -LiteralPath $MiseAgeKey)) {
+    if (Test-Path -LiteralPath $FnoxAgeKey) {
+        New-Item -ItemType HardLink -Path $MiseAgeKey -Value $FnoxAgeKey -Force | Out-Null
+        Write-Host "Linked $FnoxAgeKey -> $MiseAgeKey"
+    } elseif (Test-Path -LiteralPath $MiseAgeTxt) {
+        New-Item -ItemType HardLink -Path $MiseAgeKey -Value $MiseAgeTxt -Force | Out-Null
+        Write-Host "Linked $MiseAgeTxt -> $MiseAgeKey"
+    } elseif (Test-Path -LiteralPath $SopsAgeKey) {
+        New-Item -ItemType HardLink -Path $MiseAgeKey -Value $SopsAgeKey -Force | Out-Null
+        Write-Host "Linked $SopsAgeKey -> $MiseAgeKey"
+    } else {
+        Write-Host "No age key found at $MiseAgeKey. Generating a new key..."
+        New-Item -ItemType Directory -Path (Split-Path -Parent $MiseAgeKey) -Force | Out-Null
+        if (Get-Command age-keygen -ErrorAction SilentlyContinue) {
+            & age-keygen -o $MiseAgeKey
+        } else {
+            mise exec age -- age-keygen -o $MiseAgeKey
+        }
+        Write-Warning "Generated new age key at $MiseAgeKey. Add its public key to fnox.toml to decrypt repository secrets."
+    }
+}
+if ((Test-Path -LiteralPath $MiseAgeKey) -and -not (Test-Path -LiteralPath $MiseAgeTxt)) {
+    New-Item -ItemType HardLink -Path $MiseAgeTxt -Value $MiseAgeKey -Force | Out-Null
+}
+if ((Test-Path -LiteralPath $MiseAgeKey) -and -not (Test-Path -LiteralPath $FnoxAgeKey)) {
+    New-Item -ItemType HardLink -Path $FnoxAgeKey -Value $MiseAgeKey -Force | Out-Null
+    Write-Host "Linked $MiseAgeKey -> $FnoxAgeKey"
+}
+if ((Test-Path -LiteralPath $FnoxAgeKey) -and -not (Test-Path -LiteralPath $FnoxAgeTxt)) {
+    New-Item -ItemType HardLink -Path $FnoxAgeTxt -Value $FnoxAgeKey -Force | Out-Null
+}
+
+# --- fnox: dotfiles hardlinks (zero drift on Windows) -----------------------
+
+$FnoxConfigFile = Join-Path $FnoxConfigHome 'config.toml'
+$FnoxRepoFile = Join-Path $RepoRoot 'fnox.toml'
+
+if (Test-Path -LiteralPath $FnoxRepoFile) {
+    if (-not (Test-Path -LiteralPath $FnoxConfigFile)) {
+        New-Item -ItemType HardLink -Path $FnoxConfigFile -Value $FnoxRepoFile -Force | Out-Null
+        Write-Host "Linked $FnoxConfigFile -> $FnoxRepoFile (hardlink)"
+    }
+}
+
+# --- mcpmu: dotfiles hardlinks (zero drift on Windows) -----------------------
+
+$McpmuHome = Join-Path (Join-Path $env:USERPROFILE '.config') 'mcpmu'
+$McpmuRepo = Join-Path $RepoRoot 'mcpmu'
+
+if (-not (Test-Path -LiteralPath $McpmuHome)) {
+    New-Item -ItemType Directory -Path $McpmuHome -Force | Out-Null
+}
+
+$McpmuFiles = @('config.json')
+foreach ($File in $McpmuFiles) {
+    $TargetFile = Join-Path $McpmuHome $File
+    $SourceFile = Join-Path $McpmuRepo $File
+    if (Test-Path -LiteralPath $SourceFile) {
+        if (-not (Test-Path -LiteralPath $TargetFile)) {
+            New-Item -ItemType HardLink -Path $TargetFile -Value $SourceFile -Force | Out-Null
+            Write-Host "Linked $TargetFile -> $SourceFile (hardlink)"
+        }
+    }
+}
+
 # --- PowerShell profile stubs ------------------------------------------------
 
 # Resolved ONCE. The script this replaces linked the WindowsPowerShell

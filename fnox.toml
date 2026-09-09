@@ -1,0 +1,12 @@
+default_provider = "age"
+
+[providers.age]
+type = "age"
+recipients = [
+  "age150z0s36kl9vud8728c5e4zqq6nmyywekk76rwvjclcsfc8mrxuuqr0qfg6",
+  "age1wl6h5q9g4vdw69zf02su7780kj6jpvdsuty20wds2nnq73qjds6qkh4aew",
+]
+key_file = "~/.config/fnox/age.key"
+
+[secrets]
+MCPMU_SERVE_TOKEN= { provider = "age", value = "YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBlS3diRVNZaXIrR0lUOG9wSmtGZHV4b0NaQmJ5a3VLMWwzQ2tVcjFRTFFRCmt6MEZBOGR1dndFUUxKMjVRanA2UE1vZEx2aEVKTkhndVdzZlBxNVpKanMKLT4gWDI1NTE5IEZyR1FNN01uQ2RzMnVHbFQwUmtjM2FmSklzNDd2RXRCRTJyb01WK3FIVVEKNmJhKzlESG8za1JkYnhUWHExZFlVa21BSGZHL1Q0WFpWZ2JzcWpXY3NRZwotPiA2anRDI2QtZ3JlYXNlIGouJ1JpYVAgRCAyCi80Y05OQlpTNi9idEhKYVJORUNCc2R6THZYZ0o0ZUk2K0hjCi0tLSBrNFJFZm55YWdkYnNhcWlSd1VCdjFpSU8yWmMzU25PQjlrdFhLaE5id0VzChEDsXWQCUZjMQn5JAQANuxpN7c8sIs1/NESNmjIEwZ/zku6hePoEw7QMQw=" }
