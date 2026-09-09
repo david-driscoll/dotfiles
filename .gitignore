@@ -39,3 +39,11 @@ mcp.json.backup.*
 # /Squad: state owned by squad-state branch
 # Squad: SubSquad activation file (local to this machine)
 .squad-workstream
+
+# Secrets and age private keys (only encrypted *.enc.* files should be committed)
+*.key
+age.key
+age.txt
+*secrets.json
+!*secrets.enc.json
+

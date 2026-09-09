@@ -223,6 +223,49 @@ link_mise_config() {
 	log "linked ~/.config/mise -> $source"
 }
 
+# --- age.key for fnox and mise decryption --------------------------------
+#
+# Repository secrets in fnox.toml are encrypted against the age recipients.
+# Ensure ~/.config/mise/age.key and ~/.config/fnox/age.key exist.
+ensure_age_key() {
+	local mise_age_key="$HOME/.config/mise/age.key"
+	local mise_age_txt="$HOME/.config/mise/age.txt"
+	local fnox_age_key="$HOME/.config/fnox/age.key"
+	local fnox_age_txt="$HOME/.config/fnox/age.txt"
+	local sops_age_key="$HOME/.config/sops/age/keys.txt"
+
+	mkdir -p "$HOME/.config/fnox"
+
+	if [ ! -f "$mise_age_key" ]; then
+		if [ -f "$fnox_age_key" ]; then
+			ln -sf "$fnox_age_key" "$mise_age_key"
+			log "linked $fnox_age_key -> $mise_age_key"
+		elif [ -f "$mise_age_txt" ]; then
+			ln -sf "$mise_age_txt" "$mise_age_key"
+			log "linked $mise_age_txt -> $mise_age_key"
+		elif [ -f "$sops_age_key" ]; then
+			ln -sf "$sops_age_key" "$mise_age_key"
+			log "linked $sops_age_key -> $mise_age_key"
+		else
+			log "no age key found — generating new age key at $mise_age_key"
+			mkdir -p "$HOME/.config/mise"
+			if command -v age-keygen >/dev/null 2>&1; then
+				age-keygen -o "$mise_age_key"
+			fi
+		fi
+	fi
+	if [ -f "$mise_age_key" ] && [ ! -f "$mise_age_txt" ]; then
+		ln -sf "$mise_age_key" "$mise_age_txt"
+	fi
+	if [ -f "$mise_age_key" ] && [ ! -f "$fnox_age_key" ]; then
+		ln -sf "$mise_age_key" "$fnox_age_key"
+		log "linked $mise_age_key -> $fnox_age_key"
+	fi
+	if [ -f "$fnox_age_key" ] && [ ! -f "$fnox_age_txt" ]; then
+		ln -sf "$fnox_age_key" "$fnox_age_txt"
+	fi
+}
+
 # --- mise trust + bootstrap ----------------------------------------------
 #
 # MISE_AUTO_ENV=1 makes mise also load config.macos.toml alongside
@@ -257,6 +300,7 @@ main() {
 	install_mise
 	install_oh_my_zsh
 	link_mise_config
+	ensure_age_key
 	trust_and_bootstrap
 
 	log "done. Re-run this script any time — every step here is safe to repeat."

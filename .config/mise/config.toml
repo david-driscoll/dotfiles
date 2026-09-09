@@ -1,4 +1,7 @@
 [tools]
+fnox = "1.35.1"
+go = "1.26.8"
+"go:github.com/Bigsy/mcpmu/cmd/mcpmu" = "0.1.33"
 hk = "1.56.1"
 pkl = "0.32.1"
 gitleaks = "8.30.1"
@@ -54,13 +57,18 @@ auto_env = true
 "~/.apm/config.json" = {}
 "~/.apm/marketplaces.json" = {}
 "~/.gitconfig" = { source = "~/dotfiles/git/gitconfig" }
-"~/.config/mise/config.toml" = { source = "~/dotfiles/mise/config.toml" }
-"~/.config/mise/scripts" = { source = "~/dotfiles/mise/scripts", mode = "symlink-each" }
+"~/.config/mise/config.toml" = { source = "~/dotfiles/.config/mise/config.toml" }
+"~/.config/mise/scripts" = { source = "~/dotfiles/.config/mise/scripts", mode = "symlink-each" }
+"~/.config/mcpmu/config.json" = { source = "~/dotfiles/mcpmu/config.json" }
+"~/.config/fnox/config.toml" = { source = "~/dotfiles/fnox.toml" }
 
 [hooks]
-postinstall = [{ task = "gh-extensions" }, { task = "az-extensions" }, { task = "crew:update" }]
+postinstall = [{ task = "gh-extensions" }, { task = "az-extensions" }, { task = "mcpmu:skill-install" }]
 
 [env]
+SOPS_AGE_KEY_FILE = "{{ env.HOME | default(value=env.USERPROFILE) }}/.config/mise/age.key"
+FNOX_CONFIG_DIR = "{{ env.HOME | default(value=env.USERPROFILE) }}/.config/fnox"
+FNOX_AGE_KEY_FILE = "{{ env.HOME | default(value=env.USERPROFILE) }}/.config/fnox/age.key"
 CREW_PERSONAL_DIR = "{{config_root}}/.crew/.crew"
 CREW_SRC = "{{config_root}}/.cache/crew-source"
 CREW_BIN = "{{config_root}}/.cache/bin"
@@ -291,3 +299,8 @@ if (-not $script) {
 # description = "Remove the crew CLI symlink from mise PATH"
 # run = "rm -f \"$CREW_BIN/crew\""
 # run_windows = 'Remove-Item -LiteralPath (Join-Path $env:CREW_BIN "crew.cmd") -Force -ErrorAction SilentlyContinue'
+
+[tasks."mcpmu:skill-install"]
+description = "Install mcpmu agent skill across detected AI coding agents"
+run = "mcpmu skill install"
+

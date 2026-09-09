@@ -68,6 +68,12 @@ $ErrorActionPreference = "SilentlyContinue"
 Invoke-DotfilesProfileStartupStep -Name 'Activate mise' -ScriptBlock {
     CheckAndRun 'mise activate pwsh'
 }
+Invoke-DotfilesProfileStartupStep -Name 'Activate fnox' -ScriptBlock {
+    CheckAndRun 'fnox activate pwsh'
+}
+Invoke-DotfilesProfileStartupStep -Name 'Generate fnox completion' -ScriptBlock {
+    CheckAndRun 'fnox completion pwsh'
+}
 Invoke-DotfilesProfileStartupStep -Name 'Generate uv completion' -ScriptBlock {
     CheckAndRun 'uv generate-shell-completion powershell'
 }
