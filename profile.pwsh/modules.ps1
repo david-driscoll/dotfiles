@@ -1,16 +1,16 @@
-Invoke-DotfilesProfileStartupStep -Name 'Import Pansies' -ScriptBlock {
+. Invoke-DotfilesProfileStartupStep -Name 'Import Pansies' -ScriptBlock {
     Import-Module Pansies
 }
-Invoke-DotfilesProfileStartupStep -Name 'Import posh-git' -ScriptBlock {
+. Invoke-DotfilesProfileStartupStep -Name 'Import posh-git' -ScriptBlock {
     Import-Module posh-git
 }
-Invoke-DotfilesProfileStartupStep -Name 'Import Terminal-Icons' -ScriptBlock {
+. Invoke-DotfilesProfileStartupStep -Name 'Import Terminal-Icons' -ScriptBlock {
     Import-Module Terminal-Icons
 }
-Invoke-DotfilesProfileStartupStep -Name 'Import Microsoft.PowerShell.TextUtility' -ScriptBlock {
+. Invoke-DotfilesProfileStartupStep -Name 'Import Microsoft.PowerShell.TextUtility' -ScriptBlock {
     Import-Module Microsoft.PowerShell.TextUtility
 }
-Invoke-DotfilesProfileStartupStep -Name 'Import npm-completion' -ScriptBlock {
+. Invoke-DotfilesProfileStartupStep -Name 'Import npm-completion' -ScriptBlock {
     Import-Module npm-completion
 }
 

@@ -1,4 +1,4 @@
-Invoke-DotfilesProfileStartupStep -Name 'Initialize Windows environment' -ScriptBlock {
+. Invoke-DotfilesProfileStartupStep -Name 'Initialize Windows environment' -ScriptBlock {
     $env:PATH = [Environment]::GetEnvironmentVariable('PATH', [EnvironmentVariableTarget]::User)
     $env:UserName = [Environment]::UserName
     $env:UserDomain = [Environment]::DomainName
@@ -27,17 +27,17 @@ if (Test-Path -LiteralPath (Join-Path $miseDotnetRoot 'dotnet.exe')) {
 }
 
 if (Get-Module -ListAvailable -Name WSLTabCompletion) {
-    Invoke-DotfilesProfileStartupStep -Name 'Import WSLTabCompletion' -ScriptBlock {
+    . Invoke-DotfilesProfileStartupStep -Name 'Import WSLTabCompletion' -ScriptBlock {
         Import-Module WSLTabCompletion
     }
 }
 if (Get-Module -ListAvailable -Name WslInterop) {
-    Invoke-DotfilesProfileStartupStep -Name 'Import WslInterop' -ScriptBlock {
+    . Invoke-DotfilesProfileStartupStep -Name 'Import WslInterop' -ScriptBlock {
         Import-Module WslInterop
     }
 }
 if (Get-Module -ListAvailable -Name Microsoft.WinGet.Client) {
-    Invoke-DotfilesProfileStartupStep -Name 'Import Microsoft.WinGet.Client' -ScriptBlock {
+    . Invoke-DotfilesProfileStartupStep -Name 'Import Microsoft.WinGet.Client' -ScriptBlock {
         Import-Module Microsoft.WinGet.Client
     }
 }
