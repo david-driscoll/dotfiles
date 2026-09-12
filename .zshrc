@@ -185,11 +185,11 @@ zstyle ':omz:plugins:eza' 'hyperlink' yes
 # entries can be scoped per-OS. Must be a real env var, not just
 # settings.auto_env in the toml — see that file for why. (#64)
 export MISE_AUTO_ENV=1
-if [ -x "$(command -v mise)" ]; then
-  eval "$(mise activate zsh)"
-fi
 if [ -x "$(command -v fnox)" ]; then
   eval "$(fnox activate zsh)"
+fi
+if [ -x "$(command -v mise)" ]; then
+  eval "$(mise activate zsh)"
 fi
 
 load_completion() {

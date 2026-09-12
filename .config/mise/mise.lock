@@ -131,17 +131,9 @@ checksum = "sha256:d96fc8b7cf020c2d4c1dbbc2ccec5fd1cab05b51c491f02c8527a7fa6c50a
 url = "https://github.com/direnv/direnv/releases/download/v2.37.1/direnv.windows-amd64"
 url_api = "https://api.github.com/repos/direnv/direnv/releases/assets/274610569"
 
-[[tools.dotnet]]
-version = "10.0.400"
-backend = "core:dotnet"
-
 [[tools."dotnet:graphify-dotnet"]]
 version = "0.7.0"
 backend = "dotnet:graphify-dotnet"
-
-[[tools.eza]]
-version = "0.23.5"
-backend = "asdf:eza"
 
 [[tools.flux2]]
 version = "2.9.4"
@@ -326,45 +318,6 @@ checksum = "sha256:227e35230b25db3fa1b997bab7cf4d67df0470a3b75b99e4ee66bce1a7cd4
 url = "https://github.com/cli/cli/releases/download/v2.100.0/gh_2.100.0_windows_amd64.zip"
 url_api = "https://api.github.com/repos/cli/cli/releases/assets/542974322"
 provenance = "github-attestations"
-
-[[tools."github:Graphify-Labs/graphify"]]
-version = "0.9.51"
-backend = "github:Graphify-Labs/graphify"
-
-[tools."github:Graphify-Labs/graphify"."platforms.linux-arm64"]
-checksum = "sha256:7422d7faaa9ac638570d98302e7ba58e3cc612d15f39aadbce8cea0ec455efdf"
-url = "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.51/graphify-self-graph.tar.gz"
-url_api = "https://api.github.com/repos/Graphify-Labs/graphify/releases/assets/533046480"
-
-[tools."github:Graphify-Labs/graphify"."platforms.linux-arm64-musl"]
-checksum = "sha256:7422d7faaa9ac638570d98302e7ba58e3cc612d15f39aadbce8cea0ec455efdf"
-url = "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.51/graphify-self-graph.tar.gz"
-url_api = "https://api.github.com/repos/Graphify-Labs/graphify/releases/assets/533046480"
-
-[tools."github:Graphify-Labs/graphify"."platforms.linux-x64"]
-checksum = "sha256:7422d7faaa9ac638570d98302e7ba58e3cc612d15f39aadbce8cea0ec455efdf"
-url = "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.51/graphify-self-graph.tar.gz"
-url_api = "https://api.github.com/repos/Graphify-Labs/graphify/releases/assets/533046480"
-
-[tools."github:Graphify-Labs/graphify"."platforms.linux-x64-musl"]
-checksum = "sha256:7422d7faaa9ac638570d98302e7ba58e3cc612d15f39aadbce8cea0ec455efdf"
-url = "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.51/graphify-self-graph.tar.gz"
-url_api = "https://api.github.com/repos/Graphify-Labs/graphify/releases/assets/533046480"
-
-[tools."github:Graphify-Labs/graphify"."platforms.macos-arm64"]
-checksum = "sha256:7422d7faaa9ac638570d98302e7ba58e3cc612d15f39aadbce8cea0ec455efdf"
-url = "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.51/graphify-self-graph.tar.gz"
-url_api = "https://api.github.com/repos/Graphify-Labs/graphify/releases/assets/533046480"
-
-[tools."github:Graphify-Labs/graphify"."platforms.macos-x64"]
-checksum = "sha256:7422d7faaa9ac638570d98302e7ba58e3cc612d15f39aadbce8cea0ec455efdf"
-url = "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.51/graphify-self-graph.tar.gz"
-url_api = "https://api.github.com/repos/Graphify-Labs/graphify/releases/assets/533046480"
-
-[tools."github:Graphify-Labs/graphify"."platforms.windows-x64"]
-checksum = "sha256:7422d7faaa9ac638570d98302e7ba58e3cc612d15f39aadbce8cea0ec455efdf"
-url = "https://github.com/Graphify-Labs/graphify/releases/download/v0.9.51/graphify-self-graph.tar.gz"
-url_api = "https://api.github.com/repos/Graphify-Labs/graphify/releases/assets/533046480"
 
 [[tools."github:eljulians/skillfile"]]
 version = "1.9.1"
@@ -1169,9 +1122,9 @@ url = "https://github.com/starship/starship/releases/download/v1.26.0/starship-a
 url_api = "https://api.github.com/repos/starship/starship/releases/assets/460374586"
 
 [tools.starship."platforms.linux-x64"]
-checksum = "sha256:b7c232b0e8249d8e55a40beb79c5c43a7d370f3f9408bd215deb0170daeaadf3"
-url = "https://github.com/starship/starship/releases/download/v1.26.0/starship-x86_64-unknown-linux-musl.tar.gz"
-url_api = "https://api.github.com/repos/starship/starship/releases/assets/460374630"
+checksum = "sha256:321f0dd7af8340a5f2e6a8fec6538a04f617486f9ec70d878f91c09cd8deef22"
+url = "https://github.com/starship/starship/releases/download/v1.26.0/starship-x86_64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/starship/starship/releases/assets/460374620"
 
 [tools.starship."platforms.linux-x64-musl"]
 checksum = "sha256:b7c232b0e8249d8e55a40beb79c5c43a7d370f3f9408bd215deb0170daeaadf3"
@@ -1277,45 +1230,6 @@ checksum = "sha256:ae82483d1dd3a0bd879be5d204fb430ceb7688e8d3036d07a1783d31dec23
 url = "https://github.com/siderolabs/talos/releases/download/v1.13.9/talosctl-windows-amd64.exe"
 url_api = "https://api.github.com/repos/siderolabs/talos/releases/assets/520547637"
 provenance = "cosign"
-
-[[tools.task]]
-version = "3.52.0"
-backend = "aqua:go-task/task"
-
-[tools.task."platforms.linux-arm64"]
-checksum = "sha256:7e0044108830cec0534577b289564e3b7c83e6df276feb631a1edc63d04e4ebe"
-url = "https://github.com/go-task/task/releases/download/v3.52.0/task_linux_arm64.tar.gz"
-url_api = "https://api.github.com/repos/go-task/task/releases/assets/464613352"
-
-[tools.task."platforms.linux-arm64-musl"]
-checksum = "sha256:7e0044108830cec0534577b289564e3b7c83e6df276feb631a1edc63d04e4ebe"
-url = "https://github.com/go-task/task/releases/download/v3.52.0/task_linux_arm64.tar.gz"
-url_api = "https://api.github.com/repos/go-task/task/releases/assets/464613352"
-
-[tools.task."platforms.linux-x64"]
-checksum = "sha256:02c679ffae53dca791804847d78b31731615894e292948397c971c87ac9e95bd"
-url = "https://github.com/go-task/task/releases/download/v3.52.0/task_linux_amd64.tar.gz"
-url_api = "https://api.github.com/repos/go-task/task/releases/assets/464613330"
-
-[tools.task."platforms.linux-x64-musl"]
-checksum = "sha256:02c679ffae53dca791804847d78b31731615894e292948397c971c87ac9e95bd"
-url = "https://github.com/go-task/task/releases/download/v3.52.0/task_linux_amd64.tar.gz"
-url_api = "https://api.github.com/repos/go-task/task/releases/assets/464613330"
-
-[tools.task."platforms.macos-arm64"]
-checksum = "sha256:debfa9a3bc06fcb5d5550b44725ecd22bb305499ce057bd6d7a774db5cdaa7b8"
-url = "https://github.com/go-task/task/releases/download/v3.52.0/task_darwin_arm64.tar.gz"
-url_api = "https://api.github.com/repos/go-task/task/releases/assets/464613319"
-
-[tools.task."platforms.macos-x64"]
-checksum = "sha256:416348147bc2f1c729417249d932add7894fb01a126128778195942c249d7c0b"
-url = "https://github.com/go-task/task/releases/download/v3.52.0/task_darwin_amd64.tar.gz"
-url_api = "https://api.github.com/repos/go-task/task/releases/assets/464613314"
-
-[tools.task."platforms.windows-x64"]
-checksum = "sha256:e3bd4439b445f4f135758a2666ec8b33ccde789f7f615309c58f116b0e566e79"
-url = "https://github.com/go-task/task/releases/download/v3.52.0/task_windows_amd64.zip"
-url_api = "https://api.github.com/repos/go-task/task/releases/assets/464613286"
 
 [[tools.terraform]]
 version = "1.15.8"

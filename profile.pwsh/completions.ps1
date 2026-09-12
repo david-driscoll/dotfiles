@@ -68,18 +68,20 @@ function Get-DotfilesCommandScript($command) {
 $oldPreference = $ErrorActionPreference
 $ErrorActionPreference = "SilentlyContinue"
 
-. Invoke-DotfilesProfileStartupStep -Name 'Activate mise' -ScriptBlock {
-    . (Get-DotfilesCommandScript 'mise activate pwsh')
-}
-. Invoke-DotfilesProfileStartupStep -Name 'Activate mise completion' -ScriptBlock {
-    . (Get-DotfilesCommandScript 'mise completion pwsh')
-}
 . Invoke-DotfilesProfileStartupStep -Name 'Activate fnox' -ScriptBlock {
     . (Get-DotfilesCommandScript 'fnox activate pwsh')
 }
 . Invoke-DotfilesProfileStartupStep -Name 'Generate fnox completion' -ScriptBlock {
     . (Get-DotfilesCommandScript 'fnox completion pwsh')
 }
+
+. Invoke-DotfilesProfileStartupStep -Name 'Activate mise' -ScriptBlock {
+    . (Get-DotfilesCommandScript 'mise activate pwsh')
+}
+. Invoke-DotfilesProfileStartupStep -Name 'Activate mise completion' -ScriptBlock {
+    . (Get-DotfilesCommandScript 'mise completion pwsh')
+}
+
 . Invoke-DotfilesProfileStartupStep -Name 'Generate uv completion' -ScriptBlock {
     . (Get-DotfilesCommandScript 'uv generate-shell-completion powershell')
 }
