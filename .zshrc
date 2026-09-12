@@ -283,3 +283,7 @@ export PATH="/usr/local/share/dotnet:$PATH"
 if [ -x "$(command -v terraform)" ]; then
   complete -C "$(command -v terraform)" terraform
 fi
+
+# Added by ToolHive UI - do not modify this block
+export PATH="$HOME/.toolhive/bin:$PATH"
+# End ToolHive UI

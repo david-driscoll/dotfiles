@@ -248,3 +248,8 @@ source "/Users/david/.openclaw/completions/openclaw.bash"
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/david/.lmstudio/bin"
 # End of LM Studio CLI section
+
+
+# Added by ToolHive UI - do not modify this block
+export PATH="$HOME/.toolhive/bin:$PATH"
+# End ToolHive UI
