@@ -23,7 +23,9 @@
 "brew:speedtest-cli" = "latest" # "?" in the epic — confirm keep/drop
 
 [bootstrap.hooks]
-post-packages = [{ task = "brew:casks" }]
+post-packages = [
+    "mise run brew:casks"
+]
 
 [bootstrap.macos.dock]
 autohide = false
@@ -51,3 +53,5 @@ three_finger_drag = false
 "~/.config/1Password/ssh/agent.toml" = { source = "~/dotfiles/1password/agent.toml" }
 "~/.gitconfig.local" = { source = "~/dotfiles/git/gitconfig.darwin" }
 "~/.ssh" = { source = "~/dotfiles/ssh", mode = "symlink-each" }
+# To be fixed when the issue is resolved, see https://github.com/jdx/fnox/pull/818
+"~/.config/fnox/config.toml" = { source = "~/dotfiles/.config/fnox/config.macos.toml" }

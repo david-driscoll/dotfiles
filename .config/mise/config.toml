@@ -17,7 +17,7 @@ age = "1.3.1"
 "dotnet:graphify-dotnet" = "0.7.0"
 biome = "2.5.5"
 node = "24.21.0"
-dotnet = "10.0.400"
+# dotnet = "10.0.400"
 "github:microsoft/apm" = { version = "v0.30.0", bin = "apm" }
 "github:eljulians/skillfile" = { version = "v1.9.1", bin = "skillfile" }
 gh = "2.100.0" # aqua:cli/cli
@@ -60,86 +60,19 @@ auto_env = true
 "~/.config/mise/config.toml" = { source = "~/dotfiles/.config/mise/config.toml" }
 "~/.config/mise/scripts" = { source = "~/dotfiles/.config/mise/scripts", mode = "symlink-each" }
 "~/.config/mcpmu/config.json" = { source = "~/dotfiles/mcpmu/config.json" }
-"~/.config/fnox/config.toml" = { source = "~/dotfiles/fnox.toml" }
+# To be fixed when the issue is resolved, see https://github.com/jdx/fnox/pull/818
+# "~/.config/fnox/config.toml" = { source = "~/dotfiles/.config/fnox/config.toml" }
 
 [hooks]
 postinstall = [{ task = "gh-extensions" }, { task = "az-extensions" }, { task = "mcpmu:skill-install" }]
 
 [env]
-SOPS_AGE_KEY_FILE = "{{ env.HOME | default(value=env.USERPROFILE) }}/.config/mise/age.key"
-FNOX_CONFIG_DIR = "{{ env.HOME | default(value=env.USERPROFILE) }}/.config/fnox"
-FNOX_AGE_KEY_FILE = "{{ env.HOME | default(value=env.USERPROFILE) }}/.config/fnox/age.key"
+# SOPS_AGE_KEY = "{{ env.FNOX_AGE_KEY }}"
 CREW_PERSONAL_DIR = "{{config_root}}/.crew/.crew"
 CREW_SRC = "{{config_root}}/.cache/crew-source"
 CREW_BIN = "{{config_root}}/.cache/bin"
 _.path = ["{{config_root}}/.cache/bin"]
 
-# gh CLI extensions this repo wants everywhere `gh` itself is installed
-# (#83). Single source of truth: previously duplicated across install.sh,
-# setup/setup-osx.sh (deleted, #69), setup/setup.ps1 (rewritten, #72), and
-# this task's own one-extension stub (`gh extensions install`, plural —
-# not a valid `gh` subcommand). Design notes:
-#
-# - Idempotent via a pre-check against `gh extension list`, not `--force`.
-#   `gh extension install --help` documents `--force` as "Force upgrade
-#   extension, or ignore if latest already installed" — that phrasing only
-#   makes sense if a bare re-install of an already-present extension is
-#   NOT a no-op by default (confirmed by #73's spike; not independently
-#   re-verified by actually installing, since `gh extension install` is
-#   off-limits under this task's hard safety rules). Skipping extensions
-#   already listed avoids both the unverified default-error path and an
-#   unconditional network upgrade check on every single bootstrap run.
-# - Auth-guarded: no-ops with a clear message (never hangs, never fails
-#   the task) when `gh auth status` fails and neither GITHUB_TOKEN nor
-#   GH_TOKEN is set — required so this never blocks unattended Codespaces/
-#   Coder container builds. Never calls `gh auth login`.
-# - Failure-isolated per extension: one unavailable/renamed extension is
-#   caught and reported in the end-of-run summary, not allowed to abort
-#   the other nine or fail this task (and therefore the `postinstall`
-#   hook chain / `mise bootstrap`).
-# - One script body covers macOS, Linux, AND Windows: written in
-#   PowerShell and run via `shell = "pwsh -NoProfile -Command"` rather
-#   than bash + a separate `run_windows`, because `pwsh` is already a
-#   plain cross-platform `[tools]` entry in this exact file (see above) —
-#   reusing it here avoids both non-portable bash-isms (macOS's default
-#   `sh` and Debian/Ubuntu's default `sh` are different shells; `pipefail`
-#   isn't POSIX) and the untested question of whether mise's shebang
-#   parsing behaves the same for `run` and `run_windows`.
-# - The script body lives in a real, checked-in, AST-parseable file
-#   (`.config/mise/scripts/gh-extensions.ps1`) rather than inline here, per
-#   review on #89. Locating that file no longer hard-codes `$HOME` (#96):
-#   `mise install`'s `postinstall` hook always invokes this task as
-#   `mise --cd <repo> run gh-extensions` (confirmed from the actual WARN
-#   line mise prints on failure), and under that exact invocation mise
-#   resolves `{{config_root}}` via ordinary per-directory config discovery
-#   rooted at the `--cd` path, NOT via the special-cased "global config →
-#   `$HOME`" rule that #63/#89 measured (that measurement was for a bare
-#   `mise run` invoked from an unrelated cwd, which is a different
-#   discovery path). Verified empirically both ways with the read-only
-#   `mise --cd <dir> tasks info gh-extensions --json` (`dir` shares
-#   `{{config_root}}`'s default and render logic, so it's a safe proxy for
-#   what the templated `run` string below would receive):
-#     - pre-bootstrap (`~/.config/mise` missing OR, David's actual case on
-#       #96, a *real* directory containing only a dangling `config.toml`
-#       symlink): `{{config_root}}` renders to the repo root itself, found
-#       by mise's plain directory walk from the `--cd` target — no
-#       symlink required.
-#     - post-bootstrap (`~/.config/mise` correctly symlinked/junctioned to
-#       `<repo>/.config/mise`): mise recognizes the resolved path as the
-#       canonical global-config location and `{{config_root}}` renders to
-#       `$HOME` instead — which is fine, because the bootstrap symlink
-#       makes `$HOME/.config/mise/...` resolve back to this same repo
-#       path anyway.
-#   So the `run` script below tries the `{{config_root}}`-relative path
-#   first, falls back to the historical `$HOME`-relative path (covers any
-#   invocation shape not exercised above, e.g. a bare `mise run` from
-#   elsewhere post-bootstrap), and — this is the part #96 broke without —
-#   if *neither* resolves, it warns and exits 0 instead of failing, so a
-#   missing optional extension installer can never fail `mise install`'s
-#   `postinstall` hook chain. Confirmed via isolated `pwsh -NoProfile`
-#   runs against a scratch dir covering all three outcomes (repo-relative
-#   hit, `$HOME`-relative hit via a real symlink, and the neither-exists
-#   warn-and-exit-0 path) — see PR #96 description for the exact commands.
 [tasks.gh-extensions]
 description = "Install this repo's gh CLI extensions (idempotent, auth-guarded, failure-isolated; #83, #96)"
 shell = "pwsh -NoProfile -Command"
@@ -154,69 +87,6 @@ if (-not $script) {
 & $script
 '''
 
-# az CLI extensions this repo wants everywhere `az` itself is installed
-# (#90). Historically duplicated as `az extension add --name azure-devops`
-# / `--name interactive` across install.sh, setup/setup-osx.sh (deleted,
-# #69), setup/setup.ps1 (rewritten, #72), and setup/setup.sh (deleted) --
-# #68's install.sh rewrite deliberately did not reintroduce it, deferring
-# to this issue (see install.sh's own comment at the old call site).
-# Mirrors gh-extensions' shape above property-for-property, with two
-# deliberate differences explained inline below. Design notes:
-#
-# - `az` itself is provisioned by [bootstrap.packages] on macOS
-#   ("brew:azure-cli", config.macos.toml) and by winget on Windows
-#   (setup/setup.ps1) but NOT on Linux -- there is no azure-cli entry in
-#   config.linux.toml. That's intentional scope: this task guards on `az`
-#   being on PATH (below) and no-ops cleanly rather than assuming it
-#   exists, the same way gh-extensions guards on `gh`. Provisioning `az`
-#   on Linux is a separate, out-of-scope concern.
-# - Idempotent via a pre-check against `az extension list --output json`,
-#   parsed with ConvertFrom-Json and matched on `.name` -- same rationale
-#   as gh-extensions' pre-check against `gh extension list`: avoids
-#   relying on undocumented re-add behavior and avoids an unconditional
-#   network call on every bootstrap run for extensions already present.
-# - Auth is checked but does NOT gate the install (this is the one place
-#   this task deliberately diverges from gh-extensions' pattern):
-#   `az extension add` downloads a Python wheel from the public extension
-#   index and pip-installs it locally -- no ARM/Azure API call is
-#   involved, confirmed against
-#   https://learn.microsoft.com/cli/azure/azure-cli-extensions-overview
-#   ("How to install extensions" describes a pure index-lookup-and-wheel-
-#   install flow with no sign-in step, unlike most extensions' own
-#   commands once installed). Unlike `gh`, which Codespaces/Coder
-#   pre-populate with GITHUB_TOKEN/GH_TOKEN, `az` has no ambient-token
-#   equivalent -- `az login` is interactive-only. Gating this task on
-#   `az account show` succeeding would therefore make it silently do
-#   nothing on every unauthenticated container, which is exactly the
-#   common case this task exists to cover. `az account show` is still
-#   called and logged for visibility/debugging, but a failure is
-#   informational, not a skip condition. This task still NEVER calls
-#   `az login` and never prompts.
-# - `interactive` (`az interactive`) is passed --allow-preview true: it
-#   has never shipped past 1.0.0b1 / preview:true in the extension index
-#   (verified via `az extension list-available`) since it was published,
-#   and `az extension add` excludes preview-only packages unless that
-#   flag is set. NOTE for David: this extension has been in perpetual
-#   preview for years with no GA release in sight -- it's still nominally
-#   maintained (changelog shows recent Python-version-compat updates) and
-#   is a distinct thing from the actually-deprecated `azure-cli-shell`
-#   PyPI package, but if you'd rather not enshrine a beta-forever
-#   extension in bootstrap, delete this one entry (and its comment above)
-#   and keep just azure-devops.
-# - `--yes` on every `az extension add` call: belt-and-suspenders against
-#   any confirmation prompt (`--yes`/`-y` is documented as "Do not prompt
-#   for confirmation" by `az extension add --help`) so this can never
-#   block on stdin even if some prompt exists that this session's research
-#   didn't surface.
-# - Failure-isolated per extension and one cross-platform pwsh body, same
-#   as gh-extensions -- see that task's comment above for the full
-#   rationale (shebang portability, pwsh already being a [tools] entry).
-# - The script body lives in a real, checked-in, AST-parseable file
-#   (`.config/mise/scripts/az-extensions.ps1`) rather than inline here, for
-#   the same reason as gh-extensions -- and resolved the same
-#   config_root-first, $HOME-fallback, warn-and-exit-0-if-neither way
-#   (#96); see that task's comment above for the full investigation and
-#   what was verified.
 [tasks.az-extensions]
 description = "Install this repo's az CLI extensions (idempotent, failure-isolated; #90, #96)"
 shell = "pwsh -NoProfile -Command"
@@ -231,76 +101,17 @@ if (-not $script) {
 & $script
 '''
 
-
-# [tasks."crew:install"]
-# description = "Clone Blacklite/crew, build, and expose the crew CLI via mise PATH"
-# run = """
-# set -euo pipefail
-# mkdir -p "$(dirname "$CREW_SRC")"
-# if [ -d "$CREW_SRC/.git" ]; then
-#   # build scripts bump version files in the checkout; discard before pulling
-#   git -C "$CREW_SRC" reset --hard
-#   git -C "$CREW_SRC" pull --ff-only
-# else
-#   git clone https://github.com/Blacklite/crew.git "$CREW_SRC"
-# fi
-# cd "$CREW_SRC"
-# npm install
-# npm run build
-# # Expose the built entry as `crew` on PATH — no global npm symlink.
-# entry="$CREW_SRC/packages/crew-cli/dist/cli-entry.js"
-# chmod +x "$entry"          # tsc emits 644; PATH exec needs the bit set
-# mkdir -p "$CREW_BIN"
-# ln -sfn "$entry" "$CREW_BIN/crew"
-# crew --version
-# """
-# run_windows = '''
-# $ErrorActionPreference = 'Stop'
-
-# if ([string]::IsNullOrWhiteSpace($env:CREW_SRC) -or [string]::IsNullOrWhiteSpace($env:CREW_BIN)) {
-#   throw 'CREW_SRC and CREW_BIN must be set by the mise environment.'
-# }
-
-# New-Item -ItemType Directory -Path (Split-Path -Parent $env:CREW_SRC) -Force | Out-Null
-# if (Test-Path -LiteralPath (Join-Path $env:CREW_SRC '.git')) {
-#   git -C $env:CREW_SRC reset --hard
-#   git -C $env:CREW_SRC pull --ff-only
-# } else {
-#   git clone https://github.com/Blacklite/crew.git $env:CREW_SRC
-# }
-
-# Push-Location $env:CREW_SRC
-# try {
-#   npm install
-#   npm run build
-# } finally {
-#   Pop-Location
-# }
-
-# $entry = Join-Path $env:CREW_SRC 'packages\crew-cli\dist\cli-entry.js'
-# if (-not (Test-Path -LiteralPath $entry)) {
-#   throw "Crew CLI entry point was not built: $entry"
-# }
-
-# New-Item -ItemType Directory -Path $env:CREW_BIN -Force | Out-Null
-# $launcher = Join-Path $env:CREW_BIN 'crew.cmd'
-# Set-Content -LiteralPath $launcher -Encoding Ascii -Value "@echo off`r`nnode `"$entry`" %*`r`n"
-# & $launcher --version
-# if ($LASTEXITCODE -ne 0) {
-#   throw "Crew CLI verification failed with exit code $LASTEXITCODE."
-# }
-# '''
-
-# [tasks."crew:update"]
-# description = "Pull latest Blacklite/crew source and rebuild the crew CLI"
-# depends = ["crew:install"]
-
-# [tasks."crew:uninstall"]
-# description = "Remove the crew CLI symlink from mise PATH"
-# run = "rm -f \"$CREW_BIN/crew\""
-# run_windows = 'Remove-Item -LiteralPath (Join-Path $env:CREW_BIN "crew.cmd") -Force -ErrorAction SilentlyContinue'
-
 [tasks."mcpmu:skill-install"]
 description = "Install mcpmu agent skill across detected AI coding agents"
 run = "mcpmu skill install"
 
+[tasks."brew:casks"]
+description = "Install macOS GUI apps from setup/Brewfile.darwin via Homebrew Bundle (#67; macOS-only, idempotent)"
+run = """
+set -euo pipefail
+if [[ "$(uname)" != "Darwin" ]]; then
+  echo "brew:casks: skipping — macOS only" >&2
+  exit 0
+fi
+brew bundle --file "{{config_root}}/setup/Brewfile.darwin"
+"""

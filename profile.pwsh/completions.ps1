@@ -71,6 +71,9 @@ $ErrorActionPreference = "SilentlyContinue"
 . Invoke-DotfilesProfileStartupStep -Name 'Activate mise' -ScriptBlock {
     . (Get-DotfilesCommandScript 'mise activate pwsh')
 }
+. Invoke-DotfilesProfileStartupStep -Name 'Activate mise completion' -ScriptBlock {
+    . (Get-DotfilesCommandScript 'mise completion pwsh')
+}
 . Invoke-DotfilesProfileStartupStep -Name 'Activate fnox' -ScriptBlock {
     . (Get-DotfilesCommandScript 'fnox activate pwsh')
 }

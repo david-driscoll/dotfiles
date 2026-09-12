@@ -1,0 +1,21 @@
+#:schema https://fnox.jdx.dev/schema.json
+
+# To be fixed when the issue is resolved, see https://github.com/jdx/fnox/pull/818
+[daemon]
+enabled = true
+idle_timeout = "8h"
+
+[providers.age]
+type = "age"
+recipients = [
+  "age150z0s36kl9vud8728c5e4zqq6nmyywekk76rwvjclcsfc8mrxuuqr0qfg6",
+]
+
+[providers.op]
+type = "1password"
+vault = "Development"
+
+[secrets]
+FNOX_AGE_KEY =  { provider = "op", value = "age.key/credential" }
+GITHUB_TOKEN = { provider = "op", value = "GitHub Personal Access Token" }
+FNOX_PROFILE = { default = "macos" }

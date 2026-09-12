@@ -17,17 +17,6 @@
 ##
 ## `{{config_root}}` here resolves to this repo's root (this file's directory).
 
-[tasks."brew:casks"]
-description = "Install macOS GUI apps from setup/Brewfile.darwin via Homebrew Bundle (#67; macOS-only, idempotent)"
-run = """
-set -euo pipefail
-if [[ "$(uname)" != "Darwin" ]]; then
-  echo "brew:casks: skipping — macOS only" >&2
-  exit 0
-fi
-brew bundle --file "{{config_root}}/setup/Brewfile.darwin"
-"""
-
 [tasks.update-agents]
 description = "Update agents to the latest version"
 run = [
