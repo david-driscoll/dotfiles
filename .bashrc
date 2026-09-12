@@ -242,13 +242,9 @@ export PATH=$PATH:$HOME/.pulumi/bin
 # fresh Codespace/Coder Linux box) where it doesn't exist. (#68)
 [ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
 
-# OpenClaw Completion
-source "/Users/david/.openclaw/completions/openclaw.bash"
-
 # Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/david/.lmstudio/bin"
+export PATH="$PATH:$HOME/.lmstudio/bin"
 # End of LM Studio CLI section
-
 
 # Added by ToolHive UI - do not modify this block
 export PATH="$HOME/.toolhive/bin:$PATH"

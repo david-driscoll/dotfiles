@@ -275,7 +275,7 @@ compinit
 # End of Docker CLI completions
 
 # Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/david/.lmstudio/bin"
+export PATH="$PATH:$HOME/.lmstudio/bin"
 # End of LM Studio CLI section
 export DOTNET_ROOT="/usr/local/share/dotnet"
 export PATH="/usr/local/share/dotnet:$PATH"
