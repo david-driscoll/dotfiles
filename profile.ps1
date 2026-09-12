@@ -9,29 +9,45 @@ if ($global:DotfilesProfileInitialized) {
 }
 
 $global:DotfilesProfileStartupTimings = [System.Collections.Generic.List[object]]::new()
+$global:DotfilesProfileStartupStepStack = [System.Collections.Generic.Stack[object]]::new()
 
+# Always dot-source calls to this function (`. Invoke-DotfilesProfileStartupStep`)
+# and it dot-sources the step, so the step runs in the caller's scope. Calling it
+# normally, or using `& $ScriptBlock`, runs the step in a child scope that is
+# discarded afterwards, taking every function, alias and variable it defined
+# with it. Because the body shares the caller's scope with the step (and with
+# nested steps), per-step state lives on a stack instead of in local variables,
+# and parameter variables use unlikely names (callers use the -Name/-ScriptBlock
+# aliases) so they can't overwrite a profile variable such as `$Name`.
 function Invoke-DotfilesProfileStartupStep {
     param(
         [Parameter(Mandatory)]
-        [string] $Name,
+        [Alias('Name')]
+        [string] $DotfilesProfileStepName,
 
         [Parameter(Mandatory)]
-        [scriptblock] $ScriptBlock
+        [Alias('ScriptBlock')]
+        [scriptblock] $DotfilesProfileStepScriptBlock
     )
 
-    $stopwatch = [Diagnostics.Stopwatch]::StartNew()
-    $succeeded = $false
+    $global:DotfilesProfileStartupStepStack.Push([pscustomobject]@{
+            Name      = $DotfilesProfileStepName
+            Stopwatch = [Diagnostics.Stopwatch]::StartNew()
+            Completed = $false
+        })
     try {
-        & $ScriptBlock
-        $succeeded = $true
+        . $DotfilesProfileStepScriptBlock
+        $global:DotfilesProfileStartupStepStack.Peek().Completed = $true
     }
     finally {
-        $stopwatch.Stop()
+        $dotfilesProfileStep = $global:DotfilesProfileStartupStepStack.Pop()
+        $dotfilesProfileStep.Stopwatch.Stop()
         $global:DotfilesProfileStartupTimings.Add([pscustomobject]@{
-                Step        = $Name
-                Milliseconds = [Math]::Round($stopwatch.Elapsed.TotalMilliseconds, 1)
-                Completed    = $succeeded
+                Step         = $dotfilesProfileStep.Name
+                Milliseconds = [Math]::Round($dotfilesProfileStep.Stopwatch.Elapsed.TotalMilliseconds, 1)
+                Completed    = $dotfilesProfileStep.Completed
             })
+        Remove-Variable -Name dotfilesProfileStep, DotfilesProfileStepName, DotfilesProfileStepScriptBlock -ErrorAction Ignore
     }
 }
 
@@ -51,24 +67,24 @@ try {
     }
 
     if ($IsMacOS) {
-        Invoke-DotfilesProfileStartupStep -Name 'Source profile.darwin.ps1' -ScriptBlock {
+        . Invoke-DotfilesProfileStartupStep -Name 'Source profile.darwin.ps1' -ScriptBlock {
             . (Join-Path $PSScriptRoot 'profile.darwin.ps1')
         }
     }
     if ($IsWindows) {
-        Invoke-DotfilesProfileStartupStep -Name 'Source profile.windows.ps1' -ScriptBlock {
+        . Invoke-DotfilesProfileStartupStep -Name 'Source profile.windows.ps1' -ScriptBlock {
             . (Join-Path $PSScriptRoot 'profile.windows.ps1')
         }
     }
     if ($IsLinux) {
-        Invoke-DotfilesProfileStartupStep -Name 'Source profile.linux.ps1' -ScriptBlock {
+        . Invoke-DotfilesProfileStartupStep -Name 'Source profile.linux.ps1' -ScriptBlock {
             . (Join-Path $PSScriptRoot 'profile.linux.ps1')
         }
     }
 
     foreach ($profileScript in Get-ChildItem -LiteralPath (Join-Path $PSScriptRoot 'profile.pwsh') -Filter '*.ps1' | Sort-Object Name) {
         $profileScriptPath = $profileScript.FullName
-        Invoke-DotfilesProfileStartupStep -Name "Source profile.pwsh\$($profileScript.Name)" -ScriptBlock {
+        . Invoke-DotfilesProfileStartupStep -Name "Source profile.pwsh\$($profileScript.Name)" -ScriptBlock {
             . $profileScriptPath
         }
     }
@@ -78,12 +94,12 @@ try {
     }
     foreach ($profileExtension in $profileExtensions) {
         $profileExtensionPath = $profileExtension.FullName
-        Invoke-DotfilesProfileStartupStep -Name "Source profile extension $($profileExtension.Name)" -ScriptBlock {
+        . Invoke-DotfilesProfileStartupStep -Name "Source profile extension $($profileExtension.Name)" -ScriptBlock {
             . $profileExtensionPath
         }
     }
 
-    Invoke-DotfilesProfileStartupStep -Name 'Initialize Starship prompt' -ScriptBlock {
+    . Invoke-DotfilesProfileStartupStep -Name 'Initialize Starship prompt' -ScriptBlock {
         $env:STARSHIP_CONFIG = Join-Path $PSScriptRoot 'starship.toml'
         $starship = Get-Command starship
         $promptModule = & $starship init powershell --print-full-init | Out-String

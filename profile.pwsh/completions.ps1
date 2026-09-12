@@ -8,9 +8,13 @@ else {
     'missing'
 }
 
-function CheckAndRun($command) {
+# Returns the (cached) output of $command as a script block for the caller to
+# dot-source, e.g. `. (Get-DotfilesCommandScript 'mise activate pwsh')`. Running
+# it here with `&` would put anything it defines (such as mise's `mise` wrapper
+# function) in this function's child scope, where it is discarded on return.
+function Get-DotfilesCommandScript($command) {
     if (-not (Get-Command $command.Split(' ')[0] -ErrorAction SilentlyContinue)) {
-        return
+        return {}
     }
 
     $hashAlgorithm = [Security.Cryptography.SHA256]::Create()
@@ -30,8 +34,7 @@ function CheckAndRun($command) {
         if (($cacheContent -split '\r?\n', 2)[0] -eq $cacheHeader) {
             $cachedCompletion = $cacheContent -replace '^[^\r\n]*\r?\n', ''
             if (-not [string]::IsNullOrWhiteSpace($cachedCompletion)) {
-                & ([scriptblock]::Create($cachedCompletion))
-                return
+                return [scriptblock]::Create($cachedCompletion)
             }
         }
     }
@@ -56,59 +59,59 @@ function CheckAndRun($command) {
     Move-Item -LiteralPath $temporaryCachePath -Destination $cachePath -Force
 
     if ([string]::IsNullOrWhiteSpace($completion)) {
-        return
+        return {}
     }
 
-    & ([scriptblock]::Create($completion))
+    return [scriptblock]::Create($completion)
 }
 
 $oldPreference = $ErrorActionPreference
 $ErrorActionPreference = "SilentlyContinue"
 
-Invoke-DotfilesProfileStartupStep -Name 'Activate mise' -ScriptBlock {
-    CheckAndRun 'mise activate pwsh'
+. Invoke-DotfilesProfileStartupStep -Name 'Activate mise' -ScriptBlock {
+    . (Get-DotfilesCommandScript 'mise activate pwsh')
 }
-Invoke-DotfilesProfileStartupStep -Name 'Activate fnox' -ScriptBlock {
-    CheckAndRun 'fnox activate pwsh'
+. Invoke-DotfilesProfileStartupStep -Name 'Activate fnox' -ScriptBlock {
+    . (Get-DotfilesCommandScript 'fnox activate pwsh')
 }
-Invoke-DotfilesProfileStartupStep -Name 'Generate fnox completion' -ScriptBlock {
-    CheckAndRun 'fnox completion pwsh'
+. Invoke-DotfilesProfileStartupStep -Name 'Generate fnox completion' -ScriptBlock {
+    . (Get-DotfilesCommandScript 'fnox completion pwsh')
 }
-Invoke-DotfilesProfileStartupStep -Name 'Generate uv completion' -ScriptBlock {
-    CheckAndRun 'uv generate-shell-completion powershell'
+. Invoke-DotfilesProfileStartupStep -Name 'Generate uv completion' -ScriptBlock {
+    . (Get-DotfilesCommandScript 'uv generate-shell-completion powershell')
 }
-Invoke-DotfilesProfileStartupStep -Name 'Generate yq completion' -ScriptBlock {
-    CheckAndRun 'yq shell-completion powershell'
+. Invoke-DotfilesProfileStartupStep -Name 'Generate yq completion' -ScriptBlock {
+    . (Get-DotfilesCommandScript 'yq shell-completion powershell')
 }
-Invoke-DotfilesProfileStartupStep -Name 'Generate dotnet completion' -ScriptBlock {
-    CheckAndRun 'dotnet completions script pwsh'
+. Invoke-DotfilesProfileStartupStep -Name 'Generate dotnet completion' -ScriptBlock {
+    . (Get-DotfilesCommandScript 'dotnet completions script pwsh')
 }
-Invoke-DotfilesProfileStartupStep -Name 'Generate gh completion' -ScriptBlock {
-    CheckAndRun 'gh completion -s powershell'
+. Invoke-DotfilesProfileStartupStep -Name 'Generate gh completion' -ScriptBlock {
+    . (Get-DotfilesCommandScript 'gh completion -s powershell')
 }
-Invoke-DotfilesProfileStartupStep -Name 'Generate 1Password completion' -ScriptBlock {
-    CheckAndRun 'op completion powershell'
+. Invoke-DotfilesProfileStartupStep -Name 'Generate 1Password completion' -ScriptBlock {
+    . (Get-DotfilesCommandScript 'op completion powershell')
 }
-Invoke-DotfilesProfileStartupStep -Name 'Generate kubectl completion' -ScriptBlock {
-    CheckAndRun 'kubectl completion powershell'
+. Invoke-DotfilesProfileStartupStep -Name 'Generate kubectl completion' -ScriptBlock {
+    . (Get-DotfilesCommandScript 'kubectl completion powershell')
 }
-Invoke-DotfilesProfileStartupStep -Name 'Generate helm completion' -ScriptBlock {
-    CheckAndRun 'helm completion powershell'
+. Invoke-DotfilesProfileStartupStep -Name 'Generate helm completion' -ScriptBlock {
+    . (Get-DotfilesCommandScript 'helm completion powershell')
 }
-Invoke-DotfilesProfileStartupStep -Name 'Generate kustomize completion' -ScriptBlock {
-    CheckAndRun 'kustomize completion powershell'
+. Invoke-DotfilesProfileStartupStep -Name 'Generate kustomize completion' -ScriptBlock {
+    . (Get-DotfilesCommandScript 'kustomize completion powershell')
 }
-Invoke-DotfilesProfileStartupStep -Name 'Generate Flux completion' -ScriptBlock {
-    CheckAndRun 'flux completion powershell'
+. Invoke-DotfilesProfileStartupStep -Name 'Generate Flux completion' -ScriptBlock {
+    . (Get-DotfilesCommandScript 'flux completion powershell')
 }
-Invoke-DotfilesProfileStartupStep -Name 'Generate Starship completion' -ScriptBlock {
-    CheckAndRun 'starship completions powershell'
+. Invoke-DotfilesProfileStartupStep -Name 'Generate Starship completion' -ScriptBlock {
+    . (Get-DotfilesCommandScript 'starship completions powershell')
 }
-Invoke-DotfilesProfileStartupStep -Name 'Generate talosctl completion' -ScriptBlock {
-    CheckAndRun 'talosctl completion powershell'
+. Invoke-DotfilesProfileStartupStep -Name 'Generate talosctl completion' -ScriptBlock {
+    . (Get-DotfilesCommandScript 'talosctl completion powershell')
 }
-Invoke-DotfilesProfileStartupStep -Name 'Generate talhelper completion' -ScriptBlock {
-    CheckAndRun 'talhelper completion powershell'
+. Invoke-DotfilesProfileStartupStep -Name 'Generate talhelper completion' -ScriptBlock {
+    . (Get-DotfilesCommandScript 'talhelper completion powershell')
 }
 
 $ErrorActionPreference = $oldPreference
