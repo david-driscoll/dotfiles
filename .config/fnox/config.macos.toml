@@ -17,5 +17,5 @@ vault = "Development"
 
 [secrets]
 FNOX_AGE_KEY =  { provider = "op", value = "age.key/credential" }
-GITHUB_TOKEN = { provider = "op", value = "GitHub Personal Access Token" }
-FNOX_PROFILE = { default = "macos" }
+GITHUB_TOKEN = { provider = "op", value = "GitHub Personal Access Token/token" }
+# FNOX_PROFILE = { default = "macos" }
