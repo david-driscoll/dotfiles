@@ -37,7 +37,7 @@ talhelper = "3.1.17" # aqua:budimanjojo/talhelper
 mkcert = "1.4.4" # aqua:FiloSottile/mkcert
 powershell = "7.6.5"
 python = "3.14.7"
-"pipx:graphifyy" = "0.9.59"
+"pipx:graphifyy" = "0.9.61"
 
 [settings]
 experimental = true
