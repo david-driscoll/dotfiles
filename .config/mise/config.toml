@@ -1,6 +1,6 @@
 [tools]
 fnox = "1.35.1"
-go = "1.26.8"
+go = "1.27.1"
 "go:github.com/Bigsy/mcpmu/cmd/mcpmu" = "0.1.33"
 hk = "1.56.1"
 pkl = "0.32.1"
