@@ -15,7 +15,13 @@ recipients = [
 type = "1password"
 vault = "Development"
 
+[providers.openbao-equestria]
+type = "vault"
+address = "https://bao.equestria.driscoll.tech"
+credential_command = "bao login -method=oidc -token-only"
+
 [secrets]
 FNOX_AGE_KEY =  { provider = "op", value = "age.key/credential" }
 GITHUB_TOKEN = { provider = "op", value = "GitHub Personal Access Token/token" }
+
 # FNOX_PROFILE = { default = "macos" }
