@@ -22,7 +22,7 @@ node = "24.21.0"
 "github:eljulians/skillfile" = { version = "v1.9.2", bin = "skillfile" }
 gh = "2.101.0" # aqua:cli/cli
 terraform = "1.15.8" # aqua:hashicorp/terraform
-pulumi = "3.262.0" # aqua:pulumi/pulumi
+pulumi = "3.263.0" # aqua:pulumi/pulumi
 kubectl = "1.37.0" # aqua:kubernetes/kubernetes/kubectl
 helm = "4.2.4" # aqua:helm/helm
 helmfile = "1.8.0" # aqua:helmfile/helmfile
