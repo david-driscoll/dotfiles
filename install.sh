@@ -8,8 +8,9 @@
 # build, so every step in this script must either be silent-safe or degrade
 # to a logged warning instead of blocking on input.
 #
-# Flow: install mise (if absent) -> symlink ~/.config/mise at this repo's
-# .config/mise -> `mise trust` the config -> `mise bootstrap --yes`, which
+# Flow: install mise (if absent) -> symlink ~/dotfiles at this checkout ->
+# link this repo's mise config files into ~/.config/mise -> `mise trust`
+# them by explicit path -> `mise bootstrap --yes`, which
 # is the single declarative step that installs OS packages, applies
 # [dotfiles], and installs [tools]. See #61 (epic) and #68 for the full
 # rationale, and PRs #79/#81 for how [dotfiles]/[bootstrap.packages] got
@@ -128,42 +129,95 @@ install_mise() {
 	log "mise installed to ~/.local/bin/mise"
 }
 
-# --- ~/.config/mise symlink ---------------------------------------------
+# --- ~/dotfiles symlink ---------------------------------------------------
 #
-# The one bootstrap symlink that can't be dotfiles-managed: it's the file
-# [dotfiles] itself lives in, so mise can't declare it (chicken-and-egg).
-# Handles every state this can be in on a real machine: already correct
-# (idempotent no-op), a stale/dangling symlink (relink), or — less likely
-# here but possible if something else already created it — a real
-# directory (back it up rather than deleting anything).
+# Everything downstream addresses this repo as ~/dotfiles: every [dotfiles]
+# source and `dotfiles.root` in .config/mise/config*.toml, STARSHIP_CONFIG
+# and COPILOT_CUSTOM_INSTRUCTIONS_DIRS in .bashrc/.zshrc. Only a hand-made
+# clone actually lands there -- Coder's dotfiles module clones to
+# ~/.config/coderv2/dotfiles and Codespaces to /workspaces/.codespaces/...,
+# where `mise bootstrap` fails with "sources do not exist" for all 16
+# entries. Point ~/dotfiles at the real checkout instead of teaching every
+# consumer a second path.
+link_repo_home() {
+	local target="$HOME/dotfiles"
+
+	if [ "$REPO_DIR" = "$target" ]; then
+		return 0
+	fi
+	if [ -L "$target" ]; then
+		if [ "$(readlink "$target")" = "$REPO_DIR" ]; then
+			log "~/dotfiles already links to $REPO_DIR"
+			return 0
+		fi
+		log "~/dotfiles is a symlink to '$(readlink "$target")' — relinking to $REPO_DIR"
+		rm -f "$target"
+	elif [ -e "$target" ]; then
+		# A real second checkout. Leave it alone: [dotfiles] will resolve
+		# against IT, which is at least self-consistent, and deleting or
+		# moving a git checkout from a bootstrap script is not.
+		log "WARNING: ~/dotfiles already exists and is not this checkout ($REPO_DIR) — [dotfiles] sources will resolve against it"
+		return 0
+	fi
+
+	ln -s "$REPO_DIR" "$target"
+	log "linked ~/dotfiles -> $REPO_DIR"
+}
+
+# --- ~/.config/mise config links ------------------------------------------
+#
+# The bootstrap links that can't be left to [dotfiles]: config.toml is the
+# file [dotfiles] itself lives in, so mise can't declare it before it can
+# read it (chicken-and-egg), and config.<os>.toml is not a [dotfiles] entry
+# at all.
+#
+# ~/.config/mise is a REAL directory holding per-file symlinks -- the same
+# shape [dotfiles] itself produces ("~/.config/mise/config.toml" and
+# "~/.config/mise/scripts" are both entries). This used to symlink the whole
+# directory at the checkout, which made those two entries self-referential:
+# the target already existed as the source file seen through the directory
+# link, and `mise bootstrap` stopped at "refusing to overwrite existing
+# files". It also meant ensure_age_key() below generated the age PRIVATE
+# key inside the git checkout.
+#
+# Links are spelled via ~/dotfiles (see link_repo_home) so they are
+# byte-identical to the [dotfiles] `source` strings and mise treats them as
+# already applied.
 link_mise_config() {
 	local target="$HOME/.config/mise"
-	local source="$REPO_DIR/.config/mise"
+	local source="$HOME/dotfiles/.config/mise"
 
 	[ -d "$source" ] || die "expected $source to exist (this repo's mise config) but it doesn't"
 
 	mkdir -p "$HOME/.config"
 
 	if [ -L "$target" ]; then
-		local current
-		current="$(readlink "$target")"
-		if [ "$current" = "$source" ]; then
-			log "~/.config/mise already links to $source"
-			return 0
-		fi
-		log "~/.config/mise is a symlink to '$current' (stale, dangling, or pointing at a different checkout) — relinking to $source"
+		log "~/.config/mise is a whole-directory symlink to '$(readlink "$target")' (the old layout) — replacing it with a real directory of per-file links"
 		rm -f "$target"
-	elif [ -d "$target" ]; then
-		local backup
-		backup="${target}.bak.$(date +%Y%m%d%H%M%S)"
-		log "~/.config/mise exists as a real directory (not a symlink) — moving it aside to $backup rather than overwriting it"
-		mv "$target" "$backup"
-	elif [ -e "$target" ]; then
+	elif [ -e "$target" ] && [ ! -d "$target" ]; then
 		die "~/.config/mise exists and is neither a directory nor a symlink — refusing to touch it, please move it aside manually"
 	fi
+	mkdir -p "$target"
 
-	ln -s "$source" "$target"
-	log "linked ~/.config/mise -> $source"
+	local cfg name link
+	# config.toml + this platform's layer only; config.macos*.toml has no
+	# business in a Linux home.
+	for cfg in "$source/config.toml" "$source/config.linux.toml"; do
+		[ -f "$cfg" ] || continue
+		name="$(basename -- "$cfg")"
+		link="$target/$name"
+		if [ -L "$link" ]; then
+			[ "$(readlink "$link")" = "$cfg" ] && continue
+			rm -f "$link"
+		elif [ -e "$link" ]; then
+			local backup
+			backup="${link}.bak.$(date +%Y%m%d%H%M%S)"
+			log "$link is a real file — moving it aside to $backup rather than overwriting it"
+			mv "$link" "$backup"
+		fi
+		ln -s "$cfg" "$link"
+		log "linked $link -> $cfg"
+	done
 }
 
 # --- age.key for fnox and mise decryption --------------------------------
@@ -221,9 +275,23 @@ ensure_age_key() {
 trust_and_bootstrap() {
 	export MISE_AUTO_ENV=1
 
-	log "trusting mise config under ~/.config/mise"
-	(cd "$HOME/.config/mise" && mise trust --all) ||
-		die "mise trust failed — see output above"
+	# Trust each config by explicit path -- NOT `mise trust --all`. `--all`
+	# loops "until nothing under cwd is untrusted", and every file under
+	# ~/.config/mise resolves to the trust root `~`. Run from that dir it
+	# also sees this repo's own mise.toml one level up (the symlink
+	# canonicalises into the checkout), which trusting `~` never satisfies,
+	# so it re-trusts `~` forever: a Coder workspace logged 306,321
+	# `mise trusted ~` lines in five minutes and never reached bootstrap
+	# (mise 2026.9.11). The repo-root mise.toml is the one that actually
+	# needs trusting -- it is a project config, and its postinstall hooks
+	# are what `mise bootstrap` runs from this checkout.
+	log "trusting mise config: $REPO_DIR"
+	local cfg
+	for cfg in "$REPO_DIR/mise.toml" "$REPO_DIR"/.config/mise/config*.toml; do
+		[ -f "$cfg" ] || continue
+		mise trust --quiet "$cfg" ||
+			die "mise trust failed for $cfg — see output above"
+	done
 
 	log "running mise bootstrap --yes (packages, dotfiles, tools)"
 	mise bootstrap --yes ||
@@ -271,6 +339,7 @@ main() {
 	export PATH="$HOME/.local/bin:$PATH"
 
 	install_mise
+	link_repo_home
 	link_mise_config
 	ensure_age_key
 	trust_and_bootstrap
