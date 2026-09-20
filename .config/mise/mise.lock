@@ -544,7 +544,7 @@ url = "https://github.com/helmfile/helmfile/releases/download/v1.8.0/helmfile_1.
 url_api = "https://api.github.com/repos/helmfile/helmfile/releases/assets/560342877"
 
 [[tools.hk]]
-version = "1.56.1"
+version = "1.58.1"
 backend = "aqua:jdx/hk"
 
 [tools.hk."platforms.linux-arm64"]
