@@ -61,6 +61,13 @@ $profileInitialized = $false
 try {
     $env:COPILOT_CUSTOM_INSTRUCTIONS_DIRS = Join-Path $PSScriptRoot 'ai'
 
+    # Enables mise's platform config-file layering (config.macos.toml /
+    # config.linux.toml alongside .config/mise/config.toml), matching .zshrc
+    # and .bashrc. Must be set before `mise activate pwsh` in
+    # profile.pwsh/completions.ps1 -- without it the macOS layer's [env]
+    # (SSH_AUTH_SOCK for the 1Password agent) never reaches pwsh.
+    $env:MISE_AUTO_ENV = '1'
+
     $dotfilesModulePath = Join-Path $PSScriptRoot 'psmodules'
     if (-not $env:PSModulePath.Contains($dotfilesModulePath)) {
         $env:PSModulePath = $env:PSModulePath.Insert(0, "$dotfilesModulePath$([IO.Path]::PathSeparator)")

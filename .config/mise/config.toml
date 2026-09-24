@@ -58,6 +58,13 @@ auto_env = true
 "~/.apm/marketplaces.json" = {}
 "~/.gitconfig" = { source = "~/dotfiles/git/gitconfig" }
 "~/.config/mise/config.toml" = { source = "~/dotfiles/.config/mise/config.toml" }
+# The macOS platform layers have to be linked from HERE, not from their own
+# [dotfiles]: mise only reads config.macos.toml once it is already in
+# ~/.config/mise, so an entry inside it could never create its own link.
+# `variants` keeps them off Linux/Windows homes (see install.sh's note that
+# config.macos*.toml has no business there).
+"~/.config/mise/config.macos.toml" = { source = "~/dotfiles/.config/mise/config.macos.toml", variants = [{ os = "macos" }] }
+"~/.config/mise/config.macos-arm64.toml" = { source = "~/dotfiles/.config/mise/config.macos-arm64.toml", variants = [{ os = "macos" }] }
 "~/.config/mise/scripts" = { source = "~/dotfiles/.config/mise/scripts", mode = "symlink-each" }
 "~/.config/mcpmu/config.json" = { source = "~/dotfiles/mcpmu/config.json" }
 # To be fixed when the issue is resolved, see https://github.com/jdx/fnox/pull/818
