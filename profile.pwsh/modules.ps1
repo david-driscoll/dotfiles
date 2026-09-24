@@ -5,7 +5,48 @@
     Import-Module posh-git
 }
 . Invoke-DotfilesProfileStartupStep -Name 'Import Terminal-Icons' -ScriptBlock {
-    Import-Module Terminal-Icons
+    # Terminal-Icons reads and then rewrites (non-atomically, via Export-Clixml)
+    # every theme cache file under its storage path on EVERY import. Two pwsh
+    # processes starting together can leave a half-written XML behind, and the
+    # next import then fails with "Name cannot begin with the '<' character".
+    # Serialize the import across processes, and drop any cache file that no
+    # longer parses first -- the module regenerates it from its built-in themes.
+    $terminalIconsMutex = [Threading.Mutex]::new($false, 'dotfiles-terminal-icons-import')
+    $terminalIconsMutexHeld = $false
+    try {
+        try {
+            $terminalIconsMutexHeld = $terminalIconsMutex.WaitOne([TimeSpan]::FromSeconds(10))
+        }
+        catch [Threading.AbandonedMutexException] {
+            # A previous holder exited mid-import; we own the mutex now.
+            $terminalIconsMutexHeld = $true
+        }
+
+        # Mirrors Terminal-Icons' own Get-ThemeStoragePath.
+        $terminalIconsBasePath = if ($IsLinux -or $IsMacOS) {
+            if ($env:XDG_CONFIG_HOME) { $env:XDG_CONFIG_HOME } else { [IO.Path]::Combine($HOME, '.local', 'share') }
+        }
+        elseif ($env:APPDATA) { $env:APPDATA }
+        else { [Environment]::GetFolderPath('ApplicationData') }
+        $terminalIconsStoragePath = [IO.Path]::Combine($terminalIconsBasePath, 'powershell', 'Community', 'Terminal-Icons')
+
+        foreach ($terminalIconsCacheFile in Get-ChildItem -LiteralPath $terminalIconsStoragePath -Filter '*.xml' -ErrorAction Ignore) {
+            try {
+                $null = [xml](Get-Content -LiteralPath $terminalIconsCacheFile.FullName -Raw)
+            }
+            catch {
+                Remove-Item -LiteralPath $terminalIconsCacheFile.FullName -Force -ErrorAction Ignore
+            }
+        }
+
+        Import-Module Terminal-Icons
+    }
+    finally {
+        if ($terminalIconsMutexHeld) {
+            $terminalIconsMutex.ReleaseMutex()
+        }
+        $terminalIconsMutex.Dispose()
+    }
 }
 . Invoke-DotfilesProfileStartupStep -Name 'Import Microsoft.PowerShell.TextUtility' -ScriptBlock {
     Import-Module Microsoft.PowerShell.TextUtility

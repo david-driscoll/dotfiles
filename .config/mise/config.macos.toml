@@ -22,6 +22,13 @@
 "brew:azure-cli" = "latest"
 "brew:speedtest-cli" = "latest" # "?" in the epic — confirm keep/drop
 
+[env]
+# Point every shell at the 1Password SSH agent. ~/.ssh/config's IdentityAgent
+# only covers `ssh`; `ssh-keygen -Y sign`, `ssh-add` and anything else that
+# talks to an agent read SSH_AUTH_SOCK alone, and on macOS that otherwise
+# defaults to launchd's agent, which holds none of the 1Password keys.
+SSH_AUTH_SOCK = "{{env.HOME}}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+
 [bootstrap.hooks]
 post-packages = [
     "mise run brew:casks"
