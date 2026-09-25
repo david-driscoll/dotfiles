@@ -1,7 +1,7 @@
 [tools]
 fnox = "v1.35.3"
 go = "1.27.1"
-"go:github.com/Bigsy/mcpmu/cmd/mcpmu" = "0.1.33"
+"go:github.com/Bigsy/mcpmu/cmd/mcpmu" = "v0.1.34"
 hk = "1.58.1"
 pkl = "0.32.1"
 gitleaks = "8.30.1"
