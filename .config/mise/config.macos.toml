@@ -62,3 +62,11 @@ three_finger_drag = false
 "~/.ssh" = { source = "~/dotfiles/ssh", mode = "symlink-each" }
 # To be fixed when the issue is resolved, see https://github.com/jdx/fnox/pull/818
 "~/.config/fnox/config.toml" = { source = "~/dotfiles/.config/fnox/config.macos.toml" }
+
+[tools]
+terraform = "1.15.8" # aqua:hashicorp/terraform
+pulumi = "3.263.0" # aqua:pulumi/pulumi
+helm = "4.3.0" # aqua:helm/helm
+helmfile = "1.8.0" # aqua:helmfile/helmfile
+talosctl = "1.14.1" # aqua:siderolabs/talos
+talhelper = "3.1.17" # aqua:budimanjojo/talhelper
