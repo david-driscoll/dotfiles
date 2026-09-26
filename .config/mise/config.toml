@@ -29,7 +29,7 @@ direnv = "2.37.1" # aqua:direnv/direnv
 mkcert = "1.4.4" # aqua:FiloSottile/mkcert
 powershell = "7.6.6"
 python = "3.14.7"
-"pipx:graphifyy" = "0.9.68"
+"pipx:graphifyy" = "0.9.69"
 "dotnet:graphify-dotnet" = "0.7.0"
 
 [settings]
