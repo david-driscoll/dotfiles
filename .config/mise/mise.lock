@@ -811,7 +811,7 @@ version = "1.0.88"
 backend = "npm:@github/copilot"
 
 [[tools."pipx:graphifyy"]]
-version = "0.9.68"
+version = "0.9.69"
 backend = "pipx:graphifyy"
 
 [[tools.pkl]]
