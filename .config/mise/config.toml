@@ -18,7 +18,7 @@ node = "24.21.0"
 dotnet = ["10.0.400", "8.0.425"]
 "github:microsoft/apm" = { version = "v0.31.0", bin = "apm" }
 "github:eljulians/skillfile" = { version = "v1.9.2", bin = "skillfile" }
-gh = "2.101.0" # aqua:cli/cli
+gh = "2.102.0" # aqua:cli/cli
 kubectl = "1.37.1" # aqua:kubernetes/kubernetes/kubectl
 kustomize = "5.8.1" # aqua:kubernetes-sigs/kustomize
 kubeconform = "0.8.0" # aqua:yannh/kubeconform
