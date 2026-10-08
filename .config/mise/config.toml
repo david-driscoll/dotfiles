@@ -20,7 +20,7 @@ dotnet = ["10.0.400", "8.0.425"]
 "github:eljulians/skillfile" = { version = "v1.9.2", bin = "skillfile" }
 gh = "2.101.0" # aqua:cli/cli
 kubectl = "1.37.1" # aqua:kubernetes/kubernetes/kubectl
-kustomize = "5.8.2" # aqua:kubernetes-sigs/kustomize
+kustomize = "5.8.3" # aqua:kubernetes-sigs/kustomize
 kubeconform = "0.8.0" # aqua:yannh/kubeconform
 flux2 = "2.9.6" # aqua:fluxcd/flux2 -> installs the `flux` binary
 starship = "1.26.0" # aqua:starship/starship
