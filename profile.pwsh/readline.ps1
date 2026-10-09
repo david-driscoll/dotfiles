@@ -29,6 +29,11 @@ if ($IsMacOS -or $IsLinux) {
 	# Set-PSReadLineKeyHandler -Key Escape -Function BackwardKillInput
 }
 if ($IsWindows) {
-	# Emacs mode leaves these unbound, so paste breaks in hosts that forward the keys (e.g. VS Code).
+	# Emacs mode leaves these unbound, so paste breaks in hosts that forward the keys (e.g. VS Code, Rider).
 	Set-PSReadLineKeyHandler -Chord Ctrl+v, Shift+Insert -Function Paste
+	# Emacs mode maps Ctrl+Backspace to a single-char delete and leaves Ctrl+arrows unbound.
+	Set-PSReadLineKeyHandler -Chord Ctrl+Backspace -Function BackwardKillWord
+	Set-PSReadLineKeyHandler -Chord Ctrl+Delete -Function KillWord
+	Set-PSReadLineKeyHandler -Chord Ctrl+LeftArrow -Function BackwardWord
+	Set-PSReadLineKeyHandler -Chord Ctrl+RightArrow -Function NextWord
 }
