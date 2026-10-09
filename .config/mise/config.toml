@@ -100,14 +100,3 @@ if (-not $script) {
 }
 & $script
 '''
-
-[tasks."brew:casks"]
-description = "Install macOS GUI apps from setup/Brewfile.darwin via Homebrew Bundle (#67; macOS-only, idempotent)"
-run = """
-set -euo pipefail
-if [[ "$(uname)" != "Darwin" ]]; then
-  echo "brew:casks: skipping — macOS only" >&2
-  exit 0
-fi
-brew bundle --file "{{config_root}}/setup/Brewfile.darwin"
-"""

@@ -3,7 +3,7 @@
 
 [core]
 	eol = lf
-	autocrlf = false
+	autocrlf = true
 	editor = vi
 	packedGitLimit = 512m
 	packedGitWindowSize = 512m

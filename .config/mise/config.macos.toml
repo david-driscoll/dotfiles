@@ -70,3 +70,14 @@ helm = "4.3.0" # aqua:helm/helm
 helmfile = "1.8.1" # aqua:helmfile/helmfile
 talosctl = "1.14.2" # aqua:siderolabs/talos
 talhelper = "3.1.17" # aqua:budimanjojo/talhelper
+
+[tasks."brew:casks"]
+description = "Install macOS GUI apps from setup/Brewfile.darwin via Homebrew Bundle (#67; macOS-only, idempotent)"
+run = """
+set -euo pipefail
+if [[ "$(uname)" != "Darwin" ]]; then
+  echo "brew:casks: skipping — macOS only" >&2
+  exit 0
+fi
+brew bundle --file "{{config_root}}/setup/Brewfile.darwin"
+"""

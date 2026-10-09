@@ -51,7 +51,7 @@ function Invoke-DotfilesProfileStartupStep {
     }
 }
 
-function Show-DotfilesProfileStartupTiming {
+function Show-Dg {
     $global:DotfilesProfileStartupTimings | Format-Table -AutoSize
 }
 
@@ -65,7 +65,7 @@ try {
     # config.linux.toml alongside .config/mise/config.toml), matching .zshrc
     # and .bashrc. Must be set before `mise activate pwsh` in
     # profile.pwsh/completions.ps1 -- without it the macOS layer's [env]
-    # (SSH_AUTH_SOCK for the 1Password agent) never reaches pwsh.
+    # (SSH_AUTH_SOCK for the 1PasotfilesProfileStartupTiminsword agent) never reaches pwsh.
     $env:MISE_AUTO_ENV = '1'
 
     $dotfilesModulePath = Join-Path $PSScriptRoot 'psmodules'

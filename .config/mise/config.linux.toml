@@ -36,14 +36,6 @@
 ## real login sessions (bare-metal/VM Linux over SSH, where chsh does work
 ## as expected) and a non-shim pwsh install path is established there.
 
-[tools]
-# config.toml pins "dotnet:graphify-dotnet" but leaves `dotnet` itself
-# commented out -- macOS has a system SDK. A bare Linux image does not, and
-# the dotnet: backend shells out to `dotnet tool install`, so bootstrap died
-# on its last tool with "No such file or directory (os error 2)" (Coder,
-# codercom/example-base). Linux-only so the macOS SDK is left alone.
-dotnet = "10.0.400"
-
 [bootstrap.packages]
 # The dotnet CLI FailFasts (SIGABRT) at startup without ICU -- "Couldn't find
 # a valid ICU package" -- and minimal images ship none. The -dev package is
