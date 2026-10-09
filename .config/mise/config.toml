@@ -2,15 +2,22 @@
 experimental = true
 idiomatic_version_file_enable_tools = ["dotnet"]
 lockfile = true
-dotfiles.root = "~/dotfiles"
 auto_env = true
+
+[settings.dotfiles]
+root = "~/dotfiles"
+
+[settings.skills]
+dir = ".agents/skills"
+auto_sync = true
+prune = true
 
 [env]
 # SOPS_AGE_KEY = "{{ env.FNOX_AGE_KEY }}"
 # CREW_PERSONAL_DIR = "{{config_root}}/.crew/.crew"
 # CREW_SRC = "{{config_root}}/.cache/crew-source"
 # CREW_BIN = "{{config_root}}/.cache/bin"
-_.path = ["{{config_root}}/.cache/bin"]
+# _.path = ["{{config_root}}/.cache/bin"]
 
 [tools]
 fnox = "v1.39.0"

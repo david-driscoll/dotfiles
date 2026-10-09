@@ -1,13 +1,13 @@
 lockfile_version: '1'
-generated_at: '2026-07-08T14:17:54.425222+00:00'
-apm_version: 0.24.0
+generated_at: '2026-10-09T18:55:06.587976+00:00'
+apm_version: 0.33.0
 dependencies:
 - repo_url: emaynard/claude-family-history-research-skill
   name: family-history-planning
   host: github.com
   resolved_commit: 8b153b306a955ce5cec3fac3d33261b1b732ab97
   resolved_ref: v1.0.6
-  version: 1.0.0
+  version: unknown
   package_type: claude_skill
   deployed_files:
   - .agents/skills/claude-family-history-research-skill
@@ -94,3 +94,382 @@ dependencies:
     .claude/skills/claude-family-history-research-skill/references/research-plan-guidance.md: sha256:59c6651a5c7c367a2a661e37af373d9a85f1b879369dbcb75e99cff24bc7edca
     .claude/skills/claude-family-history-research-skill/references/research-strategies.md: sha256:5a9a3784da184d40742eec8a543c27fab46fd3967f7e8fc043f8d62ef089e289
   content_hash: sha256:be0abf53c7f1726c134cb1e5d7c92e2be48acb889b82489bb92d76aa73774faf
+deployments:
+- kind: project-relative
+  target: claude
+  value: .claude/skills/claude-family-history-research-skill
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/claude-family-history-research-skill/.github/workflows/release.yml
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:0bed6bd2cc3733f75d2683707f1dfac01150ea71fa02aa438fa26c7d393364e8
+- kind: project-relative
+  target: claude
+  value: .claude/skills/claude-family-history-research-skill/.gitignore
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:0ea9e7dc1f0c8d746545957308a9351f49e43a02093f49539e6a05e8d948ff9f
+- kind: project-relative
+  target: claude
+  value: .claude/skills/claude-family-history-research-skill/CHANGELOG.md
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:567f8b45d17dca9aa66c7193921be5b566c862d96764cd8a70c19511030486ab
+- kind: project-relative
+  target: claude
+  value: .claude/skills/claude-family-history-research-skill/LICENSE
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241
+- kind: project-relative
+  target: claude
+  value: .claude/skills/claude-family-history-research-skill/README.md
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:9cd02fa89bb342e268c82a64a52a7d92d9a51f48ca02fc18dc29358f1f79ea39
+- kind: project-relative
+  target: claude
+  value: .claude/skills/claude-family-history-research-skill/RELEASE_NOTES_v1.0.3.md
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:e0d3d10e3e7fa3b7f7c7d77533671a1b1186ada7e1df4a1d31cc56d74297ae86
+- kind: project-relative
+  target: claude
+  value: .claude/skills/claude-family-history-research-skill/RELEASE_NOTES_v1.0.4.md
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:105ff19773b0f48452854366c1e7665be1d77157c1925e117de8941dd097d8b4
+- kind: project-relative
+  target: claude
+  value: .claude/skills/claude-family-history-research-skill/RELEASE_NOTES_v1.0.5.md
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:b9a434566b2bad0c4e45044c9eab229b2926cf38ce868650c0c8de704348d33b
+- kind: project-relative
+  target: claude
+  value: .claude/skills/claude-family-history-research-skill/RELEASE_NOTES_v1.0.6.md
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:df89cc972589e1e588a172f338fea6d24a97e1181b3020839bb29c753ac892d3
+- kind: project-relative
+  target: claude
+  value: .claude/skills/claude-family-history-research-skill/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:78aec9d5f1da4e5022c94dc9d62bda98208dc96f9ba56e693feec47f2899afa6
+- kind: project-relative
+  target: claude
+  value: .claude/skills/claude-family-history-research-skill/assets/templates/citation-template.md
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:d6782970cbb9758eba371f5bf7ab09515d77a6b0627c93271066c6457c97d161
+- kind: project-relative
+  target: claude
+  value: .claude/skills/claude-family-history-research-skill/assets/templates/evidence-analysis-template.md
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:a216e7bc66d136d81a123170d057273350199147c673d7bac847ac19126d38e7
+- kind: project-relative
+  target: claude
+  value: .claude/skills/claude-family-history-research-skill/assets/templates/research-log-template.md
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:65b2e2ad994336014aec835f4636d43d80d95df122bd57b6c9d9890de6683661
+- kind: project-relative
+  target: claude
+  value: .claude/skills/claude-family-history-research-skill/assets/templates/research-plan-template.md
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:8a863b8ba9f56230f2a5e18fd9490ca4227449277a7ac6193c29749bb3c569fd
+- kind: project-relative
+  target: claude
+  value: .claude/skills/claude-family-history-research-skill/references/citation-templates.md
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:31ea96743eb705a5cdd51c16e88a184c20a696abd3df1e3057570c12690206b5
+- kind: project-relative
+  target: claude
+  value: .claude/skills/claude-family-history-research-skill/references/evidence-evaluation.md
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:cc1271bc5e38ddcf6b572672d06e189f0a86c060167fa91b615ff0073655a8db
+- kind: project-relative
+  target: claude
+  value: .claude/skills/claude-family-history-research-skill/references/gps-guidelines.md
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:7c5ed3ad9fe8fe4c096ce853879c6babd7dd3b9bc8b0d8604c6e516b73aa778b
+- kind: project-relative
+  target: claude
+  value: .claude/skills/claude-family-history-research-skill/references/research-log-guidance.md
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:c9ee6f95203e6babe90a618bd8a84c8d77680db0e1ae51b585b052e8b47e41b1
+- kind: project-relative
+  target: claude
+  value: .claude/skills/claude-family-history-research-skill/references/research-plan-guidance.md
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:59c6651a5c7c367a2a661e37af373d9a85f1b879369dbcb75e99cff24bc7edca
+- kind: project-relative
+  target: claude
+  value: .claude/skills/claude-family-history-research-skill/references/research-strategies.md
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:5a9a3784da184d40742eec8a543c27fab46fd3967f7e8fc043f8d62ef089e289
+- kind: project-relative
+  target: copilot
+  value: .agents/skills/claude-family-history-research-skill
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: null
+- kind: project-relative
+  target: copilot
+  value: .agents/skills/claude-family-history-research-skill/.github/workflows/release.yml
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:0bed6bd2cc3733f75d2683707f1dfac01150ea71fa02aa438fa26c7d393364e8
+- kind: project-relative
+  target: copilot
+  value: .agents/skills/claude-family-history-research-skill/.gitignore
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:0ea9e7dc1f0c8d746545957308a9351f49e43a02093f49539e6a05e8d948ff9f
+- kind: project-relative
+  target: copilot
+  value: .agents/skills/claude-family-history-research-skill/CHANGELOG.md
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:567f8b45d17dca9aa66c7193921be5b566c862d96764cd8a70c19511030486ab
+- kind: project-relative
+  target: copilot
+  value: .agents/skills/claude-family-history-research-skill/LICENSE
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:06dcddbb6908a0c6dd4a9e8ec822eea41d5a460a53089fecccc8a68049e99241
+- kind: project-relative
+  target: copilot
+  value: .agents/skills/claude-family-history-research-skill/README.md
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:9cd02fa89bb342e268c82a64a52a7d92d9a51f48ca02fc18dc29358f1f79ea39
+- kind: project-relative
+  target: copilot
+  value: .agents/skills/claude-family-history-research-skill/RELEASE_NOTES_v1.0.3.md
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:e0d3d10e3e7fa3b7f7c7d77533671a1b1186ada7e1df4a1d31cc56d74297ae86
+- kind: project-relative
+  target: copilot
+  value: .agents/skills/claude-family-history-research-skill/RELEASE_NOTES_v1.0.4.md
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:105ff19773b0f48452854366c1e7665be1d77157c1925e117de8941dd097d8b4
+- kind: project-relative
+  target: copilot
+  value: .agents/skills/claude-family-history-research-skill/RELEASE_NOTES_v1.0.5.md
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:b9a434566b2bad0c4e45044c9eab229b2926cf38ce868650c0c8de704348d33b
+- kind: project-relative
+  target: copilot
+  value: .agents/skills/claude-family-history-research-skill/RELEASE_NOTES_v1.0.6.md
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:df89cc972589e1e588a172f338fea6d24a97e1181b3020839bb29c753ac892d3
+- kind: project-relative
+  target: copilot
+  value: .agents/skills/claude-family-history-research-skill/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:78aec9d5f1da4e5022c94dc9d62bda98208dc96f9ba56e693feec47f2899afa6
+- kind: project-relative
+  target: copilot
+  value: .agents/skills/claude-family-history-research-skill/assets/templates/citation-template.md
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:d6782970cbb9758eba371f5bf7ab09515d77a6b0627c93271066c6457c97d161
+- kind: project-relative
+  target: copilot
+  value: .agents/skills/claude-family-history-research-skill/assets/templates/evidence-analysis-template.md
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:a216e7bc66d136d81a123170d057273350199147c673d7bac847ac19126d38e7
+- kind: project-relative
+  target: copilot
+  value: .agents/skills/claude-family-history-research-skill/assets/templates/research-log-template.md
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:65b2e2ad994336014aec835f4636d43d80d95df122bd57b6c9d9890de6683661
+- kind: project-relative
+  target: copilot
+  value: .agents/skills/claude-family-history-research-skill/assets/templates/research-plan-template.md
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:8a863b8ba9f56230f2a5e18fd9490ca4227449277a7ac6193c29749bb3c569fd
+- kind: project-relative
+  target: copilot
+  value: .agents/skills/claude-family-history-research-skill/references/citation-templates.md
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:31ea96743eb705a5cdd51c16e88a184c20a696abd3df1e3057570c12690206b5
+- kind: project-relative
+  target: copilot
+  value: .agents/skills/claude-family-history-research-skill/references/evidence-evaluation.md
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:cc1271bc5e38ddcf6b572672d06e189f0a86c060167fa91b615ff0073655a8db
+- kind: project-relative
+  target: copilot
+  value: .agents/skills/claude-family-history-research-skill/references/gps-guidelines.md
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:7c5ed3ad9fe8fe4c096ce853879c6babd7dd3b9bc8b0d8604c6e516b73aa778b
+- kind: project-relative
+  target: copilot
+  value: .agents/skills/claude-family-history-research-skill/references/research-log-guidance.md
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:c9ee6f95203e6babe90a618bd8a84c8d77680db0e1ae51b585b052e8b47e41b1
+- kind: project-relative
+  target: copilot
+  value: .agents/skills/claude-family-history-research-skill/references/research-plan-guidance.md
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:59c6651a5c7c367a2a661e37af373d9a85f1b879369dbcb75e99cff24bc7edca
+- kind: project-relative
+  target: copilot
+  value: .agents/skills/claude-family-history-research-skill/references/research-strategies.md
+  runtime: null
+  scope: project
+  owners:
+  - emaynard/claude-family-history-research-skill
+  active_owner: emaynard/claude-family-history-research-skill
+  content_hash: sha256:5a9a3784da184d40742eec8a543c27fab46fd3967f7e8fc043f8d62ef089e289

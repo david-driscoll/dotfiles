@@ -73,8 +73,3 @@ plugins:
     marketplace: dotnet-agent-skills
   - name: dotnet-aspnetcore
     marketplace: dotnet-agent-skills
-
-  # terrylica/cc-skills/plugins/mise (note: itp's nested skills stay in apm.yml
-  # since they are referenced as individual skills, not the whole itp plugin)
-  - name: mise
-    marketplace: cc-skills

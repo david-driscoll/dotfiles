@@ -36,8 +36,6 @@ marketplaces:
     targets: [copilot]
   - name: dotnet-agent-skills
     repo: dotnet/skills
-  - name: cc-skills
-    repo: terrylica/cc-skills
   - name: claudex
     repo: cskiro/claudex
   - name: superpowers-marketplace

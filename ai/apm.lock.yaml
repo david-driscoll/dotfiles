@@ -1,8 +1,9 @@
 lockfile_version: '1'
-generated_at: '2026-07-08T14:41:38.444207+00:00'
+generated_at: '2026-10-09T18:38:19.643556+00:00'
 apm_version: 0.24.0
 dependencies:
-- repo_url: ComposioHQ/awesome-claude-skills
+- repo_url: composiohq/awesome-claude-skills
+  materialization_repo_url: ComposioHQ/awesome-claude-skills
   name: developer-growth-analysis
   host: github.com
   resolved_commit: 92568c1edaff1bde5371154f036d959346c145a8
@@ -220,104 +221,6 @@ dependencies:
     .agents/skills/mise-configurator/SKILL.md: sha256:2b1898e86abd3c81bc4f869cdac2ee250d8bf2ad99d399c06a3ca54ae7b1bcc6
     .claude/skills/mise-configurator/SKILL.md: sha256:2b1898e86abd3c81bc4f869cdac2ee250d8bf2ad99d399c06a3ca54ae7b1bcc6
   content_hash: sha256:696eeb54b100091124646bebc1e5c4f6c4887167379971aa2b70b2bfb814c947
-- repo_url: terrylica/cc-skills
-  name: mise-configuration
-  host: github.com
-  resolved_commit: 65d3da538f56e2967938e3829fa4a21b27b380ba
-  version: 1.0.0
-  virtual_path: plugins/itp/skills/mise-configuration
-  is_virtual: true
-  package_type: claude_skill
-  deployed_files:
-  - .agents/skills/mise-configuration
-  - .agents/skills/mise-configuration/SKILL.md
-  - .agents/skills/mise-configuration/references/anti-patterns.md
-  - .agents/skills/mise-configuration/references/evolution-log.md
-  - .agents/skills/mise-configuration/references/github-tokens.md
-  - .agents/skills/mise-configuration/references/hub-spoke-architecture.md
-  - .agents/skills/mise-configuration/references/monorepo-workspace.md
-  - .agents/skills/mise-configuration/references/patterns.md
-  - .agents/skills/mise-configuration/references/task-orchestration.md
-  - .claude/skills/mise-configuration
-  - .claude/skills/mise-configuration/SKILL.md
-  - .claude/skills/mise-configuration/references/anti-patterns.md
-  - .claude/skills/mise-configuration/references/evolution-log.md
-  - .claude/skills/mise-configuration/references/github-tokens.md
-  - .claude/skills/mise-configuration/references/hub-spoke-architecture.md
-  - .claude/skills/mise-configuration/references/monorepo-workspace.md
-  - .claude/skills/mise-configuration/references/patterns.md
-  - .claude/skills/mise-configuration/references/task-orchestration.md
-  deployed_file_hashes:
-    .agents/skills/mise-configuration/SKILL.md: sha256:6c9a484f36941ce5c2114ab09570da6f168d00a274988b476c84876acf468323
-    .agents/skills/mise-configuration/references/anti-patterns.md: sha256:e25cb53084a6be21870a5c5e56d197b8d82b44bb1f3b8c28ee9b1c4f864f9955
-    .agents/skills/mise-configuration/references/evolution-log.md: sha256:4a865878655dfafc636da83a1f852faf836e85ad559722aa96c2db72623153b4
-    .agents/skills/mise-configuration/references/github-tokens.md: sha256:015befa484793094107b4f964d4cb6b82136a7f1a19008012ce280eeb208801e
-    .agents/skills/mise-configuration/references/hub-spoke-architecture.md: sha256:2f1dc2e199f35fddb040fef82b07dc893006ec91f9c13e188060fd874ee6c3e0
-    .agents/skills/mise-configuration/references/monorepo-workspace.md: sha256:fbbc48f8f92c128459aa9a43a8c91c7778fcf11456253fe966a5fa28c015efd7
-    .agents/skills/mise-configuration/references/patterns.md: sha256:b97d1a22769c146e33b2aadebd81e304372f2b3d7e3cf354681894cf8ba0c821
-    .agents/skills/mise-configuration/references/task-orchestration.md: sha256:83dcd63c756b7635215c741ec1ddeb62ce477380ac80f6a74686d8dacfce02c3
-    .claude/skills/mise-configuration/SKILL.md: sha256:6c9a484f36941ce5c2114ab09570da6f168d00a274988b476c84876acf468323
-    .claude/skills/mise-configuration/references/anti-patterns.md: sha256:e25cb53084a6be21870a5c5e56d197b8d82b44bb1f3b8c28ee9b1c4f864f9955
-    .claude/skills/mise-configuration/references/evolution-log.md: sha256:4a865878655dfafc636da83a1f852faf836e85ad559722aa96c2db72623153b4
-    .claude/skills/mise-configuration/references/github-tokens.md: sha256:015befa484793094107b4f964d4cb6b82136a7f1a19008012ce280eeb208801e
-    .claude/skills/mise-configuration/references/hub-spoke-architecture.md: sha256:2f1dc2e199f35fddb040fef82b07dc893006ec91f9c13e188060fd874ee6c3e0
-    .claude/skills/mise-configuration/references/monorepo-workspace.md: sha256:fbbc48f8f92c128459aa9a43a8c91c7778fcf11456253fe966a5fa28c015efd7
-    .claude/skills/mise-configuration/references/patterns.md: sha256:b97d1a22769c146e33b2aadebd81e304372f2b3d7e3cf354681894cf8ba0c821
-    .claude/skills/mise-configuration/references/task-orchestration.md: sha256:83dcd63c756b7635215c741ec1ddeb62ce477380ac80f6a74686d8dacfce02c3
-  content_hash: sha256:0f125b4b212fa4083132aac5ddaab297c719fa672f4d757103456ff4e7ec083d
-- repo_url: terrylica/cc-skills
-  name: mise-tasks
-  host: github.com
-  resolved_commit: 65d3da538f56e2967938e3829fa4a21b27b380ba
-  version: 1.0.0
-  virtual_path: plugins/itp/skills/mise-tasks
-  is_virtual: true
-  package_type: claude_skill
-  deployed_files:
-  - .agents/skills/mise-tasks
-  - .agents/skills/mise-tasks/SKILL.md
-  - .agents/skills/mise-tasks/references/advanced.md
-  - .agents/skills/mise-tasks/references/arguments.md
-  - .agents/skills/mise-tasks/references/bootstrap-monorepo.md
-  - .agents/skills/mise-tasks/references/env-integration.md
-  - .agents/skills/mise-tasks/references/evolution-log.md
-  - .agents/skills/mise-tasks/references/patterns.md
-  - .agents/skills/mise-tasks/references/polyglot-affected.md
-  - .agents/skills/mise-tasks/references/release-workflow-patterns.md
-  - .agents/skills/mise-tasks/references/task-levels.md
-  - .claude/skills/mise-tasks
-  - .claude/skills/mise-tasks/SKILL.md
-  - .claude/skills/mise-tasks/references/advanced.md
-  - .claude/skills/mise-tasks/references/arguments.md
-  - .claude/skills/mise-tasks/references/bootstrap-monorepo.md
-  - .claude/skills/mise-tasks/references/env-integration.md
-  - .claude/skills/mise-tasks/references/evolution-log.md
-  - .claude/skills/mise-tasks/references/patterns.md
-  - .claude/skills/mise-tasks/references/polyglot-affected.md
-  - .claude/skills/mise-tasks/references/release-workflow-patterns.md
-  - .claude/skills/mise-tasks/references/task-levels.md
-  deployed_file_hashes:
-    .agents/skills/mise-tasks/SKILL.md: sha256:8756e6ade1d4fe9b5226ff790ef958d2ac86ea3e6a42b6433f4f0f5c4c008ba2
-    .agents/skills/mise-tasks/references/advanced.md: sha256:d70e1b833f89195e478fe0e386cb9a3bd7ace502697bf0bd6831649fa245b38e
-    .agents/skills/mise-tasks/references/arguments.md: sha256:4f9d07b342725026a081e86487269b460f9807b15a039ebfc0de9d4febfa5380
-    .agents/skills/mise-tasks/references/bootstrap-monorepo.md: sha256:ec4ffbbec43c860bb486e7a01b10685c5261750b12d4dc66a4b2b4f71660900e
-    .agents/skills/mise-tasks/references/env-integration.md: sha256:85e2775028ecd771152a6aefed96660107317d86ec93881ad125d3081ec3b8db
-    .agents/skills/mise-tasks/references/evolution-log.md: sha256:4a865878655dfafc636da83a1f852faf836e85ad559722aa96c2db72623153b4
-    .agents/skills/mise-tasks/references/patterns.md: sha256:cbe700bbd83fa381a3456e3801cbe1cd513be3d4fc52ba0c88c2510e2ea817b9
-    .agents/skills/mise-tasks/references/polyglot-affected.md: sha256:3b8df123b233e9455d0a118f986376d1413649b148457572c75860ecd305f62e
-    .agents/skills/mise-tasks/references/release-workflow-patterns.md: sha256:e80daa92db24d9a0f208c5aabe259a5350135547f26db36cf49bd52002dd695b
-    .agents/skills/mise-tasks/references/task-levels.md: sha256:9e56385a65fbecdb5048198b83fe7f4e16235c27fe92212f64dfa5a53cecb978
-    .claude/skills/mise-tasks/SKILL.md: sha256:8756e6ade1d4fe9b5226ff790ef958d2ac86ea3e6a42b6433f4f0f5c4c008ba2
-    .claude/skills/mise-tasks/references/advanced.md: sha256:d70e1b833f89195e478fe0e386cb9a3bd7ace502697bf0bd6831649fa245b38e
-    .claude/skills/mise-tasks/references/arguments.md: sha256:4f9d07b342725026a081e86487269b460f9807b15a039ebfc0de9d4febfa5380
-    .claude/skills/mise-tasks/references/bootstrap-monorepo.md: sha256:ec4ffbbec43c860bb486e7a01b10685c5261750b12d4dc66a4b2b4f71660900e
-    .claude/skills/mise-tasks/references/env-integration.md: sha256:85e2775028ecd771152a6aefed96660107317d86ec93881ad125d3081ec3b8db
-    .claude/skills/mise-tasks/references/evolution-log.md: sha256:4a865878655dfafc636da83a1f852faf836e85ad559722aa96c2db72623153b4
-    .claude/skills/mise-tasks/references/patterns.md: sha256:cbe700bbd83fa381a3456e3801cbe1cd513be3d4fc52ba0c88c2510e2ea817b9
-    .claude/skills/mise-tasks/references/polyglot-affected.md: sha256:3b8df123b233e9455d0a118f986376d1413649b148457572c75860ecd305f62e
-    .claude/skills/mise-tasks/references/release-workflow-patterns.md: sha256:e80daa92db24d9a0f208c5aabe259a5350135547f26db36cf49bd52002dd695b
-    .claude/skills/mise-tasks/references/task-levels.md: sha256:9e56385a65fbecdb5048198b83fe7f4e16235c27fe92212f64dfa5a53cecb978
-  content_hash: sha256:dd93054927a344583aa870ad9f0fa62340395c6a96fded9622afcd25b966e286
 - repo_url: testdino-hq/playwright-skill
   name: playwright-skill
   host: github.com
@@ -641,25 +544,1933 @@ dependencies:
     .claude/skills/playwright-skill/pom/page-object-model.md: sha256:b0a38a0ad8d58fd8f62a1e64b035ec6f9dc7fae58602764d7c9aea10a2188626
     .claude/skills/playwright-skill/pom/pom-vs-fixtures-vs-helpers.md: sha256:c286028ded866a59511d3c898cbe2141d4b38183fc9afa8136d16230e9b251e1
   content_hash: sha256:0f9aa0797158c6a50cbde78d27de3f669f182750e1b41a5d05c4744a47afa20f
-- repo_url: yvgude/lean-ctx
-  name: lean-ctx
-  host: github.com
-  resolved_commit: 4e728c0e2c8cfc3516d4f38241d0dee37e0cb792
-  version: 4e728c0
-  package_type: marketplace_plugin
-  deployed_files:
-  - .agents/skills/lean-ctx
-  - .agents/skills/lean-ctx/SKILL.md
-  - .agents/skills/lean-ctx/scripts/install.sh
-  - .claude/skills/lean-ctx
-  - .claude/skills/lean-ctx/SKILL.md
-  - .claude/skills/lean-ctx/scripts/install.sh
-  deployed_file_hashes:
-    .agents/skills/lean-ctx/SKILL.md: sha256:6f71b0eeb7c37e958998b683113026a33dc77a52d428f9992f7112d86de49042
-    .agents/skills/lean-ctx/scripts/install.sh: sha256:7b42ea292086ea57dc6a1514e094fa37840b5a24ad8ebf5f26a7eb87fa1b03f0
-    .claude/skills/lean-ctx/SKILL.md: sha256:6f71b0eeb7c37e958998b683113026a33dc77a52d428f9992f7112d86de49042
-    .claude/skills/lean-ctx/scripts/install.sh: sha256:7b42ea292086ea57dc6a1514e094fa37840b5a24ad8ebf5f26a7eb87fa1b03f0
-  content_hash: sha256:e9bccacebe0fa285c250739e9aaf4a550cd21318e41b801fabe3457f7189850b
+deployments:
+- kind: project-relative
+  target: claude
+  value: .claude/rules/agents.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/instructions/agents.instructions.md
+  active_owner: github/awesome-copilot/instructions/agents.instructions.md
+  content_hash: sha256:ad2a9b3af38acf22c25865028916ca62ba0d8f8889433fd9b4c51ae4b7b97ffd
+- kind: project-relative
+  target: claude
+  value: .claude/rules/context-engineering.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/instructions/context-engineering.instructions.md
+  active_owner: github/awesome-copilot/instructions/context-engineering.instructions.md
+  content_hash: sha256:20db2e9dc06873577473f0a45c6f5c5490d5749dfc1ab02269eba089f9c3d3ea
+- kind: project-relative
+  target: claude
+  value: .claude/rules/instructions.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/instructions/instructions.instructions.md
+  active_owner: github/awesome-copilot/instructions/instructions.instructions.md
+  content_hash: sha256:12143206b81f13aef4efb2e26f6a65483211c63407fcafc289775866ee6879cc
+- kind: project-relative
+  target: claude
+  value: .claude/rules/memory-bank.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/instructions/memory-bank.instructions.md
+  active_owner: github/awesome-copilot/instructions/memory-bank.instructions.md
+  content_hash: sha256:ea679a8a861c616d931cc6db55e214b25154cd942edb3f4f2ef0ef30e79d8d47
+- kind: project-relative
+  target: claude
+  value: .claude/rules/neo4j-knowledgebase.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:416db8f43b40abd878578c0e11c3eb5531c646a5ac77d6df62e4f3ee0876088e
+- kind: project-relative
+  target: claude
+  value: .claude/rules/powershell.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/instructions/powershell.instructions.md
+  active_owner: github/awesome-copilot/instructions/powershell.instructions.md
+  content_hash: sha256:e7c0ca03ed91919b46498371102e9823012f514d86f8ca2569cb6ccb2bdb11dd
+- kind: project-relative
+  target: claude
+  value: .claude/rules/prompt.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/instructions/prompt.instructions.md
+  active_owner: github/awesome-copilot/instructions/prompt.instructions.md
+  content_hash: sha256:56b81c1d3066b139b6d353e18b5d66037fd91c2f86257bb0942c060ab8de0b30
+- kind: project-relative
+  target: claude
+  value: .claude/skills/acquire-codebase-knowledge
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/acquire-codebase-knowledge
+  active_owner: github/awesome-copilot/skills/acquire-codebase-knowledge
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/acquire-codebase-knowledge/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/acquire-codebase-knowledge
+  active_owner: github/awesome-copilot/skills/acquire-codebase-knowledge
+  content_hash: sha256:7ca01711e1615171b26ce9e2729bedf041348d7fd0f24bc04e0d400dc93e41b9
+- kind: project-relative
+  target: claude
+  value: .claude/skills/acquire-codebase-knowledge/assets/templates/ARCHITECTURE.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/acquire-codebase-knowledge
+  active_owner: github/awesome-copilot/skills/acquire-codebase-knowledge
+  content_hash: sha256:3b7a958d153c037a6fc19e35e7e9792650d747491340d83ba831714b6ca02b6c
+- kind: project-relative
+  target: claude
+  value: .claude/skills/acquire-codebase-knowledge/assets/templates/CONCERNS.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/acquire-codebase-knowledge
+  active_owner: github/awesome-copilot/skills/acquire-codebase-knowledge
+  content_hash: sha256:d714bef20a5ed8fee1ab5e01041abd18f1d95b93d455e82b371031a6675b6430
+- kind: project-relative
+  target: claude
+  value: .claude/skills/acquire-codebase-knowledge/assets/templates/CONVENTIONS.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/acquire-codebase-knowledge
+  active_owner: github/awesome-copilot/skills/acquire-codebase-knowledge
+  content_hash: sha256:c20c1dca3226992b785229b4ba2c08caada775bd0e26a85f1185d0600b6f2a37
+- kind: project-relative
+  target: claude
+  value: .claude/skills/acquire-codebase-knowledge/assets/templates/INTEGRATIONS.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/acquire-codebase-knowledge
+  active_owner: github/awesome-copilot/skills/acquire-codebase-knowledge
+  content_hash: sha256:60930c9b9aecf63e9c1c19a597bfaba6cab5f44d687e2c751cf034ffe962af25
+- kind: project-relative
+  target: claude
+  value: .claude/skills/acquire-codebase-knowledge/assets/templates/STACK.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/acquire-codebase-knowledge
+  active_owner: github/awesome-copilot/skills/acquire-codebase-knowledge
+  content_hash: sha256:0faf167cb857c14f4f8fbdbebf58727440d80c275fa483dedd7a08e2ac3ebe12
+- kind: project-relative
+  target: claude
+  value: .claude/skills/acquire-codebase-knowledge/assets/templates/STRUCTURE.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/acquire-codebase-knowledge
+  active_owner: github/awesome-copilot/skills/acquire-codebase-knowledge
+  content_hash: sha256:29a5a387c894135c41c74a1b3e629ece88707c0a56aa9e4153ec9682f5c0c373
+- kind: project-relative
+  target: claude
+  value: .claude/skills/acquire-codebase-knowledge/assets/templates/TESTING.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/acquire-codebase-knowledge
+  active_owner: github/awesome-copilot/skills/acquire-codebase-knowledge
+  content_hash: sha256:941a0f400441660a5fb9a28f43318f4a13f1a1c79e8cfac03cdf893cd6c3db85
+- kind: project-relative
+  target: claude
+  value: .claude/skills/acquire-codebase-knowledge/references/inquiry-checkpoints.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/acquire-codebase-knowledge
+  active_owner: github/awesome-copilot/skills/acquire-codebase-knowledge
+  content_hash: sha256:d06d9de9b30ebfe73a8f1034bfc1f2c4b68e45bd8425d56df8e4d48f06673dce
+- kind: project-relative
+  target: claude
+  value: .claude/skills/acquire-codebase-knowledge/references/stack-detection.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/acquire-codebase-knowledge
+  active_owner: github/awesome-copilot/skills/acquire-codebase-knowledge
+  content_hash: sha256:9baaaaadbebdfd53099875a9f4920d2fcb236efe040655a2d43217a6a31a4c9f
+- kind: project-relative
+  target: claude
+  value: .claude/skills/acquire-codebase-knowledge/scripts/scan.py
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/acquire-codebase-knowledge
+  active_owner: github/awesome-copilot/skills/acquire-codebase-knowledge
+  content_hash: sha256:193d5b9f73a71d6ecc2f39f13f33d96be49d675abe83f5857ddbdc4ae21b7bd9
+- kind: project-relative
+  target: claude
+  value: .claude/skills/developer-growth-analysis
+  runtime: null
+  scope: project
+  owners:
+  - composiohq/awesome-claude-skills/developer-growth-analysis
+  active_owner: composiohq/awesome-claude-skills/developer-growth-analysis
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/developer-growth-analysis/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - composiohq/awesome-claude-skills/developer-growth-analysis
+  active_owner: composiohq/awesome-claude-skills/developer-growth-analysis
+  content_hash: sha256:8117a9dcd2991c53b94dcbdbef85b14363466a20309665b64b06d188677e5aa0
+- kind: project-relative
+  target: claude
+  value: .claude/skills/hk-setup
+  runtime: null
+  scope: project
+  owners:
+  - majiayu000/claude-skill-registry/skills/data/hk-setup
+  active_owner: majiayu000/claude-skill-registry/skills/data/hk-setup
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/hk-setup/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - majiayu000/claude-skill-registry/skills/data/hk-setup
+  active_owner: majiayu000/claude-skill-registry/skills/data/hk-setup
+  content_hash: sha256:ba796eb14050d00d1070737be9895ec72ef90ce36aa1b239670efb472334ca6c
+- kind: project-relative
+  target: claude
+  value: .claude/skills/hk-setup/metadata.json
+  runtime: null
+  scope: project
+  owners:
+  - majiayu000/claude-skill-registry/skills/data/hk-setup
+  active_owner: majiayu000/claude-skill-registry/skills/data/hk-setup
+  content_hash: sha256:cc5a5f4f3509f7eccb85ea4e27aa32f7b0c330d8c3d8bcbcb1d04468ccaa91e2
+- kind: project-relative
+  target: claude
+  value: .claude/skills/lsp-setup
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/lsp-setup
+  active_owner: github/awesome-copilot/skills/lsp-setup
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/lsp-setup/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/lsp-setup
+  active_owner: github/awesome-copilot/skills/lsp-setup
+  content_hash: sha256:7a49f98b82b66454ad66a0b8506a50028a16a5c91be73cb39669a18bfba3cb01
+- kind: project-relative
+  target: claude
+  value: .claude/skills/lsp-setup/references/lsp-servers.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/lsp-setup
+  active_owner: github/awesome-copilot/skills/lsp-setup
+  content_hash: sha256:5dc435290338d2c1ddbfa889027145fe6824ffef7de01d7db57f0ac9e9610124
+- kind: project-relative
+  target: claude
+  value: .claude/skills/mise-configurator
+  runtime: null
+  scope: project
+  owners:
+  - sickn33/antigravity-awesome-skills/skills/mise-configurator
+  active_owner: sickn33/antigravity-awesome-skills/skills/mise-configurator
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/mise-configurator/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - sickn33/antigravity-awesome-skills/skills/mise-configurator
+  active_owner: sickn33/antigravity-awesome-skills/skills/mise-configurator
+  content_hash: sha256:2b1898e86abd3c81bc4f869cdac2ee250d8bf2ad99d399c06a3ca54ae7b1bcc6
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: null
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/LICENSE
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:9b745cd92c3dfb415f5adefb81ff71674dd6a764cba8aa3ab14a920d1ab272ec
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/README.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:ec2308c15da28d9d7594d61475971d27bbd8da2bd2beeadc47b0de36ffd8bb3c
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:4929cff14de61f93d72cbbef192edc880cf2fc244572effcc3bf8724610284ba
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/ci/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:e5fed8f9837a00b3bf533b6b5ce38fe3df28de447ed88f170c2f74fff2d42a7e
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/ci/ci-github-actions.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:a9af4d41ebf807c5efde00865ff7056c5f387dd69d607275456f20f8aa4b7b6c
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/ci/ci-gitlab.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:2919f482487231177e793c6c3dbcb3dbffbbd81c50d8ea2e5feedd278a5ca045
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/ci/ci-other.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:325f7a4af904b2f232eff17996b2cb524809b94ea0e7a27a5b580999009ef167
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/ci/docker-and-containers.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:aa262bebfa7d71fa7fdd993c208e1bf7687cf9fce4d6b07d14b2d84c2cdf6aeb
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/ci/global-setup-teardown.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:98f8900a187b0ec9cf7ad2ee5ae92cb865a0fad8ce6a8af8a8762d103e0cc271
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/ci/parallel-and-sharding.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:7fc6b88879f8d35ac4eabe947ebe6143c3af4687ce8c9171113a233352898dc3
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/ci/projects-and-dependencies.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:0037a53233aa06078d531630983657136c6372353e4bc03bcad2e7852fc19548
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/ci/reporting-and-artifacts.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:3081503c8f907a3bea24d7e66d7e545b9ff0b7f9e7198c47f7e4b52aa1bb091d
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/ci/test-coverage.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:33394220319277b8b2a47a5fb148276ef0fcf98e37aafc29ff1640203ce0d4f3
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:60fa9174aeb10740a34ec21df89f1cef9acacced9a4e8fca6a593bc8016d5f69
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/accessibility.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:5636899870516df1b63c13421e50c5e182a03d74a656791ef42467e026776cf4
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/angular.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:3a60526012ce5e37b45ddfab7a098ea04279f8787a07e5c3ffe1fb458cd31bef
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/api-testing.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:a225d4ad5f6a7f728b76c68a8bff8b6d4bfb2996fee250151e3bd4c7f06508b8
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/assertions-and-waiting.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:5df20f206af34afe567ee9aa9016d42272a45f65adf34e77085227a6c465a81c
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/auth-flows.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:873db172eded4d3563487be1e401a94e72e0816d26d8130203e29b79924c029a
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/authentication.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:3ac21e8af2c8675bd440ee0d97c03d1b6c3ff95608330a5e266d19aaedc9e9b4
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/browser-apis.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:8fdbcb6706c306c59f046c9304d3f6beddd2abe12475ddf4c201d53bd31df5c5
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/browser-extensions.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:f937acbae6a8d7c37a35b5a7812571f658ecc015d41411c0b347be3d7fce8045
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/canvas-and-webgl.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:c02a292ce0e0d27ed9f2d4388fd4753537ca67bc3082eec6e1a6d7daf18033b2
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/clock-and-time-mocking.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:bf93baa816e63f9122ffdb54cd4fe887592b6252373c9380aba87ddd645c0683
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/common-pitfalls.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:e7e482fb3848007864df50f4e8e506e0f1b717d2e85f0519cbaba66aecf636a1
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/component-testing.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:64bb1cbbc35776760c3910b69f19a30c9ac85c457d26a6e21fb21fab3ead1b30
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/configuration.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:a2ac6b8b69a8b8049620db4affb28f58284e495887a5ea9356739c23dd61c0b3
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/crud-testing.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:6d3f70f4af3f17caf6c7e07e95210a544dec25a08a8a2f750c0ca9dd48d54e1b
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/debugging.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:cb50aff959c463eed0a3d9f646df2a132795c70185fc36a890b0c6f7b76d72a7
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/drag-and-drop.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:39706309fc12b061121920d56fdf65ea95bb086153aef64d2ef8801b11ac2adc
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/electron-testing.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:39098c51fd7f780e39b57dcd69c2101e204e7fd9dd6eeacf520cd40cbba72f73
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/error-and-edge-cases.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:08a20ab127967ecc0f34ac3b9ff7dbc2a0442d4d1e3ea790eb22f0fc34d6d4ff
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/error-index.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:c825efe892e810039b4a2e583dd49257e87c5f588b195414eb698424b7505833
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/file-operations.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:fca9aa1b361b95eca0cd204805a997fef692f34650048234b8250e8da07a9760
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/file-upload-download.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:2cb1f8d2918a48e98ec39746f888076f4e39b0eefad9eb42f0c65b53f33b6e05
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/fixtures-and-hooks.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:6b587295f67559dea5b4590edb17cc5f2e6201be983160ac75faa004c819a5b8
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/flaky-tests.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:8a961ae91fcec74829c207373d4f5a194d4b95d4b59732eb9db6825ed036b665
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/forms-and-validation.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:d889a06e388ec5577ee0fa42fa70c869640dff0273510956c37342fb449ef430
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/i18n-and-localization.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:b308d8e6530cbf8d6b3adef2454c5324a17ac77f6b19189b79ab9fdc44ef1f74
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/iframes-and-shadow-dom.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:1e369ee9bdc42e57938b985bec8ef1a7d78e0a87c62d108f64e42cc9c1752b99
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/locator-strategy.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:c6f8d7f318e961bc8c5aea03e0e51cb687fe819f938efcb09940496b589b1143
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/locators.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:c821161899cb982689c9ebef975a3cd25f835ae8099382544befc9ef7e3805bc
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/mobile-and-responsive.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:5838d4ac8819e8db206d39b16442fc54152b1ab70a28642dfc9779dff659c8fd
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/multi-context-and-popups.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:03435df567726c17553b1a48c84338096cd18b55dc5963e1e132647ad3060aec
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/multi-user-and-collaboration.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:da2a1903faf7142ef4430cbe70cd4870b63f6d1fa1b1c5722b27e52aa9b3fa3a
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/network-mocking.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:65103d94dc97d45c4be00e7935bc8beab2bff94856609a638f36ace09f382bea
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/nextjs.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:b65c147f0281871b4467a78a2cfe9db04f967afe7a34b06a1c148a20080c8ee9
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/performance-testing.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:48876ffdd84b07c834f4ea5497e322e1aaa2232808c699c086d1c821a47e9ccb
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/react.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:15587ad60e364fbae54b7b730394d16163dc5423adbef1c8e3dd3b98e634a14d
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/search-and-filter.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:ef43ab3ee77a0a7d198253623b7efdc07a5abaaf5aa627c3a172eaf1bfa98ebd
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/security-testing.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:eccd23ac9f0e1426f39c141dfe4b045a759223f17cf9c6574c5231ef0176bee3
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/service-workers-and-pwa.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:c92e2d1046f2bd1eaffe86a8ee464f2c8b2fb62cf599447263da28b198356ad7
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/test-architecture.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:a36b1e09a1ef572f276adb3d9e1cae0a53233220bc45a6d830e2f4dd47c6d1f4
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/test-data-management.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:2d1b9e2ec3d0e40741e0b26a57d67f71ecd68b05231b6e4d21661b5c93057576
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/test-organization.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:6efbe0fad1dc156e80348bc0fadd70d1071aee9513da6e183808b5a6e5131d44
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/third-party-integrations.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:de1134fdcad478b8273f1e6c808a721d1505daeaf73e49911b62d8a71aaf2907
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/trace-analysis.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:7ac462fb83b48f3e7fe1b9e3a02b779c49eedded0157f3116d3bda1808247a4d
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/visual-regression.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:c63c8032bfe1197faaa5da7cf861a68dab0365e2ea3f0b0d3f5bff355e2e1a21
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/vue.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:6f08d58b4cde88454ecca7a83b4fe5bab0a6fa38ab8111f7533f6fb9211032e8
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/websockets-and-realtime.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:2f76ac9a5b92e941fe7bdcf14de86cdb60302b7411adb26e2cc964248fe1450b
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/core/when-to-mock.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:3a18b1bac8045da43cc3aeb4b4898f8a634399b2262372b079b54c2646168a90
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/migration/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:88ec8964a8601cf0980c776e7bd71629948d7df1e3ac02632a265fbd9015c49e
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/migration/from-cypress.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:be719636e0b2ba9768968cd0529f7fe955d227efc92d4f2ae05f137caf1aa7df
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/migration/from-selenium.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:02f05c1b7479bf5d61f04541d3cdd5f1a77b9a9b24746fea9d274021118510cb
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/playwright-cli/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:6cee5e8f18edff7a2ad16d34d7b43a2e2ff5e58946f791473b040ed0b2eba01e
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/playwright-cli/advanced-workflows.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:b8cc19886e8ba990ebd418e3217bf8eefb3f3d651b73e606eadb95d21f4ac9a8
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/playwright-cli/core-commands.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:05731721cdf1217d7880a3279a24eab4c8c5353347cc616924241af733c43053
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/playwright-cli/device-emulation.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:d5954f27b00f9fc195d7e61a4c39790a174c4a10257082f98f8b635929138903
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/playwright-cli/request-mocking.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:a6d6eddce3ac7472cd85b127e258b8200edf19a2753af2181cca4074b10a88e0
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/playwright-cli/running-custom-code.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:4dc1bfa6ed5143a58d7bfce6380b7ae1cbb790fddfe2f2ef9d8932ef0ee09339
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/playwright-cli/screenshots-and-media.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:88c8a7bbcd26befb5d8c7a3f217b794bfa374ccb8d306c01fd7cf1fbc553d5d7
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/playwright-cli/session-management.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:f8310fab5299cce460cd41142b421082f9056efcbc9309e01ca5ea91555b857a
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/playwright-cli/storage-and-auth.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:c68d628c63b80efe7d900170e86868303fb59b4e5f2f5e08e435b38e982d9981
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/playwright-cli/test-generation.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:60811c8d885041d9a7b3e44a8aec158916d540857831ec9cb379f22392a4a714
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/playwright-cli/tracing-and-debugging.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:86e6943e6082393265dbcd249c2beaf70a128600f1028934bb5ccd6041018b1b
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/pom/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:e1147d948841e920674a2ec496290bc30af73101ceb5dc80282dd74019decb69
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/pom/page-object-model.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:b0a38a0ad8d58fd8f62a1e64b035ec6f9dc7fae58602764d7c9aea10a2188626
+- kind: project-relative
+  target: claude
+  value: .claude/skills/playwright-skill/pom/pom-vs-fixtures-vs-helpers.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:c286028ded866a59511d3c898cbe2141d4b38183fc9afa8136d16230e9b251e1
+- kind: project-relative
+  target: copilot
+  value: .github/instructions/agents.instructions.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/instructions/agents.instructions.md
+  active_owner: github/awesome-copilot/instructions/agents.instructions.md
+  content_hash: sha256:05ca77656669d76091460783bf8e82bcd0ec91e9d27f6d2dab570a66e170380d
+- kind: project-relative
+  target: copilot
+  value: .github/instructions/context-engineering.instructions.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/instructions/context-engineering.instructions.md
+  active_owner: github/awesome-copilot/instructions/context-engineering.instructions.md
+  content_hash: sha256:303780cee09b1707be6b2aa99ad2215514f2f76cbd2da59378194483dc6bf499
+- kind: project-relative
+  target: copilot
+  value: .github/instructions/instructions.instructions.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/instructions/instructions.instructions.md
+  active_owner: github/awesome-copilot/instructions/instructions.instructions.md
+  content_hash: sha256:a38e647c44a1b3702cea44569ddb4cb3f3b53a78d08f7f457d14c12e9e65eaba
+- kind: project-relative
+  target: copilot
+  value: .github/instructions/memory-bank.instructions.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/instructions/memory-bank.instructions.md
+  active_owner: github/awesome-copilot/instructions/memory-bank.instructions.md
+  content_hash: sha256:195355c04136ce42f1bb683c4b22e986b0ed332ce4fd3aa4bb6a77c69cd4a531
+- kind: project-relative
+  target: copilot
+  value: .github/instructions/neo4j-knowledgebase.instructions.md
+  runtime: null
+  scope: project
+  owners:
+  - .
+  active_owner: .
+  content_hash: sha256:78c4c1812618382f762272d038bdbc025c799b9dff618b7022c50073644981bf
+- kind: project-relative
+  target: copilot
+  value: .github/instructions/powershell.instructions.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/instructions/powershell.instructions.md
+  active_owner: github/awesome-copilot/instructions/powershell.instructions.md
+  content_hash: sha256:a8916a8aa82260b68dcc73bd659226795f6018ee2746da86ed4d27a4d5dfc1ef
+- kind: project-relative
+  target: copilot
+  value: .github/instructions/prompt.instructions.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/instructions/prompt.instructions.md
+  active_owner: github/awesome-copilot/instructions/prompt.instructions.md
+  content_hash: sha256:3ec80d94465a9a6f67ef3973c13956f81b385fa86d599f7c27196c49c3f4f07b
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/acquire-codebase-knowledge
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/acquire-codebase-knowledge
+  active_owner: github/awesome-copilot/skills/acquire-codebase-knowledge
+  content_hash: null
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/acquire-codebase-knowledge/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/acquire-codebase-knowledge
+  active_owner: github/awesome-copilot/skills/acquire-codebase-knowledge
+  content_hash: sha256:7ca01711e1615171b26ce9e2729bedf041348d7fd0f24bc04e0d400dc93e41b9
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/acquire-codebase-knowledge/assets/templates/ARCHITECTURE.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/acquire-codebase-knowledge
+  active_owner: github/awesome-copilot/skills/acquire-codebase-knowledge
+  content_hash: sha256:3b7a958d153c037a6fc19e35e7e9792650d747491340d83ba831714b6ca02b6c
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/acquire-codebase-knowledge/assets/templates/CONCERNS.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/acquire-codebase-knowledge
+  active_owner: github/awesome-copilot/skills/acquire-codebase-knowledge
+  content_hash: sha256:d714bef20a5ed8fee1ab5e01041abd18f1d95b93d455e82b371031a6675b6430
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/acquire-codebase-knowledge/assets/templates/CONVENTIONS.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/acquire-codebase-knowledge
+  active_owner: github/awesome-copilot/skills/acquire-codebase-knowledge
+  content_hash: sha256:c20c1dca3226992b785229b4ba2c08caada775bd0e26a85f1185d0600b6f2a37
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/acquire-codebase-knowledge/assets/templates/INTEGRATIONS.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/acquire-codebase-knowledge
+  active_owner: github/awesome-copilot/skills/acquire-codebase-knowledge
+  content_hash: sha256:60930c9b9aecf63e9c1c19a597bfaba6cab5f44d687e2c751cf034ffe962af25
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/acquire-codebase-knowledge/assets/templates/STACK.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/acquire-codebase-knowledge
+  active_owner: github/awesome-copilot/skills/acquire-codebase-knowledge
+  content_hash: sha256:0faf167cb857c14f4f8fbdbebf58727440d80c275fa483dedd7a08e2ac3ebe12
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/acquire-codebase-knowledge/assets/templates/STRUCTURE.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/acquire-codebase-knowledge
+  active_owner: github/awesome-copilot/skills/acquire-codebase-knowledge
+  content_hash: sha256:29a5a387c894135c41c74a1b3e629ece88707c0a56aa9e4153ec9682f5c0c373
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/acquire-codebase-knowledge/assets/templates/TESTING.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/acquire-codebase-knowledge
+  active_owner: github/awesome-copilot/skills/acquire-codebase-knowledge
+  content_hash: sha256:941a0f400441660a5fb9a28f43318f4a13f1a1c79e8cfac03cdf893cd6c3db85
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/acquire-codebase-knowledge/references/inquiry-checkpoints.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/acquire-codebase-knowledge
+  active_owner: github/awesome-copilot/skills/acquire-codebase-knowledge
+  content_hash: sha256:d06d9de9b30ebfe73a8f1034bfc1f2c4b68e45bd8425d56df8e4d48f06673dce
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/acquire-codebase-knowledge/references/stack-detection.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/acquire-codebase-knowledge
+  active_owner: github/awesome-copilot/skills/acquire-codebase-knowledge
+  content_hash: sha256:9baaaaadbebdfd53099875a9f4920d2fcb236efe040655a2d43217a6a31a4c9f
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/acquire-codebase-knowledge/scripts/scan.py
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/acquire-codebase-knowledge
+  active_owner: github/awesome-copilot/skills/acquire-codebase-knowledge
+  content_hash: sha256:193d5b9f73a71d6ecc2f39f13f33d96be49d675abe83f5857ddbdc4ae21b7bd9
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/developer-growth-analysis
+  runtime: null
+  scope: project
+  owners:
+  - composiohq/awesome-claude-skills/developer-growth-analysis
+  active_owner: composiohq/awesome-claude-skills/developer-growth-analysis
+  content_hash: null
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/developer-growth-analysis/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - composiohq/awesome-claude-skills/developer-growth-analysis
+  active_owner: composiohq/awesome-claude-skills/developer-growth-analysis
+  content_hash: sha256:8117a9dcd2991c53b94dcbdbef85b14363466a20309665b64b06d188677e5aa0
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/hk-setup
+  runtime: null
+  scope: project
+  owners:
+  - majiayu000/claude-skill-registry/skills/data/hk-setup
+  active_owner: majiayu000/claude-skill-registry/skills/data/hk-setup
+  content_hash: null
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/hk-setup/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - majiayu000/claude-skill-registry/skills/data/hk-setup
+  active_owner: majiayu000/claude-skill-registry/skills/data/hk-setup
+  content_hash: sha256:ba796eb14050d00d1070737be9895ec72ef90ce36aa1b239670efb472334ca6c
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/hk-setup/metadata.json
+  runtime: null
+  scope: project
+  owners:
+  - majiayu000/claude-skill-registry/skills/data/hk-setup
+  active_owner: majiayu000/claude-skill-registry/skills/data/hk-setup
+  content_hash: sha256:cc5a5f4f3509f7eccb85ea4e27aa32f7b0c330d8c3d8bcbcb1d04468ccaa91e2
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/lsp-setup
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/lsp-setup
+  active_owner: github/awesome-copilot/skills/lsp-setup
+  content_hash: null
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/lsp-setup/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/lsp-setup
+  active_owner: github/awesome-copilot/skills/lsp-setup
+  content_hash: sha256:7a49f98b82b66454ad66a0b8506a50028a16a5c91be73cb39669a18bfba3cb01
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/lsp-setup/references/lsp-servers.md
+  runtime: null
+  scope: project
+  owners:
+  - github/awesome-copilot/skills/lsp-setup
+  active_owner: github/awesome-copilot/skills/lsp-setup
+  content_hash: sha256:5dc435290338d2c1ddbfa889027145fe6824ffef7de01d7db57f0ac9e9610124
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: null
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/LICENSE
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:9b745cd92c3dfb415f5adefb81ff71674dd6a764cba8aa3ab14a920d1ab272ec
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/README.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:ec2308c15da28d9d7594d61475971d27bbd8da2bd2beeadc47b0de36ffd8bb3c
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:4929cff14de61f93d72cbbef192edc880cf2fc244572effcc3bf8724610284ba
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/ci/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:e5fed8f9837a00b3bf533b6b5ce38fe3df28de447ed88f170c2f74fff2d42a7e
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/ci/ci-github-actions.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:a9af4d41ebf807c5efde00865ff7056c5f387dd69d607275456f20f8aa4b7b6c
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/ci/ci-gitlab.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:2919f482487231177e793c6c3dbcb3dbffbbd81c50d8ea2e5feedd278a5ca045
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/ci/ci-other.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:325f7a4af904b2f232eff17996b2cb524809b94ea0e7a27a5b580999009ef167
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/ci/docker-and-containers.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:aa262bebfa7d71fa7fdd993c208e1bf7687cf9fce4d6b07d14b2d84c2cdf6aeb
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/ci/global-setup-teardown.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:98f8900a187b0ec9cf7ad2ee5ae92cb865a0fad8ce6a8af8a8762d103e0cc271
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/ci/parallel-and-sharding.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:7fc6b88879f8d35ac4eabe947ebe6143c3af4687ce8c9171113a233352898dc3
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/ci/projects-and-dependencies.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:0037a53233aa06078d531630983657136c6372353e4bc03bcad2e7852fc19548
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/ci/reporting-and-artifacts.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:3081503c8f907a3bea24d7e66d7e545b9ff0b7f9e7198c47f7e4b52aa1bb091d
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/ci/test-coverage.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:33394220319277b8b2a47a5fb148276ef0fcf98e37aafc29ff1640203ce0d4f3
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:60fa9174aeb10740a34ec21df89f1cef9acacced9a4e8fca6a593bc8016d5f69
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/accessibility.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:5636899870516df1b63c13421e50c5e182a03d74a656791ef42467e026776cf4
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/angular.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:3a60526012ce5e37b45ddfab7a098ea04279f8787a07e5c3ffe1fb458cd31bef
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/api-testing.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:a225d4ad5f6a7f728b76c68a8bff8b6d4bfb2996fee250151e3bd4c7f06508b8
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/assertions-and-waiting.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:5df20f206af34afe567ee9aa9016d42272a45f65adf34e77085227a6c465a81c
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/auth-flows.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:873db172eded4d3563487be1e401a94e72e0816d26d8130203e29b79924c029a
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/authentication.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:3ac21e8af2c8675bd440ee0d97c03d1b6c3ff95608330a5e266d19aaedc9e9b4
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/browser-apis.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:8fdbcb6706c306c59f046c9304d3f6beddd2abe12475ddf4c201d53bd31df5c5
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/browser-extensions.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:f937acbae6a8d7c37a35b5a7812571f658ecc015d41411c0b347be3d7fce8045
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/canvas-and-webgl.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:c02a292ce0e0d27ed9f2d4388fd4753537ca67bc3082eec6e1a6d7daf18033b2
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/clock-and-time-mocking.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:bf93baa816e63f9122ffdb54cd4fe887592b6252373c9380aba87ddd645c0683
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/common-pitfalls.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:e7e482fb3848007864df50f4e8e506e0f1b717d2e85f0519cbaba66aecf636a1
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/component-testing.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:64bb1cbbc35776760c3910b69f19a30c9ac85c457d26a6e21fb21fab3ead1b30
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/configuration.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:a2ac6b8b69a8b8049620db4affb28f58284e495887a5ea9356739c23dd61c0b3
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/crud-testing.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:6d3f70f4af3f17caf6c7e07e95210a544dec25a08a8a2f750c0ca9dd48d54e1b
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/debugging.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:cb50aff959c463eed0a3d9f646df2a132795c70185fc36a890b0c6f7b76d72a7
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/drag-and-drop.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:39706309fc12b061121920d56fdf65ea95bb086153aef64d2ef8801b11ac2adc
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/electron-testing.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:39098c51fd7f780e39b57dcd69c2101e204e7fd9dd6eeacf520cd40cbba72f73
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/error-and-edge-cases.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:08a20ab127967ecc0f34ac3b9ff7dbc2a0442d4d1e3ea790eb22f0fc34d6d4ff
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/error-index.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:c825efe892e810039b4a2e583dd49257e87c5f588b195414eb698424b7505833
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/file-operations.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:fca9aa1b361b95eca0cd204805a997fef692f34650048234b8250e8da07a9760
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/file-upload-download.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:2cb1f8d2918a48e98ec39746f888076f4e39b0eefad9eb42f0c65b53f33b6e05
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/fixtures-and-hooks.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:6b587295f67559dea5b4590edb17cc5f2e6201be983160ac75faa004c819a5b8
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/flaky-tests.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:8a961ae91fcec74829c207373d4f5a194d4b95d4b59732eb9db6825ed036b665
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/forms-and-validation.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:d889a06e388ec5577ee0fa42fa70c869640dff0273510956c37342fb449ef430
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/i18n-and-localization.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:b308d8e6530cbf8d6b3adef2454c5324a17ac77f6b19189b79ab9fdc44ef1f74
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/iframes-and-shadow-dom.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:1e369ee9bdc42e57938b985bec8ef1a7d78e0a87c62d108f64e42cc9c1752b99
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/locator-strategy.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:c6f8d7f318e961bc8c5aea03e0e51cb687fe819f938efcb09940496b589b1143
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/locators.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:c821161899cb982689c9ebef975a3cd25f835ae8099382544befc9ef7e3805bc
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/mobile-and-responsive.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:5838d4ac8819e8db206d39b16442fc54152b1ab70a28642dfc9779dff659c8fd
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/multi-context-and-popups.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:03435df567726c17553b1a48c84338096cd18b55dc5963e1e132647ad3060aec
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/multi-user-and-collaboration.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:da2a1903faf7142ef4430cbe70cd4870b63f6d1fa1b1c5722b27e52aa9b3fa3a
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/network-mocking.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:65103d94dc97d45c4be00e7935bc8beab2bff94856609a638f36ace09f382bea
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/nextjs.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:b65c147f0281871b4467a78a2cfe9db04f967afe7a34b06a1c148a20080c8ee9
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/performance-testing.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:48876ffdd84b07c834f4ea5497e322e1aaa2232808c699c086d1c821a47e9ccb
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/react.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:15587ad60e364fbae54b7b730394d16163dc5423adbef1c8e3dd3b98e634a14d
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/search-and-filter.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:ef43ab3ee77a0a7d198253623b7efdc07a5abaaf5aa627c3a172eaf1bfa98ebd
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/security-testing.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:eccd23ac9f0e1426f39c141dfe4b045a759223f17cf9c6574c5231ef0176bee3
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/service-workers-and-pwa.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:c92e2d1046f2bd1eaffe86a8ee464f2c8b2fb62cf599447263da28b198356ad7
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/test-architecture.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:a36b1e09a1ef572f276adb3d9e1cae0a53233220bc45a6d830e2f4dd47c6d1f4
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/test-data-management.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:2d1b9e2ec3d0e40741e0b26a57d67f71ecd68b05231b6e4d21661b5c93057576
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/test-organization.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:6efbe0fad1dc156e80348bc0fadd70d1071aee9513da6e183808b5a6e5131d44
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/third-party-integrations.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:de1134fdcad478b8273f1e6c808a721d1505daeaf73e49911b62d8a71aaf2907
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/trace-analysis.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:7ac462fb83b48f3e7fe1b9e3a02b779c49eedded0157f3116d3bda1808247a4d
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/visual-regression.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:c63c8032bfe1197faaa5da7cf861a68dab0365e2ea3f0b0d3f5bff355e2e1a21
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/vue.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:6f08d58b4cde88454ecca7a83b4fe5bab0a6fa38ab8111f7533f6fb9211032e8
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/websockets-and-realtime.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:2f76ac9a5b92e941fe7bdcf14de86cdb60302b7411adb26e2cc964248fe1450b
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/core/when-to-mock.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:3a18b1bac8045da43cc3aeb4b4898f8a634399b2262372b079b54c2646168a90
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/migration/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:88ec8964a8601cf0980c776e7bd71629948d7df1e3ac02632a265fbd9015c49e
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/migration/from-cypress.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:be719636e0b2ba9768968cd0529f7fe955d227efc92d4f2ae05f137caf1aa7df
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/migration/from-selenium.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:02f05c1b7479bf5d61f04541d3cdd5f1a77b9a9b24746fea9d274021118510cb
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/playwright-cli/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:6cee5e8f18edff7a2ad16d34d7b43a2e2ff5e58946f791473b040ed0b2eba01e
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/playwright-cli/advanced-workflows.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:b8cc19886e8ba990ebd418e3217bf8eefb3f3d651b73e606eadb95d21f4ac9a8
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/playwright-cli/core-commands.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:05731721cdf1217d7880a3279a24eab4c8c5353347cc616924241af733c43053
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/playwright-cli/device-emulation.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:d5954f27b00f9fc195d7e61a4c39790a174c4a10257082f98f8b635929138903
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/playwright-cli/request-mocking.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:a6d6eddce3ac7472cd85b127e258b8200edf19a2753af2181cca4074b10a88e0
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/playwright-cli/running-custom-code.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:4dc1bfa6ed5143a58d7bfce6380b7ae1cbb790fddfe2f2ef9d8932ef0ee09339
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/playwright-cli/screenshots-and-media.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:88c8a7bbcd26befb5d8c7a3f217b794bfa374ccb8d306c01fd7cf1fbc553d5d7
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/playwright-cli/session-management.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:f8310fab5299cce460cd41142b421082f9056efcbc9309e01ca5ea91555b857a
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/playwright-cli/storage-and-auth.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:c68d628c63b80efe7d900170e86868303fb59b4e5f2f5e08e435b38e982d9981
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/playwright-cli/test-generation.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:60811c8d885041d9a7b3e44a8aec158916d540857831ec9cb379f22392a4a714
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/playwright-cli/tracing-and-debugging.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:86e6943e6082393265dbcd249c2beaf70a128600f1028934bb5ccd6041018b1b
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/pom/SKILL.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:e1147d948841e920674a2ec496290bc30af73101ceb5dc80282dd74019decb69
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/pom/page-object-model.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:b0a38a0ad8d58fd8f62a1e64b035ec6f9dc7fae58602764d7c9aea10a2188626
+- kind: project-relative
+  target: legacy
+  value: .agents/skills/playwright-skill/pom/pom-vs-fixtures-vs-helpers.md
+  runtime: null
+  scope: project
+  owners:
+  - testdino-hq/playwright-skill
+  active_owner: testdino-hq/playwright-skill
+  content_hash: sha256:c286028ded866a59511d3c898cbe2141d4b38183fc9afa8136d16230e9b251e1
 local_deployed_files:
 - .claude/rules/neo4j-knowledgebase.md
 - .github/instructions/neo4j-knowledgebase.instructions.md

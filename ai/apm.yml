@@ -6,10 +6,6 @@ targets:
 - copilot
 - claude
 dependencies:
-  # Plugin-shaped packages (github/awesome-copilot/plugins/*, dotnet/*/plugins/*,
-  # terrylica/cc-skills/plugins/mise) moved to agents.yml - installed natively via
-  # setup/install-agent-plugins.ps1 instead of being flattened by APM. See
-  # microsoft/apm#739 and #1120.
   apm:
   - github/awesome-copilot/skills/acquire-codebase-knowledge
   - github/awesome-copilot/skills/lsp-setup
@@ -23,8 +19,6 @@ dependencies:
   - testdino-hq/playwright-skill
   - majiayu000/claude-skill-registry/skills/data/hk-setup
   - sickn33/antigravity-awesome-skills/skills/mise-configurator
-  - terrylica/cc-skills/plugins/itp/skills/mise-configuration
-  - terrylica/cc-skills/plugins/itp/skills/mise-tasks
   mcp:
     - name: mise
       args:
