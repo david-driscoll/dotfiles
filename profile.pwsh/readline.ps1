@@ -29,4 +29,6 @@ if ($IsMacOS -or $IsLinux) {
 	# Set-PSReadLineKeyHandler -Key Escape -Function BackwardKillInput
 }
 if ($IsWindows) {
+	# Emacs mode leaves these unbound, so paste breaks in hosts that forward the keys (e.g. VS Code).
+	Set-PSReadLineKeyHandler -Chord Ctrl+v, Shift+Insert -Function Paste
 }
