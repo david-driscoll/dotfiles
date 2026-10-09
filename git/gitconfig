@@ -45,3 +45,9 @@
 # erroring (verified empirically against git 2.55.0 in a scratch config).
 [include]
 	path = ~/.gitconfig.local
+
+# Global hk hooks (`mise run hk:install-global`). hk writes absolute,
+# machine-specific mise paths, so they live in this untracked file rather
+# than here or in the tracked per-OS ~/.gitconfig.local.
+[include]
+	path = ~/.config/hk/gitconfig

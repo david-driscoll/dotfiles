@@ -65,28 +65,19 @@ See [references/builtins.md](references/builtins.md) for full catalog. Key built
 Create `hk.pkl` in project root. Always use version-pinned imports:
 
 ```pkl
-amends "package://github.com/jdx/hk/releases/download/v1.28.0/hk@1.28.0#/Config.pkl"
-import "package://github.com/jdx/hk/releases/download/v1.28.0/hk@1.28.0#/Builtins.pkl"
+amends "package://github.com/jdx/hk/releases/download/v2.5.0/hk@2.5.0#/Config.pkl"
+import "package://github.com/jdx/hk/releases/download/v2.5.0/hk@2.5.0#/Builtins.pkl"
 
-local linters = new Mapping<String, Step> {
+steps {
     // Add linters here based on project type
 }
 
 hooks {
     ["pre-commit"] {
-        fix = true
         stash = "git"
-        steps = linters
     }
     ["pre-push"] {
-        steps = linters
-    }
-    ["fix"] {
-        fix = true
-        steps = linters
-    }
-    ["check"] {
-        steps = linters
+        steps = module.steps
     }
 }
 ```
@@ -95,7 +86,7 @@ hooks {
 
 ```bash
 hk validate       # Check config syntax
-hk install        # Install git hooks
+hk install --mise # Install repository hooks (works on older Git too)
 hk check --all    # Run all checks
 hk fix --all      # Auto-fix issues
 ```
@@ -105,24 +96,22 @@ hk fix --all      # Auto-fix issues
 ### Python (ruff + ty)
 
 ```pkl
-local linters = new Mapping<String, Step> {
+steps {
     ["ruff"] = Builtins.ruff
     ["ruff-format"] = Builtins.ruff_format
     ["ty"] {
         glob = "**/*.py"
         check = "ty check"
     }
-    ["pkl"] = Builtins.pkl
 }
 ```
 
 ### JavaScript/TypeScript (eslint + prettier)
 
 ```pkl
-local linters = new Mapping<String, Step> {
+steps {
     ["eslint"] = Builtins.eslint
     ["prettier"] = Builtins.prettier
-    ["pkl"] = Builtins.pkl
 }
 ```
 
@@ -131,9 +120,8 @@ local linters = new Mapping<String, Step> {
 Biome is a fast all-in-one linter+formatter. Use instead of eslint+prettier for new projects:
 
 ```pkl
-local linters = new Mapping<String, Step> {
+steps {
     ["biome"] = Builtins.biome
-    ["pkl"] = Builtins.pkl
 }
 ```
 
@@ -142,14 +130,13 @@ local linters = new Mapping<String, Step> {
 Oxlint + oxfmt from the [oxc project](https://oxc.rs). Oxfmt is alpha but very fast:
 
 ```pkl
-local linters = new Mapping<String, Step> {
+steps {
     ["oxlint"] = Builtins.ox_lint
     ["oxfmt"] {
         glob = "**/*.{ts,tsx,js,jsx,json,md}"
         check = "oxfmt --check {{files}}"
         fix = "oxfmt {{files}}"
     }
-    ["pkl"] = Builtins.pkl
 }
 ```
 
@@ -158,63 +145,58 @@ Install: `npm install -g oxfmt`
 ### Go
 
 ```pkl
-local linters = new Mapping<String, Step> {
+steps {
     ["gofmt"] = Builtins.gofmt
     ["goimports"] = Builtins.goimports
     ["golangci-lint"] = Builtins.golangci_lint
-    ["pkl"] = Builtins.pkl
 }
 ```
 
 ### Rust
 
 ```pkl
-local linters = new Mapping<String, Step> {
+steps {
     ["rustfmt"] = Builtins.rustfmt
     ["clippy"] = Builtins.clippy
-    ["pkl"] = Builtins.pkl
 }
 ```
 
 ### Swift (swiftlint + swiftformat)
 
 ```pkl
-local linters = new Mapping<String, Step> {
+steps {
     ["swiftlint"] = Builtins.swiftlint
     ["swiftformat"] {
         glob = "**/*.swift"
         check = "swiftformat --lint {{files}}"
         fix = "swiftformat {{files}}"
     }
-    ["pkl"] = Builtins.pkl
 }
 ```
 
 ### Shell
 
 ```pkl
-local linters = new Mapping<String, Step> {
+steps {
     ["shellcheck"] = Builtins.shellcheck
     ["shfmt"] = Builtins.shfmt
-    ["pkl"] = Builtins.pkl
 }
 ```
 
 ### Docker
 
 ```pkl
-local linters = new Mapping<String, Step> {
+steps {
     ["hadolint"] = Builtins.hadolint
-    ["pkl"] = Builtins.pkl
 }
 ```
 
 ## Universal Linters
 
-These work for any project. Add them directly to your linters mapping:
+These work for any project. Add them directly to your top-level steps mapping:
 
 ```pkl
-local linters = new Mapping<String, Step> {
+steps {
     // Language-specific linters...
     ["ruff"] = Builtins.ruff
 
@@ -225,7 +207,11 @@ local linters = new Mapping<String, Step> {
 }
 ```
 
-Note: Pkl Mappings don't support `+` concatenation. Define all linters in a single mapping.
+Top-level `steps` automatically provides `check`, `fix`, and `pre-commit` hooks. Only `pre-commit` stages fixes by default. Define `pre-push` explicitly, as above.
+
+hk v2 evaluates Pkl internally; the standalone `pkl` CLI is only needed if you explicitly use `Builtins.pkl` or other Pkl CLI commands. For gitleaks staged scanning, use `(Builtins.gitleaks) { scan = "staged" }`, not `gitleaks_staged`.
+
+On Git 2.54+, prefer `hk install --global --mise` to enable hk across projects. Repositories without hk configuration are skipped. Global hooks and settings belong in `~/.config/hk/config.pkl` amending `Config.pkl`; project overrides belong in `hk.local.pkl`, not `.hkrc.pkl`.
 
 Other useful universal builtins:
 - `check_merge_conflict` - Prevent committing merge conflict markers

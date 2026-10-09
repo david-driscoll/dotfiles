@@ -1,24 +1,73 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended"],
-  "enabledManagers": ["mise", "github-actions"],
+  "extends": [
+    "config:recommended"
+  ],
+  "enabledManagers": [
+    "mise",
+    "github-actions",
+    "custom.regex"
+  ],
+  "description": [
+    "Wait 24 hours before creating dependency PRs so binaries are available for macOS and Windows (including mise/aqua/python-build-standalone artifacts) before a bump lands."
+  ],
+  "minimumReleaseAge": "24 hours",
+  "internalChecksFilter": "strict",
   "packageRules": [
     {
-      "description": "Automerge patch-level mise tool bumps only. The mise manager can refresh mise.lock via `mise lock` (lib/modules/manager/mise/artifacts.ts), but that only runs if the Renovate host's allowedUnsafeExecutions includes \"mise\" -- a self-hosted/admin setting, not something this repo's config controls or can confirm. Scoping automerge to patch bumps limits the blast radius on the chance the lockfile silently isn't refreshed.",
-      "matchManagers": ["mise"],
-      "matchUpdateTypes": ["patch"],
+      "description": "Automerge patch-level mise tool bumps only. The mise manager can refresh mise.lock via `mise lock` (lib/modules/manager/mise/artifacts.ts), but that only runs if the Renovate host's allowedUnsafeExecutions includes \"mise\" -- a self-hosted/admin setting, not something this repo's config controls or can confirm. Scoping automerge to patch bumps limits the blast radius on the chance the lockfile silently isn't refreshed. Also applies to custom.regex deps (only hk.pkl's hk package URLs), so the grouped hk PR keeps the same automerge policy as the mise bump.",
+      "matchManagers": [
+        "mise",
+        "custom.regex"
+      ],
+      "matchUpdateTypes": [
+        "patch"
+      ],
       "automerge": true
     },
     {
-      "description": "Minor/major mise bumps always get a reviewable PR. This repo bootstraps two of David's real machines (macOS daily driver + Windows work machine) via `mise install`, so a larger version jump merging unattended is more blast radius than is worth it.",
-      "matchManagers": ["mise"],
-      "matchUpdateTypes": ["minor", "major"],
+      "description": "Minor/major mise bumps always get a reviewable PR. This repo bootstraps two of David's real machines (macOS daily driver + Windows work machine) via `mise install`, so a larger version jump merging unattended is more blast radius than is worth it. Also applies to custom.regex deps (only hk.pkl's hk package URLs), so the grouped hk PR keeps the same automerge policy as the mise bump.",
+      "matchManagers": [
+        "mise",
+        "custom.regex"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "major"
+      ],
       "automerge": false
     },
     {
       "description": "GitHub Actions bumps never automerge. Actions execute with repo permissions in CI, so a version bump deserves a human look before it runs.",
-      "matchManagers": ["github-actions"],
+      "matchManagers": [
+        "github-actions"
+      ],
       "automerge": false
+    },
+    {
+      "description": "Bump hk in the global mise config and hk.pkl's package URLs in one PR, so the binary and its Pkl schema never drift apart.",
+      "matchDepNames": [
+        "hk"
+      ],
+      "groupName": "hk"
+    }
+  ],
+  "customManagers": [
+    {
+      "description": "hk.pkl pins hk's Pkl package in its `amends` and `import` URLs (two version spots per line). Changing the hk binary does not rewrite them (https://hk.jdx.dev/pkl_introduction.html), so track them as the same `hk` dependency the mise manager uses (github-releases jdx/hk) and bump them together.",
+      "customType": "regex",
+      "managerFilePatterns": [
+        "/(^|/)hk\\.pkl$/"
+      ],
+      "matchStringsStrategy": "any",
+      "matchStrings": [
+        "package://github\\.com/jdx/hk/releases/download/v(?<currentValue>[^/\"]+)/",
+        "/hk@(?<currentValue>[^#\"]+)#/"
+      ],
+      "depNameTemplate": "hk",
+      "packageNameTemplate": "jdx/hk",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v(?<version>\\S+)"
     }
   ]
 }

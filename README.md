@@ -151,6 +151,40 @@ Show-DotfilesProfileStartupTiming
 
 ## Architecture
 
+### Git hooks (hk 2.5)
+
+The global mise config pins hk 2.5.0 and runs `hk:install-global` after tool
+installation. On Git 2.54+, this runs `hk install --global --mise` once per
+machine; projects without hk configuration are skipped. The hooks contain
+absolute, machine-specific mise paths, so the task writes them to the
+untracked `~/.config/hk/gitconfig` (via `GIT_CONFIG_GLOBAL`), which
+`git/gitconfig` includes, rather than to the tracked `~/.gitconfig` or
+`~/.gitconfig.local`. After upgrading Git, run `mise run hk:install-global` to
+enable it without reinstalling tools.
+hk is installed only globally: there is no per-repository hook install, and
+Git older than 2.54 gets a warning and no hooks until Git is upgraded.
+
+If `git --version` reports an older Git than you installed, check PATH order:
+another Git, such as a copy bundled with a tool, may come first.
+
+`hk.pkl` uses v2's shared top-level steps for check, fix, and pre-commit, with
+an explicit pre-push hook. Pre-commit fixes and stages files and uses Git
+stashing; other hooks do not stage by default. Gitleaks continues to scan only
+staged content. Run `hk validate` and `hk check --all` to verify configuration
+and check the tree without auto-fixing it. hk evaluates Pkl internally, so the
+standalone `pkl` tool is not required. Optional global configuration belongs
+in `~/.config/hk/config.pkl`, and local overrides in `hk.local.pkl`.
+
+The `hk.pkl` `amends`/`import` URLs pin hk's Pkl package version, which must
+match the hk binary. Renovate tracks those URLs with a regex manager under the
+same `hk` dependency as the global mise config and groups both into one PR, so
+they are always bumped together.
+
+hk 2.5 refuses to overwrite foreign or symlinked legacy hooks. Inspect them
+before choosing `hk install --force --mise`; bootstrap does not force replacement.
+See the [v2 migration guide](https://hk.jdx.dev/migration-v2) and
+[installation reference](https://hk.jdx.dev/cli/install).
+
 ### Global vs. repo-local mise config
 
 ```

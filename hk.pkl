@@ -1,7 +1,7 @@
-amends "package://github.com/jdx/hk/releases/download/v1.56.1/hk@1.56.1#/Config.pkl"
-import "package://github.com/jdx/hk/releases/download/v1.56.1/hk@1.56.1#/Builtins.pkl"
+amends "package://github.com/jdx/hk/releases/download/v2.5.0/hk@2.5.0#/Config.pkl"
+import "package://github.com/jdx/hk/releases/download/v2.5.0/hk@2.5.0#/Builtins.pkl"
 
-local linters = new Mapping<String, Step> {
+steps {
     ["shellcheck"] {
         glob = "**/*.{sh,bash}"
         check = "shellcheck --exclude=SC2088 --exclude=SC2086 {{files}}"
@@ -11,24 +11,15 @@ local linters = new Mapping<String, Step> {
         batch = true
     }
     ["gitleaks"] = (Builtins.gitleaks) {
-        check = "gitleaks git --pre-commit --staged --redact"
+        scan = "staged"
     }
 }
 
 hooks {
     ["pre-commit"] {
-        fix = true
         stash = "git"
-        steps = linters
     }
     ["pre-push"] {
-        steps = linters
-    }
-    ["fix"] {
-        fix = true
-        steps = linters
-    }
-    ["check"] {
-        steps = linters
+        steps = module.steps
     }
 }

@@ -16,7 +16,6 @@ _.path = ["{{config_root}}/.cache/bin"]
 fnox = "v1.39.0"
 go = "1.27.2"
 hk = "2.5.0"
-pkl = "0.32.1"
 gitleaks = "8.30.1"
 shellcheck = "0.11.0"
 shfmt = "3.14.1"
@@ -39,10 +38,9 @@ kubeconform = "0.8.0" # aqua:yannh/kubeconform
 flux2 = "2.9.6" # aqua:fluxcd/flux2 -> installs the `flux` binary
 starship = "1.26.0" # aqua:starship/starship
 zoxide = "0.10.0" # aqua:ajeetdsouza/zoxide
-direnv = "2.38.1" # aqua:direnv/direnv
 mkcert = "1.4.4" # aqua:FiloSottile/mkcert
 powershell = "7.6.6"
-python = "3.15.0"
+python = "3.14.8"
 "pipx:graphifyy" = "0.9.82"
 "dotnet:graphify-dotnet" = "0.7.0"
 
@@ -71,7 +69,7 @@ python = "3.15.0"
 # "~/.config/fnox/config.toml" = { source = "~/dotfiles/.config/fnox/config.toml" }
 
 [hooks]
-postinstall = [{ task = "gh-extensions" }, { task = "az-extensions" }]
+postinstall = [{ task = "gh-extensions" }, { task = "az-extensions" }, { task = "hk:install-global" }]
 
 [tasks.gh-extensions]
 description = "Install this repo's gh CLI extensions (idempotent, auth-guarded, failure-isolated; #83, #96)"
@@ -99,4 +97,28 @@ if (-not $script) {
     exit 0
 }
 & $script
+'''
+
+[tasks."hk:install-global"]
+description = "Enable hk globally through mise (requires Git 2.54+)"
+shell = "pwsh -NoProfile -Command"
+run = '''
+$gitVersion = git --version
+if ($LASTEXITCODE -ne 0 -or $gitVersion -notmatch 'git version (\d+)\.(\d+)') {
+    throw "hk:install-global: cannot determine the Git version"
+}
+if ([version]"$($Matches[1]).$($Matches[2])" -lt [version]"2.54") {
+    Write-Warning "hk:install-global: Git 2.54+ is required for global hk hooks ($gitVersion found); upgrade Git and run mise run hk:install-global."
+} else {
+    # ~/.gitconfig and ~/.gitconfig.local are tracked repo files, and hk writes
+    # absolute, machine-specific mise paths, so redirect to the untracked file
+    # git/gitconfig includes. Run from $HOME so a repo's hk.pkl doesn't narrow
+    # the installed hook set.
+    $hkGitConfig = Join-Path $HOME ".config/hk/gitconfig"
+    New-Item -ItemType Directory -Force -Path (Split-Path $hkGitConfig) | Out-Null
+    $env:GIT_CONFIG_GLOBAL = $hkGitConfig
+    Push-Location $HOME
+    try { hk install --global --mise } finally { Pop-Location }
+    if ($LASTEXITCODE -ne 0) { throw "hk:install-global: installation failed" }
+}
 '''
