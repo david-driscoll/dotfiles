@@ -47,7 +47,7 @@ starship = "1.26.0" # aqua:starship/starship
 zoxide = "0.10.0" # aqua:ajeetdsouza/zoxide
 mkcert = "1.4.4" # aqua:FiloSottile/mkcert
 powershell = "7.6.6"
-python = "3.14.8"
+python = "3.15.0"
 "pipx:graphifyy" = "0.9.82"
 "dotnet:graphify-dotnet" = "0.7.0"
 
