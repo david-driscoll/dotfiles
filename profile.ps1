@@ -51,7 +51,7 @@ function Invoke-DotfilesProfileStartupStep {
     }
 }
 
-function Show-Dg {
+function Show-DotfilesProfileStartupTiming {
     $global:DotfilesProfileStartupTimings | Format-Table -AutoSize
 }
 
@@ -65,8 +65,17 @@ try {
     # config.linux.toml alongside .config/mise/config.toml), matching .zshrc
     # and .bashrc. Must be set before `mise activate pwsh` in
     # profile.pwsh/completions.ps1 -- without it the macOS layer's [env]
-    # (SSH_AUTH_SOCK for the 1PasotfilesProfileStartupTiminsword agent) never reaches pwsh.
+    # (SSH_AUTH_SOCK for the 1Password agent) never reaches pwsh.
     $env:MISE_AUTO_ENV = '1'
+
+    # Homebrew's pwsh wrapper exports DOTNET_ROOT=<brew dotnet>/libexec so pwsh can
+    # find its runtime, and everything started from pwsh inherits it. mise installs
+    # SDKs into DOTNET_ROOT when it is set, so `mise install` wrote them into the
+    # Homebrew Cellar and overwrote its `dotnet` host in place, which macOS then
+    # SIGKILLs. Pin mise to its own root (profile.windows.ps1 does the same).
+    if (-not $IsWindows) {
+        $env:MISE_DOTNET_ROOT = Join-Path $HOME '.local/share/mise/dotnet-root'
+    }
 
     $dotfilesModulePath = Join-Path $PSScriptRoot 'psmodules'
     if (-not $env:PSModulePath.Contains($dotfilesModulePath)) {

@@ -185,6 +185,11 @@ zstyle ':omz:plugins:eza' 'hyperlink' yes
 # entries can be scoped per-OS. Must be a real env var, not just
 # settings.auto_env in the toml — see that file for why. (#64)
 export MISE_AUTO_ENV=1
+# mise installs .NET SDKs into DOTNET_ROOT when one is inherited, and Homebrew's
+# pwsh wrapper exports DOTNET_ROOT=<brew dotnet>/libexec to everything started
+# from it, which sends `mise install` into the Homebrew Cellar. Pin mise to its
+# own root, as profile.ps1 does for pwsh.
+export MISE_DOTNET_ROOT="$HOME/.local/share/mise/dotnet-root"
 if [ -x "$(command -v fnox)" ]; then
   eval "$(fnox activate zsh)"
 fi
@@ -277,8 +282,6 @@ compinit
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:$HOME/.lmstudio/bin"
 # End of LM Studio CLI section
-export DOTNET_ROOT="/usr/local/share/dotnet"
-export PATH="/usr/local/share/dotnet:$PATH"
 
 if [ -x "$(command -v terraform)" ]; then
   complete -C "$(command -v terraform)" terraform

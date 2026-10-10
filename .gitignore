@@ -47,3 +47,7 @@ age.txt
 *secrets.json
 !*secrets.enc.json
 
+.agents/skills/.mise-skills.json
+.agents/skills/hk-debug
+.agents/skills/hk-configure
+.agents/skills/fnox
