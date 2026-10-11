@@ -1,0 +1,18 @@
+## Coder workspace override for ~/.gitconfig.local. Deployed via
+## .config/mise/config.coder.toml, an explicitly selected mise environment
+## that replaces config.linux.toml's entry for the same target — see that
+## file's header for how install.sh selects it.
+##
+## A Coder workspace is still Linux, so this starts from git/gitconfig.linux
+## rather than carrying a fifth copy of the identity block. Replace the
+## include with a [user] block here if Coder should commit under a different
+## email or signing key.
+[include]
+	path = ~/dotfiles/git/gitconfig.linux
+
+## Whatever Coder itself wrote to ~/.gitconfig before the dotfiles landed
+## (the git-config module's user.name/user.email, anything the template
+## adds). install.sh moves that file here instead of letting [dotfiles]
+## refuse to overwrite it. Last, so the workspace's own values win; untracked.
+[include]
+	path = ~/.gitconfig.workspace
