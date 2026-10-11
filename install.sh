@@ -9,8 +9,10 @@
 # to a logged warning instead of blocking on input.
 #
 # Flow: install mise (if absent) -> symlink ~/dotfiles at this checkout ->
-# link this repo's mise config files into ~/.config/mise -> `mise trust`
-# them by explicit path -> `mise bootstrap --yes`, which
+# link this repo's mise config files into ~/.config/mise -> in a Coder
+# workspace, select the config.coder.toml layer and move the workspace's own
+# ~/.gitconfig out of [dotfiles]' way -> `mise trust` the configs by
+# explicit path -> `mise bootstrap --yes`, which
 # is the single declarative step that installs OS packages, applies
 # [dotfiles], and installs [tools]. See #61 (epic) and #68 for the full
 # rationale, and PRs #79/#81 for how [dotfiles]/[bootstrap.packages] got
@@ -200,9 +202,9 @@ link_mise_config() {
 	mkdir -p "$target"
 
 	local cfg name link
-	# config.toml + this platform's layer only; config.macos*.toml has no
-	# business in a Linux home.
-	for cfg in "$source/config.toml" "$source/config.linux.toml"; do
+	# config.toml + this platform's layer + the workspace layer, if one was
+	# detected; config.macos*.toml has no business in a Linux home.
+	for cfg in "$source/config.toml" "$source/config.linux.toml" ${WORKSPACE_ENV:+"$source/config.$WORKSPACE_ENV.toml"}; do
 		[ -f "$cfg" ] || continue
 		name="$(basename -- "$cfg")"
 		link="$target/$name"
@@ -218,6 +220,99 @@ link_mise_config() {
 		ln -s "$cfg" "$link"
 		log "linked $link -> $cfg"
 	done
+}
+
+# --- workspace environment layer -------------------------------------------
+#
+# Coder and Codespaces are both plain "linux" to mise, so anything that
+# differs between them and a bare-metal box can't live in config.linux.toml.
+# Each gets its own layer instead: config.<env>.toml, an explicitly selected
+# mise environment, which outranks the platform layers. Only
+# config.coder.toml exists today -- a Codespace is recognised but, with no
+# layer to select, bootstraps exactly as plain Linux does.
+#
+# Called before link_mise_config, which links the layer's file.
+WORKSPACE_ENV=""
+
+detect_workspace_env() {
+	local env=""
+	# CODER is set by the Coder agent for every process it starts (the
+	# dotfiles module's script included); CODESPACES by GitHub.
+	if [ "${CODER:-}" = "true" ]; then
+		env="coder"
+	elif [ "${CODESPACES:-}" = "true" ]; then
+		env="codespaces"
+	fi
+	[ -n "$env" ] || return 0
+
+	if [ ! -f "$REPO_DIR/.config/mise/config.$env.toml" ]; then
+		log "$env workspace detected, but there is no config.$env.toml layer — bootstrapping as plain Linux"
+		return 0
+	fi
+	WORKSPACE_ENV="$env"
+	log "$env workspace detected — using the config.$env.toml layer"
+}
+
+# trust_and_bootstrap exports MISE_ENV for this script's own mise calls, but
+# every later `mise` in the workspace has to resolve the same layer or it
+# sees config.linux.toml's entries again. miserc.local.toml is mise's
+# per-machine place for that selection, read before any config file and by
+# every shell. A real file, not a link: it describes this machine, not the
+# repo.
+select_workspace_env() {
+	[ -n "$WORKSPACE_ENV" ] || return 0
+
+	local miserc="$HOME/.config/mise/miserc.local.toml"
+	if [ -e "$miserc" ]; then
+		grep -q "\"$WORKSPACE_ENV\"" "$miserc" ||
+			log "WARNING: $miserc exists and doesn't select '$WORKSPACE_ENV' — leaving it alone; add env = [\"$WORKSPACE_ENV\"] to it, or later mise runs won't load config.$WORKSPACE_ENV.toml"
+		return 0
+	fi
+	printf 'env = ["%s"]\n' "$WORKSPACE_ENV" >"$miserc"
+	log "wrote $miserc (env = [\"$WORKSPACE_ENV\"])"
+}
+
+# --- workspace-provisioned ~/.gitconfig -----------------------------------
+#
+# Coder (like Codespaces) writes a real ~/.gitconfig before this script
+# runs. "~/.gitconfig" is a [dotfiles] entry, so `mise bootstrap` stops at
+# "refusing to overwrite existing files", and --force-dotfiles would throw
+# the workspace's settings away.
+#
+# Move it to ~/.gitconfig.workspace instead, which the layer's
+# ~/.gitconfig.local (git/gitconfig.<env>) includes last, so whatever the
+# workspace set still wins. Not to ~/.gitconfig.local itself: that is a
+# [dotfiles] entry too, so a real file there only moves the same refusal
+# one file over.
+#
+# Only with a layer selected. Anywhere else nothing includes the moved
+# file, and a real ~/.gitconfig is one somebody wrote by hand -- mise's
+# refusal is the right answer there.
+adopt_workspace_gitconfig() {
+	local gitconfig="$HOME/.gitconfig"
+	local adopted="$HOME/.gitconfig.workspace"
+
+	[ -n "$WORKSPACE_ENV" ] || return 0
+	# A symlink is already [dotfiles]' own (a re-run); absent, nothing to keep.
+	if [ -L "$gitconfig" ] || [ ! -f "$gitconfig" ]; then
+		return 0
+	fi
+
+	local stamp
+	stamp="$(date +%Y%m%d%H%M%S)"
+	if grep -qF '.gitconfig.local' "$gitconfig"; then
+		# Not the workspace's file but this repo's own, with its link
+		# replaced by a copy (`sed -i` does that). Including it from itself
+		# is fatal to every git command ("exceeded maximum include depth"),
+		# so it gets a plain backup name instead.
+		adopted="${gitconfig}.bak.${stamp}"
+	elif [ -e "$adopted" ] || [ -L "$adopted" ]; then
+		log "$adopted already exists — moving it aside to ${adopted}.bak.${stamp} rather than overwriting it"
+		mv "$adopted" "${adopted}.bak.${stamp}"
+	fi
+
+	mv "$gitconfig" "$adopted"
+	log "moved the workspace's ~/.gitconfig to $adopted so [dotfiles] can link ~/.gitconfig"
 }
 
 # --- age.key for fnox and mise decryption --------------------------------
@@ -274,6 +369,11 @@ ensure_age_key() {
 # ~/.gitconfig.local) as well as the cross-platform ones.
 trust_and_bootstrap() {
 	export MISE_AUTO_ENV=1
+	# The workspace layer, for this script's own calls (see
+	# select_workspace_env for everything after it).
+	if [ -n "$WORKSPACE_ENV" ]; then
+		export MISE_ENV="$WORKSPACE_ENV"
+	fi
 
 	# Trust each config by explicit path -- NOT `mise trust --all`. `--all`
 	# loops "until nothing under cwd is untrusted", and every file under
@@ -340,7 +440,10 @@ main() {
 
 	install_mise
 	link_repo_home
+	detect_workspace_env
 	link_mise_config
+	select_workspace_env
+	adopt_workspace_gitconfig
 	ensure_age_key
 	trust_and_bootstrap
 

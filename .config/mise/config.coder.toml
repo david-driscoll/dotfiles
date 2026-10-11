@@ -1,0 +1,21 @@
+## Coder-workspace-only layer — symlinked to ~/.config/mise/config.coder.toml
+## by install.sh, which also selects it (`env = ["coder"]` in
+## ~/.config/mise/miserc.local.toml) when the Coder agent's CODER=true is set.
+##
+## Unlike config.linux.toml this is not a platform layer: mise sees a Coder
+## workspace as plain "linux", so MISE_AUTO_ENV never loads it. It is an
+## explicitly selected environment, which outranks every platform layer
+## (unix < linux < linux-<arch> < selected environments) — an entry here
+## replaces config.linux.toml's entry for the same target.
+## https://mise.jdx.dev/configuration/environments.html
+##
+## A Codespaces twin would be config.codespaces.toml: install.sh already
+## maps CODESPACES=true to that name and picks the file up once it exists.
+## It needs its own "~/.gitconfig.local" entry like the one below, since
+## install.sh moves the workspace's ~/.gitconfig aside for any selected layer.
+
+[dotfiles]
+# Coder provisions its own ~/.gitconfig, which install.sh moves to
+# ~/.gitconfig.workspace so the cross-platform "~/.gitconfig" entry can link.
+# git/gitconfig.coder is git/gitconfig.linux plus an include of that file.
+"~/.gitconfig.local" = { source = "~/dotfiles/git/gitconfig.coder" }
