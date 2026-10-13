@@ -1,8 +1,13 @@
 #:schema https://fnox.jdx.dev/schema.json
-# default_provider = "age"
 
-# Currently not supported see https://github.com/jdx/fnox/pull/818
-# import = ["~/.config/fnox/config.local.toml"]
+if_missing = "warn"
+import = ["./config.local.toml"]
+default_provider = "age"
+env = "exec"
+
+[providers.keychain]
+type = "keychain"
+service = "fnox-global"
 
 [daemon]
 enabled = true

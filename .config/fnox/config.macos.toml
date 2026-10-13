@@ -10,6 +10,7 @@ type = "age"
 recipients = [
   "age150z0s36kl9vud8728c5e4zqq6nmyywekk76rwvjclcsfc8mrxuuqr0qfg6",
 ]
+identity = { provider = "keychain", value = "age-key" }
 
 [providers.op]
 type = "1password"
@@ -21,7 +22,6 @@ address = "https://bao.equestria.driscoll.tech"
 credential_command = "bao login -method=oidc -token-only"
 
 [secrets]
-FNOX_AGE_KEY =  { provider = "op", value = "age.key/credential" }
 GITHUB_TOKEN = { provider = "op", value = "GitHub Personal Access Token/token" }
-
+SOPS_AGE_KEY_FILE = { provider = "op", value = "age.key/credential", as_file = true }
 # FNOX_PROFILE = { default = "macos" }
