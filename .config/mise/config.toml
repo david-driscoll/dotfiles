@@ -1,7 +1,6 @@
 [settings]
 experimental = true
 idiomatic_version_file_enable_tools = ["dotnet"]
-lockfile = true
 auto_env = true
 otel.enabled = true
 

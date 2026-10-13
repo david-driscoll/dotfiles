@@ -16,6 +16,8 @@
 ## resolves to $HOME instead (see .config/mise/config.toml's header).
 ##
 ## `{{config_root}}` here resolves to this repo's root (this file's directory).
+[settings]
+lockfile = true
 
 [hooks]
 postinstall = [{ task = "gh-extensions" }, { task = "az-extensions" }, { task = "hk:install-global" }]
