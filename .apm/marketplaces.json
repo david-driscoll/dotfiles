@@ -2,21 +2,178 @@
   "marketplaces": [
     {
       "name": "claudex",
+      "url": "https://github.com/cskiro/claudex",
+      "path": ".claude-plugin/marketplace.json",
       "owner": "cskiro",
-      "repo": "claudex",
-      "path": ".claude-plugin/marketplace.json"
+      "repo": "claudex"
     },
     {
       "name": "everything-claude-code",
+      "url": "https://github.com/affaan-m/everything-claude-code",
+      "path": ".claude-plugin/marketplace.json",
       "owner": "affaan-m",
-      "repo": "everything-claude-code",
-      "path": ".claude-plugin/marketplace.json"
+      "repo": "everything-claude-code"
     },
     {
       "name": "unifi-plugins",
+      "url": "https://github.com/sirkirby/unifi-mcp",
+      "path": ".claude-plugin/marketplace.json",
       "owner": "sirkirby",
-      "repo": "unifi-mcp",
-      "path": ".claude-plugin/marketplace.json"
+      "repo": "unifi-mcp"
+    },
+    {
+      "name": "claude-plugins-official",
+      "url": "https://github.com/anthropics/claude-plugins-official",
+      "path": ".claude-plugin/marketplace.json",
+      "owner": "anthropics",
+      "repo": "claude-plugins-official"
+    },
+    {
+      "name": "awesome-copilot",
+      "url": "https://github.com/github/awesome-copilot",
+      "path": ".github/plugin/marketplace.json",
+      "owner": "github",
+      "repo": "awesome-copilot"
+    },
+    {
+      "name": "azure-skills",
+      "url": "https://github.com/microsoft/azure-skills",
+      "path": ".claude-plugin/marketplace.json",
+      "owner": "microsoft",
+      "repo": "azure-skills"
+    },
+    {
+      "name": "aspire-skills",
+      "url": "https://github.com/microsoft/aspire-skills",
+      "path": ".claude-plugin/marketplace.json",
+      "owner": "microsoft",
+      "repo": "aspire-skills"
+    },
+    {
+      "name": "duende-skills",
+      "url": "https://github.com/DuendeSoftware/duende-skills",
+      "path": ".claude-plugin/marketplace.json",
+      "owner": "DuendeSoftware",
+      "repo": "duende-skills"
+    },
+    {
+      "name": "sickn33-antigravity-awesome-skills",
+      "url": "https://github.com/sickn33/antigravity-awesome-skills",
+      "path": ".claude-plugin/marketplace.json",
+      "owner": "sickn33",
+      "repo": "antigravity-awesome-skills"
+    },
+    {
+      "name": "jeffallan-claude-skills",
+      "url": "https://github.com/jeffallan/claude-skills",
+      "path": ".claude-plugin/marketplace.json",
+      "owner": "jeffallan",
+      "repo": "claude-skills"
+    },
+    {
+      "name": "modernize-dotnet",
+      "url": "https://github.com/dotnet/modernize-dotnet",
+      "path": ".github/plugin/marketplace.json",
+      "owner": "dotnet",
+      "repo": "modernize-dotnet"
+    },
+    {
+      "name": "dotnet-skills",
+      "url": "https://github.com/dotnet/skills",
+      "path": ".github/plugin/marketplace.json",
+      "owner": "dotnet",
+      "repo": "skills"
+    },
+    {
+      "name": "cskiro-claudex",
+      "url": "https://github.com/cskiro/claudex",
+      "path": ".claude-plugin/marketplace.json",
+      "owner": "cskiro",
+      "repo": "claudex"
+    },
+    {
+      "name": "obra-superpowers-marketplace",
+      "url": "https://github.com/obra/superpowers-marketplace",
+      "path": ".claude-plugin/marketplace.json",
+      "owner": "obra",
+      "repo": "superpowers-marketplace"
+    },
+    {
+      "name": "affaan-m-ECC",
+      "url": "https://github.com/affaan-m/ECC",
+      "path": ".claude-plugin/marketplace.json",
+      "owner": "affaan-m",
+      "repo": "ECC"
+    },
+    {
+      "name": "forrestchang-andrej-karpathy-skills",
+      "url": "https://github.com/forrestchang/andrej-karpathy-skills",
+      "path": ".claude-plugin/marketplace.json",
+      "owner": "forrestchang",
+      "repo": "andrej-karpathy-skills"
+    },
+    {
+      "name": "nexu-io-open-design",
+      "url": "https://github.com/nexu-io/open-design",
+      "path": ".claude-plugin/marketplace.json",
+      "owner": "nexu-io",
+      "repo": "open-design"
+    },
+    {
+      "name": "addyosmani-agent-skills",
+      "url": "https://github.com/addyosmani/agent-skills",
+      "path": ".claude-plugin/marketplace.json",
+      "owner": "addyosmani",
+      "repo": "agent-skills"
+    },
+    {
+      "name": "Egonex-AI-Understand-Anything",
+      "url": "https://github.com/Egonex-AI/Understand-Anything",
+      "path": ".claude-plugin/marketplace.json",
+      "owner": "Egonex-AI",
+      "repo": "Understand-Anything"
+    },
+    {
+      "name": "kepano-obsidian-skills",
+      "url": "https://github.com/kepano/obsidian-skills",
+      "path": ".claude-plugin/marketplace.json",
+      "owner": "kepano",
+      "repo": "obsidian-skills"
+    },
+    {
+      "name": "VoltAgent-awesome-claude-code-subagents",
+      "url": "https://github.com/VoltAgent/awesome-claude-code-subagents",
+      "path": ".claude-plugin/marketplace.json",
+      "owner": "VoltAgent",
+      "repo": "awesome-claude-code-subagents"
+    },
+    {
+      "name": "alirezarezvani-claude-skills",
+      "url": "https://github.com/alirezarezvani/claude-skills",
+      "path": ".claude-plugin/marketplace.json",
+      "owner": "alirezarezvani",
+      "repo": "claude-skills"
+    },
+    {
+      "name": "xiaobei930-cc-best",
+      "url": "https://github.com/xiaobei930/cc-best",
+      "path": ".claude-plugin/marketplace.json",
+      "owner": "xiaobei930",
+      "repo": "cc-best"
+    },
+    {
+      "name": "Piebald-AI-claude-code-lsps",
+      "url": "https://github.com/Piebald-AI/claude-code-lsps",
+      "path": ".claude-plugin/marketplace.json",
+      "owner": "Piebald-AI",
+      "repo": "claude-code-lsps"
+    },
+    {
+      "name": "fluxcd-agent-skills",
+      "url": "https://github.com/fluxcd/agent-skills",
+      "path": ".claude-plugin/marketplace.json",
+      "owner": "fluxcd",
+      "repo": "agent-skills"
     }
   ]
 }

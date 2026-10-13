@@ -190,7 +190,7 @@ if ($AgentsYamlPath) {
     foreach ($p in $config.plugins) { $allPlugins += $p }
 }
 else {
-    $rootConfigPath = Get-DotfilesPath '.apm\agents.yml'
+    $rootConfigPath = Get-DotfilesPath 'agents.yml'
     if (-not (Test-Path $rootConfigPath)) {
         throw "Root agents manifest not found: $rootConfigPath"
     }

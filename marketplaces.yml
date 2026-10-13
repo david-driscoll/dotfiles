@@ -19,12 +19,12 @@ marketplaces:
   # Restricted to claude via targets until upstream fixes land.
   - name: claude-plugins-official
     repo: anthropics/claude-plugins-official
-    targets: [claude]
   - name: awesome-copilot
     repo: github/awesome-copilot
-    targets: [copilot]
   - name: azure-skills
     repo: microsoft/azure-skills
+  - name: aspire-skills
+    repo: microsoft/aspire-skills
   - repo: DuendeSoftware/duende-skills
     name: duende-skills
   - repo: sickn33/antigravity-awesome-skills
@@ -33,7 +33,6 @@ marketplaces:
     name: fullstack-dev-skills
   - name: dotnet-modernize
     repo: dotnet/modernize-dotnet
-    targets: [copilot]
   - name: dotnet-agent-skills
     repo: dotnet/skills
   - name: claudex
@@ -54,13 +53,10 @@ marketplaces:
     name: understand-anything
   - repo: kepano/obsidian-skills
     name: obsidian-skills
-  # - repo: Yeachan-Heo/oh-my-claudecode
-  #   name: oh-my-claudecode
   - repo: VoltAgent/awesome-claude-code-subagents
     name: awesome-claude-code-subagents
   - repo: alirezarezvani/claude-skills
     name: alirezarezvani
-    targets: [claude]
   - repo: xiaobei930/cc-best
     name: cc-best
   - repo: Piebald-AI/claude-code-lsps

@@ -53,6 +53,7 @@ powershell = "7.6.6"
 python = "3.14.8"
 "pipx:graphifyy" = "0.9.86"
 "dotnet:graphify-dotnet" = "0.7.0"
+kubelogin = "1.36.4"
 
 [dotfiles]
 "~/.zshrc" = {}

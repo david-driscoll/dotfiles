@@ -19,6 +19,7 @@ dependencies:
   - testdino-hq/playwright-skill
   - majiayu000/claude-skill-registry/skills/data/hk-setup
   - sickn33/antigravity-awesome-skills/skills/mise-configurator
+  - microsoft/aspire-skills
   mcp:
     - name: mise
       args:
