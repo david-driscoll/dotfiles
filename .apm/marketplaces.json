@@ -174,6 +174,41 @@
       "path": ".claude-plugin/marketplace.json",
       "owner": "fluxcd",
       "repo": "agent-skills"
+    },
+    {
+      "name": "upgrade-agent-plugins",
+      "url": "https://github.com/microsoft/upgrade-agent-plugins",
+      "path": ".github/plugin/marketplace.json",
+      "owner": "microsoft",
+      "repo": "upgrade-agent-plugins"
+    },
+    {
+      "name": "skills",
+      "url": "https://github.com/microsoft/skills",
+      "path": ".github/plugin/marketplace.json",
+      "owner": "microsoft",
+      "repo": "skills"
+    },
+    {
+      "name": "postgres-skills",
+      "url": "https://github.com/microsoft/postgres-skills",
+      "path": ".github/plugin/marketplace.json",
+      "owner": "microsoft",
+      "repo": "postgres-skills"
+    },
+    {
+      "name": "addyosmani-skills",
+      "url": "https://github.com/addyosmani/agent-skills",
+      "path": ".claude-plugin/marketplace.json",
+      "owner": "addyosmani",
+      "repo": "agent-skills"
+    },
+    {
+      "name": "mattpocock-skills",
+      "url": "https://github.com/mattpocock/skills",
+      "path": ".claude-plugin/marketplace.json",
+      "owner": "mattpocock",
+      "repo": "skills"
     }
   ]
 }

@@ -1,0 +1,44 @@
+{
+  "mcpServers": {
+    "mise": {
+      "type": "local",
+      "tools": [
+        "*"
+      ],
+      "id": "",
+      "command": "mise",
+      "env": {
+        "MISE_EXPERIMENTAL": "${MISE_EXPERIMENTAL}"
+      },
+      "args": [
+        "mcp"
+      ]
+    },
+    "aspire": {
+      "type": "local",
+      "tools": [
+        "*"
+      ],
+      "id": "",
+      "command": "aspire",
+      "args": [
+        "agent",
+        "mcp"
+      ]
+    },
+    "azure": {
+      "type": "local",
+      "tools": [
+        "*"
+      ],
+      "id": "",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@azure/mcp@latest",
+        "server",
+        "start"
+      ]
+    }
+  }
+}

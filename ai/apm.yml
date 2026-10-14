@@ -3,23 +3,27 @@ version: 1.0.0
 description: APM project for ai
 author: David Driscoll
 targets:
-- copilot
-- claude
+  - copilot
+  - claude
 dependencies:
   apm:
-  - github/awesome-copilot/skills/acquire-codebase-knowledge
-  - github/awesome-copilot/skills/lsp-setup
-  - github/awesome-copilot/instructions/agents.instructions.md
-  - github/awesome-copilot/instructions/context-engineering.instructions.md
-  - github/awesome-copilot/instructions/instructions.instructions.md
-  - github/awesome-copilot/instructions/memory-bank.instructions.md
-  - github/awesome-copilot/instructions/powershell.instructions.md
-  - github/awesome-copilot/instructions/prompt.instructions.md
-  - ComposioHQ/awesome-claude-skills/developer-growth-analysis
-  - testdino-hq/playwright-skill
-  - majiayu000/claude-skill-registry/skills/data/hk-setup
-  - sickn33/antigravity-awesome-skills/skills/mise-configurator
-  - microsoft/aspire-skills
+    - github/awesome-copilot/skills/acquire-codebase-knowledge
+    - github/awesome-copilot/skills/lsp-setup
+    - github/awesome-copilot/instructions/agents.instructions.md
+    - github/awesome-copilot/instructions/context-engineering.instructions.md
+    - github/awesome-copilot/instructions/instructions.instructions.md
+    - github/awesome-copilot/instructions/memory-bank.instructions.md
+    - github/awesome-copilot/instructions/powershell.instructions.md
+    - github/awesome-copilot/instructions/prompt.instructions.md
+    - microsoft/aspire-skills
+    - DuendeSoftware/duende-skills
+    - microsoft/azure-skills
+    - microsoft/postgres-skills
+    - microsoft/skills
+    - microsoft/upgrade-agent-plugins/plugins/upgrade-agent
+    - addyosmani/agent-skills
+    - mattpocock/skills
+    - upstash/context7
   mcp:
     - name: mise
       args:
@@ -34,7 +38,8 @@ dependencies:
         - agent
         - mcp
       command: aspire
-      type: stdio
+      registry: false
+      transport: stdio
   # - name: github
   #   registry: false
   #   transport: stdio

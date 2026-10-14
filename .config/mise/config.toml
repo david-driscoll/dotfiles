@@ -55,6 +55,9 @@ python = "3.14.8"
 "dotnet:graphify-dotnet" = "0.7.0"
 kubelogin = "1.36.4"
 
+[bootstrap.services.mise-history]
+builtin = "history-watch"
+
 [dotfiles]
 "~/.zshrc" = {}
 "~/.zprofile" = {}
@@ -65,6 +68,8 @@ kubelogin = "1.36.4"
 "~/.config/powershell" = { source = "~/dotfiles/powershell" }
 "~/.apm/config.json" = {}
 "~/.apm/marketplaces.json" = {}
+# "~/.apm/marketplaces.json" = { mode = "track" }
+# "~/.apm/config.json" = { mode = "track" }
 "~/.gitconfig" = { source = "~/dotfiles/git/gitconfig" }
 "~/.config/fnox/config.toml" = { source = "~/dotfiles/.config/fnox/config.toml" }
 "~/.config/mise/config.toml" = { source = "~/dotfiles/.config/mise/config.toml" }

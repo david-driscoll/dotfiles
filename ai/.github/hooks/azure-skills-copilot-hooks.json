@@ -1,0 +1,28 @@
+{
+  "hooks": {
+    "sessionStart": [
+      {
+        "type": "command",
+        "windows": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \".github/hooks/scripts/azure-skills/hooks/scripts/track-telemetry.ps1\"",
+        "osx": ".github/hooks/scripts/azure-skills/hooks/scripts/track-telemetry.sh",
+        "linux": ".github/hooks/scripts/azure-skills/hooks/scripts/track-telemetry.sh",
+        "bash": ".github/hooks/scripts/azure-skills/hooks/scripts/track-telemetry.sh",
+        "powershell": ".github/hooks/scripts/azure-skills/hooks/scripts/track-telemetry.ps1",
+        "env": {
+          "AZURE_SKILLS_HOOK_CLIENT_FAMILY": "copilot-vscode"
+        }
+      }
+    ],
+    "postToolUse": [
+      {
+        "type": "command",
+        "windows": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \".github/hooks/scripts/azure-skills/hooks/scripts/track-telemetry.ps1\"",
+        "osx": ".github/hooks/scripts/azure-skills/hooks/scripts/track-telemetry.sh",
+        "linux": ".github/hooks/scripts/azure-skills/hooks/scripts/track-telemetry.sh",
+        "bash": ".github/hooks/scripts/azure-skills/hooks/scripts/track-telemetry.sh",
+        "powershell": ".github/hooks/scripts/azure-skills/hooks/scripts/track-telemetry.ps1"
+      }
+    ]
+  },
+  "version": 1
+}
