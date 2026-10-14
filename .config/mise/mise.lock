@@ -638,6 +638,45 @@ url = "https://dl.k8s.io/v1.37.1/bin/darwin/amd64/kubectl"
 checksum = "sha256:14b93c4916a6f37a06fbc1f46b0a1d2404c4f9741be09f00d6caf8af3b05f1d3"
 url = "https://dl.k8s.io/v1.37.1/bin/windows/amd64/kubectl.exe"
 
+[[tools.kubelogin]]
+version = "1.36.4"
+backend = "aqua:int128/kubelogin"
+
+[tools.kubelogin."platforms.linux-arm64"]
+checksum = "sha256:669c2d3bcc6766351ad5a7b03971792b4e7a55117b335a12d9858d43a525d9dc"
+url = "https://github.com/int128/kubelogin/releases/download/v1.36.4/kubelogin_linux_arm64.zip"
+url_api = "https://api.github.com/repos/int128/kubelogin/releases/assets/545423149"
+
+[tools.kubelogin."platforms.linux-arm64-musl"]
+checksum = "sha256:669c2d3bcc6766351ad5a7b03971792b4e7a55117b335a12d9858d43a525d9dc"
+url = "https://github.com/int128/kubelogin/releases/download/v1.36.4/kubelogin_linux_arm64.zip"
+url_api = "https://api.github.com/repos/int128/kubelogin/releases/assets/545423149"
+
+[tools.kubelogin."platforms.linux-x64"]
+checksum = "sha256:9e8baeb4905d35a301304af2548324997add512fe94ab20e65993d167212bf85"
+url = "https://github.com/int128/kubelogin/releases/download/v1.36.4/kubelogin_linux_amd64.zip"
+url_api = "https://api.github.com/repos/int128/kubelogin/releases/assets/545423188"
+
+[tools.kubelogin."platforms.linux-x64-musl"]
+checksum = "sha256:9e8baeb4905d35a301304af2548324997add512fe94ab20e65993d167212bf85"
+url = "https://github.com/int128/kubelogin/releases/download/v1.36.4/kubelogin_linux_amd64.zip"
+url_api = "https://api.github.com/repos/int128/kubelogin/releases/assets/545423188"
+
+[tools.kubelogin."platforms.macos-arm64"]
+checksum = "sha256:5aa470d059a9672d732439474678ac05a0de5623ad3af54966b8fe1ac7df4254"
+url = "https://github.com/int128/kubelogin/releases/download/v1.36.4/kubelogin_darwin_arm64.zip"
+url_api = "https://api.github.com/repos/int128/kubelogin/releases/assets/545423629"
+
+[tools.kubelogin."platforms.macos-x64"]
+checksum = "sha256:7927b10c122b55dd4d9632f75d56752bfdc5f7b6ad3104615115c02f5f55e4f0"
+url = "https://github.com/int128/kubelogin/releases/download/v1.36.4/kubelogin_darwin_amd64.zip"
+url_api = "https://api.github.com/repos/int128/kubelogin/releases/assets/545423459"
+
+[tools.kubelogin."platforms.windows-x64"]
+checksum = "sha256:a68be8ff153a7d3df1de19f272a9879164f55b8bb39298859d0e20c9e2c414ad"
+url = "https://github.com/int128/kubelogin/releases/download/v1.36.4/kubelogin_windows_amd64.zip"
+url_api = "https://api.github.com/repos/int128/kubelogin/releases/assets/545423814"
+
 [[tools.kustomize]]
 version = "5.8.3"
 backend = "aqua:kubernetes-sigs/kustomize"
