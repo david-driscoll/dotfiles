@@ -30,9 +30,8 @@ cask "typewhisper/tap/typewhisper"
 # --- Terminals ---
 # 3 terminals declared here (wezterm/iterm2/warp) — see PR body for which
 # are actually installed on this machine and a trim recommendation.
-cask "wezterm"
 cask "iterm2"
-cask "warp"
+cask "ghostty"
 
 # --- Dev tools ---
 cask "jetbrains-toolbox"
@@ -44,11 +43,11 @@ cask "devtoys"
 
 # --- Browsers ---
 # 5 browsers declared here — see PR body for which are actually installed.
-cask "arc"
 cask "google-chrome"
 cask "firefox"
 cask "microsoft-edge"
 cask "vivaldi"
+cask "zen"
 
 # --- Comms ---
 cask "slack"

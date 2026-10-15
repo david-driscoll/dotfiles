@@ -68,7 +68,7 @@ three_finger_drag = false
 "~/.config/karabiner/karabiner.json" = { source = "~/dotfiles/karabiner/karabiner.json" }
 "~/.config/1Password/ssh/agent.toml" = { source = "~/dotfiles/1password/agent.toml" }
 "~/.gitconfig.local" = { source = "~/dotfiles/git/gitconfig.darwin" }
-"~/.ssh" = { source = "~/dotfiles/ssh", mode = "symlink-each" }
+# "~/.ssh" = { source = "~/dotfiles/ssh", mode = "symlink-each" }
 # To be fixed when the issue is resolved, see https://github.com/jdx/fnox/pull/818
 "~/.config/fnox/config.toml" = { source = "~/dotfiles/.config/fnox/config.macos.toml" }
 
@@ -80,5 +80,5 @@ if [[ "$(uname)" != "Darwin" ]]; then
   echo "brew:casks: skipping — macOS only" >&2
   exit 0
 fi
-brew bundle --file "{{config_root}}/setup/Brewfile.darwin"
+brew bundle --file "~/dotfiles/setup/Brewfile.darwin"
 """
