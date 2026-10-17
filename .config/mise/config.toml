@@ -51,7 +51,7 @@ zoxide = "0.10.0" # aqua:ajeetdsouza/zoxide
 mkcert = "1.4.4" # aqua:FiloSottile/mkcert
 powershell = "7.6.7"
 python = "3.14.8"
-"pipx:graphifyy" = "0.9.91"
+"pipx:graphifyy" = "0.9.92"
 "dotnet:graphify-dotnet" = "0.7.0"
 kubelogin = "1.36.4"
 
