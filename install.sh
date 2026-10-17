@@ -394,7 +394,7 @@ trust_and_bootstrap() {
 	done
 
 	log "running mise bootstrap --yes (packages, dotfiles, tools)"
-	mise bootstrap --yes ||
+	mise bootstrap --yes --force-dotfiles ||
 		die "mise bootstrap failed — see output above. Safe to re-run: 'mise bootstrap --yes', or inspect state first with 'mise bootstrap status'."
 }
 
