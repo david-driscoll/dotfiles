@@ -10,7 +10,7 @@ terraform = "1.16.6" # aqua:hashicorp/terraform
 pulumi = "3.270.0" # aqua:pulumi/pulumi
 helm = "4.3.1" # aqua:helm/helm
 helmfile = "1.8.2" # aqua:helmfile/helmfile
-talosctl = "1.14.3" # aqua:siderolabs/talos
+talosctl = "1.14.4" # aqua:siderolabs/talos
 talhelper = "3.1.17" # aqua:budimanjojo/talhelper
 coder = "2.38.0" # aqua:coder/coder
 
