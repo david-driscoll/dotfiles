@@ -17,7 +17,6 @@
 ##
 ## `{{config_root}}` here resolves to this repo's root (this file's directory).
 [settings]
-lockfile = true
 
 [hooks]
 postinstall = [{ task = "gh-extensions" }, { task = "az-extensions" }, { task = "hk:install-global" }]
@@ -82,3 +81,6 @@ run = [
     "cd {{config_root}}/agents && apm install --trust-transitive-mcp --force",
     "apm install --global --trust-transitive-mcp --force",
 ]
+
+[tools]
+rust = "1.99.1"
