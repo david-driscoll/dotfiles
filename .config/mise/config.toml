@@ -24,7 +24,7 @@ FNOX_CONFIG_DIR = "~/.config/fnox"
 
 [tools]
 fnox = "v1.40.0"
-go = "1.27.2"
+go = "1.27.3"
 hk = "2.7.1"
 gitleaks = "8.30.1"
 shellcheck = "0.11.0"
