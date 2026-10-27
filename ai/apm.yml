@@ -24,6 +24,7 @@ dependencies:
     - addyosmani/agent-skills
     - mattpocock/skills
     - upstash/context7
+    - blader/humanizer
   mcp:
     - name: mise
       args:
