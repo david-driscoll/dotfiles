@@ -12,7 +12,7 @@ helm = "4.3.1" # aqua:helm/helm
 helmfile = "1.8.2" # aqua:helmfile/helmfile
 talosctl = "1.14.4" # aqua:siderolabs/talos
 talhelper = "3.1.17" # aqua:budimanjojo/talhelper
-coder = "2.38.2" # aqua:coder/coder
+coder = "2.38.3" # aqua:coder/coder
 "cargo:forgejo-cli" = "0.7.0"
 
 [bootstrap.packages]
