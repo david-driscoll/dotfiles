@@ -23,7 +23,7 @@ FNOX_CONFIG_DIR = "~/.config/fnox"
 # _.path = ["{{config_root}}/.cache/bin"]
 
 [tools]
-fnox = "v1.42.1"
+fnox = "v1.45.0"
 go = "1.27.3"
 hk = "2.8.1"
 gitleaks = "8.30.1"
