@@ -25,6 +25,7 @@ dependencies:
     - mattpocock/skills
     - upstash/context7
     - blader/humanizer
+    - petrovicistefan/claude-code-plugins/ci-optimizer
   mcp:
     - name: mise
       args:

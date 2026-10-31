@@ -17,6 +17,8 @@ $ErrorActionPreference = "Continue"
 $extensions = @(
   "davidraviv/gh-clean-branches",
   "github/gh-codeql",
+  "github/gh-stack",
+  "actions/gh-actions-cache"
   "mislav/gh-contrib",
   "github/gh-copilot",
   "dlvhdr/gh-dash",
@@ -58,7 +60,8 @@ foreach ($ext in $extensions) {
   gh extension install $ext *> $null
   if ($LASTEXITCODE -eq 0) {
     $installedCount++
-  } else {
+  }
+  else {
     $failedExt += $ext
   }
 }
