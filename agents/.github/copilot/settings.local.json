@@ -1,14 +1,1 @@
-{
-  "extraKnownMarketplaces": {
-    "apm": {
-      "source": {
-        "source": "directory",
-        "path": "apm_modules"
-      }
-    }
-  },
-  "enabledPlugins": {
-    "agentic-bundle-architecture-design@apm": true,
-    "agentic-bundle-skill-author@apm": true
-  }
-}
+{}

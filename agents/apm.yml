@@ -75,29 +75,6 @@ dependencies:
   - BagelHole/DevOps-Security-Agent-Skills/devops/release/feature-flags
   - BagelHole/DevOps-Security-Agent-Skills/devops/release/git-workflow
   - BagelHole/DevOps-Security-Agent-Skills/devops/release/semantic-versioning
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/cloud-aws/aws-cost-optimization
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/cloud-aws/aws-ec2
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/cloud-aws/aws-ecs-fargate
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/cloud-aws/aws-iam
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/cloud-aws/aws-lambda
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/cloud-aws/aws-rds
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/cloud-aws/aws-s3
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/cloud-aws/aws-vpc
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/cloud-aws/cloudformation
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/cloud-aws/terraform-aws
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/cloud-azure/arm-templates
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/cloud-azure/azure-aks
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/cloud-azure/azure-functions
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/cloud-azure/azure-networking
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/cloud-azure/azure-sql
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/cloud-azure/azure-vms
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/cloud-azure/terraform-azure
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/cloud-gcp/gcp-cloud-functions
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/cloud-gcp/gcp-cloud-sql
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/cloud-gcp/gcp-compute
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/cloud-gcp/gcp-gke
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/cloud-gcp/gcp-networking
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/cloud-gcp/terraform-gcp
   - BagelHole/DevOps-Security-Agent-Skills/infrastructure/cloudflare/cloudflare-pages
   - BagelHole/DevOps-Security-Agent-Skills/infrastructure/cloudflare/cloudflare-r2
   - BagelHole/DevOps-Security-Agent-Skills/infrastructure/cloudflare/cloudflare-workers
@@ -105,25 +82,9 @@ dependencies:
   - BagelHole/DevOps-Security-Agent-Skills/infrastructure/databases/database-backups
   - BagelHole/DevOps-Security-Agent-Skills/infrastructure/databases/mongodb
   - BagelHole/DevOps-Security-Agent-Skills/infrastructure/databases/mysql
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/databases/planetscale
   - BagelHole/DevOps-Security-Agent-Skills/infrastructure/databases/postgresql
   - BagelHole/DevOps-Security-Agent-Skills/infrastructure/databases/redis
   - BagelHole/DevOps-Security-Agent-Skills/infrastructure/databases/vector-database-ops
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/iac/opentofu-migration
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/it/identity-access-management
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/it/mdm-device-management
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/it/saas-security-posture
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/it/startup-it-troubleshooting
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/local-ai/gpu-kubernetes-operations
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/local-ai/llm-fine-tuning
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/local-ai/llm-inference-scaling
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/local-ai/mac-mini-llm-lab
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/local-ai/multi-tenant-llm-hosting
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/local-ai/ollama-stack
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/local-ai/openclaw-local-mac-mini
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/local-ai/openclaw-security-hardening
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/local-ai/rag-infrastructure
-  - BagelHole/DevOps-Security-Agent-Skills/infrastructure/local-ai/vllm-server
   - BagelHole/DevOps-Security-Agent-Skills/infrastructure/networking/ai-inference-service-mesh
   - BagelHole/DevOps-Security-Agent-Skills/infrastructure/networking/cdn-setup
   - BagelHole/DevOps-Security-Agent-Skills/infrastructure/networking/dns-management
@@ -180,6 +141,7 @@ dependencies:
   - BagelHole/DevOps-Security-Agent-Skills/security/secrets/gcp-secret-manager
   - BagelHole/DevOps-Security-Agent-Skills/security/secrets/hashicorp-vault
   - BagelHole/DevOps-Security-Agent-Skills/security/secrets/sops-encryption
+  - cathrynlavery/diagram-design
   mcp: []
   # - name: mise
   #   registry: false

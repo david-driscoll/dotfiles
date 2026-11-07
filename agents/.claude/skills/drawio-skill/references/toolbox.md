@@ -2,7 +2,8 @@
 
 A map of the 42 focused tools, the unified `diagramctl.py` orchestrator
 (and its MCP server wrapper), and its
-internal `diagram_ir.py` model grouped by what you're trying to do. The
+internal support modules (`diagram_ir.py` model, `drawio_cli.py` binary
+resolver) grouped by what you're trying to do. The
 per-task routing table in `SKILL.md` says *when* to reach for each; this says
 *how they fit together*. Read it when you're not sure which script a request
 maps to, or you want to chain several.
@@ -54,7 +55,7 @@ Use focused scripts directly when you need their narrow interface; use
 | a repo's git history | how its architecture grew | `timelapse` |
 | a `.drawio` | a shareable interactive viewer | `drawiohtml` (→ HTML: pan/zoom/search/tabs) |
 | a `.drawio` | a written description | `explain` (→ Markdown) |
-| a `.drawio` | a slide deck | `drawio2pptx` (→ PPTX) |
+| a `.drawio` | a slide deck (raster page images, not individually editable shapes) | `drawio2pptx` (→ PPTX) |
 | a `.drawio` | an animated data-flow | `svgflow` (→ SVG) |
 | a `.drawio` | diagrams-as-code | `drawio2mermaid` (→ Mermaid) |
 | a `.drawio` | the same diagram in another language | `relabel` (extract → translate → apply) |
