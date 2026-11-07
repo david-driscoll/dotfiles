@@ -1,6 +1,19 @@
+# Keep junk out of the history file. PSReadLine reads the whole file when the first
+# prompt starts (and again for SaveIncrementally), so a few binary lines -- in 2026-11
+# the file reached 5.2 GB from 14 of them -- freeze input in every new terminal.
+# Skips very long input, control characters other than tab/newline, and U+FFFD
+# (what undecodable bytes turn into).
+$DotfilesMaxHistoryLineLength = 8192
 $PSReadLineOptions = @{
 	EditMode                      = "Windows"
-	AddToHistoryHandler           = { return $true }
+	AddToHistoryHandler           = {
+		param([string] $line)
+		if ($line.Length -gt $DotfilesMaxHistoryLineLength -or
+			$line -match '[\x00-\x08\x0B-\x1F\x7F�]') {
+			return [Microsoft.PowerShell.AddToHistoryOption]::SkipAdding
+		}
+		return $true
+	}.GetNewClosure()
 	CompletionQueryItems          = 200
 	HistoryNoDuplicates           = $true
 	HistorySaveStyle              = "SaveIncrementally"
