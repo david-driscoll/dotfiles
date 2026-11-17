@@ -14,6 +14,8 @@
 cask "1password/tap/1password-cli"
 cask "gpg-suite"
 cask "tailscale-app"
+cask "netbirdio/tap/netbird-ui"
+
 
 # --- Input & display utilities ---
 cask "karabiner-elements"

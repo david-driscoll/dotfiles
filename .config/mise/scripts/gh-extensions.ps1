@@ -26,7 +26,9 @@ $extensions = @(
   "seachicken/gh-poi",
   "vilmibm/gh-screensaver",
   "AdamVig/gh-watch",
-  "shuymn/gh-mcp"
+  "shuymn/gh-mcp",
+  "ai-ecoverse/gh-reaper",
+
 )
 
 if (-not (Get-Command gh -ErrorAction SilentlyContinue)) {
