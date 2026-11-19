@@ -796,7 +796,7 @@ checksum = "sha256:e2edda75bfb089654705cf65a13b58933bfd5f57148e8ebda916f58a2474f
 url = "https://nodejs.org/dist/v26.13.1/node-v26.13.1-win-x64.zip"
 
 [[tools."pipx:graphifyy"]]
-version = "0.9.103"
+version = "0.9.112"
 backend = "pipx:graphifyy"
 
 [[tools.powershell]]
