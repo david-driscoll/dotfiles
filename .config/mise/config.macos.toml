@@ -22,17 +22,12 @@ coder = "2.39.4" # aqua:coder/coder
 "brew:zsh-syntax-highlighting" = "latest"
 "brew:zsh-completions" = "latest"
 "brew:zsh-you-should-use" = "latest"
-# powershell IS here too, as of #71 — deliberately re-adding what #66 took
-# out, for one narrow reason: the login shell. General-purpose pwsh (running
-# scripts, opening a terminal manually) still comes from the mise-tool pin in
-# .config/mise/config.toml's [tools] — that pin is untouched. This brew
-# formula exists only so [bootstrap.user] (config.macos-arm64.toml /
-# config.macos-x64.toml) has a real, mise-independent binary to point chsh
-# at — see those files for the full reasoning (mise-tool shims are unsafe as
-# a login shell target, and bootstrap's own phase order — packages before
-# tools — means the mise-tool pwsh doesn't even exist yet when the user
-# phase runs). This is a deliberate duplication, not an oversight.
-"brew:powershell" = "latest"
+# powershell is deliberately NOT a brew formula here. The formula depends on
+# Homebrew's `dotnet` formula and its `pwsh` wrapper exports DOTNET_ROOT to the
+# Cellar, which fights mise being the single owner of the .NET SDK. The login
+# shell comes from the self-contained `powershell` cask in setup/Brewfile.darwin
+# (installed by the post-packages `brew:casks` hook, before [bootstrap.user]
+# runs); everyday pwsh comes from the mise-tool pin in config.toml's [tools].
 "brew:git" = "latest"
 "brew:moreutils" = "latest"
 "brew:mas" = "latest"

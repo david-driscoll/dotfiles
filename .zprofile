@@ -1,5 +1,4 @@
-
-export PATH="$HOME/.jetbrains:$HOME/.dotnet/:$HOME/.dotnet/tools:$PATH"
+export PATH="$HOME/.jetbrains:$HOME/.dotnet/tools:$PATH"
 export STARSHIP_CONFIG=~/dotfiles/starship.toml
 unset SSH_AUTH_SOCK
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
@@ -11,10 +10,10 @@ alias rcode=$(which code)
 alias code=$(which code-insiders)
 
 if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+	FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 
-  autoload -Uz compinit
-  compinit
+	autoload -Uz compinit
+	compinit
 fi
 
 bindkey -M emacs '\e\e' kill-whole-line

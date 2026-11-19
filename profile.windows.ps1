@@ -26,6 +26,16 @@ if (Test-Path -LiteralPath (Join-Path $miseDotnetRoot 'dotnet.exe')) {
     $env:PATH = "$miseDotnetRoot$([IO.Path]::PathSeparator)$env:PATH"
 }
 
+# `dotnet tool install -g` puts tools in %USERPROFILE%\.dotnet\tools. That path
+# is normally registered by a system-wide SDK installer, which mise's SDK root
+# never runs. Tools managed by mise (dotnet:* in config.toml) do not live here;
+# they land under mise's installs dir and come from `mise activate`.
+$dotnetGlobalTools = Join-Path $env:USERPROFILE '.dotnet\tools'
+if ((Test-Path -LiteralPath $dotnetGlobalTools) -and
+    (($env:PATH -split [IO.Path]::PathSeparator) -notcontains $dotnetGlobalTools)) {
+    $env:PATH = "$dotnetGlobalTools$([IO.Path]::PathSeparator)$env:PATH"
+}
+
 if (Get-Module -ListAvailable -Name WSLTabCompletion) {
     . Invoke-DotfilesProfileStartupStep -Name 'Import WSLTabCompletion' -ScriptBlock {
         Import-Module WSLTabCompletion
