@@ -5,7 +5,6 @@ if ($ENV:PATH) {
     $ENV:PATH = "~/.jetbrains:$ENV:PATH";
 }
 if ($ENV:PATH) {
-    $ENV:PATH = "~/.dotnet:$ENV:PATH";
     $ENV:PATH = "~/.dotnet/tools:$ENV:PATH";
 }
 if ($ENV:PATH) {

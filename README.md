@@ -412,13 +412,15 @@ These will bite if you don't know about them going in.
   either way, it only exists after bootstrap has actually run once.
 - **macOS login-shell duplication is deliberate, not an oversight.**
   `config.macos-arm64.toml`'s `[bootstrap.user]` points `login_shell` at
-  the Homebrew-installed `pwsh` (`/opt/homebrew/opt/powershell/bin/pwsh`),
-  *not* the mise-tool `pwsh` pinned in `[tools]` — bootstrap's phase order
-  runs `[bootstrap.user]` before `[tools]` installs anything, so the
-  mise-tool binary wouldn't even exist yet on a first run, and a shim-based
-  login shell would break the moment mise's own state changes. The mise
-  `[tools]` `powershell` pin still exists for everyday interactive/script
-  use.
+  the Homebrew *cask* `pwsh` (`/usr/local/bin/pwsh`, from
+  `setup/Brewfile.darwin`), *not* the mise-tool `pwsh` pinned in `[tools]` —
+  bootstrap's phase order runs `[bootstrap.user]` before `[tools]` installs
+  anything, so the mise-tool binary wouldn't even exist yet on a first run,
+  and a shim-based login shell would break the moment mise's own state
+  changes. The cask (unlike the `powershell` formula) bundles its own .NET
+  runtime, so Homebrew never installs a `dotnet` of its own and mise stays
+  the only owner of the .NET SDK. The mise `[tools]` `powershell` pin still
+  exists for everyday interactive/script use.
 - **Linux deliberately has no `[bootstrap.user]` / `login_shell`.**
   Codespaces hardcodes `$SHELL=/bin/bash` for every terminal regardless of
   `/etc/passwd`, and there's no established Homebrew-equivalent

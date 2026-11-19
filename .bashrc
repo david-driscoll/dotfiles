@@ -16,7 +16,6 @@ esac
 # Coder), and `mise activate`/its shims (~/.local/share/mise/shims) never
 # make it onto PATH for future shells. (#68)
 PATH=$HOME/.local/bin:$PATH
-PATH=$HOME/.dotnet:$PATH
 PATH=$HOME/.dotnet/tools:$PATH
 PATH=$HOME/.jetbrains:$PATH
 if (which pwsh >/dev/null); then

@@ -42,6 +42,9 @@ cask "visual-studio-code@insiders"
 cask "docker"
 cask "gitkraken"
 cask "devtoys"
+# Login shell (see .config/mise/config.macos-arm64.toml). The cask bundles its
+# own .NET runtime, so it needs neither Homebrew's dotnet formula nor mise.
+cask "powershell"
 
 # --- Browsers ---
 # 5 browsers declared here — see PR body for which are actually installed.
