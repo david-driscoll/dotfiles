@@ -4,6 +4,9 @@ David Driscoll's personal machine configuration, bootstrapped end-to-end by
 [mise](https://mise.jdx.dev) — one declarative config drives tools, symlinks,
 macOS settings, and (on mac/Linux) the login shell.
 
+The optional [MCP gateway baseline](mcp/README.md) is configured separately
+for each machine and is not started by the dotfiles bootstrap.
+
 ## Platforms
 
 | OS | Why it matters | Entry point |

@@ -1,0 +1,21 @@
+services:
+  gateway:
+    image: docker/mcp-gateway:latest
+    pull_policy: always
+    restart: unless-stopped
+    command:
+      - --servers=${MCP_GATEWAY_SERVERS:?Select at least one catalog server}
+      - --transport=streaming
+      - --host=0.0.0.0
+      - --port=8932
+      - --memory=512Mb
+      - --watch=false
+      - --log-calls=false
+      - --verify-signatures=true
+    environment:
+      MCP_GATEWAY_AUTH_TOKEN: ${MCP_GATEWAY_AUTH_TOKEN:?Set the gateway authentication token}
+    ports:
+      - "127.0.0.1:8932:8932"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    mem_limit: 512m
