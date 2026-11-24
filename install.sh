@@ -272,29 +272,47 @@ select_workspace_env() {
 	log "wrote $miserc (env = [\"$WORKSPACE_ENV\"])"
 }
 
+# --- ~/.gitconfig: from repo symlink to machine-owned file -----------------
+#
+# ~/.gitconfig used to be a [dotfiles] symlink to git/gitconfig. It is now an
+# untracked file mise seeds once (create_if_missing) with an include of the
+# shared config, so `git config --global` never writes into this repo. mise
+# counts any existing ~/.gitconfig as applied, so drop the old link first.
+unlink_legacy_gitconfig() {
+	local gitconfig="$HOME/.gitconfig"
+	[ -L "$gitconfig" ] || return 0
+	case "$(readlink "$gitconfig")" in
+	*/git/gitconfig)
+		rm "$gitconfig"
+		log "removed the old ~/.gitconfig symlink so mise can seed the machine-owned file"
+		;;
+	esac
+}
+
 # --- workspace-provisioned ~/.gitconfig -----------------------------------
 #
 # Coder (like Codespaces) writes a real ~/.gitconfig before this script
-# runs. "~/.gitconfig" is a [dotfiles] entry, so `mise bootstrap` stops at
-# "refusing to overwrite existing files", and --force-dotfiles would throw
-# the workspace's settings away.
+# runs. "~/.gitconfig" is a create_if_missing [dotfiles] entry, so mise would
+# keep that file as-is and the shared config would never be included.
 #
 # Move it to ~/.gitconfig.workspace instead, which the layer's
 # ~/.gitconfig.local (git/gitconfig.<env>) includes last, so whatever the
 # workspace set still wins. Not to ~/.gitconfig.local itself: that is a
-# [dotfiles] entry too, so a real file there only moves the same refusal
-# one file over.
+# [dotfiles] entry, so mise would overwrite it.
 #
 # Only with a layer selected. Anywhere else nothing includes the moved
-# file, and a real ~/.gitconfig is one somebody wrote by hand -- mise's
-# refusal is the right answer there.
+# file, and a real ~/.gitconfig is one somebody wrote by hand.
 adopt_workspace_gitconfig() {
 	local gitconfig="$HOME/.gitconfig"
 	local adopted="$HOME/.gitconfig.workspace"
 
 	[ -n "$WORKSPACE_ENV" ] || return 0
-	# A symlink is already [dotfiles]' own (a re-run); absent, nothing to keep.
+	# Absent, nothing to keep.
 	if [ -L "$gitconfig" ] || [ ! -f "$gitconfig" ]; then
+		return 0
+	fi
+	# Already mise's seeded file (a re-run): it's ours, keep it in place.
+	if grep -qE '^[[:space:]]*path[[:space:]]*=[[:space:]]*~/dotfiles/git/gitconfig[[:space:]]*$' "$gitconfig"; then
 		return 0
 	fi
 
@@ -312,7 +330,7 @@ adopt_workspace_gitconfig() {
 	fi
 
 	mv "$gitconfig" "$adopted"
-	log "moved the workspace's ~/.gitconfig to $adopted so [dotfiles] can link ~/.gitconfig"
+	log "moved the workspace's ~/.gitconfig to $adopted so [dotfiles] can seed ~/.gitconfig"
 }
 
 # --- age.key for fnox and mise decryption --------------------------------
@@ -443,6 +461,7 @@ main() {
 	detect_workspace_env
 	link_mise_config
 	select_workspace_env
+	unlink_legacy_gitconfig
 	adopt_workspace_gitconfig
 	ensure_age_key
 	trust_and_bootstrap

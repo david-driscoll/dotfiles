@@ -4,9 +4,9 @@
 ##
 ## Unlike config.linux.toml this is not a platform layer: mise sees a Coder
 ## workspace as plain "linux", so MISE_AUTO_ENV never loads it. It is an
-## explicitly selected environment, which outranks every platform layer
-## (unix < linux < linux-<arch> < selected environments) — an entry here
-## replaces config.linux.toml's entry for the same target.
+## explicitly selected environment, which outranks the base config and every
+## platform layer (unix < linux < linux-<arch> < selected environments) — an
+## entry here replaces config.toml's template entry for the same target.
 ## https://mise.jdx.dev/configuration/environments.html
 ##
 ## A Codespaces twin would be config.codespaces.toml: install.sh already
@@ -16,6 +16,6 @@
 
 [dotfiles]
 # Coder provisions its own ~/.gitconfig, which install.sh moves to
-# ~/.gitconfig.workspace so the cross-platform "~/.gitconfig" entry can link.
+# ~/.gitconfig.workspace so the cross-platform "~/.gitconfig" entry can seed it.
 # git/gitconfig.coder is git/gitconfig.linux plus an include of that file.
 "~/.gitconfig.local" = { source = "~/dotfiles/git/gitconfig.coder" }

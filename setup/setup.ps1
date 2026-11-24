@@ -22,7 +22,7 @@
       SeCreateSymbolicLinkPrivilege (elevation or Developer Mode). A copy
       silently drifts from the repo the moment either side is edited. That
       fallback is fine for things Windows itself or another tool owns after
-      the first write (~/.ssh, ~/.gitconfig) but wrong for a file we expect
+      the first write (~/.ssh) but wrong for a file we expect
       to keep editing in place -- the PowerShell profile -- so profiles are
       NOT declared in [dotfiles] at all. Instead this script writes a
       one-line stub at every profile path that dot-sources profile.ps1 in
@@ -307,20 +307,26 @@ foreach ($ProfilePath in $ProfileTargets) {
     Write-Host "Wrote stub profile: $ProfilePath"
 }
 
-# --- git: layer the Windows-only overrides -----------------------------------
+# --- git: ~/.gitconfig is machine-owned, seeded by mise -------------------------
 
-# The shared, cross-platform ~/.gitconfig (git/gitconfig) is deployed by
-# `mise dotfiles apply` below like on every other OS (copy fallback, same as
-# the profile stubs' reasoning above -- but ~/.gitconfig isn't something
-# David hand-edits in place the way a profile is, so the copy fallback is
-# fine here). What that shared file can't carry is the two settings that are
-# genuinely different on native Windows (git's own ssh.exe transport, and
-# 1Password's Windows SSH-signing binary path) -- those live in
-# git/gitconfig.windows and are layered on top with a single, idempotent
-# `include.path` (git replaces a single-valued key in place on repeat runs).
-$GitConfigWindows = Join-Path (Join-Path $RepoRoot 'git') 'gitconfig.windows'
-if (Test-Path -LiteralPath $GitConfigWindows) {
-    git config --global include.path $GitConfigWindows
+# ~/.gitconfig used to be a [dotfiles] link to git\gitconfig (or, without
+# symlink rights, a copy of it). It is now an untracked file mise seeds once
+# (create_if_missing) with an include of the shared config, and mise counts
+# any existing ~/.gitconfig as applied, so clear the old one out first. A
+# copy may hold `git config --global` writes, so it's kept as a backup.
+$GitConfigPath = Join-Path $HOME '.gitconfig'
+$GitConfigItem = Get-Item -LiteralPath $GitConfigPath -Force -ErrorAction SilentlyContinue
+if ($GitConfigItem -and $GitConfigItem.LinkType -eq 'SymbolicLink' -and "$($GitConfigItem.Target)" -match '[\\/]git[\\/]gitconfig$') {
+    Remove-Item -LiteralPath $GitConfigPath -Force
+    Write-Host 'Removed the old ~/.gitconfig symlink so mise can seed the machine-owned file'
+} elseif ($GitConfigItem -and -not $GitConfigItem.LinkType) {
+    $GitConfigText = Get-Content -LiteralPath $GitConfigPath -Raw
+    if ($GitConfigText -match '(?m)^\s*path\s*=\s*~/\.gitconfig\.local\s*$' -and
+        $GitConfigText -notmatch '(?m)^\s*path\s*=\s*~/dotfiles/git/gitconfig\s*$') {
+        $GitConfigBackup = "$GitConfigPath.bak.$(Get-Date -Format yyyyMMddHHmmss)"
+        Move-Item -LiteralPath $GitConfigPath -Destination $GitConfigBackup
+        Write-Warning "Moved the old copy of git\gitconfig to $GitConfigBackup; carry any machine-only settings over to ~/.gitconfig after bootstrap."
+    }
 }
 
 # --- mise: trust and bootstrap ------------------------------------------------

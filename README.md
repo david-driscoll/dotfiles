@@ -102,13 +102,13 @@ In order:
    `Microsoft.PowerShell_profile.ps1`) that dot-sources this repo's
    `profile.ps1` — see [Windows caveats](#platform-caveats) for why these
    are stubs, not `[dotfiles]` entries.
-6. Wires `git config --global include.path` to `git\gitconfig.windows` for
-   the Windows-only overrides.
-7. `mise trust --all`, then `mise bootstrap --yes` — applies dotfiles and
+6. Clears out an old `~/.gitconfig` link (or a copy of `git/gitconfig`,
+   kept as a `.bak`) so mise can seed the machine-owned file, then runs
+   `mise trust --all` and `mise bootstrap --yes` — applies dotfiles and
    installs the pinned tools through the same declarative bootstrap used on
    macOS and Linux. Before running it, the script makes mise's .NET SDK root
    the active `dotnet` host so the dotnet backend can verify its installation.
-8. Installs the winget package list at the bottom of the script — GUI apps
+7. Installs the winget package list at the bottom of the script — GUI apps
    and platform pieces mise/aqua has no backend for (1Password, VS Code,
    browsers, Docker Desktop, fonts, etc.).
 
@@ -161,7 +161,7 @@ installation. On Git 2.54+, this runs `hk install --global --mise` once per
 machine; projects without hk configuration are skipped. The hooks contain
 absolute, machine-specific mise paths, so the task writes them to the
 untracked `~/.config/hk/gitconfig` (via `GIT_CONFIG_GLOBAL`), which
-`git/gitconfig` includes, rather than to the tracked `~/.gitconfig` or
+`git/gitconfig` includes, rather than to `~/.gitconfig` or the rendered
 `~/.gitconfig.local`. After upgrading Git, run `mise run hk:install-global` to
 enable it without reinstalling tools.
 hk is installed only globally: there is no per-repository hook install, and
@@ -265,7 +265,7 @@ link gets relinked, and a real directory in the way gets moved aside
 | Table | Scope | Owns |
 | --- | --- | --- |
 | `[tools]` (`config.toml`) | every platform | CLI tools mise/aqua can install directly — pinned versions |
-| `[dotfiles]` (`config.toml` + platform layers) | symlinks/copies from repo → `$HOME`, gated per-platform via the layering above | `.zshrc`, `~/.ssh`, `~/.gitconfig`, `starship.toml`, `~/.config/powershell`, macOS-only entries (karabiner, 1Password SSH agent, `.gitconfig.local`), Linux-only entries (`.wslrc`, `.gitconfig.local`) |
+| `[dotfiles]` (`config.toml` + platform layers) | symlinks/copies from repo → `$HOME`, gated per-platform via the layering above | `.zshrc`, `~/.ssh`, `~/.gitconfig` (seeded once, then machine-owned), `.gitconfig.local` (template, every OS), `starship.toml`, `~/.config/powershell`, macOS-only entries (karabiner, 1Password SSH agent), Linux-only entries (`.wslrc`) |
 | `[bootstrap.packages]` (`config.macos.toml`) | macOS only | Homebrew **formulae** mise's own registry can't provide (zsh + plugins, git, moreutils, mas, azure-cli, gitkraken-cli, speedtest-cli, powershell) |
 | `[bootstrap.macos.*]` (`config.macos.toml`) | macOS only | Dock/Finder/keyboard/trackpad `defaults`, `[bootstrap.hooks].post-packages` → the `brew:casks` task (Homebrew **casks**, i.e. GUI apps, from `setup/Brewfile.darwin`) |
 | `[bootstrap.user]` (`config.macos-arm64.toml`) | macOS (Apple Silicon) only | `login_shell` for `chsh` |
@@ -392,7 +392,7 @@ These will bite if you don't know about them going in.
   a real file symlink needs `SeCreateSymbolicLinkPrivilege` (elevation or
   Developer Mode); a copy silently drifts from the repo the moment either
   side is edited. That's acceptable for files Windows or another tool owns
-  after the first write (`~/.ssh`, `~/.gitconfig`), but wrong for a file
+  after the first write (`~/.ssh`), but wrong for a file
   meant to be edited in place — which is exactly why the PowerShell
   profiles are **not** `[dotfiles]` entries at all. `setup/setup.ps1`
   instead writes a one-line stub at every profile path that dot-sources
@@ -404,15 +404,25 @@ These will bite if you don't know about them going in.
   activate** — see [Platform config layering](#platform-config-layering)
   above. Without it, `config.macos.toml`/`config.linux.toml` are never
   read, even with `auto_env = true` set in `[settings]`.
+- **`~/.gitconfig` is this machine's own file, not a link into the repo.**
+  mise seeds it once (`content` + `create_if_missing` in `config.toml`) with
+  `[include] path = ~/dotfiles/git/gitconfig` and never touches it again,
+  even with `--force`. So `git config --global` writes land there, never in
+  the repo, and settings for one machine only (e.g. a work email and signing
+  key) go below the include, where they win. `git config --global --list`
+  only shows that file; use `git config --show-origin <key>` to see what
+  actually applies. The setup scripts remove the old `~/.gitconfig` symlink
+  from earlier versions so mise can seed the new file.
 - **`~/.gitconfig.local` must be deployed before your first commit on a new
   machine, or git has no email configured.** Per `#65`/`#81`,
-  `~/.gitconfig` (the shared, committed file) intentionally carries only
-  `user.name` — `user.email`, `user.signingkey`, and `github.user` all live
-  in the per-OS `git/gitconfig.<os>` files, pulled in via `~/.gitconfig`'s
-  `[include] path = ~/.gitconfig.local`. That `.gitconfig.local` is itself
-  a `[dotfiles]` entry (macOS/Linux, via the platform layers) or written by
-  `setup/setup.ps1`'s `git config --global include.path` call (Windows) —
-  either way, it only exists after bootstrap has actually run once.
+  `git/gitconfig` (the shared, committed file) intentionally carries only
+  the default identity — the per-OS `git/gitconfig.<windows|darwin|linux|wsl>`
+  files layer on top, pulled in via `git/gitconfig`'s
+  `[include] path = ~/.gitconfig.local`. That `.gitconfig.local` is rendered
+  by one `[dotfiles]` template entry in `config.toml`
+  (`git/gitconfig.local.tera`), which picks the file by `os()` and detects
+  WSL from the kernel release — so it only exists after bootstrap has
+  actually run once.
 - **macOS login-shell duplication is deliberate, not an oversight.**
   `config.macos-arm64.toml`'s `[bootstrap.user]` points `login_shell` at
   the Homebrew *cask* `pwsh` (`/usr/local/bin/pwsh`, from

@@ -266,6 +266,23 @@ ensure_age_key() {
 	fi
 }
 
+# --- ~/.gitconfig: from repo symlink to machine-owned file -----------------
+#
+# ~/.gitconfig used to be a [dotfiles] symlink to git/gitconfig. It is now an
+# untracked file mise seeds once (create_if_missing) with an include of the
+# shared config, so `git config --global` never writes into this repo. mise
+# counts any existing ~/.gitconfig as applied, so drop the old link first.
+unlink_legacy_gitconfig() {
+	local gitconfig="$HOME/.gitconfig"
+	[ -L "$gitconfig" ] || return 0
+	case "$(readlink "$gitconfig")" in
+	*/git/gitconfig)
+		rm "$gitconfig"
+		log "removed the old ~/.gitconfig symlink so mise can seed the machine-owned file"
+		;;
+	esac
+}
+
 # --- mise trust + bootstrap ----------------------------------------------
 #
 # MISE_AUTO_ENV=1 makes mise also load config.macos.toml alongside
@@ -301,6 +318,7 @@ main() {
 	install_oh_my_zsh
 	link_mise_config
 	ensure_age_key
+	unlink_legacy_gitconfig
 	trust_and_bootstrap
 
 	log "done. Re-run this script any time — every step here is safe to repeat."

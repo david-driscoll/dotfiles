@@ -1,7 +1,7 @@
-## Linux override for ~/.gitconfig.local (Codespaces / Coder / bare-metal
-## Linux). Deployed via .config/mise/config.linux.toml — same platform
-## config-file layering mechanism as git/gitconfig.darwin (see that file's
-## header for why this isn't a git [includeIf]).
+## Linux overrides (Codespaces / bare-metal Linux). Included from
+## ~/.gitconfig.local, which mise renders from git/gitconfig.local.tera when
+## os() is "linux" and the kernel isn't WSL's. Coder workspaces reach it via
+## git/gitconfig.coder.
 ##
 ## Deliberately empty of a gpg.ssh.program override: these Linux targets
 ## don't run the 1Password desktop app, so there's no op-ssh-sign binary to
@@ -11,23 +11,9 @@
 ## environment; confirm commit signing actually succeeds on a fresh
 ## Codespace/Coder box before relying on it.
 ##
-## WSL is intentionally NOT covered by this file, even though mise's own
-## auto_env platform detection reports WSL as plain "linux" (no separate
-## "wsl" platform exists in mise) — see git/gitconfig.wsl for the full
-## explanation of why WSL can't be routed here automatically with the
-## tools available today.
+## WSL is detected by git/gitconfig.local.tera and gets git/gitconfig.wsl
+## instead of this file.
 ##
 ## Identity block below (#81 review): starting point is an identical copy
-## of git/gitconfig.darwin's values — nothing changes on any current Linux
-## box (Codespaces, Coder, bare-metal) until this is deliberately edited.
-## Edit THIS block if Linux machines should use a different email/signing
-## key than the mac (e.g. a separate identity for ephemeral Codespaces).
-
-[user]
-	email = david.driscoll@gmail.com
-	# Public half of an ssh-ed25519 key, used only for commit signing
-	# verification — safe to commit (public by definition).
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFEZpmeANLSx9Worwn0REmiWKLEkDvGaaz5ZlCVuRc67
-
-[github]
-	user = david-driscoll
+## of git/gitconfig.darwin's values. Put a machine-specific identity in the
+## untracked ~/.gitconfig instead of editing this shared file.
