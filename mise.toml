@@ -60,10 +60,10 @@ if ($LASTEXITCODE -ne 0 -or $gitVersion -notmatch 'git version (\d+)\.(\d+)') {
 if ([version]"$($Matches[1]).$($Matches[2])" -lt [version]"2.54") {
     Write-Warning "hk:install-global: Git 2.54+ is required for global hk hooks ($gitVersion found); upgrade Git and run mise run hk:install-global."
 } else {
-    # ~/.gitconfig and ~/.gitconfig.local are tracked repo files, and hk writes
-    # absolute, machine-specific mise paths, so redirect to the untracked file
-    # git/gitconfig includes. Run from $HOME so a repo's hk.pkl doesn't narrow
-    # the installed hook set.
+    # ~/.gitconfig.local is rendered by mise and ~/.gitconfig is this
+    # machine's own, and hk writes absolute, machine-specific mise paths, so
+    # keep them in the separate untracked file git/gitconfig includes. Run
+    # from $HOME so a repo's hk.pkl doesn't narrow the installed hook set.
     $hkGitConfig = Join-Path $HOME ".config/hk/gitconfig"
     New-Item -ItemType Directory -Force -Path (Split-Path $hkGitConfig) | Out-Null
     $env:GIT_CONFIG_GLOBAL = $hkGitConfig

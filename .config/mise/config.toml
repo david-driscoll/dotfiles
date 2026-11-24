@@ -51,12 +51,15 @@ zoxide = "0.10.0" # aqua:ajeetdsouza/zoxide
 mkcert = "1.4.4" # aqua:FiloSottile/mkcert
 powershell = "7.7.0"
 python = "3.15.2"
-"pipx:graphifyy" = "0.9.112"
+# "pipx:graphifyy" = "0.9.112"
 "dotnet:graphify-dotnet" = "0.7.0"
 kubelogin = "1.36.4"
 
 [bootstrap.services.mise-history]
 builtin = "history-watch"
+
+[bootstrap.services.mise-tool-update]
+builtin = "tool-update"
 
 [dotfiles]
 "~/.zshrc" = {}
@@ -70,7 +73,17 @@ builtin = "history-watch"
 "~/.apm/marketplaces.json" = {}
 # "~/.apm/marketplaces.json" = { mode = "track" }
 # "~/.apm/config.json" = { mode = "track" }
-"~/.gitconfig" = { source = "~/dotfiles/git/gitconfig" }
+# Seeded once, then owned by the machine: `git config --global` writes land
+# here, never in the repo. The shared config comes in through the include.
+"~/.gitconfig" = { content = """
+# Global git config for this machine only (untracked, seeded by mise).
+# `git config --global` writes here. Keep the include first so values below
+# override the shared ~/dotfiles/git/gitconfig.
+[include]
+	path = ~/dotfiles/git/gitconfig
+""", create_if_missing = true }
+# Per-OS overrides (windows / macos / linux / wsl), chosen by the template.
+"~/.gitconfig.local" = { source = "~/dotfiles/git/gitconfig.local.tera", mode = "template" }
 "~/.config/fnox/config.toml" = { source = "~/dotfiles/.config/fnox/config.toml" }
 "~/.config/mise/config.toml" = { source = "~/dotfiles/.config/mise/config.toml" }
 "~/.config/mise/config.macos.toml" = { source = "~/dotfiles/.config/mise/config.macos.toml", variants = [{ os = "macos" }] }

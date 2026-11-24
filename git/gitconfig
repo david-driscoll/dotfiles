@@ -1,5 +1,10 @@
 [user]
 	name = David Driscoll
+	email = david.driscoll@gmail.com
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFEZpmeANLSx9Worwn0REmiWKLEkDvGaaz5ZlCVuRc67
+
+[github]
+	user = david-driscoll
 
 [core]
 	eol = lf
@@ -37,14 +42,18 @@
 	amend = commit --amend --reuse-message=HEAD
 	squash = "!f() { git rebase -i --autosquash $1; }; f"
 
-# Per-OS overrides live in ~/.gitconfig.local, deployed by mise's [dotfiles]
-# platform-config-layering (config.macos.toml / config.linux.toml — the same
-# mechanism PR #79 established for karabiner.json and 1Password's
-# agent.toml). A plain [include] here works on every OS: if
-# ~/.gitconfig.local doesn't exist yet, git silently skips it rather than
-# erroring (verified empirically against git 2.55.0 in a scratch config).
+# Per-OS overrides live in ~/.gitconfig.local, rendered by mise's [dotfiles]
+# from git/gitconfig.local.tera (one entry in .config/mise/config.toml), which
+# includes git/gitconfig.<windows|darwin|linux|wsl>. If the file doesn't exist
+# yet, git silently skips the include rather than erroring.
 [include]
 	path = ~/.gitconfig.local
+
+# This file isn't ~/.gitconfig itself. That is an untracked file seeded once
+# by mise ([dotfiles] in .config/mise/config.toml) which includes this one
+# first, so `git config --global` writes, and any settings for this machine
+# only, land there and win over everything here. Don't include ~/.gitconfig
+# from here: the two files would include each other in a loop.
 
 # Global hk hooks (`mise run hk:install-global`). hk writes absolute,
 # machine-specific mise paths, so they live in this untracked file rather

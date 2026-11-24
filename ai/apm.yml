@@ -26,6 +26,7 @@ dependencies:
     - upstash/context7
     - blader/humanizer
     - petrovicistefan/claude-code-plugins/ci-optimizer
+    - AzureCosmosDB/cosmosdb-agent-kit
   mcp:
     - name: mise
       args:

@@ -63,7 +63,6 @@ three_finger_drag = false
 [dotfiles]
 "~/.config/karabiner/karabiner.json" = { source = "~/dotfiles/karabiner/karabiner.json" }
 "~/.config/1Password/ssh/agent.toml" = { source = "~/dotfiles/1password/agent.toml" }
-"~/.gitconfig.local" = { source = "~/dotfiles/git/gitconfig.darwin" }
 # "~/.ssh" = { source = "~/dotfiles/ssh", mode = "symlink-each" }
 # To be fixed when the issue is resolved, see https://github.com/jdx/fnox/pull/818
 "~/.config/fnox/config.toml" = { source = "~/dotfiles/.config/fnox/config.macos.toml" }
