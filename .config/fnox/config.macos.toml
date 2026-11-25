@@ -4,6 +4,11 @@
 [daemon]
 enabled = true
 idle_timeout = "8h"
+cache_ttl = "30m"
+max_cache_ttl = "4h"
+
+[audit]
+enabled = true
 
 [providers.age]
 type = "age"
