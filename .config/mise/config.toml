@@ -38,7 +38,7 @@ age = "1.3.2"
 # "npm:@github/copilot" = "1.0.88"
 biome = "2.5.5"
 node = "26.13.1"
-dotnet = ["10.0.400", "8.0.425"]
+dotnet = ["11.0.100", "10.0.400"]
 "github:microsoft/apm" = { version = "v0.38.1", bin = "apm" }
 "github:eljulians/skillfile" = { version = "v1.9.3", bin = "skillfile" }
 gh = "2.105.0" # aqua:cli/cli
@@ -87,5 +87,7 @@ builtin = "tool-update"
 "~/.config/fnox/config.toml" = { source = "~/dotfiles/.config/fnox/config.toml" }
 "~/.config/mise/config.toml" = { source = "~/dotfiles/.config/mise/config.toml" }
 "~/.config/mise/config.macos.toml" = { source = "~/dotfiles/.config/mise/config.macos.toml", variants = [{ os = "macos" }] }
-"~/.config/mise/config.macos-arm64.toml" = { source = "~/dotfiles/.config/mise/config.macos-arm64.toml", variants = [{ os = "macos" }] }
+# config.macos-arm64.toml was merged into config.macos.toml; remove the old
+# link on Macs that still have it (mise removes the link, never its target).
+"~/.config/mise/config.macos-arm64.toml" = { mode = "absent", variants = [{ os = "macos" }] }
 "~/.config/mise/scripts" = { source = "~/dotfiles/.config/mise/scripts", mode = "symlink-each" }

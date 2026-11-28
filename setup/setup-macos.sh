@@ -12,9 +12,8 @@
 # install mise` -> oh-my-zsh (see install_oh_my_zsh() for why) -> symlink
 # ~/.config/mise at this repo's .config/mise -> `mise trust` -> `mise
 # bootstrap --yes`, which is the single declarative step that installs
-# [bootstrap.packages] brew formulae, runs the brew:casks task
-# (setup/Brewfile.darwin) via [bootstrap.hooks.post-packages], applies
-# [dotfiles], and installs [tools]. See #61 (epic) and #69 for the full
+# [bootstrap.packages] (brew formulae, brew-cask GUI apps, mas App Store
+# apps), applies [dotfiles], and installs [tools]. See #61 (epic) and #69 for the full
 # rationale, and #64/#65/#67 for how [dotfiles]/[bootstrap.packages] got
 # populated.
 #
@@ -294,8 +293,8 @@ unlink_legacy_gitconfig() {
 # agent config, gitconfig.local) as well as the cross-platform ones. `mise
 # bootstrap --yes` (not `--only packages`, unlike the old setup-osx.sh) is
 # what actually closes the gap #69 exists to close: one call now covers
-# packages, Brewfile.darwin's casks (via [bootstrap.hooks.post-packages] ->
-# the brew:casks task), [dotfiles], and [tools] — none of which install.sh
+# packages (formulae, casks, App Store apps), [dotfiles], and [tools] —
+# none of which install.sh
 # alone ever reached on macOS.
 trust_and_bootstrap() {
 	export MISE_AUTO_ENV=1
@@ -304,7 +303,10 @@ trust_and_bootstrap() {
 	(cd "$HOME/.config/mise" && mise trust --all) ||
 		die "mise trust failed — see output above"
 
-	log "running mise bootstrap --yes (packages, Brewfile.darwin casks, dotfiles, tools)"
+	# The login shell is mise's own pwsh; config.macos.toml's pre-user hook
+	# installs it before the user step, so a single bootstrap is enough.
+	# Expect sudo + password prompts the first time it sets the login shell.
+	log "running mise bootstrap --yes (packages, casks, App Store apps, dotfiles, login shell, tools)"
 	mise bootstrap --yes ||
 		die "mise bootstrap failed — see output above. Safe to re-run: 'mise bootstrap --yes', or inspect state first with 'mise bootstrap status'."
 }
