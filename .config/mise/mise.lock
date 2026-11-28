@@ -236,96 +236,96 @@ url = "https://github.com/junegunn/fzf/releases/download/v0.75.0/fzf-0.75.0-wind
 url_api = "https://api.github.com/repos/junegunn/fzf/releases/assets/720590885"
 
 [[tools.gh]]
-version = "2.105.0"
+version = "2.106.0"
 backend = "aqua:cli/cli"
 
 [tools.gh."platforms.linux-arm64"]
-checksum = "sha256:b1278c75107423d818f1937fd92cafc9e5e9b606631568f68d7fb816f5885a02"
-url = "https://github.com/cli/cli/releases/download/v2.105.0/gh_2.105.0_linux_arm64.tar.gz"
-url_api = "https://api.github.com/repos/cli/cli/releases/assets/761188590"
+checksum = "sha256:5e8a0c51e1a8345f36bd0b8bb88604b6a5388df16f3ab3e3b9b6d794fa223a67"
+url = "https://github.com/cli/cli/releases/download/v2.106.0/gh_2.106.0_linux_arm64.tar.gz"
+url_api = "https://api.github.com/repos/cli/cli/releases/assets/793444867"
 provenance = "github-attestations"
 
 [tools.gh."platforms.linux-arm64-musl"]
-checksum = "sha256:b1278c75107423d818f1937fd92cafc9e5e9b606631568f68d7fb816f5885a02"
-url = "https://github.com/cli/cli/releases/download/v2.105.0/gh_2.105.0_linux_arm64.tar.gz"
-url_api = "https://api.github.com/repos/cli/cli/releases/assets/761188590"
+checksum = "sha256:5e8a0c51e1a8345f36bd0b8bb88604b6a5388df16f3ab3e3b9b6d794fa223a67"
+url = "https://github.com/cli/cli/releases/download/v2.106.0/gh_2.106.0_linux_arm64.tar.gz"
+url_api = "https://api.github.com/repos/cli/cli/releases/assets/793444867"
 provenance = "github-attestations"
 
 [tools.gh."platforms.linux-x64"]
-checksum = "sha256:79e7ab5db738c48777b696e374f8b428f0647debfb424f44d2f426370407fe2f"
-url = "https://github.com/cli/cli/releases/download/v2.105.0/gh_2.105.0_linux_amd64.tar.gz"
-url_api = "https://api.github.com/repos/cli/cli/releases/assets/761188566"
+checksum = "sha256:a476449fa9625413c54a3734eded62e9e480e49f421ff08e7f3b3879c059a033"
+url = "https://github.com/cli/cli/releases/download/v2.106.0/gh_2.106.0_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/cli/cli/releases/assets/793444853"
 provenance = "github-attestations"
 
 [tools.gh."platforms.linux-x64-musl"]
-checksum = "sha256:79e7ab5db738c48777b696e374f8b428f0647debfb424f44d2f426370407fe2f"
-url = "https://github.com/cli/cli/releases/download/v2.105.0/gh_2.105.0_linux_amd64.tar.gz"
-url_api = "https://api.github.com/repos/cli/cli/releases/assets/761188566"
+checksum = "sha256:a476449fa9625413c54a3734eded62e9e480e49f421ff08e7f3b3879c059a033"
+url = "https://github.com/cli/cli/releases/download/v2.106.0/gh_2.106.0_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/cli/cli/releases/assets/793444853"
 provenance = "github-attestations"
 
 [tools.gh."platforms.macos-arm64"]
-checksum = "sha256:2a5d03103ae444927383b93d9ffd65579a26e2eb900ce1cf11f55258d5319ded"
-url = "https://github.com/cli/cli/releases/download/v2.105.0/gh_2.105.0_macOS_arm64.zip"
-url_api = "https://api.github.com/repos/cli/cli/releases/assets/761188673"
+checksum = "sha256:22b2b723dfbc69b6022b1b08604ff51c0db5aa8b6774b4ced1a47b8413a995d6"
+url = "https://github.com/cli/cli/releases/download/v2.106.0/gh_2.106.0_macOS_arm64.zip"
+url_api = "https://api.github.com/repos/cli/cli/releases/assets/793444946"
 provenance = "github-attestations"
 
 [tools.gh."platforms.macos-x64"]
-checksum = "sha256:23602cbccbbdc6285a8520745b714cb927ce2ca621779373c2a20cd8e33fda66"
-url = "https://github.com/cli/cli/releases/download/v2.105.0/gh_2.105.0_macOS_amd64.zip"
-url_api = "https://api.github.com/repos/cli/cli/releases/assets/761188667"
+checksum = "sha256:f43a04a5ffe0717e2e39d7591cbc50db24c6c38d09d0ea4998be27cd197758e3"
+url = "https://github.com/cli/cli/releases/download/v2.106.0/gh_2.106.0_macOS_amd64.zip"
+url_api = "https://api.github.com/repos/cli/cli/releases/assets/793444939"
 provenance = "github-attestations"
 
 [tools.gh."platforms.windows-x64"]
-checksum = "sha256:8813a72c899900afaa10e3fec8fbc64b908c89dbfe837e95ed2fa500fc140627"
-url = "https://github.com/cli/cli/releases/download/v2.105.0/gh_2.105.0_windows_amd64.zip"
-url_api = "https://api.github.com/repos/cli/cli/releases/assets/761188741"
+checksum = "sha256:d406f442ca0baa3d3e9c695e9cded1aa48e67dad3294b8947e5ab84f980b4844"
+url = "https://github.com/cli/cli/releases/download/v2.106.0/gh_2.106.0_windows_amd64.zip"
+url_api = "https://api.github.com/repos/cli/cli/releases/assets/793445150"
 provenance = "github-attestations"
 
 [[tools."github:eljulians/skillfile"]]
-version = "1.9.3"
+version = "1.10.0"
 backend = "github:eljulians/skillfile"
 
 [tools."github:eljulians/skillfile"."platforms.linux-arm64"]
-checksum = "sha256:ba953b671e2b30c1b5256944eec60f20e4c03ed3d47d6a376bff5f57103f5f92"
+checksum = "sha256:397eee5812654f1711e75cd3a53e0a543b3ef239f634fd920085e2e66e441156"
 checksum_source = "mise-versions"
-url = "https://github.com/eljulians/skillfile/releases/download/v1.9.3/skillfile-aarch64-linux"
-url_api = "https://api.github.com/repos/eljulians/skillfile/releases/assets/775294799"
+url = "https://github.com/eljulians/skillfile/releases/download/v1.10.0/skillfile-aarch64-linux"
+url_api = "https://api.github.com/repos/eljulians/skillfile/releases/assets/799568722"
 
 [tools."github:eljulians/skillfile"."platforms.linux-arm64-musl"]
-checksum = "sha256:ba953b671e2b30c1b5256944eec60f20e4c03ed3d47d6a376bff5f57103f5f92"
+checksum = "sha256:397eee5812654f1711e75cd3a53e0a543b3ef239f634fd920085e2e66e441156"
 checksum_source = "mise-versions"
-url = "https://github.com/eljulians/skillfile/releases/download/v1.9.3/skillfile-aarch64-linux"
-url_api = "https://api.github.com/repos/eljulians/skillfile/releases/assets/775294799"
+url = "https://github.com/eljulians/skillfile/releases/download/v1.10.0/skillfile-aarch64-linux"
+url_api = "https://api.github.com/repos/eljulians/skillfile/releases/assets/799568722"
 
 [tools."github:eljulians/skillfile"."platforms.linux-x64"]
-checksum = "sha256:6ce1ecb1ab7669af4ba5af91b46b628b33047f01088585df0344c43260fa1ac2"
+checksum = "sha256:a7e7228e56c4f8d0b5d828121e5928b297b53f331f0e8aa25fd53f6c2b40d1eb"
 checksum_source = "mise-versions"
-url = "https://github.com/eljulians/skillfile/releases/download/v1.9.3/skillfile-x86_64-linux"
-url_api = "https://api.github.com/repos/eljulians/skillfile/releases/assets/775294795"
+url = "https://github.com/eljulians/skillfile/releases/download/v1.10.0/skillfile-x86_64-linux"
+url_api = "https://api.github.com/repos/eljulians/skillfile/releases/assets/799568720"
 
 [tools."github:eljulians/skillfile"."platforms.linux-x64-musl"]
-checksum = "sha256:6ce1ecb1ab7669af4ba5af91b46b628b33047f01088585df0344c43260fa1ac2"
+checksum = "sha256:a7e7228e56c4f8d0b5d828121e5928b297b53f331f0e8aa25fd53f6c2b40d1eb"
 checksum_source = "mise-versions"
-url = "https://github.com/eljulians/skillfile/releases/download/v1.9.3/skillfile-x86_64-linux"
-url_api = "https://api.github.com/repos/eljulians/skillfile/releases/assets/775294795"
+url = "https://github.com/eljulians/skillfile/releases/download/v1.10.0/skillfile-x86_64-linux"
+url_api = "https://api.github.com/repos/eljulians/skillfile/releases/assets/799568720"
 
 [tools."github:eljulians/skillfile"."platforms.macos-arm64"]
-checksum = "sha256:94d22d6ae08ba104f4405870f89460e788f43fb944d68dd28939168b0984e0b6"
+checksum = "sha256:0df80463dcabb38c277893d785ae092b90af24542ae9f9459292fae6e1e4fff9"
 checksum_source = "mise-versions"
-url = "https://github.com/eljulians/skillfile/releases/download/v1.9.3/skillfile-aarch64-macos"
-url_api = "https://api.github.com/repos/eljulians/skillfile/releases/assets/775294796"
+url = "https://github.com/eljulians/skillfile/releases/download/v1.10.0/skillfile-aarch64-macos"
+url_api = "https://api.github.com/repos/eljulians/skillfile/releases/assets/799568721"
 
 [tools."github:eljulians/skillfile"."platforms.macos-x64"]
-checksum = "sha256:4983159939455a226ca1ff4b88093f3f0df230c1ee7ea2aa9a769f5f8010790a"
+checksum = "sha256:db3e9b08cbd522f8b3d9703d41377dfab172b2017fad04ed07c9304afaf77006"
 checksum_source = "mise-versions"
-url = "https://github.com/eljulians/skillfile/releases/download/v1.9.3/skillfile-x86_64-macos"
-url_api = "https://api.github.com/repos/eljulians/skillfile/releases/assets/775294797"
+url = "https://github.com/eljulians/skillfile/releases/download/v1.10.0/skillfile-x86_64-macos"
+url_api = "https://api.github.com/repos/eljulians/skillfile/releases/assets/799568718"
 
 [tools."github:eljulians/skillfile"."platforms.windows-x64"]
-checksum = "sha256:83d44409e23cb683b9973b7eaa39c887cd2a80e291292de9849d83c7cd2fe942"
+checksum = "sha256:ae03d6b038cef32be640919b9f1e1f1abe07003183ec939a4d02c833f60c2707"
 checksum_source = "mise-versions"
-url = "https://github.com/eljulians/skillfile/releases/download/v1.9.3/skillfile-x86_64-windows.exe"
-url_api = "https://api.github.com/repos/eljulians/skillfile/releases/assets/775294794"
+url = "https://github.com/eljulians/skillfile/releases/download/v1.10.0/skillfile-x86_64-windows.exe"
+url_api = "https://api.github.com/repos/eljulians/skillfile/releases/assets/799568715"
 
 [[tools."github:microsoft/apm"]]
 version = "0.39.1"
@@ -445,37 +445,38 @@ checksum = "sha256:178ab98950ac69ab25069307dc6ade79f3816e414cce95b4da166a115cde1
 url = "https://dl.google.com/go/go1.27.4.windows-amd64.zip"
 
 [[tools.hk]]
-version = "2.13.0"
+version = "2.14.0"
 backend = "packslip:github.com/jdx/hk"
+unsupported_platforms = ["macos-x64"]
 
 [tools.hk."platforms.linux-arm64"]
-checksum = "sha256:490196a4e638991c671f42941d72ade4d00b14750145f34fc64377b49fc070bb"
-url = "https://github.com/jdx/hk/releases/download/v2.13.0/hk-aarch64-unknown-linux-gnu.tar.gz"
+checksum = "sha256:a5503bc4a6cef77697aed92c966f7b444b3fdea4b62b63d9fb0b2b1af7f08c83"
+url = "https://github.com/jdx/hk/releases/download/v2.14.0/hk-aarch64-unknown-linux-gnu.tar.gz"
 signer = "sigstore-oidc:https://github.com/jdx/hk/.github/workflows/release.yml"
 
 [tools.hk."platforms.linux-arm64-musl"]
-checksum = "sha256:cff2d433a82104ace7084a23970ff05b0bf3ca529e00c61da20780104106a3dd"
-url = "https://github.com/jdx/hk/releases/download/v2.13.0/hk-aarch64-unknown-linux-musl.tar.gz"
+checksum = "sha256:d9e0cca380e87a175fa2b18738af3e03cbd4109f9105e1ede60ebb3238d09a16"
+url = "https://github.com/jdx/hk/releases/download/v2.14.0/hk-aarch64-unknown-linux-musl.tar.gz"
 signer = "sigstore-oidc:https://github.com/jdx/hk/.github/workflows/release.yml"
 
 [tools.hk."platforms.linux-x64"]
-checksum = "sha256:8ff0b29c9925d73df9b14af7fc43ace86de03db73eafa3046750fce5c39e1955"
-url = "https://github.com/jdx/hk/releases/download/v2.13.0/hk-x86_64-unknown-linux-gnu.tar.gz"
+checksum = "sha256:230e89eaa3bf78aea23ac1584c8de9dd49141487f6067083003d8bdb38fa6c34"
+url = "https://github.com/jdx/hk/releases/download/v2.14.0/hk-x86_64-unknown-linux-gnu.tar.gz"
 signer = "sigstore-oidc:https://github.com/jdx/hk/.github/workflows/release.yml"
 
 [tools.hk."platforms.linux-x64-musl"]
-checksum = "sha256:3d5ae62e2befe95fa6fc7ffd63a0876c3efe3409634fbd6561b8bb0be787eeae"
-url = "https://github.com/jdx/hk/releases/download/v2.13.0/hk-x86_64-unknown-linux-musl.tar.gz"
+checksum = "sha256:49b9238317fa6f047f66b93cc1a150efaeb9790063ae44aa5de9cc3d59d709c1"
+url = "https://github.com/jdx/hk/releases/download/v2.14.0/hk-x86_64-unknown-linux-musl.tar.gz"
 signer = "sigstore-oidc:https://github.com/jdx/hk/.github/workflows/release.yml"
 
 [tools.hk."platforms.macos-arm64"]
-checksum = "sha256:64efc441dc0858a175909fd6253ddd6c540da80e7d1bd2a2ad0ec9c0cdab3d97"
-url = "https://github.com/jdx/hk/releases/download/v2.13.0/hk-aarch64-apple-darwin.tar.gz"
+checksum = "sha256:82a6ceb4a69bcf9667502f5bdf487a7d1a3aa5078197e981cf0538086d90b778"
+url = "https://github.com/jdx/hk/releases/download/v2.14.0/hk-aarch64-apple-darwin.tar.gz"
 signer = "sigstore-oidc:https://github.com/jdx/hk/.github/workflows/release.yml"
 
 [tools.hk."platforms.windows-x64"]
-checksum = "sha256:2908de6281368b8128f1d4d7a03905d3ab0eb86a82641d6055be88806bf9ffac"
-url = "https://github.com/jdx/hk/releases/download/v2.13.0/hk-x86_64-pc-windows-msvc.zip"
+checksum = "sha256:750e1ccaca97b4c33f9b709e4beea9da5de98c7bb3f175cbbe59c05b5a6e365b"
+url = "https://github.com/jdx/hk/releases/download/v2.14.0/hk-x86_64-pc-windows-msvc.zip"
 signer = "sigstore-oidc:https://github.com/jdx/hk/.github/workflows/release.yml"
 
 [[tools.jq]]
