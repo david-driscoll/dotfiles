@@ -80,50 +80,50 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  1password
-  aws
-  aliases
-  alias-finder
-  azure
-  brew
-  colored-man-pages
-  colorize
-  common-aliases
-  command-not-found
-  copyfile
-  cp
-  direnv
-  docker
-  podman
-  eza
-  kubectl
-  helm
-  encode64
-  extract
-  emoji
-  emoji-clock
-  # gpg-agent
-  # ssh-agent
-  macos
-  git
-  gh
-  git-auto-fetch
-  git-escape-magic
-  starship
-  themes
-  terraform
-  lol
-  # zsh_reload
+	1password
+	aws
+	aliases
+	alias-finder
+	azure
+	brew
+	colored-man-pages
+	colorize
+	common-aliases
+	command-not-found
+	copyfile
+	cp
+	direnv
+	docker
+	podman
+	eza
+	kubectl
+	helm
+	encode64
+	extract
+	emoji
+	emoji-clock
+	# gpg-agent
+	# ssh-agent
+	macos
+	git
+	gh
+	git-auto-fetch
+	git-escape-magic
+	starship
+	themes
+	terraform
+	lol
+	# zsh_reload
 )
 
 if [ $WT_SESSION ]; then
-  alias op="op.exe"
+	alias op="op.exe"
 fi
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  eval $(/opt/homebrew/bin/brew shellenv)
+	eval $(/opt/homebrew/bin/brew shellenv)
 else
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -134,6 +134,27 @@ FPATH="$HOMEBREW_PREFIX/share/zsh-completions:${FPATH}"
 
 # Remove any existing mise paths before activating
 export PATH=$(echo $PATH | tr ':' '\n' | grep -v "mise" | paste -sd: -)
+
+# Enables mise's platform config-file layering (config.macos.toml /
+# config.linux.toml alongside .config/mise/config.toml) so [dotfiles]
+# entries can be scoped per-OS. Must be a real env var, not just
+# settings.auto_env in the toml — see that file for why. (#64)
+export MISE_AUTO_ENV=1
+# mise installs .NET SDKs into DOTNET_ROOT when one is inherited, and Homebrew's
+# pwsh wrapper exports DOTNET_ROOT=<brew dotnet>/libexec to everything started
+# from it, which sends `mise install` into the Homebrew Cellar. Pin mise to its
+# own root, as profile.ps1 does for pwsh.
+export MISE_DOTNET_ROOT="$HOME/.local/share/mise/dotnet-root"
+# Activate mise before oh-my-zsh: its direnv, eza, starship and other plugins
+# look up their tools when they load, and those tools come from mise's
+# [tools], not Homebrew.
+if [ -x "$(command -v mise)" ]; then
+	eval "$(mise activate zsh)"
+fi
+# fnox is a mise tool, so it is only on PATH once mise is active.
+if [ -x "$(command -v fnox)" ]; then
+	eval "$(fnox activate zsh)"
+fi
 
 source $ZSH/oh-my-zsh.sh
 
@@ -180,90 +201,72 @@ zstyle ':omz:plugins:eza' 'icons' yes
 # zstyle ':omz:plugins:eza' 'time-style' $TIME_STYLE
 zstyle ':omz:plugins:eza' 'hyperlink' yes
 
-# Enables mise's platform config-file layering (config.macos.toml /
-# config.linux.toml alongside .config/mise/config.toml) so [dotfiles]
-# entries can be scoped per-OS. Must be a real env var, not just
-# settings.auto_env in the toml — see that file for why. (#64)
-export MISE_AUTO_ENV=1
-# mise installs .NET SDKs into DOTNET_ROOT when one is inherited, and Homebrew's
-# pwsh wrapper exports DOTNET_ROOT=<brew dotnet>/libexec to everything started
-# from it, which sends `mise install` into the Homebrew Cellar. Pin mise to its
-# own root, as profile.ps1 does for pwsh.
-export MISE_DOTNET_ROOT="$HOME/.local/share/mise/dotnet-root"
-if [ -x "$(command -v fnox)" ]; then
-  eval "$(fnox activate zsh)"
-fi
-if [ -x "$(command -v mise)" ]; then
-  eval "$(mise activate zsh)"
-fi
-
 load_completion() {
-  local executable="$1"
-  shift
-  if ! command -v "$executable" >/dev/null 2>&1; then
-    return
-  fi
-  MISE_AUTO_INSTALL=false "$@" 2>/dev/null
+	local executable="$1"
+	shift
+	if ! command -v "$executable" >/dev/null 2>&1; then
+		return
+	fi
+	MISE_AUTO_INSTALL=false "$@" 2>/dev/null
 }
 
 if [ -x "$(command -v fzf)" ]; then
-  eval "$(load_completion fzf fzf --zsh)"
+	eval "$(load_completion fzf fzf --zsh)"
 fi
 if [ -x "$(command -v uv)" ]; then
-  eval "$(load_completion uv uv generate-shell-completion zsh)"
+	eval "$(load_completion uv uv generate-shell-completion zsh)"
 fi
 if [ -x "$(command -v yq)" ]; then
-  eval "$(load_completion yq yq shell-completion zsh)"
+	eval "$(load_completion yq yq shell-completion zsh)"
 fi
 if [ -x "$(command -v fnox)" ]; then
-  eval "$(load_completion fnox fnox completion zsh)"
+	eval "$(load_completion fnox fnox completion zsh)"
 fi
 if [ -x "$(command -v sops)" ]; then
-  eval "$(load_completion sops sops completion zsh)"
+	eval "$(load_completion sops sops completion zsh)"
 fi
 if [ -x "$(command -v copilot)" ]; then
-  eval "$(load_completion copilot copilot completion zsh)"
+	eval "$(load_completion copilot copilot completion zsh)"
 fi
 if [ -x "$(command -v dotnet)" ]; then
-  eval "$(load_completion dotnet dotnet completions script zsh)"
+	eval "$(load_completion dotnet dotnet completions script zsh)"
 fi
 if [ -x "$(command -v gh)" ]; then
-  eval "$(load_completion gh gh completion --shell zsh)"
+	eval "$(load_completion gh gh completion --shell zsh)"
 fi
 if [ -x "$(command -v op)" ]; then
-  eval "$(load_completion op op completion zsh)"
+	eval "$(load_completion op op completion zsh)"
 fi
 if [ -x "$(command -v pulumi)" ]; then
-  eval "$(load_completion pulumi pulumi gen-completion zsh)"
+	eval "$(load_completion pulumi pulumi gen-completion zsh)"
 fi
 if [ -x "$(command -v kubectl)" ]; then
-  eval "$(load_completion kubectl kubectl completion zsh)"
+	eval "$(load_completion kubectl kubectl completion zsh)"
 fi
 if [ -x "$(command -v helm)" ]; then
-  eval "$(load_completion helm helm completion zsh)"
+	eval "$(load_completion helm helm completion zsh)"
 fi
 if [ -x "$(command -v kustomize)" ]; then
-  eval "$(load_completion kustomize kustomize completion zsh)"
+	eval "$(load_completion kustomize kustomize completion zsh)"
 fi
 if [ -x "$(command -v flux)" ]; then
-  eval "$(load_completion flux flux completion zsh)"
+	eval "$(load_completion flux flux completion zsh)"
 fi
 if [ -x "$(command -v starship)" ]; then
-  eval "$(load_completion starship starship completions zsh)"
+	eval "$(load_completion starship starship completions zsh)"
 fi
 if [ -x "$(command -v talosctl)" ]; then
-  eval "$(load_completion talosctl talosctl completion zsh)"
+	eval "$(load_completion talosctl talosctl completion zsh)"
 fi
 if [ -x "$(command -v talhelper)" ]; then
-  eval "$(load_completion talhelper talhelper completion zsh)"
+	eval "$(load_completion talhelper talhelper completion zsh)"
 fi
 if [ -x "$(command -v zoxide)" ]; then
-  eval "$(load_completion zoxide zoxide init zsh)"
+	eval "$(load_completion zoxide zoxide init zsh)"
 fi
 if [ -x "$(command -v kubectl)" ]; then
-  export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+	export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 fi
-
 
 autoload -U +X bashcompinit && bashcompinit
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
@@ -284,7 +287,7 @@ export PATH="$PATH:$HOME/.lmstudio/bin"
 # End of LM Studio CLI section
 
 if [ -x "$(command -v terraform)" ]; then
-  complete -C "$(command -v terraform)" terraform
+	complete -C "$(command -v terraform)" terraform
 fi
 
 # Added by ToolHive UI - do not modify this block
