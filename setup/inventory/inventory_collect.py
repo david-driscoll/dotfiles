@@ -62,13 +62,10 @@ def resolve_executable(name: str) -> Optional[str]:
 
 
 def run_command(cmd: List[str], timeout: int = 120) -> Tuple[int, str, str]:
-    """
-    Run one read-only inventory command; never raises.
-
-    Every caller passes a fixed argument list built in this file. There is no
-    shell and no user input, and the executable is resolved to an absolute
-    path first. Returns (exit code, stdout, stderr); 127 when not installed.
-    """
+    """Run one read-only inventory command; never raises."""
+    # Every caller passes a fixed argument list built in this file. There is no
+    # shell and no user input, and the executable is resolved to an absolute
+    # path first. Returns (exit code, stdout, stderr); 127 when not installed.
     exe = resolve_executable(cmd[0])
     if exe is None:
         return 127, "", ""
@@ -192,12 +189,9 @@ def artifact_binary_names(artifact: Json) -> List[str]:
 
 
 def artifact_quit_ids(artifact: Json) -> List[str]:
-    """
-    Bundle IDs an uninstall/zap stanza quits.
-
-    pkg-installed casks have no `app` artifact; the IDs their uninstall
-    stanza quits are how the app on disk is matched back to the cask.
-    """
+    """Bundle IDs an uninstall/zap stanza quits."""
+    # pkg-installed casks have no `app` artifact; the IDs their uninstall
+    # stanza quits are how the app on disk is matched back to the cask.
     ids: List[str] = []
     for stanza in artifact.get("uninstall", []) + artifact.get("zap", []):
         quit_ids = stanza.get("quit", []) if isinstance(stanza, dict) else []
@@ -362,12 +356,9 @@ def collect_other_managers() -> Json:
 
 
 def login_item_names() -> List[str]:
-    """
-    Login item names from System Events.
-
-    System Events occasionally fails to answer while it starts up, and an
-    empty list would make every login item look unused, so retry once.
-    """
+    """Login item names from System Events."""
+    # System Events occasionally fails to answer while it starts up, and an
+    # empty list would make every login item look unused, so retry once.
     script = 'tell application "System Events" to get the name of every login item'
     out = None
     for _ in range(2):
@@ -449,12 +440,9 @@ def read_zsh(counter: UsageCounter, path: Path) -> None:
 
 
 def read_pwsh(counter: UsageCounter, path: Path) -> None:
-    """
-    Count PSReadLine history.
-
-    It has no timestamps, so the last RECENT_PWSH_LINES lines also count
-    as a rough recency signal.
-    """
+    """Count PSReadLine history."""
+    # It has no timestamps, so the last RECENT_PWSH_LINES lines also count
+    # as a rough recency signal.
     lines = path.read_text(errors="replace").splitlines()
     recent_from = max(0, len(lines) - RECENT_PWSH_LINES)
     for index, line in enumerate(lines):
@@ -470,12 +458,9 @@ def read_bash(counter: UsageCounter, path: Path) -> None:
 
 
 def shell_init_words(dotfiles: Path) -> List[str]:
-    """
-    Every word in the shell init files.
-
-    Tools these files run (starship, zoxide, direnv, zsh plugins) are used
-    on every shell start without ever being typed.
-    """
+    """Every word in the shell init files."""
+    # Tools these files run (starship, zoxide, direnv, zsh plugins) are used
+    # on every shell start without ever being typed.
     files = [HOME / ".zshrc", HOME / ".zprofile", HOME / ".bashrc", HOME / ".bash_aliases"]
     for pattern in ("profile*.ps1", "profile.pwsh/*.ps1", "powershell/*.ps1"):
         files += list(dotfiles.glob(pattern))
@@ -510,13 +495,10 @@ def collect_shell_usage() -> Json:
 # --------------------------------------------------------------------------
 
 def app_bundles_in(root: Path) -> Iterable[Path]:
-    """
-    Yield .app bundles in root and one level of grouping folders.
-
-    Covers e.g. /Applications/Utilities and ~/Applications/CrossOver. Hidden
-    staging folders and browser web-app shims ("Chrome Apps.localized") are
-    skipped.
-    """
+    """Yield .app bundles in root and one level of grouping folders."""
+    # Covers e.g. /Applications/Utilities and ~/Applications/CrossOver. Hidden
+    # staging folders and browser web-app shims ("Chrome Apps.localized") are
+    # skipped.
     for entry in sorted(root.iterdir()):
         if entry.suffix == ".app":
             yield entry
@@ -563,12 +545,9 @@ def info_plist(app: Path) -> Json:
 
 
 def activity_time(bundle_id: Optional[str], name: str) -> Optional[float]:
-    """
-    Latest mtime among an app's preference and data locations.
-
-    A fallback when Spotlight has no launch record. Background and menu-bar
-    apps touch these without being "used", so the report labels it apart.
-    """
+    """Latest mtime among an app's preference and data locations."""
+    # A fallback when Spotlight has no launch record. Background and menu-bar
+    # apps touch these without being "used", so the report labels it apart.
     lib = HOME / "Library"
     candidates = [lib / "Application Support" / name]
     if bundle_id:

@@ -98,12 +98,9 @@ def shorten(items: List[str], limit: int = 12) -> str:
 # --------------------------------------------------------------------------
 
 def app_evidence(app: Json, stale_days: int) -> Optional[str]:
-    """
-    Why an app counts as in use, or None for a removal candidate.
-
-    In use means opened within stale_days, a login item, or (when Spotlight
-    has no launch record at all) its data folders changed within stale_days.
-    """
+    """Why an app counts as in use, or None for a removal candidate."""
+    # In use means opened within stale_days, a login item, or (when Spotlight
+    # has no launch record at all) its data folders changed within stale_days.
     used = days_since(app["last_used"])
     touched = days_since(app["activity"])
     if app["login_item"]:
@@ -178,12 +175,9 @@ def add_hook_casks(declared: Declared, hooks: Json) -> None:
 
 
 def load_declared(dotfiles: Path) -> Optional[Declared]:
-    """
-    Read what the dotfiles' mise config declares, by manager.
-
-    Needs tomllib (Python 3.11+); returns None on older Pythons so the
-    caller skips the drift sections.
-    """
+    """Read what the dotfiles' mise config declares, by manager."""
+    # Needs tomllib (Python 3.11+); returns None on older Pythons so the
+    # caller skips the drift sections.
     try:
         import tomllib  # Python 3.11+
     except ImportError:
