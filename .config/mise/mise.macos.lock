@@ -97,8 +97,36 @@ url_api = "https://api.github.com/repos/direnv/direnv/releases/assets/627455432"
 
 [[tools.eza]]
 version = "0.23.5"
-backend = "asdf:eza"
+backend = "vfox:eza"
 specifiers = ["0.23.5"]
+
+[tools.eza."platforms.linux-arm64"]
+checksum = "sha256:40b87ae8628aa2ff0f0d2dc24ab52f689631366385c3da630bae745671fd71ec"
+url = "https://github.com/eza-community/eza/releases/download/v0.23.5/eza_aarch64-unknown-linux-gnu.tar.gz"
+
+[tools.eza."platforms.linux-arm64-musl"]
+checksum = "sha256:40b87ae8628aa2ff0f0d2dc24ab52f689631366385c3da630bae745671fd71ec"
+url = "https://github.com/eza-community/eza/releases/download/v0.23.5/eza_aarch64-unknown-linux-gnu.tar.gz"
+
+[tools.eza."platforms.linux-x64"]
+checksum = "sha256:35c70c5c43c29108075e58b893234c67ef585f0b53a7eaf8e9e7d4eec9f339b4"
+url = "https://github.com/eza-community/eza/releases/download/v0.23.5/eza_x86_64-unknown-linux-gnu.tar.gz"
+
+[tools.eza."platforms.linux-x64-musl"]
+checksum = "sha256:35c70c5c43c29108075e58b893234c67ef585f0b53a7eaf8e9e7d4eec9f339b4"
+url = "https://github.com/eza-community/eza/releases/download/v0.23.5/eza_x86_64-unknown-linux-gnu.tar.gz"
+
+[tools.eza."platforms.macos-arm64"]
+checksum = "sha256:c351f9506f6e30a8efb61701afc2313986004b8813c466c0f8b947db1ae891e9"
+url = "https://github.com/cargo-bins/cargo-quickinstall/releases/download/eza-0.23.5/eza-0.23.5-aarch64-apple-darwin.tar.gz"
+
+[tools.eza."platforms.macos-x64"]
+checksum = "sha256:61f9ee9ffb8d491be1edece6af496675f92f024dd9ce6cd25dfc5038eb342668"
+url = "https://github.com/cargo-bins/cargo-quickinstall/releases/download/eza-0.23.5/eza-0.23.5-x86_64-apple-darwin.tar.gz"
+
+[tools.eza."platforms.windows-x64"]
+checksum = "sha256:bbef561f5cfc8e778649b65e69c9c6e4c836c0fbe83ee3d0a5128091d797ed8a"
+url = "https://github.com/eza-community/eza/releases/download/v0.23.5/eza.exe_x86_64-pc-windows-gnu.tar.gz"
 
 [[tools.helm]]
 version = "4.3.2"
@@ -135,50 +163,50 @@ url = "https://get.helm.sh/helm-v4.3.2-windows-amd64.tar.gz"
 
 [[tools.helmfile]]
 version = "1.8.5"
-backend = "aqua:helmfile/helmfile"
+backend = "packslip:github.com/helmfile/helmfile"
 specifiers = ["1.8.5"]
 
 [tools.helmfile."platforms.linux-arm64"]
 checksum = "sha256:023b28a0630b60b392407f107b336502d11fec7e901dc631cfff7d2cc86a80c2"
 url = "https://github.com/helmfile/helmfile/releases/download/v1.8.5/helmfile_1.8.5_linux_arm64.tar.gz"
-url_api = "https://api.github.com/repos/helmfile/helmfile/releases/assets/780886000"
-provenance = "github-attestations"
+signer = "sigstore-oidc:https://github.com/helmfile/helmfile/.github/workflows/releaser.yaml"
+repository_ids = { repository = "474521466" }
 
 [tools.helmfile."platforms.linux-arm64-musl"]
 checksum = "sha256:023b28a0630b60b392407f107b336502d11fec7e901dc631cfff7d2cc86a80c2"
 url = "https://github.com/helmfile/helmfile/releases/download/v1.8.5/helmfile_1.8.5_linux_arm64.tar.gz"
-url_api = "https://api.github.com/repos/helmfile/helmfile/releases/assets/780886000"
-provenance = "github-attestations"
+signer = "sigstore-oidc:https://github.com/helmfile/helmfile/.github/workflows/releaser.yaml"
+repository_ids = { repository = "474521466" }
 
 [tools.helmfile."platforms.linux-x64"]
 checksum = "sha256:e10344a4e6121689265c8fbe8ce96977b4722a9f953db862014a08b99938c333"
 url = "https://github.com/helmfile/helmfile/releases/download/v1.8.5/helmfile_1.8.5_linux_amd64.tar.gz"
-url_api = "https://api.github.com/repos/helmfile/helmfile/releases/assets/780885994"
-provenance = "github-attestations"
+signer = "sigstore-oidc:https://github.com/helmfile/helmfile/.github/workflows/releaser.yaml"
+repository_ids = { repository = "474521466" }
 
 [tools.helmfile."platforms.linux-x64-musl"]
 checksum = "sha256:e10344a4e6121689265c8fbe8ce96977b4722a9f953db862014a08b99938c333"
 url = "https://github.com/helmfile/helmfile/releases/download/v1.8.5/helmfile_1.8.5_linux_amd64.tar.gz"
-url_api = "https://api.github.com/repos/helmfile/helmfile/releases/assets/780885994"
-provenance = "github-attestations"
+signer = "sigstore-oidc:https://github.com/helmfile/helmfile/.github/workflows/releaser.yaml"
+repository_ids = { repository = "474521466" }
 
 [tools.helmfile."platforms.macos-arm64"]
 checksum = "sha256:aa8c5e0c0ebb331e5a3eacbe3ee4bacd45f8a0c6ef361a79dea23b7bf4c4a76f"
 url = "https://github.com/helmfile/helmfile/releases/download/v1.8.5/helmfile_1.8.5_darwin_arm64.tar.gz"
-url_api = "https://api.github.com/repos/helmfile/helmfile/releases/assets/780885934"
-provenance = "github-attestations"
+signer = "sigstore-oidc:https://github.com/helmfile/helmfile/.github/workflows/releaser.yaml"
+repository_ids = { repository = "474521466" }
 
 [tools.helmfile."platforms.macos-x64"]
 checksum = "sha256:4a3919de8d4401a0e3ab751a4f15806c0b72561c1045eebe0c9ad91d90f90021"
 url = "https://github.com/helmfile/helmfile/releases/download/v1.8.5/helmfile_1.8.5_darwin_amd64.tar.gz"
-url_api = "https://api.github.com/repos/helmfile/helmfile/releases/assets/780886003"
-provenance = "github-attestations"
+signer = "sigstore-oidc:https://github.com/helmfile/helmfile/.github/workflows/releaser.yaml"
+repository_ids = { repository = "474521466" }
 
 [tools.helmfile."platforms.windows-x64"]
 checksum = "sha256:37b7014bbcd2abc5bd8508b39812f7125d3bd0f70717fe578ae99cee7cc36b4e"
 url = "https://github.com/helmfile/helmfile/releases/download/v1.8.5/helmfile_1.8.5_windows_amd64.tar.gz"
-url_api = "https://api.github.com/repos/helmfile/helmfile/releases/assets/780885938"
-provenance = "github-attestations"
+signer = "sigstore-oidc:https://github.com/helmfile/helmfile/.github/workflows/releaser.yaml"
+repository_ids = { repository = "474521466" }
 
 [[tools.krew]]
 version = "0.5.0"
