@@ -440,10 +440,10 @@ These will bite if you don't know about them going in.
   (not a shim, so login never runs mise), which follows `[tools]` version
   bumps through mise's `latest` symlink. It is Microsoft's self-contained
   build, so no Homebrew `dotnet` is involved. Bootstrap sets the login shell
-  *before* installing `[tools]`, so `setup/setup-macos.sh` runs
-  `mise bootstrap --skip user` and then `mise bootstrap user apply`. If
-  mise's installs are ever wiped, point the terminal at `/bin/zsh` and
-  `chsh -s /bin/zsh`. (This used to be the Homebrew `powershell` cask, which
+  *before* installing `[tools]`, so a `pre-user` hook in `config.macos.toml`
+  runs `mise install powershell` just before it, and one `mise bootstrap`
+  covers it. If mise's installs are ever wiped, point the terminal at
+  `/bin/zsh` and `chsh -s /bin/zsh`. (This used to be the Homebrew `powershell` cask, which
   Homebrew removed in 2026-11.)
 - **Linux deliberately has no `[bootstrap.user]` / `login_shell`.**
   Codespaces hardcodes `$SHELL=/bin/bash` for every terminal regardless of

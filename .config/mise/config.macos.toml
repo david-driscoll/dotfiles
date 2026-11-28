@@ -142,12 +142,22 @@ usage = "7.4.1" # aqua:jdx/usage — mise's own shell completions use it
 "brew-cask:font-cascadia-mono" = "latest"
 "brew-cask:font-cascadia-code" = "latest"
 
-## Casks mise can't evaluate (see netbird-ui above). Idempotent: Homebrew
-## only runs when the cask is missing. `mac:inventory` treats any
-## `brew install --cask <name>` here as declared.
+## post-packages: casks mise can't evaluate (see netbird-ui above).
+## Idempotent: Homebrew only runs when the cask is missing. `mac:inventory`
+## treats any `brew install --cask <name>` here as declared.
+##
+## pre-user: the login shell is mise's own pwsh (see [bootstrap.user] below),
+## but bootstrap sets the login shell (step 15) BEFORE it installs [tools]
+## (step 16). Installing powershell here, right before the user step, means
+## the shell exists when chsh runs, so one plain `mise bootstrap` works on a
+## fresh Mac (and through `mise bootstrap remote`). It does nothing once the
+## pinned version is installed, so it's cheap on every rerun.
 [bootstrap.hooks]
 post-packages = [
     "brew list --cask netbird-ui >/dev/null 2>&1 || brew install --cask netbirdio/tap/netbird-ui",
+]
+pre-user = [
+    "mise install powershell",
 ]
 
 [bootstrap.macos.dock]
@@ -183,10 +193,9 @@ three_finger_drag = false
 ##
 ## - Bootstrap order: `user` runs BEFORE `tools`
 ##   (https://mise.jdx.dev/bootstrap.html#run-order), and `user apply` fails
-##   if the shell doesn't exist yet, so setup/setup-macos.sh runs
-##   `mise bootstrap --skip user` first and `mise bootstrap user apply` after
-##   (https://mise.jdx.dev/bootstrap/shell.html). On a Mac that already has
-##   mise's powershell, plain `mise bootstrap` works too.
+##   if the shell doesn't exist yet, so the `pre-user` hook above installs
+##   powershell first. Running `mise bootstrap user apply` on its own skips
+##   hooks; run `mise install powershell` before it on a fresh Mac.
 ## - .NET: the aqua build is Microsoft's self-contained tarball (it runs with
 ##   an empty environment and no DOTNET_ROOT), so neither the Homebrew
 ##   `powershell` formula nor its `dotnet` dependency is needed.

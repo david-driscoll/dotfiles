@@ -303,17 +303,12 @@ trust_and_bootstrap() {
 	(cd "$HOME/.config/mise" && mise trust --all) ||
 		die "mise trust failed — see output above"
 
-	# The login shell is mise's own pwsh (config.macos.toml), but
-	# bootstrap sets the login shell BEFORE it installs [tools]. So run
-	# everything except `user` first, then set the shell once pwsh exists —
-	# the order mise's docs give for shells installed later.
-	log "running mise bootstrap --yes --skip user (packages, casks, App Store apps, dotfiles, tools)"
-	mise bootstrap --yes --skip user ||
+	# The login shell is mise's own pwsh; config.macos.toml's pre-user hook
+	# installs it before the user step, so a single bootstrap is enough.
+	# Expect sudo + password prompts the first time it sets the login shell.
+	log "running mise bootstrap --yes (packages, casks, App Store apps, dotfiles, login shell, tools)"
+	mise bootstrap --yes ||
 		die "mise bootstrap failed — see output above. Safe to re-run: 'mise bootstrap --yes', or inspect state first with 'mise bootstrap status'."
-
-	log "setting the login shell (mise bootstrap user apply; expect sudo + password prompts)"
-	mise bootstrap user apply --yes ||
-		die "setting the login shell failed — see output above. Re-run: 'mise bootstrap user apply'."
 }
 
 main() {
