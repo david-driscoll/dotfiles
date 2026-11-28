@@ -1,9 +1,8 @@
-"""
-Shared helpers for the inventory report and diff.
+"""Shared helpers for the inventory report and diff."""
 
-Formatting, date math, app classification, shell-history lookups, and reading
-what the dotfiles' mise config declares.
-"""
+# Formatting, date math, app classification, shell-history lookups, and reading
+# what the dotfiles' mise config declares.
+
 
 from __future__ import annotations
 
@@ -141,7 +140,7 @@ def cli_last_use(usage: Json, names: Iterable[str]) -> Tuple[int, int, Optional[
 
 
 def tool_short_name(tool: str) -> str:
-    """mise tool key without backend prefix or owner: 'aqua:a/b' -> 'b'."""
+    """Strip a mise tool key's backend prefix and owner: 'aqua:a/b' -> 'b'."""
     name = tool.split(":", 1)[-1]
     return name.split("/")[-1].lstrip("@")
 

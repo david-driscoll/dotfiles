@@ -1,10 +1,9 @@
-"""
-Compare two inventory snapshots, e.g. this Mac against the other one.
+"""Compare two inventory snapshots, e.g. this Mac against the other one."""
 
-Apps only on one side (and whether the dotfiles declare them), version
-differences, and set differences for Homebrew, the App Store, mise tools and
-other package managers.
-"""
+# Apps only on one side (and whether the dotfiles declare them), version
+# differences, and set differences for Homebrew, the App Store, mise tools and
+# other package managers.
+
 
 from __future__ import annotations
 
@@ -78,7 +77,7 @@ def cask_tokens(snap: Json) -> Set[str]:
 
 
 def mas_labels(snap: Json) -> Set[str]:
-    """'Name (id)' for each App Store app of a snapshot."""
+    """Label each App Store app of a snapshot as 'Name (id)'."""
     return {f"{m['name']} ({m['id']})" for m in snap.get("mas", [])}
 
 
@@ -98,7 +97,7 @@ def mise_active(snap: Json) -> Dict[str, str]:
 
 
 def section_mise(ctx: DiffContext) -> List[str]:
-    """mise tools whose active version differs."""
+    """List mise tools whose active version differs."""
     ma, mb = mise_active(ctx.a), mise_active(ctx.b)
     rows = [[t, ma.get(t, "—"), mb.get(t, "—")] for t in sorted(set(ma) | set(mb)) if ma.get(t) != mb.get(t)]
     return ["## mise tools (active versions)\n", md_table(["Tool", ctx.an, ctx.bn], rows) if rows else "_Identical._\n"]

@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
-"""
-Read-only inventory of a Mac's apps and tools (CLI behind the mac:* tasks).
+"""Read-only inventory of a Mac's apps and tools (CLI behind the mac:* tasks)."""
 
-collect   Snapshot this Mac to JSON (inventory_collect.py, which also runs on
-          its own over SSH: ssh other-mac python3 - < inventory_collect.py).
-report    Markdown report for one snapshot: unused apps and tools, ghost
-          casks, Homebrew/mise duplicates, drift from the dotfiles config.
-diff      Compare two snapshots, e.g. this Mac against the other one.
+# collect   Snapshot this Mac to JSON (inventory_collect.py, which also runs on
+#           its own over SSH: ssh other-mac python3 - < inventory_collect.py).
+# report    Markdown report for one snapshot: unused apps and tools, ghost
+#           casks, Homebrew/mise duplicates, drift from the dotfiles config.
+# diff      Compare two snapshots, e.g. this Mac against the other one.
+#
+# Nothing here installs, removes or changes anything. Snapshots list installed
+# software, so the mac:* tasks write them outside this public repository.
 
-Nothing here installs, removes or changes anything. Snapshots list installed
-software, so the mac:* tasks write them outside this public repository.
-"""
 
 from __future__ import annotations
 

@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
-"""
-Collect a read-only JSON snapshot of this Mac's apps and tools.
+"""Collect a read-only JSON snapshot of this Mac's apps and tools."""
 
-Covers apps (with Spotlight last-used dates), Homebrew, the Mac App Store,
-mise, other global package managers, startup items and shell-history usage.
+# Covers apps (with Spotlight last-used dates), Homebrew, the Mac App Store,
+# mise, other global package managers, startup items and shell-history usage.
+#
+# Self-contained on purpose: it needs only the system python3 (3.9, from the
+# Command Line Tools), so it also runs on a Mac that has not been bootstrapped,
+# streamed over SSH:  ssh other-mac python3 - < inventory_collect.py
+#
+# Nothing here installs, removes or changes anything.
 
-Self-contained on purpose: it needs only the system python3 (3.9, from the
-Command Line Tools), so it also runs on a Mac that has not been bootstrapped,
-streamed over SSH:  ssh other-mac python3 - < inventory_collect.py
-
-Nothing here installs, removes or changes anything.
-"""
 
 from __future__ import annotations
 
@@ -653,7 +652,7 @@ def app_source(path: Path, bundle_id: Optional[str], cask: Optional[str], has_re
 
 
 def last_used_iso(value: Any) -> Optional[str]:
-    """mdls -plist dates are naive UTC; astimezone() would misread them as local."""
+    """Render a Spotlight date as UTC ISO-8601 (mdls -plist dates are naive UTC)."""
     if not isinstance(value, dt.datetime):
         return None
     return value.replace(tzinfo=dt.timezone.utc).isoformat(timespec="seconds")
