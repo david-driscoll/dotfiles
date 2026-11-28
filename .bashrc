@@ -35,11 +35,12 @@ export MISE_AUTO_ENV=1
 # from it, which sends `mise install` into the Homebrew Cellar. Pin mise to its
 # own root, as profile.ps1 does for pwsh.
 export MISE_DOTNET_ROOT="$HOME/.local/share/mise/dotnet-root"
-if [ -x "$(command -v fnox)" ]; then
-    eval "$(fnox activate bash)"
-fi
 if [ -x "$(command -v mise)" ]; then
     eval "$(mise activate bash)"
+fi
+# fnox is a mise tool, so it is only on PATH once mise is active.
+if [ -x "$(command -v fnox)" ]; then
+    eval "$(fnox activate bash)"
 fi
 
 load_completion() {
