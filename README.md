@@ -335,10 +335,9 @@ grouped by purpose in the file itself, which is the definitive list.
 differs. Tools that *do* have a mise registry entry belong in `[tools]`
 instead, even when Homebrew also has them.
 
-`powershell` is a cask here, not a formula, and is a **deliberate duplicate**
-of the mise-tool `powershell` pin above: it exists solely so
-`[bootstrap.user]`'s `login_shell` has a Homebrew-managed `pwsh` to point
-`chsh` at; see [Platform caveats](#platform-caveats).
+PowerShell is not in this list: both everyday `pwsh` and the login shell
+come from the mise-tool `powershell` pin; see
+[Platform caveats](#platform-caveats).
 
 ### Keeping both Macs in sync
 
@@ -421,17 +420,17 @@ These will bite if you don't know about them going in.
   (`git/gitconfig.local.tera`), which picks the file by `os()` and detects
   WSL from the kernel release — so it only exists after bootstrap has
   actually run once.
-- **macOS login-shell duplication is deliberate, not an oversight.**
+- **The macOS login shell is mise's own pwsh, via a stable path.**
   `config.macos-arm64.toml`'s `[bootstrap.user]` points `login_shell` at
-  the Homebrew *cask* `pwsh` (`/usr/local/bin/pwsh`, from
-  `"brew-cask:powershell"`), *not* the mise-tool `pwsh` pinned in `[tools]` —
-  bootstrap's phase order runs `[bootstrap.user]` before `[tools]` installs
-  anything, so the mise-tool binary wouldn't even exist yet on a first run,
-  and a shim-based login shell would break the moment mise's own state
-  changes. The cask (unlike the `powershell` formula) bundles its own .NET
-  runtime, so Homebrew never installs a `dotnet` of its own and mise stays
-  the only owner of the .NET SDK. The mise `[tools]` `powershell` pin still
-  exists for everyday interactive/script use.
+  `~/.local/share/mise/installs/powershell/latest/pwsh`: the real binary
+  (not a shim, so login never runs mise), which follows `[tools]` version
+  bumps through mise's `latest` symlink. It is Microsoft's self-contained
+  build, so no Homebrew `dotnet` is involved. Bootstrap sets the login shell
+  *before* installing `[tools]`, so `setup/setup-macos.sh` runs
+  `mise bootstrap --skip user` and then `mise bootstrap user apply`. If
+  mise's installs are ever wiped, point the terminal at `/bin/zsh` and
+  `chsh -s /bin/zsh`. (This used to be the Homebrew `powershell` cask, which
+  Homebrew removed in 2026-11.)
 - **Linux deliberately has no `[bootstrap.user]` / `login_shell`.**
   Codespaces hardcodes `$SHELL=/bin/bash` for every terminal regardless of
   `/etc/passwd`, and there's no established Homebrew-equivalent

@@ -47,12 +47,10 @@ usage = "7.4.1" # aqua:jdx/usage — mise's own shell completions use it
 "brew:zsh-completions" = "latest"
 "brew:zsh-you-should-use" = "latest"
 # --- CLI tools with no mise registry entry ---
-# powershell is deliberately NOT a brew formula here. The formula depends on
+# powershell is deliberately NOT a brew formula here: it depends on
 # Homebrew's `dotnet` formula and its `pwsh` wrapper exports DOTNET_ROOT to the
-# Cellar, which fights mise being the single owner of the .NET SDK. The login
-# shell comes from the self-contained `brew-cask:powershell` below (packages
-# install before [bootstrap.user] runs); everyday pwsh comes from the
-# mise-tool pin in config.toml's [tools].
+# Cellar, which fights mise being the single owner of the .NET SDK. Both the
+# login shell and everyday pwsh are the mise-tool pin in config.toml's [tools].
 "brew:git" = "latest"
 "brew:moreutils" = "latest"
 "brew:mas" = "latest"
@@ -94,16 +92,10 @@ usage = "7.4.1" # aqua:jdx/usage — mise's own shell completions use it
 "brew-cask:ghostty" = "latest"
 "brew-cask:warp" = "latest"
 "brew-cask:muxy-app/tap/muxy" = "latest"
-# Login shell (see .config/mise/config.macos-arm64.toml). It came from the
-# self-contained `powershell` cask, but Homebrew removed that cask (2026-11:
-# formulae.brew.sh lists `powershell -> homebrew/core`, and the API 404s), so
-# it can no longer be installed and a 404 here makes `mise bootstrap packages
-# status` fail. The installed 7.5.4 cask keeps working on Macs that have it.
-# TODO: pick a replacement — `brew:powershell/tap/powershell` (self-contained
-# tarball, /opt/homebrew/bin/pwsh, but the tap lags at 7.5.2) or the core
-# `brew:powershell` formula (current, but depends on Homebrew's dotnet) — and
-# point [bootstrap.user].login_shell at it.
-# "brew-cask:powershell" = "latest"
+# No PowerShell package here: the login shell is mise's own pwsh from
+# [tools] (see .config/mise/config.macos-arm64.toml). Homebrew removed the
+# self-contained `powershell` cask (2026-11), and the `powershell` formula
+# depends on Homebrew's dotnet, which fights mise owning the .NET SDK.
 
 # --- Dev tools ---
 "brew-cask:jetbrains-toolbox" = "latest" # installs/updates the JetBrains IDEs
