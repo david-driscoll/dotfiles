@@ -14,29 +14,148 @@ talosctl = "1.14.7" # aqua:siderolabs/talos
 talhelper = "3.1.17" # aqua:budimanjojo/talhelper
 coder = "2.39.5" # aqua:coder/coder
 "cargo:forgejo-cli" = "0.7.0"
+# Moved here from Homebrew formulae (mac inventory, 2026-11) so both Macs get
+# the same pinned versions. Remove the brew copies once these are installed:
+#   brew uninstall go-task openbao minio/stable/mc rclone restic direnv eza krew
+task = "3.54.0" # aqua:go-task/task
+openbao = "2.7.3" # aqua:openbao/openbao -> installs `bao`
+mc = "RELEASE.2025-08-13T08-35-41Z" # aqua:minio/mc
+rclone = "1.76.0" # aqua:rclone/rclone
+restic = "0.20.0" # aqua:restic/restic
+direnv = "2.38.2" # aqua:direnv/direnv (oh-my-zsh direnv plugin)
+eza = "0.23.5" # oh-my-zsh eza plugin
+krew = "0.5.0" # aqua:kubernetes-sigs/krew (plugins stay in ~/.krew)
+usage = "7.4.1" # aqua:jdx/usage — mise's own shell completions use it
 
+## [bootstrap.packages] — everything Homebrew and the Mac App Store install on
+## a Mac. One list for both Macs: `mise bootstrap` installs what is missing,
+## `mise run mac:status` shows drift, and `mise run mac:inventory` reports
+## what is installed but not declared here (removal candidates).
+##
+## brew-cask entries from third-party taps (`owner/tap/cask`) need Ruby 3+ for
+## `mise bootstrap status`/`plan` to evaluate them; macOS ships Ruby 2.6. The
+## mac:* tasks below put Homebrew's bundled portable Ruby first on PATH. Apply
+## (`mise bootstrap`) works without it, since it runs Homebrew directly.
+## Before adding a tap cask, check `mise run mac:status` still lists
+## everything; casks it cannot read go in [bootstrap.hooks] instead.
 [bootstrap.packages]
+# --- shell ---
 "brew:zsh" = "latest"
 "brew:zsh-autosuggestions" = "latest"
 "brew:zsh-autocomplete" = "latest"
 "brew:zsh-syntax-highlighting" = "latest"
 "brew:zsh-completions" = "latest"
 "brew:zsh-you-should-use" = "latest"
+# --- CLI tools with no mise registry entry ---
 # powershell is deliberately NOT a brew formula here. The formula depends on
 # Homebrew's `dotnet` formula and its `pwsh` wrapper exports DOTNET_ROOT to the
 # Cellar, which fights mise being the single owner of the .NET SDK. The login
-# shell comes from the self-contained `powershell` cask in setup/Brewfile.darwin
-# (installed by the post-packages `brew:casks` hook, before [bootstrap.user]
-# runs); everyday pwsh comes from the mise-tool pin in config.toml's [tools].
+# shell comes from the self-contained `brew-cask:powershell` below (packages
+# install before [bootstrap.user] runs); everyday pwsh comes from the
+# mise-tool pin in config.toml's [tools].
 "brew:git" = "latest"
 "brew:moreutils" = "latest"
 "brew:mas" = "latest"
 "brew:azure-cli" = "latest"
-"brew:speedtest-cli" = "latest" # "?" in the epic — confirm keep/drop
+"brew:speedtest-cli" = "latest"
+"brew:coreutils" = "latest"
+"brew:libpq" = "latest" # psql; keg-only, .zshrc puts its bin on PATH
+"brew:thefuck" = "latest"
+"brew:yvgude/lean-ctx/lean-ctx" = "latest"
 
+# --- Security & networking ---
+"brew-cask:1password-cli" = "latest"
+"brew-cask:tailscale-app" = "latest"
+# netbird-ui: installed by the post-packages hook below, not here — its tap
+# cask uses `set_permissions`, which mise's cask evaluator can't read, and one
+# unreadable cask makes `mise bootstrap packages status` fail outright.
+"brew-cask:keybase" = "latest"
+"brew-cask:gpg-suite" = "latest"
+
+# --- Input, window & display utilities ---
+"brew-cask:karabiner-elements" = "latest"
+"brew-cask:linearmouse" = "latest"
+"brew-cask:hiddenbar" = "latest"
+"brew-cask:alcove" = "latest"
+"brew-cask:dockdoor" = "latest"
+"brew-cask:betterdisplay" = "latest"
+"brew-cask:stats" = "latest"
+"brew-cask:purge" = "latest"
+"mas:441258766" = "latest" # Magnet
+"mas:1160435653" = "latest" # AutoMounter
+"mas:470158793" = "latest" # Keka
+
+# --- Dictation ---
+"brew-cask:macparakeet" = "latest"
+"brew-cask:typewhisper/tap/typewhisper" = "latest"
+
+# --- Terminals ---
+"brew-cask:iterm2" = "latest"
+"brew-cask:ghostty" = "latest"
+"brew-cask:warp" = "latest"
+"brew-cask:muxy-app/tap/muxy" = "latest"
+# Login shell (see .config/mise/config.macos-arm64.toml). It came from the
+# self-contained `powershell` cask, but Homebrew removed that cask (2026-11:
+# formulae.brew.sh lists `powershell -> homebrew/core`, and the API 404s), so
+# it can no longer be installed and a 404 here makes `mise bootstrap packages
+# status` fail. The installed 7.5.4 cask keeps working on Macs that have it.
+# TODO: pick a replacement — `brew:powershell/tap/powershell` (self-contained
+# tarball, /opt/homebrew/bin/pwsh, but the tap lags at 7.5.2) or the core
+# `brew:powershell` formula (current, but depends on Homebrew's dotnet) — and
+# point [bootstrap.user].login_shell at it.
+# "brew-cask:powershell" = "latest"
+
+# --- Dev tools ---
+"brew-cask:jetbrains-toolbox" = "latest" # installs/updates the JetBrains IDEs
+"brew-cask:visual-studio-code" = "latest"
+"brew-cask:visual-studio-code@insiders" = "latest"
+"brew-cask:docker-desktop" = "latest" # also provides the docker CLI
+"brew-cask:headlamp" = "latest"
+"brew-cask:gitkraken" = "latest"
+"brew-cask:devtoys" = "latest"
+"brew-cask:paseo" = "latest"
+"brew-cask:copilot-cli" = "latest"
+"brew-cask:android-platform-tools" = "latest"
+"mas:899247664" = "latest" # TestFlight
+
+# --- Browsers ---
+"brew-cask:google-chrome" = "latest"
+"brew-cask:vivaldi" = "latest"
+"brew-cask:zen" = "latest"
+
+# --- Comms ---
+"brew-cask:slack" = "latest"
+"brew-cask:microsoft-teams" = "latest"
+"brew-cask:discord" = "latest"
+
+# --- Media & home ---
+"brew-cask:moonlight" = "latest"
+"mas:1136220934" = "latest" # Infuse
+"mas:6761283970" = "latest" # Moonfin
+"mas:1099568401" = "latest" # Home Assistant
+
+# --- Productivity ---
+"mas:361304891" = "latest" # Numbers
+"mas:1447330651" = "latest" # Copilot (budgeting)
+
+# --- Fonts ---
+"brew-cask:font-fira-code" = "latest"
+"brew-cask:font-fira-code-nerd-font" = "latest"
+"brew-cask:font-fira-mono-nerd-font" = "latest"
+"brew-cask:font-jetbrains-mono-nerd-font" = "latest"
+"brew-cask:font-jetbrains-mono" = "latest"
+"brew-cask:font-caskaydia-cove-nerd-font" = "latest"
+"brew-cask:font-cascadia-mono-pl" = "latest"
+"brew-cask:font-cascadia-code-pl" = "latest"
+"brew-cask:font-cascadia-mono" = "latest"
+"brew-cask:font-cascadia-code" = "latest"
+
+## Casks mise can't evaluate (see netbird-ui above). Idempotent: Homebrew
+## only runs when the cask is missing. `mac:inventory` treats any
+## `brew install --cask <name>` here as declared.
 [bootstrap.hooks]
 post-packages = [
-    "mise run brew:casks"
+    "brew list --cask netbird-ui >/dev/null 2>&1 || brew install --cask netbirdio/tap/netbird-ui",
 ]
 
 [bootstrap.macos.dock]
@@ -67,13 +186,27 @@ three_finger_drag = false
 # To be fixed when the issue is resolved, see https://github.com/jdx/fnox/pull/818
 "~/.config/fnox/config.toml" = { source = "~/dotfiles/.config/fnox/config.macos.toml" }
 
-[tasks."brew:casks"]
-description = "Install macOS GUI apps from setup/Brewfile.darwin via Homebrew Bundle (#67; macOS-only, idempotent)"
-run = """
-set -euo pipefail
-if [[ "$(uname)" != "Darwin" ]]; then
-  echo "brew:casks: skipping — macOS only" >&2
-  exit 0
-fi
-brew bundle --file "~/dotfiles/setup/Brewfile.darwin"
-"""
+## mac:* tasks — inventory and drift between this Mac, the other Mac, and the
+## config above. All read-only. Snapshots list installed software, so they go
+## to iCloud Drive (private, and visible from both Macs), never this public
+## repo. Override with MAC_INVENTORY_DIR. See setup/inventory/README.md.
+[tasks."mac:inventory"]
+description = "Snapshot this Mac's apps and tools and write a report of unused/undeclared ones (read-only)"
+run = "~/dotfiles/setup/inventory/mac-inventory.sh collect"
+
+[tasks."mac:inventory:remote"]
+description = "Snapshot another Mac over SSH (it needs only the system python3) — usage: mise run mac:inventory:remote <ssh-host>"
+usage = 'arg "<host>" help="SSH destination of the other Mac, e.g. my-mbp or my-mbp.tailnet.ts.net"'
+run = '~/dotfiles/setup/inventory/mac-inventory.sh remote "${usage_host}"'
+
+[tasks."mac:inventory:diff"]
+description = "Compare the latest snapshots of two Macs (defaults to the two newest)"
+usage = '''
+arg "[a]" help="Host folder name under the inventory dir (default: this Mac)"
+arg "[b]" help="Host folder name to compare against (default: the other one)"
+'''
+run = '~/dotfiles/setup/inventory/mac-inventory.sh diff "${usage_a:-}" "${usage_b:-}"'
+
+[tasks."mac:status"]
+description = "Show where this Mac differs from [bootstrap.packages] and [tools] (read-only)"
+run = "~/dotfiles/setup/inventory/mac-inventory.sh status"

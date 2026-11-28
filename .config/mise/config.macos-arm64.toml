@@ -20,9 +20,9 @@
 ##    silently ignored, not an error — worth stating since that failure mode
 ##    is easy to miss in testing.
 ##
-## 2. Points at the Homebrew *cask* pwsh (`cask "powershell"` in
-##    setup/Brewfile.darwin, installed by the post-packages `brew:casks`
-##    hook), NOT the mise-tool pwsh pinned in .config/mise/config.toml's
+## 2. Points at the Homebrew *cask* pwsh (`"brew-cask:powershell"` in
+##    config.macos.toml's [bootstrap.packages], installed in the packages
+##    phase), NOT the mise-tool pwsh pinned in .config/mise/config.toml's
 ##    [tools], and NOT the `powershell` formula. Reasons:
 ##
 ##    a. Bootstrap phase order. `mise bootstrap` runs, in this fixed

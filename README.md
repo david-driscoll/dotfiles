@@ -39,9 +39,9 @@ In order:
 5. Symlinks `~/.config/mise` → this repo's `.config/mise` (see
    [The one bootstrap symlink](#the-one-bootstrap-symlink) below).
 6. `mise trust --all`, then `mise bootstrap --yes` — installs
-   `[bootstrap.packages]` Homebrew formulae, runs the `brew:casks` task
-   (installs `setup/Brewfile.darwin`'s GUI apps), applies `[dotfiles]`, and
-   installs `[tools]`.
+   `[bootstrap.packages]` (Homebrew formulae, `brew-cask:` GUI apps and
+   `mas:` App Store apps), applies `[dotfiles]`, and installs `[tools]`.
+   Sign in to the App Store first, or the `mas:` entries fail.
 
 Source: `setup/setup-macos.sh`.
 
@@ -210,11 +210,9 @@ lives here specifically because it needs to work from any directory, not
 just inside this checkout.
 
 `mise.toml` at the repo root is **repo-local** — mise only reads it when
-your current directory is inside this checkout. It holds exactly two
-things that are genuinely repo-specific: the `update-agents` task (operates
-on this repo's own `ai/`/`agents/` apm projects) and the `brew:casks` task
-(shells out to `{{config_root}}/setup/Brewfile.darwin`, a path that only
-resolves correctly when `{{config_root}}` is this repo's root).
+your current directory is inside this checkout. It holds what is
+genuinely repo-specific: the `update-agents` task (operates on this repo's
+own `ai/`/`agents/` apm projects) and the postinstall hooks.
 
 ### Platform config layering
 
@@ -266,8 +264,8 @@ link gets relinked, and a real directory in the way gets moved aside
 | --- | --- | --- |
 | `[tools]` (`config.toml`) | every platform | CLI tools mise/aqua can install directly — pinned versions |
 | `[dotfiles]` (`config.toml` + platform layers) | symlinks/copies from repo → `$HOME`, gated per-platform via the layering above | `.zshrc`, `~/.ssh`, `~/.gitconfig` (seeded once, then machine-owned), `.gitconfig.local` (template, every OS), `starship.toml`, `~/.config/powershell`, macOS-only entries (karabiner, 1Password SSH agent), Linux-only entries (`.wslrc`) |
-| `[bootstrap.packages]` (`config.macos.toml`) | macOS only | Homebrew **formulae** mise's own registry can't provide (zsh + plugins, git, moreutils, mas, azure-cli, gitkraken-cli, speedtest-cli, powershell) |
-| `[bootstrap.macos.*]` (`config.macos.toml`) | macOS only | Dock/Finder/keyboard/trackpad `defaults`, `[bootstrap.hooks].post-packages` → the `brew:casks` task (Homebrew **casks**, i.e. GUI apps, from `setup/Brewfile.darwin`) |
+| `[bootstrap.packages]` (`config.macos.toml`) | macOS only | Homebrew **formulae** mise's registry can't provide, Homebrew **casks** (`brew-cask:`, GUI apps) and Mac App Store apps (`mas:`) |
+| `[bootstrap.macos.*]` (`config.macos.toml`) | macOS only | Dock/Finder/keyboard/trackpad `defaults` |
 | `[bootstrap.user]` (`config.macos-arm64.toml`) | macOS (Apple Silicon) only | `login_shell` for `chsh` |
 
 ### Lockfile and version bumps
@@ -328,35 +326,35 @@ The epic's tool table also listed `stern`; it does not appear in
 than silently reconciled, since it wasn't possible to confirm from the repo
 alone whether that was a deliberate drop.
 
-### Homebrew formulae — macOS only (`.config/mise/config.macos.toml`, `[bootstrap.packages]`)
+### macOS packages (`.config/mise/config.macos.toml`, `[bootstrap.packages]`)
 
-Installed via `mise bootstrap` (or `mise bootstrap --only packages`); status
-checkable with `mise bootstrap packages status`.
+One list for both Macs: Homebrew formulae with no mise registry entry
+(`brew:`), GUI apps (`brew-cask:`) and Mac App Store apps (`mas:<id>`),
+grouped by purpose in the file itself, which is the definitive list.
+`mise bootstrap` installs anything missing; `mise run mac:status` shows what
+differs. Tools that *do* have a mise registry entry belong in `[tools]`
+instead, even when Homebrew also has them.
 
-| Formula | Why brew, not mise |
+`powershell` is a cask here, not a formula, and is a **deliberate duplicate**
+of the mise-tool `powershell` pin above: it exists solely so
+`[bootstrap.user]`'s `login_shell` has a Homebrew-managed `pwsh` to point
+`chsh` at; see [Platform caveats](#platform-caveats).
+
+### Keeping both Macs in sync
+
+`setup/inventory/` has read-only tooling that inventories a Mac and reports
+apps and tools that look unused, Homebrew formulae that mise already
+provides, and drift from `[bootstrap.packages]`/`[tools]`. See
+[setup/inventory/README.md](setup/inventory/README.md):
+
+| Task | What it does |
 | --- | --- |
-| `zsh`, `zsh-autosuggestions`, `zsh-autocomplete`, `zsh-syntax-highlighting`, `zsh-completions`, `zsh-you-should-use` | zsh ecosystem — not in mise's registry |
-| `git` | |
-| `moreutils` | |
-| `mas` | |
-| `azure-cli` | |
-| `gitkraken-cli` | |
-| `speedtest-cli` | epic flagged this with a "?" — carried forward from the deleted `setup/Brewfile` rather than silently dropped |
-| `powershell` | **deliberate duplicate** of the mise-tool `powershell` pin above — exists solely so `[bootstrap.user]`'s `login_shell` has a Homebrew-managed `pwsh` binary to point `chsh` at; see [Platform caveats](#platform-caveats) |
+| `mise run mac:inventory` | snapshot this Mac and write its report |
+| `mise run mac:inventory:remote <host>` | snapshot the other Mac over SSH |
+| `mise run mac:inventory:diff` | compare the two Macs |
+| `mise run mac:status` | mise's view of drift from `[bootstrap.packages]` and `[tools]` |
 
-### Homebrew casks — macOS GUI apps (`setup/Brewfile.darwin`, via the `brew:casks` task)
-
-Installed by the repo-local `mise.toml`'s `brew:casks` task, wired in via
-`config.macos.toml`'s `[bootstrap.hooks].post-packages`. Full list (grouped
-in the source file): 1Password + 1Password CLI, gpg-suite, tailscale-app,
-karabiner-elements, linearmouse, middleclick, stats, eul, hiddenbar, alcove,
-dockdoor, typewhisper, wezterm, iterm2, warp, jetbrains-toolbox,
-visual-studio-code (+ Insiders), docker, gitkraken, devtoys, arc,
-google-chrome, firefox, microsoft-edge, vivaldi, slack, microsoft-teams,
-discord, and a set of Nerd Font casks. See `setup/Brewfile.darwin` directly
-for the current, definitive list — several groups (3 terminals, 5 browsers,
-10 font casks) are flagged in-file as trim candidates that haven't been
-resolved yet.
+Snapshots go to iCloud Drive (`mac-inventory/`), not this public repo.
 
 ### winget — Windows only (`setup/setup.ps1`)
 
@@ -426,7 +424,7 @@ These will bite if you don't know about them going in.
 - **macOS login-shell duplication is deliberate, not an oversight.**
   `config.macos-arm64.toml`'s `[bootstrap.user]` points `login_shell` at
   the Homebrew *cask* `pwsh` (`/usr/local/bin/pwsh`, from
-  `setup/Brewfile.darwin`), *not* the mise-tool `pwsh` pinned in `[tools]` —
+  `"brew-cask:powershell"`), *not* the mise-tool `pwsh` pinned in `[tools]` —
   bootstrap's phase order runs `[bootstrap.user]` before `[tools]` installs
   anything, so the mise-tool binary wouldn't even exist yet on a first run,
   and a shim-based login shell would break the moment mise's own state
