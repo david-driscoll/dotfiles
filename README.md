@@ -195,9 +195,10 @@ See the [v2 migration guide](https://hk.jdx.dev/migration-v2) and
   .config/mise/
     config.toml              # GLOBAL — symlinked to ~/.config/mise/config.toml
     config.macos.toml        # GLOBAL, macOS-only layer
-    config.macos-arm64.toml  # GLOBAL, macOS+arm64-only layer
     config.linux.toml        # GLOBAL, Linux-only layer
-    mise.lock                # committed lockfile
+    mise.lock                # committed lockfile for config.toml
+    mise.macos.lock          # … for config.macos.toml
+    mise.linux.lock          # … for config.linux.toml
   mise.toml                  # REPO-LOCAL — active only when cwd is inside this checkout
 ```
 
@@ -217,15 +218,15 @@ own `ai/`/`agents/` apm projects) and the postinstall hooks.
 ### Platform config layering
 
 macOS- and Linux-only `[dotfiles]`/`[bootstrap.*]` entries live in sibling
-files named `config.<platform>.toml` (and `config.<platform>-<arch>.toml`
-for architecture-specific entries), following mise's own [platform config-file
+files named `config.<platform>.toml` (mise would also read
+`config.<platform>-<arch>.toml`, but no architecture-specific file exists),
+following mise's own [platform config-file
 convention](https://mise.jdx.dev/configuration/environments.html#platform-environments):
 
 | File | Loaded on |
 | --- | --- |
 | `config.toml` | every platform |
 | `config.macos.toml` | macOS |
-| `config.macos-arm64.toml` | macOS + arm64 (Apple Silicon) — currently the only architecture file that exists; there is no `config.macos-x64.toml` yet |
 | `config.linux.toml` | Linux (including WSL — mise reports WSL as plain `linux`, there's no separate WSL platform) |
 
 **This layering only activates when `MISE_AUTO_ENV=1` is set as a real
@@ -266,12 +267,25 @@ link gets relinked, and a real directory in the way gets moved aside
 | `[dotfiles]` (`config.toml` + platform layers) | symlinks/copies from repo → `$HOME`, gated per-platform via the layering above | `.zshrc`, `~/.ssh`, `~/.gitconfig` (seeded once, then machine-owned), `.gitconfig.local` (template, every OS), `starship.toml`, `~/.config/powershell`, macOS-only entries (karabiner, 1Password SSH agent), Linux-only entries (`.wslrc`) |
 | `[bootstrap.packages]` (`config.macos.toml`) | macOS only | Homebrew **formulae** mise's registry can't provide, Homebrew **casks** (`brew-cask:`, GUI apps) and Mac App Store apps (`mas:`) |
 | `[bootstrap.macos.*]` (`config.macos.toml`) | macOS only | Dock/Finder/keyboard/trackpad `defaults` |
-| `[bootstrap.user]` (`config.macos-arm64.toml`) | macOS (Apple Silicon) only | `login_shell` for `chsh` |
+| `[bootstrap.user]` (`config.macos.toml`) | macOS only | `login_shell` for `chsh` |
 
 ### Lockfile and version bumps
 
-`.config/mise/mise.lock` is committed — `[settings] lockfile = true` in
-`config.toml`. Tool versions are pinned directly in `[tools]` entries (e.g.
+The lockfiles are committed — `[settings] lockfile = true` in
+`config.toml`. mise keeps one lockfile per config file: `mise.lock` for
+`config.toml`, `mise.macos.lock` and `mise.linux.lock` for the platform
+layers. Refresh all three with every layer loaded, from `$HOME` so the
+repo-local `mise.toml` stays out of it:
+
+```sh
+cd ~ && MISE_AUTO_ENV=1 mise -E linux lock -g
+```
+
+Without `MISE_AUTO_ENV=1` (and `-E linux` on a Mac), mise never reads the
+platform layers, so it treats their tools as stale and prunes them from the
+lockfiles. Renovate's lock refresh runs that way, so its PRs that bump a
+platform-layer tool leave `mise.macos.lock`/`mise.linux.lock` behind; re-run
+the command above after merging one. Tool versions are pinned directly in `[tools]` entries (e.g.
 `gh = "2.96.0"`), not left floating. `renovate.json` scopes Renovate to mise
 config files only (`enabledManagers: ["mise"]`, matching `mise.toml` and
 `.config/mise/config.toml` file patterns) with `automerge: true` — Renovate,
@@ -421,7 +435,7 @@ These will bite if you don't know about them going in.
   WSL from the kernel release — so it only exists after bootstrap has
   actually run once.
 - **The macOS login shell is mise's own pwsh, via a stable path.**
-  `config.macos-arm64.toml`'s `[bootstrap.user]` points `login_shell` at
+  `config.macos.toml`'s `[bootstrap.user]` points `login_shell` at
   `~/.local/share/mise/installs/powershell/latest/pwsh`: the real binary
   (not a shim, so login never runs mise), which follows `[tools]` version
   bumps through mise's `latest` symlink. It is Microsoft's self-contained
@@ -436,10 +450,10 @@ These will bite if you don't know about them going in.
   `/etc/passwd`, and there's no established Homebrew-equivalent
   mise-independent `pwsh` binary on Linux — both reasons are documented in
   `config.linux.toml`'s header.
-- **Only `config.macos-arm64.toml` exists today** — there is no
-  `config.macos-x64.toml`, despite a comment in the arm64 file describing
-  an Intel twin. Don't assume Intel Mac coverage exists until that file is
-  actually added.
+- **There are no architecture-specific config files.** The login shell
+  used to live in `config.macos-arm64.toml`; it moved to `config.macos.toml`
+  once it pointed at a path that is the same on Apple Silicon and Intel.
+  Intel Macs are still unverified.
 
 ## Common operations
 

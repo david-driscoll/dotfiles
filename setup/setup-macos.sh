@@ -303,7 +303,7 @@ trust_and_bootstrap() {
 	(cd "$HOME/.config/mise" && mise trust --all) ||
 		die "mise trust failed — see output above"
 
-	# The login shell is mise's own pwsh (config.macos-arm64.toml), but
+	# The login shell is mise's own pwsh (config.macos.toml), but
 	# bootstrap sets the login shell BEFORE it installs [tools]. So run
 	# everything except `user` first, then set the shell once pwsh exists —
 	# the order mise's docs give for shells installed later.

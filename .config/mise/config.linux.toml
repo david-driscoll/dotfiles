@@ -9,8 +9,8 @@
 ## [bootstrap.user] entry exists for Linux. Two independent reasons, either
 ## one sufficient:
 ##
-## 1. No safe binary to point at. Unlike macOS (Homebrew's `opt/` path —
-##    see config.macos-arm64.toml), this repo has no established
+## 1. No safe binary to point at. Unlike macOS (mise's own pwsh via a
+##    stable path — see config.macos.toml's [bootstrap.user]), this repo has no established
 ##    mise-independent pwsh install on Linux — David's Linux targets
 ##    (Codespaces/Coder) get pwsh only via the mise-tool pin in
 ##    .config/mise/config.toml's [tools], which is exactly the shim-as-

@@ -87,5 +87,7 @@ builtin = "tool-update"
 "~/.config/fnox/config.toml" = { source = "~/dotfiles/.config/fnox/config.toml" }
 "~/.config/mise/config.toml" = { source = "~/dotfiles/.config/mise/config.toml" }
 "~/.config/mise/config.macos.toml" = { source = "~/dotfiles/.config/mise/config.macos.toml", variants = [{ os = "macos" }] }
-"~/.config/mise/config.macos-arm64.toml" = { source = "~/dotfiles/.config/mise/config.macos-arm64.toml", variants = [{ os = "macos" }] }
+# config.macos-arm64.toml was merged into config.macos.toml; remove the old
+# link on Macs that still have it (mise removes the link, never its target).
+"~/.config/mise/config.macos-arm64.toml" = { mode = "absent", variants = [{ os = "macos" }] }
 "~/.config/mise/scripts" = { source = "~/dotfiles/.config/mise/scripts", mode = "symlink-each" }

@@ -93,7 +93,7 @@ usage = "7.4.1" # aqua:jdx/usage — mise's own shell completions use it
 "brew-cask:warp" = "latest"
 "brew-cask:muxy-app/tap/muxy" = "latest"
 # No PowerShell package here: the login shell is mise's own pwsh from
-# [tools] (see .config/mise/config.macos-arm64.toml). Homebrew removed the
+# [tools] (see [bootstrap.user] below). Homebrew removed the
 # self-contained `powershell` cask (2026-11), and the `powershell` formula
 # depends on Homebrew's dotnet, which fights mise owning the .NET SDK.
 
@@ -170,6 +170,34 @@ three_finger_drag = false
 
 [bootstrap.macos.defaults]
 "NSGlobalDomain" = { AppleShowAllExtensions = true }
+
+## [bootstrap.user] — pwsh as login shell (#71, part of epic #61; moved here
+## from config.macos-arm64.toml, which held only this, in 2026-11).
+##
+## Points at mise's own PowerShell through the `latest` symlink mise keeps in
+## its installs directory. That is the real binary, not a shim, so starting
+## the login shell never runs mise. `latest` follows the newest installed
+## version, so Renovate bumps of [tools].powershell in config.toml move the
+## login shell with them, and `mise prune` removing old versions doesn't
+## break it. The path is the same on Apple Silicon and Intel.
+##
+## - Bootstrap order: `user` runs BEFORE `tools`
+##   (https://mise.jdx.dev/bootstrap.html#run-order), and `user apply` fails
+##   if the shell doesn't exist yet, so setup/setup-macos.sh runs
+##   `mise bootstrap --skip user` first and `mise bootstrap user apply` after
+##   (https://mise.jdx.dev/bootstrap/shell.html). On a Mac that already has
+##   mise's powershell, plain `mise bootstrap` works too.
+## - .NET: the aqua build is Microsoft's self-contained tarball (it runs with
+##   an empty environment and no DOTNET_ROOT), so neither the Homebrew
+##   `powershell` formula nor its `dotnet` dependency is needed.
+## - Breakage: only `mise uninstall powershell --all` or deleting
+##   ~/.local/share/mise breaks it. Recovery: set Terminal/Ghostty to open
+##   /bin/zsh, then `chsh -s /bin/zsh`.
+## - login_shell is a template; an absolute path is required and `~` is not
+##   expanded, hence {{env.HOME}}. mise adds it to /etc/shells (sudo prompt)
+##   and runs chsh (password prompt) the first time it applies.
+[bootstrap.user]
+login_shell = "{{env.HOME}}/.local/share/mise/installs/powershell/latest/pwsh"
 
 [dotfiles]
 "~/.config/karabiner/karabiner.json" = { source = "~/dotfiles/karabiner/karabiner.json" }
