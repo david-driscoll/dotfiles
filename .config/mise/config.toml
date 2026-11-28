@@ -40,7 +40,7 @@ biome = "2.5.5"
 node = "26.13.1"
 dotnet = ["11.0.100", "10.0.400"]
 "github:microsoft/apm" = { version = "v0.38.1", bin = "apm" }
-"github:eljulians/skillfile" = { version = "v1.9.3", bin = "skillfile" }
+"github:eljulians/skillfile" = { version = "v1.10.0", bin = "skillfile" }
 gh = "2.105.0" # aqua:cli/cli
 kubectl = "1.37.3" # aqua:kubernetes/kubernetes/kubectl
 kustomize = "5.8.3" # aqua:kubernetes-sigs/kustomize
