@@ -9,8 +9,8 @@
 ## [bootstrap.user] entry exists for Linux. Two independent reasons, either
 ## one sufficient:
 ##
-## 1. No safe binary to point at. Unlike macOS (Homebrew's `opt/` path —
-##    see config.macos-arm64.toml), this repo has no established
+## 1. No safe binary to point at. Unlike macOS (mise's own pwsh via a
+##    stable path — see config.macos.toml's [bootstrap.user]), this repo has no established
 ##    mise-independent pwsh install on Linux — David's Linux targets
 ##    (Codespaces/Coder) get pwsh only via the mise-tool pin in
 ##    .config/mise/config.toml's [tools], which is exactly the shim-as-
@@ -39,7 +39,7 @@
 
 [tools]
 terraform = "1.17.2" # aqua:hashicorp/terraform
-pulumi = "3.277.0" # aqua:pulumi/pulumi
+pulumi = "3.278.0" # aqua:pulumi/pulumi
 helm = "4.3.2" # aqua:helm/helm
 helmfile = "1.8.5" # aqua:helmfile/helmfile
 talosctl = "1.14.7" # aqua:siderolabs/talos

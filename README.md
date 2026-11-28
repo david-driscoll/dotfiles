@@ -39,9 +39,9 @@ In order:
 5. Symlinks `~/.config/mise` → this repo's `.config/mise` (see
    [The one bootstrap symlink](#the-one-bootstrap-symlink) below).
 6. `mise trust --all`, then `mise bootstrap --yes` — installs
-   `[bootstrap.packages]` Homebrew formulae, runs the `brew:casks` task
-   (installs `setup/Brewfile.darwin`'s GUI apps), applies `[dotfiles]`, and
-   installs `[tools]`.
+   `[bootstrap.packages]` (Homebrew formulae, `brew-cask:` GUI apps and
+   `mas:` App Store apps), applies `[dotfiles]`, and installs `[tools]`.
+   Sign in to the App Store first, or the `mas:` entries fail.
 
 Source: `setup/setup-macos.sh`.
 
@@ -195,9 +195,10 @@ See the [v2 migration guide](https://hk.jdx.dev/migration-v2) and
   .config/mise/
     config.toml              # GLOBAL — symlinked to ~/.config/mise/config.toml
     config.macos.toml        # GLOBAL, macOS-only layer
-    config.macos-arm64.toml  # GLOBAL, macOS+arm64-only layer
     config.linux.toml        # GLOBAL, Linux-only layer
-    mise.lock                # committed lockfile
+    mise.lock                # committed lockfile for config.toml
+    mise.macos.lock          # … for config.macos.toml
+    mise.linux.lock          # … for config.linux.toml
   mise.toml                  # REPO-LOCAL — active only when cwd is inside this checkout
 ```
 
@@ -210,24 +211,22 @@ lives here specifically because it needs to work from any directory, not
 just inside this checkout.
 
 `mise.toml` at the repo root is **repo-local** — mise only reads it when
-your current directory is inside this checkout. It holds exactly two
-things that are genuinely repo-specific: the `update-agents` task (operates
-on this repo's own `ai/`/`agents/` apm projects) and the `brew:casks` task
-(shells out to `{{config_root}}/setup/Brewfile.darwin`, a path that only
-resolves correctly when `{{config_root}}` is this repo's root).
+your current directory is inside this checkout. It holds what is
+genuinely repo-specific: the `update-agents` task (operates on this repo's
+own `ai/`/`agents/` apm projects) and the postinstall hooks.
 
 ### Platform config layering
 
 macOS- and Linux-only `[dotfiles]`/`[bootstrap.*]` entries live in sibling
-files named `config.<platform>.toml` (and `config.<platform>-<arch>.toml`
-for architecture-specific entries), following mise's own [platform config-file
+files named `config.<platform>.toml` (mise would also read
+`config.<platform>-<arch>.toml`, but no architecture-specific file exists),
+following mise's own [platform config-file
 convention](https://mise.jdx.dev/configuration/environments.html#platform-environments):
 
 | File | Loaded on |
 | --- | --- |
 | `config.toml` | every platform |
 | `config.macos.toml` | macOS |
-| `config.macos-arm64.toml` | macOS + arm64 (Apple Silicon) — currently the only architecture file that exists; there is no `config.macos-x64.toml` yet |
 | `config.linux.toml` | Linux (including WSL — mise reports WSL as plain `linux`, there's no separate WSL platform) |
 
 **This layering only activates when `MISE_AUTO_ENV=1` is set as a real
@@ -266,14 +265,27 @@ link gets relinked, and a real directory in the way gets moved aside
 | --- | --- | --- |
 | `[tools]` (`config.toml`) | every platform | CLI tools mise/aqua can install directly — pinned versions |
 | `[dotfiles]` (`config.toml` + platform layers) | symlinks/copies from repo → `$HOME`, gated per-platform via the layering above | `.zshrc`, `~/.ssh`, `~/.gitconfig` (seeded once, then machine-owned), `.gitconfig.local` (template, every OS), `starship.toml`, `~/.config/powershell`, macOS-only entries (karabiner, 1Password SSH agent), Linux-only entries (`.wslrc`) |
-| `[bootstrap.packages]` (`config.macos.toml`) | macOS only | Homebrew **formulae** mise's own registry can't provide (zsh + plugins, git, moreutils, mas, azure-cli, gitkraken-cli, speedtest-cli, powershell) |
-| `[bootstrap.macos.*]` (`config.macos.toml`) | macOS only | Dock/Finder/keyboard/trackpad `defaults`, `[bootstrap.hooks].post-packages` → the `brew:casks` task (Homebrew **casks**, i.e. GUI apps, from `setup/Brewfile.darwin`) |
-| `[bootstrap.user]` (`config.macos-arm64.toml`) | macOS (Apple Silicon) only | `login_shell` for `chsh` |
+| `[bootstrap.packages]` (`config.macos.toml`) | macOS only | Homebrew **formulae** mise's registry can't provide, Homebrew **casks** (`brew-cask:`, GUI apps) and Mac App Store apps (`mas:`) |
+| `[bootstrap.macos.*]` (`config.macos.toml`) | macOS only | Dock/Finder/keyboard/trackpad `defaults` |
+| `[bootstrap.user]` (`config.macos.toml`) | macOS only | `login_shell` for `chsh` |
 
 ### Lockfile and version bumps
 
-`.config/mise/mise.lock` is committed — `[settings] lockfile = true` in
-`config.toml`. Tool versions are pinned directly in `[tools]` entries (e.g.
+The lockfiles are committed — `[settings] lockfile = true` in
+`config.toml`. mise keeps one lockfile per config file: `mise.lock` for
+`config.toml`, `mise.macos.lock` and `mise.linux.lock` for the platform
+layers. Refresh all three with every layer loaded, from `$HOME` so the
+repo-local `mise.toml` stays out of it:
+
+```sh
+cd ~ && MISE_AUTO_ENV=1 mise -E linux lock -g
+```
+
+Without `MISE_AUTO_ENV=1` (and `-E linux` on a Mac), mise never reads the
+platform layers, so it treats their tools as stale and prunes them from the
+lockfiles. Renovate's lock refresh runs that way, so its PRs that bump a
+platform-layer tool leave `mise.macos.lock`/`mise.linux.lock` behind; re-run
+the command above after merging one. Tool versions are pinned directly in `[tools]` entries (e.g.
 `gh = "2.96.0"`), not left floating. `renovate.json` scopes Renovate to mise
 config files only (`enabledManagers: ["mise"]`, matching `mise.toml` and
 `.config/mise/config.toml` file patterns) with `automerge: true` — Renovate,
@@ -328,35 +340,34 @@ The epic's tool table also listed `stern`; it does not appear in
 than silently reconciled, since it wasn't possible to confirm from the repo
 alone whether that was a deliberate drop.
 
-### Homebrew formulae — macOS only (`.config/mise/config.macos.toml`, `[bootstrap.packages]`)
+### macOS packages (`.config/mise/config.macos.toml`, `[bootstrap.packages]`)
 
-Installed via `mise bootstrap` (or `mise bootstrap --only packages`); status
-checkable with `mise bootstrap packages status`.
+One list for both Macs: Homebrew formulae with no mise registry entry
+(`brew:`), GUI apps (`brew-cask:`) and Mac App Store apps (`mas:<id>`),
+grouped by purpose in the file itself, which is the definitive list.
+`mise bootstrap` installs anything missing; `mise run mac:status` shows what
+differs. Tools that *do* have a mise registry entry belong in `[tools]`
+instead, even when Homebrew also has them.
 
-| Formula | Why brew, not mise |
+PowerShell is not in this list: both everyday `pwsh` and the login shell
+come from the mise-tool `powershell` pin; see
+[Platform caveats](#platform-caveats).
+
+### Keeping both Macs in sync
+
+`setup/inventory/` has read-only tooling that inventories a Mac and reports
+apps and tools that look unused, Homebrew formulae that mise already
+provides, and drift from `[bootstrap.packages]`/`[tools]`. See
+[setup/inventory/README.md](setup/inventory/README.md):
+
+| Task | What it does |
 | --- | --- |
-| `zsh`, `zsh-autosuggestions`, `zsh-autocomplete`, `zsh-syntax-highlighting`, `zsh-completions`, `zsh-you-should-use` | zsh ecosystem — not in mise's registry |
-| `git` | |
-| `moreutils` | |
-| `mas` | |
-| `azure-cli` | |
-| `gitkraken-cli` | |
-| `speedtest-cli` | epic flagged this with a "?" — carried forward from the deleted `setup/Brewfile` rather than silently dropped |
-| `powershell` | **deliberate duplicate** of the mise-tool `powershell` pin above — exists solely so `[bootstrap.user]`'s `login_shell` has a Homebrew-managed `pwsh` binary to point `chsh` at; see [Platform caveats](#platform-caveats) |
+| `mise run mac:inventory` | snapshot this Mac and write its report |
+| `mise run mac:inventory:remote <host>` | snapshot the other Mac over SSH |
+| `mise run mac:inventory:diff` | compare the two Macs |
+| `mise run mac:status` | mise's view of drift from `[bootstrap.packages]` and `[tools]` |
 
-### Homebrew casks — macOS GUI apps (`setup/Brewfile.darwin`, via the `brew:casks` task)
-
-Installed by the repo-local `mise.toml`'s `brew:casks` task, wired in via
-`config.macos.toml`'s `[bootstrap.hooks].post-packages`. Full list (grouped
-in the source file): 1Password + 1Password CLI, gpg-suite, tailscale-app,
-karabiner-elements, linearmouse, middleclick, stats, eul, hiddenbar, alcove,
-dockdoor, typewhisper, wezterm, iterm2, warp, jetbrains-toolbox,
-visual-studio-code (+ Insiders), docker, gitkraken, devtoys, arc,
-google-chrome, firefox, microsoft-edge, vivaldi, slack, microsoft-teams,
-discord, and a set of Nerd Font casks. See `setup/Brewfile.darwin` directly
-for the current, definitive list — several groups (3 terminals, 5 browsers,
-10 font casks) are flagged in-file as trim candidates that haven't been
-resolved yet.
+Snapshots go to iCloud Drive (`mac-inventory/`), not this public repo.
 
 ### winget — Windows only (`setup/setup.ps1`)
 
@@ -423,26 +434,26 @@ These will bite if you don't know about them going in.
   (`git/gitconfig.local.tera`), which picks the file by `os()` and detects
   WSL from the kernel release — so it only exists after bootstrap has
   actually run once.
-- **macOS login-shell duplication is deliberate, not an oversight.**
-  `config.macos-arm64.toml`'s `[bootstrap.user]` points `login_shell` at
-  the Homebrew *cask* `pwsh` (`/usr/local/bin/pwsh`, from
-  `setup/Brewfile.darwin`), *not* the mise-tool `pwsh` pinned in `[tools]` —
-  bootstrap's phase order runs `[bootstrap.user]` before `[tools]` installs
-  anything, so the mise-tool binary wouldn't even exist yet on a first run,
-  and a shim-based login shell would break the moment mise's own state
-  changes. The cask (unlike the `powershell` formula) bundles its own .NET
-  runtime, so Homebrew never installs a `dotnet` of its own and mise stays
-  the only owner of the .NET SDK. The mise `[tools]` `powershell` pin still
-  exists for everyday interactive/script use.
+- **The macOS login shell is mise's own pwsh, via a stable path.**
+  `config.macos.toml`'s `[bootstrap.user]` points `login_shell` at
+  `~/.local/share/mise/installs/powershell/latest/pwsh`: the real binary
+  (not a shim, so login never runs mise), which follows `[tools]` version
+  bumps through mise's `latest` symlink. It is Microsoft's self-contained
+  build, so no Homebrew `dotnet` is involved. Bootstrap sets the login shell
+  *before* installing `[tools]`, so a `pre-user` hook in `config.macos.toml`
+  runs `mise install powershell` just before it, and one `mise bootstrap`
+  covers it. If mise's installs are ever wiped, point the terminal at
+  `/bin/zsh` and `chsh -s /bin/zsh`. (This used to be the Homebrew `powershell` cask, which
+  Homebrew removed in 2026-11.)
 - **Linux deliberately has no `[bootstrap.user]` / `login_shell`.**
   Codespaces hardcodes `$SHELL=/bin/bash` for every terminal regardless of
   `/etc/passwd`, and there's no established Homebrew-equivalent
   mise-independent `pwsh` binary on Linux — both reasons are documented in
   `config.linux.toml`'s header.
-- **Only `config.macos-arm64.toml` exists today** — there is no
-  `config.macos-x64.toml`, despite a comment in the arm64 file describing
-  an Intel twin. Don't assume Intel Mac coverage exists until that file is
-  actually added.
+- **There are no architecture-specific config files.** The login shell
+  used to live in `config.macos-arm64.toml`; it moved to `config.macos.toml`
+  once it pointed at a path that is the same on Apple Silicon and Intel.
+  Intel Macs are still unverified.
 
 ## Common operations
 
