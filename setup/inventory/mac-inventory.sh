@@ -24,6 +24,8 @@ set -euo pipefail
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd -P)"
 DOTFILES="$(cd -- "$SCRIPT_DIR/../.." && pwd -P)"
 PY_SCRIPT="$SCRIPT_DIR/mac_inventory.py"
+# Self-contained (system python3 only), so it can be streamed over SSH.
+COLLECTOR="$SCRIPT_DIR/inventory_collect.py"
 ICLOUD="$HOME/Library/Mobile Documents/com~apple~CloudDocs"
 
 log() { printf '[mac-inventory] %s\n' "$*" >&2; }
@@ -83,7 +85,7 @@ cmd_collect() {
 	local host tmp
 	host="$(scutil --get LocalHostName)"
 	tmp="$(mktemp)"
-	/usr/bin/env python3 "$PY_SCRIPT" collect -o "$tmp"
+	/usr/bin/env python3 "$COLLECTOR" -o "$tmp"
 	store_snapshot "$host" "$tmp"
 }
 
@@ -97,7 +99,7 @@ cmd_remote() {
 	tmp="$(mktemp)"
 	# Stream the collector over stdin: nothing needs to be installed on the
 	# other Mac beyond the system python3 that Homebrew's prerequisites provide.
-	ssh -o BatchMode=yes "$target" 'zsh -lc "python3 - collect"' <"$PY_SCRIPT" >"$tmp" ||
+	ssh -o BatchMode=yes "$target" 'zsh -lc "python3 -"' <"$COLLECTOR" >"$tmp" ||
 		die "collector failed on $target"
 	store_snapshot "$host" "$tmp"
 }

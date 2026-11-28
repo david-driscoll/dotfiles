@@ -83,9 +83,9 @@ mac-inventory/
      and needs only the system `python3`, so the other Mac needs no setup; or
    - on the other Mac: `git -C ~/dotfiles pull && mise run mac:inventory`.
      With iCloud Drive on both, the snapshot appears here too.
-2. **Compare**: `mise run mac:inventory:diff`. *Apps only on <other>* that
-   are not declared are what to remove there; *apps only on <this>* are what
-   bootstrap will add.
+2. **Compare**: `mise run mac:inventory:diff`. Apps listed as only on the
+   other Mac that are not declared are what to remove there; apps only on
+   this Mac are what bootstrap will add.
 3. **Read the other Mac's `report.md`** for what it has that nothing
    declares, plus its ghost casks and duplicates.
 4. **Bootstrap it**: on the other Mac, `~/dotfiles/setup/setup-macos.sh`
